@@ -1,0 +1,49 @@
+{
+  vars: [arg1,arg2,arg3,arg4,arg5],
+  pvars: [arg1P,arg2P,arg3P,arg4P,arg5P],
+  initnode: __init,
+  transitions: [
+    {
+	source: __init,
+	target: f1_0_main_Load,
+	name: t6,
+	constraints: [0 >= 0]
+    },
+    {
+	source: f1_0_main_Load',
+	target: f1321_0_main_LE,
+	name: t1,
+	constraints: [arg5P = 0, arg4P -100 * arg2 - arg3P = 0, arg2P -100 * arg2 = 0, -200 * arg2 + 13 * arg3P =< 0, 12 -200 * arg2 + 13 * arg3P >= 0, - arg1P + 1 =< 0, - arg1 + 1 =< 0, arg1P - arg1 =< 0, arg3P -200 * arg2 =< 0, arg2 >= 0]
+    },
+    {
+	source: f1321_0_main_LE,
+	target: f1321_0_main_LE,
+	name: t5,
+	constraints: [arg3 - arg3P = 0, x28 >= 0, arg5 + 2 - x28 =< 0, - arg4 + 1 =< 0, arg5 >= 0, x35 >= 0, 10 - x35 * x36 =< 0, x36 >= 0, arg1P - arg1 =< 0, - arg1 + 1 =< 0, - arg1P + 1 =< 0, arg2P - arg2 + 1 = 0, arg3 - arg3P = 0, arg4P - arg2 + 1 - arg3 = 0, arg5P - arg5 -2 = 0]
+    },
+    {
+	source: f1321_0_main_LE,
+	target: f1321_0_main_LE,
+	name: t3,
+	constraints: [arg2 - arg2P = 0, - arg4 + 1 =< 0, x11 >= 0, arg5 >= 0, arg5 - x11 + 1 =< 0, x18 >= 0, x11 - arg5 -1 =< 0, arg1P - arg1 =< 0, - arg1 + 1 =< 0, - arg1P + 1 =< 0, arg2 - arg2P = 0, arg3P - arg3 + 1 = 0, arg4P - arg2 - arg3 + 1 = 0, arg5P - arg5 -1 = 0]
+    },
+    {
+	source: f1321_0_main_LE,
+	target: f1321_0_main_LE,
+	name: t2,
+	constraints: [arg2 - arg2P = 0, arg5 - arg5P = 0, - arg4 + 1 =< 0, x4 >= 0, x4 - arg5 =< 0, arg1P - arg1 =< 0, - arg1 + 1 =< 0, - arg1P + 1 =< 0, arg2 - arg2P = 0, arg3P - arg3 + 1 = 0, arg4P - arg2 - arg3 + 1 = 0, arg5 - arg5P = 0]
+    },
+    {
+	source: f1321_0_main_LE,
+	target: f1321_0_main_LE,
+	name: t4,
+	constraints: [arg2 - arg2P = 0, x19 >= 0, arg5 + 2 - x19 =< 0, - arg4 + 1 =< 0, arg5 >= 0, x26 >= 0, 9 - x26 * x27 >= 0, x27 >= 0, arg1P - arg1 =< 0, - arg1 + 1 =< 0, - arg1P + 1 =< 0, arg2 - arg2P = 0, arg3P - arg3 + 1 = 0, arg4P - arg2 - arg3 + 1 = 0, arg5P - arg5 -2 = 0]
+    },
+    {
+	source: f1_0_main_Load,
+	target: f1_0_main_Load',
+	name: t0,
+	constraints: [arg1 - arg1P = 0, arg2 - arg2P = 0, arg2 >= 0, x38 -200 * arg2 =< 0, x39 - arg1 =< 0, - arg1 + 1 =< 0, - x39 + 1 =< 0, arg1 - arg1P = 0, arg2 - arg2P = 0]
+    }
+  ]
+}

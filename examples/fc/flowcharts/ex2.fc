@@ -1,0 +1,19 @@
+{
+  vars: [x,y],
+  pvars: [x',y'],
+  initnode: a,
+  transitions: [
+    {
+	source: a,
+	target: a,
+	name: t2,
+	constraints: [x >= 0, y >= 0, x - x' == 0, y - y' - 1 >= 0]
+    },
+    {
+	source: a,
+	target: a,
+	name: t1,
+	constraints: [x >= 0, y >= 0, x - x' - 1 >= 0]
+    }
+  ]
+}
