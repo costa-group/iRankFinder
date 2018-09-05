@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>iRankFinder</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <style>
+      .menu {
+      color:#fff;
+      height:50px;
+      line-height:30px;
+      letter-spacing:1px;
+      width:100%;
+      }
+      .content {
+      margin-top:10px;
+      }
+      .menu-padding {
+      padding-top:40px;
+      }
+      .content p {
+      margin-bottom:20px;
+      }
+      .sticky {
+      position:fixed;
+      top:0;
+      z-index: 100;
+      }
+      section{
+      padding:15px;
+      height:100%;
+      }
+      .menu, .content {
+      padding:10px;
+      }
+      .media-container-row{
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+      align-content: center;
+      -webkit-align-items: start;
+      -ms-flex-align: start;
+      align-items: start;
+      }
+      .card {
+      background-color: transparent;
+      border: none;
+      }
+      .card-img img{
+      width: 98%;
+      padding: 15px;
+      }
+      .card-img svg{
+      width: 98%;
+      padding: 15px;
+      }
+      .mbr-fullscreen {
+
+      display: flex;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      align-items: center;
+      -webkit-align-items: center;
+      min-height: 100vh;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+
+      }
+      .navbar-collapse{
+      background-color: #343a40;
+      padding: 0px 2pc;
+      opacity:1 !important;
+      }
+    </style>
+
+
+  </head>
+  <body>
+    <header>
+      <div class="jumbotron text-center" style="margin-bottom:0">
+	<h1><span style="color:red">i</span>RankFinder</h1>
+      </div>
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark menu">
+	<a class="navbar-brand" href="#"><span style="color:red">i</span>RankFinder</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+	  <ul class="navbar-nav">
+	    <li class="nav-item">
+	      <a class="nav-link" href="#sec-home">Home</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="#sec-tool">Tool</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="#sec-references">References</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="#sec-contributors">Contributors</a>
+	    </li>
+	  </ul>
+	</div>
+	<script>
+	  $(document).ready(function () {
+
+	  var menu = $('.menu');
+	  var origOffsetY = menu.offset().top;
+
+	  function scroll() {
+	  if ($(window).scrollTop() >= origOffsetY) {
+	  $('.menu').addClass('sticky');
+	  $('.content').addClass('menu-padding');
+	  } else {
+	  $('.menu').removeClass('sticky');
+	  $('.content').removeClass('menu-padding');
+	  }
+	  }
+	  document.onscroll = scroll;
+	  });
+	</script>
+      </nav>
+    </header>
+    <div class="content">
+      <section id="sec-home" class="mbr-fullscreen mbr-parallax-background">
+	<div class="container align-center">
+	  <div class="row justify-content-sm-center">
+	    <div class="col-sm-10">
+	      <span style="padding:30px"></span>
+	      <h2>Description</h2>
+	      <p>iRankFinder is an open-source termination analyzer for (integer)
+		transition systems, namely control-flow graphs where edges are
+		annotated with transition relations defined by linear constraints. It
+		is written in Python (compatible with 2.7 and 3.X) and uses the Parma
+		Polyhedra Library (PPL) and Z3 for manipulating (linear)
+		constraints. It can be used via a <a href="#sec-tool">web-interface</a> or from a command-line.</p>
+
+	      <p>The underlying techniques for proving termination are based on
+		finding lexicographic- linear ranking functions, by incrementally
+		ranking transitions (at the level of strongly connect components)
+		using quasi-ranking functions. These are functions that are required
+		to decrease for some transitions and not to increase for the rest. </p>
+	    </div>
+	  </div>
+	</div>
+      </section>
+      <section id="sec-tool" class="mbr-fullscreen mbr-parallax-background">
+	<div class="container align-center">
+	  <div class="row justify-content-sm-center">
+	    <div class="col-sm-10">
+	      <div class="container">
+		<div class="media-container-row">
+		  <div class="card p-3 col-12 col-md-6 col-lg-3">
+		    <div class="card-wrapper">
+		      <div class="card-img">
+			<a href="http://irankfinder.loopkiller.com:8081/ei/clients/web"><img width="2em" src="https://raw.githubusercontent.com/abstools/easyinterface/master/doc/manual/latex/fig/ei-logo.png" alt="Web Interface" title="" media-simple="true"></a>
+		      </div>
+		      <div class="card-box">
+			<h4 class="card-title pb-3 mbr-fonts-style display-7"><a href="http://irankfinder.loopkiller.com:8081/ei/clients/web">Web Interface</a></h4>
+			<p class="mbr-text mbr-fonts-style display-7">
+			  <span style="color:red">i</span>RankFinder is available online thanks to <a href="https://github.com/abstools/easyinterface">EasyInterface</a>.
+			</p>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="card p-3 col-12 col-md-6 col-lg-3">
+		    <div class="card-wrapper">
+		      <div class="card-img">
+			<a href="https://github.com/jesusjda/pyRankFinder"><svg width="35px" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1"  aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></a>
+		      </div>
+		      <div class="card-box">
+			<h4 class="card-title pb-3 mbr-fonts-style display-7"><a href="https://github.com/jesusjda/pyRankFinder">Github</a></h4>
+			<p class="mbr-text mbr-fonts-style display-7">
+			  <span style="color:red">i</span>RankFinder can be downloaded and installed via <a href="https://github.com/jesusjda/pyRankFinder">Github</a>.
+			</p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+      </section>
+      <section id="sec-references" class="mbr-fullscreen mbr-parallax-background">
+	<div class="container align-center">
+	  <div class="row justify-content-sm-center">
+	    <div class="col-sm-10">
+	      <h2>References</h2>
+	      <ul>
+		<li>
+		  <span style="text-decoration: underline;" class="title">iRankFinder</span>.
+		  <span class="author">Dom&eacute;nech, Jes&uacute;s J. and Genaim, Samir</span>
+		  <div>
+		    <span class="">In <em><span class="booktitle">16th International Workshop on Termination</span></em>,</span>
+		    <span class=""> pages <span class="pages">83</span>,</span>
+		    <span class=""><span class="year">2018</span>.</span>
+		  </div>
+		</li>
+		<li>
+		  <span style="text-decoration: underline;" class="title">Control-flow refinement via partial evaluation</span>.
+		  <span class="author">Dom&eacute;nech, Jes&uacute;s J., Genaim, Samir, and Gallagher, John P.</span>
+		  <div>
+		    <span class="">In <em><span class="booktitle">16th International Workshop on Termination</span></em>,</span>
+		    <span class=""> pages <span class="pages">55</span>,</span>
+		    <span class=""><span class="year">2018</span>.</span>
+		  </div>
+		</li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+      </section>
+      <section id="sec-contributors" class="mbr-fullscreen mbr-parallax-background">
+	<div class="container align-center">
+	  <div class="row justify-content-sm-center">
+	    <div class="col-sm-10">
+	      <h2>Contributors</h2>
+	      <div class="container">
+		<div class="media-container">
+		  <div class="card col-12 col-md-8">
+		    <div class="card-wrapper">
+		      <div class="card-box">
+			<h3 class="card-title"><a href="https://costa.fdi.ucm.es/~jdomenec/">Jes&uacute;s J. Dom&eacute;nech</a></h3>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="card col-12 col-md-8">
+		    <div class="card-wrapper">
+		      <div class="card-box">
+			<h3 class="card-title"><a href="https://costa.fdi.ucm.es/~genaim/home/viewpost.php?post=Welcome">Samir Genaim</a></h3>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+      </section>
+    </div>
+  </body>
+</html>
