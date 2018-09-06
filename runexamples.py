@@ -4,10 +4,10 @@ from multiprocessing import Process
 import os
 import sys
 import termination.algorithm
-from genericparser import GenericParser
 import rankfinder
 from termination.result import TerminationResult
-
+from pprint import pprint
+import datetime
 
 def setArgumentParser():
     desc = "Generator"
@@ -50,10 +50,11 @@ def sandbox(task, args=(), kwargs={}, time_segs=60, memory_mb=None):
 
     def worker(task, r_dict, *args, **kwargs):
         try:
-            r_dict[0] = task(*args, **kwargs)
+            r_dict["output"] = task(*args, **kwargs)
             r_dict["status"] = "ok"
         except MemoryError as e:
             r_dict["status"] = TerminationResult.MEMORYLIMIT
+            r_dict["output"] = "ML"
         except Exception as e:
             r_dict["status"] = TerminationResult.ERROR
             r_dict["output"] = "Error " + type(e).__name__
@@ -64,15 +65,18 @@ def sandbox(task, args=(), kwargs={}, time_segs=60, memory_mb=None):
         try:
             if exitcode == -24:
                 ret["status"] = TerminationResult.TIMELIMIT
+                ret["output"] = "TL"
             elif exitcode < 0:
                 ret["status"] = TerminationResult.ERROR
+                ret["output"] = "ERR"
             elif not("status" in r_dict):
                 ret["status"] = TerminationResult.TIMELIMIT
             elif r_dict["status"] == "ok":
-                ret["status"] = r_dict[0].get_status()
-                ret["output"] = r_dict[0]
+                ret["status"] = r_dict["output"].get_status()
+                ret["output"] = r_dict["output"]
             else:
                 ret["status"] = r_dict["status"]
+                ret["output"] = r_dict["output"]
         except Exception as e:
             ret["status"] = TerminationResult.ERROR
             ret["output"] = "ERROR while processing output " + type(e).__name__
@@ -116,37 +120,69 @@ def config2Tag(config):
     tag = ""
     tag += str(config["termination"][0])
     tag += "_sccd:"+str(config["scc_depth"])
-    tag += "_invariant:"+str(config["invariats"])
+    tag += "_invariant:"+str(config["invariants"])
     tag += "_dt:"+str(config["different_template"])
     tag += "_simplify:"+str(config["simplify_constraints"])
     tag += "_PE:"+str(config["pe_times"])
     return tag
 
-def file2ID(file):
-    pass
+def file2ID(file, prefix=""):
+    a = file.replace(prefix,"")
+    if a[0] == "/":
+        a = a[1:]
+    return a.replace("/","_")
 
-def get_info(cache, file):
-    name = file2ID(file)
+def get_info(cache, file, prefix):
+    name = file2ID(file, prefix)
     o = os.path.join(cache, name+".json")
     info = None
+    print("->",os.path.isfile(o),o)
     if os.path.isfile(o):
         import json
         with open(o) as f:
             info = json.load(f)
     else:
         info = {"id":name,"file":file}
-    if not "anaylis" in info:
+    if not "analysis" in info:
         info["analysis"] = []
+    for a in info["analysis"]:
+        ter = []
+        for alg in a["config"]["termination"]:
+            ter.append(alg)
+        a["config"]["termination"] = ter
+        a["status"] = str(TerminationResult(a["status"]))
+        a["date"] = datetime.datetime.strptime(a["date"], "%Y-%m-%dT%H:%M:%S.%f")
+
+    pprint(info)
     return info
 
-def save_info(info, cache, file):
-    name = file2ID(file)
+def save_info(info, cache, file, prefix):
+    name = file2ID(file, prefix)
     o = os.path.join(cache, name+".json")
+    print(o)
     if os.path.isfile(o):
         os.remove(o)
     import json
+    tojson = info
+    if "file" in tojson:
+        tojson["file"] = tojson["file"].replace(prefix,"")
+    if "analysis" in tojson:
+        for a in tojson["analysis"]:
+            ter = []
+            if "files" in a["config"]:
+                del a["config"]["files"]
+            for alg in a["config"]["termination"]:
+                if isinstance(alg, (str)):
+                    ter.append(alg)
+                else:
+                    ter.append(alg.get_name())
+            a["config"]["termination"] = ter
+            a["status"] = str(a["status"])
+            a["date"] = str(a["date"].isoformat())
+            a["output"] = str(a["output"])
+    pprint(tojson)
     with open(o, "w") as f:
-        json.dump(info, f)
+        json.dump(tojson, f, indent=4, sort_keys=True)
 
 if __name__ == "__main__":
     argParser = setArgumentParser()
@@ -177,35 +213,49 @@ if __name__ == "__main__":
                                                         "version": 1})])
     # algs.append([{"name": "qlrf_bg"}])
     numm = len(files)
-    status = {}
     info = {}
+    ite = 0
     for f in files:
-        ite = 0
-        info = get_info(cachedir, f)
-        for l in lib:
-            for a in algs:
-                a[0].set_prop("lib", l)
-                for d in dt:
-                    name = os.path.basename(f)  # .replace("/","_")
-                    config = {
-                        "scc_depth": sccd,
-                        "verbosity": verb,
-                        "ei_out": False,
-                        "termination": a,
-                        "invariants": i,
-                        "different_template": d,
-                        "simplify_constraints": True,
-                        "pe_modes": pe_modes,
-                        "pe_times": 0,
-                        "files": [f],
-                        "lib": "ppl"
-                    }
-                    print("Trying with : " + config2Tag(config))
-
-                    response = sandbox(rankfinder.launch_file, args=(config, f),
-                                        time_segs=tout, memory_mb=mout)
-                    response["date"] = "HOY"
-                    response["config"] = config
-                    info["analysis"].append(response)
-        save_info(info, cachedir, f)
+        ite += 1
+        print("({}/{}) {}".format(ite,numm,f))
+        status = False
+        info = get_info(cachedir, f, ar["prefix"])
+        for i in inv:
+            if status:
+                continue
+            for l in lib:
+                if status:
+                    continue
+                for a in algs:
+                    if status:
+                        continue
+                    a[0].set_prop("lib", l)
+                    for d in dt:
+                        if status:
+                            continue
+                        name = os.path.basename(f)  # .replace("/","_")
+                        config = {
+                            "scc_depth": sccd,
+                            "verbosity": verb,
+                            "ei_out": False,
+                            "termination": a,
+                            "invariants": i,
+                            "different_template": d,
+                            "simplify_constraints": True,
+                            "pe_modes": pe_modes,
+                            "pe_times": 0,
+                            "files": [f],
+                            "lib": "ppl"
+                        }
+                        print("Trying with : " + config2Tag(config))
+    
+                        response = sandbox(rankfinder.launch_file, args=(config, f, None),
+                                            time_segs=tout, memory_mb=mout)
+                        response["date"] = datetime.datetime.today()
+                        
+                        response["config"] = config
+                        info["analysis"].append(response)
+                        if response["status"].is_terminate():
+                            status = False
+        save_info(info, cachedir, f, ar["prefix"])
                 
