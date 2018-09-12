@@ -87,7 +87,7 @@ def get_info(filename):
         for alg in a["config"]["termination"]:
             ter.append(alg)
         a["config"]["termination"] = ter
-        a["status"] = str(TerminationResult(a["status"]))
+        a["status"] = str(a["status"])
         a["date"] = datetime.datetime.strptime(a["date"], "%Y-%m-%dT%H:%M:%S.%f")
     return info
 
@@ -292,6 +292,7 @@ if __name__ == "__main__":
     str_table += print_bottom(configs, ar["rows"])
     print(str_table)
     
+
 
 
 
