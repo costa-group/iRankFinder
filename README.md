@@ -18,3 +18,14 @@ can be found on ToBeDefined
 The `results` folder containts a table generator, which allows to
 filter all the examples and results gotten by the different parameters
 of the tool.
+
+# Interface
+
+The `interface` folder containts a script (and needed files) to
+autoinstall and configure EasyInterface.
+
+# Install
+
+The `install` folder containts the scripts to install (or update)
+`iRankFinder` please, before running the scripts, read the
+instructions!
