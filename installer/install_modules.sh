@@ -36,7 +36,7 @@ ssudo(){
 install_pyeiol(){
     temporal=$1
     if [ "$temporal" == "true" ]; then
-	pushd /tmp/
+	pushd /tmp/ > /dev/null
     fi
     git clone --quiet https://github.com/abstools/easyinterface.git ./pyeiol > /dev/null
     pushd pyeiol > /dev/null
@@ -57,7 +57,9 @@ install_iRankFinder_remote(){
     ssudo python3 -m pip install -U "git+https://github.com/jesusjda/pyParser.git#egg=genericparser" --process-dependency-links
     ssudo python3 -m pip install -U "git+https://github.com/jesusjda/pyRankFinder.git#egg=pytermination" --process-dependency-links
     mkdir -p $1/pyRankFinder
-    wget -q "https://raw.githubusercontent.com/jesusjda/pyRankFinder/master/irankfinder.py" > $1/pyRankFinder/irankfinder.py
+    pushd $1/pyRankFinder > /dev/null
+    wget "https://raw.githubusercontent.com/jesusjda/pyRankFinder/master/irankfinder.py"
+    popd > /dev/null
 }
 
 
