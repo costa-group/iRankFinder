@@ -57,7 +57,7 @@ install_iRankFinder_remote(){
     ssudo python3 -m pip install -U "git+https://github.com/jesusjda/pyParser.git#egg=genericparser" --process-dependency-links
     ssudo python3 -m pip install -U "git+https://github.com/jesusjda/pyRankFinder.git#egg=pytermination" --process-dependency-links
     mkdir -p $1/pyRankFinder
-    wget "https://raw.githubusercontent.com/jesusjda/pyRankFinder/master/irankfinder.py" $1/pyRankFinder/irankfinder.py
+    wget -q "https://raw.githubusercontent.com/jesusjda/pyRankFinder/master/irankfinder.py" > $1/pyRankFinder/irankfinder.py
 }
 
 
