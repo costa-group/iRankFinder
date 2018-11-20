@@ -12,11 +12,11 @@ $1: $0 ([OPTIONS])
 [OPTIONS]
 
     -m | --mode [MODE] )
-        Install 'stable' or 'clone' mode. ('static' not ready)
+        Install 'stable' or 'dev' mode. ('static' not ready)
         By default: stable
 
     -b | --branch [BRANCH] )
-        For 'clone' mode, choose the branch that you want.
+        For 'dev' mode, choose the branch that you want.
         By default: master
 
     -s | --sudo )
@@ -56,6 +56,8 @@ install_iRankFinder_remote(){
     ssudo python3 -m pip install -U "git+https://github.com/jesusjda/pyLPi.git#egg=pyLPi" --process-dependency-links
     ssudo python3 -m pip install -U "git+https://github.com/jesusjda/pyParser.git#egg=genericparser" --process-dependency-links
     ssudo python3 -m pip install -U "git+https://github.com/jesusjda/pyRankFinder.git#egg=pytermination" --process-dependency-links
+    mkdir -p $1/pyRankFinder
+    wget "https://raw.githubusercontent.com/jesusjda/pyRankFinder/master/irankfinder.py" $1/pyRankFinder/irankfinder.py
 }
 
 
@@ -142,13 +144,13 @@ done
 
 case $mode in
     stable)
-	install_iRankFinder_remote
+	install_iRankFinder_remote $path
 	;;
     dev)
 	install_iRankFinder_clone $path
 	;;
     *)
-	help "ERROR" >&2  
+	help "ERROR unknown mode: $mode\n Usage:" >&2  
 	exit -1
 	;;
 esac
