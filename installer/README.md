@@ -7,15 +7,17 @@ This script will call `install_externals.sh` and `install_modules.sh`
 ## Docker
 
 ### Optional Arguments
-This docker has some arguments that you can set.
+This docker has some arguments that you can set using `--build-arg` parameter.
 
-- how and where to install iRankFinder
-- - Binary
-- - Clonning repos
-- - direct from pip
+1- Installation mode: *stable*, dev or binary (default: stable)
 
-- install EasyInterface
-- - Where?
+   `mode=dev`
+
+2- Where to install inside docker: (default: /opt/tools)
+   `TOOLS_HOME=/opt/tools`
+
+3- Install `EasyInterface` as interface: (default: true)
+   `interface=true`
 
 
 ### Build Docker
@@ -28,8 +30,7 @@ out_port=8081
 ```
 
 To build and run the docker. Just run:
-(if you want an especial installation: Remember to add ` ????? ` at the
-end of the first line)
+(if you want an especial installation: Remember to add ` --build-arg <name>=<value> ` at the end of the first line)
 
 ```
 docker build -t $docker_image_name .

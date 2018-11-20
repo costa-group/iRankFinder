@@ -58,7 +58,7 @@ install_iRankFinder_remote(){
     ssudo python3 -m pip install -U "git+https://github.com/jesusjda/pyRankFinder.git#egg=pytermination" --process-dependency-links
     mkdir -p $1/pyRankFinder
     pushd $1/pyRankFinder > /dev/null
-    wget "https://raw.githubusercontent.com/jesusjda/pyRankFinder/master/irankfinder.py"
+    wget -q "https://raw.githubusercontent.com/jesusjda/pyRankFinder/master/irankfinder.py"
     popd > /dev/null
 }
 
@@ -143,18 +143,35 @@ while [ $# -gt 0 ]; do
     esac
 done
 
+python_script(){
+    cat <<EOF
+#!/bin/bash
+python3 irankfinder.py $@
+
+EOF
+}
+
+binary_script(){
+    cat <<EOF
+#!/bin/bash
+./irankfinder $@
+EOF
+}
 
 case $mode in
     stable)
 	install_iRankFinder_remote $path
+	python_script > $path/irankfinder.sh
 	;;
     dev)
 	install_iRankFinder_clone $path
+	python_script > $path/irankfinder.sh
 	;;
     *)
 	help "ERROR unknown mode: $mode\n Usage:" >&2  
 	exit -1
 	;;
 esac
-      
+
+
 echo "Succeeded!"
