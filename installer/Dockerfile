@@ -22,7 +22,7 @@ ARG branch=master
 ARG version=latest
 ADD https://api.github.com/repos/costa-group/iRankFinder/git/refs/heads/master version2.json
 RUN (cd $TOOLS_HOME/iRankFinder/installer/ && git pull )
-RUN $TOOLS_HOME/iRankFinder/installer/install_modules.sh -m $mode -b $branch -v $version
+RUN $TOOLS_HOME/iRankFinder/installer/install_modules.sh -m $mode -b $branch -v $version -p "$TOOLS_HOME"
 ARG interface=true
 RUN test $interface = "true" && \
        $TOOLS_HOME/iRankFinder/interface/install.sh --ei-home=$TOOLS_HOME/easyinterface --install-ei --ei-branch=develop

@@ -72,7 +72,7 @@ install_iRankFinder_clone(){
 	fi
 	echo " DONE."
 	echo -n "Installing $name..."
-	#ssudo python3 -m pip install -U .
+	ssudo python3 -m pip install -U .
 	echo " DONE."
 	popd > /dev/null
 	echo "Finished installation of $name."
@@ -144,7 +144,7 @@ case $mode in
     stable)
 	install_iRankFinder_remote
 	;;
-    clone)
+    dev)
 	install_iRankFinder_clone $path
 	;;
     *)
