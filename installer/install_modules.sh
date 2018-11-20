@@ -66,9 +66,11 @@ install_iRankFinder_clone(){
 	b=$2
 	echo -n "Cloning $name..."
 	git clone --quiet https://github.com/jesusjda/$name.git > /dev/null
-	git checkout $b
-	echo " DONE."
 	pushd $name > /dev/null
+	if [ "$b" != "master" ]; then
+	    git checkout $b
+	fi
+	echo " DONE."
 	echo -n "Installing $name..."
 	#ssudo python3 -m pip install -U .
 	echo " DONE."

@@ -6,7 +6,7 @@ help(){
     #    -v | --version [VERSION])
     #        For 'stable' and 'static' modes, choose the version that you want to install.
     #        By default: Version that appears on file 'version.txt'
-    cat  <<EOF 
+    cat  <<EOF
 $1: $0 ([OPTIONS])
 
 [OPTIONS]
@@ -27,7 +27,7 @@ while [ $# -gt 0 ]; do
 	    exit 0
 	    ;;
 	*)
-	    help "ERROR" >&2  
+	    help "ERROR" >&2
 	    exit -1
 	    ;;
     esac
@@ -54,7 +54,7 @@ install_dependencies(){
 install_ppl(){
     mkdir /tmp/ppl
     pushd /tmp/ppl > /dev/null
-    wget http://bugseng.com/products/ppl/download/ftp/releases/1.2/ppl-1.2.tar.gz
+    wget https://bugseng.com/products/ppl/download/ftp/releases/1.2/ppl-1.2.tar.gz
     gunzip ppl-1.2.tar.gz
     tar xvfp ppl-1.2.tar
     cd ppl-1.2
@@ -76,7 +76,7 @@ install_z3(){
     tar -xvzf z3-$vers.tar.gz
     cd z3-z3-$vers
     echo "DONE"
-    echo "mk_make... ml and python bindings" 
+    echo "mk_make... ml and python bindings"
     ssudo python3 scripts/mk_make.py --python
     cd build
     echo "Make"
