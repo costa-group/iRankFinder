@@ -1,0 +1,13 @@
+{
+  vars: [x,y,z,n],
+  pvars: [x',y',z',n'],
+  initnode: n,
+  transitions: [
+    {
+	source: n,
+	target: n,
+	name: t0,
+	constraints: [x + y >= 0,  - x + n >= 0, 2 * x + y - x' == 0, z - y' == 0, z - z' + 1 == 0, n - n' == 0]
+    }
+  ]
+}

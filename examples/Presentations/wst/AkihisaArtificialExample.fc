@@ -1,0 +1,24 @@
+{
+vars: [x],
+initnode:init,
+transitions:[
+  {
+	source:init,
+	target:loop,
+	name:t0,
+	constraints:[x'=x]
+  },
+  {
+	source:loop,
+	target:loop,
+	name:t1,
+	constraints:[x' = x + 1, x < 10, x > 0]
+  },
+  {
+	source:loop,
+	target:loop,
+	name:t2,
+	constraints:[x' = x - 1, x > -10, x < 0]
+  }
+ ]
+ }

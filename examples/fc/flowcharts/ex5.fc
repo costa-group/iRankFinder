@@ -1,0 +1,43 @@
+{
+  vars: [x,y,m],
+  pvars: [x',y',m'],
+  initnode: lbl4,
+  transitions: [
+    {
+	source: lbl6,
+	target: lbl10,
+	name: t7,
+	constraints: [y - y' == 0, x - x' - 1 == 0, m - m' == 0, x >= 0,  - x + m >= 0,  - y + m + 1 >= 0, y >= 0]
+    },
+    {
+	source: lbl10,
+	target: lbl4,
+	name: t8,
+	constraints: [y - y' - 1 == 0, x - x' == 0, m - m' == 0, x + 1 >= 0,  - x + m >= 0,  - y + m + 1 >= 0, y >= 0,  - x - y + 2 * m >= 0]
+    },
+    {
+	source: lbl4,
+	target: lbl5,
+	name: t3,
+	constraints: [x >= 0, y >= 0, x - x' == 0, y - y' == 0, m - m' == 0,  - x + m >= 0,  - y + m >= 0]
+    },
+    {
+	source: lbl6,
+	target: lbl6,
+	name: t6,
+	constraints: [ - y + m >= 0, y - y' + 1 == 0, x - x' == 0, m - m' == 0, x >= 0,  - x + m >= 0, y >= 0]
+    },
+    {
+	source: lbl5,
+	target: lbl10,
+	name: t5,
+	constraints: [x - x' == 0, y - y' == 0, m - m' == 0, x >= 0,  - x + m >= 0,  - y + m >= 0, y >= 0]
+    },
+    {
+	source: lbl5,
+	target: lbl6,
+	name: t4,
+	constraints: [x - x' == 0, y - y' == 0, m - m' == 0, x - 1 >= 0,  - x + m >= 0,  - y + m >= 0, y - 1 >= 0]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  vars: [x,y,clk,t],
+  pvars: [x',y',clk',t'],
+  initnode: s1,
+  transitions: [
+    {
+	source: s1,
+	target: s2,
+	name: delta1,
+	constraints: [clk >= 0, x >= 0,  - x + 2 >= 0, y >= 0,  - y + 1 >= 0, x' >= 0,  - x' + 2 >= 0, y' >= 0,  - y' + 1 >= 0, t' >= 0, clk - clk' - t' == 0, x - x' + t' == 0, y - y' + t' == 0, y' - 1 == 0]
+    },
+    {
+	source: s2,
+	target: s1,
+	name: delta3,
+	constraints: [clk >= 0, x >= 0,  - x + 2 >= 0, y >= 0,  - y + 1 >= 0, x' >= 0,  - x' + 2 >= 0, y' >= 0,  - y' + 1 >= 0, t' >= 0, clk - clk' - t' == 0, x - x' == 0, y - y' - t' == 0, y' == 0]
+    },
+    {
+	source: s1,
+	target: s2,
+	name: delta2,
+	constraints: [clk >= 0, x >= 0,  - x + 2 >= 0, y >= 0,  - y + 1 >= 0, x' >= 0,  - x' + 2 >= 0, y' >= 0,  - y' + 1 >= 0, t' >= 0, clk - clk' - t' == 0, x - x' + t' == 0, y - y' + t' == 0, x' + y' - 1 == 0]
+    }
+  ]
+}
