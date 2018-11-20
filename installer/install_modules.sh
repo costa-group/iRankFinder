@@ -59,6 +59,7 @@ install_iRankFinder_remote(){
     mkdir -p $1/pyRankFinder
     pushd $1/pyRankFinder > /dev/null
     wget -q "https://raw.githubusercontent.com/jesusjda/pyRankFinder/master/irankfinder.py"
+    wget -q "https://raw.githubusercontent.com/jesusjda/pyRankFinder/master/CFRefinement.py"
     popd > /dev/null
 }
 
