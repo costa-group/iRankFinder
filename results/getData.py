@@ -7,21 +7,34 @@ import argparse
 from copy import deepcopy
 import functools
 
-_ops = {"pe_times":"pe_times",
+_ops = {"cfr_iterations":"cfr_iterations",
         "different_template":"different_template",
         "invariants":"invariants",
         "lib":"lib",
-        "pe":"pe_times",
+        "cfr":"cfr_iterations",
         "dt":"different_template",
-        "inv":"invariants"
+        "inv":"invariants",
+        "termination":"termination",
+        "nontermination":"nontermination",
+        "none": "None",
+        "None": "None"
 }
-_kops = ["pe_times", "different_template","invariants","lib","termination"]
-_possibles ={"pe_times":[0,1,2,3,4,5,6,7],
+_revops = {"cfr_iterations":"cfr_it",
+           "different_template":"dt",
+           "invariants":"inv",
+           "lib":"lib",
+           "termination":"algs",
+           "nontermination":"nt_algs",
+}
+_kops = ["cfr_iterations", "different_template","invariants","lib","termination","nontermination"]
+_possibles ={"cfr_iterations":[0,1,2,3,4,5,6,7],
              "different_template":["never", "iffail", "always"],
-             "invariants":["none", "interval", "polyhedra", "octagon"],
-             "lib":["ppl", "z3"],
-             "termination": ["lrf_pr", "qnlrfv1_1_1", "qnlrfv1_2_2", "qnlrfv1_3_3"]
+             "invariants":["none", "interval", "polyhedra", "octagon"]
+,             "lib":["ppl", "z3"],
+             "nontermination":["fixpoint", "monotonicrecset"],
+             "termination": ["qlrf_adfg", "qlrf_adfg_nonoptimal", "lrf_pr", "qnlrfv1_1_1", "qnlrfv1_2_2"]
 }
+PRINTALL=False
 
 def equivalent(opt):
     if opt in _ops:
@@ -29,8 +42,9 @@ def equivalent(opt):
     raise Exception("Option ({}) not available".format(opt))
 
 def setArgumentParser():
-    pets = _possibles["pe_times"]
+    pets = _possibles["cfr_iterations"]
     als = _possibles["termination"]
+    nt_als = _possibles["nontermination"]
     libs = _possibles["lib"]
     invs = _possibles["invariants"]
     dts = _possibles["different_template"]
@@ -51,13 +65,15 @@ def setArgumentParser():
                            nargs='*', help="different template")
     argParser.add_argument("-als", "--termination", required=False, choices=als, default=als,
                            nargs='*', help="algorithms")
+    argParser.add_argument("-ntals", "--nontermination", required=False, choices=nt_als, default=nt_als,
+                           nargs='*', help="nontermination algorithms")
     argParser.add_argument("-libs", "--lib",  required=False, choices=libs, default=["ppl"],
                            nargs='*', help="libs")
-    argParser.add_argument("-invs", "--invariants", required=False, choices=invs, default=["none", "interval", "polyhedra"],
+    argParser.add_argument("-invs", "--invariants", required=False, choices=invs, default=["none", "polyhedra"],
                            nargs='*', help="invariants")
-    argParser.add_argument("-pets", "--pe_times", required=False, choices=pets, default=[0,1],
-                           type=int, nargs='*', help="pe times")
-
+    argParser.add_argument("-cfr-it", "--cfr-iterations", required=False, choices=pets, default=[0,1],
+                           type=int, nargs='*', help="cfr_iterations")
+    argParser.add_argument("-all", "--print-all", action="store_true", default=False)
         
     return argParser
 
@@ -83,20 +99,42 @@ def get_info(filename):
     if not "analysis" in info:
         info["analysis"] = []
     for a in info["analysis"]:
+        ntter = []
+        if "nontermination" in a["config"]:
+            for alg in a["config"]["nontermination"]:
+                ntter.append(alg)
         ter = []
-        for alg in a["config"]["termination"]:
-            ter.append(alg)
+        if "termination" in a["config"]:
+            for alg in a["config"]["termination"]:
+                ter.append(alg)
         a["config"]["termination"] = ter
+        a["config"]["nontermination"] = ntter
         a["status"] = str(a["status"])
         a["date"] = datetime.datetime.strptime(a["date"], "%Y-%m-%dT%H:%M:%S.%f")
     return info
+
+def orderntalgs(a, b):
+    if a == b:
+        return 0
+    aes = a.split("_")
+    bes = b.split("_")
+    types = ["fixpoint", "monotonicrecset"]
+    if aes[0] not in types:
+        raise Exception(",,,,1")
+    if bes[0] not in types:
+        raise Exception("....2")
+    if types.index(aes[0]) < types.index(bes[0]):
+        return 1
+    if aes[0] != bes[0]:
+        return -1
+    return 0
 
 def orderalgs(a, b):
     if a == b:
         return 0
     aes = a.split("_")
     bes = b.split("_")
-    types = ["lrf", "qlrf", "qnlrf", "qnlrfv1", "qnlrfv2"]
+    types = ["qlrf", "lrf", "qnlrf", "qnlrfv1", "qnlrfv2"]
     if aes[0] not in types:
         raise Exception(",,,,1")
     if bes[0] not in types:
@@ -133,28 +171,45 @@ def orderalgs(a, b):
 def order(item1, item2):
     a = item2["config"]
     b = item1["config"]
-    ia = int(a["pe_times"])
-    ib = int(b["pe_times"])
-    if ia < ib:
-        return 1
-    if ia > ib:
-        return -1
-    ta = a["termination"]
-    tb = b["termination"]
-    if len(ta) < len(tb):
-        return 1
-    elif len(ta) > len(tb):
-        return -1
-    else:
-        als = orderalgs(ta[0],tb[0])
-        if als != 0:
-            return als
-    ks = ["lib", "invariants", "different_template", "simplify_constraints"]
-    for k in ks:
-        if _possibles[k].index(a[k]) < _possibles[k].index(b[k]):
+    if "cfr_iterations" in a and "cfr_iterations" in b:
+        ia = int(a["cfr_iterations"])
+        ib = int(b["cfr_iterations"])
+        if ia < ib:
             return 1
-        if _possibles[k].index(a[k]) > _possibles[k].index(b[k]):
+        if ia > ib:
             return -1
+    if "termination" in a and "termination" in b:
+        ta = a["termination"]
+        tb = b["termination"]
+        if len(ta) < len(tb):
+            return 1
+        elif len(ta) > len(tb):
+            return -1
+        else:
+            if len(ta) != 0:
+                als = orderalgs(ta[0],tb[0])
+                if als != 0:
+                    return als
+    if "nontermination" in a and "nontermination" in b:
+        nta = a["nontermination"]
+        ntb = b["nontermination"]
+        if len(nta) < len(ntb):
+            return 1
+        elif len(nta) > len(ntb):
+            return -1
+        else:
+            if len(nta) != 0:
+                als = orderntalgs(nta[0],ntb[0])
+                if als != 0:
+                    return als
+    ks = ["lib", "invariants", "different_template"]
+    for k in ks:
+        if k in a and k in b:
+            if _possibles[k].index(a[k]) < _possibles[k].index(b[k]):
+                return 1
+            if _possibles[k].index(a[k]) > _possibles[k].index(b[k]):
+                return -1
+
     return 0
 
 def print_selector(ID, name, value):
@@ -178,6 +233,10 @@ def print_selectors(params):
             selector += " selected "
         selector += ">"+k+"</option>\n"
     selector += "</select></span><br/>"
+    selector += '<span>Print all cells: <input type="checkbox" name="all" '
+    if PRINTALL:
+        selector += 'checked'
+    selector += "></span><br/>"
     selector += '<input type="submit" value="Filter">\n'
     selector += "</form>"
     return selector
@@ -186,18 +245,19 @@ def print_selectors(params):
 def print_head(cfgs, rows):
     head = "<table>\n\t<col class='number'><col class='name'>"
     head += "<thead>\n\t\t<tr><th>#</th><th>Name</th>"
-    if len(rows) > 0:
-        head += "<th></th>"
+    if rows != "None":
+        head += "<th>"+str(rows)+"</th>"
     i = 0
     for c in cfgs:
+        minc = {_revops[k]:c["config"][k] for k in c["config"]}
         i += 1
-        head += '<th alt="'+str(c)+'">.    c'+str(i)+"    .</th>"
+        head += '<th alt="'+str(minc)+'">.    '+str(minc)+"    .</th>"
     head += "</tr>\n\t</thead>\n\t<tbody>\n"
     return head
 
 def print_bottom(cfgs, rows):
     bottom = "\n\t\t<tr><td></td><td></td>"
-    if len(rows) > 0:
+    if rows != "None":
         bottom += "<td></td>"
     i = 0
     for c in cfgs:
@@ -216,15 +276,20 @@ def get_i(config, info):
         for k in config:
             if k not in _kops:
                 continue
-            if c[k] == config[k]:
-                continue
+            try:
+                if c[k] == config[k]:
+                    continue
+            except:
+                if k == "invariants":
+                    if c["nodeproperties"] == config[k]:
+                        continue
             good = False
             break
         if good:
             valids.append(a)
     if len(valids) == 0:
         return None
-    valids.sort(key=lambda a: a["date"])
+    valids.sort(key=lambda a: a["date"], reverse=True)
     return valids[0]
             
 
@@ -236,19 +301,38 @@ def print_info(i, cfgs, rows, rowsinfo, info):
     for ith in range(nr):
         if ith != 0:
             line += "\t\t<tr>"
-        if rows != "":
+        if rows != "None":
             line += "<td>"+str(rowsinfo[ith])+"</td>"
         terminate = False
+        nonterminate = False
         for c in cfgs:
             lc = deepcopy(c["config"])
             if rows != "None":
-                lc[rows] = rowsinfo[ith]
+                if rows == "termination" or rows == "nontermination":
+                    lc[rows] = [rowsinfo[ith]]
+                else:
+                    lc[rows] = rowsinfo[ith]
             i = get_i(lc, info)
             line+= "<td"
-            if not terminate and i is not None:
+            if (PRINTALL or (not terminate and not nonterminate)) and i is not None:
                 line += " class='"+str(i["status"]).replace(" ", "")+"'>"
-                line += str(i["status"])
-                terminate = ("Terminate" == str(i["status"]))
+                status = str(i["status"])
+                terminate = False
+                nonterminate = False
+                if status == "Terminate":
+                    terminate = True
+                    line += "YES"
+                elif status == "NonTerminate":
+                    nonterminate = True
+                    line += "NO"
+                elif status == "Error":
+                    line += "Err"
+                elif status == "Unknown":
+                    line += "MAYBE"
+                else:
+                    line += str(i["status"])
+                line += " ({0:.2f}s)".format(i["cputime"])
+
             else:
                 line += ">"
             line+= "</td>"
@@ -266,7 +350,7 @@ if __name__ == "__main__":
         ar["rows"] = "None"
     ar["None"] = [""]
     configs = [{"config":{}}]
-
+    PRINTALL = ar["print_all"]
     for k in _kops:
         nconfs = []
         if k == ar["rows"]:
@@ -274,13 +358,13 @@ if __name__ == "__main__":
         for item in ar[k]:
             for c in configs:
                 a = deepcopy(c)
-                if k == "termination":
+                if k == "termination" or k == "nontermination":
                     a["config"][k] = [item]
                 else:
                     a["config"][k] = item
                 nconfs.append(a)
         configs = [c for c in nconfs]
-
+    configs = sorted(configs, key=functools.cmp_to_key(order))
     fs = getfiles(dbdir, ar["prefix"])
     infos = sorted([get_info(f) for f in fs], key=lambda cf: cf["id"])
     print(print_selectors(ar))
@@ -292,6 +376,13 @@ if __name__ == "__main__":
     str_table += print_bottom(configs, ar["rows"])
     print(str_table)
     
+
+
+
+
+
+
+
 
 
 

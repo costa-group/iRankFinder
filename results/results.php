@@ -1,11 +1,13 @@
 <?php include("cache_top.php"); ?>
 <?php
-$params = array('invariants', 'different_template', 'termination', 'lib','simplify_constraints');
+$params = array('invariants', 'different_template', 'termination', 'nontermination','lib');
 $command = 'python3 ./getData.py --cache ../../iRankFinder/database/json/';
 if(isset($_GET["prefix"]) && $_GET["prefix"] != '')
     $command .= ' --prefix "'.$_GET["prefix"].'"'; 
 if(isset($_GET["rows"]) && $_GET["rows"] != '')
     $command .= ' --rows "'.$_GET["rows"].'"';
+if(isset($_GET["all"]))
+    $command .= ' -all ';
 foreach ($params as $p){
     if(isset($_GET[$p])){
         if ($_GET[$p] != ''){
@@ -18,9 +20,9 @@ foreach ($params as $p){
         }
     }
 }
-if(isset($_GET["pe_times"]) && $_GET["pe_times"] != ''){
-    $command .= ' --pe_times ';
-    $arr = explode(" ", $_GET["pe_times"]);
+if(isset($_GET["cfr_iterations"]) && $_GET["cfr_iterations"] != ''){
+    $command .= ' --cfr-iterations ';
+    $arr = explode(" ", $_GET["cfr_iterations"]);
     foreach($arr as $v){
         $int = (int)$v;
         $command .= ' '.$int;
@@ -28,7 +30,6 @@ if(isset($_GET["pe_times"]) && $_GET["pe_times"] != ''){
 }
 $command .= " 2>&1";
 exec($command, $out, $status);
-
 ?>
 <html>
 <head>
