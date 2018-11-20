@@ -16,11 +16,11 @@ ARG TOOLS_HOME=/opt/tools
 
 ENV TOOLS_HOME $TOOLS_HOME
 RUN mkdir $TOOLS_HOME && chmod -R 755 $TOOLS_HOME
-ADD https://api.github.com/repos/costa-group/iRankFinder/git/refs/heads/master version1.json
 
 ENV PYRANKFINDER_HOME $TOOLS_HOME/pyRankFinder
 RUN git clone https://github.com/costa-group/iRankFinder $TOOLS_HOME/iRankFinder
 RUN $TOOLS_HOME/iRankFinder/installer/install_externals.sh
+ADD https://api.github.com/repos/jesusjda/pyRankFinder/git/refs/heads/master version1.json
 RUN $TOOLS_HOME/iRankFinder/installer/install_modules.sh -m $mode -b $branch -v $version
 RUN test $interface = "true" && \
        $TOOLS_HOME/iRankFinder/interface/install.sh --ei-home=$TOOLS_HOME/easyinterface --install-ei --ei-branch=develop
