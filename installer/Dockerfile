@@ -20,6 +20,7 @@ ADD https://api.github.com/repos/jesusjda/pyRankFinder/git/refs/heads/master ver
 ARG mode=stable
 ARG branch=master
 ARG version=latest
+ADD https://api.github.com/repos/costa-group/iRankFinder/git/refs/heads/master version2.json
 RUN (cd $TOOLS_HOME/iRankFinder/installer/ && git pull )
 RUN $TOOLS_HOME/iRankFinder/installer/install_modules.sh -m $mode -b $branch -v $version
 ARG interface=true
