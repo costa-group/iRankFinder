@@ -173,5 +173,6 @@ case $mode in
 	;;
 esac
 
+chmod +x $path/irankfinder.sh
 
 echo "Succeeded!"
