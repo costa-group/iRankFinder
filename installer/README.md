@@ -14,9 +14,11 @@ This docker has some arguments that you can set using `--build-arg` parameter.
    `mode=dev`
 
 2- Where to install inside docker: (default: /opt/tools)
+
    `TOOLS_HOME=/opt/tools`
 
 3- Install `EasyInterface` as interface: (default: true)
+
    `interface=true`
 
 
