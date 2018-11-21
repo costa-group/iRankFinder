@@ -162,11 +162,11 @@ EOF
 case $mode in
     stable)
 	install_iRankFinder_remote $path
-	python_script > $path/irankfinder.sh
+	python_script > $path/pyRankFinder/irankfinder.sh
 	;;
     dev)
 	install_iRankFinder_clone $path
-	python_script > $path/irankfinder.sh
+	python_script > $path/pyRankFinder/irankfinder.sh
 	;;
     *)
 	help "ERROR unknown mode: $mode\n Usage:" >&2  
@@ -174,6 +174,6 @@ case $mode in
 	;;
 esac
 
-chmod +x $path/irankfinder.sh
+chmod +x $path/pyRankFinder/irankfinder.sh
 
 echo "Succeeded!"
