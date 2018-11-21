@@ -26,5 +26,7 @@ RUN $TOOLS_HOME/iRankFinder/installer/install_modules.sh -m $mode -b $branch -v 
 ARG interface=true
 RUN test $interface = "true" && \
        $TOOLS_HOME/iRankFinder/interface/install.sh --ei-home=$TOOLS_HOME/easyinterface --install-ei --ei-branch=develop
-RUN a2ensite easyinterface-site
+RUN cp $TOOLS_HOME/iRankFinder/web/index.html /var/www/html/index.html 
+RUN test $interface = "true" && a2ensite easyinterface-site
 RUN a2enmod headers
+

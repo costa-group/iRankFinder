@@ -145,9 +145,10 @@ while [ $# -gt 0 ]; do
 done
 
 python_script(){
+    
     cat <<EOF
 #!/bin/bash
-python3 irankfinder.py $@
+python3 $1/irankfinder.py \$@
 
 EOF
 }
@@ -155,18 +156,18 @@ EOF
 binary_script(){
     cat <<EOF
 #!/bin/bash
-./irankfinder $@
+$1/irankfinder \$@
 EOF
 }
 
 case $mode in
     stable)
 	install_iRankFinder_remote $path
-	python_script > $path/pyRankFinder/irankfinder.sh
+	python_script $path/pyRankFinder > $path/pyRankFinder/irankfinder.sh
 	;;
     dev)
 	install_iRankFinder_clone $path
-	python_script > $path/pyRankFinder/irankfinder.sh
+	python_script $path/pyRankFinder > $path/pyRankFinder/irankfinder.sh
 	;;
     *)
 	help "ERROR unknown mode: $mode\n Usage:" >&2  
