@@ -40,6 +40,10 @@ toStatic(){
     lark_path=`python3 -c "import os; import lark; print(os.path.dirname(lark.__file__))"`
     cp $lark_path/grammars/common.* $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/lark/grammars/
 
+    #     - z3 lib
+    z3_path=`python3 -c "import os; import z3; print(os.path.dirname(z3.__file__))"`
+    cp $z3_path/lib/libz3.so $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/libz3.so
+    
     #     - smt2pushdown binary
 
     cp $TOOLS_HOME/pyParser/genericparser/smtpushdown2 $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/genericparser/smtpushdown2
@@ -52,6 +56,7 @@ toStatic(){
     #     - CFRefinement entry point
     cp $TOOLS_HOME/pyRankFinder/dist/$version/CFRefinement/CFRefinement $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/
     rm -rf $TOOLS_HOME/pyRankFinder/dist/$version/CFRefinement/
+
 
     # 4 - Check python lib
     pname=$TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/libpython3*.so.*
