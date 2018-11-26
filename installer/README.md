@@ -60,7 +60,7 @@ dependencies but it won't update other dependencies like ppl.
 
 `toStaticBinary.sh` will generate a statically linked binary inside
 `[PATH]/pyRankFinder/dist/[VERSION]/irankfinder`
-and a zip `[PATH]/pyRankFinder/dist/irankfinder\_[VERSION]\_[PLATFORM]\_[ARCH].zip`
+and a zip `[PATH]/pyRankFinder/dist/irankfinder_[VERSION]_[PLATFORM]_[ARCH].zip`
 
 It requires pyinstaller and zip installed (which are not installed
 with the given scripts.
