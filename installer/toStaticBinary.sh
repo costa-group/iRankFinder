@@ -11,56 +11,57 @@ $1: $0 ([OPTIONS])
 [OPTIONS]
 
     -p | --path [PATH] )
-        Path to sources, by default: \$TOOLS_HOME ($TOOLS_HOME)
+        Path to sources, by default: \$TOOLS_HOME (actual value: '$TOOLS_HOME')
 EOF
 }
 
 toStatic(){
-    version=`cat $TOOLS_HOME/pyRankFinder/version.txt`
+    path=$1
+    version=`cat $path/pyRankFinder/version.txt`
 
     echo "Building binary for version: $version"
 
     # 1 - Path to sources:
 
-    sources_path=$TOOLS_HOME/pplpy/ppl/:$TOOLS_HOME/pyLPi/lpi/:$TOOLS_HOME/pyParser/genericparser/:$TOOLS_HOME/pyRankFinder/partialevaluation/:$TOOLS_HOME/pyRankFinder/nodeproperties/:$TOOLS_HOME/pyRankFinder/termination/
+    sources_path=$path/pplpy/ppl/:$path/pyLPi/lpi/:$path/pyParser/genericparser/:$path/pyRankFinder/partialevaluation/:$path/pyRankFinder/nodeproperties/:$path/pyRankFinder/termination/
 
 
     # 2 - Run pyinstaller:
-    pyinstaller $TOOLS_HOME/pyRankFinder/irankfinder.py --hidden-import networkx --hidden-import gmpy2 --hidden-import cython --hidden-import cysignals --hidden-import z3 --hidden-import eiol --hidden-import lark --hidden-import pkg_resources.extern.packaging.version --hidden-import genericparser --hidden-import genericparser.Parser_smt2 --hidden-import genericparser.Parser_fc --hidden-import genericparser.Parser_koat --hidden-import termination --hidden-import termination.algorithm --hidden-import nodeproperties --hidden-import nodeproperties.abstractStates --hidden-import lpi --hidden-import ppl -p $sources_path --distpath $TOOLS_HOME/pyRankFinder/dist/$version/ --workpath $TOOLS_HOME/pyRankFinder/build -y
+    pyinstaller $path/pyRankFinder/irankfinder.py --hidden-import networkx --hidden-import gmpy2 --hidden-import cython --hidden-import cysignals --hidden-import z3 --hidden-import eiol --hidden-import lark --hidden-import pkg_resources.extern.packaging.version --hidden-import genericparser --hidden-import genericparser.Parser_smt2 --hidden-import genericparser.Parser_fc --hidden-import genericparser.Parser_koat --hidden-import termination --hidden-import termination.algorithm --hidden-import nodeproperties --hidden-import nodeproperties.abstractStates --hidden-import lpi --hidden-import ppl -p $sources_path --distpath $path/pyRankFinder/dist/$version/ --workpath $path/pyRankFinder/build -y
 
-    pyinstaller $TOOLS_HOME/pyRankFinder/CFRefinement.py --hidden-import networkx --hidden-import gmpy2 --hidden-import cython --hidden-import cysignals --hidden-import z3 --hidden-import eiol --hidden-import lark --hidden-import pkg_resources.extern.packaging.version --hidden-import genericparser --hidden-import genericparser.Parser_smt2 --hidden-import genericparser.Parser_fc --hidden-import genericparser.Parser_koat --hidden-import termination --hidden-import termination.algorithm --hidden-import nodeproperties --hidden-import nodeproperties.abstractStates --hidden-import lpi --hidden-import ppl -p $sources_path --distpath $TOOLS_HOME/pyRankFinder/dist/$version/ --workpath $TOOLS_HOME/pyRankFinder/build -y
+    pyinstaller $path/pyRankFinder/CFRefinement.py --hidden-import networkx --hidden-import gmpy2 --hidden-import cython --hidden-import cysignals --hidden-import z3 --hidden-import eiol --hidden-import lark --hidden-import pkg_resources.extern.packaging.version --hidden-import genericparser --hidden-import genericparser.Parser_smt2 --hidden-import genericparser.Parser_fc --hidden-import genericparser.Parser_koat --hidden-import termination --hidden-import termination.algorithm --hidden-import nodeproperties --hidden-import nodeproperties.abstractStates --hidden-import lpi --hidden-import ppl -p $sources_path --distpath $path/pyRankFinder/dist/$version/ --workpath $path/pyRankFinder/build -y
 
     # 3 - Add no python files:
 
     #     - all grammar files of genericparser
 
-    mkdir $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/genericparser/
-    cp $TOOLS_HOME/pyParser/genericparser/*.g $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/genericparser/
-    mkdir -p $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/lark/grammars/
+    mkdir $path/pyRankFinder/dist/$version/irankfinder/genericparser/
+    cp $path/pyParser/genericparser/*.g $path/pyRankFinder/dist/$version/irankfinder/genericparser/
+    mkdir -p $path/pyRankFinder/dist/$version/irankfinder/lark/grammars/
     lark_path=`python3 -c "import os; import lark; print(os.path.dirname(lark.__file__))"`
-    cp $lark_path/grammars/common.* $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/lark/grammars/
+    cp $lark_path/grammars/common.* $path/pyRankFinder/dist/$version/irankfinder/lark/grammars/
 
     #     - z3 lib
     z3_path=`python3 -c "import os; import z3; print(os.path.dirname(z3.__file__))"`
-    cp $z3_path/lib/libz3.so $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/libz3.so
+    cp $z3_path/lib/libz3.so $path/pyRankFinder/dist/$version/irankfinder/libz3.so
     
     #     - smt2pushdown binary
 
-    cp $TOOLS_HOME/pyParser/genericparser/smtpushdown2 $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/genericparser/smtpushdown2
+    cp $path/pyParser/genericparser/smtpushdown2 $path/pyRankFinder/dist/$version/irankfinder/genericparser/smtpushdown2
 
     #     - PE binary
 
-    mkdir -p $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/partialevaluation/bin/
-    cp $TOOLS_HOME/pyRankFinder/partialevaluation/bin/* $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/partialevaluation/bin/
+    mkdir -p $path/pyRankFinder/dist/$version/irankfinder/partialevaluation/bin/
+    cp $path/pyRankFinder/partialevaluation/bin/* $path/pyRankFinder/dist/$version/irankfinder/partialevaluation/bin/
 
     #     - CFRefinement entry point
-    cp $TOOLS_HOME/pyRankFinder/dist/$version/CFRefinement/CFRefinement $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/
-    rm -rf $TOOLS_HOME/pyRankFinder/dist/$version/CFRefinement/
+    cp $path/pyRankFinder/dist/$version/CFRefinement/CFRefinement $path/pyRankFinder/dist/$version/irankfinder/
+    rm -rf $path/pyRankFinder/dist/$version/CFRefinement/
 
 
     # 4 - Check python lib
-    pname=$TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/libpython3*.so.*
-    pdest=$TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/libpython3*.so
+    pname=$path/pyRankFinder/dist/$version/irankfinder/libpython3*.so.*
+    pdest=$path/pyRankFinder/dist/$version/irankfinder/libpython3*.so
     if [ ! -f $pdest ]; then
 	if [ -f $pname ]; then
 	    pdest=`echo $pname`
@@ -68,8 +69,10 @@ toStatic(){
 	fi
     fi
 
+    plat=`uname`
+    mach=`uname -m`
     # 5 - zip all
-    zip -r $TOOLS_HOME/pyRankFinder/dist/irankfinder_$version.zip $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/
+    zip -r $path/pyRankFinder/dist/irankfinder_$version_${plat,,}_$mach.zip $path/pyRankFinder/dist/$version/irankfinder/
 }
 
 check_sources(){
@@ -77,7 +80,7 @@ check_sources(){
 	ok=true
     else
 	ok=false
-	echo "Sources not found at $path" >&2
+	help "Sources not found at $path.\n ERROR" >&2
 	exit -1
     fi
 }
@@ -106,4 +109,5 @@ done
 
 check_sources
 
-toStatic
+toStatic $path
+
