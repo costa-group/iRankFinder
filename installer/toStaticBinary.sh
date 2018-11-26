@@ -10,28 +10,10 @@ $1: $0 ([OPTIONS])
 
 [OPTIONS]
 
-    -m | --mode [MODE] )
-        Install 'stable' or 'dev' mode. ('static' not ready)
-        By default: stable
-
-    -b | --branch [BRANCH] )
-        For 'dev' mode, choose the branch that you want.
-        By default: master
-
-    -s | --sudo )
-        Install with sudo rights.
-
+    -p | --path [PATH] )
+        Path to sources, by default: \$TOOLS_HOME ($TOOLS_HOME)
 EOF
 }
-
-ssudo(){
-    if [ "$sudo" == "true" ]; then
-	sudo -H $@
-    else
-	$@
-    fi
-}
-
 
 toStatic(){
     version=`cat $TOOLS_HOME/pyRankFinder/version.txt`
@@ -56,7 +38,7 @@ toStatic(){
     cp $TOOLS_HOME/pyParser/genericparser/*.g $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/genericparser/
     mkdir -p $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/lark/grammars/
     lark_path=`python3 -c "import os; import lark; print(os.path.dirname(lark.__file__))"`
-    cp $lark_path/grammars/common.g $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/lark/grammars/common.g
+    cp $lark_path/grammars/common.* $TOOLS_HOME/pyRankFinder/dist/$version/irankfinder/lark/grammars/
 
     #     - smt2pushdown binary
 
@@ -95,14 +77,9 @@ check_sources(){
     fi
 }
 basedir=$(dirname "$(readlink -f "$0" )")
-sudo=false
 path=$TOOLS_HOME
 while [ $# -gt 0 ]; do
     case $1 in
-	-s|--sudo)
-	    sudo=true
-	    shift
-	    ;;
 	-p|--path)
 	    if [ "${2:0:1}" = "/" ]; then
 		path=$2
