@@ -1,6 +1,11 @@
 # iRankFinder Scripts
 
-## Installation
+* [Install](#install)
+    * [Docker](#docker)
+* [Update](#update)
+* [Statically-linked binary](#statically-linked-binary-standalone)
+
+## Install
 
 Run `install.sh --help` to get more information.
 This script will call `install_externals.sh` and `install_modules.sh`
@@ -55,7 +60,7 @@ dependencies but it won't update other dependencies like ppl.
 
 `toStaticBinary.sh` will generate a statically linked binary inside
 `[PATH]/pyRankFinder/dist/[VERSION]/irankfinder`
-and a zip `[PATH]/pyRankFinder/dist/irankfinder_[VERSION]_[PLATFORM]_[ARCH].zip
+and a zip `[PATH]/pyRankFinder/dist/irankfinder\_[VERSION]\_[PLATFORM]\_[ARCH].zip
 
 It requires pyinstaller and zip installed (which are not installed
 with the given scripts.
