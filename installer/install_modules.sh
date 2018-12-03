@@ -17,7 +17,7 @@ $1: $0 ([OPTIONS])
 
     -b | --branch [BRANCH] )
         For 'dev' mode, choose the branch that you want.
-        By default: master
+        By default: unstable
 
     -s | --sudo )
         Install with sudo rights.
@@ -91,9 +91,9 @@ install_iRankFinder_clone(){
     # pplpy
     clone_and_install pplpy master
     # pyLPi
-    clone_and_install pyLPi master
+    clone_and_install pyLPi $branch
     # pyParser
-    clone_and_install pyParser master
+    clone_and_install pyParser $branch
     # pyRankFinder
     clone_and_install pyRankFinder $branch
     popd > /dev/null
@@ -104,7 +104,7 @@ basedir=$(dirname "$(readlink -f "$0" )")
 externals=true
 mode=stable
 version=latest
-branch=master
+branch=unstable
 sudo=false
 path=/tmp/tools
 while [ $# -gt 0 ]; do
