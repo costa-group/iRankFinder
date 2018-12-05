@@ -34,11 +34,11 @@ exec($command, $out, $status);
 <html>
 <head>
 <title>Experiments results: iRankFinder</title>
-<link rel="stylesheet" href="./style-termination.css" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="./style-termination.css" />
 </head>
 <body>
 <h1>iRankFinder: Experiments results</h1>
@@ -50,18 +50,14 @@ foreach($out as $line){
   <script>
   $( function() {
     $( document ).tooltip({
-      hide: { delay: 1000, effect: "explode", duration: 1000 },content: function(callback) { 
-     callback($(this).prop('title')); 
-  }
+      hide: { delay: 1000, effect: "explode", duration: 1000 },
+      content: function(callback) {
+	callback($(this).prop('title'));
+      },
+      position: { my: "left+15 center", at: "right center"}
     });
-  } );
+   });
   </script>
-  <style>
-  label {
-    display: inline-block;
-    width: 5em;
-  }
-  </style>
 </body>
 </html>
 

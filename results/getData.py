@@ -271,7 +271,7 @@ def print_bottom(cfgs, rows):
     for c in cfgs:
         minc = {_revops[k]:c["config"][k] for k in c["config"]}
         i += 1
-        bottom += '<td>'+add_tooltip("conf"+str(i),json.dumps(minc, indent=2, sort_keys=True))+"</td>"
+        bottom += '<td><b>'+add_tooltip("conf"+str(i),str(json.dumps(minc, indent=2, sort_keys=True)))+"</b></td>"
     bottom += "</tr>\n\t</tbody>\n</table>"
     return bottom
 
@@ -302,10 +302,10 @@ def get_i(config, info):
     return valids[0]
             
 def add_dialog(diagid, btn_text, title, content):
-     return '<span title="'+content.replace("\n","<br/>").replace('"',"'").replace(' ',"&nbsp;")+'">'+btn_text+'</span>'
+     return add_tooltip(btn_text, content)
 
 def add_tooltip(text, content):
-    return '<span title="'+content.replace("\n","<br/>").replace('"',"'").replace(' ',"&nbsp;")+'">'+text+'</span>'
+    return '<span title="<div>'+content.replace("\n","<br/>").replace('"',"'").replace(' ',"&nbsp;")+'</div>">'+text+'</span>'
 
 def print_info(it, cfgs, rows, rowsinfo, info):
     nr = max(1,len(rowsinfo))
@@ -348,7 +348,7 @@ def print_info(it, cfgs, rows, rowsinfo, info):
                 else:
                     btn_text += str(i["status"])
                 btn_text += " ({0:.2f}s)".format(i["cputime"])
-                line += add_dialog("diag"+str(it*10000+count), btn_text, "Execution Output", "<span>"+str(i["output"])+"</span>")
+                line += add_dialog("diag"+str(it*10000+count), btn_text, "Execution Output", str(i["output"]))
             else:
                 line += ">"
             line += "</td>"
