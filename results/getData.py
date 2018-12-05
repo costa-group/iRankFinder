@@ -4,6 +4,7 @@ import os
 import sys
 import datetime
 import argparse
+import json
 from copy import deepcopy
 import functools
 
@@ -258,7 +259,7 @@ def print_head(cfgs, rows):
     for c in cfgs:
         minc = {_revops[k]:c["config"][k] for k in c["config"]}
         i += 1
-        head += '<th alt="'+str(minc)+'">.    '+str(minc)+"    .</th>"
+        head += '<th>'+add_tooltip("conf"+str(i),str(json.dumps(minc, indent=2, sort_keys=True)))+"</th>"
     head += "</tr>\n\t</thead>\n\t<tbody>\n"
     return head
 
@@ -268,8 +269,9 @@ def print_bottom(cfgs, rows):
         bottom += "<td></td>"
     i = 0
     for c in cfgs:
+        minc = {_revops[k]:c["config"][k] for k in c["config"]}
         i += 1
-        bottom += '<td>c '+str(i)+"</td>"
+        bottom += '<td>'+add_tooltip("conf"+str(i),json.dumps(minc, indent=2, sort_keys=True))+"</td>"
     bottom += "</tr>\n\t</tbody>\n</table>"
     return bottom
 
@@ -299,12 +301,17 @@ def get_i(config, info):
     valids.sort(key=lambda a: a["date"], reverse=True)
     return valids[0]
             
+def add_dialog(diagid, btn_text, title, content):
+     return '<span title="'+content.replace("\n","<br/>").replace('"',"'").replace(' ',"&nbsp;")+'">'+btn_text+'</span>'
 
-    
-def print_info(i, cfgs, rows, rowsinfo, info):
+def add_tooltip(text, content):
+    return '<span title="'+content.replace("\n","<br/>").replace('"',"'").replace(' ',"&nbsp;")+'">'+text+'</span>'
+
+def print_info(it, cfgs, rows, rowsinfo, info):
     nr = max(1,len(rowsinfo))
-    line = "\t\t<tr class='upper'><td rowspan='"+str(nr)+"'>"+str(i)+"</td>"
+    line = "\t\t<tr class='upper'><td rowspan='"+str(nr)+"'>"+str(it)+"</td>"
     line += "<td rowspan='"+str(nr)+"'>"+info["id"]+"</td>"
+    count = 0
     for ith in range(nr):
         if ith != 0:
             line += "\t\t<tr>"
@@ -313,6 +320,7 @@ def print_info(i, cfgs, rows, rowsinfo, info):
         terminate = False
         nonterminate = False
         for c in cfgs:
+            count += 1
             lc = deepcopy(c["config"])
             if rows != "None":
                 if rows == "termination" or rows == "nontermination":
@@ -326,23 +334,24 @@ def print_info(i, cfgs, rows, rowsinfo, info):
                 status = str(i["status"])
                 terminate = False
                 nonterminate = False
+                btn_text = ""
                 if status == "Terminate":
                     terminate = True
-                    line += "YES"
+                    btn_text += "YES"
                 elif status == "NonTerminate":
                     nonterminate = True
-                    line += "NO"
+                    btn_text += "NO"
                 elif status == "Error":
-                    line += "Err"
+                    btn_text += "Err"
                 elif status == "Unknown":
-                    line += "MAYBE"
+                    btn_text += "MAYBE"
                 else:
-                    line += str(i["status"])
-                line += " ({0:.2f}s)".format(i["cputime"])
-
+                    btn_text += str(i["status"])
+                btn_text += " ({0:.2f}s)".format(i["cputime"])
+                line += add_dialog("diag"+str(it*10000+count), btn_text, "Execution Output", "<span>"+str(i["output"])+"</span>")
             else:
                 line += ">"
-            line+= "</td>"
+            line += "</td>"
         line += "</tr>\n"
     return line
             
@@ -386,6 +395,7 @@ if __name__ == "__main__":
     str_table += print_bottom(configs, ar["rows"])
     print(str_table)
     
+
 
 
 
