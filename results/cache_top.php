@@ -7,7 +7,7 @@ $phpself = trim($phpself, '.php');
 if(preg_match("/:|;|'|\(|\)/", $phpself)) $phpself = '';
 
 // retrieve parameters
-$params = array('prefix', 'rows', 'invariants', 'different_template', 'termination', 'nontermination', 'cfr_iterations', 'lib');
+$params = array('prefix', 'rows', 'invariants', 'different_template', 'termination', 'nontermination', 'cfr_iterations', 'lib', 'cfr_strategy');
 $cachefile='';
 if ($phpself != ''){
     $token =$phpself;

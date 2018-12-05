@@ -12,6 +12,8 @@ _ops = {"cfr_iterations":"cfr_iterations",
         "invariants":"invariants",
         "lib":"lib",
         "cfr":"cfr_iterations",
+        "cfr_st": "cfr_strategy",
+        "cfr_strategy": "cfr_strategy",
         "dt":"different_template",
         "inv":"invariants",
         "termination":"termination",
@@ -20,18 +22,20 @@ _ops = {"cfr_iterations":"cfr_iterations",
         "None": "None"
 }
 _revops = {"cfr_iterations":"cfr_it",
+           "cfr_strategy":"cfr_st",
            "different_template":"dt",
            "invariants":"inv",
            "lib":"lib",
            "termination":"algs",
            "nontermination":"nt_algs",
 }
-_kops = ["cfr_iterations", "different_template","invariants","lib","termination","nontermination"]
+_kops = ["cfr_iterations", "cfr_strategy", "different_template","invariants","lib","termination","nontermination"]
 _possibles ={"cfr_iterations":[0,1,2,3,4,5,6,7],
+             "cfr_strategy":["none", "before", "scc"],
              "different_template":["never", "iffail", "always"],
              "invariants":["none", "interval", "polyhedra", "octagon"]
 ,             "lib":["ppl", "z3"],
-             "nontermination":["fixpoint", "monotonicrecset"],
+             "nontermination":["fixpoint", "monotonicrecset","none"],
              "termination": ["qlrf_adfg", "qlrf_adfg_nonoptimal", "lrf_pr", "qnlrfv1_1_1", "qnlrfv1_2_2"]
 }
 PRINTALL=False
@@ -43,6 +47,7 @@ def equivalent(opt):
 
 def setArgumentParser():
     pets = _possibles["cfr_iterations"]
+    cfr_mode = _possibles["cfr_strategy"]
     als = _possibles["termination"]
     nt_als = _possibles["nontermination"]
     libs = _possibles["lib"]
@@ -73,6 +78,8 @@ def setArgumentParser():
                            nargs='*', help="invariants")
     argParser.add_argument("-cfr-it", "--cfr-iterations", required=False, choices=pets, default=[0,1],
                            type=int, nargs='*', help="cfr_iterations")
+    argParser.add_argument("-cfr-st", "--cfr-strategy", required=False, choices=pets, default=cfr_mode,
+                           nargs='*', help="cfr_strategy")
     argParser.add_argument("-all", "--print-all", action="store_true", default=False)
         
     return argParser
@@ -118,7 +125,7 @@ def orderntalgs(a, b):
         return 0
     aes = a.split("_")
     bes = b.split("_")
-    types = ["fixpoint", "monotonicrecset"]
+    types = ["none", "fixpoint", "monotonicrecset"]
     if aes[0] not in types:
         raise Exception(",,,,1")
     if bes[0] not in types:
@@ -332,7 +339,7 @@ def print_info(i, cfgs, rows, rowsinfo, info):
                 else:
                     line += str(i["status"])
                 line += " ({0:.2f}s)".format(i["cputime"])
-                #line += "<span>a1</span><span>a2</span>"
+
             else:
                 line += ">"
             line+= "</td>"
@@ -359,7 +366,10 @@ if __name__ == "__main__":
             for c in configs:
                 a = deepcopy(c)
                 if k == "termination" or k == "nontermination":
-                    a["config"][k] = [item]
+                    if item == "none":
+                        a["config"][k] = []
+                    else:
+                        a["config"][k] = [item]
                 else:
                     a["config"][k] = item
                 nconfs.append(a)
@@ -376,6 +386,7 @@ if __name__ == "__main__":
     str_table += print_bottom(configs, ar["rows"])
     print(str_table)
     
+
 
 
 
