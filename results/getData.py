@@ -332,7 +332,7 @@ def print_info(i, cfgs, rows, rowsinfo, info):
                 else:
                     line += str(i["status"])
                 line += " ({0:.2f}s)".format(i["cputime"])
-
+                #line += "<span>a1</span><span>a2</span>"
             else:
                 line += ">"
             line+= "</td>"
@@ -376,6 +376,7 @@ if __name__ == "__main__":
     str_table += print_bottom(configs, ar["rows"])
     print(str_table)
     
+
 
 
 
