@@ -26,7 +26,7 @@ while [ $# -gt 0 ]; do
 	    shift
 	    ;;
 	-p|--path)
-	    if [ "${2:0:1}" = "/"]; then
+	    if [ "${2:0:1}" = "/" ]; then
 		path=$2
 	    else
 		path=$basedir"/"$2
@@ -72,7 +72,7 @@ install_opam(){
 install_opam_libs(){
     opam install -y ocamlfind camlp4 ocamlgraph yojson apron
     opam install -y z3
-    export LD_LIBRARY_PATH=~/.opam/system/lib/Z3:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=~/.opam/4.04.0/lib/Z3:$LD_LIBRARY_PATH
 }
 
 install_dependencies(){
