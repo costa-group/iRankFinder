@@ -72,7 +72,7 @@ install_opam(){
 install_opam_libs(){
     opam install -y ocamlfind camlp4 ocamlgraph yojson apron
     opam install -y z3
-    export LD_LIBRARY_PATH=~/.opam/4.04.0/lib/Z3:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=~/.opam/4.04.0/lib/z3:$LD_LIBRARY_PATH
 }
 
 install_dependencies(){
