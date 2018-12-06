@@ -12,7 +12,7 @@ mkdir -p $OUTSDIR
 # mkdir -p $TMPDIR/t2
 echo "<eiout>"
 
-python3 $pyRF ${@:2} --ei-out -od "$OUTSDIR/" 2> "$TMPDIR/errors"
+python3 $pyRF ${@:2} --ei-out --tmpdir "$TMPDIR" -od "cfr_results" 2> "$TMPDIR/errors"
 
 
 echo "<eicommands>"
