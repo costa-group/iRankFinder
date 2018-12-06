@@ -60,9 +60,15 @@ install_opam(){
     install_apt opam
     opam init -y
     eval `opam config env`
+    echo ". /root/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true" >> ~/.profile
+    echo "      let () =" >> ~/.ocamlinit
+    echo '        try Topdirs.dir_directory (Sys.getenv "OCAML_TOPLEVEL_PATH")' >> ~/.ocamlinit
+    echo "        with Not_found -> ()" >> ~/.ocamlinit
+    echo "      ;;" >> ~/.ocamlinit
     opam switch 4.04.0 -y
-
+    eval `opam config env`
 }
+
 install_opam_libs(){
     opam install -y ocamlfind camlp4 ocamlgraph yojson apron
     opam install -y z3
