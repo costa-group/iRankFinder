@@ -19,7 +19,7 @@ echo "<eicommands>"
 if [ -s "$TMPDIR/errors" ]; then
     echo "<printonconsole consoleid='errors' consoletitle='Errors'><content><![CDATA["
     echo "========== Command line ====================================="
-    echo ${@:2} --ei-out -od "$OUTSDIR/"
+    echo ${@:2} --ei-out --tmpdir "$TMPDIR" -od "cfr_results"
     echo "=============================================================="
     cat "$TMPDIR/errors"
     echo "]]></content></printonconsole>"
