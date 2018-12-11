@@ -12,14 +12,14 @@ mkdir -p $OUTSDIR
 # mkdir -p $TMPDIR/t2
 echo "<eiout>"
 
-$pyRF ${@:2} --ei-out -of fc svg -od "$OUTSDIR/" 2> "$TMPDIR/errors"
+$pyRF ${@:2} --ei-out -of fc svg -od "$OUTSDIR/" --print-graphs 2> "$TMPDIR/errors"
 
 
 echo "<eicommands>"
 if [ -s "$TMPDIR/errors" ]; then
     echo "<printonconsole consoleid='errors' consoletitle='Errors'><content><![CDATA["
     echo "========== Command line ====================================="
-    echo ${@:2} --ei-out -of fc svg -od "$OUTSDIR/"
+    echo ${@:2} --ei-out -of fc svg -od "$OUTSDIR/" --print-graphs
     echo "=============================================================="
     cat "$TMPDIR/errors"
     echo "]]></content></printonconsole>"
