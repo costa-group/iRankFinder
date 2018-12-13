@@ -35,11 +35,11 @@ install_pyeiol(){
 	git clone --quiet https://github.com/abstools/easyinterface.git ./pyeiol > /dev/null
 	pushd pyeiol > /dev/null
 	git checkout develop > /dev/null
-	cd ./outputlanguage/python
     else
 	pushd pyeiol > /dev/null
 	git pull
     fi
+    cd ./outputlanguage/python
     ssudo python3 -m pip install -U .
     popd > /dev/null
     if [ "$temporal" == "true" ]; then
@@ -83,13 +83,13 @@ install_iRankFinder_clone(){
     # pyeiol
     install_pyeiol false
     # pplpy
-    clone_and_install pplpy master
+    clone_and_install pplpy
     # pyLPi
-    clone_and_install pyLPi master
+    clone_and_install pyLPi
     # pyParser
-    clone_and_install pyParser master
+    clone_and_install pyParser
     # pyRankFinder
-    clone_and_install pyRankFinder $branch
+    clone_and_install pyRankFinder
     popd > /dev/null
 }
 
@@ -97,7 +97,6 @@ install_iRankFinder_clone(){
 basedir=$(dirname "$(readlink -f "$0" )")
 mode=false
 version=latest
-branch=master
 sudo=false
 path=$TOOLS_HOME
 while [ $# -gt 0 ]; do

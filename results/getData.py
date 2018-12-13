@@ -13,8 +13,8 @@ _ops = {"cfr_iterations":"cfr_iterations",
         "invariants":"invariants",
         "lib":"lib",
         "cfr":"cfr_iterations",
-        "cfr_st": "cfr_strategy",
         "cfr_strategy": "cfr_strategy",
+        "cfr_st": "cfr_strategy",
         "dt":"different_template",
         "inv":"invariants",
         "termination":"termination",
@@ -30,13 +30,13 @@ _revops = {"cfr_iterations":"cfr_it",
            "termination":"algs",
            "nontermination":"nt_algs",
 }
-_kops = ["cfr_iterations", "cfr_strategy", "different_template","invariants","lib","termination","nontermination"]
-_possibles ={"cfr_iterations":[0,1,2,3,4,5,6,7],
-             "cfr_strategy":["none", "before", "scc"],
+_kops = ["cfr_iterations", "cfr_strategy", "different_template", "invariants", "lib", "termination", "nontermination"]
+_possibles ={"cfr_iterations": [0,1,2,3,4,5,6,7],
+             "cfr_strategy": ["none", "before", "scc", "after", "befscc", "befafter"],
              "different_template":["never", "iffail", "always"],
-             "invariants":["none", "interval", "polyhedra", "octagon"]
-,             "lib":["ppl", "z3"],
-             "nontermination":["fixpoint", "monotonicrecset","none"],
+             "invariants": ["none", "interval", "polyhedra", "octagon"],
+             "lib": ["ppl", "z3"],
+             "nontermination": ["fixpoint", "monotonicrecset", "none"],
              "termination": ["qlrf_adfg", "qlrf_adfg_nonoptimal", "lrf_pr", "qnlrfv1_1_1", "qnlrfv1_2_2"]
 }
 PRINTALL=False
@@ -48,7 +48,7 @@ def equivalent(opt):
 
 def setArgumentParser():
     pets = _possibles["cfr_iterations"]
-    cfr_mode = _possibles["cfr_strategy"]
+    cfr_st = _possibles["cfr_strategy"]
     als = _possibles["termination"]
     nt_als = _possibles["nontermination"]
     libs = _possibles["lib"]
@@ -79,7 +79,7 @@ def setArgumentParser():
                            nargs='*', help="invariants")
     argParser.add_argument("-cfr-it", "--cfr-iterations", required=False, choices=pets, default=[0,1],
                            type=int, nargs='*', help="cfr_iterations")
-    argParser.add_argument("-cfr-st", "--cfr-strategy", required=False, choices=pets, default=cfr_mode,
+    argParser.add_argument("-cfr-st", "--cfr-strategy", required=False, choices=cfr_st, default=cfr_st,
                            nargs='*', help="cfr_strategy")
     argParser.add_argument("-all", "--print-all", action="store_true", default=False)
         
@@ -269,7 +269,7 @@ def print_bottom(cfgs, rows):
         bottom += "<td></td>"
     i = 0
     for c in cfgs:
-        minc = {_revops[k]:c["config"][k] for k in c["config"]}
+        minc = {_revops[k]: c["config"][k] for k in c["config"]}
         i += 1
         bottom += '<td><b>'+add_tooltip("conf"+str(i),str(json.dumps(minc, indent=2, sort_keys=True)))+"</b></td>"
     bottom += "</tr>\n\t</tbody>\n</table>"
@@ -289,9 +289,14 @@ def get_i(config, info):
                 if c[k] == config[k]:
                     continue
             except:
-                if k == "invariants":
-                    if c["nodeproperties"] == config[k]:
-                        continue
+                if k == "cfr_strategy":
+                    cfr_before = config[k] in ["before", "befscc", "befafter"]
+                    cfr_scc = config[k] in ["scc", "befscc"]
+                    cfr_after = config[k] in ["after", "befafter"]
+                    if c["cfr_strategy_before"] == cfr_before:
+                        if c["cfr_strategy_scc"] == cfr_scc:
+                            if c["cfr_strategy_after"] == cfr_after:
+                                continue
             good = False
             break
         if good:
@@ -395,6 +400,8 @@ if __name__ == "__main__":
     str_table += print_bottom(configs, ar["rows"])
     print(str_table)
     
+
+
 
 
 
