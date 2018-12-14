@@ -1,0 +1,308 @@
+{
+	vars: [i, j, k, l, n, r, u, x, y, z],
+	initnode: init,
+	nodes: {
+		body2_1: {    },
+		body2_2: {    },
+		body2_3: { asserts: [[[k <= n, 0 <= r, r <= n]]] },
+		else2_assert1: { asserts: [[[0 <= k, k <= n, 0 <= j, j <= n]]] },
+		endif2: {    },
+		entry_for: {    },
+		exit: {    },
+		for: {    },
+		for_assert1: { asserts: [[[0 <= k, k <= n]]] },
+		if1: {    },
+		if1_assert1: { asserts: [[[x >= 1]]] },
+		if2: { asserts: [[[0 <= i, i <= n, 0 <= j, j <= n]]] },
+		if2_assert1: { asserts: [[[0 <= i, i <= n, 0 <= k, k <= n]]] },
+		init: {    },
+		while1: {    },
+		while2: {    },
+		while3: {    },
+		while4: {    },
+		while4_assert1: { asserts: [[[0 <= i, i <= n, 0 <= k, k <= n]]] },
+		while5: {    },
+		while5_assert1: { asserts: [[[0 <= k, k <= n, 0 <= j, j <= n]]] }
+	},
+	transitions: [
+		{
+			name: t0,
+			source: init,
+			target: while1,
+			constraints: [x' = 1]
+		},{
+			name: t1,
+			source: while1,
+			target: exit,
+			constraints: [x >= n,
+				i' = i, j' = j, k' = k, l' = l, n' = n, r' = r, u' = u, x' = x, y' = y, z' = z
+			]
+		},{
+			name: t2,
+			source: while1,
+			target: while2,
+			constraints: [
+				x < n, z' = 1,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y
+			]
+		},{
+			name: t3,
+			source: while2,
+			target: while1,
+			constraints: [
+				z + x > n, x' = 2 * x,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				y' = y, z' = z
+			]
+		},{
+			name: t4,
+			source: while2,
+			target: if1,
+			constraints: [
+				z + x <= n, y' = z + 2 * x,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, z' = z
+			]
+		},{
+			name: t5,
+			source: if1,
+			target: if1_assert1,
+			constraints: [
+				y > n, y' = n + 1,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, z' = z
+			]
+		},{
+			name: t5b,
+			source: if1_assert1,
+			target: body2_1,
+			constraints: [
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t6,
+			source: if1,
+			target: body2_1,
+			constraints: [
+				y <= n,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t7,
+			source: body2_1,
+			target: body2_2,
+			constraints: [
+				l' = z, r' = z + x, u' = y,
+				i' = i, j' = j, k' = k,
+				n' = n,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t8,
+			source: body2_2,
+			target: while3,
+			constraints: [
+				i' = l, j' = r, k' = l,
+				l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t9,
+			source: while3,
+			target: if2,
+			constraints: [
+				j < u, i < r,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t10a,
+			source: if2,
+			target: if2_assert1,
+			constraints: [
+				i' = i, k' = k, l' = l, j' = j,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t10b,
+			source: if2_assert1,
+			target: endif2,
+			constraints: [
+				j' = j + 1,
+				i' = i, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t11a,
+			source: if2,
+			target: else2_assert1,
+			constraints: [
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t11b,
+			source: else2_assert1,
+			target: endif2,
+			constraints: [
+				i' = i + 1,
+				j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t12,
+			source: endif2,
+			target: while3,
+			constraints: [
+				k' = k + 1,
+				i' = i, j' = j, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t13,
+			source: while3,
+			target: body2_3,
+			constraints: [
+				j >= u,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t14,
+			source: while3,
+			target: body2_3,
+			constraints: [
+				i >= r,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t15,
+			source: body2_3,
+			target: while4,
+			constraints: [
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t16a,
+			source: while4,
+			target: while4_assert1,
+			constraints: [
+				i < r,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t16b,
+			source: while4_assert1,
+			target: while4,
+			constraints: [
+				i' = i + 1, k' = k + 1,
+				j' = j, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t17,
+			source: while4,
+			target: while5,
+			constraints: [
+				i >= r,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t18a,
+			source: while5,
+			target: while5_assert1,
+			constraints: [
+				j < u,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t18b,
+			source: while5_assert1,
+			target: while5,
+			constraints: [
+				j' = j + 1, k' = k + 1,
+				i' = i, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t19,
+			source: while5,
+			target: entry_for,
+			constraints: [
+				j >= u,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t20,
+			source: entry_for,
+			target: for,
+			constraints: [
+				k' = l,
+				i' = i, j' = j, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t21a,
+			source: for,
+			target: for_assert1,
+			constraints: [
+				k < u,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t21b,
+			source: for_assert1,
+			target: for,
+			constraints: [
+				k' = k + 1,
+				i' = i, j' = j, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y, z' = z
+			]
+		},{
+			name: t22,
+			source: for,
+			target: while2,
+			constraints: [
+				k >= u, z' = z + 2 * x,
+				i' = i, j' = j, k' = k, l' = l,
+				n' = n, r' = r, u' = u,
+				x' = x, y' = y
+			]
+		}
+	]
+}

@@ -1,0 +1,60 @@
+{
+	vars: [x, y, flag],
+	initnode: init,
+	nodes: {
+		exit: { asserts: [[[y == -2, x == 99]]] },
+	    if1: {    },
+	    if2: {    },
+	    if3: {    },
+	    init: {    },
+	    while: {    }
+    },
+	transitions: [
+		{
+			name: t0,
+			source: init,
+			target: while,
+			constraints: [x' = 0, y' = 0, flag' = 0]
+		},{
+			name: t1,
+			source:while,
+			target: exit,
+			constraints: [flag >= 1, x' = x, y' = y, flag' = flag]
+		},{
+			name: t2,
+			source: while,
+			target: if1,
+			constraints: [flag < 1, x' = x, y' = y, flag' = flag]
+		},{
+			name: t3,
+			source: if1,
+			target: if2,
+			constraints: [y < 0, x' = x, y' = y, flag' = 1]
+		},{
+			name: t4,
+			source: if1,
+			target: if2,
+			constraints: [y >= 0, x' = x, y' = y, flag' = flag]
+		},{
+			name: t5,
+			source: if2,
+			target: if3,
+			constraints: [flag < 1, x' = x + 1, y' = y, flag' = flag]
+		},{
+			name: t6,
+			source: if2,
+			target: if3,
+			constraints: [flag >= 1, x' = x, y' = y, flag' = flag]
+		},{
+			name: t7,
+			source: if3,
+			target: while,
+			constraints: [x < 50, x' = x, y' = y + 1, flag' = flag]
+		},{
+			name: t8,
+			source: if3,
+			target: while,
+			constraints: [x >= 50, x' = x, y' = y - 1, flag' = flag]
+		}
+	]
+}
