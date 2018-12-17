@@ -1,0 +1,218 @@
+{
+	vars: [i, j, k, l],
+	initnode: init,
+	nodes: {
+		body2_1: { asserts: [[[1 <= i, i <= n, 1 <= j, j <= n]]] },
+		body3_1: { asserts: [[[1 <= i, i <= n, 1 <= j, j <= n, 1 <= l, l <= n]]] },
+		body5_1: { asserts: [[[1 <= k, k <= n, 1 <= j, j <= n]]] },
+		body6_1: { asserts: [[[1 <= i, i <= n, 1 <= j, j <= n, 1 <= k, k <= n]]] },
+		endif1: { asserts: [[[1 <= i, i <= n]]] },
+		entry_for1: {    },
+		entry_for2: {    },
+		entry_for3: {    },
+		entry_for4: {    },
+		entry_for5: {    },
+		entry_for6: {    },
+		exit: { asserts: [[[l == i + 1]]] },
+		for1: {    },
+		for2: {    },
+		for3: {    },
+		for4: {    },
+		for5: {    },
+		for6: {    },
+		if1: {    },
+		if2: {    },
+		init: {    },
+	}
+	transitions: [
+		{
+			name: t0,
+			source: init,
+			target: entry_for1,
+			constraints: [l > 0, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t1,
+			source: entry_for1,
+			target: for1,
+			constraints: [i' = n, j' = j, k' = k, l' = l]
+		},{
+			name: t2,
+			source: for1,
+			target: exit,
+			constraints: [i < 1, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t3,
+			source: for1,
+			target: if1,
+			constraints: [i >= 1, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t4,
+			source: if1,
+			target: endif1,
+			constraints: [i >= n, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t5,
+			source: endif1,
+			target: for1,
+			constraints: [i' = i - 1, j' = j, k' = k, l' = i]
+		},{
+			name: t6,
+			source: if1,
+			target: if2,
+			constraints: [i < n, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t7,
+			source: if2,
+			target: entry_for2,
+			constraints: [i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t8,
+			source: entry_for2,
+			target: for2,
+			constraints: [i' = i, j' = l, k' = k, l' = l]
+		},{
+			name: t9a,
+			source: for2,
+			target: body2_1,
+			constraints: [j <= n, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t9b,
+			source: body2_1,
+			target: for2,
+			constraints: [i' = i, j' = j + 1, k' = k, l' = l]
+		},{
+			name: t10,
+			source: for2,
+			target: endif1,
+			constraints: [j > n, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t11,
+			source: if2,
+			target: entry_for3,
+			constraints: [i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t12,
+			source: entry_for3,
+			target: for3,
+			constraints: [i' = i, j' = l, k' = k, l' = l]
+		},{
+			name: t13a,
+			source: for3,
+			target: body3_1,
+			constraints: [j <= n, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t13b,
+			source: body3_1,
+			target: for3,
+			constraints: [i' = i, j' = j + 1, k' = k, l' = l]
+		},{
+			name: t14,
+			source: for3,
+			target: entry_for4,
+			constraints: [j > n, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t15,
+			source: entry_for4,
+			target: for4,
+			constraints: [i' = i, j' = l, k' = k, l' = l]
+		},{
+			name: t16,
+			source: for4,
+			target: entry_for2,
+			constraints: [j > n, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t17,
+			source: for4,
+			target: entry_for5,
+			constraints: [j <= n, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t18,
+			source: entry_for5,
+			target: for5,
+			constraints: [i' = i, j' = j, k' = l, l' = l]
+		},{
+			name: t19a,
+			source: for5,
+			target: body5_1,
+			constraints: [k <= n, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t19b,
+			source: body5_1,
+			target: for5,
+			constraints: [i' = i, j' = j, k' = k + 1, l' = l]
+		},{
+			name: t20,
+			source: for5,
+			target: entry_for6,
+			constraints: [k > n, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t21,
+			source: entry_for6,
+			target: for6,
+			constraints: [i' = i, j' = j, k' = l, l' = l]
+		},{
+			name: t22a,
+			source: for6,
+			target: body6_1,
+			constraints: [k <= n, i' = i, j' = j, k' = k, l' = l]
+		},{
+			name: t22b,
+			source: body6_1,
+			target: for6,
+			constraints: [i' = i, j' = j, k' = k + 1, l' = l]
+		},{
+			name: t23,
+			source: for6,
+			target: for4,
+			constraints: [k > n, i' = i, j' = j, k' = k, l' = l]
+		}
+	],
+	c_source:"#include <math.h>
+	#include \"nrutil.h\"
+	#include \"assert.h\"
+	int NONDET;
+
+	void main(int n)
+	{
+	  int i,j,k,l;
+	  
+	  //tmpl(\"(le(n,l,i,j,k),le(n,l,i,j,k))\");
+
+	  assume(l>0);
+
+	  for (i=n;i>=1;i--) { // Accumulation of right-hand transformations. 
+		if (i < n) {
+		  if ( NONDET ) {
+		for (j=l;j<=n;j++) { // Double division to avoid possible underflow.   
+		  assert(1<=j);assert(j<=n);
+		  assert(1<=i);assert(i<=n);
+		  //assert(1<=i);assert(i<=m); // TODO feasible counterexample found
+		  assert(1<=l);assert(l<=n);
+		}
+		for (j=l;j<=n;j++) {
+		  for (k=l;k<=n;k++) { 
+			//assert(1<=i);assert(i<=m); // TODO feasible counterexample found
+			assert(1<=k);assert(k<=n);
+			assert(1<=j);assert(j<=n);
+		  }
+		  for (k=l;k<=n;k++) { 
+			assert(1<=k);assert(k<=n);
+			assert(1<=j);assert(j<=n);
+			assert(1<=i);assert(i<=n);
+		  }
+		}
+		  }
+		  for (j=l;j<=n;j++) { 
+		    assert(1<=j);assert(j<=n);
+		assert(1<=i);assert(i<=n);
+		  }
+		}
+		
+		assert(1<=i);
+		assert(i<=n);
+		assert(1<=i);assert(i<=n);
+		l=i;
+	  }
+	 assert(l==i+1);
+	}"
+}

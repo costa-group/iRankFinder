@@ -1,0 +1,252 @@
+{
+	vars: [i, j, l, n, r],
+	initnode: init,
+	nodes: {
+	    assume: {    },
+		body2_1: { asserts: [[[1 <= i, i <= n, 1 <= j, j <= n]]] },
+		exit: { asserts: [[[l == 1]]]   },
+		if1: {    },
+		if2: {    },
+		if2_assert1: { asserts: [[[1 <= l, l <= n]]] },
+		if2_assert2: { asserts: [[[1 <= r, r <= n]]] },
+		if3: {    },
+		if4: { asserts: [[[1 <= j, j <= n, 1 <= j + 1, j + 1 <= n]]] },
+		if5: { asserts: [[[1 <= j, j <= n]]] },
+		init: {    },
+		while1: {    },
+		while2: {    },
+	},
+	transitions: [
+		{
+			name: t0,
+			source: init,
+			target: assume,
+			constraints: [
+				n >= 1, n' = n + n, l' = n + 1,
+				i' = i, j' = j,
+				r' = r
+			]
+		},{
+			name: t1,
+			source: assume,
+			target: if1,
+			constraints: [
+				r' = n,
+				i' = i, j' = j,
+				l' = l,
+				n' = n
+			]
+		},{
+			name: t2,
+			source: if1,
+			target: while1,
+			constraints: [
+				l > 1, l' = l - 1,
+				i' = i, j' = j,
+				r' = r,
+				n' = n
+			]
+		},{
+			name: t3,
+			source: if1,
+			target: while1,
+			constraints: [
+				l <= 1, r' = r - 1,
+				i' = i, j' = j,
+				l' = l,
+				n' = n
+			]
+		},{
+			name: t4,
+			source: while1,
+			target: exit,
+			constraints: [
+				r <= 1,
+				i' = i, j' = j,
+				l' = l, r' = r,
+				n' = n
+			]
+		},{
+			name: t5,
+			source: while1,
+			target: while2,
+			constraints: [
+				r > 1, i' = l, j' = 2 * l,
+				l' = l, r' = r,
+				n' = n
+			]
+		},{
+			name: t6,
+			source: while2,
+			target: if3,
+			constraints: [
+				j <= r,
+				i' = i, j' = j,
+				l' = l, r' = r,
+				n' = n
+			]
+		},{
+			name: t7,
+			source: if3,
+			target: if4,
+			constraints: [
+				j < r,
+				i' = i, j' = j,
+				l' = l, r' = r,
+				n' = n
+			]
+		},{
+			name: t8,
+			source: if3,
+			target: if5,
+			constraints: [
+				j >= r,
+				i' = i, j' = j,
+				l' = l, r' = r,
+				n' = n
+			]
+		},{
+			name: t9,
+			source: if4,
+			target: if5,
+			constraints: [
+				i' = i, j' = j + 1,
+				l' = l, r' = r,
+				n' = n
+			]
+		},{
+			name: t10,
+			source: if4,
+			target: if5,
+			constraints: [
+				i' = i, j' = j,
+				l' = l, r' = r,
+				n' = n
+			]
+		},{
+			name: t11,
+			source: if5,
+			target: if2,
+			constraints: [
+				i' = i, j' = j,
+				l' = l, r' = r,
+				n' = n
+			]
+		},{
+			name: t12,
+			source: if5,
+			target: body2_1,
+			constraints: [
+				i' = i, j' = j,
+				l' = l, r' = r,
+				n' = n
+			]
+		},{
+			name: t13,
+			source: body2_1,
+			target: while2,
+			constraints: [
+				i' = j, j' = 2 * j,
+				l' = l, r' = r,
+				n' = n
+			]
+		},{
+			name: t14,
+			source: while2,
+			target: if2,
+			constraints: [
+				j < r,
+				i' = i, j' = j,
+				l' = l, r' = r,
+				n' = n
+			]
+		},{
+			name: t15a,
+			source: if2,
+			target: if2_assert1,
+			constraints: [
+				l > 1,
+				i' = i, j' = j,
+				l' = l, r' = r,
+				n' = n
+			]
+		},{
+			name: t15b,
+			source: if2_assert1,
+			target: while1,
+			constraints: [
+				l' = l - 1,
+				i' = i, j' = j,
+				r' = r,
+				n' = n
+			]
+		},{
+			name: t16a,
+			source: if2,
+			target: if2_assert2,
+			constraints: [
+				l <= 1,
+				i' = i, j' = j,
+				l' = l, r' = r,
+				n' = n
+			]
+		},{
+			name: t16b,
+			source: if2_assert2,
+			target: while1,
+			constraints: [
+				r' = r - 1,
+				i' = i, j' = j,
+				l' = l,
+				n' = n
+			]
+		}
+
+	],
+	c_source:"#include \"assert.h\"
+	int __BLAST_NONDET;
+
+	void foo( ){
+	  int n,l,r,i,j;
+	  
+	  assume(1 <= n);
+	  l = n + 1;
+	  n=n+n;
+	  r = n;
+	  if(l>1) {
+		l--;
+	  } else {
+		r--;
+	  }
+	  while(r > 1) {
+		i = l;
+		j = 2*l;
+		while(j <= r) {
+		  if( j < r) {
+		assert(1 <= j);assert(j <= n);
+		assert(1 <= j+1);assert(j+1 <= n);
+		if( __BLAST_NONDET )
+		  j = j + 1;
+		  }
+		  assert(1 <= j);assert(j <= n);
+		  if( __BLAST_NONDET ) { 
+		  	break;
+		  }
+		  assert(1 <= i);
+		  assert(i <= n);
+		  assert(1 <= j);
+		  assert(j <= n);
+		  i = j;
+		  j = 2*j;
+		}
+		if(l > 1) {
+		  assert(1 <= l);assert(l <= n);
+		  l--;
+		} else {
+		  assert(1 <= r);assert(r <= n);
+		  r--;
+		}
+	  }
+	  assert(l==1);
+	}"
+}
