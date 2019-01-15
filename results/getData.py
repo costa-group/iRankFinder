@@ -46,6 +46,7 @@ def equivalent(opt):
         return _ops[opt]
     raise Exception("Option ({}) not available".format(opt))
 
+
 def setArgumentParser():
     pets = _possibles["cfr_iterations"]
     cfr_st = _possibles["cfr_strategy"]
@@ -73,22 +74,21 @@ def setArgumentParser():
                            nargs='*', help="algorithms")
     argParser.add_argument("-ntals", "--nontermination", required=False, choices=nt_als, default=nt_als,
                            nargs='*', help="nontermination algorithms")
-    argParser.add_argument("-libs", "--lib",  required=False, choices=libs, default=["ppl"],
+    argParser.add_argument("-libs", "--lib",  required=False, choices=libs, default=["z3"],
                            nargs='*', help="libs")
     argParser.add_argument("-invs", "--invariants", required=False, choices=invs, default=["none", "polyhedra"],
                            nargs='*', help="invariants")
     argParser.add_argument("-cfr-it", "--cfr-iterations", required=False, choices=pets, default=[0,1],
                            type=int, nargs='*', help="cfr_iterations")
-    argParser.add_argument("-cfr-st", "--cfr-strategy", required=False, choices=cfr_st, default=cfr_st,
+    argParser.add_argument("-cfr-st", "--cfr_strategy", required=False, choices=cfr_st, default=cfr_st,
                            nargs='*', help="cfr_strategy")
     argParser.add_argument("-all", "--print-all", action="store_true", default=False)
-        
     return argParser
 
 
 def getfiles(relevant_path, prefix):
     included_extensions = ['json']
-    return [os.path.join(relevant_path,fn) for fn in os.listdir(relevant_path)
+    return [os.path.join(relevant_path, fn) for fn in os.listdir(relevant_path)
             if (fn.startswith(prefix) and
                 any(fn.endswith(ext) for ext in included_extensions))]
 
@@ -104,7 +104,7 @@ def get_info(filename):
         print("Imposible")
         print(filename)
         raise Exception("Como has llegado aqui?")
-    if not "analysis" in info:
+    if "analysis" not in info:
         info["analysis"] = []
     for a in info["analysis"]:
         ntter = []
@@ -120,6 +120,7 @@ def get_info(filename):
         a["status"] = str(a["status"])
         a["date"] = datetime.datetime.strptime(a["date"], "%Y-%m-%dT%H:%M:%S.%f")
     return info
+
 
 def orderntalgs(a, b):
     if a == b:
@@ -195,7 +196,7 @@ def order(item1, item2):
             return -1
         else:
             if len(ta) != 0:
-                als = orderalgs(ta[0],tb[0])
+                als = orderalgs(ta[0], tb[0])
                 if als != 0:
                     return als
     if "nontermination" in a and "nontermination" in b:
@@ -207,7 +208,7 @@ def order(item1, item2):
             return -1
         else:
             if len(nta) != 0:
-                als = orderntalgs(nta[0],ntb[0])
+                als = orderntalgs(nta[0], ntb[0])
                 if als != 0:
                     return als
     ks = ["lib", "invariants", "different_template"]
@@ -220,13 +221,16 @@ def order(item1, item2):
 
     return 0
 
+
 def print_selector(ID, name, value):
     v = ""
     if isinstance(value, list):
         v = " ".join([str(vv) for vv in value])
     else:
         v = str(value)
-    return '<span><b>'+name+':</b> <input type="text" name="'+ID+'" value="'+v+'" /></span><br/>\n'
+    return '<span><b>' + name + ':</b> <input type="text" name="' + ID + '" value="' + v + '" /></span><br/>\n'
+
+
 def print_selectors(params):
     selector = "<h2>Filters</h2>\n"
     selector += "<form action='?' method='get' accept-charset='utf-8' id='filterform'>\n"
@@ -249,7 +253,7 @@ def print_selectors(params):
     selector += "</form>"
     return selector
 
-        
+
 def print_head(cfgs, rows):
     head = "<table>\n\t<col class='number'><col class='name'>"
     head += "<thead>\n\t\t<tr><th>#</th><th>Name</th>"
@@ -257,11 +261,12 @@ def print_head(cfgs, rows):
         head += "<th>"+str(rows)+"</th>"
     i = 0
     for c in cfgs:
-        minc = {_revops[k]:c["config"][k] for k in c["config"]}
+        minc = {_revops[k]: c["config"][k] for k in c["config"]}
         i += 1
         head += '<th>'+add_tooltip("conf"+str(i),str(json.dumps(minc, indent=2, sort_keys=True)))+"</th>"
     head += "</tr>\n\t</thead>\n\t<tbody>\n"
     return head
+
 
 def print_bottom(cfgs, rows):
     bottom = "\n\t\t<tr><td></td><td></td>"
@@ -275,10 +280,10 @@ def print_bottom(cfgs, rows):
     bottom += "</tr>\n\t</tbody>\n</table>"
     return bottom
 
+
 def get_i(config, info):
     aas = info["analysis"]
     valids = []
-    
     for a in aas:
         c = a["config"]
         good = True
@@ -301,19 +306,89 @@ def get_i(config, info):
             break
         if good:
             valids.append(a)
-    if len(valids) == 0:
-        return None
     valids.sort(key=lambda a: a["date"], reverse=True)
-    return valids[0]
-            
-def add_dialog(diagid, btn_text, title, content):
-     return add_tooltip(btn_text, content)
+    return valids
 
-def add_tooltip(text, content):
-    return '<span title="<div>'+content.replace("\n","<br/>").replace('"',"'").replace(' ',"&nbsp;")+'</div>">'+text+'</span>'
+
+def toHTML(text):
+    strs = str(text)
+    return strs.replace("\n", "<br/>").replace('"', "'").replace(' ', "&nbsp;")
+
+
+def add_dialog(diagid, title, content):
+    text = '<div id="' + diagid + '" title="' + title + '">\n'
+    text += (content)
+    text += '\n</div>\n'
+    text += '<script>\n'
+    text += '$("#' + diagid + '").dialog({\n\tautoOpen: false,\n'
+    text += '\theight: 400,\n\twidth: 600,\n'
+    text += '\tposition: { my: "right center", at: "left center", of: "#op' + diagid + '"},\n'
+    text += '\tshow: {\n'
+    text += '\t\teffect: "blind",\n\t\tduration: 1000\n},hide: {\n'
+    text += '\t\teffect: "explode",\n\t\tduration: 1000\n}});\n'
+    text += '$("#op' + diagid + '").on( "click", function() {\n'
+    text += '$("#' + diagid + '").dialog( "open" ); });\n'
+    text += '</script>\n'
+    return text
+
+
+def build_table(ies):
+    text = "<table><thead><tr><th>Date</th><th>Answer</th>"
+    text += "<th>CPU time</th><th>Memory</th></tr></thead><tbody>\n"
+    cput = 0
+    mem = 0
+    for i in ies:
+        status = str(i["status"])
+        terminate = False
+        nonterminate = False
+        btn_text = ""
+        if status == "Terminate":
+            terminate = True
+            btn_text += "YES"
+        elif status == "NonTerminate":
+            nonterminate = True
+            btn_text += "NO"
+        elif status == "Error":
+            btn_text += "Err"
+        elif status == "Unknown":
+            btn_text += "MAYBE"
+        else:
+            btn_text += str(i["status"])
+        cput += i["cputime"]
+        mem += i["memory"]
+        line = '<tr><td>' + i["date"].strftime("%Y-%m-%d %H:%M:%S") + '</td>'
+        line += '<td>' + add_tooltip(btn_text, i["output"]) + '</td>'
+        line += '<td>' + "{:.6f}".format(i["cputime"]) + '</td>'
+        line += '<td>' + str(i["memory"]) + '</td>'
+        line += '</tr>\n'
+        text += line
+    n = len(ies)
+    text += '<tr><td>' + str(n) + ' executions</td><td>AVERAGE</td>'
+    text += '<td>' + str("{:.6f}".format(cput / n)) + '</td>'
+    text += '<td>' + str("{:.2f}".format(mem / n)) + '</td>'
+    text += "</tr>\n\t</tbody>\n</table>"
+    return text
+
+
+def add_desc(diagid, btn_text, title, ies):
+    text = add_tooltip(btn_text, ies[0]["output"], id_="op"+diagid)
+    content = build_table(ies)
+    text += add_dialog(diagid, title, content)
+    return text
+
+
+def add_tooltip(btn_text, content, id_=None):
+    text = '<span'
+    if id_ is not None:
+        text += ' id="' + id_ + '"'
+    text += ' title="<div>'
+    text += toHTML(content) + '</div>">'
+    text += btn_text+'</span>'
+    return text
+
 
 def print_info(it, cfgs, rows, rowsinfo, info):
-    nr = max(1,len(rowsinfo))
+    nr = max(1, len(rowsinfo))
     line = "\t\t<tr class='upper'><td rowspan='"+str(nr)+"'>"+str(it)+"</td>"
     line += "<td rowspan='"+str(nr)+"'>"+info["id"]+"</td>"
     count = 0
@@ -332,9 +407,10 @@ def print_info(it, cfgs, rows, rowsinfo, info):
                     lc[rows] = [rowsinfo[ith]]
                 else:
                     lc[rows] = rowsinfo[ith]
-            i = get_i(lc, info)
-            line+= "<td"
-            if (PRINTALL or (not terminate and not nonterminate)) and i is not None:
+            ies = get_i(lc, info)
+            line += "<td"
+            if (PRINTALL or not (terminate or nonterminate)) and len(ies) > 0:
+                i = ies[0]
                 line += " class='"+str(i["status"]).replace(" ", "")+"'>"
                 status = str(i["status"])
                 terminate = False
@@ -353,13 +429,18 @@ def print_info(it, cfgs, rows, rowsinfo, info):
                 else:
                     btn_text += str(i["status"])
                 btn_text += " ({0:.2f}s)".format(i["cputime"])
-                line += add_dialog("diag"+str(it*10000+count), btn_text, "Execution Output", str(i["output"]))
+                diagid = "diag" + str(it * 10000 + count)
+                tit = "Executions: " + info["id"]
+                line += add_desc(diagid, btn_text, tit, ies)
+
             else:
                 line += ">"
+
             line += "</td>"
         line += "</tr>\n"
     return line
-            
+
+
 if __name__ == "__main__":
     argParser = setArgumentParser()
     args = argParser.parse_args(sys.argv[1:])
@@ -370,7 +451,7 @@ if __name__ == "__main__":
     else:
         ar["rows"] = "None"
     ar["None"] = [""]
-    configs = [{"config":{}}]
+    configs = [{"config": {}}]
     PRINTALL = ar["print_all"]
     for k in _kops:
         nconfs = []
@@ -395,24 +476,7 @@ if __name__ == "__main__":
     str_table = print_head(configs, ar["rows"])
     i = 0
     for info in infos:
-        i+=1
+        i += 1
         str_table += print_info(i, configs, ar["rows"], ar[ar["rows"]], info)
     str_table += print_bottom(configs, ar["rows"])
     print(str_table)
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
