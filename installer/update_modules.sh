@@ -17,6 +17,9 @@ $1: $0 ([OPTIONS])
     -p | --path )
         Path to tools root. By defualt:  \$TOOLS_HOME='$TOOLS_HOME'
 
+    --update-ppl )
+        Flag to update the python ppl library.
+
 EOF
 }
 
@@ -50,7 +53,9 @@ install_pyeiol(){
 
 install_iRankFinder_remote(){
     install_pyeiol true
-    ssudo python3 -m pip install -U "git+https://github.com/jesusjda/pplpy.git#egg=pplpy" --process-dependency-links
+    if [ "$upPPL" == "true" ]; then
+	ssudo python3 -m pip install -U "git+https://github.com/jesusjda/pplpy.git#egg=pplpy" --process-dependency-links
+    fi
     ssudo python3 -m pip install -U "git+https://github.com/jesusjda/pyLPi.git#egg=pyLPi" --process-dependency-links
     ssudo python3 -m pip install -U "git+https://github.com/jesusjda/pyParser.git#egg=genericparser" --process-dependency-links
     ssudo python3 -m pip install -U "git+https://github.com/jesusjda/pyRankFinder.git#egg=pytermination" --process-dependency-links
@@ -99,6 +104,7 @@ mode=false
 version=latest
 sudo=false
 path=$TOOLS_HOME
+upPPL=false
 while [ $# -gt 0 ]; do
     case $1 in
 	-m|--mode )
@@ -107,6 +113,10 @@ while [ $# -gt 0 ]; do
 	    ;;
 	-s|--sudo)
 	    sudo=true
+	    shift
+	    ;;
+	--update-ppl)
+	    upPPL=true
 	    shift
 	    ;;
 	-p|--path)
