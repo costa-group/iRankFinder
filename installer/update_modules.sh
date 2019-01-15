@@ -87,8 +87,10 @@ install_iRankFinder_clone(){
     pushd $path > /dev/null
     # pyeiol
     install_pyeiol false
-    # pplpy
-    clone_and_install pplpy
+    if [ "$upPPL" == "true" ]; then
+	# pplpy
+	clone_and_install pplpy
+    fi
     # pyLPi
     clone_and_install pyLPi
     # pyParser
