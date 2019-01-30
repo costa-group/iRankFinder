@@ -12,7 +12,7 @@
 		if1_assert1: { asserts: [[[0 <= i, i < len, 0 <= j, j < bufsize]]] },
 		if1_assert2: { asserts: [[[0 <= i, i < len, 0 <= j, j < bufsize]]] },
 		if1_assert3: { asserts: [[[0 <= j, j < bufsize]]] },
-		if2: { asserts: [[[0 <= i, i + 1 < len,]]] },
+		if2: { asserts: [[[0 <= i, i + 1 < len]]] },
 		init: {    }
     },
 	transitions: [
@@ -20,7 +20,7 @@
 			name: t0,
 			source: init,
 			target: entry_for1,
-			constraints: [i' = i, j' = j, len' = len, bufsize' = bufsize, limit' = limit]
+			constraints: [i' = i, j' = j, len' = len, bufsize' = bufsize, limit' = bufsize - 4]
 		},{
 			name: t1,
 			source: entry_for1,
