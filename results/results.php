@@ -1,7 +1,11 @@
 <?php include("cache_top.php"); ?>
 <?php
 $params = array('invariants', 'different_template', 'termination', 'nontermination','lib', 'cfr_strategy');
-$command = 'python3 ./getData.py --cache ../../iRankFinder/database/json/';
+$command = 'python3 ./getData.py --cache ../../iRankFinder/database/';
+$a="json";
+if(isset($_GET["database"]) && $_GET["database"] != '')
+    $a = $_GET["database"]; 
+$command .= $a."/";
 if(isset($_GET["prefix"]) && $_GET["prefix"] != '')
     $command .= ' --prefix "'.$_GET["prefix"].'"'; 
 if(isset($_GET["rows"]) && $_GET["rows"] != '')
