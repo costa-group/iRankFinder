@@ -3,15 +3,15 @@
 	initnode: init,
 	nodes: {
 	    assume: {    },
-		body2_1: { asserts: [[[1 <= i, i <= n, 1 <= j, j <= n]]] },
+		body2_1_assert: { asserts: [[[1 <= i, i <= n, 1 <= j, j <= n]]] },
 		exit: {    },
 		if1: {    },
 		if2: {    },
 		if2_assert1: { asserts: [[[1 <= l, l <= n]]] },
 		if2_assert2: { asserts: [[[1 <= r, r <= n]]] },
 		if3: {    },
-		if4: { asserts: [[[1 <= j, j <= n, 1 <= j + 1, j + 1 <= n]]] },
-		if5: { asserts: [[[1 <= j, j <= n]]] },
+		if4_assert: { asserts: [[[1 <= j, j <= n, 1 <= j + 1, j + 1 <= n]]] },
+		if5_assert: { asserts: [[[1 <= j, j <= n]]] },
 		init: {    },
 		while1: {    },
 		while2: {    },
@@ -88,7 +88,7 @@
 		},{
 			name: t7,
 			source: if3,
-			target: if4,
+			target: if4_assert,
 			constraints: [
 				j < r,
 				i' = i, j' = j,
@@ -98,7 +98,7 @@
 		},{
 			name: t8,
 			source: if3,
-			target: if5,
+			target: if5_assert,
 			constraints: [
 				j >= r,
 				i' = i, j' = j,
@@ -107,8 +107,8 @@
 			]
 		},{
 			name: t9,
-			source: if4,
-			target: if5,
+			source: if4_assert,
+			target: if5_assert,
 			constraints: [
 				i' = i, j' = j + 1,
 				l' = l, r' = r,
@@ -116,8 +116,8 @@
 			]
 		},{
 			name: t10,
-			source: if4,
-			target: if5,
+			source: if4_assert,
+			target: if5_assert,
 			constraints: [
 				i' = i, j' = j,
 				l' = l, r' = r,
@@ -125,7 +125,7 @@
 			]
 		},{
 			name: t11,
-			source: if5,
+			source: if5_assert,
 			target: if2,
 			constraints: [
 				i' = i, j' = j,
@@ -134,8 +134,8 @@
 			]
 		},{
 			name: t12,
-			source: if5,
-			target: body2_1,
+			source: if5_assert,
+			target: body2_1_assert,
 			constraints: [
 				i' = i, j' = j,
 				l' = l, r' = r,
@@ -143,7 +143,7 @@
 			]
 		},{
 			name: t13,
-			source: body2_1,
+			source: body2_1_assert,
 			target: while2,
 			constraints: [
 				i' = j, j' = 2 * j,

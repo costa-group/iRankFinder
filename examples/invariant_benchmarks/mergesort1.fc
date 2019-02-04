@@ -4,7 +4,7 @@
 	nodes: {
 		body2_1: {    },
 		body2_2: {    },
-		body2_3: { asserts: [[[k <= n, 0 <= r, r <= n]]] },
+		body2_3_assert: { asserts: [[[k <= n, 0 <= r, r <= n]]] },
 		else2_assert1: { asserts: [[[0 <= k, k <= n, 0 <= j, j <= n]]] },
 		endif2: {    },
 		entry_for: {    },
@@ -13,7 +13,7 @@
 		for_assert1: { asserts: [[[0 <= k, k <= n]]] },
 		if1: {    },
 		if1_assert1: { asserts: [[[x >= 1]]] },
-		if2: { asserts: [[[0 <= i, i <= n, 0 <= j, j <= n]]] },
+		if2_assert: { asserts: [[[0 <= i, i <= n, 0 <= j, j <= n]]] },
 		if2_assert1: { asserts: [[[0 <= i, i <= n, 0 <= k, k <= n]]] },
 		init: {    },
 		while1: {    },
@@ -119,7 +119,7 @@
 		},{
 			name: t9,
 			source: while3,
-			target: if2,
+			target: if2_assert,
 			constraints: [
 				j < u, i < r,
 				i' = i, j' = j, k' = k, l' = l,
@@ -128,7 +128,7 @@
 			]
 		},{
 			name: t10a,
-			source: if2,
+			source: if2_assert,
 			target: if2_assert1,
 			constraints: [
 				i' = i, k' = k, l' = l, j' = j,
@@ -147,7 +147,7 @@
 			]
 		},{
 			name: t11a,
-			source: if2,
+			source: if2_assert,
 			target: else2_assert1,
 			constraints: [
 				i' = i, j' = j, k' = k, l' = l,
@@ -177,7 +177,7 @@
 		},{
 			name: t13,
 			source: while3,
-			target: body2_3,
+			target: body2_3_assert,
 			constraints: [
 				j >= u,
 				i' = i, j' = j, k' = k, l' = l,
@@ -187,7 +187,7 @@
 		},{
 			name: t14,
 			source: while3,
-			target: body2_3,
+			target: body2_3_assert,
 			constraints: [
 				i >= r,
 				i' = i, j' = j, k' = k, l' = l,
@@ -196,7 +196,7 @@
 			]
 		},{
 			name: t15,
-			source: body2_3,
+			source: body2_3_assert,
 			target: while4,
 			constraints: [
 				i' = i, j' = j, k' = k, l' = l,

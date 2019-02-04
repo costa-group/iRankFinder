@@ -2,11 +2,11 @@
 	vars: [i, j, k, l, n],
 	initnode: init,
 	nodes: {
-		body2_1: { asserts: [[[1 <= i, i <= n, 1 <= j, j <= n]]] },
-		body3_1: { asserts: [[[1 <= i, i <= n, 1 <= j, j <= n, 1 <= l, l <= n]]] },
-		body5_1: { asserts: [[[1 <= k, k <= n, 1 <= j, j <= n]]] },
-		body6_1: { asserts: [[[1 <= i, i <= n, 1 <= j, j <= n, 1 <= k, k <= n]]] },
-		endif1: { asserts: [[[1 <= i, i <= n]]] },
+		body2_assert: { asserts: [[[1 <= i, i <= n, 1 <= j, j <= n]]] },
+		body3_assert: { asserts: [[[1 <= i, i <= n, 1 <= j, j <= n, 1 <= l, l <= n]]] },
+		body5_assert: { asserts: [[[1 <= k, k <= n, 1 <= j, j <= n]]] },
+		body6_assert: { asserts: [[[1 <= i, i <= n, 1 <= j, j <= n, 1 <= k, k <= n]]] },
+		endif1_assert: { asserts: [[[1 <= i, i <= n]]] },
 		entry_for1: {    },
 		entry_for2: {    },
 		entry_for3: {    },
@@ -48,11 +48,11 @@
 		},{
 			name: t4,
 			source: if1,
-			target: endif1,
+			target: endif1_assert,
 			constraints: [i >= n, i' = i, j' = j, k' = k, l' = l]
 		},{
 			name: t5,
-			source: endif1,
+			source: endif1_assert,
 			target: for1,
 			constraints: [i' = i - 1, j' = j, k' = k, l' = i]
 		},{
@@ -73,17 +73,17 @@
 		},{
 			name: t9a,
 			source: for2,
-			target: body2_1,
+			target: body2_assert,
 			constraints: [j <= n, i' = i, j' = j, k' = k, l' = l]
 		},{
 			name: t9b,
-			source: body2_1,
+			source: body2_assert,
 			target: for2,
 			constraints: [i' = i, j' = j + 1, k' = k, l' = l]
 		},{
 			name: t10,
 			source: for2,
-			target: endif1,
+			target: endif1_assert,
 			constraints: [j > n, i' = i, j' = j, k' = k, l' = l]
 		},{
 			name: t11,
@@ -98,11 +98,11 @@
 		},{
 			name: t13a,
 			source: for3,
-			target: body3_1,
+			target: body3_assert,
 			constraints: [j <= n, i' = i, j' = j, k' = k, l' = l]
 		},{
 			name: t13b,
-			source: body3_1,
+			source: body3_assert,
 			target: for3,
 			constraints: [i' = i, j' = j + 1, k' = k, l' = l]
 		},{
@@ -133,11 +133,11 @@
 		},{
 			name: t19a,
 			source: for5,
-			target: body5_1,
+			target: body5_assert,
 			constraints: [k <= n, i' = i, j' = j, k' = k, l' = l]
 		},{
 			name: t19b,
-			source: body5_1,
+			source: body5_assert,
 			target: for5,
 			constraints: [i' = i, j' = j, k' = k + 1, l' = l]
 		},{
@@ -153,11 +153,11 @@
 		},{
 			name: t22a,
 			source: for6,
-			target: body6_1,
+			target: body6_assert,
 			constraints: [k <= n, i' = i, j' = j, k' = k, l' = l]
 		},{
 			name: t22b,
-			source: body6_1,
+			source: body6_assert,
 			target: for6,
 			constraints: [i' = i, j' = j, k' = k + 1, l' = l]
 		},{

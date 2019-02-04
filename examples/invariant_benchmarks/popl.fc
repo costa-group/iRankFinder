@@ -2,10 +2,10 @@
 	vars: [x, y],
 	initnode: init,
 	nodes: {
-		exit: { asserts: [[[y == 100]]] },
-	    if: {    },
+		exit_assert: { asserts: [[[y == 100]]] },
+	    if: {  },
 	    init: {    },
-    	while: {    },
+    	while: {  },
     },
 	transitions: [
 		{
@@ -16,7 +16,7 @@
 		},{
 			name: t1,
 			source: while,
-			target: exit,
+			target: exit_assert,
 			constraints: [x >= 100, x' = x, y' = y]
 		},{
 			name: t2,

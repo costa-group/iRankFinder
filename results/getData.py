@@ -37,7 +37,7 @@ _possibles ={"cfr_iterations": [0,1,2,3,4,5,6,7],
              "invariants": ["none", "interval", "polyhedra", "octagon"],
              "lib": ["ppl", "z3"],
              "nontermination": ["fixpoint", "monotonicrecset", "none"],
-             "termination": ["qlrf_adfg", "qlrf_adfg_nonoptimal", "lrf_pr", "qnlrfv1_1_1", "qnlrfv1_2_2"]
+             "termination": ["none", "qlrf_adfg", "qlrf_adfg_nonoptimal", "lrf_pr", "qnlrfv1_1_1", "qnlrfv1_2_2"]
 }
 PRINTALL=False
 
@@ -280,6 +280,32 @@ def print_bottom(cfgs, rows):
     bottom += "</tr>\n\t</tbody>\n</table>"
     return bottom
 
+
+def get_i(config, info):
+    aas = info["analysis"]
+    valids = []
+    for a in aas:
+        c = a["config"]
+        good = True
+        for k in config:
+            if k in ["termination", "nontermination"]:
+                for t1, t2 in zip(c[k], config[k]):
+                    if t1 == str(t2):
+                        continue
+                    else:
+                        good = False
+                        break
+                if not good:
+                    break
+                continue
+            if k not in c or c[k] == config[k]:
+                continue
+            good = False
+            break
+        if good:
+            valids.append(a)
+    valids.sort(key=lambda a: a["date"], reverse=True)
+    return valids
 
 def get_i(config, info):
     aas = info["analysis"]

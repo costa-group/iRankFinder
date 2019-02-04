@@ -2,7 +2,7 @@
 	vars: [i, j, len, bufsize, limit],
 	initnode: init,
 	nodes: {
-	    else1: { asserts: [[[0 <= i, i < len, 0 <= j, j < bufsize]]] },
+	    else1_assert: { asserts: [[[0 <= i, i < len, 0 <= j, j < bufsize]]] },
 		entry_for1: {    },
 		exit: {    },
 		for1: {    },
@@ -12,7 +12,7 @@
 		if1_assert1: { asserts: [[[0 <= i, i < len, 0 <= j, j < bufsize]]] },
 		if1_assert2: { asserts: [[[0 <= i, i < len, 0 <= j, j < bufsize]]] },
 		if1_assert3: { asserts: [[[0 <= j, j < bufsize]]] },
-		if2: { asserts: [[[0 <= i, i + 1 < len]]] },
+		if2_assert: { asserts: [[[0 <= i, i + 1 < len]]] },
 		init: {    }
     },
 	transitions: [
@@ -59,11 +59,11 @@
 		},{
 			name: t7,
 			source: if1,
-			target: if2,
+			target: if2_assert,
 			constraints: [i + 1 < len, i' = i, j' = j, len' = len, bufsize' = bufsize, limit' = limit]
 		},{
 			name: t8,
-			source: if2,
+			source: if2_assert,
 			target: if1_assert1,
 			constraints: [i' = i, j' = j, len' = len, bufsize' = bufsize, limit' = limit]
 		},{
@@ -84,16 +84,16 @@
 		},{
 			name: t12,
 			source: if1,
-			target: else1,
+			target: else1_assert,
 			constraints: [i + 1 >= len, i' = i, j' = j, len' = len, bufsize' = bufsize, limit' = limit]
 		},{
 			name: t13,
-			source: if2,
-			target: else1,
+			source: if2_assert,
+			target: else1_assert,
 			constraints: [i' = i, j' = j, len' = len, bufsize' = bufsize, limit' = limit]
 		},{
 			name: t14,
-			source: else1,
+			source: else1_assert,
 			target: for2,
 			constraints: [i' = i + 1, j' = j + 1, len' = len, bufsize' = bufsize, limit' = limit]
 		}
