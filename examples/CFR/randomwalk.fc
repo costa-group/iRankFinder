@@ -1,0 +1,91 @@
+{
+  vars: [choice,i,seq,walker,z],
+  pvars: [choice',i',seq',walker',z'],
+  initnode: l9,
+  transitions: [
+    {
+	source: l0,
+	target: l1,
+	name: t0,
+	constraints: [z' = z, walker' = walker, seq' = seq, i' = i, choice' = choice]
+    },
+    {
+	source: l2,
+	target: l3,
+	name: t1,
+	constraints: [z' = z, seq' = seq, i' = i, choice' = choice, walker' = walker + 1, choice >= 1]
+    },
+    {
+	source: l8,
+	target: l0,
+	name: t10,
+	constraints: [z' = z, walker' = walker, seq' = seq, i' = i, choice' = choice, walker >= 3]
+    },
+    {
+	source: l8,
+	target: l7,
+	name: t11,
+	constraints: [z' = z, walker' = walker, seq' = seq, i' = i, choice' = choice, walker <= 2]
+    },
+    {
+	source: l3,
+	target: l8,
+	name: t12,
+	constraints: [z' = z, walker' = walker, seq' = seq, i' = i, choice' = choice]
+    },
+    {
+	source: l9,
+	target: l4,
+	name: t13,
+	constraints: [z' = z, walker' = walker, seq' = seq, i' = i, choice' = choice]
+    },
+    {
+	source: l2,
+	target: l3,
+	name: t2,
+	constraints: [z' = z, seq' = seq, i' = i, choice' = choice, walker' = walker - 1, choice <= 0]
+    },
+    {
+	source: l4,
+	target: l3,
+	name: t3,
+	constraints: [choice' = choice, walker' = 1, z' >= 0, i' = seq', seq' = 1]
+    },
+    {
+	source: l5,
+	target: l2,
+	name: t4,
+	constraints: [walker' = walker, choice' = choice, z' >= 0, i' = seq', seq' = seq + 1, i <= 0]
+    },
+    {
+	source: l5,
+	target: l2,
+	name: t5,
+	constraints: [z' = z, walker' = walker, seq' = seq, choice' = choice, i' = i - 1, choice <= 0, i >= 1]
+    },
+    {
+	source: l6,
+	target: l2,
+	name: t6,
+	constraints: [walker' = walker, seq' = seq, i' = i, choice' = choice, z' = z - 1, z >= 1]
+    },
+    {
+	source: l6,
+	target: l5,
+	name: t7,
+	constraints: [z' = z, walker' = walker, seq' = seq, i' = i, choice' = choice, z <= 0]
+    },
+    {
+	source: l7,
+	target: l0,
+	name: t8,
+	constraints: [z' = z, walker' = walker, seq' = seq, i' = i, choice' = choice, walker <= 0]
+    },
+    {
+	source: l7,
+	target: l6,
+	name: t9,
+	constraints: [z' = z, walker' = walker, seq' = seq, i' = i, choice' <= 1, choice' >= 0, walker >= 1]
+    }
+  ]
+}
