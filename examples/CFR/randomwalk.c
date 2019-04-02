@@ -9,12 +9,15 @@ int main(){
     c = nondet(); assert(0 <= c && c <= 1);
     if ( z >= 1 ) {
       z--;
-    } else if ( i <= 0 ) {
-      s++; i = s; z = nondet(); assert(z >= 0);
-    } else if ( i >= 1 && c <= 0 ) {
-      i--;
-    } 
-
+    } else {
+      if ( i <= 0 ) {
+        s++; i = s; z = nondet(); assert(z >= 0);
+      } else if ( i >= 1 && c <= 0 ) {
+        i--;
+      } else {
+        break;
+      }
+    }
     if ( c <= 0 ) {
       w--;
     } else {
