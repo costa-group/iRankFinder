@@ -1,0 +1,29 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS start))
+(VAR z i s w v4 z2 i2 s2)
+(RULES
+  start(z, i, s, w, v4, z2, i2, s2) -> bb0(z, i, s, w, v4, z2, i2, s2)
+  bb0(z, i, s, w, v4, z2, i2, s2) -> bb1(nondef, 1, 1, 1, v4, z2, i2, s2) :|:  nondef >= 0 
+  bb0(z, i, s, w, v4, z2, i2, s2) -> bb13(z, i, s, w, v4, z2, i2, s2)
+  bb1(z, i, s, w, v4, z2, i2, s2) -> bb2(z, i, s, w, v4, z2, i2, s2) :|: 1 <= w /\ w <= 2 
+  bb1(z, i, s, w, v4, z2, i2, s2) -> bb12(z, i, s, w, v4, z2, i2, s2) :|: 1 > w 
+  bb1(z, i, s, w, v4, z2, i2, s2) -> bb12(z, i, s, w, v4, z2, i2, s2) :|: w > 2 
+  bb2(z, i, s, w, v4, z2, i2, s2) -> bb3(z, i, s, w, nondef1, z2, i2, s2) :|: 0 <= nondef1 /\ nondef1 <= 1 
+  bb2(z, i, s, w, v4, z2, i2, s2) -> bb11(z, i, s, w, v4, z2, i2, s2)
+  bb3(z, i, s, w, v4, z2, i2, s2) -> bbv4(z, i, s, w, v4, z2, i2, s2) :|: z >= 1 
+  bb3(z, i, s, w, v4, z2, i2, s2) -> bb5(z, i, s, w, v4, z2, i2, s2) :|: z < 1 
+  bbv4(z, i, s, w, v4, z2, i2, s2) -> bb10(z, i, s, w, v4, z - 1, i, s)
+  bb5(z, i, s, w, v4, z2, i2, s2) -> bb6(z, i, s, w, v4, z2, i2, s2) :|: i <= 0 
+  bb5(z, i, s, w, v4, z2, i2, s2) -> bb8(z, i, s, w, v4, z2, i2, s2) :|: i > 0 
+  bb6(z, i, s, w, v4, z2, i2, s2) -> bb10(z, i, s, w, v4, nondef2, s + 1, s + 1) :|: nondef2 >= 0 
+  bb6(z, i, s, w, v4, z2, i2, s2) -> bb7(z, i, s, w, v4, z2, i2, s2)
+  bb7(z, i, s, w, v4, z2, i2, s2) -> stop(z, i, s, w, v4, z2, i2, s2)
+  bb8(z, i, s, w, v4, z2, i2, s2) -> bb9(z, i, s, w, v4, z2, i2, s2) :|: v4 <= 0 
+  bb8(z, i, s, w, v4, z2, i2, s2) -> bb12(z, i, s, w, v4, z2, i2, s2) :|: v4 > 0 
+  bb9(z, i, s, w, v4, z2, i2, s2) -> bb10(z, i, s, w, v4, z, i - 1, s)
+  bb10(z, i, s, w, v4, z2, i2, s2) -> bb1(z2, i2, s2, w - 1, v4, z2, i2, s2) :|: v4 <= 0 
+  bb10(z, i, s, w, v4, z2, i2, s2) -> bb1(z2, i2, s2, w + 1, v4, z2, i2, s2) :|: v4 > 0 
+  bb11(z, i, s, w, v4, z2, i2, s2) -> stop(z, i, s, w, v4, z2, i2, s2)
+  bb12(z, i, s, w, v4, z2, i2, s2) -> stop(z, i, s, w, v4, z2, i2, s2)
+  bb13(z, i, s, w, v4, z2, i2, s2) -> stop(z, i, s, w, v4, z2, i2, s2)
+)
