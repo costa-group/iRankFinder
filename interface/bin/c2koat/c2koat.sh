@@ -1,5 +1,5 @@
 #!/bin/bash
-C2KOAT=$TOOLS_HOME/llvm2kittel/llvm2kittel/c2koat
+C2KOAT=$TOOLS_HOME/llvm2kittel/build/c2koat
 TMPDIR=$1/_ei_tmp
 BASE=$1/_ei_files/
 shift
