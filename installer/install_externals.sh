@@ -92,6 +92,7 @@ install_externals(){
     ssudo apt-get -y update
     install_apt python3 python3-dev python3-nose python3-pip
     install_apt libgmp-dev libmpfr-dev libmpc-dev
+    install_apt clang
     install_ppl
     # install_z3
     install_dependencies
