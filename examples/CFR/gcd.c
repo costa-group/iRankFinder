@@ -1,3 +1,5 @@
+#include <assert.h>
+
 int gcd(int x, int y){
   assert(x>0 && y>0);
   while(x != y){
