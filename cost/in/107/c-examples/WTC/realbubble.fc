@@ -1,0 +1,175 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: evalrealbubblestart,
+  nodes: {
+    evalrealbubblebb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [-1 + A -B >= 0, B -C >= 0, B >= 0],
+    },
+    evalrealbubblebb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [-1 + A -B >= 0, B -C >= 0, B >= 0],
+    },
+    evalrealbubblebb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [-1 + A -B >= 0, B -C >= 0, B >= 0, 1 + B -D >= 0],
+    },
+    evalrealbubblebb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [B -C >= 0, -1 + A >= 0, B >= 0],
+    },
+    evalrealbubblebb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [-A + B >= 0, B -C >= 0, -1 + A >= 0],
+    },
+    evalrealbubblebb6in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [-A + B >= 0, B -C >= 0, -1 + A >= 0],
+    },
+    evalrealbubblebb7in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalrealbubbleentryin: {
+      inv_polyhedra: [],
+    },
+    evalrealbubblereturnin: {
+      inv_polyhedra: [],
+    },
+    evalrealbubblestart: {
+      inv_polyhedra: [],
+    },
+    evalrealbubblestop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalrealbubblestart,
+	target: evalrealbubbleentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalrealbubbleentryin,
+	target: evalrealbubblebb7in,
+	name: t1,
+	constraints: [A -1 -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalrealbubblebb5in,
+	target: evalrealbubblereturnin,
+	name: t10,
+	constraints: [C = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalrealbubblebb5in,
+	target: evalrealbubblebb6in,
+	name: t11,
+	constraints: [-1 -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalrealbubblebb5in,
+	target: evalrealbubblebb6in,
+	name: t12,
+	constraints: [C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalrealbubblebb6in,
+	target: evalrealbubblebb7in,
+	name: t13,
+	constraints: [A -1 -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalrealbubblereturnin,
+	target: evalrealbubblestop,
+	name: t14,
+	constraints: []
+    },
+    {
+	source: evalrealbubblebb7in,
+	target: evalrealbubblebb4in,
+	name: t2,
+	constraints: [A -1 >= 0, A -A' = 0, -B' = 0, -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalrealbubblebb7in,
+	target: evalrealbubblereturnin,
+	name: t3,
+	constraints: [-A >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalrealbubblebb4in,
+	target: evalrealbubblebb1in,
+	name: t4,
+	constraints: [A -B -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalrealbubblebb4in,
+	target: evalrealbubblebb5in,
+	name: t5,
+	constraints: [B -A >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalrealbubblebb1in,
+	target: evalrealbubblebb2in,
+	name: t6,
+	constraints: [E -F -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalrealbubblebb1in,
+	target: evalrealbubblebb3in,
+	name: t7,
+	constraints: [F -E >= 0, A -A' = 0, B -B' = 0, C -C' = 0, C -D' = 0]
+    },
+    {
+	source: evalrealbubblebb2in,
+	target: evalrealbubblebb3in,
+	name: t8,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, 1 -D' = 0]
+    },
+    {
+	source: evalrealbubblebb3in,
+	target: evalrealbubblebb4in,
+	name: t9,
+	constraints: [A -A' = 0, B + 1 -B' = 0, D -C' = 0, D -D' = 0]
+    }
+  ]
+}

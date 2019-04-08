@@ -1,0 +1,27 @@
+WORST_CASE(?, O(1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_start0(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    n_start0(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_stop___1(Fresh_0, Fresh_1, Fresh_2, Fresh_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_start0(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    n_start0(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_stop___1(Fresh_0, Fresh_1, Fresh_2, Fresh_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 2
+
+Time: 0.010 sec (SMT: 0.010 sec)
+
+-- stats
+realtime 0:00.02
+usertime 0.01
+systime 0.00
+

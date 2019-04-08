@@ -1,0 +1,265 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalrandom2dstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb2in(Ar_0, Ar_1, Ar_0 + 1, Fresh_0)) [ Fresh_0 >= 0 /\ 3 >= Fresh_0 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ 0 >= E + 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ E >= 4 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 2 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 0 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 2 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 2 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 4 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transitions from problem 1:
+	evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 1 ]
+	evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 ]
+	evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 3 ]
+	evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_3 ]
+We thus obtain the following problem:
+2:	T:
+		(Comp: ?, Cost: 1)    evalrandom2dbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 4 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 2 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 2 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 0 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 2 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ E >= 4 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ 0 >= E + 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb2in(Ar_0, Ar_1, Ar_0 + 1, Fresh_0)) [ Fresh_0 >= 0 /\ 3 >= Fresh_0 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 2 produces the following problem:
+3:	T:
+		(Comp: ?, Cost: 1)    evalrandom2dbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 4 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 2 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 2 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 0 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 2 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ E >= 4 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ 0 >= E + 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb2in(Ar_0, Ar_1, Ar_0 + 1, Fresh_0)) [ Fresh_0 >= 0 /\ 3 >= Fresh_0 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)    evalrandom2dentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalrandom2dstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrandom2dbb9in) = 2
+	Pol(evalrandom2dbb10in) = 2
+	Pol(evalrandom2dbb7in) = 2
+	Pol(evalrandom2dbb5in) = 2
+	Pol(evalrandom2dNewDefaultin) = 2
+	Pol(evalrandom2dbb3in) = 2
+	Pol(evalrandom2dLeafBlock5in) = 2
+	Pol(evalrandom2dLeafBlock3in) = 2
+	Pol(evalrandom2dLeafBlock1in) = 2
+	Pol(evalrandom2dLeafBlockin) = 2
+	Pol(evalrandom2dNodeBlock7in) = 2
+	Pol(evalrandom2dNodeBlockin) = 2
+	Pol(evalrandom2dNodeBlock9in) = 2
+	Pol(evalrandom2dbb2in) = 2
+	Pol(evalrandom2dreturnin) = 1
+	Pol(evalrandom2dstop) = 0
+	Pol(evalrandom2dbbin) = 2
+	Pol(evalrandom2dentryin) = 2
+	Pol(evalrandom2dstart) = 2
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dstop(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: ?, Cost: 1)    evalrandom2dbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 4 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 2 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 2 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 0 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 2 ]
+		(Comp: ?, Cost: 1)    evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)    evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ E >= 4 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ 0 >= E + 1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb2in(Ar_0, Ar_1, Ar_0 + 1, Fresh_0)) [ Fresh_0 >= 0 /\ 3 >= Fresh_0 ]
+		(Comp: 2, Cost: 1)    evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)    evalrandom2dentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalrandom2dstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrandom2dbb9in) = V_2 - V_3
+	Pol(evalrandom2dbb10in) = -V_1 + V_2
+	Pol(evalrandom2dbb7in) = V_2 - V_3
+	Pol(evalrandom2dbb5in) = V_2 - V_3
+	Pol(evalrandom2dNewDefaultin) = V_2 - V_3
+	Pol(evalrandom2dbb3in) = V_2 - V_3
+	Pol(evalrandom2dLeafBlock5in) = V_2 - V_3
+	Pol(evalrandom2dLeafBlock3in) = V_2 - V_3
+	Pol(evalrandom2dLeafBlock1in) = V_2 - V_3
+	Pol(evalrandom2dLeafBlockin) = V_2 - V_3
+	Pol(evalrandom2dNodeBlock7in) = V_2 - V_3
+	Pol(evalrandom2dNodeBlockin) = V_2 - V_3
+	Pol(evalrandom2dNodeBlock9in) = V_2 - V_3
+	Pol(evalrandom2dbb2in) = V_2 - V_3
+	Pol(evalrandom2dreturnin) = -V_1 + V_2
+	Pol(evalrandom2dstop) = -V_1 + V_2
+	Pol(evalrandom2dbbin) = -V_1 + V_2 - 1
+	Pol(evalrandom2dentryin) = V_2
+	Pol(evalrandom2dstart) = V_2
+	Pol(koat_start) = V_2
+orients all transitions weakly and the transition
+	evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: ?, Cost: 1)       evalrandom2dbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)       evalrandom2dbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)       evalrandom2dbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)       evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)       evalrandom2dbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)       evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 4 ]
+		(Comp: ?, Cost: 1)       evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 3 ]
+		(Comp: ?, Cost: 1)       evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_3 ]
+		(Comp: ?, Cost: 1)       evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 2 ]
+		(Comp: ?, Cost: 1)       evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 2 ]
+		(Comp: ?, Cost: 1)       evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 1 ]
+		(Comp: ?, Cost: 1)       evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)       evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 0 ]
+		(Comp: ?, Cost: 1)       evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 3 ]
+		(Comp: ?, Cost: 1)       evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_3 ]
+		(Comp: ?, Cost: 1)       evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)       evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)       evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 2 ]
+		(Comp: ?, Cost: 1)       evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_3 ]
+		(Comp: ?, Cost: 1)       evalrandom2dbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)       evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)       evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ E >= 4 ]
+		(Comp: ?, Cost: 1)       evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ 0 >= E + 1 ]
+		(Comp: ?, Cost: 1)       evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb2in(Ar_0, Ar_1, Ar_0 + 1, Fresh_0)) [ Fresh_0 >= 0 /\ 3 >= Fresh_0 ]
+		(Comp: 2, Cost: 1)       evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: Ar_1, Cost: 1)    evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)       evalrandom2dentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)       evalrandom2dstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)       koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 5 produces the following problem:
+6:	T:
+		(Comp: Ar_1, Cost: 1)      evalrandom2dbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)      evalrandom2dbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)      evalrandom2dbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: 4*Ar_1, Cost: 1)    evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)      evalrandom2dbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_2, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)      evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 4 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 3 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_3 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 2 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 2 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 1 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNewDefaultin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 = 0 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 3 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_3 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlock1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 1 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dLeafBlockin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlock7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 2 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlockin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_3 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dNodeBlock9in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)         evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)      evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ E >= 4 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ 0 >= E + 1 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb2in(Ar_0, Ar_1, Ar_0 + 1, Fresh_0)) [ Fresh_0 >= 0 /\ 3 >= Fresh_0 ]
+		(Comp: 2, Cost: 1)         evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: Ar_1, Cost: 1)      evalrandom2dbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)         evalrandom2dentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dbb10in(0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)         evalrandom2dstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)         koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrandom2dstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 27*Ar_1 + 6
+
+Time: 0.170 sec (SMT: 0.129 sec)

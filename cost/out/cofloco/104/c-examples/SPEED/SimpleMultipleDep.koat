@@ -1,0 +1,160 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_evalSimpleMultipleDepbb3in___3/9,n_evalSimpleMultipleDepbbin___2/9]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [n_evalSimpleMultipleDepstop___1/5]
+3. non_recursive  : [n_evalSimpleMultipleDepbb3in___3_loop_cont/6]
+4. non_recursive  : [n_evalSimpleMultipleDepstart/5]
+5. non_recursive  : [pyRinit/5]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_evalSimpleMultipleDepbb3in___3/9
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into n_evalSimpleMultipleDepbb3in___3_loop_cont/6
+4. SCC is partially evaluated into n_evalSimpleMultipleDepstart/5
+5. SCC is partially evaluated into pyRinit/5
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_evalSimpleMultipleDepbb3in___3/9 
+* CE 6 is refined into CE [9] 
+* CE 5 is refined into CE [10] 
+* CE 4 is refined into CE [11] 
+* CE 3 is refined into CE [12] 
+
+
+### Cost equations --> "Loop" of n_evalSimpleMultipleDepbb3in___3/9 
+* CEs [11] --> Loop 9 
+* CEs [12] --> Loop 10 
+* CEs [9] --> Loop 11 
+* CEs [10] --> Loop 12 
+
+### Ranking functions of CR n_evalSimpleMultipleDepbb3in___3(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR n_evalSimpleMultipleDepbb3in___3(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [9,10]:
+  - RF of loop [9:1]:
+    -A+D depends on loops [10:1] 
+  - RF of loop [10:1]:
+    -B+C
+
+
+### Specialization of cost equations n_evalSimpleMultipleDepbb3in___3_loop_cont/6 
+* CE 8 is refined into CE [13] 
+* CE 7 is refined into CE [14] 
+
+
+### Cost equations --> "Loop" of n_evalSimpleMultipleDepbb3in___3_loop_cont/6 
+* CEs [13] --> Loop 13 
+* CEs [14] --> Loop 14 
+
+### Ranking functions of CR n_evalSimpleMultipleDepbb3in___3_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR n_evalSimpleMultipleDepbb3in___3_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations n_evalSimpleMultipleDepstart/5 
+* CE 2 is refined into CE [15,16,17] 
+
+
+### Cost equations --> "Loop" of n_evalSimpleMultipleDepstart/5 
+* CEs [15,16,17] --> Loop 15 
+
+### Ranking functions of CR n_evalSimpleMultipleDepstart(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalSimpleMultipleDepstart(A,B,C,D,E) 
+
+
+### Specialization of cost equations pyRinit/5 
+* CE 1 is refined into CE [18] 
+
+
+### Cost equations --> "Loop" of pyRinit/5 
+* CEs [18] --> Loop 16 
+
+### Ranking functions of CR pyRinit(A,B,C,D,E) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_evalSimpleMultipleDepbb3in___3(A,B,C,D,E,F,G,H,I):
+* Chain [[9,10],12]: 2*it(9)+2*it(10)+1
+  Such that:aux(2) =< -A+D
+it(10) =< -B+C
+aux(5) =< D
+aux(1) =< it(10)*aux(5)
+it(9) =< aux(1)+aux(2)
+
+  with precondition: [E=2,A>=0,B>=0,C>=B+1] 
+
+* Chain [[9,10],11]: 2*it(9)+2*it(10)+0
+  Such that:aux(2) =< -A+D
+it(10) =< -B+C
+aux(5) =< D
+aux(1) =< it(10)*aux(5)
+it(9) =< aux(1)+aux(2)
+
+  with precondition: [E=3,A>=0,B>=0,C>=B+1] 
+
+* Chain [12]: 1
+  with precondition: [E=2,A>=0,B>=0,B>=C] 
+
+* Chain [11]: 0
+  with precondition: [E=3,A>=0,B>=0] 
+
+
+#### Cost of chains of n_evalSimpleMultipleDepbb3in___3_loop_cont(A,B,C,D,E,F):
+* Chain [14]: 0
+  with precondition: [A=2] 
+
+* Chain [13]: 0
+  with precondition: [A=3] 
+
+
+#### Cost of chains of n_evalSimpleMultipleDepstart(A,B,C,D,E):
+* Chain [15]: 4*s(7)+4*s(10)+2
+  Such that:aux(8) =< C
+aux(9) =< D
+s(7) =< aux(8)
+s(9) =< s(7)*aux(9)
+s(10) =< s(9)+aux(9)
+
+  with precondition: [] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D,E):
+* Chain [16]: 4*s(18)+4*s(20)+3
+  Such that:s(16) =< C
+s(17) =< D
+s(18) =< s(16)
+s(19) =< s(18)*s(17)
+s(20) =< s(19)+s(17)
+
+  with precondition: [] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D,E): 
+-------------------------------------
+* Chain [16] with precondition: [] 
+    - Upper bound: nat(C)*4+3+nat(D)*4+nat(D)*4*nat(C) 
+    - Complexity: n^2 
+
+### Maximum cost of pyRinit(A,B,C,D,E): nat(C)*4+3+nat(D)*4+nat(D)*4*nat(C) 
+Asymptotic class: n^2 
+* Total analysis performed in 197 ms.
+
+
+-- stats
+realtime 0:00.26
+usertime 0.24
+systime 0.00
+

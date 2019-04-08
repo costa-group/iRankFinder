@@ -1,0 +1,256 @@
+WORST_CASE(?, O(n^2))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Ar_2, -1)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_3 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_2, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_13 - 2 >= 0 /\ Fresh_13 + 1 >= 0 /\ Ar_3 - Fresh_13 - 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Ar_2, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_12 - 1 >= 0 /\ Fresh_12 >= 0 /\ Ar_3 - Fresh_12 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_2, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_11 - 2 >= 0 /\ Fresh_11 + 1 >= 0 /\ Ar_3 - Fresh_11 - 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Ar_2, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_10 - 1 >= 0 /\ Fresh_10 >= 0 /\ Ar_3 - Fresh_10 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Fresh_9, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_5, Fresh_6, Fresh_7, Fresh_8)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Fresh_4, Ar_0 - 1)) [ Ar_0 - 1 = 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_0, Fresh_1, Fresh_2, Fresh_3)) [ Ar_0 - 1 = 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_evalinsertsortbb5in___7(1, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Slicing away variables that do not contribute to conditions from problem 1 leaves variables [Ar_0, Ar_1, Ar_3].
+We thus obtain the following problem:
+2:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortstart(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___7(1, Ar_1, Ar_3))
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_0, Fresh_1, Fresh_3)) [ Ar_0 - 1 = 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ Ar_0 - 1 = 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_5, Fresh_6, Fresh_8)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_10 - 1 >= 0 /\ Fresh_10 >= 0 /\ Ar_3 - Fresh_10 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_11 - 2 >= 0 /\ Fresh_11 + 1 >= 0 /\ Ar_3 - Fresh_11 - 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_12 - 1 >= 0 /\ Fresh_12 >= 0 /\ Ar_3 - Fresh_12 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_13 - 2 >= 0 /\ Fresh_13 + 1 >= 0 /\ Ar_3 - Fresh_13 - 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, -1)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_3 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstart(Ar_0, Ar_1, Ar_3))
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 2 produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]
+		(Comp: 1, Cost: 1)    n_evalinsertsortstart(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___7(1, Ar_1, Ar_3))
+		(Comp: 1, Cost: 1)    n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_0, Fresh_1, Fresh_3)) [ Ar_0 - 1 = 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ Ar_0 - 1 = 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_5, Fresh_6, Fresh_8)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_10 - 1 >= 0 /\ Fresh_10 >= 0 /\ Ar_3 - Fresh_10 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_11 - 2 >= 0 /\ Fresh_11 + 1 >= 0 /\ Ar_3 - Fresh_11 - 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_12 - 1 >= 0 /\ Fresh_12 >= 0 /\ Ar_3 - Fresh_12 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_13 - 2 >= 0 /\ Fresh_13 + 1 >= 0 /\ Ar_3 - Fresh_13 - 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, -1)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_3 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstart(Ar_0, Ar_1, Ar_3))
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(koat_start) = 1
+	Pol(pyRinit) = 1
+	Pol(n_evalinsertsortstart) = 1
+	Pol(n_evalinsertsortbb5in___7) = 1
+	Pol(n_evalinsertsortstop___5) = 0
+	Pol(n_evalinsertsortbb2in___6) = 1
+	Pol(n_evalinsertsortbb5in___2) = 1
+	Pol(n_evalinsertsortbb3in___4) = 1
+	Pol(n_evalinsertsortbb2in___3) = 1
+	Pol(n_evalinsertsortbb3in___1) = 1
+orients all transitions weakly and the transition
+	n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_5, Fresh_6, Fresh_8)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]
+		(Comp: 1, Cost: 1)    n_evalinsertsortstart(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___7(1, Ar_1, Ar_3))
+		(Comp: 1, Cost: 1)    n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_0, Fresh_1, Fresh_3)) [ Ar_0 - 1 = 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ Ar_0 - 1 = 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_5, Fresh_6, Fresh_8)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_10 - 1 >= 0 /\ Fresh_10 >= 0 /\ Ar_3 - Fresh_10 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_11 - 2 >= 0 /\ Fresh_11 + 1 >= 0 /\ Ar_3 - Fresh_11 - 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_12 - 1 >= 0 /\ Fresh_12 >= 0 /\ Ar_3 - Fresh_12 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_13 - 2 >= 0 /\ Fresh_13 + 1 >= 0 /\ Ar_3 - Fresh_13 - 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, -1)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_3 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstart(Ar_0, Ar_1, Ar_3))
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(n_evalinsertsortbb5in___2) = -4*V_1 + 4*V_2 + 3
+	Pol(n_evalinsertsortbb2in___6) = -4*V_1 + 4*V_2 + 2
+	Pol(n_evalinsertsortbb3in___4) = -4*V_1 + 4*V_2 + 1
+	Pol(n_evalinsertsortbb2in___3) = -4*V_1 + 4*V_2
+	Pol(n_evalinsertsortbb3in___1) = -4*V_1 + 4*V_2
+and size complexities
+	S("pyRinit(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstart(Ar_0, Ar_1, Ar_3))", 0-0) = Ar_0
+	S("pyRinit(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstart(Ar_0, Ar_1, Ar_3))", 0-1) = Ar_1
+	S("pyRinit(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstart(Ar_0, Ar_1, Ar_3))", 0-2) = Ar_3
+	S("n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 >= 0 ]", 0-0) = Ar_1 + 1
+	S("n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 >= 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 >= 0 ]", 0-2) = Ar_1 + 2
+	S("n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, -1)) [ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_3 + 1 = 0 ]", 0-0) = Ar_1
+	S("n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, -1)) [ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_3 + 1 = 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, -1)) [ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_3 + 1 = 0 ]", 0-2) = 1
+	S("n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 >= 0 ]", 0-0) = Ar_1 + 1
+	S("n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 >= 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 >= 0 ]", 0-2) = Ar_1
+	S("n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_3 >= 0 /\\ Ar_0 - Fresh_13 - 2 >= 0 /\\ Fresh_13 + 1 >= 0 /\\ Ar_3 - Fresh_13 - 1 = 0 ]", 0-0) = Ar_1 + 1
+	S("n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_3 >= 0 /\\ Ar_0 - Fresh_13 - 2 >= 0 /\\ Fresh_13 + 1 >= 0 /\\ Ar_3 - Fresh_13 - 1 = 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_3 >= 0 /\\ Ar_0 - Fresh_13 - 2 >= 0 /\\ Fresh_13 + 1 >= 0 /\\ Ar_3 - Fresh_13 - 1 = 0 ]", 0-2) = Ar_1 + 2
+	S("n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_3 >= 0 /\\ Ar_0 - Fresh_12 - 1 >= 0 /\\ Fresh_12 >= 0 /\\ Ar_3 - Fresh_12 = 0 ]", 0-0) = Ar_1
+	S("n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_3 >= 0 /\\ Ar_0 - Fresh_12 - 1 >= 0 /\\ Fresh_12 >= 0 /\\ Ar_3 - Fresh_12 = 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_3 >= 0 /\\ Ar_0 - Fresh_12 - 1 >= 0 /\\ Fresh_12 >= 0 /\\ Ar_3 - Fresh_12 = 0 ]", 0-2) = Ar_1 + 2
+	S("n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - Fresh_11 - 2 >= 0 /\\ Fresh_11 + 1 >= 0 /\\ Ar_3 - Fresh_11 - 1 = 0 ]", 0-0) = Ar_1 + 1
+	S("n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - Fresh_11 - 2 >= 0 /\\ Fresh_11 + 1 >= 0 /\\ Ar_3 - Fresh_11 - 1 = 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - Fresh_11 - 2 >= 0 /\\ Fresh_11 + 1 >= 0 /\\ Ar_3 - Fresh_11 - 1 = 0 ]", 0-2) = Ar_1 + 1
+	S("n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - Fresh_10 - 1 >= 0 /\\ Fresh_10 >= 0 /\\ Ar_3 - Fresh_10 = 0 ]", 0-0) = Ar_1
+	S("n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - Fresh_10 - 1 >= 0 /\\ Fresh_10 >= 0 /\\ Ar_3 - Fresh_10 = 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - Fresh_10 - 1 >= 0 /\\ Fresh_10 >= 0 /\\ Ar_3 - Fresh_10 = 0 ]", 0-2) = Ar_1
+	S("n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_0 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = Ar_1
+	S("n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_0 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_0 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = Ar_1
+	S("n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_5, Fresh_6, Fresh_8)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = ?
+	S("n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_5, Fresh_6, Fresh_8)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = ?
+	S("n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_5, Fresh_6, Fresh_8)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = ?
+	S("n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ Ar_0 - 1 = 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = 1
+	S("n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ Ar_0 - 1 = 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ Ar_0 - 1 = 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = 0
+	S("n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_0, Fresh_1, Fresh_3)) [ Ar_0 - 1 = 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = ?
+	S("n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_0, Fresh_1, Fresh_3)) [ Ar_0 - 1 = 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = ?
+	S("n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_0, Fresh_1, Fresh_3)) [ Ar_0 - 1 = 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = ?
+	S("n_evalinsertsortstart(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___7(1, Ar_1, Ar_3))", 0-0) = 1
+	S("n_evalinsertsortstart(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___7(1, Ar_1, Ar_3))", 0-1) = Ar_1
+	S("n_evalinsertsortstart(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___7(1, Ar_1, Ar_3))", 0-2) = Ar_3
+	S("koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_3
+orients the transitions
+	n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+	n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_10 - 1 >= 0 /\ Fresh_10 >= 0 /\ Ar_3 - Fresh_10 = 0 ]
+	n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_11 - 2 >= 0 /\ Fresh_11 + 1 >= 0 /\ Ar_3 - Fresh_11 - 1 = 0 ]
+	n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_12 - 1 >= 0 /\ Fresh_12 >= 0 /\ Ar_3 - Fresh_12 = 0 ]
+	n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_13 - 2 >= 0 /\ Fresh_13 + 1 >= 0 /\ Ar_3 - Fresh_13 - 1 = 0 ]
+	n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+	n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, -1)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_3 + 1 = 0 ]
+	n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+weakly and the transitions
+	n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+	n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_10 - 1 >= 0 /\ Fresh_10 >= 0 /\ Ar_3 - Fresh_10 = 0 ]
+	n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_11 - 2 >= 0 /\ Fresh_11 + 1 >= 0 /\ Ar_3 - Fresh_11 - 1 = 0 ]
+	n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_12 - 1 >= 0 /\ Fresh_12 >= 0 /\ Ar_3 - Fresh_12 = 0 ]
+	n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+	n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, -1)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_3 + 1 = 0 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]
+		(Comp: 1, Cost: 1)             n_evalinsertsortstart(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___7(1, Ar_1, Ar_3))
+		(Comp: 1, Cost: 1)             n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_0, Fresh_1, Fresh_3)) [ Ar_0 - 1 = 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)             n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ Ar_0 - 1 = 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)             n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_5, Fresh_6, Fresh_8)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 4*Ar_1 + 6, Cost: 1)    n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 4*Ar_1 + 6, Cost: 1)    n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_10 - 1 >= 0 /\ Fresh_10 >= 0 /\ Ar_3 - Fresh_10 = 0 ]
+		(Comp: 4*Ar_1 + 6, Cost: 1)    n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_11 - 2 >= 0 /\ Fresh_11 + 1 >= 0 /\ Ar_3 - Fresh_11 - 1 = 0 ]
+		(Comp: 4*Ar_1 + 6, Cost: 1)    n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_12 - 1 >= 0 /\ Fresh_12 >= 0 /\ Ar_3 - Fresh_12 = 0 ]
+		(Comp: ?, Cost: 1)             n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_13 - 2 >= 0 /\ Fresh_13 + 1 >= 0 /\ Ar_3 - Fresh_13 - 1 = 0 ]
+		(Comp: 4*Ar_1 + 6, Cost: 1)    n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+		(Comp: 4*Ar_1 + 6, Cost: 1)    n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, -1)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_3 + 1 = 0 ]
+		(Comp: ?, Cost: 1)             n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)             pyRinit(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstart(Ar_0, Ar_1, Ar_3))
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(n_evalinsertsortbb3in___1) = 2*V_3 + 1
+	Pol(n_evalinsertsortbb2in___3) = 2*V_3 + 2
+and size complexities
+	S("pyRinit(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstart(Ar_0, Ar_1, Ar_3))", 0-0) = Ar_0
+	S("pyRinit(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstart(Ar_0, Ar_1, Ar_3))", 0-1) = Ar_1
+	S("pyRinit(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstart(Ar_0, Ar_1, Ar_3))", 0-2) = Ar_3
+	S("n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 >= 0 ]", 0-0) = Ar_1 + 1
+	S("n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 >= 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 >= 0 ]", 0-2) = Ar_1 + 2
+	S("n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, -1)) [ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_3 + 1 = 0 ]", 0-0) = Ar_1
+	S("n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, -1)) [ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_3 + 1 = 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, -1)) [ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_3 + 1 = 0 ]", 0-2) = 1
+	S("n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 >= 0 ]", 0-0) = Ar_1 + 1
+	S("n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 >= 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 >= 0 ]", 0-2) = Ar_1
+	S("n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_3 >= 0 /\\ Ar_0 - Fresh_13 - 2 >= 0 /\\ Fresh_13 + 1 >= 0 /\\ Ar_3 - Fresh_13 - 1 = 0 ]", 0-0) = Ar_1 + 1
+	S("n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_3 >= 0 /\\ Ar_0 - Fresh_13 - 2 >= 0 /\\ Fresh_13 + 1 >= 0 /\\ Ar_3 - Fresh_13 - 1 = 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_3 >= 0 /\\ Ar_0 - Fresh_13 - 2 >= 0 /\\ Fresh_13 + 1 >= 0 /\\ Ar_3 - Fresh_13 - 1 = 0 ]", 0-2) = Ar_1 + 2
+	S("n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_3 >= 0 /\\ Ar_0 - Fresh_12 - 1 >= 0 /\\ Fresh_12 >= 0 /\\ Ar_3 - Fresh_12 = 0 ]", 0-0) = Ar_1
+	S("n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_3 >= 0 /\\ Ar_0 - Fresh_12 - 1 >= 0 /\\ Fresh_12 >= 0 /\\ Ar_3 - Fresh_12 = 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_3 >= 0 /\\ Ar_0 - Fresh_12 - 1 >= 0 /\\ Fresh_12 >= 0 /\\ Ar_3 - Fresh_12 = 0 ]", 0-2) = Ar_1 + 2
+	S("n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - Fresh_11 - 2 >= 0 /\\ Fresh_11 + 1 >= 0 /\\ Ar_3 - Fresh_11 - 1 = 0 ]", 0-0) = Ar_1 + 1
+	S("n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - Fresh_11 - 2 >= 0 /\\ Fresh_11 + 1 >= 0 /\\ Ar_3 - Fresh_11 - 1 = 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - Fresh_11 - 2 >= 0 /\\ Fresh_11 + 1 >= 0 /\\ Ar_3 - Fresh_11 - 1 = 0 ]", 0-2) = Ar_1 + 1
+	S("n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - Fresh_10 - 1 >= 0 /\\ Fresh_10 >= 0 /\\ Ar_3 - Fresh_10 = 0 ]", 0-0) = Ar_1
+	S("n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - Fresh_10 - 1 >= 0 /\\ Fresh_10 >= 0 /\\ Ar_3 - Fresh_10 = 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_3 - 1 = 0 /\\ Ar_0 - Fresh_10 - 1 >= 0 /\\ Fresh_10 >= 0 /\\ Ar_3 - Fresh_10 = 0 ]", 0-2) = Ar_1
+	S("n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_0 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = Ar_1
+	S("n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_0 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_0 - 2 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = Ar_1
+	S("n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_5, Fresh_6, Fresh_8)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = ?
+	S("n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_5, Fresh_6, Fresh_8)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = ?
+	S("n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_5, Fresh_6, Fresh_8)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_3 - 2 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = ?
+	S("n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ Ar_0 - 1 = 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = 1
+	S("n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ Ar_0 - 1 = 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = Ar_1
+	S("n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ Ar_0 - 1 = 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = 0
+	S("n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_0, Fresh_1, Fresh_3)) [ Ar_0 - 1 = 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = ?
+	S("n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_0, Fresh_1, Fresh_3)) [ Ar_0 - 1 = 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = ?
+	S("n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_0, Fresh_1, Fresh_3)) [ Ar_0 - 1 = 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = ?
+	S("n_evalinsertsortstart(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___7(1, Ar_1, Ar_3))", 0-0) = 1
+	S("n_evalinsertsortstart(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___7(1, Ar_1, Ar_3))", 0-1) = Ar_1
+	S("n_evalinsertsortstart(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___7(1, Ar_1, Ar_3))", 0-2) = Ar_3
+	S("koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_3
+orients the transitions
+	n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_13 - 2 >= 0 /\ Fresh_13 + 1 >= 0 /\ Ar_3 - Fresh_13 - 1 = 0 ]
+	n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+weakly and the transitions
+	n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_13 - 2 >= 0 /\ Fresh_13 + 1 >= 0 /\ Ar_3 - Fresh_13 - 1 = 0 ]
+	n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+strictly and produces the following problem:
+6:	T:
+		(Comp: 1, Cost: 0)                          koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]
+		(Comp: 1, Cost: 1)                          n_evalinsertsortstart(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___7(1, Ar_1, Ar_3))
+		(Comp: 1, Cost: 1)                          n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_0, Fresh_1, Fresh_3)) [ Ar_0 - 1 = 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)                          n_evalinsertsortbb5in___7(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ Ar_0 - 1 = 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)                          n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstop___5(Fresh_5, Fresh_6, Fresh_8)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 4*Ar_1 + 6, Cost: 1)                 n_evalinsertsortbb5in___2(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_0 - 1)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_0 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 4*Ar_1 + 6, Cost: 1)                 n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_10)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_10 - 1 >= 0 /\ Fresh_10 >= 0 /\ Ar_3 - Fresh_10 = 0 ]
+		(Comp: 4*Ar_1 + 6, Cost: 1)                 n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_11)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - Fresh_11 - 2 >= 0 /\ Fresh_11 + 1 >= 0 /\ Ar_3 - Fresh_11 - 1 = 0 ]
+		(Comp: 4*Ar_1 + 6, Cost: 1)                 n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, Fresh_12)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_12 - 1 >= 0 /\ Fresh_12 >= 0 /\ Ar_3 - Fresh_12 = 0 ]
+		(Comp: 8*Ar_1^2 + 28*Ar_1 + 24, Cost: 1)    n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb2in___3(Ar_0, Ar_1, Fresh_13)) [ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ Ar_3 >= 0 /\ Ar_0 - Fresh_13 - 2 >= 0 /\ Fresh_13 + 1 >= 0 /\ Ar_3 - Fresh_13 - 1 = 0 ]
+		(Comp: 4*Ar_1 + 6, Cost: 1)                 n_evalinsertsortbb2in___6(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___4(Ar_0, Ar_1, Ar_3)) [ Ar_0 - Ar_3 - 1 = 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+		(Comp: 4*Ar_1 + 6, Cost: 1)                 n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb5in___2(Ar_0 + 1, Ar_1, -1)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_3 + 1 = 0 ]
+		(Comp: 8*Ar_1^2 + 28*Ar_1 + 24, Cost: 1)    n_evalinsertsortbb2in___3(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortbb3in___1(Ar_0, Ar_1, Ar_3)) [ Ar_3 + 1 >= 0 /\ Ar_0 - Ar_3 - 2 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)                          pyRinit(Ar_0, Ar_1, Ar_3) -> Com_1(n_evalinsertsortstart(Ar_0, Ar_1, Ar_3))
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 80*Ar_1 + 16*Ar_1^2 + 89
+
+Time: 0.290 sec (SMT: 0.251 sec)
+
+-- stats
+realtime 0:00.30
+usertime 0.26
+systime 0.04
+

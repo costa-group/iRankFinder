@@ -1,0 +1,946 @@
+MAYBE
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_5 >= Ar_4 ]
+		(Comp: ?, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]
+		(Comp: ?, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5))
+		(Comp: ?, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_5 >= Ar_4 ]
+		(Comp: ?, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]
+		(Comp: ?, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5))
+		(Comp: ?, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalfstart) = 2
+	Pol(evalfentryin) = 2
+	Pol(evalfbb8in) = 2
+	Pol(evalfbb2in) = 2
+	Pol(evalfreturnin) = 1
+	Pol(evalfbb4in) = 2
+	Pol(evalfbb3in) = 2
+	Pol(evalfbb1in) = 2
+	Pol(evalfbb6in) = 2
+	Pol(evalfbb7in) = 2
+	Pol(evalfbb5in) = 2
+	Pol(evalfstop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+	evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)    evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_5 >= Ar_4 ]
+		(Comp: ?, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]
+		(Comp: ?, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)    evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5))
+		(Comp: 2, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalfstart) = V_1 + 1
+	Pol(evalfentryin) = V_1 + 1
+	Pol(evalfbb8in) = V_2 + 1
+	Pol(evalfbb2in) = V_2
+	Pol(evalfreturnin) = V_2
+	Pol(evalfbb4in) = V_2
+	Pol(evalfbb3in) = V_2
+	Pol(evalfbb1in) = V_2
+	Pol(evalfbb6in) = V_4 + 1
+	Pol(evalfbb7in) = V_4 + 1
+	Pol(evalfbb5in) = V_4 + 1
+	Pol(evalfstop) = V_2
+	Pol(koat_start) = V_1 + 1
+orients all transitions weakly and the transition
+	evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)           evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)           evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: Ar_0 + 1, Cost: 1)    evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)           evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)           evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)           evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)           evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)           evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]
+		(Comp: ?, Cost: 1)           evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)           evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)           evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5))
+		(Comp: ?, Cost: 1)           evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)           evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_5 >= Ar_4 ]
+		(Comp: ?, Cost: 1)           evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)           evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]
+		(Comp: ?, Cost: 1)           evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)           evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5))
+		(Comp: 2, Cost: 1)           evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalfbb7in) = 1
+	Pol(evalfbb8in) = 0
+	Pol(evalfbb5in) = 1
+	Pol(evalfbb6in) = 1
+	Pol(evalfbb4in) = 2
+	Pol(evalfbb3in) = 3
+	Pol(evalfbb1in) = 3
+	Pol(evalfbb2in) = 3
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]", 0-4) = Ar_4
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]", 0-5) = Ar_5
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-0) = ?
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-1) = ?
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-2) = ?
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-3) = ?
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-4) = ?
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-5) = Ar_5
+	S("evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5))", 0-0) = ?
+	S("evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5))", 0-1) = ?
+	S("evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5))", 0-2) = ?
+	S("evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5))", 0-3) = ?
+	S("evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5))", 0-4) = ?
+	S("evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5))", 0-5) = Ar_5
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5))", 0-0) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5))", 0-1) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5))", 0-2) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5))", 0-3) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5))", 0-4) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5))", 0-5) = Ar_5
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]", 0-0) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]", 0-1) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]", 0-2) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]", 0-3) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]", 0-4) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]", 0-5) = Ar_5
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]", 0-0) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]", 0-1) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]", 0-2) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]", 0-3) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]", 0-4) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]", 0-5) = Ar_5
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_5 >= Ar_4 ]", 0-0) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_5 >= Ar_4 ]", 0-1) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_5 >= Ar_4 ]", 0-2) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_5 >= Ar_4 ]", 0-3) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_5 >= Ar_4 ]", 0-4) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_5 >= Ar_4 ]", 0-5) = Ar_5
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_4 >= Ar_5 + 1 ]", 0-0) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_4 >= Ar_5 + 1 ]", 0-1) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_4 >= Ar_5 + 1 ]", 0-2) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_4 >= Ar_5 + 1 ]", 0-3) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_4 >= Ar_5 + 1 ]", 0-4) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_4 >= Ar_5 + 1 ]", 0-5) = Ar_5
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5))", 0-0) = ?
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5))", 0-1) = ?
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5))", 0-2) = ?
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5))", 0-3) = ?
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5))", 0-4) = ?
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5))", 0-5) = Ar_5
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5))", 0-0) = ?
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5))", 0-1) = ?
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5))", 0-2) = ?
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5))", 0-3) = ?
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5))", 0-4) = ?
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5))", 0-5) = Ar_5
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-0) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-1) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-2) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-3) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-4) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-5) = Ar_5
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]", 0-0) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]", 0-1) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]", 0-2) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]", 0-3) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]", 0-4) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]", 0-5) = Ar_5
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]", 0-0) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]", 0-1) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]", 0-2) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]", 0-3) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]", 0-4) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]", 0-5) = Ar_5
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_2 >= 0 ]", 0-0) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_2 >= 0 ]", 0-1) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_2 >= 0 ]", 0-2) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_2 >= 0 ]", 0-3) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_2 >= 0 ]", 0-4) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_2 >= 0 ]", 0-5) = Ar_5
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_2 + 1 ]", 0-0) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_2 + 1 ]", 0-1) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_2 + 1 ]", 0-2) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_2 + 1 ]", 0-3) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_2 + 1 ]", 0-4) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_2 + 1 ]", 0-5) = Ar_5
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]", 0-0) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]", 0-1) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]", 0-2) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]", 0-3) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]", 0-4) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]", 0-5) = Ar_5
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]", 0-0) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]", 0-1) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]", 0-2) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]", 0-3) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]", 0-4) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]", 0-5) = Ar_5
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))", 0-0) = Ar_1
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))", 0-1) = Ar_0
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))", 0-2) = Ar_2
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))", 0-3) = Ar_3
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))", 0-4) = Ar_4
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))", 0-5) = Ar_5
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-0) = Ar_0
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-1) = Ar_1
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-2) = Ar_2
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-3) = Ar_3
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-4) = Ar_4
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))", 0-5) = Ar_5
+orients the transitions
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5))
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]
+	evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_4 >= Ar_5 + 1 ]
+	evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_5 >= Ar_4 ]
+	evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5))
+	evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5))
+	evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+	evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]
+	evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]
+	evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_2 + 1 ]
+	evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_2 >= 0 ]
+	evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5))
+weakly and the transitions
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5))
+	evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_4 >= Ar_5 + 1 ]
+	evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5))
+	evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+	evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_2 + 1 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)             evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)             evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5))
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5))
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_5 >= Ar_4 ]
+		(Comp: ?, Cost: 1)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ G >= 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: ?, Cost: 1)             evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5))
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Applied AI with 'oct' on problem 5 to obtain the following invariants:
+  For symbol evalfbb1in: X_1 - X_3 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 >= 0 /\ X_1 >= 0
+  For symbol evalfbb2in: X_1 - X_3 >= 0 /\ X_2 >= 0
+  For symbol evalfbb3in: X_1 - X_3 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 >= 0 /\ X_1 >= 0
+  For symbol evalfbb4in: X_1 - X_3 >= 0 /\ X_2 >= 0
+  For symbol evalfbb5in: -X_5 + X_6 >= 0 /\ -X_3 + X_6 >= 0 /\ -X_3 + X_5 >= 0 /\ X_2 - X_4 - 1 >= 0 /\ X_4 + 1 >= 0 /\ X_2 + X_4 + 1 >= 0 /\ -X_2 + X_4 + 1 >= 0 /\ X_1 - X_3 >= 0 /\ X_2 >= 0
+  For symbol evalfbb6in: -X_3 + X_5 >= 0 /\ X_2 - X_4 - 1 >= 0 /\ X_4 + 1 >= 0 /\ X_2 + X_4 + 1 >= 0 /\ -X_2 + X_4 + 1 >= 0 /\ X_1 - X_3 >= 0 /\ X_2 >= 0
+  For symbol evalfbb7in: -X_5 + X_6 >= 0 /\ -X_3 + X_6 >= 0 /\ -X_3 + X_5 >= 0 /\ X_2 - X_4 - 1 >= 0 /\ X_4 + 1 >= 0 /\ X_2 + X_4 + 1 >= 0 /\ -X_2 + X_4 + 1 >= 0 /\ X_1 - X_3 >= 0 /\ X_2 >= 0
+  For symbol evalfreturnin: -X_2 - 1 >= 0
+
+
+This yielded the following problem:
+6:	T:
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 1)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: 2, Cost: 1)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ] with all transitions in problem 6, the following new transition is obtained:
+	koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+We thus obtain the following problem:
+7:	T:
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 1)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: 2, Cost: 1)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 7:
+	evalfstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5))
+We thus obtain the following problem:
+8:	T:
+		(Comp: ?, Cost: 1)             evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ] with all transitions in problem 8, the following new transition is obtained:
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+We thus obtain the following problem:
+9:	T:
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ] with all transitions in problem 9, the following new transition is obtained:
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+We thus obtain the following problem:
+10:	T:
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 10:
+	evalfbb5in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+We thus obtain the following problem:
+11:	T:
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ] with all transitions in problem 11, the following new transition is obtained:
+	evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+We thus obtain the following problem:
+12:	T:
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ] with all transitions in problem 12, the following new transition is obtained:
+	evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+We thus obtain the following problem:
+13:	T:
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)             evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 13:
+	evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+We thus obtain the following problem:
+14:	T:
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ] with all transitions in problem 14, the following new transition is obtained:
+	evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+We thus obtain the following problem:
+15:	T:
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ] with all transitions in problem 15, the following new transition is obtained:
+	evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+We thus obtain the following problem:
+16:	T:
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 16:
+	evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+We thus obtain the following problem:
+17:	T:
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 ] with all transitions in problem 17, the following new transition is obtained:
+	evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\ -Ar_1 - 1 >= 0 ]
+We thus obtain the following problem:
+18:	T:
+		(Comp: 2, Cost: 2)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\ -Ar_1 - 1 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)             evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 18:
+	evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_1 - 1 >= 0 ]
+We thus obtain the following problem:
+19:	T:
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 2)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ] with all transitions in problem 19, the following new transition is obtained:
+	koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+We thus obtain the following problem:
+20:	T:
+		(Comp: 1, Cost: 2)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 2)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)             evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 20:
+	evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5))
+We thus obtain the following problem:
+21:	T:
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 2)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 2)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 ] with all transitions in problem 21, the following new transitions are obtained:
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 ]
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_5 >= Ar_4 + 1 ]
+We thus obtain the following problem:
+22:	T:
+		(Comp: ?, Cost: 3)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 3)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_5 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 2)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 2)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalfbb7in) = 1
+	Pol(evalfbb8in) = 0
+	Pol(evalfbb6in) = 1
+	Pol(evalfbb3in) = 0
+	Pol(evalfbb2in) = 0
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]", 0-0) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]", 0-1) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]", 0-4) = Ar_4
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]", 0-5) = Ar_5
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]", 0-0) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]", 0-1) = Ar_0 + 2
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]", 0-2) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]", 0-3) = Ar_0 + Ar_3 + 2
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]", 0-4) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]", 0-5) = Ar_5
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\\ -Ar_1 - 1 >= 0 ]", 0-0) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\\ -Ar_1 - 1 >= 0 ]", 0-1) = Ar_0 + 2
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\\ -Ar_1 - 1 >= 0 ]", 0-2) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\\ -Ar_1 - 1 >= 0 ]", 0-3) = Ar_0 + Ar_3 + 2
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\\ -Ar_1 - 1 >= 0 ]", 0-4) = ?
+	S("evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\\ -Ar_1 - 1 >= 0 ]", 0-5) = Ar_5
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-0) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-1) = Ar_0 + 2
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-2) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-3) = Ar_0 + Ar_3 + 2
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-4) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-5) = Ar_5
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ 0 >= Ar_2 + 1 ]", 0-0) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ 0 >= Ar_2 + 1 ]", 0-1) = Ar_0 + 2
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ 0 >= Ar_2 + 1 ]", 0-2) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ 0 >= Ar_2 + 1 ]", 0-3) = Ar_0 + 2
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ 0 >= Ar_2 + 1 ]", 0-4) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ 0 >= Ar_2 + 1 ]", 0-5) = Ar_5
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 /\\ 0 >= G + 1 ]", 0-0) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 /\\ 0 >= G + 1 ]", 0-1) = Ar_0 + 2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 /\\ 0 >= G + 1 ]", 0-2) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 /\\ 0 >= G + 1 ]", 0-3) = Ar_0 + Ar_3 + 2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 /\\ 0 >= G + 1 ]", 0-4) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 /\\ 0 >= G + 1 ]", 0-5) = Ar_5
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 /\\ G >= 1 ]", 0-0) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 /\\ G >= 1 ]", 0-1) = Ar_0 + 2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 /\\ G >= 1 ]", 0-2) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 /\\ G >= 1 ]", 0-3) = Ar_0 + Ar_3 + 2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 /\\ G >= 1 ]", 0-4) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 /\\ G >= 1 ]", 0-5) = Ar_5
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 ]", 0-0) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 ]", 0-1) = Ar_0 + 2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 ]", 0-2) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 ]", 0-3) = Ar_0 + 2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 ]", 0-4) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 >= 0 /\\ Ar_0 >= 0 ]", 0-5) = Ar_5
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_5 >= Ar_4 ]", 0-0) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_5 >= Ar_4 ]", 0-1) = Ar_0 + 2
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_5 >= Ar_4 ]", 0-2) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_5 >= Ar_4 ]", 0-3) = Ar_0 + 2
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_5 >= Ar_4 ]", 0-4) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_5 >= Ar_4 ]", 0-5) = Ar_5
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_4 >= Ar_5 + 1 ]", 0-0) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_4 >= Ar_5 + 1 ]", 0-1) = Ar_0 + 2
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_4 >= Ar_5 + 1 ]", 0-2) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_4 >= Ar_5 + 1 ]", 0-3) = Ar_0 + 2
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_4 >= Ar_5 + 1 ]", 0-4) = ?
+	S("evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_4 >= Ar_5 + 1 ]", 0-5) = Ar_5
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 ]", 0-0) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 ]", 0-1) = Ar_0 + 2
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 ]", 0-2) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 ]", 0-3) = Ar_0 + 2
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 ]", 0-4) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 ]", 0-5) = Ar_5
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ 0 >= G + 1 ]", 0-0) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ 0 >= G + 1 ]", 0-1) = Ar_0 + 2
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ 0 >= G + 1 ]", 0-2) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ 0 >= G + 1 ]", 0-3) = Ar_0 + 2
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ 0 >= G + 1 ]", 0-4) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ 0 >= G + 1 ]", 0-5) = Ar_5
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ G >= 1 /\\ -Ar_2 + Ar_4 + 1 >= 0 /\\ Ar_5 >= Ar_4 + 1 ]", 0-0) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ G >= 1 /\\ -Ar_2 + Ar_4 + 1 >= 0 /\\ Ar_5 >= Ar_4 + 1 ]", 0-1) = Ar_0 + 2
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ G >= 1 /\\ -Ar_2 + Ar_4 + 1 >= 0 /\\ Ar_5 >= Ar_4 + 1 ]", 0-2) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ G >= 1 /\\ -Ar_2 + Ar_4 + 1 >= 0 /\\ Ar_5 >= Ar_4 + 1 ]", 0-3) = Ar_0 + 2
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ G >= 1 /\\ -Ar_2 + Ar_4 + 1 >= 0 /\\ Ar_5 >= Ar_4 + 1 ]", 0-4) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ G >= 1 /\\ -Ar_2 + Ar_4 + 1 >= 0 /\\ Ar_5 >= Ar_4 + 1 ]", 0-5) = Ar_5
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ G >= 1 /\\ -Ar_2 + Ar_4 + 1 >= 0 /\\ Ar_4 + 1 >= Ar_5 + 1 ]", 0-0) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ G >= 1 /\\ -Ar_2 + Ar_4 + 1 >= 0 /\\ Ar_4 + 1 >= Ar_5 + 1 ]", 0-1) = Ar_0 + 2
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ G >= 1 /\\ -Ar_2 + Ar_4 + 1 >= 0 /\\ Ar_4 + 1 >= Ar_5 + 1 ]", 0-2) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ G >= 1 /\\ -Ar_2 + Ar_4 + 1 >= 0 /\\ Ar_4 + 1 >= Ar_5 + 1 ]", 0-3) = Ar_0 + 2
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ G >= 1 /\\ -Ar_2 + Ar_4 + 1 >= 0 /\\ Ar_4 + 1 >= Ar_5 + 1 ]", 0-4) = ?
+	S("evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\\ -Ar_2 + Ar_5 >= 0 /\\ -Ar_2 + Ar_4 >= 0 /\\ Ar_1 - Ar_3 - 1 >= 0 /\\ Ar_3 + 1 >= 0 /\\ Ar_1 + Ar_3 + 1 >= 0 /\\ -Ar_1 + Ar_3 + 1 >= 0 /\\ Ar_0 - Ar_2 >= 0 /\\ Ar_1 >= 0 /\\ G >= 1 /\\ -Ar_2 + Ar_4 + 1 >= 0 /\\ Ar_4 + 1 >= Ar_5 + 1 ]", 0-5) = Ar_5
+orients the transitions
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 ]
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_5 >= Ar_4 + 1 ]
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+	evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+	evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+	evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+	evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+weakly and the transition
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 ]
+strictly and produces the following problem:
+23:	T:
+		(Comp: 6*Ar_0 + 6, Cost: 3)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 3)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_5 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 2)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 2)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 ] with all transitions in problem 23, the following new transitions are obtained:
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ 0 >= Ar_3 + 1 /\ -Ar_3 - 1 >= 0 ]
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 ]
+We thus obtain the following problem:
+24:	T:
+		(Comp: 6*Ar_0 + 6, Cost: 5)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ 0 >= Ar_3 + 1 /\ -Ar_3 - 1 >= 0 ]
+		(Comp: 6*Ar_0 + 6, Cost: 4)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 3)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_5 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 2)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 2)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 ] with all transitions in problem 24, the following new transitions are obtained:
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 ]
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ Ar_4 + 1 >= 0 ]
+We thus obtain the following problem:
+25:	T:
+		(Comp: 6*Ar_0 + 6, Cost: 6)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 ]
+		(Comp: 6*Ar_0 + 6, Cost: 5)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ Ar_4 + 1 >= 0 ]
+		(Comp: 6*Ar_0 + 6, Cost: 5)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ 0 >= Ar_3 + 1 /\ -Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 3)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_5 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 2)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 2)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 ] with all transitions in problem 25, the following new transition is obtained:
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 /\ 2*Ar_3 >= 0 ]
+We thus obtain the following problem:
+26:	T:
+		(Comp: 6*Ar_0 + 6, Cost: 7)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 /\ 2*Ar_3 >= 0 ]
+		(Comp: 6*Ar_0 + 6, Cost: 5)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ Ar_4 + 1 >= 0 ]
+		(Comp: 6*Ar_0 + 6, Cost: 5)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ 0 >= Ar_3 + 1 /\ -Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 3)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_5 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 2)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 2)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 /\ 2*Ar_3 >= 0 ] with all transitions in problem 26, the following new transitions are obtained:
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 /\ 2*Ar_3 >= 0 /\ 0 >= Ar_3 /\ -Ar_3 >= 0 ]
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 /\ 2*Ar_3 >= 0 /\ Ar_3 - 1 >= 0 ]
+We thus obtain the following problem:
+27:	T:
+		(Comp: 6*Ar_0 + 6, Cost: 9)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 /\ 2*Ar_3 >= 0 /\ 0 >= Ar_3 /\ -Ar_3 >= 0 ]
+		(Comp: 6*Ar_0 + 6, Cost: 8)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 /\ 2*Ar_3 >= 0 /\ Ar_3 - 1 >= 0 ]
+		(Comp: 6*Ar_0 + 6, Cost: 5)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ Ar_4 + 1 >= 0 ]
+		(Comp: 6*Ar_0 + 6, Cost: 5)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ 0 >= Ar_3 + 1 /\ -Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 3)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_5 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 2)             evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)    evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)             evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 2)             evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 2)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 /\ 2*Ar_3 >= 0 /\ Ar_3 - 1 >= 0 ] with all transitions in problem 27, the following new transition is obtained:
+	evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_3 - 2, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 /\ 2*Ar_3 >= 0 /\ Ar_3 - 1 >= 0 ]
+We thus obtain the following problem:
+28:	T:
+		(Comp: 6*Ar_0 + 6, Cost: 10)    evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_3 - 2, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 /\ 2*Ar_3 >= 0 /\ Ar_3 - 1 >= 0 ]
+		(Comp: 6*Ar_0 + 6, Cost: 9)     evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_3 - 1, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ 0 >= Ar_4 + 2 /\ 2*Ar_3 >= 0 /\ 0 >= Ar_3 /\ -Ar_3 >= 0 ]
+		(Comp: 6*Ar_0 + 6, Cost: 5)     evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ Ar_3 >= 0 /\ 0 >= 0 /\ Ar_4 + 1 >= 0 ]
+		(Comp: 6*Ar_0 + 6, Cost: 5)     evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_4 + 1, Ar_3, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_4 + 1 >= Ar_5 + 1 /\ 0 >= Ar_3 + 1 /\ -Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 3)              evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ G >= 1 /\ -Ar_2 + Ar_4 + 1 >= 0 /\ Ar_5 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 2)              evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 + 1, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)     evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_4 + Ar_5 >= 0 /\ -Ar_2 + Ar_5 >= 0 /\ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 3*Ar_0 + 3, Cost: 1)     evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_4, Ar_3, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_4 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)              evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ -Ar_2 + Ar_4 >= 0 /\ Ar_1 - Ar_3 - 1 >= 0 /\ Ar_3 + 1 >= 0 /\ Ar_1 + Ar_3 + 1 >= 0 /\ -Ar_1 + Ar_3 + 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_5 >= Ar_4 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)     evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)              evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ G >= 1 ]
+		(Comp: ?, Cost: 2)              evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 - 1, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ 0 >= G + 1 ]
+		(Comp: 3*Ar_0 + 3, Cost: 2)     evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb6in(Ar_0, Ar_1, Ar_2, Ar_1 - 1, Ar_2, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)              evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 2)              evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 >= Ar_1 + 1 /\ -Ar_1 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)       evalfbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_0, Ar_3, Ar_4, Ar_5)) [ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 2)              koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(evalfbb8in(Ar_1, Ar_0, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound ?
+
+Time: 1.856 sec (SMT: 1.412 sec)

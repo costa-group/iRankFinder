@@ -1,0 +1,114 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: eval1,
+  nodes: {
+    eval1: {
+      inv_polyhedra: [],
+    },
+    eval2: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    eval3: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [A >= 0],
+        [-A > 0],
+        [B -2 * C >= 0],
+        [-B + 2 * C > 0],
+        [B -2 * C >= 0],
+        [-B + 2 * C > 0],
+        [B -D >= 0],
+        [-B + D > 0],
+      ],
+      inv_polyhedra: [2 * C -D == 0, -2 + B >= 0, -A + C >= 0],
+    },
+    eval4: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [-A + C >= 0, -2 * C + D >= 0, -2 + B >= 0, 1 + 2 * C -D >= 0, B -D >= 0],
+    },
+  },
+  transitions: [
+    {
+	source: eval1,
+	target: eval2,
+	name: t0,
+	constraints: [A -2 >= 0, A -1 -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval1,
+	target: eval2,
+	name: t1,
+	constraints: [1 -A >= 0, A -A' = 0, B -1 -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval4,
+	target: eval2,
+	name: t10,
+	constraints: [B -2 >= 0, A -1 = 0, A -A' = 0, B -1 -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval2,
+	target: eval3,
+	name: t2,
+	constraints: [B -2 >= 0, A -A' = 0, B -B' = 0, A -C' = 0, 2 * A -D' = 0]
+    },
+    {
+	source: eval3,
+	target: eval4,
+	name: t3,
+	constraints: [B -D >= 0, B -1 -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval3,
+	target: eval4,
+	name: t4,
+	constraints: [B -D >= 0, B -1 -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D + 1 -D' = 0]
+    },
+    {
+	source: eval3,
+	target: eval3,
+	name: t5,
+	constraints: [B -D >= 0, B -1 -D >= 0, D -1 >= 0, A -A' = 0, B -B' = 0, D -C' = 0, 2 * D -D' = 0]
+    },
+    {
+	source: eval3,
+	target: eval3,
+	name: t6,
+	constraints: [B -D >= 0, B -1 -D >= 0, D -1 >= 0, A -A' = 0, B -B' = 0, D + 1 -C' = 0, 2 * D + 2 -D' = 0]
+    },
+    {
+	source: eval3,
+	target: eval4,
+	name: t7,
+	constraints: [B -D = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval3,
+	target: eval3,
+	name: t8,
+	constraints: [D -1 >= 0, B -D = 0, A -A' = 0, B -B' = 0, D -C' = 0, 2 * D -D' = 0]
+    },
+    {
+	source: eval4,
+	target: eval2,
+	name: t9,
+	constraints: [A -2 >= 0, A -1 >= 0, B -2 >= 0, A -1 -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    }
+  ]
+}

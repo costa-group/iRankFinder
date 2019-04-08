@@ -1,0 +1,145 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: evalEx1start,
+  nodes: {
+    evalEx1bb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+        [D >= 0],
+        [-D > 0],
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [-1 -A + C >= 0, -1 -C + D >= 0, B -D >= 0, A >= 0],
+    },
+    evalEx1bb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+        [D >= 0],
+        [-D > 0],
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [-1 -A + C >= 0, -C + D >= 0, B -D >= 0, A >= 0],
+    },
+    evalEx1bb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [C -D == 0, -1 -A + C >= 0, B -C >= 0, A >= 0],
+    },
+    evalEx1bb6in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    evalEx1bbin: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-1 -A + B >= 0, A >= 0],
+    },
+    evalEx1entryin: {
+      inv_polyhedra: [],
+    },
+    evalEx1returnin: {
+      inv_polyhedra: [A -B >= 0, A >= 0],
+    },
+    evalEx1start: {
+      inv_polyhedra: [],
+    },
+    evalEx1stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalEx1start,
+	target: evalEx1entryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx1entryin,
+	target: evalEx1bb6in,
+	name: t1,
+	constraints: [-A' = 0, A -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx1bb1in,
+	target: evalEx1bb4in,
+	name: t14,
+	constraints: [A -A' = 0, B -B' = 0, C + 1 -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx1bb5in,
+	target: evalEx1bb6in,
+	name: t15,
+	constraints: [A + 1 -A' = 0, D -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx1returnin,
+	target: evalEx1stop,
+	name: t16,
+	constraints: []
+    },
+    {
+	source: evalEx1bb6in,
+	target: evalEx1bbin,
+	name: t2,
+	constraints: [B -A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx1bb6in,
+	target: evalEx1returnin,
+	name: t3,
+	constraints: [A -B >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx1bbin,
+	target: evalEx1bb4in,
+	name: t4,
+	constraints: [A -A' = 0, B -B' = 0, A + 1 -C' = 0, B -D' = 0]
+    },
+    {
+	source: evalEx1bb4in,
+	target: evalEx1bb1in,
+	name: t5,
+	constraints: [D -C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx1bb4in,
+	target: evalEx1bb5in,
+	name: t6,
+	constraints: [C -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx1bb1in,
+	target: evalEx1bb4in,
+	name: t7,
+	constraints: [-1 -E >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -1 -D' = 0]
+    },
+    {
+	source: evalEx1bb1in,
+	target: evalEx1bb4in,
+	name: t9,
+	constraints: [E -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -1 -D' = 0]
+    }
+  ]
+}

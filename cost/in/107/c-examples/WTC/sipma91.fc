@@ -1,0 +1,157 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: evalsipma91start,
+  nodes: {
+    evalsipma91bb11in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [A >= 0],
+        [-A > 0],
+        [110 -B >= 0],
+        [-110 + B > 0],
+      ],
+      inv_polyhedra: [-101 + B >= 0],
+    },
+    evalsipma91bb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [100 -B >= 0],
+        [-100 + B > 0],
+      ],
+      inv_polyhedra: [100 -B >= 0, -1 + A >= 0],
+    },
+    evalsipma91bb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [100 -B >= 0],
+        [-100 + B > 0],
+      ],
+      inv_polyhedra: [89 + 11 * A -B >= 0, -1 + A >= 0],
+    },
+    evalsipma91bb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [A >= 0],
+        [-A > 0],
+        [110 -B >= 0],
+        [-110 + B > 0],
+      ],
+      inv_polyhedra: [-101 + B >= 0, -2 + A >= 0],
+    },
+    evalsipma91bb8in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [A >= 0],
+        [-A > 0],
+        [110 -B >= 0],
+        [-110 + B > 0],
+      ],
+      inv_polyhedra: [-1 + A -D == 0, -10 + B -C == 0, -101 + B >= 0, -2 + A >= 0],
+    },
+    evalsipma91entryin: {
+      inv_polyhedra: [],
+    },
+    evalsipma91returnin: {
+      inv_polyhedra: [],
+    },
+    evalsipma91start: {
+      inv_polyhedra: [],
+    },
+    evalsipma91stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalsipma91start,
+	target: evalsipma91entryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalsipma91entryin,
+	target: evalsipma91returnin,
+	name: t1,
+	constraints: [A -101 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalsipma91bb5in,
+	target: evalsipma91bb8in,
+	name: t10,
+	constraints: [A -3 >= 0, A -A' = 0, B -B' = 0, B -10 -C' = 0, A -1 -D' = 0]
+    },
+    {
+	source: evalsipma91bb5in,
+	target: evalsipma91bb11in,
+	name: t11,
+	constraints: [B -111 >= 0, A -2 = 0, A -1 -A' = 0, B -10 -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalsipma91bb8in,
+	target: evalsipma91bb11in,
+	name: t12,
+	constraints: [C -101 >= 0, D -A' = 0, C + 1 -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalsipma91bb8in,
+	target: evalsipma91bb11in,
+	name: t15,
+	constraints: [100 -C >= 0, D + 1 -A' = 0, C + 11 -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalsipma91returnin,
+	target: evalsipma91stop,
+	name: t16,
+	constraints: []
+    },
+    {
+	source: evalsipma91entryin,
+	target: evalsipma91bb3in,
+	name: t2,
+	constraints: [100 -A >= 0, 1 -A' = 0, A -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalsipma91bb3in,
+	target: evalsipma91bb2in,
+	name: t3,
+	constraints: [100 -B >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalsipma91bb3in,
+	target: evalsipma91bb11in,
+	name: t4,
+	constraints: [B -101 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalsipma91bb2in,
+	target: evalsipma91bb3in,
+	name: t5,
+	constraints: [A + 1 -A' = 0, B + 11 -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalsipma91bb11in,
+	target: evalsipma91bb5in,
+	name: t6,
+	constraints: [A -2 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalsipma91bb11in,
+	target: evalsipma91returnin,
+	name: t7,
+	constraints: [1 -A >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalsipma91bb5in,
+	target: evalsipma91bb8in,
+	name: t8,
+	constraints: [110 -B >= 0, A -A' = 0, B -B' = 0, B -10 -C' = 0, A -1 -D' = 0]
+    }
+  ]
+}

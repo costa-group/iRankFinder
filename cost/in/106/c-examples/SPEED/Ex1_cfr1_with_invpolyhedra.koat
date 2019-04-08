@@ -1,0 +1,16 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A_P B_P C_P D_P NoDet1 NoDet3 NoDet2 NoDet0)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(n_evalEx1start(A,B,C,D))
+  n_evalEx1bb1in___2(A,B,C,D) -> Com_1(n_evalEx1bb4in___4(A, B, C + 1, D)) :|: B -D >= 0 && -C + D -1 >= 0 && -A + C -1 >= 0 && A >= 0 && A >= 0 && B -D >= 0 && -C + D -1 >= 0 && -A + C -1 >= 0 && -1 -A + C >= 0 && -1 -C + D >= 0 && B -D >= 0 && A >= 0
+  n_evalEx1bb1in___2(A,B,C,D) -> Com_1(n_evalEx1bb4in___4(A, B, C, D -1)) :|: B -D >= 0 && -C + D -1 >= 0 && -A + C -1 >= 0 && A >= 0 && B -D >= 0 && -C + D -1 >= 0 && -A + C -1 >= 0 && A >= 0 && -1 -A + C >= 0 && -1 -C + D >= 0 && B -D >= 0 && A >= 0
+  n_evalEx1bb1in___2(A,B,C,D) -> Com_1(n_evalEx1bb4in___4(A, B, C, D -1)) :|: B -D >= 0 && -C + D -1 >= 0 && -A + C -1 >= 0 && A >= 0 && B -D >= 0 && -C + D -1 >= 0 && -A + C -1 >= 0 && A >= 0 && -1 -A + C >= 0 && -1 -C + D >= 0 && B -D >= 0 && A >= 0
+  n_evalEx1bb4in___4(A,B,C,D) -> Com_1(n_evalEx1bb1in___2(A, B, C, D)) :|: B -D >= 0 && -A + C -1 >= 0 && A >= 0 && B -C >= 0 && B -D >= 0 && A >= 0 && -C + D -1 >= 0 && -A + C -1 >= 0 && -1 -A + C >= 0 && -C + D >= 0 && A >= 0 && B -D >= 0
+  n_evalEx1bb4in___4(A,B,C,D) -> Com_1(n_evalEx1bb6in___1(A + 1, C, C, C)) :|: B -D >= 0 && -A + C -1 >= 0 && A >= 0 && B -C >= 0 && B -C >= 0 && -A + C -1 >= 0 && A >= 0 && C -D = 0 && -1 -A + C >= 0 && -C + D >= 0 && A >= 0 && B -D >= 0
+  n_evalEx1bb6in___1(A,B,C,D) -> Com_1(n_evalEx1bb4in___4(A, B, A + 1, B)) :|: A >= 0 && B -1 >= 0 && -A + B -1 >= 0 && A >= 0 && B -D = 0 && B -C = 0 && -A + B >= 0 && -1 + A >= 0
+  n_evalEx1bb6in___1(A,B,C,D) -> Com_1(n_evalEx1stop___3(NoDet0, NoDet1, NoDet2, NoDet3)) :|: A >= 0 && B -1 >= 0 && A -B >= 0 && A >= 0 && B -D = 0 && B -C = 0 && -A + B >= 0 && -1 + A >= 0
+  n_evalEx1bb6in___5(A,B,C,D) -> Com_1(n_evalEx1bb4in___4(A, B, A + 1, B)) :|: A >= 0 && -A + B -1 >= 0 && A >= 0 && A = 0
+  n_evalEx1bb6in___5(A,B,C,D) -> Com_1(n_evalEx1stop___3(NoDet0, NoDet1, NoDet2, NoDet3)) :|: A >= 0 && A -B >= 0 && A >= 0 && A = 0
+  n_evalEx1start(A,B,C,D) -> Com_1(n_evalEx1bb6in___5(0, A, C, D))
+)

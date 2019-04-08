@@ -1,0 +1,171 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalSimpleMultiplestart) = 2
+	Pol(evalSimpleMultipleentryin) = 2
+	Pol(evalSimpleMultiplebb3in) = 2
+	Pol(evalSimpleMultiplebbin) = 2
+	Pol(evalSimpleMultiplereturnin) = 1
+	Pol(evalSimpleMultiplebb1in) = 2
+	Pol(evalSimpleMultiplebb2in) = 2
+	Pol(evalSimpleMultiplestop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestop(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_2 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_1 + 1 ]
+		(Comp: 2, Cost: 1)    evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)    evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalSimpleMultiplestart) = V_4
+	Pol(evalSimpleMultipleentryin) = V_4
+	Pol(evalSimpleMultiplebb3in) = -V_1 + V_4
+	Pol(evalSimpleMultiplebbin) = -V_1 + V_4
+	Pol(evalSimpleMultiplereturnin) = -V_1 + V_4
+	Pol(evalSimpleMultiplebb1in) = -V_1 + V_4 - 1
+	Pol(evalSimpleMultiplebb2in) = -V_1 + V_4
+	Pol(evalSimpleMultiplestop) = -V_1 + V_4
+	Pol(koat_start) = V_4
+orients all transitions weakly and the transition
+	evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)       evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)       evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)       evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_1 + 1 ]
+		(Comp: 2, Cost: 1)       evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_2 ]
+		(Comp: Ar_3, Cost: 1)    evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)       evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)       evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)       evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)       evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)       koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 4 produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)       evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)       evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)       evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_1 + 1 ]
+		(Comp: 2, Cost: 1)       evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_2 ]
+		(Comp: Ar_3, Cost: 1)    evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)       evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_3 ]
+		(Comp: Ar_3, Cost: 1)    evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)       evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)       evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)       koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Applied AI with 'oct' on problem 5 to obtain the following invariants:
+  For symbol evalSimpleMultiplebb1in: X_4 - 1 >= 0 /\ X_3 + X_4 - 2 >= 0 /\ X_2 + X_4 - 1 >= 0 /\ X_1 + X_4 - 1 >= 0 /\ -X_1 + X_4 - 1 >= 0 /\ X_3 - 1 >= 0 /\ X_2 + X_3 - 1 >= 0 /\ -X_2 + X_3 - 1 >= 0 /\ X_1 + X_3 - 1 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 >= 0 /\ X_1 >= 0
+  For symbol evalSimpleMultiplebb2in: X_1 - X_4 >= 0 /\ X_3 - 1 >= 0 /\ X_2 + X_3 - 1 >= 0 /\ -X_2 + X_3 - 1 >= 0 /\ X_1 + X_3 - 1 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 >= 0 /\ X_1 >= 0
+  For symbol evalSimpleMultiplebb3in: X_2 >= 0 /\ X_1 + X_2 >= 0 /\ X_1 >= 0
+  For symbol evalSimpleMultiplebbin: X_3 - 1 >= 0 /\ X_2 + X_3 - 1 >= 0 /\ -X_2 + X_3 - 1 >= 0 /\ X_1 + X_3 - 1 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 >= 0 /\ X_1 >= 0
+  For symbol evalSimpleMultiplereturnin: X_2 - X_3 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 >= 0 /\ X_1 >= 0
+
+
+This yielded the following problem:
+6:	T:
+		(Comp: 1, Cost: 0)       koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)       evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)       evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: Ar_3, Cost: 1)    evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 2 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)       evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_0 >= Ar_3 ]
+		(Comp: Ar_3, Cost: 1)    evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_3 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)       evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)       evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_2 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)       evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(0, 0, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)       evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(koat_start) = 2*V_3
+	Pol(evalSimpleMultiplestart) = 2*V_3
+	Pol(evalSimpleMultiplereturnin) = -2*V_2 + 2*V_3
+	Pol(evalSimpleMultiplestop) = -2*V_2 + 2*V_3
+	Pol(evalSimpleMultiplebb2in) = -2*V_2 + 2*V_3 - 1
+	Pol(evalSimpleMultiplebb3in) = -2*V_2 + 2*V_3
+	Pol(evalSimpleMultiplebb1in) = -2*V_2 + 2*V_3
+	Pol(evalSimpleMultiplebbin) = -2*V_2 + 2*V_3
+	Pol(evalSimpleMultipleentryin) = 2*V_3
+orients all transitions weakly and the transitions
+	evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_0 >= Ar_3 ]
+	evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+strictly and produces the following problem:
+7:	T:
+		(Comp: 1, Cost: 0)         koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)         evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 2*Ar_2, Cost: 1)    evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: Ar_3, Cost: 1)      evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 2 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 2*Ar_2, Cost: 1)    evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_0 >= Ar_3 ]
+		(Comp: Ar_3, Cost: 1)      evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_3 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)         evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)         evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_2 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)         evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(0, 0, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)         evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 7 produces the following problem:
+8:	T:
+		(Comp: 1, Cost: 0)                    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)                    evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplestop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 2*Ar_2, Cost: 1)               evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: Ar_3, Cost: 1)                 evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 2 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 2*Ar_2, Cost: 1)               evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_0 >= Ar_3 ]
+		(Comp: Ar_3, Cost: 1)                 evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ -Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_3 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)                    evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_1 >= Ar_2 ]
+		(Comp: Ar_3 + 2*Ar_2 + 1, Cost: 1)    evalSimpleMultiplebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_2 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)                    evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultiplebb3in(0, 0, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)                    evalSimpleMultiplestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleMultipleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 6*Ar_2 + 3*Ar_3 + 7
+
+Time: 0.119 sec (SMT: 0.097 sec)

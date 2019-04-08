@@ -1,0 +1,210 @@
+WORST_CASE(?, O(n^2))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_0 /\ Ar_6 = Ar_7 /\ Ar_8 = Ar_9 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_0 /\ Ar_6 = Ar_7 /\ Ar_8 = Ar_9 ]
+		(Comp: ?, Cost: 1)    lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\ Ar_8 >= Ar_6 + 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_6 + 2 /\ Ar_5 = Ar_0 /\ Ar_8 = Ar_0 /\ Ar_3 + 1 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\ Ar_6 + Ar_3 >= 1 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_3 + 1 /\ Ar_3 >= Ar_6 + 1 /\ Ar_5 = Ar_0 /\ Ar_8 = Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_0 /\ Ar_6 = Ar_7 /\ Ar_8 = Ar_9 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_0 /\ Ar_6 = Ar_7 /\ Ar_8 = Ar_9 ]
+		(Comp: ?, Cost: 1)    lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\ Ar_8 >= Ar_6 + 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_6 + 2 /\ Ar_5 = Ar_0 /\ Ar_8 = Ar_0 /\ Ar_3 + 1 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\ Ar_6 + Ar_3 >= 1 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_3 + 1 /\ Ar_3 >= Ar_6 + 1 /\ Ar_5 = Ar_0 /\ Ar_8 = Ar_3 + 1 ]
+		(Comp: 1, Cost: 1)    start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(start) = 1
+	Pol(stop) = 0
+	Pol(lbl31) = 1
+	Pol(lbl43) = 1
+	Pol(lbl13) = 1
+	Pol(start0) = 1
+	Pol(koat_start) = 1
+orients all transitions weakly and the transition
+	lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_6 + 2 /\ Ar_5 = Ar_0 /\ Ar_8 = Ar_0 /\ Ar_3 + 1 = Ar_0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_0 /\ Ar_6 = Ar_7 /\ Ar_8 = Ar_9 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_0 /\ Ar_6 = Ar_7 /\ Ar_8 = Ar_9 ]
+		(Comp: ?, Cost: 1)    lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\ Ar_8 >= Ar_6 + 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: 1, Cost: 1)    lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_6 + 2 /\ Ar_5 = Ar_0 /\ Ar_8 = Ar_0 /\ Ar_3 + 1 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\ Ar_6 + Ar_3 >= 1 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_3 + 1 /\ Ar_3 >= Ar_6 + 1 /\ Ar_5 = Ar_0 /\ Ar_8 = Ar_3 + 1 ]
+		(Comp: 1, Cost: 1)    start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(start) = 3*V_1
+	Pol(stop) = 3*V_6 - 3*V_9
+	Pol(lbl31) = 3*V_6 - 3*V_9 - 1
+	Pol(lbl43) = 3*V_6 - 3*V_9 - 2
+	Pol(lbl13) = 3*V_6 - 3*V_9
+	Pol(start0) = 3*V_1
+	Pol(koat_start) = 3*V_1
+orients all transitions weakly and the transitions
+	lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+	lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+	lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+	lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\ Ar_6 + Ar_3 >= 1 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_3 + 1 /\ Ar_3 >= Ar_6 + 1 /\ Ar_5 = Ar_0 /\ Ar_8 = Ar_3 + 1 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)         start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_0 /\ Ar_6 = Ar_7 /\ Ar_8 = Ar_9 ]
+		(Comp: 1, Cost: 1)         start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_0 /\ Ar_6 = Ar_7 /\ Ar_8 = Ar_9 ]
+		(Comp: ?, Cost: 1)         lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\ Ar_8 >= Ar_6 + 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: 3*Ar_0, Cost: 1)    lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: 3*Ar_0, Cost: 1)    lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: 3*Ar_0, Cost: 1)    lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: 1, Cost: 1)         lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_6 + 2 /\ Ar_5 = Ar_0 /\ Ar_8 = Ar_0 /\ Ar_3 + 1 = Ar_0 ]
+		(Comp: 3*Ar_0, Cost: 1)    lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\ Ar_6 + Ar_3 >= 1 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_3 + 1 /\ Ar_3 >= Ar_6 + 1 /\ Ar_5 = Ar_0 /\ Ar_8 = Ar_3 + 1 ]
+		(Comp: 1, Cost: 1)         start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))
+		(Comp: 1, Cost: 0)         koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(lbl43) = V_7 + 1
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]", 0-4) = Ar_4
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]", 0-5) = Ar_5
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]", 0-6) = Ar_6
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]", 0-7) = Ar_7
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]", 0-8) = Ar_8
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]", 0-9) = Ar_9
+	S("start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))", 0-0) = Ar_0
+	S("start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))", 0-1) = Ar_2
+	S("start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))", 0-2) = Ar_2
+	S("start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))", 0-3) = Ar_4
+	S("start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))", 0-4) = Ar_4
+	S("start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))", 0-5) = Ar_0
+	S("start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))", 0-6) = Ar_7
+	S("start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))", 0-7) = Ar_7
+	S("start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))", 0-8) = Ar_9
+	S("start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))", 0-9) = Ar_9
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\\ Ar_6 + Ar_3 >= 1 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_3 + 1 /\\ Ar_3 >= Ar_6 + 1 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_3 + 1 ]", 0-0) = Ar_0
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\\ Ar_6 + Ar_3 >= 1 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_3 + 1 /\\ Ar_3 >= Ar_6 + 1 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_3 + 1 ]", 0-1) = ?
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\\ Ar_6 + Ar_3 >= 1 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_3 + 1 /\\ Ar_3 >= Ar_6 + 1 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_3 + 1 ]", 0-2) = Ar_2
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\\ Ar_6 + Ar_3 >= 1 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_3 + 1 /\\ Ar_3 >= Ar_6 + 1 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_3 + 1 ]", 0-3) = Ar_0 + 1
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\\ Ar_6 + Ar_3 >= 1 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_3 + 1 /\\ Ar_3 >= Ar_6 + 1 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_3 + 1 ]", 0-4) = Ar_4
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\\ Ar_6 + Ar_3 >= 1 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_3 + 1 /\\ Ar_3 >= Ar_6 + 1 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_3 + 1 ]", 0-5) = Ar_0
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\\ Ar_6 + Ar_3 >= 1 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_3 + 1 /\\ Ar_3 >= Ar_6 + 1 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_3 + 1 ]", 0-6) = Ar_0 + 2
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\\ Ar_6 + Ar_3 >= 1 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_3 + 1 /\\ Ar_3 >= Ar_6 + 1 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_3 + 1 ]", 0-7) = Ar_7
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\\ Ar_6 + Ar_3 >= 1 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_3 + 1 /\\ Ar_3 >= Ar_6 + 1 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_3 + 1 ]", 0-8) = Ar_0
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\\ Ar_6 + Ar_3 >= 1 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_3 + 1 /\\ Ar_3 >= Ar_6 + 1 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_3 + 1 ]", 0-9) = Ar_9
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_6 + 2 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_0 /\\ Ar_3 + 1 = Ar_0 ]", 0-0) = Ar_0
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_6 + 2 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_0 /\\ Ar_3 + 1 = Ar_0 ]", 0-1) = ?
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_6 + 2 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_0 /\\ Ar_3 + 1 = Ar_0 ]", 0-2) = Ar_2
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_6 + 2 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_0 /\\ Ar_3 + 1 = Ar_0 ]", 0-3) = Ar_0 + 1
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_6 + 2 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_0 /\\ Ar_3 + 1 = Ar_0 ]", 0-4) = Ar_4
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_6 + 2 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_0 /\\ Ar_3 + 1 = Ar_0 ]", 0-5) = Ar_0
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_6 + 2 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_0 /\\ Ar_3 + 1 = Ar_0 ]", 0-6) = Ar_0 + 2
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_6 + 2 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_0 /\\ Ar_3 + 1 = Ar_0 ]", 0-7) = Ar_7
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_6 + 2 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_0 /\\ Ar_3 + 1 = Ar_0 ]", 0-8) = Ar_0
+	S("lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_6 + 2 /\\ Ar_5 = Ar_0 /\\ Ar_8 = Ar_0 /\\ Ar_3 + 1 = Ar_0 ]", 0-9) = Ar_9
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-0) = Ar_0
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-1) = ?
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-2) = Ar_2
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-3) = Ar_0 + 1
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-4) = Ar_4
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-5) = Ar_0
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-6) = Ar_0 + 1
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-7) = Ar_7
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-8) = Ar_0
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-9) = Ar_9
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-0) = Ar_0
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-1) = ?
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-2) = Ar_2
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-3) = Ar_0 + Ar_4 + 1
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-4) = Ar_4
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-5) = Ar_0
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-6) = Ar_0 + 1
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-7) = Ar_7
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-8) = Ar_0 + 1
+	S("lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-9) = Ar_9
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-0) = Ar_0
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-1) = ?
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-2) = Ar_2
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-3) = Ar_0 + 1
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-4) = Ar_4
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-5) = Ar_0
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-6) = Ar_0 + 2
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-7) = Ar_7
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-8) = Ar_0
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-9) = Ar_9
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\\ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-0) = Ar_0
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\\ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-1) = ?
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\\ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-2) = Ar_2
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\\ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-3) = Ar_0 + Ar_4 + 1
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\\ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-4) = Ar_4
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\\ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-5) = Ar_0
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\\ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-6) = Ar_0 + 2
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\\ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-7) = Ar_7
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\\ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-8) = Ar_0 + 1
+	S("lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\\ Ar_8 >= Ar_6 + 2 /\\ Ar_6 + 1 >= 0 /\\ Ar_0 >= Ar_8 + 1 /\\ Ar_5 = Ar_0 ]", 0-9) = Ar_9
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-0) = Ar_0
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-1) = ?
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-2) = Ar_2
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-3) = Ar_4
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-4) = Ar_4
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-5) = Ar_0
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-6) = Ar_7
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-7) = Ar_7
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-8) = 1
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-9) = Ar_9
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-0) = Ar_0
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-1) = Ar_2
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-2) = Ar_2
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-3) = Ar_4
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-4) = Ar_4
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-5) = Ar_0
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-6) = Ar_7
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-7) = Ar_7
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-8) = 1
+	S("start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\\ Ar_1 = Ar_2 /\\ Ar_3 = Ar_4 /\\ Ar_5 = Ar_0 /\\ Ar_6 = Ar_7 /\\ Ar_8 = Ar_9 ]", 0-9) = Ar_9
+orients the transitions
+	lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\ Ar_8 >= Ar_6 + 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+weakly and the transition
+	lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\ Ar_8 >= Ar_6 + 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)                    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ 1 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_0 /\ Ar_6 = Ar_7 /\ Ar_8 = Ar_9 ]
+		(Comp: 1, Cost: 1)                    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, 1, Ar_9)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_0 /\ Ar_6 = Ar_7 /\ Ar_8 = Ar_9 ]
+		(Comp: 3*Ar_0^2 + 6*Ar_0, Cost: 1)    lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6 - 1, Ar_7, Ar_8, Ar_9)) [ Ar_6 >= 0 /\ Ar_8 >= Ar_6 + 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: 3*Ar_0, Cost: 1)               lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= Ar_6 + 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: 3*Ar_0, Cost: 1)               lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl43(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_8 - 2, Ar_7, Ar_8, Ar_9)) [ Ar_8 >= 1 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: 3*Ar_0, Cost: 1)               lbl31(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl13(Ar_0, Ar_1, Ar_2, Ar_8, Ar_4, Ar_5, Ar_8 - 1, Ar_7, Ar_8 + 1, Ar_9)) [ Ar_8 >= 1 /\ Ar_0 >= Ar_8 + 1 /\ Ar_5 = Ar_0 ]
+		(Comp: 1, Cost: 1)                    lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_6 + Ar_0 >= 2 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_6 + 2 /\ Ar_5 = Ar_0 /\ Ar_8 = Ar_0 /\ Ar_3 + 1 = Ar_0 ]
+		(Comp: 3*Ar_0, Cost: 1)               lbl13(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(lbl31(Ar_0, Fresh_0, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ Ar_0 >= Ar_3 + 2 /\ Ar_6 + Ar_3 >= 1 /\ Ar_6 + 1 >= 0 /\ Ar_0 >= Ar_3 + 1 /\ Ar_3 >= Ar_6 + 1 /\ Ar_5 = Ar_0 /\ Ar_8 = Ar_3 + 1 ]
+		(Comp: 1, Cost: 1)                    start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_0, Ar_7, Ar_7, Ar_9, Ar_9))
+		(Comp: 1, Cost: 0)                    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7, Ar_8, Ar_9)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 3*Ar_0^2 + 18*Ar_0 + 4
+
+Time: 0.168 sec (SMT: 0.133 sec)

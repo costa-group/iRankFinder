@@ -1,0 +1,179 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalfbb1in/7,evalfbb3in/7,evalfbb4in/7,evalfbbin/7]
+1. non_recursive  : [evalfstop/4]
+2. non_recursive  : [evalfreturnin/4]
+3. non_recursive  : [exit_location/1]
+4. non_recursive  : [evalfbb3in_loop_cont/5]
+5. non_recursive  : [evalfentryin/4]
+6. non_recursive  : [evalfstart/4]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalfbb3in/7
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into evalfbb3in_loop_cont/5
+5. SCC is partially evaluated into evalfentryin/4
+6. SCC is partially evaluated into evalfstart/4
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalfbb3in/7 
+* CE 7 is refined into CE [10] 
+* CE 3 is refined into CE [11] 
+* CE 6 is refined into CE [12] 
+* CE 4 is refined into CE [13] 
+* CE 5 is refined into CE [14] 
+
+
+### Cost equations --> "Loop" of evalfbb3in/7 
+* CEs [13] --> Loop 10 
+* CEs [14] --> Loop 11 
+* CEs [10] --> Loop 12 
+* CEs [11] --> Loop 13 
+* CEs [12] --> Loop 14 
+
+### Ranking functions of CR evalfbb3in(A,B,C,E,F,G,H) 
+* RF of phase [10,11]: [2*B+C-1]
+
+#### Partial ranking functions of CR evalfbb3in(A,B,C,E,F,G,H) 
+* Partial RF of phase [10,11]:
+  - RF of loop [10:1]:
+    A-C depends on loops [11:1] 
+    B
+  - RF of loop [11:1]:
+    -A+C+1 depends on loops [10:1] 
+    C depends on loops [10:1] 
+
+
+### Specialization of cost equations evalfbb3in_loop_cont/5 
+* CE 9 is refined into CE [15] 
+* CE 8 is refined into CE [16] 
+
+
+### Cost equations --> "Loop" of evalfbb3in_loop_cont/5 
+* CEs [15] --> Loop 15 
+* CEs [16] --> Loop 16 
+
+### Ranking functions of CR evalfbb3in_loop_cont(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalfbb3in_loop_cont(A,B,C,D,E) 
+
+
+### Specialization of cost equations evalfentryin/4 
+* CE 2 is refined into CE [17,18,19,20] 
+
+
+### Cost equations --> "Loop" of evalfentryin/4 
+* CEs [17,18,19,20] --> Loop 17 
+
+### Ranking functions of CR evalfentryin(A,B,C,E) 
+
+#### Partial ranking functions of CR evalfentryin(A,B,C,E) 
+
+
+### Specialization of cost equations evalfstart/4 
+* CE 1 is refined into CE [21] 
+
+
+### Cost equations --> "Loop" of evalfstart/4 
+* CEs [21] --> Loop 18 
+
+### Ranking functions of CR evalfstart(A,B,C,E) 
+
+#### Partial ranking functions of CR evalfstart(A,B,C,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalfbb3in(A,B,C,E,F,G,H):
+* Chain [[10,11],14]: 4*it(10)+3*it(11)+1
+  Such that:it(10) =< B
+aux(10) =< 2*B+C
+aux(11) =< 2*B+C-H
+it(10) =< aux(10)
+it(11) =< aux(10)
+it(10) =< aux(11)
+it(11) =< aux(11)
+
+  with precondition: [E=2,G=0,A=F,A>=1,B>=1,C>=0,A>=H,B+C>=H] 
+
+* Chain [[10,11],13]: 4*it(10)+3*it(11)+2
+  Such that:it(10) =< B-G
+aux(10) =< 2*B+C
+aux(11) =< 2*B+C-2*G-H
+it(10) =< aux(10)
+it(11) =< aux(10)
+it(10) =< aux(11)
+it(11) =< aux(11)
+
+  with precondition: [E=2,A=F,A>=1,C>=0,G>=1,H>=0,B>=G,A>=H,B+C>=G+1,C+2*B>=2*G+H+1,A+B>=G+H+1,B+C>=G+H] 
+
+* Chain [[10,11],12]: 4*it(10)+3*it(11)+0
+  Such that:it(10) =< B
+aux(14) =< 2*B+C
+it(10) =< aux(14)
+it(11) =< aux(14)
+
+  with precondition: [E=3,A>=1,B>=1,C>=0] 
+
+* Chain [13]: 2
+  with precondition: [E=2,A=F,B=G,C=H,A>=1,B>=1,C>=0] 
+
+* Chain [12]: 0
+  with precondition: [E=3,A>=1,C>=0,B+C>=1] 
+
+
+#### Cost of chains of evalfbb3in_loop_cont(A,B,C,D,E):
+* Chain [16]: 1
+  with precondition: [A=2] 
+
+* Chain [15]: 0
+  with precondition: [A=3] 
+
+
+#### Cost of chains of evalfentryin(A,B,C,E):
+* Chain [17]: 12*s(4)+9*s(7)+4
+  Such that:aux(16) =< A
+aux(17) =< 2*A
+s(4) =< aux(16)
+s(4) =< aux(17)
+s(7) =< aux(17)
+
+  with precondition: [A>=1,B>=1] 
+
+
+#### Cost of chains of evalfstart(A,B,C,E):
+* Chain [18]: 12*s(17)+9*s(18)+5
+  Such that:s(15) =< A
+s(16) =< 2*A
+s(17) =< s(15)
+s(17) =< s(16)
+s(18) =< s(16)
+
+  with precondition: [A>=1,B>=1] 
+
+
+Closed-form bounds of evalfstart(A,B,C,E): 
+-------------------------------------
+* Chain [18] with precondition: [A>=1,B>=1] 
+    - Upper bound: 30*A+5 
+    - Complexity: n 
+
+### Maximum cost of evalfstart(A,B,C,E): 30*A+5 
+Asymptotic class: n 
+* Total analysis performed in 246 ms.
+
+
+-- stats
+realtime 0:00.30
+usertime 0.29
+systime 0.00
+

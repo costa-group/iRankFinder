@@ -1,0 +1,24 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E F A' B' C' D' E' F' NoDet3 NoDet2 NoDet0 G NoDet4 NoDet1 NoDet5)
+(RULES 
+  pyRinit(A,B,C,D,E,F) -> Com_1(evalfstart(A,B,C,D,E,F))
+  evalfbb1in(A,B,C,D,E,F) -> Com_1(evalfbb2in(A, B, C -1, D, E, F))
+  evalfbb2in(A,B,C,D,E,F) -> Com_1(evalfbb3in(A, B, C, D, E, F)) :|: C >= 0
+  evalfbb2in(A,B,C,D,E,F) -> Com_1(evalfbb4in(A, B, C, D, E, F)) :|: -1 -C >= 0
+  evalfbb3in(A,B,C,D,E,F) -> Com_1(evalfbb1in(A, B, C, D, E, F)) :|: -1 -G >= 0
+  evalfbb3in(A,B,C,D,E,F) -> Com_1(evalfbb1in(A, B, C, D, E, F)) :|: G -1 >= 0
+  evalfbb3in(A,B,C,D,E,F) -> Com_1(evalfbb4in(A, B, C, D, E, F))
+  evalfbb4in(A,B,C,D,E,F) -> Com_1(evalfbb6in(A, B, C, B -1, C, F))
+  evalfbb5in(A,B,C,D,E,F) -> Com_1(evalfbb6in(A, B, C, D, E + 1, F))
+  evalfbb6in(A,B,C,D,E,F) -> Com_1(evalfbb7in(A, B, C, D, E, F)) :|: F -E >= 0
+  evalfbb6in(A,B,C,D,E,F) -> Com_1(evalfbb8in(E, D, C, D, E, F)) :|: E -F -1 >= 0
+  evalfbb7in(A,B,C,D,E,F) -> Com_1(evalfbb5in(A, B, C, D, E, F)) :|: -1 -G >= 0
+  evalfbb7in(A,B,C,D,E,F) -> Com_1(evalfbb5in(A, B, C, D, E, F)) :|: G -1 >= 0
+  evalfbb7in(A,B,C,D,E,F) -> Com_1(evalfbb8in(E, D, C, D, E, F))
+  evalfbb8in(A,B,C,D,E,F) -> Com_1(evalfbb2in(A, B, A, D, E, F)) :|: B >= 0
+  evalfbb8in(A,B,C,D,E,F) -> Com_1(evalfreturnin(A, B, C, D, E, F)) :|: -1 -B >= 0
+  evalfentryin(A,B,C,D,E,F) -> Com_1(evalfbb8in(B, A, C, D, E, F))
+  evalfreturnin(A,B,C,D,E,F) -> Com_1(evalfstop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5))
+  evalfstart(A,B,C,D,E,F) -> Com_1(evalfentryin(A, B, C, D, E, F))
+)

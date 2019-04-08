@@ -1,0 +1,105 @@
+{
+  vars: [A,B],
+  pvars: [A',B'],
+  initnode: evalwisestart,
+  nodes: {
+    evalwisebb3in: {
+      inv_polyhedra: [A >= 0, -3 + A + B >= 0, B >= 0],
+    },
+    evalwisebb4in: {
+      inv_polyhedra: [B >= 0, -1 + A -B >= 0, -3 + A + B >= 0],
+    },
+    evalwisebb5in: {
+      inv_polyhedra: [-A + B >= 0, A >= 0, -3 + A + B >= 0],
+    },
+    evalwisebb6in: {
+      inv_polyhedra: [B >= 0, A >= 0],
+    },
+    evalwiseentryin: {
+      inv_polyhedra: [],
+    },
+    evalwisereturnin: {
+      inv_polyhedra: [],
+    },
+    evalwisestart: {
+      inv_polyhedra: [],
+    },
+    evalwisestop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalwisestart,
+	target: evalwiseentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwiseentryin,
+	target: evalwisereturnin,
+	name: t1,
+	constraints: [-1 -A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwisebb5in,
+	target: evalwisebb6in,
+	name: t10,
+	constraints: [A + 1 -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwisereturnin,
+	target: evalwisestop,
+	name: t11,
+	constraints: []
+    },
+    {
+	source: evalwiseentryin,
+	target: evalwisereturnin,
+	name: t2,
+	constraints: [-1 -B >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwiseentryin,
+	target: evalwisebb6in,
+	name: t3,
+	constraints: [A >= 0, B >= 0, B -A' = 0, A -B' = 0]
+    },
+    {
+	source: evalwisebb6in,
+	target: evalwisebb3in,
+	name: t4,
+	constraints: [B -A -3 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwisebb6in,
+	target: evalwisebb3in,
+	name: t5,
+	constraints: [A -B -3 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwisebb6in,
+	target: evalwisereturnin,
+	name: t6,
+	constraints: [2 + A -B >= 0, 2 + B -A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwisebb3in,
+	target: evalwisebb4in,
+	name: t7,
+	constraints: [A -B -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwisebb3in,
+	target: evalwisebb5in,
+	name: t8,
+	constraints: [B -A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwisebb4in,
+	target: evalwisebb6in,
+	name: t9,
+	constraints: [A -A' = 0, B + 1 -B' = 0]
+    }
+  ]
+}

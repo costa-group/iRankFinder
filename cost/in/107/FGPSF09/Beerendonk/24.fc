@@ -1,0 +1,94 @@
+{
+  vars: [A,B],
+  pvars: [A',B'],
+  initnode: start,
+  nodes: {
+    eval1: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [B >= 0],
+        [-B > 0],
+        [0 >= 0],
+        [0 > 0],
+        [0 >= 0],
+        [0 > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    eval2: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [B >= 0],
+        [-B > 0],
+        [-A >= 0],
+        [A > 0],
+      ],
+      inv_polyhedra: [-1 + B >= 0],
+    },
+    eval3: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [B >= 0],
+        [-B > 0],
+        [0 >= 0],
+        [0 > 0],
+        [-1 + A -B >= 0],
+        [1 -A + B > 0],
+      ],
+      inv_polyhedra: [-1 + A >= 0],
+    },
+    start: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: eval1,
+	target: eval2,
+	name: t0,
+	constraints: [A -1 >= 0, B -1 >= 0, A -B -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: eval1,
+	target: eval3,
+	name: t1,
+	constraints: [A -1 >= 0, B -1 >= 0, B -A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: eval2,
+	target: eval2,
+	name: t2,
+	constraints: [A -1 >= 0, A -1 -A' = 0, B -B' = 0]
+    },
+    {
+	source: eval2,
+	target: eval1,
+	name: t3,
+	constraints: [-A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: eval3,
+	target: eval3,
+	name: t4,
+	constraints: [B -1 >= 0, A -A' = 0, B -1 -B' = 0]
+    },
+    {
+	source: eval3,
+	target: eval1,
+	name: t5,
+	constraints: [-B >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: start,
+	target: eval1,
+	name: t6,
+	constraints: [A -A' = 0, B -B' = 0]
+    }
+  ]
+}

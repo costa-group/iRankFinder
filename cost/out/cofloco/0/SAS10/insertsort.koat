@@ -1,0 +1,233 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [lbl43/21]
+1. recursive  : [lbl13/21,lbl31/21,lbl43_loop_cont/22]
+2. non_recursive  : [exit_location/1]
+3. non_recursive  : [stop/11]
+4. non_recursive  : [lbl31_loop_cont/12]
+5. non_recursive  : [start/11]
+6. non_recursive  : [start0/11]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into lbl43/21
+1. SCC is partially evaluated into lbl31/21
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into lbl31_loop_cont/12
+5. SCC is partially evaluated into start/11
+6. SCC is partially evaluated into start0/11
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations lbl43/21 
+* CE 14 is refined into CE [15] 
+* CE 13 is refined into CE [16] 
+* CE 12 is refined into CE [17] 
+
+
+### Cost equations --> "Loop" of lbl43/21 
+* CEs [17] --> Loop 12 
+* CEs [15] --> Loop 13 
+* CEs [16] --> Loop 14 
+
+### Ranking functions of CR lbl43(A,B,C,D,E,F,G,H,I,J,L,M,N,O,P,Q,R,S,T,U,V) 
+* RF of phase [12]: [G+1]
+
+#### Partial ranking functions of CR lbl43(A,B,C,D,E,F,G,H,I,J,L,M,N,O,P,Q,R,S,T,U,V) 
+* Partial RF of phase [12]:
+  - RF of loop [12:1]:
+    G+1
+
+
+### Specialization of cost equations lbl31/21 
+* CE 6 is refined into CE [18,19] 
+* CE 7 is refined into CE [20] 
+* CE 8 is refined into CE [21] 
+* CE 9 is refined into CE [22] 
+* CE 4 is refined into CE [23,24] 
+* CE 5 is refined into CE [25] 
+
+
+### Cost equations --> "Loop" of lbl31/21 
+* CEs [24] --> Loop 15 
+* CEs [23] --> Loop 16 
+* CEs [25] --> Loop 17 
+* CEs [19] --> Loop 18 
+* CEs [18] --> Loop 19 
+* CEs [20] --> Loop 20 
+* CEs [21,22] --> Loop 21 
+
+### Ranking functions of CR lbl31(A,B,C,D,E,F,G,H,I,J,L,M,N,O,P,Q,R,S,T,U,V) 
+* RF of phase [15,16,17]: [A-I-1,F-I-1]
+
+#### Partial ranking functions of CR lbl31(A,B,C,D,E,F,G,H,I,J,L,M,N,O,P,Q,R,S,T,U,V) 
+* Partial RF of phase [15,16,17]:
+  - RF of loop [15:1,16:1,17:1]:
+    A-I-1
+    F-I-1
+
+
+### Specialization of cost equations lbl31_loop_cont/12 
+* CE 10 is refined into CE [26] 
+* CE 11 is refined into CE [27] 
+
+
+### Cost equations --> "Loop" of lbl31_loop_cont/12 
+* CEs [26] --> Loop 22 
+* CEs [27] --> Loop 23 
+
+### Ranking functions of CR lbl31_loop_cont(A,B,C,D,E,F,G,H,I,J,K,L) 
+
+#### Partial ranking functions of CR lbl31_loop_cont(A,B,C,D,E,F,G,H,I,J,K,L) 
+
+
+### Specialization of cost equations start/11 
+* CE 3 is refined into CE [28,29,30,31,32] 
+* CE 2 is refined into CE [33] 
+
+
+### Cost equations --> "Loop" of start/11 
+* CEs [33] --> Loop 24 
+* CEs [28,29,30,31,32] --> Loop 25 
+
+### Ranking functions of CR start(A,B,C,D,E,F,G,H,I,J,L) 
+
+#### Partial ranking functions of CR start(A,B,C,D,E,F,G,H,I,J,L) 
+
+
+### Specialization of cost equations start0/11 
+* CE 1 is refined into CE [34,35] 
+
+
+### Cost equations --> "Loop" of start0/11 
+* CEs [35] --> Loop 26 
+* CEs [34] --> Loop 27 
+
+### Ranking functions of CR start0(A,B,C,D,E,F,G,H,I,J,L) 
+
+#### Partial ranking functions of CR start0(A,B,C,D,E,F,G,H,I,J,L) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of lbl43(A,B,C,D,E,F,G,H,I,J,L,M,N,O,P,Q,R,S,T,U,V):
+* Chain [[12],14]: 1*it(12)+1
+  Such that:it(12) =< G-S
+
+  with precondition: [L=2,A=F,A=M,B=N,C=O,I=P,E=Q,A=R,H=T,I+1=U,J=V,S+1>=0,I>=G+2,A>=I+1,G>=S+1] 
+
+* Chain [[12],13]: 1*it(12)+0
+  Such that:it(12) =< G+1
+
+  with precondition: [L=3,A=F,G>=0,I>=G+2,A>=I+1] 
+
+* Chain [14]: 1
+  with precondition: [L=2,F=A,N=B,O=C,Q=E,T=H,V=J,F=M,I=P,F=R,G=S,I+1=U,G+1>=0,I>=G+2,F>=I+1] 
+
+* Chain [13]: 0
+  with precondition: [L=3,F=A,G+1>=0,I>=G+2,F>=I+1] 
+
+
+#### Cost of chains of lbl31(A,B,C,D,E,F,G,H,I,J,L,M,N,O,P,Q,R,S,T,U,V):
+* Chain [[15,16,17],21]: 8*it(15)+1*s(2)+1*s(5)+1
+  Such that:aux(6) =< A
+aux(7) =< A-I
+s(2) =< aux(6)
+it(15) =< aux(7)
+s(5) =< it(15)*aux(6)
+
+  with precondition: [L=3,A=F,I>=1,A>=I+2] 
+
+* Chain [[15,16,17],20]: 8*it(15)+1*s(5)+2
+  Such that:aux(1) =< M
+aux(8) =< -I+M
+it(15) =< aux(8)
+s(5) =< it(15)*aux(1)
+
+  with precondition: [L=4,A=F,A=M,C=O,A=P+1,E=Q,A=R,A=S+2,H=T,A=U,J=V,I>=1,A>=I+2] 
+
+* Chain [[15,16,17],19]: 8*it(15)+1*s(5)+3
+  Such that:aux(1) =< M
+aux(9) =< -I+M
+it(15) =< aux(9)
+s(5) =< it(15)*aux(1)
+
+  with precondition: [L=4,A=F,A=M,C=O,A=P+1,E=Q,A=R,A=S+3,H=T,A=U,J=V,I>=1,A>=I+2] 
+
+* Chain [[15,16,17],18]: 8*it(15)+1*s(5)+1*s(6)+3
+  Such that:aux(10) =< -I+M
+aux(11) =< M
+s(6) =< aux(11)
+it(15) =< aux(10)
+s(5) =< it(15)*aux(11)
+
+  with precondition: [L=4,A=F,A=M,C=O,A=P+1,E=Q,A=R,H=T,A=U,J=V,I>=1,S+1>=0,A>=I+2,A>=S+4] 
+
+* Chain [21]: 1*s(2)+1
+  Such that:s(2) =< I
+
+  with precondition: [L=3,F=A,I>=1,F>=I+1] 
+
+* Chain [20]: 2
+  with precondition: [L=4,F=A,N=B,O=C,Q=E,T=H,F=I+1,V=J,F=M,F=P+1,F=R,F=S+2,F=U,F>=2] 
+
+
+#### Cost of chains of lbl31_loop_cont(A,B,C,D,E,F,G,H,I,J,K,L):
+* Chain [23]: 0
+  with precondition: [A=3] 
+
+* Chain [22]: 0
+  with precondition: [A=4] 
+
+
+#### Cost of chains of start(A,B,C,D,E,F,G,H,I,J,L):
+* Chain [25]: 1*s(15)+34*s(16)+4*s(18)+4
+  Such that:s(15) =< 1
+aux(16) =< F
+s(16) =< aux(16)
+s(18) =< s(16)*aux(16)
+
+  with precondition: [F=A,C=B,E=D,H=G,J=I,F>=2] 
+
+* Chain [24]: 1
+  with precondition: [F=A,C=B,E=D,H=G,J=I,1>=F] 
+
+
+#### Cost of chains of start0(A,B,C,D,E,F,G,H,I,J,L):
+* Chain [27]: 2
+  with precondition: [1>=A] 
+
+* Chain [26]: 1*s(32)+34*s(34)+4*s(35)+5
+  Such that:s(32) =< 1
+s(33) =< A
+s(34) =< s(33)
+s(35) =< s(34)*s(33)
+
+  with precondition: [A>=2] 
+
+
+Closed-form bounds of start0(A,B,C,D,E,F,G,H,I,J,L): 
+-------------------------------------
+* Chain [27] with precondition: [1>=A] 
+    - Upper bound: 2 
+    - Complexity: constant 
+* Chain [26] with precondition: [A>=2] 
+    - Upper bound: 34*A+6+4*A*A 
+    - Complexity: n^2 
+
+### Maximum cost of start0(A,B,C,D,E,F,G,H,I,J,L): nat(A)*34+4+nat(A)*4*nat(A)+2 
+Asymptotic class: n^2 
+* Total analysis performed in 1187 ms.
+
+
+-- stats
+realtime 0:01.45
+usertime 1.27
+systime 0.03
+

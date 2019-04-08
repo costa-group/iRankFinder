@@ -1,0 +1,153 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4start(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb2in___1(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb2in___5(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___1(Ar_0, Ar_1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_6, Fresh_7)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___3(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_4, Fresh_5)) [ Ar_0 - 1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb5in___7(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___5(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___7(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_2, Fresh_3)) [ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_0, Fresh_1)) [ Ar_0 - Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4start(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4entryin___8(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4start(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb2in___1(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalspeedpldi4bb2in___5(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___1(Ar_0, Ar_1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_6, Fresh_7)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___3(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_4, Fresh_5)) [ Ar_0 - 1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalspeedpldi4bb5in___7(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___5(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___7(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_2, Fresh_3)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_0, Fresh_1)) [ Ar_0 - Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalspeedpldi4start(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4entryin___8(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(pyRinit) = 2
+	Pol(n_evalspeedpldi4start) = 2
+	Pol(n_evalspeedpldi4bb2in___1) = 1
+	Pol(n_evalspeedpldi4bb5in___2) = 1
+	Pol(n_evalspeedpldi4bb2in___3) = 2
+	Pol(n_evalspeedpldi4bb5in___4) = 2
+	Pol(n_evalspeedpldi4bb2in___5) = 2
+	Pol(n_evalspeedpldi4stop___6) = 0
+	Pol(n_evalspeedpldi4bb5in___7) = 2
+	Pol(n_evalspeedpldi4entryin___8) = 2
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_4, Fresh_5)) [ Ar_0 - 1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 >= 0 ]
+	n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_6, Fresh_7)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+	n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4start(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb2in___1(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+		(Comp: 2, Cost: 1)    n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalspeedpldi4bb2in___5(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___1(Ar_0, Ar_1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+		(Comp: 2, Cost: 1)    n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_6, Fresh_7)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___3(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)    n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_4, Fresh_5)) [ Ar_0 - 1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalspeedpldi4bb5in___7(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___5(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___7(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_2, Fresh_3)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_0, Fresh_1)) [ Ar_0 - Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalspeedpldi4start(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4entryin___8(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(n_evalspeedpldi4bb5in___4) = 2*V_2 + 1
+	Pol(n_evalspeedpldi4bb2in___3) = 2*V_2
+	Pol(n_evalspeedpldi4bb5in___2) = 2*V_2 + 1
+	Pol(n_evalspeedpldi4bb2in___1) = 2*V_2
+and size complexities
+	S("koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("n_evalspeedpldi4start(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4entryin___8(Ar_0, Ar_1))", 0-0) = Ar_0
+	S("n_evalspeedpldi4start(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4entryin___8(Ar_0, Ar_1))", 0-1) = Ar_1
+	S("n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_0, Fresh_1)) [ Ar_0 - Ar_1 >= 0 ]", 0-0) = ?
+	S("n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_0, Fresh_1)) [ Ar_0 - Ar_1 >= 0 ]", 0-1) = ?
+	S("n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_2, Fresh_3)) [ -Ar_0 >= 0 ]", 0-0) = ?
+	S("n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_2, Fresh_3)) [ -Ar_0 >= 0 ]", 0-1) = ?
+	S("n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___7(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 ]", 0-0) = Ar_0
+	S("n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___7(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 ]", 0-1) = Ar_1
+	S("n_evalspeedpldi4bb5in___7(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___5(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 ]", 0-0) = Ar_0
+	S("n_evalspeedpldi4bb5in___7(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___5(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 ]", 0-1) = Ar_1
+	S("n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_4, Fresh_5)) [ Ar_0 - 1 >= 0 /\\ -Ar_1 >= 0 /\\ Ar_1 >= 0 ]", 0-0) = ?
+	S("n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_4, Fresh_5)) [ Ar_0 - 1 >= 0 /\\ -Ar_1 >= 0 /\\ Ar_1 >= 0 ]", 0-1) = ?
+	S("n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___3(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_1 >= 0 ]", 0-0) = Ar_0
+	S("n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___3(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_1 >= 0 ]", 0-1) = Ar_1
+	S("n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_6, Fresh_7)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_1 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 2 >= 0 ]", 0-0) = ?
+	S("n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_6, Fresh_7)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_1 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 2 >= 0 ]", 0-1) = ?
+	S("n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___1(Ar_0, Ar_1)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 2 >= 0 ]", 0-0) = Ar_0
+	S("n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___1(Ar_0, Ar_1)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 2 >= 0 ]", 0-1) = Ar_1
+	S("n_evalspeedpldi4bb2in___5(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 ]", 0-0) = Ar_0
+	S("n_evalspeedpldi4bb2in___5(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ -Ar_0 + Ar_1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 1 >= 0 ]", 0-1) = Ar_1
+	S("n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 >= 0 ]", 0-0) = Ar_0
+	S("n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ -Ar_0 + Ar_1 >= 0 ]", 0-1) = Ar_1
+	S("n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_1 - 1 >= 0 ]", 0-0) = Ar_0
+	S("n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 - Ar_1 - 1 >= 0 ]", 0-1) = Ar_1
+	S("n_evalspeedpldi4bb2in___1(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_1 - 2 >= 0 ]", 0-0) = Ar_0
+	S("n_evalspeedpldi4bb2in___1(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_1 - 2 >= 0 ]", 0-1) = Ar_1
+	S("pyRinit(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4start(Ar_0, Ar_1))", 0-0) = Ar_0
+	S("pyRinit(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4start(Ar_0, Ar_1))", 0-1) = Ar_1
+orients the transitions
+	n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___3(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+	n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___1(Ar_0, Ar_1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+	n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+	n_evalspeedpldi4bb2in___1(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+weakly and the transitions
+	n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___3(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+	n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___1(Ar_0, Ar_1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+	n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+	n_evalspeedpldi4bb2in___1(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)             pyRinit(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4start(Ar_0, Ar_1))
+		(Comp: 6*Ar_1 + 3, Cost: 1)    n_evalspeedpldi4bb2in___1(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+		(Comp: 2, Cost: 1)             n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___2(Ar_0, Ar_1 - 1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 ]
+		(Comp: 6*Ar_1 + 3, Cost: 1)    n_evalspeedpldi4bb2in___3(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)             n_evalspeedpldi4bb2in___5(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___4(Ar_0, -Ar_0 + Ar_1)) [ -Ar_0 + Ar_1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 ]
+		(Comp: 6*Ar_1 + 3, Cost: 1)    n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___1(Ar_0, Ar_1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+		(Comp: 2, Cost: 1)             n_evalspeedpldi4bb5in___2(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_6, Fresh_7)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - Ar_1 - 2 >= 0 ]
+		(Comp: 6*Ar_1 + 3, Cost: 1)    n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___3(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)             n_evalspeedpldi4bb5in___4(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_4, Fresh_5)) [ Ar_0 - 1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)             n_evalspeedpldi4bb5in___7(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb2in___5(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)             n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4bb5in___7(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_1 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)             n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_2, Fresh_3)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)             n_evalspeedpldi4entryin___8(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4stop___6(Fresh_0, Fresh_1)) [ Ar_0 - Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)             n_evalspeedpldi4start(Ar_0, Ar_1) -> Com_1(n_evalspeedpldi4entryin___8(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 24*Ar_1 + 25
+
+Time: 0.125 sec (SMT: 0.110 sec)
+
+-- stats
+realtime 0:00.13
+usertime 0.11
+systime 0.01
+

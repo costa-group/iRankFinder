@@ -1,0 +1,73 @@
+{
+  vars: [A],
+  pvars: [A'],
+  initnode: evalndecrstart,
+  nodes: {
+    evalndecrbb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalndecrbbin: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [-2 + A >= 0],
+    },
+    evalndecrentryin: {
+      inv_polyhedra: [],
+    },
+    evalndecrreturnin: {
+      inv_polyhedra: [1 -A >= 0],
+    },
+    evalndecrstart: {
+      inv_polyhedra: [],
+    },
+    evalndecrstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalndecrstart,
+	target: evalndecrentryin,
+	name: t0,
+	constraints: [A -A' = 0]
+    },
+    {
+	source: evalndecrentryin,
+	target: evalndecrbb1in,
+	name: t1,
+	constraints: [A -1 -A' = 0]
+    },
+    {
+	source: evalndecrbb1in,
+	target: evalndecrbbin,
+	name: t2,
+	constraints: [A -2 >= 0, A -A' = 0]
+    },
+    {
+	source: evalndecrbb1in,
+	target: evalndecrreturnin,
+	name: t3,
+	constraints: [1 -A >= 0, A -A' = 0]
+    },
+    {
+	source: evalndecrbbin,
+	target: evalndecrbb1in,
+	name: t4,
+	constraints: [A -1 -A' = 0]
+    },
+    {
+	source: evalndecrreturnin,
+	target: evalndecrstop,
+	name: t5,
+	constraints: []
+    }
+  ]
+}

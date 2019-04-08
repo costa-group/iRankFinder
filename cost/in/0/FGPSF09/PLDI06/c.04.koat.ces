@@ -1,0 +1,10 @@
+input_output_vars(eval0(A,B,C,D),[A,B,C],[D]).
+input_output_vars(eval1(A,B,C,D),[A,B,C],[D]).
+input_output_vars(eval1_loop_cont(A,B),[A],[B]).
+input_output_vars(exit_location(A),[],[A]).
+eq(eval0(A,B,C,D),1,[eval1(A,B,C,E),eval1_loop_cont(E,D)],[A>=1]).
+eq(eval1(A,B,C,D),1,[eval1(A,B+A,C,D)],[A>=B+1,C>=A+1,A>=1]).
+eq(eval1(A,B,C,D),1,[eval1(A,B,B-A,D)],[A>=B+1,C>=A+1,A>=1]).
+eq(eval1(A,B,C,2),0,[],[]).
+eq(eval1_loop_cont(2,A),0,[exit_location(A)],[]).
+eq(exit_location(A),0,[],[]).

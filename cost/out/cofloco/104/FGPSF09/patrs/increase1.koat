@@ -1,0 +1,107 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_f___1/3]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [n_f___1_loop_cont/2]
+3. non_recursive  : [n_start/3]
+4. non_recursive  : [pyRinit/3]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_f___1/3
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into n_start/3
+4. SCC is partially evaluated into pyRinit/3
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_f___1/3 
+* CE 4 is refined into CE [5] 
+* CE 3 is refined into CE [6] 
+
+
+### Cost equations --> "Loop" of n_f___1/3 
+* CEs [6] --> Loop 5 
+* CEs [5] --> Loop 6 
+
+### Ranking functions of CR n_f___1(A,B,C) 
+* RF of phase [5]: [A-B]
+
+#### Partial ranking functions of CR n_f___1(A,B,C) 
+* Partial RF of phase [5]:
+  - RF of loop [5:1]:
+    A-B
+
+
+### Specialization of cost equations n_start/3 
+* CE 2 is refined into CE [7] 
+
+
+### Cost equations --> "Loop" of n_start/3 
+* CEs [7] --> Loop 7 
+
+### Ranking functions of CR n_start(A,B,C) 
+
+#### Partial ranking functions of CR n_start(A,B,C) 
+
+
+### Specialization of cost equations pyRinit/3 
+* CE 1 is refined into CE [8] 
+
+
+### Cost equations --> "Loop" of pyRinit/3 
+* CEs [8] --> Loop 8 
+
+### Ranking functions of CR pyRinit(A,B,C) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_f___1(A,B,C):
+* Chain [[5],6]: 1*it(5)+0
+  Such that:it(5) =< A-B
+
+  with precondition: [C=2,A>=B+1] 
+
+* Chain [6]: 0
+  with precondition: [C=2] 
+
+
+#### Cost of chains of n_start(A,B,C):
+* Chain [7]: 1*s(2)+1
+  Such that:s(2) =< A-B
+
+  with precondition: [] 
+
+
+#### Cost of chains of pyRinit(A,B,C):
+* Chain [8]: 1*s(3)+2
+  Such that:s(3) =< A-B
+
+  with precondition: [] 
+
+
+Closed-form bounds of pyRinit(A,B,C): 
+-------------------------------------
+* Chain [8] with precondition: [] 
+    - Upper bound: nat(A-B)+2 
+    - Complexity: n 
+
+### Maximum cost of pyRinit(A,B,C): nat(A-B)+2 
+Asymptotic class: n 
+* Total analysis performed in 30 ms.
+
+
+-- stats
+realtime 0:00.06
+usertime 0.06
+systime 0.00
+

@@ -1,0 +1,19 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E F G H A' B' C' D' E' F' G' H' NoDet3 NoDet6 NoDet4 NoDet7 NoDet0 NoDet2 NoDet1 NoDet5)
+(RULES 
+  pyRinit(A,B,C,D,E,F,G,H) -> Com_1(start0(A,B,C,D,E,F,G,H))
+  lbl111(A,B,C,D,E,F,G,H) -> Com_1(lbl111(A, B, C, 1 + D, E, 11 + F, G, H)) :|: 111 -11 * D -A >= 0 && 122 -11 * D -A >= 0 && 11 * D -22 >= 0 && H -A = 0 && B -C = 0 && F + 11 -11 * D -A = 0
+  lbl111(A,B,C,D,E,F,G,H) -> Com_1(lbl161(A, F -20, C, D -1, E, F -10, G, H)) :|: F -111 = 0 && D -2 = 0 && H -100 = 0 && B -C = 0 && A -100 = 0
+  lbl111(A,B,C,D,E,F,G,H) -> Com_1(lbl221(A, B, C, D, E, 1 + F, G, H)) :|: 11 * D + A -112 >= 0 && D -3 >= 0 && 121 -11 * D -A >= 0 && 122 -11 * D -A >= 0 && 11 * D -22 >= 0 && H -A = 0 && B -C = 0 && F + 11 -11 * D -A = 0
+  lbl111(A,B,C,D,E,F,G,H) -> Com_1(lbl221(A, B, C, D, E, 1 + F, G, H)) :|: 11 * D + A -112 >= 0 && D -2 >= 0 && 121 -11 * D -A >= 0 && 122 -11 * D -A >= 0 && 11 * D -22 >= 0 && H -A = 0 && B -C = 0 && F + 11 -11 * D -A = 0
+  lbl111(A,B,C,D,E,F,G,H) -> Com_1(lbl221(A, B, C, D -1, E, F -9, G, H)) :|: D -3 >= 0 && 11 * D -22 >= 0 && F -111 = 0 && H + 11 * D -122 = 0 && B -C = 0 && A + 11 * D -122 = 0
+  lbl161(A,B,C,D,E,F,G,H) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7)) :|: 89 -A >= 0 && D -1 = 0 && H -A = 0 && F -101 = 0 && B -91 = 0
+  lbl221(A,B,C,D,E,F,G,H) -> Com_1(lbl161(A, F -20, C, D -1, E, F -10, G, H)) :|: 99 -A >= 0 && 89 -A >= 0 && F -111 = 0 && D -2 = 0 && H -A = 0 && B -C = 0
+  lbl221(A,B,C,D,E,F,G,H) -> Com_1(lbl221(A, B, C, D, E, 1 + F, G, H)) :|: D -2 >= 0 && 110 -F >= 0 && F -102 >= 0 && 111 -F >= 0 && F + 10 -A -11 * D >= 0 && 89 -A >= 0 && H -A = 0 && B -C = 0
+  lbl221(A,B,C,D,E,F,G,H) -> Com_1(lbl221(A, B, C, D -1, E, F -9, G, H)) :|: D -3 >= 0 && D -2 >= 0 && 121 -A -11 * D >= 0 && 89 -A >= 0 && F -111 = 0 && H -A = 0 && B -C = 0
+  lbl221(A,B,C,D,E,F,G,H) -> Com_1(lbl221(A, B, C, D, E, 1 + F, G, H)) :|: D -3 >= 0 && 110 -F >= 0 && D -2 >= 0 && F -102 >= 0 && 111 -F >= 0 && F + 10 -A -11 * D >= 0 && 89 -A >= 0 && H -A = 0 && B -C = 0
+  start(A,B,C,D,E,F,G,H) -> Com_1(lbl111(A, B, C, 2, E, 11 + H, G, H)) :|: 100 -A >= 0 && B -C = 0 && D -E = 0 && F -G = 0 && H -A = 0
+  start(A,B,C,D,E,F,G,H) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7)) :|: A -101 >= 0 && B -C = 0 && D -E = 0 && F -G = 0 && H -A = 0
+  start0(A,B,C,D,E,F,G,H) -> Com_1(start(A, C, C, E, E, G, G, A))
+)

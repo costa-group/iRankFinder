@@ -1,0 +1,27 @@
+{
+  vars: [A],
+  pvars: [A'],
+  initnode: start,
+  nodes: {
+    f: {
+      inv_polyhedra: [],
+    },
+    start: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: f,
+	target: f,
+	name: t0,
+	constraints: [-1 -A * A >= 0, A -A' = 0]
+    },
+    {
+	source: start,
+	target: f,
+	name: t1,
+	constraints: [A -A' = 0]
+    }
+  ]
+}

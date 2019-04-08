@@ -1,0 +1,31 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/TPDB/From_T2/s/small31.t2.smt2 -t lrf_pr -i polyhedra -sif -dt always -rniv -cfr-st-before -cfr-inv -cfr-it 1 -cfr-john -cfr-call
+
+Traceback (most recent call last):
+  File "/opt/tools/pyRankFinder/irankfinder.py", line 345, in <module>
+    launch(config)
+  File "/opt/tools/pyRankFinder/irankfinder.py", line 173, in launch
+    launch_file(config, files[i], o)
+  File "/opt/tools/pyRankFinder/irankfinder.py", line 217, in launch_file
+    termination_result = analyse(config, cfg)
+  File "/opt/tools/pyRankFinder/irankfinder.py", line 244, in analyse
+    r = termination.analyse(config, cfg)
+  File "/opt/tools/pyRankFinder/termination/__init__.py", line 36, in analyse
+    cfg.build_polyhedrons()
+  File "/usr/local/lib/python3.5/dist-packages/genericparser/Cfg.py", line 133, in build_polyhedrons
+    self.remove_unsat_edges()
+  File "/usr/local/lib/python3.5/dist-packages/genericparser/Cfg.py", line 140, in remove_unsat_edges
+    s.add(e["polyhedron"].get_constraints())
+  File "/usr/local/lib/python3.5/dist-packages/lpi/solvers/z3Solver.py", line 104, in add
+    s_exp = simplify(self.transform(constraints))
+  File "/usr/local/lib/python3.5/dist-packages/z3/z3.py", line 8023, in simplify
+    _z3_assert(is_expr(a), "Z3 expression expected")
+  File "/usr/local/lib/python3.5/dist-packages/z3/z3.py", line 91, in _z3_assert
+    raise Z3Exception(msg)
+z3.z3types.Z3Exception: Z3 expression expected
+Command exited with non-zero status 1
+
+-- stats
+realtime 0:00.46
+usertime 0.41
+systime 0.05
+

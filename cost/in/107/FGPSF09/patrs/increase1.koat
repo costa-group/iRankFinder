@@ -1,0 +1,8 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A' B')
+(RULES 
+  pyRinit(A,B) -> Com_1(start(A,B))
+  f(A,B) -> Com_1(f(A, B + 1)) :|: A -B -1 >= 0
+  start(A,B) -> Com_1(f(A, B))
+)

@@ -1,0 +1,235 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_evalrealbubblebb1in___3/9,n_evalrealbubblebb4in___4/9]
+1. recursive  : [n_evalrealbubblebb1in___5/9,n_evalrealbubblebb4in___4_loop_cont/10,n_evalrealbubblebb4in___7/9,n_evalrealbubblebb5in___2/9,n_evalrealbubblebb7in___1/9]
+2. non_recursive  : [exit_location/1]
+3. non_recursive  : [n_evalrealbubblestop___6/5]
+4. non_recursive  : [n_evalrealbubblebb4in___7_loop_cont/6]
+5. non_recursive  : [n_evalrealbubblebb7in___8/5]
+6. non_recursive  : [n_evalrealbubblestart/5]
+7. non_recursive  : [pyRinit/5]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_evalrealbubblebb4in___4/9
+1. SCC is partially evaluated into n_evalrealbubblebb4in___7/9
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into n_evalrealbubblebb4in___7_loop_cont/6
+5. SCC is partially evaluated into n_evalrealbubblebb7in___8/5
+6. SCC is completely evaluated into other SCCs
+7. SCC is partially evaluated into pyRinit/5
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_evalrealbubblebb4in___4/9 
+* CE 18 is refined into CE [19] 
+* CE 17 is refined into CE [20] 
+* CE 15 is refined into CE [21] 
+* CE 16 is refined into CE [22] 
+
+
+### Cost equations --> "Loop" of n_evalrealbubblebb4in___4/9 
+* CEs [21] --> Loop 13 
+* CEs [22] --> Loop 14 
+* CEs [19] --> Loop 15 
+* CEs [20] --> Loop 16 
+
+### Ranking functions of CR n_evalrealbubblebb4in___4(A,B,C,D,E,F,G,H,I) 
+* RF of phase [13,14]: [A-B]
+
+#### Partial ranking functions of CR n_evalrealbubblebb4in___4(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [13,14]:
+  - RF of loop [13:1,14:1]:
+    A-B
+
+
+### Specialization of cost equations n_evalrealbubblebb4in___7/9 
+* CE 6 is refined into CE [23] 
+* CE 7 is discarded (unfeasible) 
+* CE 10 is discarded (unfeasible) 
+* CE 11 is refined into CE [24,25] 
+* CE 4 is refined into CE [26] 
+* CE 5 is refined into CE [27] 
+* CE 12 is refined into CE [28] 
+* CE 8 is refined into CE [29] 
+* CE 9 is refined into CE [30] 
+
+
+### Cost equations --> "Loop" of n_evalrealbubblebb4in___7/9 
+* CEs [29,30] --> Loop 17 
+* CEs [25] --> Loop 18 
+* CEs [26,27,28] --> Loop 19 
+* CEs [23,24] --> Loop 20 
+
+### Ranking functions of CR n_evalrealbubblebb4in___7(A,B,C,D,E,F,G,H,I) 
+* RF of phase [17]: [A-1]
+
+#### Partial ranking functions of CR n_evalrealbubblebb4in___7(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [17]:
+  - RF of loop [17:1]:
+    A-1
+
+
+### Specialization of cost equations n_evalrealbubblebb4in___7_loop_cont/6 
+* CE 14 is refined into CE [31] 
+* CE 13 is refined into CE [32] 
+
+
+### Cost equations --> "Loop" of n_evalrealbubblebb4in___7_loop_cont/6 
+* CEs [31] --> Loop 21 
+* CEs [32] --> Loop 22 
+
+### Ranking functions of CR n_evalrealbubblebb4in___7_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR n_evalrealbubblebb4in___7_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations n_evalrealbubblebb7in___8/5 
+* CE 2 is refined into CE [33,34,35] 
+* CE 3 is refined into CE [36] 
+
+
+### Cost equations --> "Loop" of n_evalrealbubblebb7in___8/5 
+* CEs [36] --> Loop 23 
+* CEs [33,34,35] --> Loop 24 
+
+### Ranking functions of CR n_evalrealbubblebb7in___8(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalrealbubblebb7in___8(A,B,C,D,E) 
+
+
+### Specialization of cost equations pyRinit/5 
+* CE 1 is refined into CE [37,38] 
+
+
+### Cost equations --> "Loop" of pyRinit/5 
+* CEs [38] --> Loop 25 
+* CEs [37] --> Loop 26 
+
+### Ranking functions of CR pyRinit(A,B,C,D,E) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_evalrealbubblebb4in___4(A,B,C,D,E,F,G,H,I):
+* Chain [[13,14],16]: 4*it(13)+1
+  Such that:aux(3) =< A-B
+it(13) =< aux(3)
+
+  with precondition: [E=2,C=D,A=F,A=G,H=I,1>=H,B>=1,C>=0,A>=B+1,H>=C] 
+
+* Chain [[13,14],15]: 4*it(13)+0
+  Such that:aux(4) =< A-B
+it(13) =< aux(4)
+
+  with precondition: [E=3,C=D,1>=C,B>=1,C>=0,A>=B+1] 
+
+* Chain [16]: 1
+  with precondition: [E=2,B=A,D=C,B=F,B=G,D=H,D=I,1>=D,B>=1,D>=0] 
+
+* Chain [15]: 0
+  with precondition: [E=3,D=C,1>=D,B>=1,D>=0,A>=B] 
+
+
+#### Cost of chains of n_evalrealbubblebb4in___7(A,B,C,D,E,F,G,H,I):
+* Chain [[17],20]: 5*it(17)+8*s(9)+5
+  Such that:aux(8) =< A
+it(17) =< aux(8)
+s(10) =< it(17)*aux(8)
+s(9) =< s(10)
+
+  with precondition: [B=0,C=0,E=4,A>=2] 
+
+* Chain [[17],19]: 13*it(17)+8*s(9)+2
+  Such that:aux(10) =< A
+it(17) =< aux(10)
+s(10) =< it(17)*aux(10)
+s(9) =< s(10)
+
+  with precondition: [B=0,C=0,E=3,A>=2] 
+
+* Chain [[17],18]: 9*it(17)+8*s(9)+4
+  Such that:aux(11) =< A
+it(17) =< aux(11)
+s(10) =< it(17)*aux(11)
+s(9) =< s(10)
+
+  with precondition: [B=0,C=0,E=4,A>=3] 
+
+* Chain [20]: 5
+  with precondition: [A=1,B=0,C=0,E=4] 
+
+* Chain [19]: 8*s(12)+2
+  Such that:aux(9) =< A
+s(12) =< aux(9)
+
+  with precondition: [B=0,C=0,E=3,A>=1] 
+
+* Chain [18]: 4*s(16)+4
+  Such that:s(15) =< A
+s(16) =< s(15)
+
+  with precondition: [B=0,C=0,E=4,A>=2] 
+
+
+#### Cost of chains of n_evalrealbubblebb4in___7_loop_cont(A,B,C,D,E,F):
+* Chain [22]: 0
+  with precondition: [A=3] 
+
+* Chain [21]: 0
+  with precondition: [A=4] 
+
+
+#### Cost of chains of n_evalrealbubblebb7in___8(A,B,C,D,E):
+* Chain [24]: 39*s(34)+24*s(36)+6
+  Such that:aux(14) =< A
+s(34) =< aux(14)
+s(35) =< s(34)*aux(14)
+s(36) =< s(35)
+
+  with precondition: [A>=1] 
+
+* Chain [23]: 1
+  with precondition: [0>=A] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D,E):
+* Chain [26]: 3
+  with precondition: [1>=A] 
+
+* Chain [25]: 39*s(42)+24*s(44)+8
+  Such that:s(41) =< A
+s(42) =< s(41)
+s(43) =< s(42)*s(41)
+s(44) =< s(43)
+
+  with precondition: [A>=2] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D,E): 
+-------------------------------------
+* Chain [26] with precondition: [1>=A] 
+    - Upper bound: 3 
+    - Complexity: constant 
+* Chain [25] with precondition: [A>=2] 
+    - Upper bound: 39*A+8+24*A*A 
+    - Complexity: n^2 
+
+### Maximum cost of pyRinit(A,B,C,D,E): nat(A)*39+5+nat(A)*24*nat(A)+3 
+Asymptotic class: n^2 
+* Total analysis performed in 466 ms.
+
+
+-- stats
+realtime 0:00.55
+usertime 0.52
+systime 0.01
+

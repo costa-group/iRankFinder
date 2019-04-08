@@ -1,0 +1,18 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A' B' C' D E F NoDet0 NoDet1 NoDet2)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(evalrealheapsortstep1start(A,B,C))
+  evalrealheapsortstep1bb2in(A,B,C) -> Com_1(evalrealheapsortstep1bb3in(A, B, D -1)) :|: C >= 0 && E >= 0 && C + 1 -2 * E >= 0 && 2 * E -C >= 0 && F >= 0 && C + 1 -2 * F >= 0 && 2 * F -C >= 0 && D >= 0 && C + 1 -2 * D >= 0 && 2 * D -C >= 0
+  evalrealheapsortstep1bb3in(A,B,C) -> Com_1(evalrealheapsortstep1bb4in(A, B, C)) :|: C -1 >= 0
+  evalrealheapsortstep1bb3in(A,B,C) -> Com_1(evalrealheapsortstep1bb5in(A, B, C)) :|: -C >= 0
+  evalrealheapsortstep1bb4in(A,B,C) -> Com_1(evalrealheapsortstep1bb2in(A, B, C)) :|: C >= 0 && D >= 0 && C + 1 -2 * D >= 0 && 2 * D -C >= 0
+  evalrealheapsortstep1bb4in(A,B,C) -> Com_1(evalrealheapsortstep1bb5in(A, B, C)) :|: C >= 0 && D >= 0 && C + 1 -2 * D >= 0 && 2 * D -C >= 0
+  evalrealheapsortstep1bb5in(A,B,C) -> Com_1(evalrealheapsortstep1bb6in(A, B + 1, C))
+  evalrealheapsortstep1bb6in(A,B,C) -> Com_1(evalrealheapsortstep1bb3in(A, B, B)) :|: A -1 -B >= 0
+  evalrealheapsortstep1bb6in(A,B,C) -> Com_1(evalrealheapsortstep1returnin(A, B, C)) :|: B -A >= 0
+  evalrealheapsortstep1entryin(A,B,C) -> Com_1(evalrealheapsortstep1bb6in(A, 1, C)) :|: A -3 >= 0
+  evalrealheapsortstep1entryin(A,B,C) -> Com_1(evalrealheapsortstep1returnin(A, B, C)) :|: 2 -A >= 0
+  evalrealheapsortstep1returnin(A,B,C) -> Com_1(evalrealheapsortstep1stop(NoDet0, NoDet1, NoDet2))
+  evalrealheapsortstep1start(A,B,C) -> Com_1(evalrealheapsortstep1entryin(A, B, C))
+)

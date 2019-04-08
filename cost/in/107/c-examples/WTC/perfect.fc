@@ -1,0 +1,175 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: evalperfectstart,
+  nodes: {
+    evalperfectbb1in: {
+      inv_polyhedra: [-2 + A >= 0],
+    },
+    evalperfectbb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [C >= 0],
+        [-C > 0],
+        [C >= 0],
+        [-C > 0],
+        [C >= 0],
+        [-C > 0],
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [A -B >= 0, -C + D >= 0, -1 + C >= 0, -1 + A -C >= 0, A -D >= 0],
+    },
+    evalperfectbb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [C >= 0],
+        [-C > 0],
+        [C >= 0],
+        [-C > 0],
+        [C >= 0],
+        [-C > 0],
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [A -B >= 0, -1 + A -C >= 0, -1 + C >= 0, A -D >= 0],
+    },
+    evalperfectbb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [C >= 0],
+        [-C > 0],
+        [C >= 0],
+        [-C > 0],
+        [C >= 0],
+        [-C > 0],
+      ],
+      inv_polyhedra: [A -B >= 0, -1 + C -D >= 0, -1 + C >= 0, -1 + A -C >= 0],
+    },
+    evalperfectbb8in: {
+      cfr_properties: [
+        // RFs Properties
+        [C >= 0],
+        [-C > 0],
+        [C >= 0],
+        [-C > 0],
+        [C >= 0],
+        [-C > 0],
+      ],
+      inv_polyhedra: [A -B >= 0, -1 + A -C >= 0],
+    },
+    evalperfectbb9in: {
+      inv_polyhedra: [A -B == 0, -C >= 0],
+    },
+    evalperfectentryin: {
+      inv_polyhedra: [],
+    },
+    evalperfectreturnin: {
+      inv_polyhedra: [],
+    },
+    evalperfectstart: {
+      inv_polyhedra: [],
+    },
+    evalperfectstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalperfectstart,
+	target: evalperfectentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalperfectentryin,
+	target: evalperfectreturnin,
+	name: t1,
+	constraints: [1 -A >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalperfectbb5in,
+	target: evalperfectbb8in,
+	name: t10,
+	constraints: [-1 -D >= 0, A -A' = 0, B -B' = 0, C -1 -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalperfectbb5in,
+	target: evalperfectbb8in,
+	name: t11,
+	constraints: [D -1 >= 0, A -A' = 0, B -B' = 0, C -1 -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalperfectbb9in,
+	target: evalperfectreturnin,
+	name: t12,
+	constraints: [-1 -A >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalperfectbb9in,
+	target: evalperfectreturnin,
+	name: t13,
+	constraints: [A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalperfectbb9in,
+	target: evalperfectreturnin,
+	name: t14,
+	constraints: [A = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalperfectreturnin,
+	target: evalperfectstop,
+	name: t15,
+	constraints: []
+    },
+    {
+	source: evalperfectentryin,
+	target: evalperfectbb1in,
+	name: t2,
+	constraints: [A -2 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalperfectbb1in,
+	target: evalperfectbb8in,
+	name: t3,
+	constraints: [A -A' = 0, A -B' = 0, A -1 -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalperfectbb8in,
+	target: evalperfectbb4in,
+	name: t4,
+	constraints: [C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, A -D' = 0]
+    },
+    {
+	source: evalperfectbb8in,
+	target: evalperfectbb9in,
+	name: t5,
+	constraints: [-C >= 0, B -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalperfectbb4in,
+	target: evalperfectbb3in,
+	name: t6,
+	constraints: [D -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalperfectbb4in,
+	target: evalperfectbb5in,
+	name: t7,
+	constraints: [C -D -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalperfectbb3in,
+	target: evalperfectbb4in,
+	name: t8,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -C -D' = 0]
+    },
+    {
+	source: evalperfectbb5in,
+	target: evalperfectbb8in,
+	name: t9,
+	constraints: [D = 0, A -A' = 0, B -C -B' = 0, C -1 -C' = 0, D -D' = 0]
+    }
+  ]
+}

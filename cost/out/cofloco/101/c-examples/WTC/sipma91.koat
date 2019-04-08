@@ -1,0 +1,452 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_evalsipma91bb3in___16/9]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [n_evalsipma91stop___17/5]
+3. non_recursive  : [n_evalsipma91bb11in___13/5]
+4. recursive  : [n_evalsipma91bb11in___10/9,n_evalsipma91bb5in___8/9,n_evalsipma91bb8in___7/9]
+5. recursive  : [n_evalsipma91bb11in___10_loop_cont/10,n_evalsipma91bb11in___3/9,n_evalsipma91bb11in___9/9,n_evalsipma91bb5in___2/9,n_evalsipma91bb5in___5/9,n_evalsipma91bb8in___1/9,n_evalsipma91bb8in___4/9,n_evalsipma91bb8in___6/9]
+6. non_recursive  : [n_evalsipma91bb11in___9_loop_cont/6]
+7. non_recursive  : [n_evalsipma91bb8in___11/5]
+8. non_recursive  : [n_evalsipma91bb8in___12/5]
+9. non_recursive  : [n_evalsipma91bb5in___14/5]
+10. non_recursive  : [n_evalsipma91bb11in___15/5]
+11. non_recursive  : [n_evalsipma91bb3in___16_loop_cont/6]
+12. non_recursive  : [n_evalsipma91bb3in___18/5]
+13. non_recursive  : [n_evalsipma91entryin___19/5]
+14. non_recursive  : [n_evalsipma91start/5]
+15. non_recursive  : [pyRinit/5]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_evalsipma91bb3in___16/9
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into n_evalsipma91bb11in___10/9
+5. SCC is partially evaluated into n_evalsipma91bb11in___9/9
+6. SCC is partially evaluated into n_evalsipma91bb11in___9_loop_cont/6
+7. SCC is partially evaluated into n_evalsipma91bb8in___11/5
+8. SCC is partially evaluated into n_evalsipma91bb8in___12/5
+9. SCC is partially evaluated into n_evalsipma91bb5in___14/5
+10. SCC is completely evaluated into other SCCs
+11. SCC is partially evaluated into n_evalsipma91bb3in___16_loop_cont/6
+12. SCC is partially evaluated into n_evalsipma91bb3in___18/5
+13. SCC is partially evaluated into n_evalsipma91entryin___19/5
+14. SCC is completely evaluated into other SCCs
+15. SCC is partially evaluated into pyRinit/5
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_evalsipma91bb3in___16/9 
+* CE 5 is refined into CE [27] 
+* CE 7 is refined into CE [28] 
+* CE 6 is refined into CE [29] 
+
+
+### Cost equations --> "Loop" of n_evalsipma91bb3in___16/9 
+* CEs [29] --> Loop 25 
+* CEs [27] --> Loop 26 
+* CEs [28] --> Loop 27 
+
+### Ranking functions of CR n_evalsipma91bb3in___16(A,B,C,D,E,F,G,H,I) 
+* RF of phase [25]: [-B/11+101/11]
+
+#### Partial ranking functions of CR n_evalsipma91bb3in___16(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [25]:
+  - RF of loop [25:1]:
+    -B/11+101/11
+
+
+### Specialization of cost equations n_evalsipma91bb11in___10/9 
+* CE 26 is refined into CE [30] 
+* CE 25 is refined into CE [31] 
+* CE 24 is refined into CE [32] 
+
+
+### Cost equations --> "Loop" of n_evalsipma91bb11in___10/9 
+* CEs [31] --> Loop 28 
+* CEs [32] --> Loop 29 
+* CEs [30] --> Loop 30 
+
+### Ranking functions of CR n_evalsipma91bb11in___10(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR n_evalsipma91bb11in___10(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations n_evalsipma91bb11in___9/9 
+* CE 21 is refined into CE [33] 
+* CE 18 is refined into CE [34] 
+* CE 19 is refined into CE [35] 
+* CE 20 is refined into CE [36] 
+
+
+### Cost equations --> "Loop" of n_evalsipma91bb11in___9/9 
+* CEs [35] --> Loop 31 
+* CEs [36] --> Loop 32 
+* CEs [33] --> Loop 33 
+* CEs [34] --> Loop 34 
+
+### Ranking functions of CR n_evalsipma91bb11in___9(A,B,C,D,E,F,G,H,I) 
+* RF of phase [31,32]: [9*A-B+93,9*A-C+82]
+
+#### Partial ranking functions of CR n_evalsipma91bb11in___9(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [31,32]:
+  - RF of loop [31:1]:
+    -B+111 depends on loops [32:1] 
+    -C+100 depends on loops [32:1] 
+  - RF of loop [32:1]:
+    A-2
+    B/8-55/4 depends on loops [31:1] 
+    C/8-99/8 depends on loops [31:1] 
+    D-1
+
+
+### Specialization of cost equations n_evalsipma91bb11in___9_loop_cont/6 
+* CE 23 is refined into CE [37] 
+* CE 22 is refined into CE [38] 
+
+
+### Cost equations --> "Loop" of n_evalsipma91bb11in___9_loop_cont/6 
+* CEs [37] --> Loop 35 
+* CEs [38] --> Loop 36 
+
+### Ranking functions of CR n_evalsipma91bb11in___9_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR n_evalsipma91bb11in___9_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations n_evalsipma91bb8in___11/5 
+* CE 13 is refined into CE [39,40,41] 
+
+
+### Cost equations --> "Loop" of n_evalsipma91bb8in___11/5 
+* CEs [39,40,41] --> Loop 37 
+
+### Ranking functions of CR n_evalsipma91bb8in___11(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalsipma91bb8in___11(A,B,C,D,E) 
+
+
+### Specialization of cost equations n_evalsipma91bb8in___12/5 
+* CE 17 is refined into CE [42,43] 
+* CE 14 is refined into CE [44,45] 
+* CE 15 is refined into CE [46] 
+* CE 16 is refined into CE [47,48] 
+
+
+### Cost equations --> "Loop" of n_evalsipma91bb8in___12/5 
+* CEs [42,43] --> Loop 38 
+* CEs [44,45,46,47,48] --> Loop 39 
+
+### Ranking functions of CR n_evalsipma91bb8in___12(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalsipma91bb8in___12(A,B,C,D,E) 
+
+
+### Specialization of cost equations n_evalsipma91bb5in___14/5 
+* CE 11 is refined into CE [49] 
+* CE 12 is refined into CE [50,51] 
+* CE 10 is refined into CE [52] 
+
+
+### Cost equations --> "Loop" of n_evalsipma91bb5in___14/5 
+* CEs [49,51] --> Loop 40 
+* CEs [50] --> Loop 41 
+* CEs [52] --> Loop 42 
+
+### Ranking functions of CR n_evalsipma91bb5in___14(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalsipma91bb5in___14(A,B,C,D,E) 
+
+
+### Specialization of cost equations n_evalsipma91bb3in___16_loop_cont/6 
+* CE 8 is refined into CE [53,54,55] 
+* CE 9 is refined into CE [56] 
+
+
+### Cost equations --> "Loop" of n_evalsipma91bb3in___16_loop_cont/6 
+* CEs [55] --> Loop 43 
+* CEs [54] --> Loop 44 
+* CEs [53] --> Loop 45 
+* CEs [56] --> Loop 46 
+
+### Ranking functions of CR n_evalsipma91bb3in___16_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR n_evalsipma91bb3in___16_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations n_evalsipma91bb3in___18/5 
+* CE 4 is refined into CE [57,58,59,60,61] 
+
+
+### Cost equations --> "Loop" of n_evalsipma91bb3in___18/5 
+* CEs [57,58,59,60,61] --> Loop 47 
+
+### Ranking functions of CR n_evalsipma91bb3in___18(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalsipma91bb3in___18(A,B,C,D,E) 
+
+
+### Specialization of cost equations n_evalsipma91entryin___19/5 
+* CE 3 is refined into CE [62] 
+* CE 2 is refined into CE [63] 
+
+
+### Cost equations --> "Loop" of n_evalsipma91entryin___19/5 
+* CEs [62] --> Loop 48 
+* CEs [63] --> Loop 49 
+
+### Ranking functions of CR n_evalsipma91entryin___19(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalsipma91entryin___19(A,B,C,D,E) 
+
+
+### Specialization of cost equations pyRinit/5 
+* CE 1 is refined into CE [64,65] 
+
+
+### Cost equations --> "Loop" of pyRinit/5 
+* CEs [65] --> Loop 50 
+* CEs [64] --> Loop 51 
+
+### Ranking functions of CR pyRinit(A,B,C,D,E) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_evalsipma91bb3in___16(A,B,C,D,E,F,G,H,I):
+* Chain [[25],27]: 1*it(25)+0
+  Such that:it(25) =< -B/11+101/11
+
+  with precondition: [E=2,100>=B,A>=2] 
+
+* Chain [[25],26]: 1*it(25)+1
+  Such that:it(25) =< -A+F-G/11+101/11
+
+  with precondition: [E=6,C=H,D=I,G+11*A=11*F+B,A>=2,F>=A+1,B+11*F>=11*A+101,11*A+111>=11*F+B] 
+
+* Chain [27]: 0
+  with precondition: [E=2,111>=B,A>=2] 
+
+* Chain [26]: 1
+  with precondition: [E=6,H=C,I=D,A=F,B=G,111>=B,A>=2,B>=101] 
+
+
+#### Cost of chains of n_evalsipma91bb11in___10(A,B,C,D,E,F,G,H,I):
+* Chain [30]: 0
+  with precondition: [B=102,C=101,E=2,D=A,D>=2] 
+
+* Chain [29]: 2
+  with precondition: [B=102,C=101,E=4,G=102,H=92,D=A,D=F,D=I+1,D>=2] 
+
+* Chain [28]: 3
+  with precondition: [B=102,C=101,E=5,G=103,H=92,D=A,D=F,D=I+1,D>=3] 
+
+
+#### Cost of chains of n_evalsipma91bb11in___9(A,B,C,D,E,F,G,H,I):
+* Chain [[31,32],34]: 3*it(31)+6*it(32)+2
+  Such that:it(32) =< D
+aux(13) =< -B+9*D+102
+it(31) =< aux(13)
+it(32) =< aux(13)
+
+  with precondition: [E=3,F=1,G=101,H=100,I=1,C+11=B,A=D+1,100>=C,A>=2,C>=91,A+97>=C] 
+
+* Chain [[31,32],33]: 3*it(31)+6*it(32)+0
+  Such that:it(32) =< A
+aux(14) =< 9*A-B+93
+it(31) =< aux(14)
+it(32) =< aux(14)
+
+  with precondition: [E=2,C+11=B,A=D+1,100>=C,A>=2,C>=91,A+97>=C] 
+
+* Chain [34]: 2
+  with precondition: [A=2,B=111,C=100,D=1,E=3,F=1,G=101,H=100,I=1] 
+
+* Chain [33]: 0
+  with precondition: [E=2] 
+
+
+#### Cost of chains of n_evalsipma91bb11in___9_loop_cont(A,B,C,D,E,F):
+* Chain [36]: 0
+  with precondition: [A=2] 
+
+* Chain [35]: 1
+  with precondition: [A=3,B=1,C=101] 
+
+
+#### Cost of chains of n_evalsipma91bb8in___11(A,B,C,D,E):
+* Chain [37]: 6*s(5)+6*s(7)+6*s(8)+4
+  Such that:s(8) =< D
+s(5) =< D+1
+aux(15) =< -B+9*D+101
+s(7) =< aux(15)
+s(5) =< aux(15)
+s(8) =< aux(15)
+
+  with precondition: [D+1=A,C+10=B,100>=C,C>=91,D>=1] 
+
+
+#### Cost of chains of n_evalsipma91bb8in___12(A,B,C,D,E):
+* Chain [39]: 24*s(11)+12*s(13)+7
+  Such that:aux(16) =< D
+aux(17) =< 9*D
+s(11) =< aux(16)
+s(13) =< aux(17)
+s(11) =< aux(17)
+
+  with precondition: [B=111,C=101,D+1=A,D>=2] 
+
+* Chain [38]: 6*s(23)+6*s(25)+6*s(26)+4
+  Such that:s(26) =< D
+s(23) =< D+1
+aux(18) =< -B+9*D+101
+s(25) =< aux(18)
+s(23) =< aux(18)
+s(26) =< aux(18)
+
+  with precondition: [D+1=A,C+10=B,100>=C,C>=91,D>=2] 
+
+
+#### Cost of chains of n_evalsipma91bb5in___14(A,B,C,D,E):
+* Chain [42]: 2
+  with precondition: [A=2,B=111] 
+
+* Chain [41]: 24*s(31)+12*s(32)+8
+  Such that:s(29) =< A
+s(30) =< 9*A
+s(31) =< s(29)
+s(32) =< s(30)
+s(31) =< s(30)
+
+  with precondition: [B=111,A>=3] 
+
+* Chain [40]: 24*s(33)+12*s(36)+5
+  Such that:aux(21) =< A
+aux(22) =< 9*A-B+92
+s(33) =< aux(21)
+s(36) =< aux(22)
+s(33) =< aux(22)
+
+  with precondition: [110>=B,A>=2,B>=101] 
+
+
+#### Cost of chains of n_evalsipma91bb3in___16_loop_cont(A,B,C,D,E,F):
+* Chain [46]: 0
+  with precondition: [A=2] 
+
+* Chain [45]: 3
+  with precondition: [A=6,B=2,C=111] 
+
+* Chain [44]: 24*s(43)+12*s(44)+9
+  Such that:s(41) =< B
+s(42) =< 9*B
+s(43) =< s(41)
+s(44) =< s(42)
+s(43) =< s(42)
+
+  with precondition: [A=6,C=111,B>=3] 
+
+* Chain [43]: 24*s(47)+12*s(48)+6
+  Such that:s(45) =< B
+s(46) =< 9*B-C+92
+s(47) =< s(45)
+s(48) =< s(46)
+s(47) =< s(46)
+
+  with precondition: [A=6,110>=C,B>=2,C>=101] 
+
+
+#### Cost of chains of n_evalsipma91bb3in___18(A,B,C,D,E):
+* Chain [47]: 3*s(49)+24*s(52)+12*s(53)+24*s(57)+12*s(58)+36*s(62)+11
+  Such that:s(50) =< 2
+s(51) =< -B+99
+aux(23) =< -B+103
+s(56) =< -9/11*B+1098/11
+s(55) =< -B/11+122/11
+aux(24) =< -B/11+90/11
+s(49) =< aux(24)
+s(52) =< s(50)
+s(53) =< s(51)
+s(52) =< s(51)
+s(57) =< s(55)
+s(58) =< s(56)
+s(57) =< s(56)
+s(62) =< aux(23)
+
+  with precondition: [A=1,100>=B] 
+
+
+#### Cost of chains of n_evalsipma91entryin___19(A,B,C,D,E):
+* Chain [49]: 3*s(70)+24*s(71)+12*s(72)+24*s(73)+12*s(74)+36*s(75)+12
+  Such that:s(64) =< 2
+s(65) =< -A+99
+s(66) =< -A+103
+s(67) =< -9/11*A+1098/11
+s(69) =< -A/11+90/11
+s(68) =< -A/11+122/11
+s(70) =< s(69)
+s(71) =< s(64)
+s(72) =< s(65)
+s(71) =< s(65)
+s(73) =< s(68)
+s(74) =< s(67)
+s(73) =< s(67)
+s(75) =< s(66)
+
+  with precondition: [100>=A] 
+
+* Chain [48]: 1
+  with precondition: [A>=101] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D,E):
+* Chain [51]: 3*s(82)+24*s(83)+12*s(84)+24*s(85)+12*s(86)+36*s(87)+14
+  Such that:s(76) =< 2
+s(77) =< -A+99
+s(78) =< -A+103
+s(79) =< -9/11*A+1098/11
+s(80) =< -A/11+90/11
+s(81) =< -A/11+122/11
+s(82) =< s(80)
+s(83) =< s(76)
+s(84) =< s(77)
+s(83) =< s(77)
+s(85) =< s(81)
+s(86) =< s(79)
+s(85) =< s(79)
+s(87) =< s(78)
+
+  with precondition: [100>=A] 
+
+* Chain [50]: 3
+  with precondition: [A>=101] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D,E): 
+-------------------------------------
+* Chain [51] with precondition: [100>=A] 
+    - Upper bound: nat(-A+99)*12+62+ (-36*A+3708)+ (-108/11*A+13176/11)+nat(-A/11+90/11)*3+ (-24/11*A+2928/11) 
+    - Complexity: n 
+* Chain [50] with precondition: [A>=101] 
+    - Upper bound: 3 
+    - Complexity: constant 
+
+### Maximum cost of pyRinit(A,B,C,D,E): nat(-A+99)*12+59+nat(-A+103)*36+nat(-9/11*A+1098/11)*12+nat(-A/11+90/11)*3+nat(-A/11+122/11)*24+3 
+Asymptotic class: n 
+* Total analysis performed in 632 ms.
+
+
+-- stats
+realtime 0:00.75
+usertime 0.68
+systime 0.01
+

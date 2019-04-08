@@ -1,0 +1,238 @@
+WORST_CASE(?, O(n^2))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalfstart) = 2
+	Pol(evalfentryin) = 2
+	Pol(evalfbb4in) = 2
+	Pol(evalfbb2in) = 2
+	Pol(evalfreturnin) = 1
+	Pol(evalfbb1in) = 2
+	Pol(evalfbb3in) = 2
+	Pol(evalfstop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: 2, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalfstart) = V_2
+	Pol(evalfentryin) = V_2
+	Pol(evalfbb4in) = -V_1 + V_2 + 1
+	Pol(evalfbb2in) = -V_1 + V_2
+	Pol(evalfreturnin) = -V_1 + V_2
+	Pol(evalfbb1in) = -V_1 + V_2
+	Pol(evalfbb3in) = -V_1 + V_2
+	Pol(evalfstop) = -V_1 + V_2
+	Pol(koat_start) = V_2
+orients all transitions weakly and the transition
+	evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)       evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)       evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)    evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: 2, Cost: 1)       evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)       evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]
+		(Comp: ?, Cost: 1)       evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)       evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))
+		(Comp: ?, Cost: 1)       evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)       evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)       koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalfbb3in) = 1
+	Pol(evalfbb4in) = 0
+	Pol(evalfbb2in) = 2
+	Pol(evalfbb1in) = 2
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = ?
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-0) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))", 0-0) = ?
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))", 0-1) = Ar_1
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))", 0-2) = ?
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))", 0-3) = Ar_3
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]", 0-0) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]", 0-1) = Ar_1
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]", 0-2) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]", 0-3) = Ar_3
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]", 0-0) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]", 0-1) = Ar_1
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]", 0-2) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]", 0-3) = Ar_3
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-0) = ?
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-1) = Ar_1
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-2) = ?
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-3) = Ar_3
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-0) = ?
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-1) = Ar_1
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-2) = 1
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))", 0-0) = 1
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+orients the transitions
+	evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+	evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]
+	evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]
+	evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))
+weakly and the transitions
+	evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+	evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)         evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)         evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)      evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: 2, Cost: 1)         evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)         evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]
+		(Comp: 2*Ar_1, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)         evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))
+		(Comp: 2*Ar_1, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)         evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)         koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalfbb2in) = -V_3 + V_4 + 1
+	Pol(evalfbb1in) = -V_3 + V_4
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = 2*Ar_1 + 20
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-0) = 2*Ar_1 + 4
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))", 0-0) = 2*Ar_1 + 4
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))", 0-1) = Ar_1
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))", 0-2) = ?
+	S("evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))", 0-3) = Ar_3
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]", 0-0) = 2*Ar_1 + 4
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]", 0-1) = Ar_1
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]", 0-2) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]", 0-3) = Ar_3
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]", 0-0) = 2*Ar_1 + 4
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]", 0-1) = Ar_1
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]", 0-2) = ?
+	S("evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]", 0-3) = Ar_3
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-0) = 2*Ar_1 + 10
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-1) = Ar_1
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-2) = ?
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-3) = Ar_3
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-0) = 2*Ar_1 + 4
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-1) = Ar_1
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-2) = 1
+	S("evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))", 0-0) = 1
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+orients the transitions
+	evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]
+	evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))
+weakly and the transition
+	evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]
+strictly and produces the following problem:
+6:	T:
+		(Comp: 1, Cost: 1)                     evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)                     evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)                  evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: 2, Cost: 1)                     evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: Ar_1*Ar_3 + 2*Ar_1, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]
+		(Comp: 2*Ar_1, Cost: 1)                evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)                     evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))
+		(Comp: 2*Ar_1, Cost: 1)                evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)                     evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)                     koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 6 produces the following problem:
+7:	T:
+		(Comp: 1, Cost: 1)                     evalfstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)                     evalfentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)                  evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, 1, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: 2, Cost: 1)                     evalfbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: Ar_1*Ar_3 + 2*Ar_1, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_2 ]
+		(Comp: 2*Ar_1, Cost: 1)                evalfbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_3 + 1 ]
+		(Comp: Ar_1*Ar_3 + 2*Ar_1, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2 + 1, Ar_3))
+		(Comp: 2*Ar_1, Cost: 1)                evalfbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfbb4in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)                     evalfreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)                     koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 9*Ar_1 + 2*Ar_1*Ar_3 + 6
+
+Time: 0.053 sec (SMT: 0.041 sec)

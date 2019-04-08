@@ -1,0 +1,14 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E F G H A_P B_P C_P D_P E_P F_P G_P H_P NoDet0 NoDet4 NoDet7 NoDet3 NoDet2 NoDet6 NoDet1 NoDet5)
+(RULES 
+  pyRinit(A,B,C,D,E,F,G,H) -> Com_1(n_start0(A,B,C,D,E,F,G,H))
+  n_b___1(A,B,C,D,E,F,G,H) -> Com_1(n_c___2(A, A, C, D, A, F, G, H)) :|: B -C >= 0 && B -C >= 0 && A -G >= 0 && C -1 >= 0 && -C + G -1 >= 0 && A -B = 0 && C -E = 0 && A -B = 0 && -2 -C + G >= 0 && 1 + A -G >= 0 && -1 + C >= 0
+  n_b___1(A,B,C,D,E,F,G,H) -> Com_1(n_d___5(A, A, C + 1, D, E, F, A + 1, H)) :|: B -C >= 0 && B -C >= 0 && C -1 >= 0 && A -C -1 >= 0 && A -B = 0 && A -G + 1 = 0 && C -E = 0 && A -B = 0 && -2 -C + G >= 0 && 1 + A -G >= 0 && -1 + C >= 0
+  n_b___4(A,B,C,D,E,F,G,H) -> Com_1(n_c___2(A, A, C, D, A, F, G, H)) :|: B -C >= 0 && A -G >= 0 && B -C >= 0 && A -G >= 0 && A -G >= 0 && C -1 >= 0 && -C + G -1 >= 0 && A -B = 0 && 1 + C -G = 0 && A -B = 0 && -1 + C >= 0 && -1 + A -C >= 0
+  n_c___2(A,B,C,D,E,F,G,H) -> Com_1(n_b___1(A, A, C, D, C, F, G + 1, H)) :|: B -C >= 0 && A -G >= 0 && -C + E >= 0 && B -C >= 0 && A -G >= 0 && -C + E >= 0 && A -G >= 0 && C -1 >= 0 && -C + G -1 >= 0 && A -B = 0 && C -E = 0 && A -B = 0 && -1 + C >= 0 && A -E >= 0 && A -G >= 0 && -1 -C + G >= 0
+  n_c___2(A,B,C,D,E,F,G,H) -> Com_1(n_c___2(A, A, C, D, E -1, F, G, H)) :|: B -C >= 0 && A -G >= 0 && -C + E >= 0 && B -C >= 0 && A -G >= 0 && -C + E >= 0 && A -E >= 0 && C -1 >= 0 && A -G >= 0 && -C + E -1 >= 0 && -C + G -1 >= 0 && A -B = 0 && A -B = 0 && -1 + C >= 0 && A -E >= 0 && A -G >= 0 && -1 -C + G >= 0
+  n_d___5(A,B,C,D,E,F,G,H) -> Com_1(n_b___4(A, A, C, D, E, F, C + 1, H)) :|: B -C >= 0 && B -C >= 0 && A -C -1 >= 0 && C -1 >= 0 && A -B = 0 && A -B = 0 && A -C >= 0 && -1 + C >= 0
+  n_d___5(A,B,C,D,E,F,G,H) -> Com_1(n_halt___3(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7)) :|: B -C >= 0 && B -C >= 0 && A -1 >= 0 && A -B = 0 && A -C = 0 && A -B = 0 && A -C >= 0 && -1 + C >= 0
+  n_start0(A,B,C,D,E,F,G,H) -> Com_1(n_d___5(A, A, 1, D, F, F, H, H)) :|: A -1 >= 0
+)

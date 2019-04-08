@@ -1,0 +1,111 @@
+{
+  vars: [A,B,C,D,E],
+  pvars: [A',B',C',D',E'],
+  initnode: evalNestedMultipleDepstart,
+  nodes: {
+    evalNestedMultipleDepbb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [-D + E >= 0],
+        [D -E > 0],
+      ],
+      inv_polyhedra: [1 + A -C == 0, -1 -A + B >= 0, -1 -D + E >= 0, D >= 0, A >= 0],
+    },
+    evalNestedMultipleDepbb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [-D + E >= 0],
+        [D -E > 0],
+      ],
+      inv_polyhedra: [1 + A -C == 0, -1 -A + B >= 0, A >= 0, D >= 0],
+    },
+    evalNestedMultipleDepbb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    evalNestedMultipleDepbbin: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-1 -A + B >= 0, A >= 0],
+    },
+    evalNestedMultipleDepentryin: {
+      inv_polyhedra: [],
+    },
+    evalNestedMultipleDepreturnin: {
+      inv_polyhedra: [A -B >= 0, A >= 0],
+    },
+    evalNestedMultipleDepstart: {
+      inv_polyhedra: [],
+    },
+    evalNestedMultipleDepstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalNestedMultipleDepstart,
+	target: evalNestedMultipleDepentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultipleDepentryin,
+	target: evalNestedMultipleDepbb3in,
+	name: t1,
+	constraints: [-A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultipleDepbb3in,
+	target: evalNestedMultipleDepbbin,
+	name: t2,
+	constraints: [B -A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultipleDepbb3in,
+	target: evalNestedMultipleDepreturnin,
+	name: t3,
+	constraints: [A -B >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultipleDepbbin,
+	target: evalNestedMultipleDepbb2in,
+	name: t4,
+	constraints: [A -A' = 0, B -B' = 0, A + 1 -C' = 0, -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultipleDepbb2in,
+	target: evalNestedMultipleDepbb1in,
+	name: t5,
+	constraints: [E -D -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultipleDepbb2in,
+	target: evalNestedMultipleDepbb3in,
+	name: t6,
+	constraints: [D -E >= 0, C -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultipleDepbb1in,
+	target: evalNestedMultipleDepbb2in,
+	name: t7,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D + 1 -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultipleDepreturnin,
+	target: evalNestedMultipleDepstop,
+	name: t8,
+	constraints: []
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [l1/5]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [l2/3]
+3. non_recursive  : [l1_loop_cont/4]
+4. non_recursive  : [l0/3]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into l1/5
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into l1_loop_cont/4
+4. SCC is partially evaluated into l0/3
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations l1/5 
+* CE 4 is refined into CE [7] 
+* CE 3 is refined into CE [8] 
+* CE 2 is refined into CE [9] 
+
+
+### Cost equations --> "Loop" of l1/5 
+* CEs [9] --> Loop 7 
+* CEs [7] --> Loop 8 
+* CEs [8] --> Loop 9 
+
+### Ranking functions of CR l1(A,B,C,D,E) 
+* RF of phase [7]: [B]
+
+#### Partial ranking functions of CR l1(A,B,C,D,E) 
+* Partial RF of phase [7]:
+  - RF of loop [7:1]:
+    B
+
+
+### Specialization of cost equations l1_loop_cont/4 
+* CE 6 is refined into CE [10] 
+* CE 5 is refined into CE [11] 
+
+
+### Cost equations --> "Loop" of l1_loop_cont/4 
+* CEs [10] --> Loop 10 
+* CEs [11] --> Loop 11 
+
+### Ranking functions of CR l1_loop_cont(A,B,C,D) 
+
+#### Partial ranking functions of CR l1_loop_cont(A,B,C,D) 
+
+
+### Specialization of cost equations l0/3 
+* CE 1 is refined into CE [12,13,14] 
+
+
+### Cost equations --> "Loop" of l0/3 
+* CEs [12,13,14] --> Loop 12 
+
+### Ranking functions of CR l0(A,B,C) 
+
+#### Partial ranking functions of CR l0(A,B,C) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of l1(A,B,C,D,E):
+* Chain [[7],9]: 1*it(7)+1
+  Such that:it(7) =< -A+D
+
+  with precondition: [C=2,E=0,A+B=D,A>=0,B>=1] 
+
+* Chain [[7],8]: 1*it(7)+0
+  Such that:it(7) =< B
+
+  with precondition: [C=3,A>=0,B>=1] 
+
+* Chain [9]: 1
+  with precondition: [C=2,A=D,B=E,0>=B,A>=0] 
+
+* Chain [8]: 0
+  with precondition: [C=3,A>=0] 
+
+
+#### Cost of chains of l1_loop_cont(A,B,C,D):
+* Chain [11]: 0
+  with precondition: [A=2] 
+
+* Chain [10]: 0
+  with precondition: [A=3] 
+
+
+#### Cost of chains of l0(A,B,C):
+* Chain [12]: 2*s(2)+2
+  Such that:aux(1) =< B
+s(2) =< aux(1)
+
+  with precondition: [] 
+
+
+Closed-form bounds of l0(A,B,C): 
+-------------------------------------
+* Chain [12] with precondition: [] 
+    - Upper bound: nat(B)*2+2 
+    - Complexity: n 
+
+### Maximum cost of l0(A,B,C): nat(B)*2+2 
+Asymptotic class: n 
+* Total analysis performed in 68 ms.
+
+
+-- stats
+realtime 0:00.12
+usertime 0.11
+systime 0.00
+

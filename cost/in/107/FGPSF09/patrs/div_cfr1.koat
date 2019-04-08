@@ -1,0 +1,10 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A_P B_P NoDet0 NoDet1)
+(RULES 
+  pyRinit(A,B) -> Com_1(n_start(A,B))
+  n_div___2(A,B) -> Com_1(n_div___2(A, -A + B)) :|: A -1 >= 0 && -A + B -1 >= 0
+  n_div___2(A,B) -> Com_1(n_end___1(NoDet0, NoDet1)) :|: -A >= 0
+  n_div___2(A,B) -> Com_1(n_end___1(NoDet0, NoDet1)) :|: A -B >= 0
+  n_start(A,B) -> Com_1(n_div___2(A, B))
+)

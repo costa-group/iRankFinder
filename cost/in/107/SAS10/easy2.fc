@@ -1,0 +1,56 @@
+{
+  vars: [A,B,C,D,E,F],
+  pvars: [A',B',C',D',E',F'],
+  initnode: start0,
+  nodes: {
+    lbl71: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+      ],
+      inv_polyhedra: [A -B -E + F == 0, A -B + C -D == 0, B >= 0, -1 + A -B >= 0],
+    },
+    start: {
+      inv_polyhedra: [E -F == 0, C -D == 0, A -B == 0],
+    },
+    start0: {
+      inv_polyhedra: [],
+    },
+    stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: start,
+	target: stop,
+	name: t0,
+	constraints: [-A >= 0, B -A = 0, C -D = 0, E -F = 0]
+    },
+    {
+	source: start,
+	target: lbl71,
+	name: t1,
+	constraints: [A -1 >= 0, B -A = 0, C -D = 0, E -F = 0, A -A' = 0, B -1 -B' = 0, C -1 -C' = 0, D -D' = 0, 1 + E -E' = 0, F -F' = 0]
+    },
+    {
+	source: lbl71,
+	target: stop,
+	name: t2,
+	constraints: [D -C -1 >= 0, B = 0, E + C -F -D = 0, A + C -D = 0]
+    },
+    {
+	source: lbl71,
+	target: lbl71,
+	name: t3,
+	constraints: [A + C -D -1 >= 0, D -C -1 >= 0, A + C -D >= 0, E + C -D -F = 0, B + D -A -C = 0, A -A' = 0, B -1 -B' = 0, C -1 -C' = 0, D -D' = 0, 1 + E -E' = 0, F -F' = 0]
+    },
+    {
+	source: start0,
+	target: start,
+	name: t4,
+	constraints: [A -A' = 0, A -B' = 0, D -C' = 0, D -D' = 0, F -E' = 0, F -F' = 0]
+    }
+  ]
+}

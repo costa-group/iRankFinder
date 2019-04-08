@@ -1,0 +1,71 @@
+{
+  vars: [A],
+  pvars: [A'],
+  initnode: evalndloopstart,
+  nodes: {
+    evalndloopbbin: {
+      cfr_properties: [
+        // RFs Properties
+        [8 -A >= 0],
+        [-8 + A > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    evalndloopentryin: {
+      inv_polyhedra: [],
+    },
+    evalndloopreturnin: {
+      inv_polyhedra: [A >= 0],
+    },
+    evalndloopstart: {
+      inv_polyhedra: [],
+    },
+    evalndloopstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalndloopstart,
+	target: evalndloopentryin,
+	name: t0,
+	constraints: [A -A' = 0]
+    },
+    {
+	source: evalndloopentryin,
+	target: evalndloopbbin,
+	name: t1,
+	constraints: [-A' = 0]
+    },
+    {
+	source: evalndloopbbin,
+	target: evalndloopbbin,
+	name: t2,
+	constraints: [2 + A -B >= 0, B -A -1 >= 0, 9 -B >= 0, B -A' = 0]
+    },
+    {
+	source: evalndloopbbin,
+	target: evalndloopreturnin,
+	name: t3,
+	constraints: [B -A -3 >= 0, A -A' = 0]
+    },
+    {
+	source: evalndloopbbin,
+	target: evalndloopreturnin,
+	name: t4,
+	constraints: [A -B >= 0, A -A' = 0]
+    },
+    {
+	source: evalndloopbbin,
+	target: evalndloopreturnin,
+	name: t5,
+	constraints: [B -10 >= 0, A -A' = 0]
+    },
+    {
+	source: evalndloopreturnin,
+	target: evalndloopstop,
+	name: t6,
+	constraints: []
+    }
+  ]
+}

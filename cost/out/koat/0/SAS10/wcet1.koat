@@ -1,0 +1,124 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3, Ar_7)) [ 0 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_3 = 1 /\ Ar_1 = Ar_2 /\ Ar_0 = 1 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, 0, Ar_2, Ar_3, 1, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, 0, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_3 = 1 /\ Ar_1 = Ar_2 /\ Ar_0 = 1 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 - 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_4 >= 2 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 - 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_4 >= 2 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ 1 >= Ar_4 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ 1 >= Ar_4 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_4, Ar_2, Ar_3, Ar_4 + 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_0 >= Ar_4 + 2 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_4, Ar_2, Ar_3, Ar_4 + 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_0 >= Ar_4 + 2 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_4, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_4 + 1 >= Ar_0 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_4, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_0 >= 1 /\ Ar_0 >= 2 /\ Ar_6 = 1 /\ Ar_4 + 1 = Ar_0 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_0, Ar_5, Ar_5, Ar_7, Ar_7))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 1:
+	cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_4, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_4 + 1 >= Ar_0 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+We thus obtain the following problem:
+2:	T:
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 - 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_4 >= 2 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 - 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_4 >= 2 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_4, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_0 >= 1 /\ Ar_0 >= 2 /\ Ar_6 = 1 /\ Ar_4 + 1 = Ar_0 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_4, Ar_2, Ar_3, Ar_4 + 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_0 >= Ar_4 + 2 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_4, Ar_2, Ar_3, Ar_4 + 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_0 >= Ar_4 + 2 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ 1 >= Ar_4 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ 1 >= Ar_4 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, 0, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_3 = 1 /\ Ar_1 = Ar_2 /\ Ar_0 = 1 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, 0, Ar_2, Ar_3, 1, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_3 = 1 /\ Ar_1 = Ar_2 /\ Ar_0 = 1 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3, Ar_7)) [ 0 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: ?, Cost: 1)    start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_0, Ar_5, Ar_5, Ar_7, Ar_7))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 2 produces the following problem:
+3:	T:
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 - 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_4 >= 2 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 - 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_4 >= 2 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_4, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_0 >= 1 /\ Ar_0 >= 2 /\ Ar_6 = 1 /\ Ar_4 + 1 = Ar_0 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_4, Ar_2, Ar_3, Ar_4 + 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_0 >= Ar_4 + 2 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_4, Ar_2, Ar_3, Ar_4 + 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_0 >= Ar_4 + 2 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ 1 >= Ar_4 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ 1 >= Ar_4 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, 0, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_3 = 1 /\ Ar_1 = Ar_2 /\ Ar_0 = 1 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, 0, Ar_2, Ar_3, 1, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_3 = 1 /\ Ar_1 = Ar_2 /\ Ar_0 = 1 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3, Ar_7)) [ 0 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)    start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_0, Ar_5, Ar_5, Ar_7, Ar_7))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(cut) = 1
+	Pol(stop) = 0
+	Pol(start) = 1
+	Pol(start0) = 1
+	Pol(koat_start) = 1
+orients all transitions weakly and the transitions
+	cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_4, Ar_2, Ar_3, Ar_4 + 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_0 >= Ar_4 + 2 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+	cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_4, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_0 >= 1 /\ Ar_0 >= 2 /\ Ar_6 = 1 /\ Ar_4 + 1 = Ar_0 /\ Ar_3 = Ar_0 ]
+	cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ 1 >= Ar_4 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+	cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 - 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_4 >= 2 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 - 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_4 >= 2 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 - 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_4 >= 2 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: 1, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_4, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_0 >= 1 /\ Ar_0 >= 2 /\ Ar_6 = 1 /\ Ar_4 + 1 = Ar_0 /\ Ar_3 = Ar_0 ]
+		(Comp: 1, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_4, Ar_2, Ar_3, Ar_4 + 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_0 >= Ar_4 + 2 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_4, Ar_2, Ar_3, Ar_4 + 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_0 >= Ar_4 + 2 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: 1, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ 1 >= Ar_4 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: ?, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ 1 >= Ar_4 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, 0, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_3 = 1 /\ Ar_1 = Ar_2 /\ Ar_0 = 1 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, 0, Ar_2, Ar_3, 1, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_3 = 1 /\ Ar_1 = Ar_2 /\ Ar_0 = 1 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3, Ar_7)) [ 0 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)    start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_0, Ar_5, Ar_5, Ar_7, Ar_7))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(cut) = V_7
+	Pol(stop) = V_7
+	Pol(start) = V_1
+	Pol(start0) = V_1
+	Pol(koat_start) = V_1
+orients all transitions weakly and the transitions
+	cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_4, Ar_2, Ar_3, Ar_4 + 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_0 >= Ar_4 + 2 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+	cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ 1 >= Ar_4 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+	cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 - 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_4 >= 2 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)       cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 - 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_4 >= 2 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: Ar_0, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4 - 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_4 >= 2 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: 1, Cost: 1)       cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_4, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_0 >= 1 /\ Ar_0 >= 2 /\ Ar_6 = 1 /\ Ar_4 + 1 = Ar_0 /\ Ar_3 = Ar_0 ]
+		(Comp: 1, Cost: 1)       cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_4, Ar_2, Ar_3, Ar_4 + 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_0 >= Ar_4 + 2 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: Ar_0, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_4, Ar_2, Ar_3, Ar_4 + 1, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ Ar_0 >= Ar_4 + 2 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: 1, Cost: 1)       cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ 1 >= Ar_4 /\ Ar_4 >= 0 /\ Ar_0 >= 2 /\ Ar_0 >= Ar_4 + 1 /\ Ar_6 = 1 /\ Ar_3 = Ar_0 ]
+		(Comp: Ar_0, Cost: 1)    cut(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_6 - 1, Ar_7)) [ Ar_6 >= 2 /\ 1 >= Ar_4 /\ Ar_6 >= 1 /\ Ar_4 >= 0 /\ Ar_0 >= Ar_6 + 1 /\ Ar_0 >= Ar_6 + Ar_4 /\ Ar_3 = Ar_0 ]
+		(Comp: 1, Cost: 1)       start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, 0, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_3 = 1 /\ Ar_1 = Ar_2 /\ Ar_0 = 1 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)       start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, 0, Ar_2, Ar_3, 1, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)       start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_3 = 1 /\ Ar_1 = Ar_2 /\ Ar_0 = 1 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)       start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(cut(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3 - 1, Ar_7)) [ Ar_0 >= 2 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)       start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_5, Ar_3, Ar_7)) [ 0 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_0 /\ Ar_4 = Ar_5 /\ Ar_6 = Ar_7 ]
+		(Comp: 1, Cost: 1)       start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_0, Ar_5, Ar_5, Ar_7, Ar_7))
+		(Comp: 1, Cost: 0)       koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 3*Ar_0 + 10
+
+Time: 0.297 sec (SMT: 0.232 sec)

@@ -1,0 +1,217 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [lZZ1/17]
+1. recursive  : [lM1/17,lZZ1_loop_cont/18]
+2. non_recursive  : [exit_location/1]
+3. non_recursive  : [stop/9]
+4. non_recursive  : [lM1_loop_cont/10]
+5. non_recursive  : [start/9]
+6. non_recursive  : [start0/9]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into lZZ1/17
+1. SCC is partially evaluated into lM1/17
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into lM1_loop_cont/10
+5. SCC is partially evaluated into start/9
+6. SCC is partially evaluated into start0/9
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations lZZ1/17 
+* CE 14 is refined into CE [15] 
+* CE 13 is refined into CE [16] 
+
+
+### Cost equations --> "Loop" of lZZ1/17 
+* CEs [15] --> Loop 14 
+* CEs [16] --> Loop 15 
+
+### Ranking functions of CR lZZ1(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+
+#### Partial ranking functions of CR lZZ1(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+
+
+### Specialization of cost equations lM1/17 
+* CE 6 is refined into CE [17] 
+* CE 10 is refined into CE [18] 
+* CE 8 is refined into CE [19] 
+* CE 9 is refined into CE [20] 
+* CE 7 is refined into CE [21] 
+
+
+### Cost equations --> "Loop" of lM1/17 
+* CEs [20] --> Loop 16 
+* CEs [21] --> Loop 17 
+* CEs [17,18] --> Loop 18 
+* CEs [19] --> Loop 19 
+
+### Ranking functions of CR lM1(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* RF of phase [16,17]: [D]
+
+#### Partial ranking functions of CR lM1(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* Partial RF of phase [16,17]:
+  - RF of loop [16:1]:
+    A-B depends on loops [17:1] 
+    -B+F depends on loops [17:1] 
+    -B+G depends on loops [17:1] 
+    -B+H depends on loops [17:1] 
+  - RF of loop [16:1,17:1]:
+    D
+  - RF of loop [17:1]:
+    -A+B+1 depends on loops [16:1] 
+    B-1 depends on loops [16:1] 
+    B-H+1 depends on loops [16:1] 
+
+
+### Specialization of cost equations lM1_loop_cont/10 
+* CE 12 is refined into CE [22] 
+* CE 11 is refined into CE [23] 
+
+
+### Cost equations --> "Loop" of lM1_loop_cont/10 
+* CEs [22] --> Loop 20 
+* CEs [23] --> Loop 21 
+
+### Ranking functions of CR lM1_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+#### Partial ranking functions of CR lM1_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+
+### Specialization of cost equations start/9 
+* CE 5 is refined into CE [24,25,26] 
+* CE 3 is refined into CE [27] 
+* CE 2 is refined into CE [28] 
+* CE 4 is refined into CE [29] 
+
+
+### Cost equations --> "Loop" of start/9 
+* CEs [27] --> Loop 22 
+* CEs [28] --> Loop 23 
+* CEs [24,25,26] --> Loop 24 
+* CEs [29] --> Loop 25 
+
+### Ranking functions of CR start(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR start(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations start0/9 
+* CE 1 is refined into CE [30,31,32,33] 
+
+
+### Cost equations --> "Loop" of start0/9 
+* CEs [33] --> Loop 26 
+* CEs [31] --> Loop 27 
+* CEs [32] --> Loop 28 
+* CEs [30] --> Loop 29 
+
+### Ranking functions of CR start0(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR start0(A,B,C,D,E,F,G,H,I) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of lZZ1(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [15]: 1
+  with precondition: [B=0,I=3,K=1,H=A,L=C,N=E,G=F,H=J,D=M+1,G=O,G=P,H=Q,D>=1,H>=2,G>=D+H] 
+
+* Chain [14]: 0
+  with precondition: [B=0,I=4,H=A,G=F,D>=1,H>=1,G>=D+H] 
+
+
+#### Cost of chains of lM1(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [[16,17],19]: 3*it(16)+1
+  Such that:aux(40) =< D
+it(16) =< aux(40)
+
+  with precondition: [I=2,M=0,F=G,A=H,A=J,C=L,E=N,F=O,F=P,A=Q,A>=2,B>=1,D>=1,K>=1,A>=B,A>=K,F>=B+D,B+D>=K,B+D+K>=4,D+2*A>=B+K+2] 
+
+* Chain [[16,17],18]: 3*it(16)+1
+  Such that:aux(41) =< D
+it(16) =< aux(41)
+
+  with precondition: [I=4,F=G,A=H,A>=2,B>=1,D>=1,A>=B,F>=B+D] 
+
+* Chain [19]: 1
+  with precondition: [D=0,I=2,M=0,H=A,L=C,N=E,G=F,H=J,B=K,G=O,G=P,H=Q,B>=1,G>=B,H>=B] 
+
+* Chain [18]: 1
+  with precondition: [I=4,F=G,A=H,B>=1,D>=0,A>=B,F>=B+D] 
+
+
+#### Cost of chains of lM1_loop_cont(A,B,C,D,E,F,G,H,I,J):
+* Chain [21]: 0
+  with precondition: [A=2] 
+
+* Chain [20]: 0
+  with precondition: [A=4] 
+
+
+#### Cost of chains of start(A,B,C,D,E,F,G,H,I):
+* Chain [25]: 1
+  with precondition: [F=0,G=0,H=A,C=B,E=D,H>=1] 
+
+* Chain [24]: 6*s(4)+2
+  Such that:aux(42) =< F
+s(4) =< aux(42)
+
+  with precondition: [H=A,C=B,E=D,G=F,G>=1,H>=1] 
+
+* Chain [23]: 1
+  with precondition: [H=A,C=B,E=D,G=F,0>=H] 
+
+* Chain [22]: 1
+  with precondition: [H=A,C=B,E=D,G=F,0>=G+1] 
+
+
+#### Cost of chains of start0(A,B,C,D,E,F,G,H,I):
+* Chain [29]: 2
+  with precondition: [G=0,A>=1] 
+
+* Chain [28]: 2
+  with precondition: [0>=A] 
+
+* Chain [27]: 2
+  with precondition: [0>=G+1] 
+
+* Chain [26]: 6*s(8)+3
+  Such that:s(7) =< G
+s(8) =< s(7)
+
+  with precondition: [A>=1,G>=1] 
+
+
+Closed-form bounds of start0(A,B,C,D,E,F,G,H,I): 
+-------------------------------------
+* Chain [29] with precondition: [G=0,A>=1] 
+    - Upper bound: 2 
+    - Complexity: constant 
+* Chain [28] with precondition: [0>=A] 
+    - Upper bound: 2 
+    - Complexity: constant 
+* Chain [27] with precondition: [0>=G+1] 
+    - Upper bound: 2 
+    - Complexity: constant 
+* Chain [26] with precondition: [A>=1,G>=1] 
+    - Upper bound: 6*G+3 
+    - Complexity: n 
+
+### Maximum cost of start0(A,B,C,D,E,F,G,H,I): nat(G)*6+1+2 
+Asymptotic class: n 
+* Total analysis performed in 889 ms.
+
+
+-- stats
+realtime 0:01.18
+usertime 0.98
+systime 0.01
+

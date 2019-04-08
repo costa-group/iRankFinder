@@ -1,0 +1,9 @@
+input_output_vars(exit_location(A),[],[A]).
+input_output_vars(f(A,B,C),[A,B],[C]).
+input_output_vars(f_loop_cont(A,B),[A],[B]).
+input_output_vars(start(A,B,C),[A,B],[C]).
+eq(start(A,B,C),1,[f(A,B,D),f_loop_cont(D,C)],[]).
+eq(f(A,B,C),1,[f(A,B+1,C)],[A>=B+1]).
+eq(f(A,B,2),0,[],[]).
+eq(f_loop_cont(2,A),0,[exit_location(A)],[]).
+eq(exit_location(A),0,[],[]).

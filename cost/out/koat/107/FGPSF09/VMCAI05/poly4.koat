@@ -1,0 +1,163 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4))
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___1(Ar_0, Ar_1 + 1, Ar_2, Ar_3, Ar_4 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3, Ar_4 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1, Ar_4 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1, Ar_4 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3 + 1, Ar_4 + 1)) [ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1, Ar_4 + 1)) [ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3, Ar_4 + 1)) [ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3, Ar_4 + 1)) [ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3, Ar_4 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1, Ar_4 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1, Ar_4 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3, Ar_4 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___1(Ar_0, Ar_1 + 1, Ar_2, Ar_3, Ar_4 + 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3 + 1, Ar_4 + 1)) [ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3, Ar_4 + 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1, Ar_4 + 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Slicing away variables that do not contribute to conditions from problem 1 leaves variables [Ar_0, Ar_1, Ar_2, Ar_3].
+We thus obtain the following problem:
+2:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+		(Comp: ?, Cost: 1)    n_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___1(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___1(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_start(Ar_0, Ar_1, Ar_2, Ar_3))
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transitions from problem 2:
+	n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+	n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+	n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+	n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+	n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+	n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+We thus obtain the following problem:
+3:	T:
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___1(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___1(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_start(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 3 produces the following problem:
+4:	T:
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___1(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___1(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_start(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(n_eval___1) = V_1 - V_2 + 1
+	Pol(n_eval___2) = V_1 - V_2
+	Pol(n_eval___3) = V_1 - V_2
+	Pol(n_eval___4) = V_1 - V_2
+	Pol(n_start) = V_1 - V_2
+	Pol(pyRinit) = V_1 - V_2
+	Pol(koat_start) = V_1 - V_2
+orients all transitions weakly and the transitions
+	n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+	n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+	n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___1(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: Ar_0 + Ar_1, Cost: 1)    n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___1(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)              n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)              n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: Ar_0 + Ar_1, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)              n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: Ar_0 + Ar_1, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)              n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___1(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)              n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)              n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)              n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)              n_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)              pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_start(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)              koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(n_eval___1) = V_3 - V_4
+	Pol(n_eval___2) = V_3 - V_4 + 1
+	Pol(n_eval___3) = V_3 - V_4
+	Pol(n_eval___4) = V_3 - V_4
+	Pol(n_start) = V_3 - V_4
+	Pol(pyRinit) = V_3 - V_4
+	Pol(koat_start) = V_3 - V_4
+orients all transitions weakly and the transitions
+	n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+	n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+	n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+strictly and produces the following problem:
+6:	T:
+		(Comp: Ar_0 + Ar_1, Cost: 1)    n_eval___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___1(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: Ar_2 + Ar_3, Cost: 1)    n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: Ar_2 + Ar_3, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: Ar_0 + Ar_1, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: Ar_2 + Ar_3, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: Ar_0 + Ar_1, Cost: 1)    n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_2 - Ar_3 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)              n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___1(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)              n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___2(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_2 - Ar_3 - 1 >= 0 /\ -Ar_0 + Ar_1 >= 0 ]
+		(Comp: 1, Cost: 1)              n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)              n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___3(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)              n_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval___4(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)              pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_start(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)              koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 3*Ar_0 + 3*Ar_1 + 3*Ar_2 + 3*Ar_3 + 6
+
+Time: 0.294 sec (SMT: 0.244 sec)
+
+-- stats
+realtime 0:00.31
+usertime 0.23
+systime 0.06
+

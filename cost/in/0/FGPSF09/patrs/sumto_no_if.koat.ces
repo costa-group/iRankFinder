@@ -1,0 +1,13 @@
+input_output_vars(end(A,B,C),[A,B],[C]).
+input_output_vars(exit_location(A),[],[A]).
+input_output_vars(start(A,B,C),[A,B],[C]).
+input_output_vars(sumto(A,B,C,D,E),[A,B],[C,D,E]).
+input_output_vars(sumto_loop_cont(A,B,C,D),[A,B,C],[D]).
+eq(start(A,B,C),1,[sumto(A,B,D,E,F),sumto_loop_cont(D,E,F,C)],[]).
+eq(sumto(A,B,2,A,B),1,[],[A>=B+1]).
+eq(sumto(A,B,C,D,E),1,[sumto(A+1,B,C,D,E)],[B>=A]).
+eq(sumto(A,B,3,C,D),0,[],[]).
+eq(sumto_loop_cont(2,A,B,C),0,[end(A,B,C)],[D>=E+1]).
+eq(sumto_loop_cont(3,A,B,C),0,[exit_location(C)],[]).
+eq(exit_location(A),0,[],[]).
+eq(end(A,B,C),0,[],[]).

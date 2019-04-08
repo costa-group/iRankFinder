@@ -1,0 +1,232 @@
+WORST_CASE(?, O(n^2))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    eval1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]
+		(Comp: ?, Cost: 1)    eval1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    eval2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, Ar_0, 2*Ar_0)) [ Ar_1 >= 2 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_2, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, Ar_3, 2*Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, Ar_3 + 1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 = Ar_3 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, Ar_3, 2*Ar_3)) [ Ar_3 >= 1 /\ Ar_1 = Ar_3 ]
+		(Comp: ?, Cost: 1)    eval4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 /\ Ar_0 >= 1 /\ Ar_1 >= 2 ]
+		(Comp: ?, Cost: 1)    eval4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_2, Ar_3)) [ Ar_1 >= 2 /\ Ar_0 = 1 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(eval1(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Slicing away variables that do not contribute to conditions from problem 1 leaves variables [Ar_0, Ar_1, Ar_3].
+We thus obtain the following problem:
+2:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(eval1(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]
+		(Comp: ?, Cost: 1)    eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ Ar_1 >= 2 /\ Ar_0 = 1 ]
+		(Comp: ?, Cost: 1)    eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 /\ Ar_0 >= 1 /\ Ar_1 >= 2 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\ Ar_1 = Ar_3 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    eval2(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_0)) [ Ar_1 >= 2 ]
+		(Comp: ?, Cost: 1)    eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 2 produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(eval1(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]
+		(Comp: ?, Cost: 1)    eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ Ar_1 >= 2 /\ Ar_0 = 1 ]
+		(Comp: ?, Cost: 1)    eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 /\ Ar_0 >= 1 /\ Ar_1 >= 2 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\ Ar_1 = Ar_3 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    eval2(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_0)) [ Ar_1 >= 2 ]
+		(Comp: 1, Cost: 1)    eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: 1, Cost: 1)    eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(koat_start) = V_1 + V_2
+	Pol(eval1) = V_1 + V_2
+	Pol(eval4) = V_1 + V_2
+	Pol(eval2) = V_1 + V_2
+	Pol(eval3) = V_1 + V_2
+orients all transitions weakly and the transitions
+	eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ Ar_1 >= 2 /\ Ar_0 = 1 ]
+	eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 /\ Ar_0 >= 1 /\ Ar_1 >= 2 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 0)              koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(eval1(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]
+		(Comp: Ar_0 + Ar_1, Cost: 1)    eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ Ar_1 >= 2 /\ Ar_0 = 1 ]
+		(Comp: Ar_0 + Ar_1, Cost: 1)    eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 /\ Ar_0 >= 1 /\ Ar_1 >= 2 ]
+		(Comp: ?, Cost: 1)              eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\ Ar_1 = Ar_3 ]
+		(Comp: ?, Cost: 1)              eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]
+		(Comp: ?, Cost: 1)              eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)              eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)              eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)              eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)              eval2(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_0)) [ Ar_1 >= 2 ]
+		(Comp: 1, Cost: 1)              eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: 1, Cost: 1)              eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 4 produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 0)                      koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(eval1(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]
+		(Comp: Ar_0 + Ar_1, Cost: 1)            eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ Ar_1 >= 2 /\ Ar_0 = 1 ]
+		(Comp: Ar_0 + Ar_1, Cost: 1)            eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 /\ Ar_0 >= 1 /\ Ar_1 >= 2 ]
+		(Comp: ?, Cost: 1)                      eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\ Ar_1 = Ar_3 ]
+		(Comp: ?, Cost: 1)                      eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]
+		(Comp: ?, Cost: 1)                      eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)                      eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)                      eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)                      eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: 2*Ar_0 + 2*Ar_1 + 2, Cost: 1)    eval2(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_0)) [ Ar_1 >= 2 ]
+		(Comp: 1, Cost: 1)                      eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: 1, Cost: 1)                      eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(eval3) = 1
+	Pol(eval4) = 0
+and size complexities
+	S("eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 ]", 0-0) = Ar_0
+	S("eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 ]", 0-1) = Ar_1
+	S("eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 ]", 0-2) = Ar_3
+	S("eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ 1 >= Ar_0 ]", 0-0) = Ar_0
+	S("eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ 1 >= Ar_0 ]", 0-1) = Ar_1 + 1
+	S("eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ 1 >= Ar_0 ]", 0-2) = Ar_3
+	S("eval2(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_0)) [ Ar_1 >= 2 ]", 0-0) = Ar_0 + 1
+	S("eval2(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_0)) [ Ar_1 >= 2 ]", 0-1) = Ar_1 + 1
+	S("eval2(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_0)) [ Ar_1 >= 2 ]", 0-2) = 2*Ar_0 + 8
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 ]", 0-0) = Ar_0 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 ]", 0-1) = Ar_1 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 ]", 0-2) = ?
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 ]", 0-0) = Ar_0 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 ]", 0-1) = Ar_1 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 ]", 0-2) = ?
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 /\\ Ar_3 >= 1 ]", 0-0) = Ar_0 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 /\\ Ar_3 >= 1 ]", 0-1) = Ar_1 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 /\\ Ar_3 >= 1 ]", 0-2) = ?
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 /\\ Ar_3 >= 1 ]", 0-0) = Ar_0 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 /\\ Ar_3 >= 1 ]", 0-1) = Ar_1 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 /\\ Ar_3 >= 1 ]", 0-2) = ?
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]", 0-0) = Ar_0 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]", 0-1) = Ar_1 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]", 0-2) = ?
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\\ Ar_1 = Ar_3 ]", 0-0) = Ar_0 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\\ Ar_1 = Ar_3 ]", 0-1) = Ar_1 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\\ Ar_1 = Ar_3 ]", 0-2) = ?
+	S("eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 /\\ Ar_0 >= 1 /\\ Ar_1 >= 2 ]", 0-0) = Ar_0 + 1
+	S("eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 /\\ Ar_0 >= 1 /\\ Ar_1 >= 2 ]", 0-1) = Ar_1 + 1
+	S("eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 /\\ Ar_0 >= 1 /\\ Ar_1 >= 2 ]", 0-2) = ?
+	S("eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ Ar_1 >= 2 /\\ Ar_0 = 1 ]", 0-0) = 1
+	S("eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ Ar_1 >= 2 /\\ Ar_0 = 1 ]", 0-1) = Ar_1 + 1
+	S("eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ Ar_1 >= 2 /\\ Ar_0 = 1 ]", 0-2) = ?
+	S("koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(eval1(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(eval1(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(eval1(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_3
+orients the transitions
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\ Ar_1 = Ar_3 ]
+weakly and the transitions
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]
+strictly and produces the following problem:
+6:	T:
+		(Comp: 1, Cost: 0)                      koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(eval1(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]
+		(Comp: Ar_0 + Ar_1, Cost: 1)            eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ Ar_1 >= 2 /\ Ar_0 = 1 ]
+		(Comp: Ar_0 + Ar_1, Cost: 1)            eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 /\ Ar_0 >= 1 /\ Ar_1 >= 2 ]
+		(Comp: ?, Cost: 1)                      eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\ Ar_1 = Ar_3 ]
+		(Comp: 2*Ar_0 + 2*Ar_1 + 2, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]
+		(Comp: ?, Cost: 1)                      eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: ?, Cost: 1)                      eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: 2*Ar_0 + 2*Ar_1 + 2, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: 2*Ar_0 + 2*Ar_1 + 2, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: 2*Ar_0 + 2*Ar_1 + 2, Cost: 1)    eval2(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_0)) [ Ar_1 >= 2 ]
+		(Comp: 1, Cost: 1)                      eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: 1, Cost: 1)                      eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(eval3) = V_2 - V_3 + 1
+and size complexities
+	S("eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 ]", 0-0) = Ar_0
+	S("eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 ]", 0-1) = Ar_1
+	S("eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 ]", 0-2) = Ar_3
+	S("eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ 1 >= Ar_0 ]", 0-0) = Ar_0
+	S("eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ 1 >= Ar_0 ]", 0-1) = Ar_1 + 1
+	S("eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ 1 >= Ar_0 ]", 0-2) = Ar_3
+	S("eval2(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_0)) [ Ar_1 >= 2 ]", 0-0) = Ar_0 + 1
+	S("eval2(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_0)) [ Ar_1 >= 2 ]", 0-1) = Ar_1 + 1
+	S("eval2(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_0)) [ Ar_1 >= 2 ]", 0-2) = 2*Ar_0 + 8
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 ]", 0-0) = Ar_0 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 ]", 0-1) = Ar_1 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 ]", 0-2) = ?
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 ]", 0-0) = Ar_0 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 ]", 0-1) = Ar_1 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 ]", 0-2) = ?
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 /\\ Ar_3 >= 1 ]", 0-0) = Ar_0 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 /\\ Ar_3 >= 1 ]", 0-1) = Ar_1 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 /\\ Ar_3 >= 1 ]", 0-2) = ?
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 /\\ Ar_3 >= 1 ]", 0-0) = Ar_0 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 /\\ Ar_3 >= 1 ]", 0-1) = Ar_1 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\\ Ar_1 >= Ar_3 + 1 /\\ Ar_3 >= 1 ]", 0-2) = ?
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]", 0-0) = Ar_0 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]", 0-1) = Ar_1 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]", 0-2) = ?
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\\ Ar_1 = Ar_3 ]", 0-0) = Ar_0 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\\ Ar_1 = Ar_3 ]", 0-1) = Ar_1 + 1
+	S("eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\\ Ar_1 = Ar_3 ]", 0-2) = ?
+	S("eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 /\\ Ar_0 >= 1 /\\ Ar_1 >= 2 ]", 0-0) = Ar_0 + 1
+	S("eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 /\\ Ar_0 >= 1 /\\ Ar_1 >= 2 ]", 0-1) = Ar_1 + 1
+	S("eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 /\\ Ar_0 >= 1 /\\ Ar_1 >= 2 ]", 0-2) = ?
+	S("eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ Ar_1 >= 2 /\\ Ar_0 = 1 ]", 0-0) = 1
+	S("eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ Ar_1 >= 2 /\\ Ar_0 = 1 ]", 0-1) = Ar_1 + 1
+	S("eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ Ar_1 >= 2 /\\ Ar_0 = 1 ]", 0-2) = ?
+	S("koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(eval1(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(eval1(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(eval1(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_3
+orients the transitions
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\ Ar_1 = Ar_3 ]
+weakly and the transitions
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+	eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\ Ar_1 = Ar_3 ]
+strictly and produces the following problem:
+7:	T:
+		(Comp: 1, Cost: 0)                                                             koat_start(Ar_0, Ar_1, Ar_3) -> Com_1(eval1(Ar_0, Ar_1, Ar_3)) [ 0 <= 0 ]
+		(Comp: Ar_0 + Ar_1, Cost: 1)                                                   eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ Ar_1 >= 2 /\ Ar_0 = 1 ]
+		(Comp: Ar_0 + Ar_1, Cost: 1)                                                   eval4(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 /\ Ar_0 >= 1 /\ Ar_1 >= 2 ]
+		(Comp: 6*Ar_0*Ar_1 + 2*Ar_1^2 + 4*Ar_0^2 + 22*Ar_1 + 24*Ar_0 + 20, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_3 >= 1 /\ Ar_1 = Ar_3 ]
+		(Comp: 2*Ar_0 + 2*Ar_1 + 2, Cost: 1)                                           eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 = Ar_3 ]
+		(Comp: 6*Ar_0*Ar_1 + 2*Ar_1^2 + 4*Ar_0^2 + 22*Ar_1 + 24*Ar_0 + 20, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3 + 2)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: 6*Ar_0*Ar_1 + 2*Ar_1^2 + 4*Ar_0^2 + 22*Ar_1 + 24*Ar_0 + 20, Cost: 1)    eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 /\ Ar_3 >= 1 ]
+		(Comp: 2*Ar_0 + 2*Ar_1 + 2, Cost: 1)                                           eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3 + 1)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: 2*Ar_0 + 2*Ar_1 + 2, Cost: 1)                                           eval3(Ar_0, Ar_1, Ar_3) -> Com_1(eval4(Ar_0, Ar_1, Ar_3)) [ Ar_1 >= Ar_3 /\ Ar_1 >= Ar_3 + 1 ]
+		(Comp: 2*Ar_0 + 2*Ar_1 + 2, Cost: 1)                                           eval2(Ar_0, Ar_1, Ar_3) -> Com_1(eval3(Ar_0, Ar_1, 2*Ar_0)) [ Ar_1 >= 2 ]
+		(Comp: 1, Cost: 1)                                                             eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0, Ar_1 - 1, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: 1, Cost: 1)                                                             eval1(Ar_0, Ar_1, Ar_3) -> Com_1(eval2(Ar_0 - 1, Ar_1, Ar_3)) [ Ar_0 >= 2 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 82*Ar_0 + 76*Ar_1 + 18*Ar_0*Ar_1 + 6*Ar_1^2 + 12*Ar_0^2 + 70
+
+Time: 0.154 sec (SMT: 0.138 sec)

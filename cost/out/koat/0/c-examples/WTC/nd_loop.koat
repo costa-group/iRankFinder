@@ -1,0 +1,78 @@
+WORST_CASE(?, O(1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalndloopstart(Ar_0) -> Com_1(evalndloopentryin(Ar_0))
+		(Comp: ?, Cost: 1)    evalndloopentryin(Ar_0) -> Com_1(evalndloopbbin(0))
+		(Comp: ?, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopbbin(Fresh_0)) [ Ar_0 + 2 >= Fresh_0 /\ Fresh_0 >= Ar_0 + 1 /\ 9 >= Fresh_0 ]
+		(Comp: ?, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ B >= Ar_0 + 3 ]
+		(Comp: ?, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ Ar_0 >= B ]
+		(Comp: ?, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ B >= 10 ]
+		(Comp: ?, Cost: 1)    evalndloopreturnin(Ar_0) -> Com_1(evalndloopstop(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(evalndloopstart(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalndloopstart(Ar_0) -> Com_1(evalndloopentryin(Ar_0))
+		(Comp: 1, Cost: 1)    evalndloopentryin(Ar_0) -> Com_1(evalndloopbbin(0))
+		(Comp: ?, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopbbin(Fresh_0)) [ Ar_0 + 2 >= Fresh_0 /\ Fresh_0 >= Ar_0 + 1 /\ 9 >= Fresh_0 ]
+		(Comp: ?, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ B >= Ar_0 + 3 ]
+		(Comp: ?, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ Ar_0 >= B ]
+		(Comp: ?, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ B >= 10 ]
+		(Comp: ?, Cost: 1)    evalndloopreturnin(Ar_0) -> Com_1(evalndloopstop(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(evalndloopstart(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalndloopstart) = 2
+	Pol(evalndloopentryin) = 2
+	Pol(evalndloopbbin) = 2
+	Pol(evalndloopreturnin) = 1
+	Pol(evalndloopstop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalndloopreturnin(Ar_0) -> Com_1(evalndloopstop(Ar_0))
+	evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ B >= 10 ]
+	evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ B >= Ar_0 + 3 ]
+	evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ Ar_0 >= B ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalndloopstart(Ar_0) -> Com_1(evalndloopentryin(Ar_0))
+		(Comp: 1, Cost: 1)    evalndloopentryin(Ar_0) -> Com_1(evalndloopbbin(0))
+		(Comp: ?, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopbbin(Fresh_0)) [ Ar_0 + 2 >= Fresh_0 /\ Fresh_0 >= Ar_0 + 1 /\ 9 >= Fresh_0 ]
+		(Comp: 2, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ B >= Ar_0 + 3 ]
+		(Comp: 2, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ Ar_0 >= B ]
+		(Comp: 2, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ B >= 10 ]
+		(Comp: 2, Cost: 1)    evalndloopreturnin(Ar_0) -> Com_1(evalndloopstop(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(evalndloopstart(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalndloopstart) = 9
+	Pol(evalndloopentryin) = 9
+	Pol(evalndloopbbin) = -V_1 + 9
+	Pol(evalndloopreturnin) = -V_1
+	Pol(evalndloopstop) = -V_1
+	Pol(koat_start) = 9
+orients all transitions weakly and the transition
+	evalndloopbbin(Ar_0) -> Com_1(evalndloopbbin(Fresh_0)) [ Ar_0 + 2 >= Fresh_0 /\ Fresh_0 >= Ar_0 + 1 /\ 9 >= Fresh_0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)    evalndloopstart(Ar_0) -> Com_1(evalndloopentryin(Ar_0))
+		(Comp: 1, Cost: 1)    evalndloopentryin(Ar_0) -> Com_1(evalndloopbbin(0))
+		(Comp: 9, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopbbin(Fresh_0)) [ Ar_0 + 2 >= Fresh_0 /\ Fresh_0 >= Ar_0 + 1 /\ 9 >= Fresh_0 ]
+		(Comp: 2, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ B >= Ar_0 + 3 ]
+		(Comp: 2, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ Ar_0 >= B ]
+		(Comp: 2, Cost: 1)    evalndloopbbin(Ar_0) -> Com_1(evalndloopreturnin(Ar_0)) [ B >= 10 ]
+		(Comp: 2, Cost: 1)    evalndloopreturnin(Ar_0) -> Com_1(evalndloopstop(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(evalndloopstart(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 19
+
+Time: 0.030 sec (SMT: 0.026 sec)

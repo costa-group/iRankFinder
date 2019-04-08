@@ -1,0 +1,74 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 101 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_6 /\ Ar_7 = Ar_0 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_6 >= Ar_4 + 1 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_6 /\ Ar_7 = Ar_0 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(lbl71(Ar_0, Ar_7, Ar_2, Ar_3 - 1, Ar_4, Ar_7 + 1, Ar_6, Ar_5)) [ Ar_4 >= Ar_6 /\ 100 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_6 /\ Ar_7 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 + Ar_6 + Ar_4 >= Ar_1 + Ar_3 + 102 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+		(Comp: ?, Cost: 1)    lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_3 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+		(Comp: ?, Cost: 1)    lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(lbl71(Ar_0, Ar_7, Ar_2, Ar_3 - 1, Ar_4, Ar_7 + 1, Ar_6, Ar_5)) [ Ar_3 >= Ar_1 + 1 /\ Ar_1 + Ar_3 + 101 >= Ar_0 + Ar_6 + Ar_4 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+		(Comp: ?, Cost: 1)    start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_6, Ar_6, Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 101 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_6 /\ Ar_7 = Ar_0 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_6 >= Ar_4 + 1 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_6 /\ Ar_7 = Ar_0 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(lbl71(Ar_0, Ar_7, Ar_2, Ar_3 - 1, Ar_4, Ar_7 + 1, Ar_6, Ar_5)) [ Ar_4 >= Ar_6 /\ 100 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_6 /\ Ar_7 = Ar_0 ]
+		(Comp: ?, Cost: 1)    lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 + Ar_6 + Ar_4 >= Ar_1 + Ar_3 + 102 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+		(Comp: ?, Cost: 1)    lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_3 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+		(Comp: ?, Cost: 1)    lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(lbl71(Ar_0, Ar_7, Ar_2, Ar_3 - 1, Ar_4, Ar_7 + 1, Ar_6, Ar_5)) [ Ar_3 >= Ar_1 + 1 /\ Ar_1 + Ar_3 + 101 >= Ar_0 + Ar_6 + Ar_4 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+		(Comp: 1, Cost: 1)    start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_6, Ar_6, Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(start) = 1
+	Pol(stop) = 0
+	Pol(lbl71) = 1
+	Pol(start0) = 1
+	Pol(koat_start) = 1
+orients all transitions weakly and the transitions
+	lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 + Ar_6 + Ar_4 >= Ar_1 + Ar_3 + 102 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+	lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_3 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 101 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_6 /\ Ar_7 = Ar_0 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_6 >= Ar_4 + 1 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_6 /\ Ar_7 = Ar_0 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(lbl71(Ar_0, Ar_7, Ar_2, Ar_3 - 1, Ar_4, Ar_7 + 1, Ar_6, Ar_5)) [ Ar_4 >= Ar_6 /\ 100 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_6 /\ Ar_7 = Ar_0 ]
+		(Comp: 1, Cost: 1)    lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 + Ar_6 + Ar_4 >= Ar_1 + Ar_3 + 102 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+		(Comp: 1, Cost: 1)    lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_3 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+		(Comp: ?, Cost: 1)    lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(lbl71(Ar_0, Ar_7, Ar_2, Ar_3 - 1, Ar_4, Ar_7 + 1, Ar_6, Ar_5)) [ Ar_3 >= Ar_1 + 1 /\ Ar_1 + Ar_3 + 101 >= Ar_0 + Ar_6 + Ar_4 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+		(Comp: 1, Cost: 1)    start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_6, Ar_6, Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(start) = -2*V_1 + V_4 - V_7 + 199
+	Pol(stop) = V_4 - 2*V_6 + V_7 - 2*V_8
+	Pol(lbl71) = -2*V_2 + V_5 + V_7 - 2*V_8 + 199
+	Pol(start0) = -2*V_1 + V_5 - V_7 + 199
+	Pol(koat_start) = -2*V_1 + V_5 - V_7 + 199
+orients all transitions weakly and the transition
+	lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(lbl71(Ar_0, Ar_7, Ar_2, Ar_3 - 1, Ar_4, Ar_7 + 1, Ar_6, Ar_5)) [ Ar_3 >= Ar_1 + 1 /\ Ar_1 + Ar_3 + 101 >= Ar_0 + Ar_6 + Ar_4 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)                             start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 101 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_6 /\ Ar_7 = Ar_0 ]
+		(Comp: 1, Cost: 1)                             start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_6 >= Ar_4 + 1 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_6 /\ Ar_7 = Ar_0 ]
+		(Comp: 1, Cost: 1)                             start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(lbl71(Ar_0, Ar_7, Ar_2, Ar_3 - 1, Ar_4, Ar_7 + 1, Ar_6, Ar_5)) [ Ar_4 >= Ar_6 /\ 100 >= Ar_0 /\ Ar_1 = Ar_2 /\ Ar_3 = Ar_4 /\ Ar_5 = Ar_6 /\ Ar_7 = Ar_0 ]
+		(Comp: 1, Cost: 1)                             lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 + Ar_6 + Ar_4 >= Ar_1 + Ar_3 + 102 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+		(Comp: 1, Cost: 1)                             lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(stop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_3 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+		(Comp: 2*Ar_0 + Ar_4 + Ar_6 + 199, Cost: 1)    lbl71(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(lbl71(Ar_0, Ar_7, Ar_2, Ar_3 - 1, Ar_4, Ar_7 + 1, Ar_6, Ar_5)) [ Ar_3 >= Ar_1 + 1 /\ Ar_1 + Ar_3 + 101 >= Ar_0 + Ar_6 + Ar_4 /\ Ar_4 >= Ar_3 + 1 /\ 100 >= Ar_0 /\ Ar_4 >= Ar_6 /\ 2*Ar_3 + Ar_1 + 2 >= Ar_0 + Ar_6 + Ar_4 /\ 100 >= Ar_1 /\ Ar_5 = Ar_1 + 1 /\ Ar_7 + Ar_1 + Ar_3 + 1 = Ar_0 + Ar_6 + Ar_4 ]
+		(Comp: 1, Cost: 1)                             start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start(Ar_0, Ar_2, Ar_2, Ar_4, Ar_4, Ar_6, Ar_6, Ar_0))
+		(Comp: 1, Cost: 0)                             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(start0(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 2*Ar_0 + Ar_4 + Ar_6 + 205
+
+Time: 0.110 sec (SMT: 0.092 sec)

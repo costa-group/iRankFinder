@@ -1,0 +1,232 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [lbl141/17]
+1. recursive  : [lbl121/17,lbl141_loop_cont/18]
+2. non_recursive  : [stop/9]
+3. non_recursive  : [cut/9]
+4. non_recursive  : [exit_location/1]
+5. non_recursive  : [lbl121_loop_cont/10]
+6. non_recursive  : [lbl6/9]
+7. non_recursive  : [start/9]
+8. non_recursive  : [start0/9]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into lbl141/17
+1. SCC is partially evaluated into lbl121/17
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is completely evaluated into other SCCs
+5. SCC is partially evaluated into lbl121_loop_cont/10
+6. SCC is completely evaluated into other SCCs
+7. SCC is partially evaluated into start/9
+8. SCC is partially evaluated into start0/9
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations lbl141/17 
+* CE 14 is refined into CE [15] 
+* CE 13 is refined into CE [16] 
+* CE 12 is refined into CE [17] 
+
+
+### Cost equations --> "Loop" of lbl141/17 
+* CEs [15] --> Loop 14 
+* CEs [16] --> Loop 15 
+* CEs [17] --> Loop 16 
+
+### Ranking functions of CR lbl141(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+
+#### Partial ranking functions of CR lbl141(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+
+
+### Specialization of cost equations lbl121/17 
+* CE 5 is refined into CE [18] 
+* CE 9 is refined into CE [19] 
+* CE 7 is refined into CE [20] 
+* CE 8 is refined into CE [21] 
+* CE 6 is refined into CE [22] 
+
+
+### Cost equations --> "Loop" of lbl121/17 
+* CEs [21] --> Loop 17 
+* CEs [22] --> Loop 18 
+* CEs [18,19] --> Loop 19 
+* CEs [20] --> Loop 20 
+
+### Ranking functions of CR lbl121(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+
+#### Partial ranking functions of CR lbl121(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* Partial RF of phase [17,18]:
+  - RF of loop [17:1]:
+    A-E depends on loops [18:1] 
+    B-E-1 depends on loops [18:1] 
+    C-E-1 depends on loops [18:1] 
+    D-E depends on loops [18:1] 
+  - RF of loop [18:1]:
+    -A+E+1 depends on loops [17:1] 
+    B-G-1
+    C-G-1
+    -D+E+1 depends on loops [17:1] 
+    E-1 depends on loops [17:1] 
+
+
+### Specialization of cost equations lbl121_loop_cont/10 
+* CE 10 is refined into CE [23] 
+* CE 11 is refined into CE [24] 
+
+
+### Cost equations --> "Loop" of lbl121_loop_cont/10 
+* CEs [23] --> Loop 21 
+* CEs [24] --> Loop 22 
+
+### Ranking functions of CR lbl121_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+#### Partial ranking functions of CR lbl121_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+
+### Specialization of cost equations start/9 
+* CE 3 is refined into CE [25] 
+* CE 4 is refined into CE [26,27] 
+* CE 2 is refined into CE [28] 
+
+
+### Cost equations --> "Loop" of start/9 
+* CEs [25] --> Loop 23 
+* CEs [26,27] --> Loop 24 
+* CEs [28] --> Loop 25 
+
+### Ranking functions of CR start(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR start(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations start0/9 
+* CE 1 is refined into CE [29,30,31] 
+
+
+### Cost equations --> "Loop" of start0/9 
+* CEs [30] --> Loop 26 
+* CEs [31] --> Loop 27 
+* CEs [29] --> Loop 28 
+
+### Ranking functions of CR start0(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR start0(A,B,C,D,E,F,G,H,I) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of lbl141(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [16]: 1
+  with precondition: [E=0,I=2,N=0,D=A,C=B,O=F,C=G,Q=H,D=J,C=K,C=L,D=M,C=P,D>=2,C>=D+1] 
+
+* Chain [15]: 1
+  with precondition: [E=0,I=3,N=1,D=A,C=B,O=F,Q=H,D=J,C=K,C=L,D=M,G=P,D>=2,G>=1,C>=D+1,C>=G+1] 
+
+* Chain [14]: 0
+  with precondition: [E=0,I=4,D=A,C=B,D>=1,G>=1,C>=D+1,C>=G,C+D>=G+2] 
+
+
+#### Cost of chains of lbl121(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [[17,18],20]: 1*it(17)+2*it(18)+2
+  Such that:it(18) =< -G+L
+aux(35) =< M
+aux(38) =< -E+L
+aux(39) =< -E+M
+aux(1) =< it(18)*aux(35)
+it(17) =< aux(1)+aux(38)
+it(17) =< aux(1)+aux(39)
+
+  with precondition: [I=2,N=0,B=C,A=D,A=J,B=K,B=L,A=M,F=O,B=P,H=Q,A>=2,E>=1,G>=0,B>=A+1,A>=E,B>=G+1,A+B>=E+G+2] 
+
+* Chain [[17,18],19]: 1*it(17)+2*it(18)+1
+  Such that:aux(35) =< A
+it(18) =< C-G
+aux(40) =< A-E
+aux(41) =< C-E
+aux(1) =< it(18)*aux(35)
+it(17) =< aux(1)+aux(41)
+it(17) =< aux(1)+aux(40)
+
+  with precondition: [I=4,B=C,A=D,A>=2,E>=1,G>=0,B>=A+1,A>=E,B>=G+1,A+B>=E+G+2] 
+
+* Chain [19]: 1
+  with precondition: [I=4,B=C,A=D,E>=1,G>=0,B>=A+1,A>=E] 
+
+
+#### Cost of chains of lbl121_loop_cont(A,B,C,D,E,F,G,H,I,J):
+* Chain [22]: 1
+  with precondition: [A=2,F=0,C=D,B=E,C=H,B>=2,C>=B+1] 
+
+* Chain [21]: 0
+  with precondition: [A=4] 
+
+
+#### Cost of chains of start(A,B,C,D,E,F,G,H,I):
+* Chain [25]: 1
+  with precondition: [D=A,C=B,F=E,H=G,0>=D] 
+
+* Chain [24]: 4*s(7)+1*s(12)+1*s(18)+4
+  Such that:aux(44) =< A
+aux(43) =< D
+aux(46) =< C
+s(7) =< aux(46)
+s(17) =< s(7)*aux(44)
+s(18) =< s(17)+aux(46)
+s(18) =< s(17)+aux(44)
+s(11) =< s(7)*aux(43)
+s(12) =< s(11)+aux(46)
+s(12) =< s(11)+aux(43)
+
+  with precondition: [D=A,C=B,F=E,H=G,D>=1,C>=D+1] 
+
+* Chain [23]: 2
+  with precondition: [D=A,C=B,F=E,H=G,D>=1,D>=C] 
+
+
+#### Cost of chains of start0(A,B,C,D,E,F,G,H,I):
+* Chain [28]: 2
+  with precondition: [0>=A] 
+
+* Chain [27]: 4*s(22)+2*s(24)+5
+  Such that:s(21) =< C
+aux(47) =< A
+s(22) =< s(21)
+s(23) =< s(22)*aux(47)
+s(24) =< s(23)+s(21)
+s(24) =< s(23)+aux(47)
+
+  with precondition: [A>=1,C>=A+1] 
+
+* Chain [26]: 3
+  with precondition: [A>=1,A>=C] 
+
+
+Closed-form bounds of start0(A,B,C,D,E,F,G,H,I): 
+-------------------------------------
+* Chain [28] with precondition: [0>=A] 
+    - Upper bound: 2 
+    - Complexity: constant 
+* Chain [27] with precondition: [A>=1,C>=A+1] 
+    - Upper bound: 2*A*C+5+6*C 
+    - Complexity: n^2 
+* Chain [26] with precondition: [A>=1,A>=C] 
+    - Upper bound: 3 
+    - Complexity: constant 
+
+### Maximum cost of start0(A,B,C,D,E,F,G,H,I): max([1,nat(A)*2*nat(C)+3+nat(C)*6])+2 
+Asymptotic class: n^2 
+* Total analysis performed in 947 ms.
+
+
+-- stats
+realtime 0:01.35
+usertime 1.01
+systime 0.02
+

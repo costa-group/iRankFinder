@@ -1,0 +1,50 @@
+MAYBE
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0) -> Com_1(n_start(Ar_0))
+		(Comp: ?, Cost: 1)    n_f___1(Ar_0) -> Com_1(n_f___1(Ar_0))
+		(Comp: ?, Cost: 1)    n_start(Ar_0) -> Com_1(n_f___1(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0) -> Com_1(n_start(Ar_0))
+		(Comp: ?, Cost: 1)    n_f___1(Ar_0) -> Com_1(n_f___1(Ar_0))
+		(Comp: 1, Cost: 1)    n_start(Ar_0) -> Com_1(n_f___1(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition pyRinit(Ar_0) -> Com_1(n_start(Ar_0)) with all transitions in problem 2, the following new transition is obtained:
+	pyRinit(Ar_0) -> Com_1(n_f___1(Ar_0))
+We thus obtain the following problem:
+3:	T:
+		(Comp: 1, Cost: 2)    pyRinit(Ar_0) -> Com_1(n_f___1(Ar_0))
+		(Comp: ?, Cost: 1)    n_f___1(Ar_0) -> Com_1(n_f___1(Ar_0))
+		(Comp: 1, Cost: 1)    n_start(Ar_0) -> Com_1(n_f___1(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 3:
+	n_start(Ar_0) -> Com_1(n_f___1(Ar_0))
+We thus obtain the following problem:
+4:	T:
+		(Comp: ?, Cost: 1)    n_f___1(Ar_0) -> Com_1(n_f___1(Ar_0))
+		(Comp: 1, Cost: 2)    pyRinit(Ar_0) -> Com_1(n_f___1(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound ?
+
+Time: 0.025 sec (SMT: 0.022 sec)
+
+-- stats
+realtime 0:00.03
+usertime 0.02
+systime 0.01
+

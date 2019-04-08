@@ -1,0 +1,101 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: start0,
+  nodes: {
+    a: {
+      cfr_properties: [
+        // RFs Properties
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [-1 + D >= 0, C >= 0, A -D >= 0],
+    },
+    b: {
+      cfr_properties: [
+        // RFs Properties
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [D >= 0, -1 + A -D >= 0],
+    },
+    cont1: {
+      cfr_properties: [
+        // RFs Properties
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [-1 + D >= 0, C >= 0, A -D >= 0],
+    },
+    start: {
+      cfr_properties: [
+        // RFs Properties
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [D >= 0, C >= 0, A -D >= 0],
+    },
+    start0: {
+      inv_polyhedra: [],
+    },
+    stop1: {
+      inv_polyhedra: [],
+    },
+    stop2: {
+      inv_polyhedra: [],
+    },
+    stop3: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: start,
+	target: stop1,
+	name: t0,
+	constraints: [A >= 0, B >= 0, C >= 0, D = 0]
+    },
+    {
+	source: start,
+	target: cont1,
+	name: t1,
+	constraints: [D -1 >= 0, A >= 0, B >= 0, C >= 0, D >= 0, A -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: cont1,
+	target: stop2,
+	name: t2,
+	constraints: [D -1 >= 0, B >= 0, A -D >= 0, C = 0]
+    },
+    {
+	source: cont1,
+	target: a,
+	name: t3,
+	constraints: [C -1 >= 0, D -1 >= 0, C >= 0, B >= 0, A -D >= 0, A -A' = 0, B -B' = 0, C -1 -C' = 0, D -D' = 0]
+    },
+    {
+	source: a,
+	target: b,
+	name: t4,
+	constraints: [A -D >= 0, B >= 0, C >= 0, D -1 >= 0, A -A' = 0, B -B' = 0, E -C' = 0, D -1 -D' = 0]
+    },
+    {
+	source: b,
+	target: start,
+	name: t5,
+	constraints: [C >= 0, D >= 0, B >= 0, A -D -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: b,
+	target: stop3,
+	name: t6,
+	constraints: [-1 -C >= 0, D >= 0, B >= 0, A -D -1 >= 0]
+    },
+    {
+	source: start0,
+	target: start,
+	name: t7,
+	constraints: [A >= 0, B >= 0, A -A' = 0, B -B' = 0, B -C' = 0, A -D' = 0]
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [cut/17]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [stop/9]
+3. non_recursive  : [cut_loop_cont/10]
+4. non_recursive  : [start/9]
+5. non_recursive  : [start0/9]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into cut/17
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into cut_loop_cont/10
+4. SCC is partially evaluated into start/9
+5. SCC is partially evaluated into start0/9
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations cut/17 
+* CE 13 is refined into CE [16] 
+* CE 11 is refined into CE [17] 
+* CE 7 is refined into CE [18] 
+* CE 9 is refined into CE [19] 
+* CE 12 is refined into CE [20] 
+* CE 10 is refined into CE [21] 
+* CE 6 is refined into CE [22] 
+* CE 8 is refined into CE [23] 
+
+
+### Cost equations --> "Loop" of cut/17 
+* CEs [21] --> Loop 15 
+* CEs [22] --> Loop 16 
+* CEs [23] --> Loop 17 
+* CEs [16] --> Loop 18 
+* CEs [17] --> Loop 19 
+* CEs [18] --> Loop 20 
+* CEs [19] --> Loop 21 
+* CEs [20] --> Loop 22 
+
+### Ranking functions of CR cut(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* RF of phase [15,16,17]: [G-1]
+
+#### Partial ranking functions of CR cut(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* Partial RF of phase [15,16,17]:
+  - RF of loop [15:1]:
+    A-E-1 depends on loops [16:1,17:1] 
+    D-E-1 depends on loops [16:1,17:1] 
+  - RF of loop [15:1,16:1,17:1]:
+    G-1
+  - RF of loop [16:1]:
+    E-1 depends on loops [15:1] 
+
+
+### Specialization of cost equations cut_loop_cont/10 
+* CE 15 is refined into CE [24] 
+* CE 14 is refined into CE [25] 
+
+
+### Cost equations --> "Loop" of cut_loop_cont/10 
+* CEs [24] --> Loop 23 
+* CEs [25] --> Loop 24 
+
+### Ranking functions of CR cut_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+#### Partial ranking functions of CR cut_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+
+### Specialization of cost equations start/9 
+* CE 3 is refined into CE [26,27,28,29,30,31] 
+* CE 5 is refined into CE [32,33,34,35,36,37,38] 
+* CE 2 is refined into CE [39] 
+* CE 4 is refined into CE [40] 
+
+
+### Cost equations --> "Loop" of start/9 
+* CEs [39] --> Loop 25 
+* CEs [26,27,28,29,30,31,32,33,34,35,36,37,38] --> Loop 26 
+* CEs [40] --> Loop 27 
+
+### Ranking functions of CR start(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR start(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations start0/9 
+* CE 1 is refined into CE [41,42,43] 
+
+
+### Cost equations --> "Loop" of start0/9 
+* CEs [43] --> Loop 28 
+* CEs [42] --> Loop 29 
+* CEs [41] --> Loop 30 
+
+### Ranking functions of CR start0(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR start0(A,B,C,D,E,F,G,H,I) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of cut(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [[15,16,17],22]: 3*it(15)+1
+  Such that:aux(9) =< -E+M
+it(15) =< aux(9)
+
+  with precondition: [I=2,N=0,P=0,A=D,A=J,A=K+1,C=L,A=M,F=O,H=Q,A=E+G,G>=2,A>=G+1] 
+
+* Chain [[15,16,17],21]: 3*it(15)+1
+  Such that:aux(10) =< G
+it(15) =< aux(10)
+
+  with precondition: [I=2,N=0,P=0,A=D,A=J,C=L,A=M,F=O,H=Q,E>=0,G>=2,G>=E,A>=G+1,A>=E+G] 
+
+* Chain [[15,16,17],20]: 3*it(15)+1
+  Such that:aux(11) =< G
+it(15) =< aux(11)
+
+  with precondition: [I=2,P=0,A=D,A=J,C=L,A=M,F=O,H=Q,E>=0,G>=2,N>=1,A>=G+1,A>=E+G,G+N>=E,E+G>=N+2] 
+
+* Chain [[15,16,17],19]: 3*it(15)+1
+  Such that:aux(12) =< G
+it(15) =< aux(12)
+
+  with precondition: [I=2,P=0,A=D,A=J,C=L,A=M,K+1=N,F=O,H=Q,E>=0,G>=2,K>=0,A>=G+1,A>=E+G,G+K>=E+1,E+G>=K+1,2*A>=E+G+K+3] 
+
+* Chain [[15,16,17],18]: 3*it(15)+0
+  Such that:aux(13) =< G
+it(15) =< aux(13)
+
+  with precondition: [I=3,A=D,E>=0,G>=2,A>=G+1,A>=E+G] 
+
+* Chain [22]: 1
+  with precondition: [G=1,I=2,N=0,P=0,D=A,L=C,D=E+1,O=F,Q=H,D=J,D=K+1,D=M,D>=2] 
+
+* Chain [21]: 1
+  with precondition: [G=1,I=2,N=0,P=0,D=A,K=B,L=C,O=F,Q=H,D=J,D=M,1>=E,D>=2,E>=0] 
+
+* Chain [19]: 1
+  with precondition: [G=1,I=2,P=0,D=A,L=C,O=F,Q=H,D=J,E=K,D=M,E+1=N,E>=0,D>=E+2] 
+
+* Chain [18]: 0
+  with precondition: [I=3,D=A,E>=0,G>=1,D>=G+1,D>=E+G] 
+
+
+#### Cost of chains of cut_loop_cont(A,B,C,D,E,F,G,H,I,J):
+* Chain [24]: 0
+  with precondition: [A=2] 
+
+* Chain [23]: 0
+  with precondition: [A=3] 
+
+
+#### Cost of chains of start(A,B,C,D,E,F,G,H,I):
+* Chain [27]: 1
+  with precondition: [A=1,D=1,C=B,F=E,H=G] 
+
+* Chain [26]: 27*s(4)+2
+  Such that:aux(14) =< A
+s(4) =< aux(14)
+
+  with precondition: [D=A,C=B,F=E,H=G,D>=2] 
+
+* Chain [25]: 1
+  with precondition: [D=A,C=B,F=E,H=G,0>=D] 
+
+
+#### Cost of chains of start0(A,B,C,D,E,F,G,H,I):
+* Chain [30]: 2
+  with precondition: [A=1] 
+
+* Chain [29]: 2
+  with precondition: [0>=A] 
+
+* Chain [28]: 27*s(22)+3
+  Such that:s(21) =< A
+s(22) =< s(21)
+
+  with precondition: [A>=2] 
+
+
+Closed-form bounds of start0(A,B,C,D,E,F,G,H,I): 
+-------------------------------------
+* Chain [30] with precondition: [A=1] 
+    - Upper bound: 2 
+    - Complexity: constant 
+* Chain [29] with precondition: [0>=A] 
+    - Upper bound: 2 
+    - Complexity: constant 
+* Chain [28] with precondition: [A>=2] 
+    - Upper bound: 27*A+3 
+    - Complexity: n 
+
+### Maximum cost of start0(A,B,C,D,E,F,G,H,I): nat(A)*27+1+2 
+Asymptotic class: n 
+* Total analysis performed in 930 ms.
+
+
+-- stats
+realtime 0:01.32
+usertime 1.02
+systime 0.00
+

@@ -1,0 +1,231 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_eval___2/3]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [n_eval___2_loop_cont/2]
+3. recursive  : [n_eval___3/5]
+4. recursive  : [n_eval___1/3]
+5. non_recursive  : [n_eval___1_loop_cont/2]
+6. non_recursive  : [n_eval___3_loop_cont/4]
+7. non_recursive  : [n_eval___4/3]
+8. non_recursive  : [n_start/3]
+9. non_recursive  : [pyRinit/3]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_eval___2/3
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into n_eval___3/5
+4. SCC is partially evaluated into n_eval___1/3
+5. SCC is completely evaluated into other SCCs
+6. SCC is partially evaluated into n_eval___3_loop_cont/4
+7. SCC is partially evaluated into n_eval___4/3
+8. SCC is completely evaluated into other SCCs
+9. SCC is partially evaluated into pyRinit/3
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_eval___2/3 
+* CE 5 is refined into CE [13] 
+* CE 4 is refined into CE [14] 
+
+
+### Cost equations --> "Loop" of n_eval___2/3 
+* CEs [14] --> Loop 13 
+* CEs [13] --> Loop 14 
+
+### Ranking functions of CR n_eval___2(A,B,C) 
+* RF of phase [13]: [A+B,B]
+
+#### Partial ranking functions of CR n_eval___2(A,B,C) 
+* Partial RF of phase [13]:
+  - RF of loop [13:1]:
+    A+B
+    B
+
+
+### Specialization of cost equations n_eval___3/5 
+* CE 8 is refined into CE [15] 
+* CE 6 is refined into CE [16] 
+* CE 7 is refined into CE [17] 
+
+
+### Cost equations --> "Loop" of n_eval___3/5 
+* CEs [17] --> Loop 15 
+* CEs [15] --> Loop 16 
+* CEs [16] --> Loop 17 
+
+### Ranking functions of CR n_eval___3(A,B,C,D,E) 
+* RF of phase [15]: [A,A+B]
+
+#### Partial ranking functions of CR n_eval___3(A,B,C,D,E) 
+* Partial RF of phase [15]:
+  - RF of loop [15:1]:
+    A
+    A+B
+
+
+### Specialization of cost equations n_eval___1/3 
+* CE 12 is refined into CE [18] 
+* CE 11 is refined into CE [19] 
+
+
+### Cost equations --> "Loop" of n_eval___1/3 
+* CEs [19] --> Loop 18 
+* CEs [18] --> Loop 19 
+
+### Ranking functions of CR n_eval___1(A,B,C) 
+* RF of phase [18]: [B]
+
+#### Partial ranking functions of CR n_eval___1(A,B,C) 
+* Partial RF of phase [18]:
+  - RF of loop [18:1]:
+    B
+
+
+### Specialization of cost equations n_eval___3_loop_cont/4 
+* CE 9 is refined into CE [20] 
+* CE 10 is refined into CE [21] 
+
+
+### Cost equations --> "Loop" of n_eval___3_loop_cont/4 
+* CEs [20] --> Loop 20 
+* CEs [21] --> Loop 21 
+
+### Ranking functions of CR n_eval___3_loop_cont(A,B,C,D) 
+
+#### Partial ranking functions of CR n_eval___3_loop_cont(A,B,C,D) 
+
+
+### Specialization of cost equations n_eval___4/3 
+* CE 3 is refined into CE [22,23,24] 
+* CE 2 is refined into CE [25] 
+
+
+### Cost equations --> "Loop" of n_eval___4/3 
+* CEs [25] --> Loop 22 
+* CEs [22,23,24] --> Loop 23 
+
+### Ranking functions of CR n_eval___4(A,B,C) 
+
+#### Partial ranking functions of CR n_eval___4(A,B,C) 
+
+
+### Specialization of cost equations pyRinit/3 
+* CE 1 is refined into CE [26,27] 
+
+
+### Cost equations --> "Loop" of pyRinit/3 
+* CEs [27] --> Loop 24 
+* CEs [26] --> Loop 25 
+
+### Ranking functions of CR pyRinit(A,B,C) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_eval___2(A,B,C):
+* Chain [[13],14]: 1*it(13)+0
+  Such that:it(13) =< A+B
+
+  with precondition: [C=2,0>=A,A+B>=1] 
+
+* Chain [14]: 0
+  with precondition: [C=2,0>=A,A+B>=0] 
+
+
+#### Cost of chains of n_eval___3(A,B,C,D,E):
+* Chain [[15],17]: 1*it(15)+1
+  Such that:it(15) =< A
+
+  with precondition: [C=3,D=0,B=E+1,A>=1,B>=1] 
+
+* Chain [[15],16]: 1*it(15)+0
+  Such that:it(15) =< A+B
+
+  with precondition: [C=2,A>=1,A+B>=1] 
+
+* Chain [17]: 1
+  with precondition: [A=0,C=3,D=0,B=E+1,B>=1] 
+
+* Chain [16]: 0
+  with precondition: [C=2,A>=0,A+B>=0] 
+
+
+#### Cost of chains of n_eval___1(A,B,C):
+* Chain [[18],19]: 1*it(18)+0
+  Such that:it(18) =< B
+
+  with precondition: [A=0,C=2,B>=1] 
+
+* Chain [19]: 0
+  with precondition: [C=2] 
+
+
+#### Cost of chains of n_eval___3_loop_cont(A,B,C,D):
+* Chain [21]: 0
+  with precondition: [A=2] 
+
+* Chain [20]: 1*s(4)+0
+  Such that:s(4) =< C
+
+  with precondition: [A=3] 
+
+
+#### Cost of chains of n_eval___4(A,B,C):
+* Chain [23]: 2*s(5)+1*s(6)+1*s(7)+2
+  Such that:s(7) =< A
+s(6) =< A+B
+aux(1) =< B
+s(5) =< aux(1)
+
+  with precondition: [A>=1,A+B>=1] 
+
+* Chain [22]: 1*s(9)+1
+  Such that:s(9) =< A+B
+
+  with precondition: [0>=A,A+B>=1] 
+
+
+#### Cost of chains of pyRinit(A,B,C):
+* Chain [25]: 1*s(10)+3
+  Such that:s(10) =< A+B
+
+  with precondition: [0>=A,A+B>=1] 
+
+* Chain [24]: 1*s(11)+1*s(12)+2*s(14)+4
+  Such that:s(11) =< A
+s(12) =< A+B
+s(13) =< B
+s(14) =< s(13)
+
+  with precondition: [A>=1,A+B>=1] 
+
+
+Closed-form bounds of pyRinit(A,B,C): 
+-------------------------------------
+* Chain [25] with precondition: [0>=A,A+B>=1] 
+    - Upper bound: A+B+3 
+    - Complexity: n 
+* Chain [24] with precondition: [A>=1,A+B>=1] 
+    - Upper bound: A+4+nat(B)*2+ (A+B) 
+    - Complexity: n 
+
+### Maximum cost of pyRinit(A,B,C): nat(A)+1+nat(B)*2+ (A+B+3) 
+Asymptotic class: n 
+* Total analysis performed in 164 ms.
+
+
+-- stats
+realtime 0:00.24
+usertime 0.21
+systime 0.00
+

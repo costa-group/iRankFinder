@@ -1,0 +1,88 @@
+MAYBE
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [eval/2]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [eval_loop_cont/2]
+3. non_recursive  : [start/2]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into eval/2
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into start/2
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations eval/2 
+* CE 3 is refined into CE [4] 
+* CE 2 is refined into CE [5] 
+
+
+### Cost equations --> "Loop" of eval/2 
+* CEs [5] --> Loop 4 
+* CEs [4] --> Loop 5 
+
+### Ranking functions of CR eval(A,C) 
+
+#### Partial ranking functions of CR eval(A,C) 
+
+
+### Specialization of cost equations start/2 
+* CE 1 is refined into CE [6,7] 
+
+
+### Cost equations --> "Loop" of start/2 
+* CEs [7] --> Loop 6 
+* CEs [6] --> Loop 7 
+
+### Ranking functions of CR start(A,C) 
+
+#### Partial ranking functions of CR start(A,C) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of eval(A,C):
+* Chain [[4]]...: 1*it(4)+0
+  with precondition: [A>=0,C=2] 
+
+* Chain [[4],5]: 1*it(4)+0
+  with precondition: [C=2,A>=0] 
+
+* Chain [5]: 0
+  with precondition: [C=2] 
+
+
+#### Cost of chains of start(A,C):
+* Chain [7]: 1*s(2)+1
+  with precondition: [] 
+
+* Chain [6]...: 1*s(3)+1
+  with precondition: [A>=0] 
+
+
+Closed-form bounds of start(A,C): 
+-------------------------------------
+* Chain [7] with precondition: [] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+* Chain [6]... with precondition: [A>=0] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+
+### Maximum cost of start(A,C): inf 
+Asymptotic class: infinity 
+* Total analysis performed in 26 ms.
+
+
+-- stats
+realtime 0:00.07
+usertime 0.06
+systime 0.00
+

@@ -1,0 +1,88 @@
+{
+  vars: [A,B,C,D,E,F,G,H,I,J],
+  pvars: [A',B',C',D',E',F',G',H',I',J'],
+  initnode: start0,
+  nodes: {
+    lbl71: {
+      cfr_properties: [
+        // RFs Properties
+        [C -D >= 0],
+        [-C + D > 0],
+      ],
+      inv_polyhedra: [A -J == 0, H -I == 0, C -G == 0, -1 + E == 0, 1 + C -D >= 0, -1 + A >= 0, -1 -B + D >= 0],
+    },
+    lbl81: {
+      cfr_properties: [
+        // RFs Properties
+        [-D + G >= 0],
+        [D -G > 0],
+      ],
+      inv_polyhedra: [A -J == 0, H -I == 0, C -G == 0, 1 + E == 0, -A >= 0, 1 + C -D >= 0, -1 -B + D >= 0],
+    },
+    start: {
+      inv_polyhedra: [A -J == 0, H -I == 0, C -G == 0, E -F == 0, B -D == 0],
+    },
+    start0: {
+      inv_polyhedra: [],
+    },
+    stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: start,
+	target: stop,
+	name: t0,
+	constraints: [A -1 >= 0, B -C -1 >= 0, D -B = 0, E -F = 0, G -C = 0, H -I = 0, J -A = 0]
+    },
+    {
+	source: start,
+	target: lbl71,
+	name: t1,
+	constraints: [A -1 >= 0, C -B >= 0, D -B = 0, E -F = 0, G -C = 0, H -I = 0, J -A = 0, A -A' = 0, B -B' = 0, C -C' = 0, 1 + D -D' = 0, 1 -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0, I -I' = 0, J -J' = 0]
+    },
+    {
+	source: start0,
+	target: start,
+	name: t10,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, B -D' = 0, F -E' = 0, F -F' = 0, C -G' = 0, I -H' = 0, I -I' = 0, A -J' = 0]
+    },
+    {
+	source: start,
+	target: stop,
+	name: t2,
+	constraints: [B -C -1 >= 0, -A >= 0, D -B = 0, E -F = 0, G -C = 0, H -I = 0, J -A = 0]
+    },
+    {
+	source: start,
+	target: lbl81,
+	name: t3,
+	constraints: [C -B >= 0, -A >= 0, D -B = 0, E -F = 0, G -C = 0, H -I = 0, J -A = 0, A -A' = 0, B -B' = 0, C -C' = 0, 1 + D -D' = 0, -1 -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0, I -I' = 0, J -J' = 0]
+    },
+    {
+	source: lbl71,
+	target: stop,
+	name: t4,
+	constraints: [C -B >= 0, A -1 >= 0, D -C -1 = 0, E -1 = 0, J -A = 0, H -I = 0, G -C = 0]
+    },
+    {
+	source: lbl71,
+	target: lbl71,
+	name: t5,
+	constraints: [A -1 >= 0, C -D >= 0, D -B -1 >= 0, C + 1 -D >= 0, E -1 = 0, J -A = 0, H -I = 0, G -C = 0, A -A' = 0, B -B' = 0, C -C' = 0, E + D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0, I -I' = 0, J -J' = 0]
+    },
+    {
+	source: lbl81,
+	target: stop,
+	name: t7,
+	constraints: [-A >= 0, C -B >= 0, D -C -1 = 0, E + 1 = 0, J -A = 0, H -I = 0, G -C = 0]
+    },
+    {
+	source: lbl81,
+	target: lbl81,
+	name: t9,
+	constraints: [C -D >= 0, -A >= 0, D -B -1 >= 0, C + 1 -D >= 0, E + 1 = 0, J -A = 0, H -I = 0, G -C = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -E -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0, I -I' = 0, J -J' = 0]
+    }
+  ]
+}

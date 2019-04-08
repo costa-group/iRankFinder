@@ -1,0 +1,17 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E A' B' C' D' E' NoDet1 NoDet3 NoDet2 NoDet4 NoDet0)
+(RULES 
+  pyRinit(A,B,C,D,E) -> Com_1(evalcomplexstart(A,B,C,D,E))
+  evalcomplexbb10in(A,B,C,D,E) -> Com_1(evalcomplexbb8in(A, B, A, B, E)) :|: 29 -B >= 0
+  evalcomplexbb10in(A,B,C,D,E) -> Com_1(evalcomplexreturnin(A, B, C, D, E)) :|: B -30 >= 0
+  evalcomplexbb1in(A,B,C,D,E) -> Com_1(evalcomplexbb7in(A, B, C, D, C + 7)) :|: C -6 >= 0
+  evalcomplexbb1in(A,B,C,D,E) -> Com_1(evalcomplexbb7in(A, B, C, D, C + 2)) :|: 5 -C >= 0 && 7 -C >= 0
+  evalcomplexbb7in(A,B,C,D,E) -> Com_1(evalcomplexbb8in(A, B, E, D + 1, E))
+  evalcomplexbb8in(A,B,C,D,E) -> Com_1(evalcomplexbb1in(A, B, C, D, E)) :|: D -C -1 >= 0
+  evalcomplexbb8in(A,B,C,D,E) -> Com_1(evalcomplexbb9in(A, B, C, D, E)) :|: C -D >= 0
+  evalcomplexbb9in(A,B,C,D,E) -> Com_1(evalcomplexbb10in(C -10, D + 2, C, D, E))
+  evalcomplexentryin(A,B,C,D,E) -> Com_1(evalcomplexbb10in(B, A, C, D, E))
+  evalcomplexreturnin(A,B,C,D,E) -> Com_1(evalcomplexstop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4))
+  evalcomplexstart(A,B,C,D,E) -> Com_1(evalcomplexentryin(A, B, C, D, E))
+)

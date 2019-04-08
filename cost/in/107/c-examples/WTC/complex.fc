@@ -1,0 +1,133 @@
+{
+  vars: [A,B,C,D,E],
+  pvars: [A',B',C',D',E'],
+  initnode: evalcomplexstart,
+  nodes: {
+    evalcomplexbb10in: {
+      cfr_properties: [
+        // RFs Properties
+        [145 -5 * B >= 0],
+        [-145 + 5 * B > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalcomplexbb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [145 -5 * B >= 0],
+        [-145 + 5 * B > 0],
+        [56 -A -C >= 0],
+        [-56 + A + C > 0],
+      ],
+      inv_polyhedra: [-A + 2 * B + C -2 * D >= 0, 29 -B >= 0, -1 -C + D >= 0, A -7 * B -C + 7 * D >= 0],
+    },
+    evalcomplexbb7in: {
+      cfr_properties: [
+        // RFs Properties
+        [145 -5 * B >= 0],
+        [-145 + 5 * B > 0],
+        [56 -A -C >= 0],
+        [-56 + A + C > 0],
+      ],
+      inv_polyhedra: [-A + 2 * B + C -2 * D >= 0, -21 -5 * B -28 * C + 5 * D + 23 * E >= 0, 29 -B >= 0, -2 -C + E >= 0, -1 -C + D >= 0, A -7 * B -C + 7 * D >= 0, 7 + C -E >= 0],
+    },
+    evalcomplexbb8in: {
+      cfr_properties: [
+        // RFs Properties
+        [145 -5 * B >= 0],
+        [-145 + 5 * B > 0],
+        [56 -A -C >= 0],
+        [-56 + A + C > 0],
+      ],
+      inv_polyhedra: [29 -B >= 0, A -7 * B -C + 7 * D >= 0, -A + 2 * B + C -2 * D >= 0],
+    },
+    evalcomplexbb9in: {
+      cfr_properties: [
+        // RFs Properties
+        [145 -5 * B >= 0],
+        [-145 + 5 * B > 0],
+      ],
+      inv_polyhedra: [-A + 2 * B + C -2 * D >= 0, 29 -B >= 0, C -D >= 0, A -7 * B -C + 7 * D >= 0],
+    },
+    evalcomplexentryin: {
+      inv_polyhedra: [],
+    },
+    evalcomplexreturnin: {
+      inv_polyhedra: [-30 + B >= 0],
+    },
+    evalcomplexstart: {
+      inv_polyhedra: [],
+    },
+    evalcomplexstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalcomplexstart,
+	target: evalcomplexentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalcomplexentryin,
+	target: evalcomplexbb10in,
+	name: t1,
+	constraints: [B -A' = 0, A -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalcomplexbb7in,
+	target: evalcomplexbb8in,
+	name: t12,
+	constraints: [A -A' = 0, B -B' = 0, E -C' = 0, D + 1 -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalcomplexbb9in,
+	target: evalcomplexbb10in,
+	name: t14,
+	constraints: [C -10 -A' = 0, D + 2 -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalcomplexreturnin,
+	target: evalcomplexstop,
+	name: t15,
+	constraints: []
+    },
+    {
+	source: evalcomplexbb10in,
+	target: evalcomplexbb8in,
+	name: t2,
+	constraints: [29 -B >= 0, A -A' = 0, B -B' = 0, A -C' = 0, B -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalcomplexbb10in,
+	target: evalcomplexreturnin,
+	name: t3,
+	constraints: [B -30 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalcomplexbb8in,
+	target: evalcomplexbb1in,
+	name: t4,
+	constraints: [D -C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalcomplexbb8in,
+	target: evalcomplexbb9in,
+	name: t5,
+	constraints: [C -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalcomplexbb1in,
+	target: evalcomplexbb7in,
+	name: t7,
+	constraints: [C -6 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, C + 7 -E' = 0]
+    },
+    {
+	source: evalcomplexbb1in,
+	target: evalcomplexbb7in,
+	name: t9,
+	constraints: [5 -C >= 0, 7 -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, C + 2 -E' = 0]
+    }
+  ]
+}

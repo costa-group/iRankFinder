@@ -1,0 +1,147 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: evalinsertsortstart,
+  nodes: {
+    evalinsertsortbb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [-1 -A + B >= 0, D >= 0, -1 + A -D >= 0],
+    },
+    evalinsertsortbb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [-1 -A + B >= 0, 1 + D >= 0, -1 + A -D >= 0, -1 + A >= 0],
+    },
+    evalinsertsortbb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [-1 -A + B >= 0, D >= 0, -1 + A -D >= 0],
+    },
+    evalinsertsortbb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-1 -A + B >= 0, 1 + D >= 0, -1 + A -D >= 0, -1 + A >= 0],
+    },
+    evalinsertsortbb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-1 + A >= 0],
+    },
+    evalinsertsortbbin: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-1 -A + B >= 0, -1 + A >= 0],
+    },
+    evalinsertsortentryin: {
+      inv_polyhedra: [],
+    },
+    evalinsertsortreturnin: {
+      inv_polyhedra: [A -B >= 0, -1 + A >= 0],
+    },
+    evalinsertsortstart: {
+      inv_polyhedra: [],
+    },
+    evalinsertsortstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalinsertsortstart,
+	target: evalinsertsortentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalinsertsortentryin,
+	target: evalinsertsortbb5in,
+	name: t1,
+	constraints: [1 -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalinsertsortbb4in,
+	target: evalinsertsortbb5in,
+	name: t10,
+	constraints: [A + 1 -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalinsertsortreturnin,
+	target: evalinsertsortstop,
+	name: t11,
+	constraints: []
+    },
+    {
+	source: evalinsertsortbb5in,
+	target: evalinsertsortbbin,
+	name: t2,
+	constraints: [B -A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalinsertsortbb5in,
+	target: evalinsertsortreturnin,
+	name: t3,
+	constraints: [A -B >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalinsertsortbbin,
+	target: evalinsertsortbb2in,
+	name: t4,
+	constraints: [A -A' = 0, B -B' = 0, E -C' = 0, A -1 -D' = 0]
+    },
+    {
+	source: evalinsertsortbb2in,
+	target: evalinsertsortbb4in,
+	name: t5,
+	constraints: [-1 -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalinsertsortbb2in,
+	target: evalinsertsortbb3in,
+	name: t6,
+	constraints: [D >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalinsertsortbb3in,
+	target: evalinsertsortbb1in,
+	name: t7,
+	constraints: [E -C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalinsertsortbb3in,
+	target: evalinsertsortbb4in,
+	name: t8,
+	constraints: [C -E >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalinsertsortbb1in,
+	target: evalinsertsortbb2in,
+	name: t9,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -1 -D' = 0]
+    }
+  ]
+}

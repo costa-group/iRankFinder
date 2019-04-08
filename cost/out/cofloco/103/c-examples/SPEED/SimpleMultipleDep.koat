@@ -1,0 +1,421 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_evalSimpleMultipleDepbb3in___7/9,n_evalSimpleMultipleDepbbin___1/9]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [n_evalSimpleMultipleDepstop___9/5]
+3. non_recursive  : [n_evalSimpleMultipleDepbb3in___7_loop_cont/6]
+4. recursive  : [n_evalSimpleMultipleDepbb3in___8/9,n_evalSimpleMultipleDepbbin___6/9]
+5. recursive  : [n_evalSimpleMultipleDepbb3in___3/9,n_evalSimpleMultipleDepbbin___2/9]
+6. recursive  : [n_evalSimpleMultipleDepbb3in___3_loop_cont/10,n_evalSimpleMultipleDepbb3in___5/9,n_evalSimpleMultipleDepbbin___4/9]
+7. non_recursive  : [n_evalSimpleMultipleDepbb3in___5_loop_cont/6]
+8. non_recursive  : [n_evalSimpleMultipleDepbb3in___8_loop_cont/6]
+9. non_recursive  : [n_evalSimpleMultipleDepbbin___10/5]
+10. non_recursive  : [n_evalSimpleMultipleDepbb3in___11/5]
+11. non_recursive  : [n_evalSimpleMultipleDepstart/5]
+12. non_recursive  : [pyRinit/5]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_evalSimpleMultipleDepbb3in___7/9
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into n_evalSimpleMultipleDepbb3in___7_loop_cont/6
+4. SCC is partially evaluated into n_evalSimpleMultipleDepbb3in___8/9
+5. SCC is partially evaluated into n_evalSimpleMultipleDepbb3in___3/9
+6. SCC is partially evaluated into n_evalSimpleMultipleDepbb3in___5/9
+7. SCC is partially evaluated into n_evalSimpleMultipleDepbb3in___5_loop_cont/6
+8. SCC is partially evaluated into n_evalSimpleMultipleDepbb3in___8_loop_cont/6
+9. SCC is partially evaluated into n_evalSimpleMultipleDepbbin___10/5
+10. SCC is partially evaluated into n_evalSimpleMultipleDepbb3in___11/5
+11. SCC is completely evaluated into other SCCs
+12. SCC is partially evaluated into pyRinit/5
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_evalSimpleMultipleDepbb3in___7/9 
+* CE 8 is refined into CE [25] 
+* CE 7 is refined into CE [26] 
+* CE 6 is refined into CE [27] 
+
+
+### Cost equations --> "Loop" of n_evalSimpleMultipleDepbb3in___7/9 
+* CEs [27] --> Loop 24 
+* CEs [26] --> Loop 25 
+* CEs [25] --> Loop 26 
+
+### Ranking functions of CR n_evalSimpleMultipleDepbb3in___7(A,B,C,D,E,F,G,H,I) 
+* RF of phase [24]: [-B+C]
+
+#### Partial ranking functions of CR n_evalSimpleMultipleDepbb3in___7(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [24]:
+  - RF of loop [24:1]:
+    -B+C
+
+
+### Specialization of cost equations n_evalSimpleMultipleDepbb3in___7_loop_cont/6 
+* CE 9 is refined into CE [28] 
+* CE 10 is refined into CE [29] 
+
+
+### Cost equations --> "Loop" of n_evalSimpleMultipleDepbb3in___7_loop_cont/6 
+* CEs [28] --> Loop 27 
+* CEs [29] --> Loop 28 
+
+### Ranking functions of CR n_evalSimpleMultipleDepbb3in___7_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR n_evalSimpleMultipleDepbb3in___7_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations n_evalSimpleMultipleDepbb3in___8/9 
+* CE 13 is refined into CE [30] 
+* CE 12 is refined into CE [31] 
+* CE 11 is refined into CE [32] 
+
+
+### Cost equations --> "Loop" of n_evalSimpleMultipleDepbb3in___8/9 
+* CEs [32] --> Loop 29 
+* CEs [31] --> Loop 30 
+* CEs [30] --> Loop 31 
+
+### Ranking functions of CR n_evalSimpleMultipleDepbb3in___8(A,B,C,D,E,F,G,H,I) 
+* RF of phase [29]: [-A+D]
+
+#### Partial ranking functions of CR n_evalSimpleMultipleDepbb3in___8(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [29]:
+  - RF of loop [29:1]:
+    -A+D
+
+
+### Specialization of cost equations n_evalSimpleMultipleDepbb3in___3/9 
+* CE 22 is refined into CE [33] 
+* CE 24 is refined into CE [34] 
+* CE 23 is refined into CE [35] 
+
+
+### Cost equations --> "Loop" of n_evalSimpleMultipleDepbb3in___3/9 
+* CEs [35] --> Loop 32 
+* CEs [33] --> Loop 33 
+* CEs [34] --> Loop 34 
+
+### Ranking functions of CR n_evalSimpleMultipleDepbb3in___3(A,B,C,D,E,F,G,H,I) 
+* RF of phase [32]: [-A+D]
+
+#### Partial ranking functions of CR n_evalSimpleMultipleDepbb3in___3(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [32]:
+  - RF of loop [32:1]:
+    -A+D
+
+
+### Specialization of cost equations n_evalSimpleMultipleDepbb3in___5/9 
+* CE 18 is refined into CE [36] 
+* CE 17 is refined into CE [37] 
+* CE 19 is refined into CE [38] 
+* CE 16 is refined into CE [39,40] 
+
+
+### Cost equations --> "Loop" of n_evalSimpleMultipleDepbb3in___5/9 
+* CEs [40] --> Loop 35 
+* CEs [39] --> Loop 36 
+* CEs [36] --> Loop 37 
+* CEs [37,38] --> Loop 38 
+
+### Ranking functions of CR n_evalSimpleMultipleDepbb3in___5(A,B,C,D,E,F,G,H,I) 
+* RF of phase [35]: [-B+C]
+* RF of phase [36]: [-B+C]
+
+#### Partial ranking functions of CR n_evalSimpleMultipleDepbb3in___5(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [35]:
+  - RF of loop [35:1]:
+    -B+C
+* Partial RF of phase [36]:
+  - RF of loop [36:1]:
+    -B+C
+
+
+### Specialization of cost equations n_evalSimpleMultipleDepbb3in___5_loop_cont/6 
+* CE 20 is refined into CE [41] 
+* CE 21 is refined into CE [42] 
+
+
+### Cost equations --> "Loop" of n_evalSimpleMultipleDepbb3in___5_loop_cont/6 
+* CEs [41] --> Loop 39 
+* CEs [42] --> Loop 40 
+
+### Ranking functions of CR n_evalSimpleMultipleDepbb3in___5_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR n_evalSimpleMultipleDepbb3in___5_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations n_evalSimpleMultipleDepbb3in___8_loop_cont/6 
+* CE 15 is refined into CE [43,44,45,46,47] 
+* CE 14 is refined into CE [48] 
+
+
+### Cost equations --> "Loop" of n_evalSimpleMultipleDepbb3in___8_loop_cont/6 
+* CEs [43,44,45,46,47] --> Loop 41 
+* CEs [48] --> Loop 42 
+
+### Ranking functions of CR n_evalSimpleMultipleDepbb3in___8_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR n_evalSimpleMultipleDepbb3in___8_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations n_evalSimpleMultipleDepbbin___10/5 
+* CE 5 is refined into CE [49,50,51] 
+* CE 4 is refined into CE [52,53,54] 
+
+
+### Cost equations --> "Loop" of n_evalSimpleMultipleDepbbin___10/5 
+* CEs [49,50,51] --> Loop 43 
+* CEs [52,53,54] --> Loop 44 
+
+### Ranking functions of CR n_evalSimpleMultipleDepbbin___10(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalSimpleMultipleDepbbin___10(A,B,C,D,E) 
+
+
+### Specialization of cost equations n_evalSimpleMultipleDepbb3in___11/5 
+* CE 2 is refined into CE [55,56] 
+* CE 3 is refined into CE [57] 
+
+
+### Cost equations --> "Loop" of n_evalSimpleMultipleDepbb3in___11/5 
+* CEs [56] --> Loop 45 
+* CEs [55] --> Loop 46 
+* CEs [57] --> Loop 47 
+
+### Ranking functions of CR n_evalSimpleMultipleDepbb3in___11(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalSimpleMultipleDepbb3in___11(A,B,C,D,E) 
+
+
+### Specialization of cost equations pyRinit/5 
+* CE 1 is refined into CE [58,59,60] 
+
+
+### Cost equations --> "Loop" of pyRinit/5 
+* CEs [60] --> Loop 48 
+* CEs [59] --> Loop 49 
+* CEs [58] --> Loop 50 
+
+### Ranking functions of CR pyRinit(A,B,C,D,E) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_evalSimpleMultipleDepbb3in___7(A,B,C,D,E,F,G,H,I):
+* Chain [[24],26]: 2*it(24)+0
+  Such that:it(24) =< -B+C
+
+  with precondition: [A=0,E=2,0>=D,B>=1,C>=B+1] 
+
+* Chain [[24],25]: 2*it(24)+1
+  Such that:it(24) =< -B+C
+
+  with precondition: [A=0,E=4,0>=D,B>=1,C>=B+1] 
+
+* Chain [26]: 0
+  with precondition: [A=0,E=2,0>=D,B>=1,C>=B] 
+
+* Chain [25]: 1
+  with precondition: [A=0,E=4,C=B,0>=D,C>=1] 
+
+
+#### Cost of chains of n_evalSimpleMultipleDepbb3in___7_loop_cont(A,B,C,D,E,F):
+* Chain [28]: 0
+  with precondition: [A=2] 
+
+* Chain [27]: 0
+  with precondition: [A=4] 
+
+
+#### Cost of chains of n_evalSimpleMultipleDepbb3in___8(A,B,C,D,E,F,G,H,I):
+* Chain [[29],31]: 2*it(29)+0
+  Such that:it(29) =< -A+D
+
+  with precondition: [B=0,E=2,A>=1,C>=1,D>=A+1] 
+
+* Chain [[29],30]: 2*it(29)+2
+  Such that:it(29) =< -A+I
+
+  with precondition: [B=0,E=3,F=0,G=1,C=H,D=I,A>=1,C>=1,D>=A+1] 
+
+* Chain [31]: 0
+  with precondition: [B=0,E=2,A>=1,C>=1,D>=A] 
+
+* Chain [30]: 2
+  with precondition: [B=0,E=3,F=0,G=1,D=A,C=H,D=I,C>=1,D>=1] 
+
+
+#### Cost of chains of n_evalSimpleMultipleDepbb3in___3(A,B,C,D,E,F,G,H,I):
+* Chain [[32],34]: 2*it(32)+0
+  Such that:it(32) =< -A+D
+
+  with precondition: [E=2,A>=1,B>=1,D>=A+1,C>=B+1] 
+
+* Chain [[32],33]: 2*it(32)+2
+  Such that:it(32) =< -A+I
+
+  with precondition: [E=3,F=0,B+1=G,C=H,D=I,A>=1,B>=1,D>=A+1,C>=B+1] 
+
+* Chain [34]: 0
+  with precondition: [E=2,A>=1,B>=1,D>=A,C>=B+1] 
+
+* Chain [33]: 2
+  with precondition: [E=3,F=0,D=A,B+1=G,C=H,D=I,B>=1,D>=1,C>=B+1] 
+
+
+#### Cost of chains of n_evalSimpleMultipleDepbb3in___5(A,B,C,D,E,F,G,H,I):
+* Chain [[36],38]: 4*it(36)+2*s(4)+2
+  Such that:s(4) =< 1
+it(36) =< -B+C
+
+  with precondition: [A=0,D=1,E=2,B>=1,C>=B+1] 
+
+* Chain [[36],37]: 4*it(36)+1
+  Such that:it(36) =< -B+C
+
+  with precondition: [A=0,D=1,E=4,B>=1,C>=B+1] 
+
+* Chain [[35],38]: 4*it(35)+2*s(4)+2*s(7)+2
+  Such that:it(35) =< -B+C
+aux(2) =< D
+s(4) =< aux(2)
+s(7) =< it(35)*aux(2)
+
+  with precondition: [A=0,E=2,B>=1,D>=2,C>=B+1] 
+
+* Chain [[35],37]: 4*it(35)+2*s(7)+1
+  Such that:it(35) =< -B+C
+aux(1) =< D
+s(7) =< it(35)*aux(1)
+
+  with precondition: [A=0,E=4,B>=1,D>=2,C>=B+1] 
+
+* Chain [38]: 2*s(4)+2
+  Such that:s(4) =< D
+
+  with precondition: [E=2] 
+
+* Chain [37]: 1
+  with precondition: [A=0,E=4,B=C,B>=1,D>=1] 
+
+
+#### Cost of chains of n_evalSimpleMultipleDepbb3in___5_loop_cont(A,B,C,D,E,F):
+* Chain [40]: 0
+  with precondition: [A=2] 
+
+* Chain [39]: 0
+  with precondition: [A=4] 
+
+
+#### Cost of chains of n_evalSimpleMultipleDepbb3in___8_loop_cont(A,B,C,D,E,F):
+* Chain [42]: 0
+  with precondition: [A=2] 
+
+* Chain [41]: 2*s(11)+16*s(12)+4*s(13)+4*s(18)+2
+  Such that:s(11) =< 1
+aux(3) =< -C+D
+aux(4) =< E
+s(12) =< aux(3)
+s(13) =< aux(4)
+s(18) =< s(12)*aux(4)
+
+  with precondition: [A=3] 
+
+
+#### Cost of chains of n_evalSimpleMultipleDepbbin___10(A,B,C,D,E):
+* Chain [44]: 4*s(22)+2
+  Such that:aux(5) =< C
+s(22) =< aux(5)
+
+  with precondition: [A=0,B=0,0>=D,C>=1] 
+
+* Chain [43]: 8*s(24)+8*s(25)+32*s(28)+4*s(30)+4*s(37)+5
+  Such that:aux(8) =< 1
+aux(9) =< C
+aux(10) =< D
+s(25) =< aux(8)
+s(24) =< aux(10)
+s(28) =< aux(9)
+s(37) =< s(28)*aux(10)
+s(30) =< s(28)*aux(8)
+
+  with precondition: [A=0,B=0,C>=1,D>=1] 
+
+
+#### Cost of chains of n_evalSimpleMultipleDepbb3in___11(A,B,C,D,E):
+* Chain [47]: 1
+  with precondition: [A=0,B=0,0>=C] 
+
+* Chain [46]: 4*s(39)+3
+  Such that:s(38) =< C
+s(39) =< s(38)
+
+  with precondition: [A=0,B=0,0>=D,C>=1] 
+
+* Chain [45]: 8*s(43)+8*s(44)+32*s(45)+4*s(46)+4*s(47)+6
+  Such that:s(40) =< 1
+s(41) =< C
+s(42) =< D
+s(43) =< s(40)
+s(44) =< s(42)
+s(45) =< s(41)
+s(46) =< s(45)*s(42)
+s(47) =< s(45)*s(40)
+
+  with precondition: [A=0,B=0,C>=1,D>=1] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D,E):
+* Chain [50]: 3
+  with precondition: [0>=C] 
+
+* Chain [49]: 4*s(49)+5
+  Such that:s(48) =< C
+s(49) =< s(48)
+
+  with precondition: [0>=D,C>=1] 
+
+* Chain [48]: 8*s(53)+8*s(54)+32*s(55)+4*s(56)+4*s(57)+8
+  Such that:s(50) =< 1
+s(51) =< C
+s(52) =< D
+s(53) =< s(50)
+s(54) =< s(52)
+s(55) =< s(51)
+s(56) =< s(55)*s(52)
+s(57) =< s(55)*s(50)
+
+  with precondition: [C>=1,D>=1] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D,E): 
+-------------------------------------
+* Chain [50] with precondition: [0>=C] 
+    - Upper bound: 3 
+    - Complexity: constant 
+* Chain [49] with precondition: [0>=D,C>=1] 
+    - Upper bound: 4*C+5 
+    - Complexity: n 
+* Chain [48] with precondition: [C>=1,D>=1] 
+    - Upper bound: 36*C+8*D+16+4*D*C 
+    - Complexity: n^2 
+
+### Maximum cost of pyRinit(A,B,C,D,E): nat(C)*32+11+nat(D)*8+nat(D)*4*nat(C)+ (nat(C)*4+2)+3 
+Asymptotic class: n^2 
+* Total analysis performed in 324 ms.
+
+
+-- stats
+realtime 0:01.54
+usertime 0.35
+systime 0.00
+

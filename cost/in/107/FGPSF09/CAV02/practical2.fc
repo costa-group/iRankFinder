@@ -1,0 +1,148 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: eval0,
+  nodes: {
+    end: {
+      inv_polyhedra: [],
+    },
+    eval0: {
+      inv_polyhedra: [],
+    },
+    eval1: {
+      inv_polyhedra: [-1 + C == 0, A -B == 0],
+    },
+    eval11: {
+      cfr_properties: [
+        // RFs Properties
+        [C >= 0],
+        [-C > 0],
+        [89 -A + 10 * C >= 0],
+        [-89 + A -10 * C > 0],
+      ],
+      inv_polyhedra: [100 -B >= 0, C >= 0, 109 + A -2 * B -11 * C >= 0, 10 + A -B -11 * C >= 0, 9 + A -B -10 * C >= 0, -91 + A >= 0],
+    },
+    eval3: {
+      cfr_properties: [
+        // RFs Properties
+        [100 -A >= 0],
+        [-100 + A > 0],
+      ],
+      inv_polyhedra: [11 + A -B -11 * C == 0, 100 -B >= 0, A -B >= 0],
+    },
+    eval5: {
+      cfr_properties: [
+        // RFs Properties
+        [-1 + C >= 0],
+        [1 -C > 0],
+        [90 -A + 10 * C >= 0],
+        [-90 + A -10 * C > 0],
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [100 -B >= 0, 11 + A -B -11 * C >= 0, -101 + A >= 0],
+    },
+    eval7: {
+      cfr_properties: [
+        // RFs Properties
+        [C >= 0],
+        [-C > 0],
+        [90 -A + 10 * C >= 0],
+        [-90 + A -10 * C > 0],
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [100 -B >= 0, -1 + C >= 0, 10 + A -B -11 * C >= 0, -91 + A >= 0],
+    },
+    eval9: {
+      cfr_properties: [
+        // RFs Properties
+        [C >= 0],
+        [-C > 0],
+        [90 -A + 10 * C >= 0],
+        [-90 + A -10 * C > 0],
+      ],
+      inv_polyhedra: [100 -B >= 0, -1 + C >= 0, 10 + A -B -11 * C >= 0, -91 + A >= 0],
+    },
+  },
+  transitions: [
+    {
+	source: eval0,
+	target: eval1,
+	name: t0,
+	constraints: [B -A' = 0, B -B' = 0, 1 -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval1,
+	target: end,
+	name: t1,
+	constraints: [A -101 >= 0]
+    },
+    {
+	source: eval9,
+	target: eval11,
+	name: t10,
+	constraints: [A -101 >= 0, A -10 -A' = 0, B -B' = 0, C -1 -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval9,
+	target: eval11,
+	name: t11,
+	constraints: [100 -A >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval11,
+	target: eval5,
+	name: t12,
+	constraints: [A + 11 -A' = 0, B -B' = 0, C + 1 -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval1,
+	target: eval3,
+	name: t2,
+	constraints: [100 -A >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval3,
+	target: eval3,
+	name: t3,
+	constraints: [100 -A >= 0, A + 11 -A' = 0, B -B' = 0, C + 1 -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval3,
+	target: eval5,
+	name: t4,
+	constraints: [A -101 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval5,
+	target: eval7,
+	name: t5,
+	constraints: [C -2 >= 0, A -10 -A' = 0, B -B' = 0, C -1 -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval7,
+	target: eval5,
+	name: t6,
+	constraints: [A -101 >= 0, C -1 = 0, A -A' = 0, B -B' = 0, C -C' = 0, A -10 -D' = 0]
+    },
+    {
+	source: eval7,
+	target: eval9,
+	name: t7,
+	constraints: [100 -A >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval7,
+	target: eval9,
+	name: t8,
+	constraints: [2 -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: eval7,
+	target: eval9,
+	name: t9,
+	constraints: [C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0) -> Com_1(n_evaleasy2start(Ar_0))
+		(Comp: ?, Cost: 1)    n_evaleasy2bb1in___2(Ar_0) -> Com_1(n_evaleasy2bb1in___2(Fresh_3)) [ Ar_0 >= 0 /\ Fresh_3 >= 0 /\ Ar_0 - Fresh_3 - 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evaleasy2bb1in___2(Ar_0) -> Com_1(n_evaleasy2stop___1(Fresh_2)) [ Ar_0 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evaleasy2bb1in___3(Ar_0) -> Com_1(n_evaleasy2bb1in___2(Fresh_1)) [ Fresh_1 >= 0 /\ Ar_0 - Fresh_1 - 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evaleasy2bb1in___3(Ar_0) -> Com_1(n_evaleasy2stop___1(Fresh_0)) [ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evaleasy2start(Ar_0) -> Com_1(n_evaleasy2bb1in___3(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0) -> Com_1(n_evaleasy2start(Ar_0))
+		(Comp: ?, Cost: 1)    n_evaleasy2bb1in___2(Ar_0) -> Com_1(n_evaleasy2bb1in___2(Fresh_3)) [ Ar_0 >= 0 /\ Fresh_3 >= 0 /\ Ar_0 - Fresh_3 - 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evaleasy2bb1in___2(Ar_0) -> Com_1(n_evaleasy2stop___1(Fresh_2)) [ Ar_0 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evaleasy2bb1in___3(Ar_0) -> Com_1(n_evaleasy2bb1in___2(Fresh_1)) [ Fresh_1 >= 0 /\ Ar_0 - Fresh_1 - 1 = 0 ]
+		(Comp: 1, Cost: 1)    n_evaleasy2bb1in___3(Ar_0) -> Com_1(n_evaleasy2stop___1(Fresh_0)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evaleasy2start(Ar_0) -> Com_1(n_evaleasy2bb1in___3(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(pyRinit) = 1
+	Pol(n_evaleasy2start) = 1
+	Pol(n_evaleasy2bb1in___2) = 1
+	Pol(n_evaleasy2stop___1) = 0
+	Pol(n_evaleasy2bb1in___3) = 1
+	Pol(koat_start) = 1
+orients all transitions weakly and the transition
+	n_evaleasy2bb1in___2(Ar_0) -> Com_1(n_evaleasy2stop___1(Fresh_2)) [ Ar_0 >= 0 /\ -Ar_0 >= 0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0) -> Com_1(n_evaleasy2start(Ar_0))
+		(Comp: ?, Cost: 1)    n_evaleasy2bb1in___2(Ar_0) -> Com_1(n_evaleasy2bb1in___2(Fresh_3)) [ Ar_0 >= 0 /\ Fresh_3 >= 0 /\ Ar_0 - Fresh_3 - 1 = 0 ]
+		(Comp: 1, Cost: 1)    n_evaleasy2bb1in___2(Ar_0) -> Com_1(n_evaleasy2stop___1(Fresh_2)) [ Ar_0 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evaleasy2bb1in___3(Ar_0) -> Com_1(n_evaleasy2bb1in___2(Fresh_1)) [ Fresh_1 >= 0 /\ Ar_0 - Fresh_1 - 1 = 0 ]
+		(Comp: 1, Cost: 1)    n_evaleasy2bb1in___3(Ar_0) -> Com_1(n_evaleasy2stop___1(Fresh_0)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evaleasy2start(Ar_0) -> Com_1(n_evaleasy2bb1in___3(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(n_evaleasy2bb1in___2) = V_1 + 1
+and size complexities
+	S("koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("n_evaleasy2start(Ar_0) -> Com_1(n_evaleasy2bb1in___3(Ar_0))", 0-0) = Ar_0
+	S("n_evaleasy2bb1in___3(Ar_0) -> Com_1(n_evaleasy2stop___1(Fresh_0)) [ -Ar_0 >= 0 ]", 0-0) = ?
+	S("n_evaleasy2bb1in___3(Ar_0) -> Com_1(n_evaleasy2bb1in___2(Fresh_1)) [ Fresh_1 >= 0 /\\ Ar_0 - Fresh_1 - 1 = 0 ]", 0-0) = Ar_0
+	S("n_evaleasy2bb1in___2(Ar_0) -> Com_1(n_evaleasy2stop___1(Fresh_2)) [ Ar_0 >= 0 /\\ -Ar_0 >= 0 ]", 0-0) = ?
+	S("n_evaleasy2bb1in___2(Ar_0) -> Com_1(n_evaleasy2bb1in___2(Fresh_3)) [ Ar_0 >= 0 /\\ Fresh_3 >= 0 /\\ Ar_0 - Fresh_3 - 1 = 0 ]", 0-0) = Ar_0
+	S("pyRinit(Ar_0) -> Com_1(n_evaleasy2start(Ar_0))", 0-0) = Ar_0
+orients the transitions
+	n_evaleasy2bb1in___2(Ar_0) -> Com_1(n_evaleasy2bb1in___2(Fresh_3)) [ Ar_0 >= 0 /\ Fresh_3 >= 0 /\ Ar_0 - Fresh_3 - 1 = 0 ]
+weakly and the transition
+	n_evaleasy2bb1in___2(Ar_0) -> Com_1(n_evaleasy2bb1in___2(Fresh_3)) [ Ar_0 >= 0 /\ Fresh_3 >= 0 /\ Ar_0 - Fresh_3 - 1 = 0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)           pyRinit(Ar_0) -> Com_1(n_evaleasy2start(Ar_0))
+		(Comp: Ar_0 + 1, Cost: 1)    n_evaleasy2bb1in___2(Ar_0) -> Com_1(n_evaleasy2bb1in___2(Fresh_3)) [ Ar_0 >= 0 /\ Fresh_3 >= 0 /\ Ar_0 - Fresh_3 - 1 = 0 ]
+		(Comp: 1, Cost: 1)           n_evaleasy2bb1in___2(Ar_0) -> Com_1(n_evaleasy2stop___1(Fresh_2)) [ Ar_0 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)           n_evaleasy2bb1in___3(Ar_0) -> Com_1(n_evaleasy2bb1in___2(Fresh_1)) [ Fresh_1 >= 0 /\ Ar_0 - Fresh_1 - 1 = 0 ]
+		(Comp: 1, Cost: 1)           n_evaleasy2bb1in___3(Ar_0) -> Com_1(n_evaleasy2stop___1(Fresh_0)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)           n_evaleasy2start(Ar_0) -> Com_1(n_evaleasy2bb1in___3(Ar_0))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound Ar_0 + 6
+
+Time: 0.052 sec (SMT: 0.044 sec)
+
+-- stats
+realtime 0:00.06
+usertime 0.05
+systime 0.00
+

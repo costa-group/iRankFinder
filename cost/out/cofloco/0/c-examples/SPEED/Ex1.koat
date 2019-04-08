@@ -1,0 +1,257 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalEx1bb1in/9,evalEx1bb4in/9]
+1. recursive  : [evalEx1bb4in_loop_cont/10,evalEx1bb5in/9,evalEx1bb6in/9,evalEx1bbin/9]
+2. non_recursive  : [evalEx1stop/5]
+3. non_recursive  : [evalEx1returnin/5]
+4. non_recursive  : [exit_location/1]
+5. non_recursive  : [evalEx1bb6in_loop_cont/6]
+6. non_recursive  : [evalEx1entryin/5]
+7. non_recursive  : [evalEx1start/5]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalEx1bb4in/9
+1. SCC is partially evaluated into evalEx1bb6in/9
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is completely evaluated into other SCCs
+5. SCC is partially evaluated into evalEx1bb6in_loop_cont/6
+6. SCC is partially evaluated into evalEx1entryin/5
+7. SCC is partially evaluated into evalEx1start/5
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalEx1bb4in/9 
+* CE 12 is refined into CE [13] 
+* CE 11 is refined into CE [14] 
+* CE 10 is refined into CE [15] 
+* CE 9 is refined into CE [16] 
+
+
+### Cost equations --> "Loop" of evalEx1bb4in/9 
+* CEs [15] --> Loop 12 
+* CEs [16] --> Loop 13 
+* CEs [13] --> Loop 14 
+* CEs [14] --> Loop 15 
+
+### Ranking functions of CR evalEx1bb4in(A,B,C,D,F,G,H,I,J) 
+* RF of phase [12,13]: [-C+D]
+
+#### Partial ranking functions of CR evalEx1bb4in(A,B,C,D,F,G,H,I,J) 
+* Partial RF of phase [12,13]:
+  - RF of loop [12:1]:
+    -A+D-1
+  - RF of loop [12:1,13:1]:
+    -C+D
+  - RF of loop [13:1]:
+    B-C
+
+
+### Specialization of cost equations evalEx1bb6in/9 
+* CE 5 is refined into CE [17] 
+* CE 3 is refined into CE [18] 
+* CE 6 is refined into CE [19] 
+* CE 4 is refined into CE [20,21] 
+
+
+### Cost equations --> "Loop" of evalEx1bb6in/9 
+* CEs [21] --> Loop 16 
+* CEs [20] --> Loop 17 
+* CEs [17] --> Loop 18 
+* CEs [18,19] --> Loop 19 
+
+### Ranking functions of CR evalEx1bb6in(A,B,C,D,F,G,H,I,J) 
+* RF of phase [16]: [-A+B-1]
+
+#### Partial ranking functions of CR evalEx1bb6in(A,B,C,D,F,G,H,I,J) 
+* Partial RF of phase [16]:
+  - RF of loop [16:1]:
+    -A+B-1
+
+
+### Specialization of cost equations evalEx1bb6in_loop_cont/6 
+* CE 7 is refined into CE [22] 
+* CE 8 is refined into CE [23] 
+
+
+### Cost equations --> "Loop" of evalEx1bb6in_loop_cont/6 
+* CEs [22] --> Loop 20 
+* CEs [23] --> Loop 21 
+
+### Ranking functions of CR evalEx1bb6in_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR evalEx1bb6in_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations evalEx1entryin/5 
+* CE 2 is refined into CE [24,25,26,27,28] 
+
+
+### Cost equations --> "Loop" of evalEx1entryin/5 
+* CEs [24,25,26,27,28] --> Loop 22 
+
+### Ranking functions of CR evalEx1entryin(A,B,C,D,F) 
+
+#### Partial ranking functions of CR evalEx1entryin(A,B,C,D,F) 
+
+
+### Specialization of cost equations evalEx1start/5 
+* CE 1 is refined into CE [29] 
+
+
+### Cost equations --> "Loop" of evalEx1start/5 
+* CEs [29] --> Loop 23 
+
+### Ranking functions of CR evalEx1start(A,B,C,D,F) 
+
+#### Partial ranking functions of CR evalEx1start(A,B,C,D,F) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalEx1bb4in(A,B,C,D,F,G,H,I,J):
+* Chain [[12,13],15]: 2*it(12)+2*it(13)+1
+  Such that:it(13) =< -C+I
+it(12) =< D-I
+aux(3) =< -C+D
+it(12) =< aux(3)
+it(13) =< aux(3)
+
+  with precondition: [F=2,A=G,B=H,I=J,C>=A+1,D>=C+1,I>=C,B>=D,D>=I] 
+
+* Chain [[12,13],14]: 4*it(12)+0
+  Such that:aux(4) =< -C+D
+it(12) =< aux(4)
+
+  with precondition: [F=3,C>=A+1,D>=C+1,B>=D] 
+
+* Chain [15]: 1
+  with precondition: [F=2,C=D,A=G,B=H,C=I,C=J,C>=A+1,B>=C] 
+
+* Chain [14]: 0
+  with precondition: [F=3,C>=A+1,D>=C,B>=D] 
+
+
+#### Cost of chains of evalEx1bb6in(A,B,C,D,F,G,H,I,J):
+* Chain [[16],19]: 8*it(16)+2*s(11)+2*s(12)+2
+  Such that:aux(9) =< -A+B
+it(16) =< aux(9)
+s(12) =< aux(9)
+aux(6) =< aux(9)
+s(13) =< it(16)*aux(9)
+s(11) =< it(16)*aux(6)
+s(12) =< s(13)
+s(11) =< s(13)
+
+  with precondition: [F=3,A>=0,B>=A+2] 
+
+* Chain [[16],18]: 4*it(16)+2*s(11)+2*s(12)+1
+  Such that:aux(10) =< -A+B
+it(16) =< aux(10)
+s(12) =< aux(10)
+aux(6) =< aux(10)
+s(13) =< it(16)*aux(10)
+s(11) =< it(16)*aux(6)
+s(12) =< s(13)
+s(11) =< s(13)
+
+  with precondition: [F=4,G=H,G=I,G=J,A>=0,G>=A+1,B>=G+1] 
+
+* Chain [[16],17,19]: 4*it(16)+2*s(11)+2*s(12)+6
+  Such that:aux(11) =< -A+B
+it(16) =< aux(11)
+s(12) =< aux(11)
+aux(6) =< aux(11)
+s(13) =< it(16)*aux(11)
+s(11) =< it(16)*aux(6)
+s(12) =< s(13)
+s(11) =< s(13)
+
+  with precondition: [F=3,A>=0,B>=A+2] 
+
+* Chain [[16],17,18]: 4*it(16)+2*s(11)+2*s(12)+5
+  Such that:aux(12) =< -A+B
+it(16) =< aux(12)
+s(12) =< aux(12)
+aux(6) =< aux(12)
+s(13) =< it(16)*aux(12)
+s(11) =< it(16)*aux(6)
+s(12) =< s(13)
+s(11) =< s(13)
+
+  with precondition: [F=4,G=H,G=I,G=J,A>=0,G>=A+2,B>=G] 
+
+* Chain [19]: 4*s(4)+2
+  Such that:s(3) =< -A+B
+s(4) =< s(3)
+
+  with precondition: [F=3,A>=0] 
+
+* Chain [18]: 1
+  with precondition: [F=4,I=C,J=D,A=G,B=H,A>=0,A>=B] 
+
+* Chain [17,19]: 6
+  with precondition: [F=3,B=A+1,B>=1] 
+
+* Chain [17,18]: 5
+  with precondition: [F=4,G=A+1,G=B,G=H,G=I,G=J,G>=1] 
+
+
+#### Cost of chains of evalEx1bb6in_loop_cont(A,B,C,D,E,F):
+* Chain [21]: 0
+  with precondition: [A=3] 
+
+* Chain [20]: 1
+  with precondition: [A=4] 
+
+
+#### Cost of chains of evalEx1entryin(A,B,C,D,F):
+* Chain [22]: 24*s(29)+8*s(30)+8*s(33)+7
+  Such that:aux(14) =< A
+s(29) =< aux(14)
+s(30) =< aux(14)
+s(31) =< aux(14)
+s(32) =< s(29)*aux(14)
+s(33) =< s(29)*s(31)
+s(30) =< s(32)
+s(33) =< s(32)
+
+  with precondition: [] 
+
+
+#### Cost of chains of evalEx1start(A,B,C,D,F):
+* Chain [23]: 24*s(47)+8*s(48)+8*s(51)+8
+  Such that:s(46) =< A
+s(47) =< s(46)
+s(48) =< s(46)
+s(49) =< s(46)
+s(50) =< s(47)*s(46)
+s(51) =< s(47)*s(49)
+s(48) =< s(50)
+s(51) =< s(50)
+
+  with precondition: [] 
+
+
+Closed-form bounds of evalEx1start(A,B,C,D,F): 
+-------------------------------------
+* Chain [23] with precondition: [] 
+    - Upper bound: nat(A)*32+8+nat(A)*8*nat(A) 
+    - Complexity: n^2 
+
+### Maximum cost of evalEx1start(A,B,C,D,F): nat(A)*32+8+nat(A)*8*nat(A) 
+Asymptotic class: n^2 
+* Total analysis performed in 474 ms.
+
+
+-- stats
+realtime 0:00.60
+usertime 0.53
+systime 0.01
+

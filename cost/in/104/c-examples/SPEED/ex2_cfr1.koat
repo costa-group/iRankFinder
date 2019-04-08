@@ -1,0 +1,12 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A_P B_P C_P D_P NoDet2 NoDet1 NoDet0 NoDet3)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(n_evalfstart(A,B,C,D))
+  n_evalfbb3in___1(A,B,C,D) -> Com_1(n_evalfbbin___3(A, B, C, D)) :|: -B + C -1 >= 0 && B >= 0 && A >= 0 && A >= 0 && B >= 0 && -B + C -1 >= 0
+  n_evalfbb3in___4(A,B,C,D) -> Com_1(n_evalfbbin___3(A, B, C, D)) :|: B >= 0 && A >= 0 && A >= 0 && B >= 0 && -B + C -1 >= 0
+  n_evalfbb3in___4(A,B,C,D) -> Com_1(n_evalfstop___2(NoDet0, NoDet1, NoDet2, NoDet3)) :|: B >= 0 && A >= 0 && B -C >= 0 && B >= 0 && A >= 0
+  n_evalfbbin___3(A,B,C,D) -> Com_1(n_evalfbb3in___1(A + 1, B, C, D)) :|: -B + C -1 >= 0 && B >= 0 && A >= 0 && -A + D -1 >= 0 && -B + C -1 >= 0 && B >= 0 && A >= 0
+  n_evalfbbin___3(A,B,C,D) -> Com_1(n_evalfbb3in___4(0, B + 1, C, D)) :|: -B + C -1 >= 0 && B >= 0 && A >= 0 && A -D >= 0 && -B + C -1 >= 0 && B >= 0 && A >= 0
+  n_evalfstart(A,B,C,D) -> Com_1(n_evalfbb3in___4(0, 0, C, D))
+)

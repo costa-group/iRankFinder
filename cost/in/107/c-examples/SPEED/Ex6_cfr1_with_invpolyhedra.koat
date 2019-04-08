@@ -1,0 +1,17 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A_P B_P C_P NoDet1 NoDet0 NoDet2)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(n_evalEx6start(A,B,C))
+  n_evalEx6bb3in___2(A,B,C) -> Com_1(n_evalEx6bbin___1(A, B, C)) :|: -B + C >= 0 && -A + C >= 0 && -B + C >= 0 && -A + C >= 0 && -B + C -1 >= 0 && 1 -A + B >= 0 && -B + C >= 0 && -A + C >= 0
+  n_evalEx6bb3in___2(A,B,C) -> Com_1(n_evalEx6stop___4(NoDet0, NoDet1, NoDet2)) :|: -B + C >= 0 && -A + C >= 0 && -B + C >= 0 && -A + C >= 0 && B -C >= 0 && 1 -A + B >= 0 && -B + C >= 0 && -A + C >= 0
+  n_evalEx6bb3in___3(A,B,C) -> Com_1(n_evalEx6bbin___5(A, B, C)) :|: -B + C >= 0 && -B + C >= 0 && -B + C -1 >= 0 && -B + C >= 0 && A -B >= 0
+  n_evalEx6bb3in___3(A,B,C) -> Com_1(n_evalEx6stop___4(NoDet0, NoDet1, NoDet2)) :|: -B + C >= 0 && -B + C >= 0 && B -C >= 0 && -B + C >= 0 && A -B >= 0
+  n_evalEx6bb3in___6(A,B,C) -> Com_1(n_evalEx6bbin___5(A, B, C)) :|: -B + C -1 >= 0
+  n_evalEx6bb3in___6(A,B,C) -> Com_1(n_evalEx6stop___4(NoDet0, NoDet1, NoDet2)) :|: B -C >= 0
+  n_evalEx6bbin___1(A,B,C) -> Com_1(n_evalEx6bb3in___2(A + 1, B_P, C)) :|: -B + C -1 >= 0 && -A + C >= 0 && C -B_P -1 >= 0 && -A + B_P >= 0 && B -B_P = 0 && 1 -A + B >= 0 && -1 -B + C >= 0
+  n_evalEx6bbin___1(A,B,C) -> Com_1(n_evalEx6bb3in___2(A, B + 1, C_P)) :|: -B + C -1 >= 0 && -A + C >= 0 && A -B -1 >= 0 && -B + C_P -1 >= 0 && C -C_P = 0 && 1 -A + B >= 0 && -1 -B + C >= 0
+  n_evalEx6bbin___5(A,B,C) -> Com_1(n_evalEx6bb3in___2(A + 1, B_P, C)) :|: -B + C -1 >= 0 && C -B_P -1 >= 0 && -A + B_P >= 0 && B -B_P = 0 && -1 -B + C >= 0
+  n_evalEx6bbin___5(A,B,C) -> Com_1(n_evalEx6bb3in___3(A, B + 1, C_P)) :|: -B + C -1 >= 0 && A -B -1 >= 0 && -B + C_P -1 >= 0 && C -C_P = 0 && -1 -B + C >= 0
+  n_evalEx6start(A,B,C) -> Com_1(n_evalEx6bb3in___6(B, A, C))
+)

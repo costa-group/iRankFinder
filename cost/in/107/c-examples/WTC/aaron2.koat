@@ -1,0 +1,17 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A' B' C' NoDet0 NoDet1 D NoDet2)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(evalaaron2start(A,B,C))
+  evalaaron2bb3in(A,B,C) -> Com_1(evalaaron2bb4in(A, B, C)) :|: -1 -D >= 0
+  evalaaron2bb3in(A,B,C) -> Com_1(evalaaron2bb4in(A, B, C)) :|: D -1 >= 0
+  evalaaron2bb3in(A,B,C) -> Com_1(evalaaron2bb5in(A, B, C))
+  evalaaron2bb4in(A,B,C) -> Com_1(evalaaron2bb6in(A, B, C -A -1))
+  evalaaron2bb5in(A,B,C) -> Com_1(evalaaron2bb6in(A, B + A + 1, C))
+  evalaaron2bb6in(A,B,C) -> Com_1(evalaaron2bb3in(A, B, C)) :|: C -B >= 0 && A >= 0
+  evalaaron2bb6in(A,B,C) -> Com_1(evalaaron2returnin(A, B, C)) :|: B -C -1 >= 0
+  evalaaron2entryin(A,B,C) -> Com_1(evalaaron2bb6in(A, C, B)) :|: A >= 0
+  evalaaron2entryin(A,B,C) -> Com_1(evalaaron2returnin(A, B, C)) :|: -1 -A >= 0
+  evalaaron2returnin(A,B,C) -> Com_1(evalaaron2stop(NoDet0, NoDet1, NoDet2))
+  evalaaron2start(A,B,C) -> Com_1(evalaaron2entryin(A, B, C))
+)

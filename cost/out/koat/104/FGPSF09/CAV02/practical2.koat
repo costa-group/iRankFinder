@@ -1,0 +1,431 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval0(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    n_eval0(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval1___14(Ar_1, Ar_1, 1, Ar_3))
+		(Comp: ?, Cost: 1)    n_eval1___14(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___13(Fresh_3, Fresh_4, Fresh_5, Fresh_6)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval1___14(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval3___12(Ar_0, Ar_0, 1, Ar_3)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval3___11(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_2, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_2 + 22 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval3___11(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval5___10(Ar_0, Ar_1, Fresh_1, Ar_3)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_1 + 11 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval3___12(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_0, Ar_3)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_1 - 11*Ar_2 + 121 >= 0 /\ -Ar_2 + 3 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_0 + 22 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - Ar_1 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1, Ar_3)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - 102 = 0 /\ -Ar_1 - 11*Ar_2 + 111 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___10(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1, Ar_3)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1, Ar_3)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___8(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1, Ar_3)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_2 - 100 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1, Ar_0 - 10)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval9___3(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1, Ar_0 - 10)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval9___5(Ar_0, Ar_1, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval9___7(Ar_0, Ar_1, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1, Ar_3)) [ Ar_0 - 91 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___5(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval5___1(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___5(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1, Ar_3)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___6(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1, Ar_3)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___6(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval5___8(Ar_0 + 1, Ar_1, Ar_2, Ar_3)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___7(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1, Ar_3)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Slicing away variables that do not contribute to conditions from problem 1 leaves variables [Ar_0, Ar_1, Ar_2].
+We thus obtain the following problem:
+2:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___1(Ar_0 + 1, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_0 - 91 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___7(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___5(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___3(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___8(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_2 - 100 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___10(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - 102 = 0 /\ -Ar_1 - 11*Ar_2 + 111 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval3___12(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_0)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_1 - 11*Ar_2 + 121 >= 0 /\ -Ar_2 + 3 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_0 + 22 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - Ar_1 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0, Ar_1, Fresh_1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_1 + 11 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_2)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_2 + 22 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___12(Ar_0, Ar_0, 1)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_end___13(Fresh_3, Fresh_4, Fresh_5)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval0(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval1___14(Ar_1, Ar_1, 1))
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval0(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 2 produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___1(Ar_0 + 1, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_0 - 91 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___7(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___5(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___3(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___8(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_2 - 100 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___10(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - 102 = 0 /\ -Ar_1 - 11*Ar_2 + 111 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_eval3___12(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_0)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_1 - 11*Ar_2 + 121 >= 0 /\ -Ar_2 + 3 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_0 + 22 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - Ar_1 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0, Ar_1, Fresh_1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_1 + 11 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_2)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_2 + 22 = 0 ]
+		(Comp: 1, Cost: 1)    n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___12(Ar_0, Ar_0, 1)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: 1, Cost: 1)    n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_end___13(Fresh_3, Fresh_4, Fresh_5)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: 1, Cost: 1)    n_eval0(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval1___14(Ar_1, Ar_1, 1))
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval0(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(koat_start) = 2
+	Pol(pyRinit) = 2
+	Pol(n_eval9___7) = 1
+	Pol(n_eval5___10) = 1
+	Pol(n_eval9___6) = 0
+	Pol(n_eval5___8) = 0
+	Pol(n_eval5___2) = 0
+	Pol(n_eval9___5) = 1
+	Pol(n_eval5___1) = 1
+	Pol(n_eval9___3) = 0
+	Pol(n_eval7___9) = 1
+	Pol(n_eval7___4) = 0
+	Pol(n_eval3___12) = 2
+	Pol(n_eval3___11) = 2
+	Pol(n_eval1___14) = 2
+	Pol(n_end___13) = 0
+	Pol(n_eval0) = 2
+orients all transitions weakly and the transitions
+	n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 /\ -Ar_0 + 101 >= 0 ]
+	n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 101 >= 0 ]
+	n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0, Ar_1, Fresh_1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_1 + 11 = 0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___1(Ar_0 + 1, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_0 - 91 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___7(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 2, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___5(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 2, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___3(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___8(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_2 - 100 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___10(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - 102 = 0 /\ -Ar_1 - 11*Ar_2 + 111 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_eval3___12(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_0)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_1 - 11*Ar_2 + 121 >= 0 /\ -Ar_2 + 3 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_0 + 22 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - Ar_1 = 0 ]
+		(Comp: 2, Cost: 1)    n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0, Ar_1, Fresh_1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_1 + 11 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_2)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_2 + 22 = 0 ]
+		(Comp: 1, Cost: 1)    n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___12(Ar_0, Ar_0, 1)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: 1, Cost: 1)    n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_end___13(Fresh_3, Fresh_4, Fresh_5)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: 1, Cost: 1)    n_eval0(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval1___14(Ar_1, Ar_1, 1))
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval0(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(koat_start) = 3
+	Pol(pyRinit) = 3
+	Pol(n_eval9___7) = 3
+	Pol(n_eval5___10) = 3
+	Pol(n_eval9___6) = 2*V_3 - 1
+	Pol(n_eval5___8) = 2*V_3 - 2
+	Pol(n_eval5___2) = 2*V_3 - 3
+	Pol(n_eval9___5) = 3
+	Pol(n_eval5___1) = 3
+	Pol(n_eval9___3) = 2*V_3 - 1
+	Pol(n_eval7___9) = 3
+	Pol(n_eval7___4) = 2*V_3 - 1
+	Pol(n_eval3___12) = 3
+	Pol(n_eval3___11) = 3
+	Pol(n_eval1___14) = 3*V_3
+	Pol(n_end___13) = 3
+	Pol(n_eval0) = 3
+orients all transitions weakly and the transitions
+	n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 ]
+	n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+	n_eval5___8(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_2 - 100 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: 3, Cost: 1)    n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___1(Ar_0 + 1, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval9___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_0 - 91 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___7(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 2, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___5(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 2, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___3(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 3, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 3, Cost: 1)    n_eval5___8(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_2 - 100 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___10(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)    n_eval5___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - 102 = 0 /\ -Ar_1 - 11*Ar_2 + 111 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_eval3___12(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_0)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_1 - 11*Ar_2 + 121 >= 0 /\ -Ar_2 + 3 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_0 + 22 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - Ar_1 = 0 ]
+		(Comp: 2, Cost: 1)    n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0, Ar_1, Fresh_1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_1 + 11 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_2)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_2 + 22 = 0 ]
+		(Comp: 1, Cost: 1)    n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___12(Ar_0, Ar_0, 1)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: 1, Cost: 1)    n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_end___13(Fresh_3, Fresh_4, Fresh_5)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: 1, Cost: 1)    n_eval0(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval1___14(Ar_1, Ar_1, 1))
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval0(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(koat_start) = 57
+	Pol(pyRinit) = 57
+	Pol(n_eval9___7) = 57
+	Pol(n_eval5___10) = 57
+	Pol(n_eval9___6) = -3*V_1 + 27*V_3 + 276
+	Pol(n_eval5___8) = -3*V_1 + 30*V_3 + 273
+	Pol(n_eval5___2) = -3*V_1 + 27*V_3 + 280
+	Pol(n_eval9___5) = 57
+	Pol(n_eval5___1) = 57
+	Pol(n_eval9___3) = -3*V_1 + 27*V_3 + 275
+	Pol(n_eval7___9) = 57
+	Pol(n_eval7___4) = -3*V_1 + 27*V_3 + 276
+	Pol(n_eval3___12) = 57
+	Pol(n_eval3___11) = 57
+	Pol(n_eval1___14) = 57*V_3
+	Pol(n_end___13) = 57
+	Pol(n_eval0) = 57
+orients all transitions weakly and the transitions
+	n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 ]
+	n_eval9___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_0 - 91 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+	n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___3(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+	n_eval5___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 111 >= 0 ]
+strictly and produces the following problem:
+6:	T:
+		(Comp: 1, Cost: 0)     koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: ?, Cost: 1)     n_eval9___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: 3, Cost: 1)     n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: 57, Cost: 1)    n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___1(Ar_0 + 1, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 57, Cost: 1)    n_eval9___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_0 - 91 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___7(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 2, Cost: 1)     n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___5(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 2, Cost: 1)     n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 57, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___3(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 3, Cost: 1)     n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 3, Cost: 1)     n_eval5___8(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_2 - 100 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 ]
+		(Comp: 57, Cost: 1)    n_eval5___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval5___10(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval5___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - 102 = 0 /\ -Ar_1 - 11*Ar_2 + 111 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)     n_eval3___12(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_0)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_1 - 11*Ar_2 + 121 >= 0 /\ -Ar_2 + 3 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_0 + 22 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - Ar_1 = 0 ]
+		(Comp: 2, Cost: 1)     n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0, Ar_1, Fresh_1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_1 + 11 = 0 ]
+		(Comp: ?, Cost: 1)     n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_2)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_2 + 22 = 0 ]
+		(Comp: 1, Cost: 1)     n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___12(Ar_0, Ar_0, 1)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: 1, Cost: 1)     n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_end___13(Fresh_3, Fresh_4, Fresh_5)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: 1, Cost: 1)     n_eval0(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval1___14(Ar_1, Ar_1, 1))
+		(Comp: 1, Cost: 1)     pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval0(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 6 produces the following problem:
+7:	T:
+		(Comp: 1, Cost: 0)     koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: ?, Cost: 1)     n_eval9___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: 3, Cost: 1)     n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: 57, Cost: 1)    n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___1(Ar_0 + 1, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 57, Cost: 1)    n_eval9___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_0 - 91 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___7(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 2, Cost: 1)     n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___5(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 2, Cost: 1)     n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 60, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 60, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 57, Cost: 1)    n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___3(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 3, Cost: 1)     n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 3, Cost: 1)     n_eval5___8(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_2 - 100 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 ]
+		(Comp: 57, Cost: 1)    n_eval5___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval5___10(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: ?, Cost: 1)     n_eval5___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - 102 = 0 /\ -Ar_1 - 11*Ar_2 + 111 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)     n_eval3___12(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_0)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_1 - 11*Ar_2 + 121 >= 0 /\ -Ar_2 + 3 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_0 + 22 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - Ar_1 = 0 ]
+		(Comp: 2, Cost: 1)     n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0, Ar_1, Fresh_1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_1 + 11 = 0 ]
+		(Comp: ?, Cost: 1)     n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_2)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_2 + 22 = 0 ]
+		(Comp: 1, Cost: 1)     n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___12(Ar_0, Ar_0, 1)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: 1, Cost: 1)     n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_end___13(Fresh_3, Fresh_4, Fresh_5)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: 1, Cost: 1)     n_eval0(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval1___14(Ar_1, Ar_1, 1))
+		(Comp: 1, Cost: 1)     pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval0(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(n_eval9___7) = -3*V_1 + 30*V_3 + 274
+	Pol(n_eval5___10) = -3*V_1 + 30*V_3 + 276
+	Pol(n_eval9___5) = -3*V_1 + 30*V_3 + 274
+	Pol(n_eval5___1) = -3*V_1 + 30*V_3 + 276
+	Pol(n_eval7___9) = -3*V_1 + 30*V_3 + 275
+	Pol(n_eval3___11) = -V_1 + 101
+and size complexities
+	S("pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval0(Ar_0, Ar_1, Ar_2))", 0-0) = Ar_0
+	S("pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval0(Ar_0, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval0(Ar_0, Ar_1, Ar_2))", 0-2) = Ar_2
+	S("n_eval0(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval1___14(Ar_1, Ar_1, 1))", 0-0) = Ar_1
+	S("n_eval0(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval1___14(Ar_1, Ar_1, 1))", 0-1) = Ar_1
+	S("n_eval0(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval1___14(Ar_1, Ar_1, 1))", 0-2) = 1
+	S("n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_end___13(Fresh_3, Fresh_4, Fresh_5)) [ Ar_0 - Ar_1 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 - 101 >= 0 ]", 0-0) = ?
+	S("n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_end___13(Fresh_3, Fresh_4, Fresh_5)) [ Ar_0 - Ar_1 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 - 101 >= 0 ]", 0-1) = ?
+	S("n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_end___13(Fresh_3, Fresh_4, Fresh_5)) [ Ar_0 - Ar_1 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 - 101 >= 0 ]", 0-2) = ?
+	S("n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___12(Ar_0, Ar_0, 1)) [ Ar_0 - Ar_1 = 0 /\\ Ar_2 - 1 = 0 /\\ -Ar_0 + 100 >= 0 ]", 0-0) = Ar_1
+	S("n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___12(Ar_0, Ar_0, 1)) [ Ar_0 - Ar_1 = 0 /\\ Ar_2 - 1 = 0 /\\ -Ar_0 + 100 >= 0 ]", 0-1) = Ar_1
+	S("n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___12(Ar_0, Ar_0, 1)) [ Ar_0 - Ar_1 = 0 /\\ Ar_2 - 1 = 0 /\\ -Ar_0 + 100 >= 0 ]", 0-2) = 1
+	S("n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_2)) [ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\\ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 - 11 >= 0 /\\ -Ar_0 + 111 >= 0 /\\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ Ar_0 - Ar_1 - 11*Fresh_2 + 22 = 0 ]", 0-0) = Ar_1 + 222
+	S("n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_2)) [ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\\ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 - 11 >= 0 /\\ -Ar_0 + 111 >= 0 /\\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ Ar_0 - Ar_1 - 11*Fresh_2 + 22 = 0 ]", 0-1) = Ar_1
+	S("n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_2)) [ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\\ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 - 11 >= 0 /\\ -Ar_0 + 111 >= 0 /\\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ Ar_0 - Ar_1 - 11*Fresh_2 + 22 = 0 ]", 0-2) = Ar_1 + 12
+	S("n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0, Ar_1, Fresh_1)) [ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\\ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 - 11 >= 0 /\\ -Ar_0 + 111 >= 0 /\\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Fresh_1 + 11 = 0 ]", 0-0) = 111
+	S("n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0, Ar_1, Fresh_1)) [ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\\ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 - 11 >= 0 /\\ -Ar_0 + 111 >= 0 /\\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Fresh_1 + 11 = 0 ]", 0-1) = Ar_1
+	S("n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0, Ar_1, Fresh_1)) [ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\\ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 - 11 >= 0 /\\ -Ar_0 + 111 >= 0 /\\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Fresh_1 + 11 = 0 ]", 0-2) = Ar_1 + 12
+	S("n_eval3___12(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_0)) [ -Ar_0 + 100 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_0 + 111 >= 0 /\\ -Ar_1 - 11*Ar_2 + 121 >= 0 /\\ -Ar_2 + 3 >= 0 /\\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\\ Ar_0 - Ar_1 - 11*Fresh_0 + 22 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 - Ar_1 = 0 ]", 0-0) = Ar_1 + 111
+	S("n_eval3___12(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_0)) [ -Ar_0 + 100 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_0 + 111 >= 0 /\\ -Ar_1 - 11*Ar_2 + 121 >= 0 /\\ -Ar_2 + 3 >= 0 /\\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\\ Ar_0 - Ar_1 - 11*Fresh_0 + 22 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 - Ar_1 = 0 ]", 0-1) = Ar_1
+	S("n_eval3___12(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_0)) [ -Ar_0 + 100 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_0 + 111 >= 0 /\\ -Ar_1 - 11*Ar_2 + 121 >= 0 /\\ -Ar_2 + 3 >= 0 /\\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\\ Ar_0 - Ar_1 - 11*Fresh_0 + 22 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 - Ar_1 = 0 ]", 0-2) = 2
+	S("n_eval5___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\\ Ar_2 - 2 >= 0 /\\ Ar_0 - 102 = 0 /\\ -Ar_1 - 11*Ar_2 + 111 >= 0 /\\ Ar_2 - 1 >= 0 ]", 0-0) = 92
+	S("n_eval5___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\\ Ar_2 - 2 >= 0 /\\ Ar_0 - 102 = 0 /\\ -Ar_1 - 11*Ar_2 + 111 >= 0 /\\ Ar_2 - 1 >= 0 ]", 0-1) = Ar_1
+	S("n_eval5___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\\ Ar_2 - 2 >= 0 /\\ Ar_0 - 102 = 0 /\\ -Ar_1 - 11*Ar_2 + 111 >= 0 /\\ Ar_2 - 1 >= 0 ]", 0-2) = Ar_1 + 12
+	S("n_eval5___10(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\\ Ar_2 - 2 >= 0 /\\ Ar_0 - Ar_1 - 11 >= 0 /\\ -Ar_0 + 111 >= 0 ]", 0-0) = 101
+	S("n_eval5___10(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\\ Ar_2 - 2 >= 0 /\\ Ar_0 - Ar_1 - 11 >= 0 /\\ -Ar_0 + 111 >= 0 ]", 0-1) = Ar_1
+	S("n_eval5___10(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\\ Ar_2 - 2 >= 0 /\\ Ar_0 - Ar_1 - 11 >= 0 /\\ -Ar_0 + 111 >= 0 ]", 0-2) = Ar_1 + 12
+	S("n_eval5___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\\ Ar_2 - 2 >= 0 /\\ Ar_0 - Ar_1 - 11 >= 0 /\\ -Ar_2 + 3 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ -Ar_0 + 111 >= 0 ]", 0-0) = 101
+	S("n_eval5___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\\ Ar_2 - 2 >= 0 /\\ Ar_0 - Ar_1 - 11 >= 0 /\\ -Ar_2 + 3 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ -Ar_0 + 111 >= 0 ]", 0-1) = Ar_1
+	S("n_eval5___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\\ Ar_2 - 2 >= 0 /\\ Ar_0 - Ar_1 - 11 >= 0 /\\ -Ar_2 + 3 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ -Ar_0 + 111 >= 0 ]", 0-2) = 2
+	S("n_eval5___8(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\\ -Ar_2 + 3 >= 0 /\\ Ar_2 - 2 >= 0 /\\ Ar_0 - Ar_2 - 100 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_2 + 2 >= 0 ]", 0-0) = 104
+	S("n_eval5___8(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\\ -Ar_2 + 3 >= 0 /\\ Ar_2 - 2 >= 0 /\\ Ar_0 - Ar_2 - 100 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_2 + 2 >= 0 ]", 0-1) = Ar_1
+	S("n_eval5___8(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\\ -Ar_2 + 3 >= 0 /\\ Ar_2 - 2 >= 0 /\\ Ar_0 - Ar_2 - 100 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_2 + 2 >= 0 ]", 0-2) = 1
+	S("n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_2 - 1 = 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-0) = 104
+	S("n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_2 - 1 = 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-1) = Ar_1
+	S("n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_2 - 1 = 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-2) = 1
+	S("n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___3(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-0) = 100
+	S("n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___3(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-1) = Ar_1
+	S("n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___3(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-2) = 2
+	S("n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-0) = 104
+	S("n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-1) = Ar_1
+	S("n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-2) = 2
+	S("n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-0) = 104
+	S("n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-1) = Ar_1
+	S("n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-2) = 2
+	S("n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_2 - 1 = 0 /\\ -Ar_0 + 101 >= 0 ]", 0-0) = 101
+	S("n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_2 - 1 = 0 /\\ -Ar_0 + 101 >= 0 ]", 0-1) = Ar_1
+	S("n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_0 - 101 >= 0 /\\ Ar_2 - 1 = 0 /\\ -Ar_0 + 101 >= 0 ]", 0-2) = 1
+	S("n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___5(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-0) = 101
+	S("n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___5(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-1) = Ar_1
+	S("n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___5(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-2) = Ar_1 + 12
+	S("n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-0) = 101
+	S("n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-1) = Ar_1
+	S("n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-2) = 2
+	S("n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___7(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-0) = 100
+	S("n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___7(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-1) = Ar_1
+	S("n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___7(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-2) = Ar_1 + 12
+	S("n_eval9___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_0 - 91 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-0) = 111
+	S("n_eval9___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_0 - 91 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-1) = Ar_1
+	S("n_eval9___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_0 - 91 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]", 0-2) = 3
+	S("n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___1(Ar_0 + 1, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_0 - 101 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-0) = 102
+	S("n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___1(Ar_0 + 1, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_0 - 101 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-1) = Ar_1
+	S("n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___1(Ar_0 + 1, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_0 - 101 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-2) = Ar_1 + 12
+	S("n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-0) = 111
+	S("n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-1) = Ar_1
+	S("n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 /\\ -Ar_0 + 100 >= 0 /\\ -Ar_0 + 101 >= 0 ]", 0-2) = Ar_1 + 12
+	S("n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ -Ar_0 + 100 >= 0 ]", 0-0) = 111
+	S("n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ -Ar_0 + 100 >= 0 ]", 0-1) = Ar_1
+	S("n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ -Ar_0 + 100 >= 0 ]", 0-2) = 3
+	S("n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_0 - 101 >= 0 ]", 0-0) = 104
+	S("n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_0 - 101 >= 0 ]", 0-1) = Ar_1
+	S("n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\\ Ar_0 - 91 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ -Ar_2 + 2 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_0 - 101 >= 0 ]", 0-2) = 2
+	S("n_eval9___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_0 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 ]", 0-0) = 111
+	S("n_eval9___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_0 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 ]", 0-1) = Ar_1
+	S("n_eval9___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_0 + 100 >= 0 /\\ Ar_0 - 91 >= 0 /\\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\\ Ar_2 - 1 >= 0 ]", 0-2) = Ar_1 + 12
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-2) = Ar_2
+orients the transitions
+	n_eval9___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 ]
+	n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+	n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___1(Ar_0 + 1, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ -Ar_0 + 101 >= 0 ]
+	n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___7(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+	n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___5(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 101 >= 0 ]
+	n_eval5___10(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 ]
+	n_eval5___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - 102 = 0 /\ -Ar_1 - 11*Ar_2 + 111 >= 0 /\ Ar_2 - 1 >= 0 ]
+	n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_2)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_2 + 22 = 0 ]
+weakly and the transitions
+	n_eval9___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 ]
+	n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+	n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___1(Ar_0 + 1, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ -Ar_0 + 101 >= 0 ]
+	n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___7(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+	n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___5(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 101 >= 0 ]
+	n_eval5___10(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 ]
+	n_eval5___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - 102 = 0 /\ -Ar_1 - 11*Ar_2 + 111 >= 0 /\ Ar_2 - 1 >= 0 ]
+	n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_2)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_2 + 22 = 0 ]
+strictly and produces the following problem:
+8:	T:
+		(Comp: 1, Cost: 0)                 koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: 61*Ar_1 + 2150, Cost: 1)    n_eval9___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: 3, Cost: 1)                 n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: 57, Cost: 1)                n_eval9___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: 61*Ar_1 + 2150, Cost: 1)    n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 61*Ar_1 + 2150, Cost: 1)    n_eval9___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___1(Ar_0 + 1, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 57, Cost: 1)                n_eval9___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___2(Ar_0 + 11, Ar_1, Ar_2 + 1)) [ Ar_0 - 91 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 61*Ar_1 + 2150, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___7(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 100 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 2, Cost: 1)                 n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 61*Ar_1 + 2150, Cost: 1)    n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___5(Ar_0, Ar_1, Ar_2)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 2, Cost: 1)                 n_eval7___9(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 91 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 101 >= 0 ]
+		(Comp: 60, Cost: 1)                n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 60, Cost: 1)                n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 57, Cost: 1)                n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval9___3(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 100 >= 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 3, Cost: 1)                 n_eval7___4(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___8(Ar_0, Ar_1, 1)) [ Ar_2 - 1 >= 0 /\ Ar_0 - 91 >= 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_2 + 2 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_2 - 1 = 0 /\ 2*Ar_0 - Ar_1 - 11*Ar_2 - 82 >= 0 ]
+		(Comp: 3, Cost: 1)                 n_eval5___8(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_2 - 100 >= 0 /\ Ar_2 - 1 >= 0 /\ -Ar_2 + 2 >= 0 ]
+		(Comp: 57, Cost: 1)                n_eval5___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___4(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_2 + 3 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 10 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: 61*Ar_1 + 2150, Cost: 1)    n_eval5___10(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 ]
+		(Comp: 61*Ar_1 + 2150, Cost: 1)    n_eval5___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval7___9(Ar_0 - 10, Ar_1, Ar_2 - 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 >= 0 /\ Ar_2 - 2 >= 0 /\ Ar_0 - 102 = 0 /\ -Ar_1 - 11*Ar_2 + 111 >= 0 /\ Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)                 n_eval3___12(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_0)) [ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_1 - 11*Ar_2 + 121 >= 0 /\ -Ar_2 + 3 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_0 + 22 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - Ar_1 = 0 ]
+		(Comp: 2, Cost: 1)                 n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval5___10(Ar_0, Ar_1, Fresh_1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ Ar_0 - 101 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_1 + 11 = 0 ]
+		(Comp: 61*Ar_1 + 2150, Cost: 1)    n_eval3___11(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___11(Ar_0 + 11, Ar_1, Fresh_2)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 11*Ar_2 + 11 = 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 - 11 >= 0 /\ -Ar_0 + 111 >= 0 /\ -Ar_0 + 11*Ar_2 + 89 >= 0 /\ -Ar_0 + 100 >= 0 /\ Ar_0 - Ar_1 - 11*Fresh_2 + 22 = 0 ]
+		(Comp: 1, Cost: 1)                 n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval3___12(Ar_0, Ar_0, 1)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ -Ar_0 + 100 >= 0 ]
+		(Comp: 1, Cost: 1)                 n_eval1___14(Ar_0, Ar_1, Ar_2) -> Com_1(n_end___13(Fresh_3, Fresh_4, Fresh_5)) [ Ar_0 - Ar_1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 - 101 >= 0 ]
+		(Comp: 1, Cost: 1)                 n_eval0(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval1___14(Ar_1, Ar_1, 1))
+		(Comp: 1, Cost: 1)                 pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_eval0(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 488*Ar_1 + 17568
+
+Time: 0.854 sec (SMT: 0.730 sec)
+
+-- stats
+realtime 0:00.87
+usertime 0.81
+systime 0.04
+

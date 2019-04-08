@@ -1,0 +1,56 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0) -> Com_1(n_start(Ar_0))
+		(Comp: ?, Cost: 1)    n_a___1(Ar_0) -> Com_1(n_a___1(Ar_0 - 1)) [ Ar_0 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_a___2(Ar_0) -> Com_1(n_a___3(Ar_0 - 1)) [ Ar_0 - 1 >= 0 /\ Ar_0 - 100 = 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    n_a___3(Ar_0) -> Com_1(n_a___1(Ar_0 - 1)) [ Ar_0 - 1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    n_start(Ar_0) -> Com_1(n_a___2(100)) [ Ar_0 - 100 = 0 ]
+		(Comp: ?, Cost: 1)    n_start(Ar_0) -> Com_1(n_a___3(Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0) -> Com_1(n_start(Ar_0))
+		(Comp: ?, Cost: 1)    n_a___1(Ar_0) -> Com_1(n_a___1(Ar_0 - 1)) [ Ar_0 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_a___2(Ar_0) -> Com_1(n_a___3(Ar_0 - 1)) [ Ar_0 - 1 >= 0 /\ Ar_0 - 100 = 0 /\ Ar_0 >= 0 ]
+		(Comp: 2, Cost: 1)    n_a___3(Ar_0) -> Com_1(n_a___1(Ar_0 - 1)) [ Ar_0 - 1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)    n_start(Ar_0) -> Com_1(n_a___2(100)) [ Ar_0 - 100 = 0 ]
+		(Comp: 1, Cost: 1)    n_start(Ar_0) -> Com_1(n_a___3(Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(pyRinit) = V_1
+	Pol(n_start) = V_1
+	Pol(n_a___1) = V_1 + 1
+	Pol(n_a___2) = V_1
+	Pol(n_a___3) = V_1
+	Pol(koat_start) = V_1
+orients all transitions weakly and the transition
+	n_a___1(Ar_0) -> Com_1(n_a___1(Ar_0 - 1)) [ Ar_0 >= 0 /\ Ar_0 - 1 >= 0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)       pyRinit(Ar_0) -> Com_1(n_start(Ar_0))
+		(Comp: Ar_0, Cost: 1)    n_a___1(Ar_0) -> Com_1(n_a___1(Ar_0 - 1)) [ Ar_0 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)       n_a___2(Ar_0) -> Com_1(n_a___3(Ar_0 - 1)) [ Ar_0 - 1 >= 0 /\ Ar_0 - 100 = 0 /\ Ar_0 >= 0 ]
+		(Comp: 2, Cost: 1)       n_a___3(Ar_0) -> Com_1(n_a___1(Ar_0 - 1)) [ Ar_0 - 1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)       n_start(Ar_0) -> Com_1(n_a___2(100)) [ Ar_0 - 100 = 0 ]
+		(Comp: 1, Cost: 1)       n_start(Ar_0) -> Com_1(n_a___3(Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 0)       koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound Ar_0 + 6
+
+Time: 0.047 sec (SMT: 0.044 sec)
+
+-- stats
+realtime 0:00.06
+usertime 0.04
+systime 0.02
+

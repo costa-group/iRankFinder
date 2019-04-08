@@ -1,0 +1,8 @@
+input_output_vars(n_eval___1(A,B,C),[A,B],[C]).
+input_output_vars(n_eval___2(A,B,C),[A,B],[C]).
+input_output_vars(n_start(A,B,C),[A,B],[C]).
+input_output_vars(pyRinit(A,B,C),[A,B],[C]).
+eq(pyRinit(A,B,C),1,[n_start(A,B,C)],[]).
+eq(n_eval___2(A,B,C),1,[n_eval___1(B,A,C)],[A-B-1>=0]).
+eq(n_start(A,B,C),1,[n_eval___2(A,B,C)],[]).
+eq(n_eval___1(A,B,C),0,[],[]).

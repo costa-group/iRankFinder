@@ -1,0 +1,111 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestart(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_13, Ar_1 + 1)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_13 >= 0 /\ Ar_2 - Fresh_13 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_10, Fresh_11, Fresh_12)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ Ar_1 - 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_7, Fresh_8, Fresh_9)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_6 >= 0 /\ Ar_2 - Fresh_6 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalterminatestart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___3(Ar_1, Ar_0, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestart(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_13, Ar_1 + 1)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_13 >= 0 /\ Ar_2 - Fresh_13 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_10, Fresh_11, Fresh_12)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ Ar_1 - 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_7, Fresh_8, Fresh_9)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_6 >= 0 /\ Ar_2 - Fresh_6 = 0 ]
+		(Comp: 1, Cost: 1)    n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalterminatestart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___3(Ar_1, Ar_0, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(pyRinit) = 1
+	Pol(n_evalterminatestart) = 1
+	Pol(n_evalterminatebb1in___2) = 1
+	Pol(n_evalterminatestop___1) = 0
+	Pol(n_evalterminatebb1in___3) = 1
+	Pol(koat_start) = 1
+orients all transitions weakly and the transitions
+	n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_7, Fresh_8, Fresh_9)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 ]
+	n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_10, Fresh_11, Fresh_12)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ Ar_1 - 101 >= 0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestart(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_13, Ar_1 + 1)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_13 >= 0 /\ Ar_2 - Fresh_13 = 0 ]
+		(Comp: 1, Cost: 1)    n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_10, Fresh_11, Fresh_12)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ Ar_1 - 101 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_7, Fresh_8, Fresh_9)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_6 >= 0 /\ Ar_2 - Fresh_6 = 0 ]
+		(Comp: 1, Cost: 1)    n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalterminatestart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___3(Ar_1, Ar_0, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(n_evalterminatebb1in___2) = V_1 - V_2 - V_3 + 101
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("n_evalterminatestart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___3(Ar_1, Ar_0, Ar_2))", 0-0) = Ar_1
+	S("n_evalterminatestart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___3(Ar_1, Ar_0, Ar_2))", 0-1) = Ar_0
+	S("n_evalterminatestart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___3(Ar_1, Ar_0, Ar_2))", 0-2) = Ar_2
+	S("n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]", 0-0) = ?
+	S("n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]", 0-1) = ?
+	S("n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]", 0-2) = ?
+	S("n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]", 0-0) = ?
+	S("n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]", 0-1) = ?
+	S("n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]", 0-2) = ?
+	S("n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Fresh_6 >= 0 /\\ Ar_2 - Fresh_6 = 0 ]", 0-0) = Ar_1 + 1
+	S("n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Fresh_6 >= 0 /\\ Ar_2 - Fresh_6 = 0 ]", 0-1) = Ar_2
+	S("n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Fresh_6 >= 0 /\\ Ar_2 - Fresh_6 = 0 ]", 0-2) = Ar_0 + 101
+	S("n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_7, Fresh_8, Fresh_9)) [ -Ar_2 + 101 >= 0 /\\ Ar_0 - Ar_1 + 1 >= 0 /\\ -Ar_0 + Ar_2 - 1 >= 0 ]", 0-0) = ?
+	S("n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_7, Fresh_8, Fresh_9)) [ -Ar_2 + 101 >= 0 /\\ Ar_0 - Ar_1 + 1 >= 0 /\\ -Ar_0 + Ar_2 - 1 >= 0 ]", 0-1) = ?
+	S("n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_7, Fresh_8, Fresh_9)) [ -Ar_2 + 101 >= 0 /\\ Ar_0 - Ar_1 + 1 >= 0 /\\ -Ar_0 + Ar_2 - 1 >= 0 ]", 0-2) = ?
+	S("n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_10, Fresh_11, Fresh_12)) [ -Ar_2 + 101 >= 0 /\\ Ar_0 - Ar_1 + 1 >= 0 /\\ Ar_1 - 101 >= 0 ]", 0-0) = ?
+	S("n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_10, Fresh_11, Fresh_12)) [ -Ar_2 + 101 >= 0 /\\ Ar_0 - Ar_1 + 1 >= 0 /\\ Ar_1 - 101 >= 0 ]", 0-1) = ?
+	S("n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_10, Fresh_11, Fresh_12)) [ -Ar_2 + 101 >= 0 /\\ Ar_0 - Ar_1 + 1 >= 0 /\\ Ar_1 - 101 >= 0 ]", 0-2) = ?
+	S("n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_13, Ar_1 + 1)) [ -Ar_2 + 101 >= 0 /\\ Ar_0 - Ar_1 + 1 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ Ar_0 - Fresh_13 >= 0 /\\ Ar_2 - Fresh_13 = 0 ]", 0-0) = ?
+	S("n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_13, Ar_1 + 1)) [ -Ar_2 + 101 >= 0 /\\ Ar_0 - Ar_1 + 1 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ Ar_0 - Fresh_13 >= 0 /\\ Ar_2 - Fresh_13 = 0 ]", 0-1) = Ar_0 + Ar_2 + 202
+	S("n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_13, Ar_1 + 1)) [ -Ar_2 + 101 >= 0 /\\ Ar_0 - Ar_1 + 1 >= 0 /\\ -Ar_1 + 100 >= 0 /\\ Ar_0 - Fresh_13 >= 0 /\\ Ar_2 - Fresh_13 = 0 ]", 0-2) = Ar_0 + Ar_2 + 202
+	S("pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestart(Ar_0, Ar_1, Ar_2))", 0-0) = Ar_0
+	S("pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestart(Ar_0, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestart(Ar_0, Ar_1, Ar_2))", 0-2) = Ar_2
+orients the transitions
+	n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_13, Ar_1 + 1)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_13 >= 0 /\ Ar_2 - Fresh_13 = 0 ]
+weakly and the transition
+	n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_13, Ar_1 + 1)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_13 >= 0 /\ Ar_2 - Fresh_13 = 0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)                           pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestart(Ar_0, Ar_1, Ar_2))
+		(Comp: Ar_1 + Ar_2 + Ar_0 + 203, Cost: 1)    n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_13, Ar_1 + 1)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_13 >= 0 /\ Ar_2 - Fresh_13 = 0 ]
+		(Comp: 1, Cost: 1)                           n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_10, Fresh_11, Fresh_12)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ Ar_1 - 101 >= 0 ]
+		(Comp: 1, Cost: 1)                           n_evalterminatebb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_7, Fresh_8, Fresh_9)) [ -Ar_2 + 101 >= 0 /\ Ar_0 - Ar_1 + 1 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)                           n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_6 >= 0 /\ Ar_2 - Fresh_6 = 0 ]
+		(Comp: 1, Cost: 1)                           n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]
+		(Comp: 1, Cost: 1)                           n_evalterminatebb1in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatestop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)                           n_evalterminatestart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalterminatebb1in___3(Ar_1, Ar_0, Ar_2))
+		(Comp: 1, Cost: 0)                           koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound Ar_1 + Ar_2 + Ar_0 + 210
+
+Time: 0.125 sec (SMT: 0.113 sec)
+
+-- stats
+realtime 0:00.14
+usertime 0.10
+systime 0.02
+

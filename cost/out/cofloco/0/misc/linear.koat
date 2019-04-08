@@ -1,0 +1,86 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [a/2]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [a_loop_cont/2]
+3. non_recursive  : [start/2]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into a/2
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into start/2
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations a/2 
+* CE 3 is refined into CE [4] 
+* CE 2 is refined into CE [5] 
+
+
+### Cost equations --> "Loop" of a/2 
+* CEs [5] --> Loop 4 
+* CEs [4] --> Loop 5 
+
+### Ranking functions of CR a(A,B) 
+* RF of phase [4]: [A]
+
+#### Partial ranking functions of CR a(A,B) 
+* Partial RF of phase [4]:
+  - RF of loop [4:1]:
+    A
+
+
+### Specialization of cost equations start/2 
+* CE 1 is refined into CE [6] 
+
+
+### Cost equations --> "Loop" of start/2 
+* CEs [6] --> Loop 6 
+
+### Ranking functions of CR start(A,B) 
+
+#### Partial ranking functions of CR start(A,B) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of a(A,B):
+* Chain [[4],5]: 1*it(4)+0
+  Such that:it(4) =< A
+
+  with precondition: [B=2,A>=1] 
+
+* Chain [5]: 0
+  with precondition: [B=2,A>=0] 
+
+
+#### Cost of chains of start(A,B):
+* Chain [6]: 1*s(2)+1
+  Such that:s(2) =< A
+
+  with precondition: [A>=1] 
+
+
+Closed-form bounds of start(A,B): 
+-------------------------------------
+* Chain [6] with precondition: [A>=1] 
+    - Upper bound: A+1 
+    - Complexity: n 
+
+### Maximum cost of start(A,B): A+1 
+Asymptotic class: n 
+* Total analysis performed in 26 ms.
+
+
+-- stats
+realtime 0:00.07
+usertime 0.06
+systime 0.00
+

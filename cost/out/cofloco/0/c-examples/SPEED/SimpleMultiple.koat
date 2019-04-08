@@ -1,0 +1,172 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalSimpleMultiplebb1in/9,evalSimpleMultiplebb2in/9,evalSimpleMultiplebb3in/9,evalSimpleMultiplebbin/9]
+1. non_recursive  : [evalSimpleMultiplestop/5]
+2. non_recursive  : [evalSimpleMultiplereturnin/5]
+3. non_recursive  : [exit_location/1]
+4. non_recursive  : [evalSimpleMultiplebb3in_loop_cont/6]
+5. non_recursive  : [evalSimpleMultipleentryin/5]
+6. non_recursive  : [evalSimpleMultiplestart/5]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalSimpleMultiplebb3in/9
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into evalSimpleMultiplebb3in_loop_cont/6
+5. SCC is partially evaluated into evalSimpleMultipleentryin/5
+6. SCC is partially evaluated into evalSimpleMultiplestart/5
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalSimpleMultiplebb3in/9 
+* CE 6 is refined into CE [9] 
+* CE 5 is refined into CE [10] 
+* CE 4 is refined into CE [11] 
+* CE 3 is refined into CE [12] 
+
+
+### Cost equations --> "Loop" of evalSimpleMultiplebb3in/9 
+* CEs [11] --> Loop 9 
+* CEs [12] --> Loop 10 
+* CEs [9] --> Loop 11 
+* CEs [10] --> Loop 12 
+
+### Ranking functions of CR evalSimpleMultiplebb3in(A,B,C,D,E,F,G,H,I) 
+* RF of phase [9]: [-B+C]
+* RF of phase [10]: [-A+D]
+
+#### Partial ranking functions of CR evalSimpleMultiplebb3in(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [9]:
+  - RF of loop [9:1]:
+    -B+C
+* Partial RF of phase [10]:
+  - RF of loop [10:1]:
+    -A+D
+
+
+### Specialization of cost equations evalSimpleMultiplebb3in_loop_cont/6 
+* CE 8 is refined into CE [13] 
+* CE 7 is refined into CE [14] 
+
+
+### Cost equations --> "Loop" of evalSimpleMultiplebb3in_loop_cont/6 
+* CEs [13] --> Loop 13 
+* CEs [14] --> Loop 14 
+
+### Ranking functions of CR evalSimpleMultiplebb3in_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR evalSimpleMultiplebb3in_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations evalSimpleMultipleentryin/5 
+* CE 2 is refined into CE [15,16,17,18] 
+
+
+### Cost equations --> "Loop" of evalSimpleMultipleentryin/5 
+* CEs [15,16,17,18] --> Loop 15 
+
+### Ranking functions of CR evalSimpleMultipleentryin(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalSimpleMultipleentryin(A,B,C,D,E) 
+
+
+### Specialization of cost equations evalSimpleMultiplestart/5 
+* CE 1 is refined into CE [19] 
+
+
+### Cost equations --> "Loop" of evalSimpleMultiplestart/5 
+* CEs [19] --> Loop 16 
+
+### Ranking functions of CR evalSimpleMultiplestart(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalSimpleMultiplestart(A,B,C,D,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalSimpleMultiplebb3in(A,B,C,D,E,F,G,H,I):
+* Chain [[10],[9],12]: 3*it(9)+3*it(10)+1
+  Such that:it(10) =< -A+I
+it(9) =< G
+
+  with precondition: [B=0,E=2,D=F,C=G,C=H,D=I,A>=0,C>=1,D>=A+1] 
+
+* Chain [[10],[9],11]: 3*it(9)+3*it(10)+0
+  Such that:it(10) =< -A+D
+it(9) =< C
+
+  with precondition: [B=0,E=3,A>=0,C>=1,D>=A+1] 
+
+* Chain [[10],11]: 3*it(10)+0
+  Such that:it(10) =< -A+D
+
+  with precondition: [B=0,E=3,A>=0,C>=1,D>=A+1] 
+
+* Chain [[9],12]: 3*it(9)+1
+  Such that:it(9) =< -B+H
+
+  with precondition: [E=2,A=F,C=G,C=H,D=I,A>=0,B>=0,C>=B+1,A>=D] 
+
+* Chain [[9],11]: 3*it(9)+0
+  Such that:it(9) =< -B+C
+
+  with precondition: [E=3,A>=0,B>=0,C>=B+1,A>=D] 
+
+* Chain [12]: 1
+  with precondition: [E=2,I=D,A=F,B=G,C=H,A>=0,B>=0,B>=C] 
+
+* Chain [11]: 0
+  with precondition: [E=3,A>=0,B>=0] 
+
+
+#### Cost of chains of evalSimpleMultiplebb3in_loop_cont(A,B,C,D,E,F):
+* Chain [14]: 1
+  with precondition: [A=2] 
+
+* Chain [13]: 0
+  with precondition: [A=3] 
+
+
+#### Cost of chains of evalSimpleMultipleentryin(A,B,C,D,E):
+* Chain [15]: 9*s(5)+12*s(6)+3
+  Such that:aux(3) =< C
+aux(4) =< D
+s(6) =< aux(3)
+s(5) =< aux(4)
+
+  with precondition: [] 
+
+
+#### Cost of chains of evalSimpleMultiplestart(A,B,C,D,E):
+* Chain [16]: 12*s(14)+9*s(15)+4
+  Such that:s(12) =< C
+s(13) =< D
+s(14) =< s(12)
+s(15) =< s(13)
+
+  with precondition: [] 
+
+
+Closed-form bounds of evalSimpleMultiplestart(A,B,C,D,E): 
+-------------------------------------
+* Chain [16] with precondition: [] 
+    - Upper bound: nat(C)*12+4+nat(D)*9 
+    - Complexity: n 
+
+### Maximum cost of evalSimpleMultiplestart(A,B,C,D,E): nat(C)*12+4+nat(D)*9 
+Asymptotic class: n 
+* Total analysis performed in 228 ms.
+
+
+-- stats
+realtime 0:00.29
+usertime 0.26
+systime 0.00
+

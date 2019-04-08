@@ -1,0 +1,98 @@
+WORST_CASE(?, O(n^2))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    eval1(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    eval2(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, Ar_1 + 1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    eval2(Ar_0, Ar_1) -> Com_1(eval1(Ar_0 - 1, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1) -> Com_1(eval1(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: ?, Cost: 1)    eval1(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    eval2(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, Ar_1 + 1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    eval2(Ar_0, Ar_1) -> Com_1(eval1(Ar_0 - 1, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1) -> Com_1(eval1(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(eval1) = V_1 + 1
+	Pol(eval2) = V_1
+	Pol(start) = V_1 + 1
+	Pol(koat_start) = V_1 + 1
+orients all transitions weakly and the transition
+	eval1(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, 0)) [ Ar_0 >= 0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: Ar_0 + 1, Cost: 1)    eval1(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)           eval2(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, Ar_1 + 1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)           eval2(Ar_0, Ar_1) -> Com_1(eval1(Ar_0 - 1, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: 1, Cost: 1)           start(Ar_0, Ar_1) -> Com_1(eval1(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1) -> Com_1(start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(eval2) = 1
+	Pol(eval1) = 0
+and size complexities
+	S("koat_start(Ar_0, Ar_1) -> Com_1(start(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1) -> Com_1(start(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("start(Ar_0, Ar_1) -> Com_1(eval1(Ar_0, Ar_1))", 0-0) = Ar_0
+	S("start(Ar_0, Ar_1) -> Com_1(eval1(Ar_0, Ar_1))", 0-1) = Ar_1
+	S("eval2(Ar_0, Ar_1) -> Com_1(eval1(Ar_0 - 1, Ar_1)) [ Ar_1 >= Ar_0 ]", 0-0) = ?
+	S("eval2(Ar_0, Ar_1) -> Com_1(eval1(Ar_0 - 1, Ar_1)) [ Ar_1 >= Ar_0 ]", 0-1) = ?
+	S("eval2(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, Ar_1 + 1)) [ Ar_0 >= Ar_1 + 1 ]", 0-0) = ?
+	S("eval2(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, Ar_1 + 1)) [ Ar_0 >= Ar_1 + 1 ]", 0-1) = ?
+	S("eval1(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, 0)) [ Ar_0 >= 0 ]", 0-0) = ?
+	S("eval1(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, 0)) [ Ar_0 >= 0 ]", 0-1) = 0
+orients the transitions
+	eval2(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, Ar_1 + 1)) [ Ar_0 >= Ar_1 + 1 ]
+	eval2(Ar_0, Ar_1) -> Com_1(eval1(Ar_0 - 1, Ar_1)) [ Ar_1 >= Ar_0 ]
+weakly and the transition
+	eval2(Ar_0, Ar_1) -> Com_1(eval1(Ar_0 - 1, Ar_1)) [ Ar_1 >= Ar_0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: Ar_0 + 1, Cost: 1)    eval1(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)           eval2(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, Ar_1 + 1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)    eval2(Ar_0, Ar_1) -> Com_1(eval1(Ar_0 - 1, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: 1, Cost: 1)           start(Ar_0, Ar_1) -> Com_1(eval1(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1) -> Com_1(start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(eval2) = V_1 - V_2
+and size complexities
+	S("koat_start(Ar_0, Ar_1) -> Com_1(start(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1) -> Com_1(start(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("start(Ar_0, Ar_1) -> Com_1(eval1(Ar_0, Ar_1))", 0-0) = Ar_0
+	S("start(Ar_0, Ar_1) -> Com_1(eval1(Ar_0, Ar_1))", 0-1) = Ar_1
+	S("eval2(Ar_0, Ar_1) -> Com_1(eval1(Ar_0 - 1, Ar_1)) [ Ar_1 >= Ar_0 ]", 0-0) = 2*Ar_0 + 4
+	S("eval2(Ar_0, Ar_1) -> Com_1(eval1(Ar_0 - 1, Ar_1)) [ Ar_1 >= Ar_0 ]", 0-1) = ?
+	S("eval2(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, Ar_1 + 1)) [ Ar_0 >= Ar_1 + 1 ]", 0-0) = 2*Ar_0 + 4
+	S("eval2(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, Ar_1 + 1)) [ Ar_0 >= Ar_1 + 1 ]", 0-1) = ?
+	S("eval1(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, 0)) [ Ar_0 >= 0 ]", 0-0) = 2*Ar_0 + 4
+	S("eval1(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, 0)) [ Ar_0 >= 0 ]", 0-1) = 0
+orients the transitions
+	eval2(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, Ar_1 + 1)) [ Ar_0 >= Ar_1 + 1 ]
+weakly and the transition
+	eval2(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, Ar_1 + 1)) [ Ar_0 >= Ar_1 + 1 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: Ar_0 + 1, Cost: 1)                 eval1(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: 2*Ar_0^2 + 6*Ar_0 + 4, Cost: 1)    eval2(Ar_0, Ar_1) -> Com_1(eval2(Ar_0, Ar_1 + 1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)                 eval2(Ar_0, Ar_1) -> Com_1(eval1(Ar_0 - 1, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: 1, Cost: 1)                        start(Ar_0, Ar_1) -> Com_1(eval1(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)                        koat_start(Ar_0, Ar_1) -> Com_1(start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 8*Ar_0 + 2*Ar_0^2 + 7
+
+Time: 0.027 sec (SMT: 0.023 sec)

@@ -1,0 +1,486 @@
+WORST_CASE(?,O(n^4))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalfbb3in/11,evalfbb4in/11]
+1. recursive  : [evalfbb4in_loop_cont/12,evalfbb5in/11,evalfbb6in/11]
+2. recursive  : [evalfbb6in_loop_cont/12,evalfbb7in/11,evalfbb8in/11]
+3. recursive  : [evalfbb10in/11,evalfbb8in_loop_cont/12]
+4. non_recursive  : [evalfstop/6]
+5. non_recursive  : [evalfreturnin/6]
+6. non_recursive  : [exit_location/1]
+7. non_recursive  : [evalfbb10in_loop_cont/7]
+8. non_recursive  : [evalfentryin/6]
+9. non_recursive  : [evalfstart/6]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalfbb4in/11
+1. SCC is partially evaluated into evalfbb6in/11
+2. SCC is partially evaluated into evalfbb8in/11
+3. SCC is partially evaluated into evalfbb10in/11
+4. SCC is completely evaluated into other SCCs
+5. SCC is completely evaluated into other SCCs
+6. SCC is completely evaluated into other SCCs
+7. SCC is partially evaluated into evalfbb10in_loop_cont/7
+8. SCC is partially evaluated into evalfentryin/6
+9. SCC is partially evaluated into evalfstart/6
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalfbb4in/11 
+* CE 19 is refined into CE [20] 
+* CE 18 is refined into CE [21] 
+* CE 17 is refined into CE [22] 
+
+
+### Cost equations --> "Loop" of evalfbb4in/11 
+* CEs [22] --> Loop 17 
+* CEs [20] --> Loop 18 
+* CEs [21] --> Loop 19 
+
+### Ranking functions of CR evalfbb4in(A,B,C,D,E,F,G,H,I,J,K) 
+* RF of phase [17]: [B-E+1,D-E+1]
+
+#### Partial ranking functions of CR evalfbb4in(A,B,C,D,E,F,G,H,I,J,K) 
+* Partial RF of phase [17]:
+  - RF of loop [17:1]:
+    B-E+1
+    D-E+1
+
+
+### Specialization of cost equations evalfbb6in/11 
+* CE 15 is refined into CE [23] 
+* CE 13 is refined into CE [24] 
+* CE 16 is refined into CE [25] 
+* CE 14 is refined into CE [26,27] 
+
+
+### Cost equations --> "Loop" of evalfbb6in/11 
+* CEs [27] --> Loop 20 
+* CEs [26] --> Loop 21 
+* CEs [23] --> Loop 22 
+* CEs [24,25] --> Loop 23 
+
+### Ranking functions of CR evalfbb6in(A,B,C,D,E,F,G,H,I,J,K) 
+* RF of phase [20]: [B-D+1]
+* RF of phase [21]: [B-D+1,-D+1]
+
+#### Partial ranking functions of CR evalfbb6in(A,B,C,D,E,F,G,H,I,J,K) 
+* Partial RF of phase [20]:
+  - RF of loop [20:1]:
+    B-D+1
+* Partial RF of phase [21]:
+  - RF of loop [21:1]:
+    B-D+1
+    -D+1
+
+
+### Specialization of cost equations evalfbb8in/11 
+* CE 11 is refined into CE [28] 
+* CE 9 is refined into CE [29,30] 
+* CE 12 is refined into CE [31] 
+* CE 10 is refined into CE [32,33,34,35] 
+
+
+### Cost equations --> "Loop" of evalfbb8in/11 
+* CEs [35] --> Loop 24 
+* CEs [34] --> Loop 25 
+* CEs [33] --> Loop 26 
+* CEs [32] --> Loop 27 
+* CEs [28] --> Loop 28 
+* CEs [29,30,31] --> Loop 29 
+
+### Ranking functions of CR evalfbb8in(A,B,C,D,E,F,G,H,I,J,K) 
+* RF of phase [24]: [A-C+1,B-C]
+* RF of phase [26]: [A-C+1,B-C+1]
+
+#### Partial ranking functions of CR evalfbb8in(A,B,C,D,E,F,G,H,I,J,K) 
+* Partial RF of phase [24]:
+  - RF of loop [24:1]:
+    A-C+1
+    B-C
+* Partial RF of phase [26]:
+  - RF of loop [26:1]:
+    A-C+1
+    B-C+1
+
+
+### Specialization of cost equations evalfbb10in/11 
+* CE 5 is refined into CE [36] 
+* CE 3 is refined into CE [37] 
+* CE 6 is refined into CE [38] 
+* CE 4 is refined into CE [39,40,41] 
+
+
+### Cost equations --> "Loop" of evalfbb10in/11 
+* CEs [39] --> Loop 30 
+* CEs [41] --> Loop 31 
+* CEs [40] --> Loop 32 
+* CEs [36] --> Loop 33 
+* CEs [37,38] --> Loop 34 
+
+### Ranking functions of CR evalfbb10in(A,B,C,D,E,F,G,H,I,J,K) 
+* RF of phase [31]: [-A+B]
+
+#### Partial ranking functions of CR evalfbb10in(A,B,C,D,E,F,G,H,I,J,K) 
+* Partial RF of phase [31]:
+  - RF of loop [31:1]:
+    -A+B
+
+
+### Specialization of cost equations evalfbb10in_loop_cont/7 
+* CE 7 is refined into CE [42] 
+* CE 8 is refined into CE [43] 
+
+
+### Cost equations --> "Loop" of evalfbb10in_loop_cont/7 
+* CEs [42] --> Loop 35 
+* CEs [43] --> Loop 36 
+
+### Ranking functions of CR evalfbb10in_loop_cont(A,B,C,D,E,F,G) 
+
+#### Partial ranking functions of CR evalfbb10in_loop_cont(A,B,C,D,E,F,G) 
+
+
+### Specialization of cost equations evalfentryin/6 
+* CE 2 is refined into CE [44,45,46,47] 
+
+
+### Cost equations --> "Loop" of evalfentryin/6 
+* CEs [44,45,46,47] --> Loop 37 
+
+### Ranking functions of CR evalfentryin(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR evalfentryin(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations evalfstart/6 
+* CE 1 is refined into CE [48] 
+
+
+### Cost equations --> "Loop" of evalfstart/6 
+* CEs [48] --> Loop 38 
+
+### Ranking functions of CR evalfstart(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR evalfstart(A,B,C,D,E,F) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalfbb4in(A,B,C,D,E,F,G,H,I,J,K):
+* Chain [[17],19]: 2*it(17)+1
+  Such that:it(17) =< -E+J+1
+
+  with precondition: [F=2,A=G,B=H,C=I,D=J,D+1=K,E>=1,B>=D,D>=E] 
+
+* Chain [[17],18]: 2*it(17)+0
+  Such that:it(17) =< D-E+1
+
+  with precondition: [F=3,E>=1,B>=D,D>=E] 
+
+* Chain [19]: 1
+  with precondition: [F=2,G=A,I=C,B=H,D=J,E=K,E>=1,B>=D,E>=D+1] 
+
+* Chain [18]: 0
+  with precondition: [F=3,E>=1,B>=D] 
+
+
+#### Cost of chains of evalfbb6in(A,B,C,D,E,F,G,H,I,J,K):
+* Chain [[21],[20],23]: 3*it(20)+3*it(21)+2*s(2)+2*s(5)+1
+  Such that:it(20) =< B
+aux(2) =< B+1
+it(21) =< -D+1
+s(2) =< aux(2)
+s(5) =< it(20)*aux(2)
+
+  with precondition: [F=3,0>=D,B>=1,D>=A+1,A>=C] 
+
+* Chain [[21],[20],22]: 3*it(20)+3*it(21)+2*s(5)+1
+  Such that:it(21) =< -D+1
+aux(3) =< J
+it(20) =< aux(3)
+s(5) =< it(20)*aux(3)
+
+  with precondition: [F=4,A=G,B=H,C=I,B+1=J,B+1=K,0>=D,B>=1,D>=A+1,A>=C] 
+
+* Chain [[21],23]: 3*it(21)+2*s(2)+1
+  Such that:s(2) =< 1
+it(21) =< -D+1
+
+  with precondition: [F=3,0>=D,D>=A+1,A>=C,B>=D] 
+
+* Chain [[21],22]: 3*it(21)+1
+  Such that:it(21) =< -D+J
+
+  with precondition: [F=4,K=1,A=G,B=H,C=I,B+1=J,0>=B,D>=A+1,A>=C,B>=D] 
+
+* Chain [[20],23]: 3*it(20)+2*s(2)+2*s(5)+1
+  Such that:it(20) =< B-D+1
+aux(2) =< B+1
+s(2) =< aux(2)
+s(5) =< it(20)*aux(2)
+
+  with precondition: [F=3,D>=1,D>=A+1,A>=C,B>=D] 
+
+* Chain [[20],22]: 3*it(20)+2*s(5)+1
+  Such that:it(20) =< -D+J
+aux(1) =< J
+s(5) =< it(20)*aux(1)
+
+  with precondition: [F=4,A=G,B=H,C=I,B+1=J,B+1=K,D>=1,D>=A+1,A>=C,B>=D] 
+
+* Chain [23]: 2*s(2)+1
+  Such that:s(2) =< D
+
+  with precondition: [F=3,D>=A+1,A>=C] 
+
+* Chain [22]: 1
+  with precondition: [F=4,K=E,A=G,B=H,C=I,D=J,D>=A+1,D>=B+1,A>=C] 
+
+
+#### Cost of chains of evalfbb8in(A,B,C,D,E,F,G,H,I,J,K):
+* Chain [[26],29]: 3*it(26)+2*s(14)+3*s(15)+6*s(17)+6*s(19)+2*s(21)+2
+  Such that:s(14) =< 1
+s(18) =< -B
+s(15) =< B
+it(26) =< B-C+1
+aux(6) =< B+1
+s(17) =< aux(6)
+s(19) =< s(18)
+s(21) =< s(15)*aux(6)
+
+  with precondition: [F=3,A=B,C>=1,A>=C] 
+
+* Chain [[26],28]: 3*it(26)+1
+  Such that:it(26) =< -C+I
+
+  with precondition: [F=5,A=B,A+1=G,A=H,A+1=I,A+1=J,E=K,C>=1,A>=C] 
+
+* Chain [[24],29]: 3*it(24)+2*s(14)+3*s(15)+2*s(17)+6*s(19)+4*s(20)+2*s(21)+3*s(22)+2*s(25)+3*s(32)+2*s(33)+2
+  Such that:s(14) =< 1
+s(18) =< -A
+s(17) =< A+1
+it(24) =< A-C+1
+s(15) =< B
+aux(8) =< -A+B
+aux(9) =< B+1
+s(22) =< aux(8)
+s(19) =< s(18)
+s(20) =< aux(9)
+s(21) =< s(15)*aux(9)
+s(25) =< s(22)*aux(9)
+s(32) =< it(24)*aux(8)
+s(33) =< s(32)*aux(9)
+
+  with precondition: [F=3,C>=1,B>=A+1,A>=C] 
+
+* Chain [[24],28]: 3*it(24)+3*s(32)+2*s(33)+1
+  Such that:it(24) =< -C+I
+s(30) =< H+1
+aux(7) =< H-I+1
+s(32) =< it(24)*aux(7)
+s(33) =< s(32)*s(30)
+
+  with precondition: [F=5,A+1=G,B=H,A+1=I,B+1=J,B+1=K,C>=1,B>=A+1,A>=C] 
+
+* Chain [29]: 2*s(14)+3*s(15)+2*s(17)+6*s(19)+4*s(20)+2*s(21)+3*s(22)+2*s(25)+2
+  Such that:s(14) =< 1
+s(18) =< -A
+s(22) =< -A+B
+s(17) =< A+1
+s(15) =< B
+aux(5) =< B+1
+s(19) =< s(18)
+s(20) =< aux(5)
+s(21) =< s(15)*aux(5)
+s(25) =< s(22)*aux(5)
+
+  with precondition: [F=3,C>=1] 
+
+* Chain [28]: 1
+  with precondition: [F=5,H=B,J=D,K=E,A+1=G,C=I,C>=1,C>=A+1] 
+
+
+#### Cost of chains of evalfbb10in(A,B,C,D,E,F,G,H,I,J,K):
+* Chain [[31],34]: 2*it(31)+15*s(66)+6*s(75)+24*s(76)+12*s(79)+9*s(81)+4*s(82)+2*s(84)+6*s(85)+3*s(96)+3*s(97)+2*s(98)+3
+  Such that:s(69) =< 1
+s(70) =< -A
+s(67) =< -B
+aux(19) =< -A+B
+aux(20) =< B
+aux(21) =< B+1
+it(31) =< aux(19)
+s(66) =< aux(20)
+s(75) =< s(69)
+s(76) =< aux(21)
+s(79) =< s(70)
+s(81) =< s(66)*aux(21)
+s(82) =< s(76)*aux(21)
+s(84) =< s(81)*aux(21)
+s(85) =< s(67)
+s(96) =< it(31)*aux(20)
+s(97) =< s(96)*aux(19)
+s(98) =< s(97)*aux(21)
+
+  with precondition: [F=3,A>=1,B>=A+1] 
+
+* Chain [[31],30,34]: 2*it(31)+17*s(66)+15*s(68)+6*s(75)+4*s(77)+18*s(79)+6*s(81)+3*s(96)+3*s(97)+2*s(98)+5
+  Such that:s(69) =< 1
+aux(22) =< -B
+s(72) =< B+2
+aux(25) =< -A+B
+aux(26) =< B
+aux(27) =< B+1
+it(31) =< aux(25)
+s(68) =< aux(26)
+s(66) =< aux(27)
+s(75) =< s(69)
+s(77) =< s(72)
+s(79) =< aux(22)
+s(81) =< s(68)*aux(27)
+s(96) =< it(31)*aux(26)
+s(97) =< s(96)*aux(25)
+s(98) =< s(97)*aux(27)
+
+  with precondition: [F=3,A>=1,B>=A+1] 
+
+* Chain [[31],30,33]: 2*it(31)+3*s(96)+3*s(97)+2*s(98)+3*s(99)+3
+  Such that:s(93) =< H+1
+aux(28) =< -A+H
+aux(29) =< H
+it(31) =< aux(28)
+s(99) =< aux(29)
+s(96) =< it(31)*aux(29)
+s(97) =< s(96)*aux(28)
+s(98) =< s(97)*s(93)
+
+  with precondition: [F=6,B+1=G,B=H,B+1=I,B+1=J,B+1=K,A>=1,B>=A+1] 
+
+* Chain [34]: 3*s(66)+12*s(68)+6*s(75)+6*s(76)+4*s(77)+12*s(79)+14*s(80)+6*s(81)+4*s(82)+3*s(83)+2*s(84)+6*s(85)+3
+  Such that:s(69) =< 1
+s(70) =< -A
+s(71) =< -A+B
+s(66) =< A
+s(72) =< A+1
+s(67) =< -B
+aux(16) =< B
+s(74) =< B+1
+s(68) =< aux(16)
+s(75) =< s(69)
+s(76) =< s(71)
+s(77) =< s(72)
+s(79) =< s(70)
+s(80) =< s(74)
+s(81) =< s(68)*s(74)
+s(82) =< s(76)*s(74)
+s(83) =< s(66)*s(71)
+s(84) =< s(83)*s(74)
+s(85) =< s(67)
+
+  with precondition: [F=3,A>=1] 
+
+* Chain [33]: 1
+  with precondition: [F=6,I=C,J=D,K=E,A=G,B=H,A>=1,A>=B+1] 
+
+* Chain [30,34]: 17*s(66)+15*s(68)+6*s(75)+4*s(77)+18*s(79)+6*s(81)+5
+  Such that:s(69) =< 1
+s(72) =< B+2
+aux(22) =< -A
+aux(23) =< B
+aux(24) =< B+1
+s(68) =< aux(23)
+s(66) =< aux(24)
+s(75) =< s(69)
+s(77) =< s(72)
+s(79) =< aux(22)
+s(81) =< s(68)*aux(24)
+
+  with precondition: [F=3,A=B,A>=1] 
+
+* Chain [30,33]: 3*s(99)+3
+  Such that:s(99) =< H
+
+  with precondition: [F=6,A=B,A+1=G,A=H,A+1=I,A+1=J,E=K,A>=1] 
+
+
+#### Cost of chains of evalfbb10in_loop_cont(A,B,C,D,E,F,G):
+* Chain [36]: 0
+  with precondition: [A=3] 
+
+* Chain [35]: 1
+  with precondition: [A=6] 
+
+
+#### Cost of chains of evalfentryin(A,B,C,D,E,F):
+* Chain [37]: 30*s(164)+72*s(173)+72*s(174)+8*s(176)+31*s(178)+4*s(180)+3*s(182)+2*s(183)+30*s(184)+9*s(185)+9*s(186)+6*s(187)+4*s(188)+2*s(189)+6
+  Such that:s(165) =< 2
+s(169) =< -B
+s(172) =< B+2
+aux(40) =< 1
+aux(41) =< B
+aux(42) =< B+1
+s(164) =< aux(40)
+s(173) =< aux(41)
+s(174) =< aux(42)
+s(176) =< s(172)
+s(178) =< s(173)*aux(42)
+s(180) =< s(165)
+s(182) =< s(164)*aux(41)
+s(183) =< s(182)*aux(42)
+s(184) =< s(169)
+s(185) =< s(173)*aux(41)
+s(186) =< s(185)*aux(41)
+s(187) =< s(186)*aux(42)
+s(188) =< s(174)*aux(42)
+s(189) =< s(178)*aux(42)
+
+  with precondition: [] 
+
+
+#### Cost of chains of evalfstart(A,B,C,D,E,F):
+* Chain [38]: 30*s(205)+72*s(206)+72*s(207)+8*s(208)+31*s(209)+4*s(210)+3*s(211)+2*s(212)+30*s(213)+9*s(214)+9*s(215)+6*s(216)+4*s(217)+2*s(218)+7
+  Such that:s(202) =< 1
+s(199) =< 2
+s(200) =< -B
+s(203) =< B
+s(204) =< B+1
+s(201) =< B+2
+s(205) =< s(202)
+s(206) =< s(203)
+s(207) =< s(204)
+s(208) =< s(201)
+s(209) =< s(206)*s(204)
+s(210) =< s(199)
+s(211) =< s(205)*s(203)
+s(212) =< s(211)*s(204)
+s(213) =< s(200)
+s(214) =< s(206)*s(203)
+s(215) =< s(214)*s(203)
+s(216) =< s(215)*s(204)
+s(217) =< s(207)*s(204)
+s(218) =< s(209)*s(204)
+
+  with precondition: [] 
+
+
+Closed-form bounds of evalfstart(A,B,C,D,E,F): 
+-------------------------------------
+* Chain [38] with precondition: [] 
+    - Upper bound: nat(B)*75+45+nat(B)*9*nat(B)+nat(B)*9*nat(B)*nat(B)+nat(-B)*30+nat(B+1)*72+nat(B+1)*33*nat(B)+nat(B+1)*6*nat(B)*nat(B)*nat(B)+nat(B+1)*4*nat(B+1)+nat(B+1)*2*nat(B+1)*nat(B)+nat(B+2)*8 
+    - Complexity: n^4 
+
+### Maximum cost of evalfstart(A,B,C,D,E,F): nat(B)*75+45+nat(B)*9*nat(B)+nat(B)*9*nat(B)*nat(B)+nat(-B)*30+nat(B+1)*72+nat(B+1)*33*nat(B)+nat(B+1)*6*nat(B)*nat(B)*nat(B)+nat(B+1)*4*nat(B+1)+nat(B+1)*2*nat(B+1)*nat(B)+nat(B+2)*8 
+Asymptotic class: n^4 
+* Total analysis performed in 1135 ms.
+
+
+-- stats
+realtime 0:01.32
+usertime 1.22
+systime 0.02
+

@@ -1,0 +1,9 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A' B' NoDet1 NoDet0)
+(RULES 
+  pyRinit(A,B) -> Com_1(start(A,B))
+  start(A,B) -> Com_1(sumto(A, B))
+  sumto(A,B) -> Com_1(end(NoDet0, NoDet1)) :|: A -B -1 >= 0
+  sumto(A,B) -> Com_1(sumto(A + 1, B)) :|: B -A >= 0
+)

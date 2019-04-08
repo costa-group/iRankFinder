@@ -1,0 +1,96 @@
+{
+  vars: [A,B,C,D,E,F],
+  pvars: [A',B',C',D',E',F'],
+  initnode: start0,
+  nodes: {
+    lbl111: {
+      cfr_properties: [
+        // RFs Properties
+        [39 -E >= 0],
+        [-39 + E > 0],
+        [39 -E >= 0],
+        [-39 + E > 0],
+      ],
+      inv_polyhedra: [-100 + C == 0, A -B == 0, -2 + E >= 0],
+    },
+    lbl91: {
+      cfr_properties: [
+        // RFs Properties
+        [39 -E >= 0],
+        [-39 + E > 0],
+      ],
+      inv_polyhedra: [-100 + C == 0, B == 0, A == 0, -1 + E >= 0],
+    },
+    start: {
+      inv_polyhedra: [E -F == 0, C -D == 0, A -B == 0],
+    },
+    start0: {
+      inv_polyhedra: [],
+    },
+    stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: start,
+	target: lbl91,
+	name: t0,
+	constraints: [A = 0, B = 0, C -D = 0, E -F = 0, A -A' = 0, B -B' = 0, 100 -C' = 0, D -D' = 0, 1 -E' = 0, F -F' = 0]
+    },
+    {
+	source: start,
+	target: lbl111,
+	name: t1,
+	constraints: [-1 -B >= 0, A -B = 0, C -D = 0, E -F = 0, A -A' = 0, B -B' = 0, 100 -C' = 0, D -D' = 0, 2 -E' = 0, F -F' = 0]
+    },
+    {
+	source: lbl111,
+	target: lbl111,
+	name: t10,
+	constraints: [B -1 >= 0, 39 -E >= 0, E -2 >= 0, 41 -E >= 0, C -100 = 0, A -B = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, 2 + E -E' = 0, F -F' = 0]
+    },
+    {
+	source: start0,
+	target: start,
+	name: t11,
+	constraints: [B -A' = 0, B -B' = 0, D -C' = 0, D -D' = 0, F -E' = 0, F -F' = 0]
+    },
+    {
+	source: start,
+	target: lbl111,
+	name: t2,
+	constraints: [B -1 >= 0, A -B = 0, C -D = 0, E -F = 0, A -A' = 0, B -B' = 0, 100 -C' = 0, D -D' = 0, 2 -E' = 0, F -F' = 0]
+    },
+    {
+	source: lbl91,
+	target: stop,
+	name: t3,
+	constraints: [E -40 = 0, C -100 = 0, A = 0, B = 0]
+    },
+    {
+	source: lbl91,
+	target: lbl91,
+	name: t4,
+	constraints: [39 -E >= 0, E -1 >= 0, 40 -E >= 0, A = 0, C -100 = 0, B = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, 1 + E -E' = 0, F -F' = 0]
+    },
+    {
+	source: lbl111,
+	target: stop,
+	name: t7,
+	constraints: [E -40 >= 0, E -2 >= 0, 41 -E >= 0, C -100 = 0, A -B = 0]
+    },
+    {
+	source: lbl111,
+	target: lbl91,
+	name: t8,
+	constraints: [39 -E >= 0, E -2 >= 0, 41 -E >= 0, A = 0, C -100 = 0, B = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, 1 + E -E' = 0, F -F' = 0]
+    },
+    {
+	source: lbl111,
+	target: lbl111,
+	name: t9,
+	constraints: [-1 -B >= 0, 39 -E >= 0, E -2 >= 0, 41 -E >= 0, C -100 = 0, A -B = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, 2 + E -E' = 0, F -F' = 0]
+    }
+  ]
+}

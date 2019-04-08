@@ -1,0 +1,86 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalSimpleSinglestart(Ar_0, Ar_1) -> Com_1(evalSimpleSingleentryin(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    evalSimpleSingleentryin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebb3in(0, Ar_1))
+		(Comp: ?, Cost: 1)    evalSimpleSinglebb3in(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebbin(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSinglebb3in(Ar_0, Ar_1) -> Com_1(evalSimpleSinglereturnin(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSinglebbin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebb3in(Ar_0 + 1, Ar_1))
+		(Comp: ?, Cost: 1)    evalSimpleSinglereturnin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglestop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(evalSimpleSinglestart(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalSimpleSinglestart(Ar_0, Ar_1) -> Com_1(evalSimpleSingleentryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)    evalSimpleSingleentryin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebb3in(0, Ar_1))
+		(Comp: ?, Cost: 1)    evalSimpleSinglebb3in(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebbin(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSinglebb3in(Ar_0, Ar_1) -> Com_1(evalSimpleSinglereturnin(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSinglebbin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebb3in(Ar_0 + 1, Ar_1))
+		(Comp: ?, Cost: 1)    evalSimpleSinglereturnin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglestop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(evalSimpleSinglestart(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalSimpleSinglestart) = 2
+	Pol(evalSimpleSingleentryin) = 2
+	Pol(evalSimpleSinglebb3in) = 2
+	Pol(evalSimpleSinglebbin) = 2
+	Pol(evalSimpleSinglereturnin) = 1
+	Pol(evalSimpleSinglestop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalSimpleSinglereturnin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglestop(Ar_0, Ar_1))
+	evalSimpleSinglebb3in(Ar_0, Ar_1) -> Com_1(evalSimpleSinglereturnin(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalSimpleSinglestart(Ar_0, Ar_1) -> Com_1(evalSimpleSingleentryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)    evalSimpleSingleentryin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebb3in(0, Ar_1))
+		(Comp: ?, Cost: 1)    evalSimpleSinglebb3in(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebbin(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)    evalSimpleSinglebb3in(Ar_0, Ar_1) -> Com_1(evalSimpleSinglereturnin(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSinglebbin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebb3in(Ar_0 + 1, Ar_1))
+		(Comp: 2, Cost: 1)    evalSimpleSinglereturnin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglestop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(evalSimpleSinglestart(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalSimpleSinglestart) = V_2
+	Pol(evalSimpleSingleentryin) = V_2
+	Pol(evalSimpleSinglebb3in) = -V_1 + V_2
+	Pol(evalSimpleSinglebbin) = -V_1 + V_2 - 1
+	Pol(evalSimpleSinglereturnin) = -V_1 + V_2
+	Pol(evalSimpleSinglestop) = -V_1 + V_2
+	Pol(koat_start) = V_2
+orients all transitions weakly and the transition
+	evalSimpleSinglebb3in(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebbin(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 + 1 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)       evalSimpleSinglestart(Ar_0, Ar_1) -> Com_1(evalSimpleSingleentryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)       evalSimpleSingleentryin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebb3in(0, Ar_1))
+		(Comp: Ar_1, Cost: 1)    evalSimpleSinglebb3in(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebbin(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)       evalSimpleSinglebb3in(Ar_0, Ar_1) -> Com_1(evalSimpleSinglereturnin(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)       evalSimpleSinglebbin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebb3in(Ar_0 + 1, Ar_1))
+		(Comp: 2, Cost: 1)       evalSimpleSinglereturnin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglestop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)       koat_start(Ar_0, Ar_1) -> Com_1(evalSimpleSinglestart(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 4 produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)       evalSimpleSinglestart(Ar_0, Ar_1) -> Com_1(evalSimpleSingleentryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)       evalSimpleSingleentryin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebb3in(0, Ar_1))
+		(Comp: Ar_1, Cost: 1)    evalSimpleSinglebb3in(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebbin(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)       evalSimpleSinglebb3in(Ar_0, Ar_1) -> Com_1(evalSimpleSinglereturnin(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 ]
+		(Comp: Ar_1, Cost: 1)    evalSimpleSinglebbin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglebb3in(Ar_0 + 1, Ar_1))
+		(Comp: 2, Cost: 1)       evalSimpleSinglereturnin(Ar_0, Ar_1) -> Com_1(evalSimpleSinglestop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)       koat_start(Ar_0, Ar_1) -> Com_1(evalSimpleSinglestart(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 2*Ar_1 + 6
+
+Time: 0.021 sec (SMT: 0.017 sec)

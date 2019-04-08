@@ -1,0 +1,11 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E F A' B' C' D' E' F' H G)
+(RULES 
+  pyRinit(A,B,C,D,E,F) -> Com_1(start(A,B,C,D,E,F))
+  m1(A,B,C,D,E,F) -> Com_1(m1(A, B, H, D, E, G)) :|: B -1 >= 0 && D >= 0 && A -E -1 >= 0 && B + 1 -G >= 0 && C + 1 -H >= 0 && H -1 -C >= 0 && F + 1 -G >= 0 && G -1 -F >= 0
+  m1(A,B,C,D,E,F) -> Com_1(m1(H, B, C, D, E, G)) :|: B -1 >= 0 && D >= 0 && B -F >= 0 && E + 1 -H >= 0 && C -B -1 >= 0 && F + 1 -G >= 0 && G -1 -F >= 0 && A + 1 -H >= 0 && H -1 -A >= 0
+  m1(A,B,C,D,E,F) -> Com_1(m1(A, B, H, D, E, G)) :|: B -1 >= 0 && D >= 0 && B -F >= 0 && B + 1 -H >= 0 && E -A >= 0 && F + 1 -G >= 0 && G -1 -F >= 0 && C + 1 -H >= 0 && H -1 -C >= 0
+  m1(A,B,C,D,E,F) -> Com_1(m1(H, B, C, D, E, G)) :|: B -1 >= 0 && D >= 0 && B -F >= 0 && B -C >= 0 && E + 1 -H >= 0 && A + 1 -H >= 0 && H -1 -A >= 0 && F + 1 -G >= 0 && G -1 -F >= 0
+  start(A,B,C,D,E,F) -> Com_1(m1(A, B, C, D, E, F)) :|: A >= 0 && B + A + 2 -2 * C >= 0 && B -A -1 >= 0 && 2 * C -B -A >= 0 && D >= 0 && E + 1 -C = 0 && F -A = 0
+)

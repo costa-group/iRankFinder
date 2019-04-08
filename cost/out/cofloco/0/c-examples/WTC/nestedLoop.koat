@@ -1,0 +1,441 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalnestedLoopbb5in/17,evalnestedLoopbb6in/17]
+1. recursive  : [evalnestedLoopbb4in/17,evalnestedLoopbb6in_loop_cont/18,evalnestedLoopbb7in/17]
+2. recursive  : [evalnestedLoopbb7in_loop_cont/18,evalnestedLoopbb8in/17,evalnestedLoopbb9in/17]
+3. non_recursive  : [evalnestedLoopstop/9]
+4. non_recursive  : [evalnestedLoopreturnin/9]
+5. non_recursive  : [exit_location/1]
+6. non_recursive  : [evalnestedLoopbb9in_loop_cont/10]
+7. non_recursive  : [evalnestedLoopentryin/9]
+8. non_recursive  : [evalnestedLoopstart/9]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalnestedLoopbb6in/17
+1. SCC is partially evaluated into evalnestedLoopbb7in/17
+2. SCC is partially evaluated into evalnestedLoopbb9in/17
+3. SCC is completely evaluated into other SCCs
+4. SCC is completely evaluated into other SCCs
+5. SCC is completely evaluated into other SCCs
+6. SCC is partially evaluated into evalnestedLoopbb9in_loop_cont/10
+7. SCC is partially evaluated into evalnestedLoopentryin/9
+8. SCC is partially evaluated into evalnestedLoopstart/9
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalnestedLoopbb6in/17 
+* CE 18 is refined into CE [19] 
+* CE 17 is refined into CE [20] 
+* CE 16 is refined into CE [21] 
+
+
+### Cost equations --> "Loop" of evalnestedLoopbb6in/17 
+* CEs [21] --> Loop 17 
+* CEs [19] --> Loop 18 
+* CEs [20] --> Loop 19 
+
+### Ranking functions of CR evalnestedLoopbb6in(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* RF of phase [17]: [C-H]
+
+#### Partial ranking functions of CR evalnestedLoopbb6in(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* Partial RF of phase [17]:
+  - RF of loop [17:1]:
+    C-H
+
+
+### Specialization of cost equations evalnestedLoopbb7in/17 
+* CE 14 is refined into CE [22] 
+* CE 12 is refined into CE [23] 
+* CE 15 is refined into CE [24] 
+* CE 13 is refined into CE [25,26] 
+
+
+### Cost equations --> "Loop" of evalnestedLoopbb7in/17 
+* CEs [25] --> Loop 20 
+* CEs [26] --> Loop 21 
+* CEs [22] --> Loop 22 
+* CEs [23,24] --> Loop 23 
+
+### Ranking functions of CR evalnestedLoopbb7in(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* RF of phase [20]: [B-E]
+
+#### Partial ranking functions of CR evalnestedLoopbb7in(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* Partial RF of phase [20]:
+  - RF of loop [20:1]:
+    B-E
+
+
+### Specialization of cost equations evalnestedLoopbb9in/17 
+* CE 8 is refined into CE [27] 
+* CE 6 is refined into CE [28,29] 
+* CE 9 is refined into CE [30] 
+* CE 7 is refined into CE [31,32,33,34] 
+
+
+### Cost equations --> "Loop" of evalnestedLoopbb9in/17 
+* CEs [34] --> Loop 24 
+* CEs [32] --> Loop 25 
+* CEs [33] --> Loop 26 
+* CEs [31] --> Loop 27 
+* CEs [27] --> Loop 28 
+* CEs [28,29,30] --> Loop 29 
+
+### Ranking functions of CR evalnestedLoopbb9in(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* RF of phase [24]: [A-D]
+* RF of phase [26]: [A-D]
+
+#### Partial ranking functions of CR evalnestedLoopbb9in(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* Partial RF of phase [24]:
+  - RF of loop [24:1]:
+    A-D
+* Partial RF of phase [26]:
+  - RF of loop [26:1]:
+    A-D
+
+
+### Specialization of cost equations evalnestedLoopbb9in_loop_cont/10 
+* CE 10 is refined into CE [35] 
+* CE 11 is refined into CE [36] 
+
+
+### Cost equations --> "Loop" of evalnestedLoopbb9in_loop_cont/10 
+* CEs [35] --> Loop 30 
+* CEs [36] --> Loop 31 
+
+### Ranking functions of CR evalnestedLoopbb9in_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+#### Partial ranking functions of CR evalnestedLoopbb9in_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+
+### Specialization of cost equations evalnestedLoopentryin/9 
+* CE 2 is refined into CE [37,38,39,40,41,42,43,44,45,46,47] 
+* CE 5 is refined into CE [48] 
+* CE 4 is refined into CE [49] 
+* CE 3 is refined into CE [50] 
+
+
+### Cost equations --> "Loop" of evalnestedLoopentryin/9 
+* CEs [48] --> Loop 32 
+* CEs [49] --> Loop 33 
+* CEs [50] --> Loop 34 
+* CEs [45,47] --> Loop 35 
+* CEs [39,40,41] --> Loop 36 
+* CEs [38] --> Loop 37 
+* CEs [37,42,43,44,46] --> Loop 38 
+
+### Ranking functions of CR evalnestedLoopentryin(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR evalnestedLoopentryin(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations evalnestedLoopstart/9 
+* CE 1 is refined into CE [51,52,53,54,55,56] 
+
+
+### Cost equations --> "Loop" of evalnestedLoopstart/9 
+* CEs [56] --> Loop 39 
+* CEs [55] --> Loop 40 
+* CEs [54] --> Loop 41 
+* CEs [53] --> Loop 42 
+* CEs [51,52] --> Loop 43 
+
+### Ranking functions of CR evalnestedLoopstart(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR evalnestedLoopstart(A,B,C,D,E,F,G,H,I) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalnestedLoopbb6in(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [[17],19]: 2*it(17)+1
+  Such that:it(17) =< C-H
+
+  with precondition: [I=2,E+1=G,A=J,B=K,C=L,D=M,E+1=N,C=O,E+1=P,C=Q,B>=E+1,H>=F,C>=H+1] 
+
+* Chain [[17],18]: 2*it(17)+0
+  Such that:it(17) =< C-H
+
+  with precondition: [I=3,G=E+1,H>=F,B>=G,C>=H+1] 
+
+* Chain [19]: 1
+  with precondition: [I=2,J=A,M=D,G=E+1,B=K,C=L,G=N,H=O,G=P,H=Q,H>=C,H>=F,B>=G] 
+
+* Chain [18]: 0
+  with precondition: [I=3,G=E+1,H>=F,B>=G] 
+
+
+#### Cost of chains of evalnestedLoopbb7in(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [[20],23]: 3*it(20)+2*s(2)+2
+  Such that:it(20) =< B-E
+s(2) =< C-F
+
+  with precondition: [I=3,E>=0,F>=C,A>=D+1,F>=D,B>=E+1] 
+
+* Chain [[20],22]: 3*it(20)+1
+  Such that:it(20) =< -E+N
+
+  with precondition: [I=4,A=J,B=K,C=L,D=M,B=N,F=O,B=P,F=Q,E>=0,F>=C,A>=D+1,F>=D,B>=E+1] 
+
+* Chain [23]: 2*s(2)+2
+  Such that:s(2) =< C-F
+
+  with precondition: [I=3,E>=0,A>=D+1,F>=D] 
+
+* Chain [22]: 1
+  with precondition: [I=4,L=C,P=G,Q=H,A=J,B=K,D=M,E=N,F=O,E>=0,E>=B,A>=D+1,F>=D] 
+
+* Chain [21,[20],23]: 3*it(20)+2*s(3)+5
+  Such that:it(20) =< B
+s(3) =< C-F
+
+  with precondition: [E=0,I=3,D=F,B>=2,A>=D+1,C>=D+1] 
+
+* Chain [21,[20],22]: 3*it(20)+2*s(3)+4
+  Such that:s(3) =< L-M
+it(20) =< N
+
+  with precondition: [E=0,I=4,D=F,A=J,B=K,C=L,D=M,B=N,C=O,B=P,C=Q,B>=2,A>=D+1,C>=D+1] 
+
+* Chain [21,23]: 2*s(3)+5
+  Such that:s(3) =< C-F
+
+  with precondition: [E=0,I=3,D=F,B>=1,A>=D+1,C>=D+1] 
+
+* Chain [21,22]: 2*s(3)+4
+  Such that:s(3) =< -M+O
+
+  with precondition: [B=1,E=0,I=4,K=1,N=1,P=1,D=F,A=J,C=L,D=M,C=O,C=Q,A>=D+1,C>=D+1] 
+
+
+#### Cost of chains of evalnestedLoopbb9in(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [[26],29]: 3*it(26)+8*s(10)+6
+  Such that:it(26) =< A-D
+aux(3) =< C-D
+s(10) =< aux(3)
+
+  with precondition: [B=0,I=3,C>=0,D>=0,A>=D+1] 
+
+* Chain [[26],28]: 3*it(26)+1
+  Such that:it(26) =< -D+M
+
+  with precondition: [B=0,I=5,K=0,N=0,A=J,C=L,A=M,A=O+1,G=P,H=Q,C>=0,D>=0,A>=D+1] 
+
+* Chain [[24],29]: 3*it(24)+6*s(8)+8*s(10)+3*s(15)+6
+  Such that:it(24) =< A-D
+aux(3) =< C-D
+aux(5) =< B
+s(8) =< aux(5)
+s(10) =< aux(3)
+s(15) =< it(24)*aux(5)
+
+  with precondition: [I=3,B>=1,C>=0,D>=C,A>=D+1] 
+
+* Chain [[24],28]: 3*it(24)+3*s(15)+1
+  Such that:it(24) =< -D+M
+aux(4) =< K
+s(15) =< it(24)*aux(4)
+
+  with precondition: [I=5,A=J,B=K,C=L,A=M,B=N,A=O+1,B=P,A=Q+1,B>=1,C>=0,D>=C,A>=D+1] 
+
+* Chain [29]: 6*s(8)+8*s(10)+6
+  Such that:aux(2) =< B
+aux(3) =< C-D
+s(8) =< aux(2)
+s(10) =< aux(3)
+
+  with precondition: [I=3,C>=0,D>=0] 
+
+* Chain [28]: 1
+  with precondition: [I=5,K=B,N=E,O=F,P=G,Q=H,A=J,C=L,D=M,C>=0,D>=0,D>=A] 
+
+* Chain [27,[24],29]: 3*it(24)+6*s(8)+3*s(15)+2*s(16)+12
+  Such that:aux(5) =< 1
+it(24) =< A-C
+s(16) =< C+1
+s(8) =< aux(5)
+s(15) =< it(24)*aux(5)
+
+  with precondition: [B=1,D=0,I=3,C>=1,A>=C+2] 
+
+* Chain [27,[24],28]: 3*it(24)+3*s(15)+2*s(16)+7
+  Such that:aux(4) =< 1
+it(24) =< -L+M
+s(16) =< L+1
+s(15) =< it(24)*aux(4)
+
+  with precondition: [B=1,D=0,I=5,K=1,N=1,P=1,A=J,C=L,A=M,A=O+1,A=Q+1,C>=1,A>=C+2] 
+
+* Chain [27,29]: 6*s(8)+2*s(16)+12
+  Such that:aux(2) =< 1
+s(16) =< C+1
+s(8) =< aux(2)
+
+  with precondition: [B=1,D=0,I=3,A>=1,C>=1] 
+
+* Chain [27,28]: 2*s(16)+7
+  Such that:s(16) =< M
+
+  with precondition: [B=1,D=0,I=5,K=1,N=1,P=1,A=J,C=L,C+1=M,C=O,C=Q,A>=1,C>=1,C+1>=A] 
+
+* Chain [25,[24],29]: 3*it(24)+9*s(8)+3*s(15)+2*s(17)+12
+  Such that:it(24) =< A-C
+s(17) =< C+1
+aux(6) =< B
+s(8) =< aux(6)
+s(15) =< it(24)*aux(6)
+
+  with precondition: [D=0,I=3,B>=2,C>=1,A>=C+2] 
+
+* Chain [25,[24],28]: 3*it(24)+3*s(15)+2*s(17)+3*s(18)+7
+  Such that:it(24) =< -L+M
+s(17) =< L+1
+aux(7) =< K
+s(18) =< aux(7)
+s(15) =< it(24)*aux(7)
+
+  with precondition: [D=0,I=5,A=J,B=K,C=L,A=M,B=N,A=O+1,B=P,A=Q+1,B>=2,C>=1,A>=C+2] 
+
+* Chain [25,29]: 9*s(8)+2*s(17)+12
+  Such that:s(17) =< C+1
+aux(8) =< B
+s(8) =< aux(8)
+
+  with precondition: [D=0,I=3,A>=1,B>=2,C>=1] 
+
+* Chain [25,28]: 2*s(17)+3*s(18)+7
+  Such that:s(18) =< B
+s(17) =< M
+
+  with precondition: [D=0,I=5,A=J,B=K,C=L,C+1=M,B=N,C=O,B=P,C=Q,A>=1,B>=2,C>=1,C+1>=A] 
+
+
+#### Cost of chains of evalnestedLoopbb9in_loop_cont(A,B,C,D,E,F,G,H,I,J):
+* Chain [31]: 0
+  with precondition: [A=3] 
+
+* Chain [30]: 1
+  with precondition: [A=5] 
+
+
+#### Cost of chains of evalnestedLoopentryin(A,B,C,D,E,F,G,H,I):
+* Chain [38]: 3*s(42)+16*s(45)+30*s(46)+6*s(47)+8*s(50)+6*s(52)+13
+  Such that:s(42) =< A
+s(44) =< C
+aux(14) =< A-C
+aux(15) =< B
+aux(16) =< C+1
+s(47) =< aux(14)
+s(46) =< aux(15)
+s(50) =< aux(16)
+s(45) =< s(44)
+s(52) =< s(47)*aux(15)
+
+  with precondition: [A>=0,B>=0,C>=0] 
+
+* Chain [37]: 3*s(60)+3
+  Such that:s(60) =< A
+
+  with precondition: [B=0,A>=1,C>=0] 
+
+* Chain [36]: 6*s(61)+8*s(64)+12*s(65)+6*s(66)+13
+  Such that:aux(17) =< 1
+aux(18) =< A-C
+aux(19) =< C+1
+s(61) =< aux(18)
+s(64) =< aux(19)
+s(65) =< aux(17)
+s(66) =< s(61)*aux(17)
+
+  with precondition: [B=1,A>=1,C>=1] 
+
+* Chain [35]: 6*s(72)+6*s(75)+6*s(77)+7
+  Such that:aux(20) =< A
+aux(21) =< B
+s(72) =< aux(20)
+s(75) =< aux(21)
+s(77) =< s(72)*aux(21)
+
+  with precondition: [C=0,A>=1,B>=1] 
+
+* Chain [34]: 2
+  with precondition: [0>=A+1] 
+
+* Chain [33]: 2
+  with precondition: [0>=B+1] 
+
+* Chain [32]: 2
+  with precondition: [0>=C+1] 
+
+
+#### Cost of chains of evalnestedLoopstart(A,B,C,D,E,F,G,H,I):
+* Chain [43]: 6*s(97)+12*s(98)+30*s(99)+16*s(100)+16*s(101)+6*s(102)+12*s(108)+6*s(109)+14
+  Such that:s(103) =< 1
+s(96) =< A
+s(93) =< B
+s(94) =< C
+aux(23) =< A-C
+aux(24) =< C+1
+s(98) =< aux(23)
+s(100) =< aux(24)
+s(108) =< s(103)
+s(109) =< s(98)*s(103)
+s(97) =< s(96)
+s(99) =< s(93)
+s(101) =< s(94)
+s(102) =< s(98)*s(93)
+
+  with precondition: [A>=0,B>=0,C>=0] 
+
+* Chain [42]: 6*s(112)+6*s(113)+6*s(114)+8
+  Such that:s(110) =< A
+s(111) =< B
+s(112) =< s(110)
+s(113) =< s(111)
+s(114) =< s(112)*s(111)
+
+  with precondition: [C=0,A>=1,B>=1] 
+
+* Chain [41]: 3
+  with precondition: [0>=A+1] 
+
+* Chain [40]: 3
+  with precondition: [0>=B+1] 
+
+* Chain [39]: 3
+  with precondition: [0>=C+1] 
+
+
+Closed-form bounds of evalnestedLoopstart(A,B,C,D,E,F,G,H,I): 
+-------------------------------------
+* Chain [43] with precondition: [A>=0,B>=0,C>=0] 
+    - Upper bound: 6*A+30*B+26+6*B*nat(A-C)+16*C+ (16*C+16)+nat(A-C)*18 
+    - Complexity: n^2 
+* Chain [42] with precondition: [C=0,A>=1,B>=1] 
+    - Upper bound: 6*A+6*B+8+6*B*A 
+    - Complexity: n^2 
+* Chain [41] with precondition: [0>=A+1] 
+    - Upper bound: 3 
+    - Complexity: constant 
+* Chain [40] with precondition: [0>=B+1] 
+    - Upper bound: 3 
+    - Complexity: constant 
+* Chain [39] with precondition: [0>=C+1] 
+    - Upper bound: 3 
+    - Complexity: constant 
+
+### Maximum cost of evalnestedLoopstart(A,B,C,D,E,F,G,H,I): nat(A)*6+5+nat(B)*6+max([nat(B)*6*nat(A),nat(B)*24+18+nat(B)*6*nat(A-C)+nat(C)*16+nat(C+1)*16+nat(A-C)*18])+3 
+Asymptotic class: n^2 
+* Total analysis performed in 1414 ms.
+
+
+-- stats
+realtime 0:01.74
+usertime 1.46
+systime 0.04
+

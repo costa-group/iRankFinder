@@ -1,0 +1,15 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E A' B' C' D' E' NoDet2 NoDet1 NoDet3 NoDet0 NoDet4)
+(RULES 
+  pyRinit(A,B,C,D,E) -> Com_1(evalNestedMultipleDepstart(A,B,C,D,E))
+  evalNestedMultipleDepbb1in(A,B,C,D,E) -> Com_1(evalNestedMultipleDepbb2in(A, B, C, D + 1, E))
+  evalNestedMultipleDepbb2in(A,B,C,D,E) -> Com_1(evalNestedMultipleDepbb1in(A, B, C, D, E)) :|: E -D -1 >= 0
+  evalNestedMultipleDepbb2in(A,B,C,D,E) -> Com_1(evalNestedMultipleDepbb3in(C, B, C, D, E)) :|: D -E >= 0
+  evalNestedMultipleDepbb3in(A,B,C,D,E) -> Com_1(evalNestedMultipleDepbbin(A, B, C, D, E)) :|: B -A -1 >= 0
+  evalNestedMultipleDepbb3in(A,B,C,D,E) -> Com_1(evalNestedMultipleDepreturnin(A, B, C, D, E)) :|: A -B >= 0
+  evalNestedMultipleDepbbin(A,B,C,D,E) -> Com_1(evalNestedMultipleDepbb2in(A, B, A + 1, 0, E))
+  evalNestedMultipleDepentryin(A,B,C,D,E) -> Com_1(evalNestedMultipleDepbb3in(0, B, C, D, E))
+  evalNestedMultipleDepreturnin(A,B,C,D,E) -> Com_1(evalNestedMultipleDepstop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4))
+  evalNestedMultipleDepstart(A,B,C,D,E) -> Com_1(evalNestedMultipleDepentryin(A, B, C, D, E))
+)

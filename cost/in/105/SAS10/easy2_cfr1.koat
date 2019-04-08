@@ -1,0 +1,13 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E F A_P B_P C_P D_P E_P F_P NoDet0 NoDet1 NoDet4 NoDet2 NoDet3 NoDet5)
+(RULES 
+  pyRinit(A,B,C,D,E,F) -> Com_1(n_start0(A,B,C,D,E,F))
+  n_lbl71___1(A,B,C,D,E,F) -> Com_1(n_lbl71___1(A, B -1, C -1, A -B + C, E + 1, -A + B + E)) :|: A -B -1 >= 0 && A -B + C -D = 0 && A -B -E + F = 0 && -1 + A >= 0 && B >= 0 && -1 + A >= 0 && -2 + A >= 0 && A -B + C -D = 0 && C -D + E -F = 0 && A + C -D >= 0 && -2 -C + D >= 0 && -2 + A >= 0 && B >= 0 && A -B + C -D = 0 && C -D + E -F = 0 && A + C -D >= 0 && -2 -C + D >= 0 && A -B -1 >= 0 && B -1 >= 0 && A -B + C -D = 0 && A -B -E + F = 0
+  n_lbl71___1(A,B,C,D,E,F) -> Com_1(n_stop___2(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5)) :|: A -B -1 >= 0 && A -B + C -D = 0 && A -B -E + F = 0 && -1 + A >= 0 && B >= 0 && -1 + A >= 0 && -2 + A >= 0 && A -B + C -D = 0 && C -D + E -F = 0 && A + C -D >= 0 && -2 -C + D >= 0 && -2 + A >= 0 && B >= 0 && A -B + C -D = 0 && C -D + E -F = 0 && A + C -D >= 0 && -2 -C + D >= 0 && A -1 >= 0 && B = 0 && A + C -D = 0 && A -E + F = 0
+  n_lbl71___3(A,B,C,D,E,F) -> Com_1(n_lbl71___1(A, B -1, C -1, A -B + C, E + 1, -A + B + E)) :|: A -B -1 >= 0 && A -B + C -D = 0 && A -B -E + F = 0 && 1 + C -D = 0 && -1 + E -F = 0 && -1 + A -B = 0 && -1 + A >= 0 && -1 + A >= 0 && B >= 0 && -1 + A >= 0 && B >= 0 && 1 + C -D = 0 && -1 + E -F = 0 && -1 + A -B = 0 && -1 + A >= 0 && A -B -1 >= 0 && B -1 >= 0 && A -B + C -D = 0 && A -B -E + F = 0
+  n_lbl71___3(A,B,C,D,E,F) -> Com_1(n_stop___2(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5)) :|: A -B -1 >= 0 && A -B + C -D = 0 && A -B -E + F = 0 && 1 + C -D = 0 && -1 + E -F = 0 && -1 + A -B = 0 && -1 + A >= 0 && -1 + A >= 0 && B >= 0 && -1 + A >= 0 && B >= 0 && 1 + C -D = 0 && -1 + E -F = 0 && -1 + A -B = 0 && -1 + A >= 0 && A -1 >= 0 && B = 0 && A + C -D = 0 && A -E + F = 0
+  n_start0(A,B,C,D,E,F) -> Com_1(n_start___4(A, A, D, D, F, F))
+  n_start___4(A,B,C,D,E,F) -> Com_1(n_lbl71___3(A, A -1, C -1, C, E + 1, E)) :|: A -B = 0 && E -F = 0 && C -D = 0 && A -1 >= 0 && A -B = 0 && C -D = 0 && E -F = 0
+  n_start___4(A,B,C,D,E,F) -> Com_1(n_stop___2(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5)) :|: A -B = 0 && E -F = 0 && C -D = 0 && -A >= 0 && A -B = 0 && C -D = 0 && E -F = 0
+)

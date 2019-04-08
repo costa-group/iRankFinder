@@ -1,0 +1,253 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalrsdbb1in/7,evalrsdbb2in/7,evalrsdbb3in/7,evalrsdbb4in/7]
+1. non_recursive  : [evalrsdstop/4]
+2. non_recursive  : [evalrsdreturnin/4]
+3. non_recursive  : [exit_location/1]
+4. non_recursive  : [evalrsdbb4in_loop_cont/5]
+5. non_recursive  : [evalrsdbbin/4]
+6. non_recursive  : [evalrsdentryin/4]
+7. non_recursive  : [evalrsdstart/4]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalrsdbb4in/7
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into evalrsdbb4in_loop_cont/5
+5. SCC is partially evaluated into evalrsdbbin/4
+6. SCC is partially evaluated into evalrsdentryin/4
+7. SCC is partially evaluated into evalrsdstart/4
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalrsdbb4in/7 
+* CE 8 is refined into CE [11] 
+* CE 7 is refined into CE [12] 
+* CE 6 is refined into CE [13] 
+* CE 5 is refined into CE [14] 
+
+
+### Cost equations --> "Loop" of evalrsdbb4in/7 
+* CEs [13] --> Loop 11 
+* CEs [14] --> Loop 12 
+* CEs [11] --> Loop 13 
+* CEs [12] --> Loop 14 
+
+### Ranking functions of CR evalrsdbb4in(A,B,C,E,F,G,H) 
+
+#### Partial ranking functions of CR evalrsdbb4in(A,B,C,E,F,G,H) 
+* Partial RF of phase [11,12]:
+  - RF of loop [11:1]:
+    -A+B+1
+    B+1
+  - RF of loop [12:1]:
+    -A+C+1 depends on loops [11:1] 
+    -B/2+C+1/2 depends on loops [11:1] 
+    C+1 depends on loops [11:1] 
+
+
+### Specialization of cost equations evalrsdbb4in_loop_cont/5 
+* CE 10 is refined into CE [15] 
+* CE 9 is refined into CE [16] 
+
+
+### Cost equations --> "Loop" of evalrsdbb4in_loop_cont/5 
+* CEs [15] --> Loop 15 
+* CEs [16] --> Loop 16 
+
+### Ranking functions of CR evalrsdbb4in_loop_cont(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalrsdbb4in_loop_cont(A,B,C,D,E) 
+
+
+### Specialization of cost equations evalrsdbbin/4 
+* CE 4 is refined into CE [17,18] 
+
+
+### Cost equations --> "Loop" of evalrsdbbin/4 
+* CEs [17,18] --> Loop 17 
+
+### Ranking functions of CR evalrsdbbin(A,B,C,E) 
+
+#### Partial ranking functions of CR evalrsdbbin(A,B,C,E) 
+
+
+### Specialization of cost equations evalrsdentryin/4 
+* CE 2 is refined into CE [19] 
+* CE 3 is refined into CE [20] 
+
+
+### Cost equations --> "Loop" of evalrsdentryin/4 
+* CEs [19] --> Loop 18 
+* CEs [20] --> Loop 19 
+
+### Ranking functions of CR evalrsdentryin(A,B,C,E) 
+
+#### Partial ranking functions of CR evalrsdentryin(A,B,C,E) 
+
+
+### Specialization of cost equations evalrsdstart/4 
+* CE 1 is refined into CE [21,22] 
+
+
+### Cost equations --> "Loop" of evalrsdstart/4 
+* CEs [22] --> Loop 20 
+* CEs [21] --> Loop 21 
+
+### Ranking functions of CR evalrsdstart(A,B,C,E) 
+
+#### Partial ranking functions of CR evalrsdstart(A,B,C,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalrsdbb4in(A,B,C,E,F,G,H):
+* Chain [[11,12],14]: 3*it(11)+3*it(12)+1
+  Such that:aux(13) =< -A+B
+aux(12) =< -A-B/2+C+G/2+1
+aux(15) =< A
+it(11) =< B-G
+aux(6) =< -B/2+C+1/2
+aux(17) =< B/2
+aux(2) =< C+1
+aux(19) =< -A+C+1
+aux(3) =< it(11)*aux(17)
+aux(5) =< it(11)*aux(15)
+aux(1) =< it(11)*aux(13)
+it(12) =< aux(5)+aux(6)
+it(12) =< aux(3)+aux(19)
+it(12) =< aux(1)+aux(2)
+it(12) =< aux(5)+aux(12)
+it(12) =< aux(1)+aux(19)
+
+  with precondition: [E=2,A=F,A=H+1,C>=A,G+1>=A,2*A>=B,B>=C,B>=G] 
+
+* Chain [[11,12],13]: 3*it(11)+3*it(12)+0
+  Such that:aux(13) =< -A+B
+it(11) =< -A+B+1
+aux(15) =< A
+aux(6) =< -B/2+C+1/2
+aux(17) =< B/2
+aux(2) =< C+1
+aux(20) =< -A+C+1
+aux(3) =< it(11)*aux(17)
+aux(5) =< it(11)*aux(15)
+aux(1) =< it(11)*aux(13)
+it(12) =< aux(5)+aux(6)
+it(12) =< aux(3)+aux(20)
+it(12) =< aux(1)+aux(2)
+it(12) =< aux(5)+aux(20)
+it(12) =< aux(1)+aux(20)
+
+  with precondition: [E=3,C>=A,2*A>=B,B>=C] 
+
+* Chain [13]: 0
+  with precondition: [E=3,A>=0,2*A>=B,B>=C] 
+
+
+#### Cost of chains of evalrsdbb4in_loop_cont(A,B,C,D,E):
+* Chain [16]: 1
+  with precondition: [A=2] 
+
+* Chain [15]: 0
+  with precondition: [A=3] 
+
+
+#### Cost of chains of evalrsdbbin(A,B,C,E):
+* Chain [17]: 3*s(15)+3*s(23)+3*s(25)+3*s(34)+3
+  Such that:aux(22) =< 2*A+2
+aux(25) =< A
+aux(26) =< A+1
+aux(27) =< A+1/2
+aux(28) =< 2*A+1
+s(15) =< aux(22)
+s(20) =< s(15)*aux(25)
+s(23) =< s(20)+aux(27)
+s(23) =< s(20)+aux(26)
+s(23) =< s(20)+aux(28)
+s(23) =< s(20)+aux(22)
+s(25) =< aux(26)
+s(31) =< s(25)*aux(25)
+s(34) =< s(31)+aux(27)
+s(34) =< s(31)+aux(26)
+s(34) =< s(31)+aux(28)
+
+  with precondition: [A>=0] 
+
+
+#### Cost of chains of evalrsdentryin(A,B,C,E):
+* Chain [19]: 2
+  with precondition: [0>=A+1] 
+
+* Chain [18]: 3*s(40)+3*s(42)+3*s(43)+3*s(45)+4
+  Such that:s(36) =< A
+s(37) =< A+1
+s(38) =< A+1/2
+s(39) =< 2*A+1
+s(35) =< 2*A+2
+s(40) =< s(35)
+s(41) =< s(40)*s(36)
+s(42) =< s(41)+s(38)
+s(42) =< s(41)+s(37)
+s(42) =< s(41)+s(39)
+s(42) =< s(41)+s(35)
+s(43) =< s(37)
+s(44) =< s(43)*s(36)
+s(45) =< s(44)+s(38)
+s(45) =< s(44)+s(37)
+s(45) =< s(44)+s(39)
+
+  with precondition: [A>=0] 
+
+
+#### Cost of chains of evalrsdstart(A,B,C,E):
+* Chain [21]: 3
+  with precondition: [0>=A+1] 
+
+* Chain [20]: 3*s(51)+3*s(53)+3*s(54)+3*s(56)+5
+  Such that:s(46) =< A
+s(47) =< A+1
+s(48) =< A+1/2
+s(49) =< 2*A+1
+s(50) =< 2*A+2
+s(51) =< s(50)
+s(52) =< s(51)*s(46)
+s(53) =< s(52)+s(48)
+s(53) =< s(52)+s(47)
+s(53) =< s(52)+s(49)
+s(53) =< s(52)+s(50)
+s(54) =< s(47)
+s(55) =< s(54)*s(46)
+s(56) =< s(55)+s(48)
+s(56) =< s(55)+s(47)
+s(56) =< s(55)+s(49)
+
+  with precondition: [A>=0] 
+
+
+Closed-form bounds of evalrsdstart(A,B,C,E): 
+-------------------------------------
+* Chain [21] with precondition: [0>=A+1] 
+    - Upper bound: 3 
+    - Complexity: constant 
+* Chain [20] with precondition: [A>=0] 
+    - Upper bound: (A+1)* (3*A)+5+ (2*A+2)* (3*A)+ (3*A+3)+ (6*A+3)+ (6*A+6) 
+    - Complexity: n^2 
+
+### Maximum cost of evalrsdstart(A,B,C,E): nat(A)*3*nat(A+1)+2+nat(A)*3*nat(2*A+2)+nat(A+1)*3+nat(A+1/2)*6+nat(2*A+2)*3+3 
+Asymptotic class: n^2 
+* Total analysis performed in 309 ms.
+
+
+-- stats
+realtime 0:00.40
+usertime 0.36
+systime 0.00
+

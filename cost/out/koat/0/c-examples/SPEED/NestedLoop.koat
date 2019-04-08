@@ -1,0 +1,990 @@
+WORST_CASE(?, O(n^2))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)    evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)    evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 1)    evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)    evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalNestedLoopstart) = 2
+	Pol(evalNestedLoopentryin) = 2
+	Pol(evalNestedLoopbb9in) = 2
+	Pol(evalNestedLoopreturnin) = 1
+	Pol(evalNestedLoopbb10in) = 2
+	Pol(evalNestedLoopbb6in) = 2
+	Pol(evalNestedLoopbb8in) = 2
+	Pol(evalNestedLoopbb7in) = 2
+	Pol(evalNestedLoopbb1in) = 2
+	Pol(evalNestedLoopbb3in) = 2
+	Pol(evalNestedLoopbb4in) = 2
+	Pol(evalNestedLoopbb2in) = 2
+	Pol(evalNestedLoopstop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+	evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]
+	evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 1)    evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)    evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: 2, Cost: 1)    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))
+		(Comp: ?, Cost: 1)    evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 2, Cost: 1)    evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalNestedLoopstart) = V_1 + 1
+	Pol(evalNestedLoopentryin) = V_1 + 1
+	Pol(evalNestedLoopbb9in) = V_1 - V_4 + 1
+	Pol(evalNestedLoopreturnin) = V_1 - V_4
+	Pol(evalNestedLoopbb10in) = V_1 - V_4
+	Pol(evalNestedLoopbb6in) = V_1 - V_6
+	Pol(evalNestedLoopbb8in) = V_1 - V_6
+	Pol(evalNestedLoopbb7in) = V_1 - V_6
+	Pol(evalNestedLoopbb1in) = V_1 - V_6
+	Pol(evalNestedLoopbb3in) = V_1 - V_8
+	Pol(evalNestedLoopbb4in) = V_1 - V_8
+	Pol(evalNestedLoopbb2in) = V_1 - V_8 - 1
+	Pol(evalNestedLoopstop) = V_1 - V_4
+	Pol(koat_start) = V_1 + 1
+orients all transitions weakly and the transition
+	evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)           evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 1)           evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)           evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]
+		(Comp: Ar_0 + 1, Cost: 1)    evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: 2, Cost: 1)           evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)           evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)           evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))
+		(Comp: ?, Cost: 1)           evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)           evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))
+		(Comp: ?, Cost: 1)           evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 2, Cost: 1)           evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 4 produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)           evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 1)           evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)           evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]
+		(Comp: Ar_0 + 1, Cost: 1)    evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: 2, Cost: 1)           evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)           evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)           evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))
+		(Comp: ?, Cost: 1)           evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)           evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)           evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))
+		(Comp: ?, Cost: 1)           evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 2, Cost: 1)           evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalNestedLoopbb8in) = 1
+	Pol(evalNestedLoopbb9in) = 0
+	Pol(evalNestedLoopbb7in) = 2
+	Pol(evalNestedLoopbb1in) = 2
+	Pol(evalNestedLoopbb6in) = 2
+	Pol(evalNestedLoopbb4in) = 2
+	Pol(evalNestedLoopbb2in) = 2
+	Pol(evalNestedLoopbb3in) = 2
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-4) = Ar_4
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-5) = Ar_5
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-6) = Ar_6
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-7) = Ar_7
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = ?
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = ?
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = ?
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = ?
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-0) = Ar_0
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-1) = Ar_1
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-2) = Ar_2
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-3) = ?
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-4) = ?
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-5) = ?
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-6) = ?
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-7) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-4) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-6) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-3) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-4) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-5) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-6) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-7) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-4) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-6) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-4) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-6) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-3) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-4) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-5) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-6) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-7) = ?
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-0) = Ar_0
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-1) = Ar_1
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-2) = Ar_2
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-3) = ?
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-4) = ?
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-5) = ?
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-6) = ?
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-7) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-3) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-4) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-5) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-6) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-7) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-4) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-6) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-4) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-6) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-3) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-4) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-5) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-6) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-7) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-3) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-4) = 0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-5) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-6) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-7) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-4) = 0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-6) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-4) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-6) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-3) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-4) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-5) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-6) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-7) = ?
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-0) = Ar_0
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-1) = Ar_1
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-2) = Ar_2
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-3) = 0
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-4) = Ar_4
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-5) = Ar_5
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-6) = Ar_6
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-7) = Ar_7
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = Ar_3
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = Ar_4
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = Ar_5
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = Ar_6
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = Ar_7
+orients the transitions
+	evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))
+	evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+	evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+	evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+	evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]
+	evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]
+	evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))
+	evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+	evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+	evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]
+	evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]
+	evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))
+	evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))
+weakly and the transitions
+	evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))
+	evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+	evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]
+strictly and produces the following problem:
+6:	T:
+		(Comp: 1, Cost: 1)             evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 1)             evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)             evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)      evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: 2, Cost: 1)             evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 4*Ar_0 + 4, Cost: 1)    evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]
+		(Comp: ?, Cost: 1)             evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 1)             evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)             evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: 4*Ar_0 + 4, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)             evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))
+		(Comp: ?, Cost: 1)             evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]
+		(Comp: ?, Cost: 1)             evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]
+		(Comp: ?, Cost: 1)             evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)             evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)             evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)             evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))
+		(Comp: 4*Ar_0 + 4, Cost: 1)    evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 2, Cost: 1)             evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalNestedLoopbb7in) = V_2 - V_5
+	Pol(evalNestedLoopbb1in) = V_2 - V_5
+	Pol(evalNestedLoopbb6in) = V_2 - V_5 + 1
+	Pol(evalNestedLoopbb4in) = V_2 - V_7 + 1
+	Pol(evalNestedLoopbb2in) = V_2 - V_7 + 1
+	Pol(evalNestedLoopbb3in) = V_2 - V_7 + 1
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-4) = Ar_4
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-5) = Ar_5
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-6) = Ar_6
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-7) = Ar_7
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = ?
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = ?
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = ?
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = ?
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-0) = Ar_0
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-1) = Ar_1
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-2) = Ar_2
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-3) = ?
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-4) = ?
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-5) = ?
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-6) = ?
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-7) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-4) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-6) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-3) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-4) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-5) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-6) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-7) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-4) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-6) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-4) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-6) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-3) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-4) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-5) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-6) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-7) = ?
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-0) = Ar_0
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-1) = Ar_1
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-2) = Ar_2
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-3) = ?
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-4) = ?
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-5) = ?
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-6) = ?
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-7) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-3) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-4) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-5) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-6) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-7) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-4) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-6) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-4) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-6) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-3) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-4) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-5) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-6) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-7) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-3) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-4) = 0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-5) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-6) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-7) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-4) = 0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-6) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-4) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-6) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-3) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-4) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-5) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-6) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-7) = ?
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-0) = Ar_0
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-1) = Ar_1
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-2) = Ar_2
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-3) = 0
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-4) = Ar_4
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-5) = Ar_5
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-6) = Ar_6
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-7) = Ar_7
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = Ar_3
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = Ar_4
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = Ar_5
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = Ar_6
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = Ar_7
+orients the transitions
+	evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+	evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+	evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]
+	evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))
+	evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+	evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+	evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]
+	evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]
+	evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))
+	evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))
+weakly and the transition
+	evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]
+strictly and produces the following problem:
+7:	T:
+		(Comp: 1, Cost: 1)                                    evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 1)                                    evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)                                    evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: 2, Cost: 1)                                    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)    evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 2, Cost: 1)                                    evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 0)                                    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 7 produces the following problem:
+8:	T:
+		(Comp: 1, Cost: 1)                                    evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 1)                                    evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)                                    evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: 2, Cost: 1)                                    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)    evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4, Cost: 1)    evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 2, Cost: 1)                                    evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 0)                                    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalNestedLoopbb4in) = 1
+	Pol(evalNestedLoopbb6in) = 0
+	Pol(evalNestedLoopbb2in) = 1
+	Pol(evalNestedLoopbb3in) = 1
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-4) = Ar_4
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-5) = Ar_5
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-6) = Ar_6
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]", 0-7) = Ar_7
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = Ar_4 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = Ar_6 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = Ar_6 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-0) = Ar_0
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-1) = Ar_1
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-2) = Ar_2
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-3) = ?
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-4) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-5) = ?
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-6) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))", 0-7) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-4) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-6) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-3) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-4) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-5) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-6) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-7) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-4) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-6) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-4) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-6) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-3) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-4) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-5) = ?
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-6) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]", 0-7) = ?
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-0) = Ar_0
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-1) = Ar_1
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-2) = Ar_2
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-3) = ?
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-4) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-5) = ?
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-6) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))", 0-7) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = Ar_6 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-3) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-4) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-5) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-6) = Ar_6 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]", 0-7) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-4) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-6) = Ar_6 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-4) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-6) = Ar_6 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-3) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-4) = 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-5) = ?
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-6) = Ar_6 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]", 0-7) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = Ar_4 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = Ar_6 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-3) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-4) = 0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-5) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-6) = Ar_6 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]", 0-7) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-4) = 0
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-6) = Ar_6 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-3) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-4) = Ar_4 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-5) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-6) = Ar_6 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]", 0-7) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-1) = Ar_1
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-2) = Ar_2
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-3) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-4) = Ar_4 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-5) = ?
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-6) = Ar_6 + 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4
+	S("evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]", 0-7) = ?
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-0) = Ar_0
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-1) = Ar_1
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-2) = Ar_2
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-3) = 0
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-4) = Ar_4
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-5) = Ar_5
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-6) = Ar_6
+	S("evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\\ Ar_1 >= 0 /\\ Ar_2 >= 0 ]", 0-7) = Ar_7
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-0) = Ar_0
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-1) = Ar_1
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-2) = Ar_2
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-3) = Ar_3
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-4) = Ar_4
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-5) = Ar_5
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-6) = Ar_6
+	S("evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))", 0-7) = Ar_7
+orients the transitions
+	evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))
+	evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+	evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+	evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]
+	evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]
+	evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))
+weakly and the transitions
+	evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))
+	evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]
+strictly and produces the following problem:
+9:	T:
+		(Comp: 1, Cost: 1)                                    evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 1)                                    evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 2, Cost: 1)                                    evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= Ar_0 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= Ar_3 + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: 2, Cost: 1)                                    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_4 >= Ar_1 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)    evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_1 >= Ar_4 + 1 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4, Cost: 1)    evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5))
+		(Comp: 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4, Cost: 1)    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= Ar_2 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 >= Ar_7 + 1 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ I >= 1 ]
+		(Comp: 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4, Cost: 1)    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7))
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1))
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 2, Cost: 1)                                    evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+		(Comp: 1, Cost: 0)                                    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Applied AI with 'oct' on problem 9 to obtain the following invariants:
+  For symbol evalNestedLoopbb10in: X_1 - X_4 - 1 >= 0 /\ X_4 >= 0 /\ X_3 + X_4 >= 0 /\ X_2 + X_4 >= 0 /\ X_1 + X_4 - 1 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 - 1 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 - 1 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalNestedLoopbb1in: X_6 >= 0 /\ X_5 + X_6 >= 0 /\ X_4 + X_6 >= 0 /\ -X_4 + X_6 >= 0 /\ X_3 + X_6 >= 0 /\ X_2 + X_6 - 1 >= 0 /\ X_1 + X_6 - 1 >= 0 /\ X_2 - X_5 - 1 >= 0 /\ X_5 >= 0 /\ X_4 + X_5 >= 0 /\ X_3 + X_5 >= 0 /\ X_2 + X_5 - 1 >= 0 /\ X_1 + X_5 - 1 >= 0 /\ X_1 - X_4 - 1 >= 0 /\ X_4 >= 0 /\ X_3 + X_4 >= 0 /\ X_2 + X_4 - 1 >= 0 /\ X_1 + X_4 - 1 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 - 1 >= 0 /\ X_1 + X_3 - 1 >= 0 /\ X_2 - 1 >= 0 /\ X_1 + X_2 - 2 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalNestedLoopbb2in: X_3 - X_8 - 1 >= 0 /\ X_8 >= 0 /\ X_7 + X_8 - 1 >= 0 /\ X_6 + X_8 >= 0 /\ -X_6 + X_8 >= 0 /\ X_5 + X_8 >= 0 /\ X_4 + X_8 >= 0 /\ -X_4 + X_8 >= 0 /\ X_3 + X_8 - 1 >= 0 /\ X_2 + X_8 - 1 >= 0 /\ X_1 + X_8 - 1 >= 0 /\ X_5 - X_7 + 1 >= 0 /\ X_2 - X_7 >= 0 /\ X_7 - 1 >= 0 /\ X_6 + X_7 - 1 >= 0 /\ X_5 + X_7 - 1 >= 0 /\ -X_5 + X_7 - 1 >= 0 /\ X_4 + X_7 - 1 >= 0 /\ X_3 + X_7 - 2 >= 0 /\ X_2 + X_7 - 2 >= 0 /\ X_1 + X_7 - 2 >= 0 /\ X_3 - X_6 - 1 >= 0 /\ X_6 >= 0 /\ X_5 + X_6 >= 0 /\ X_4 + X_6 >= 0 /\ -X_4 + X_6 >= 0 /\ X_3 + X_6 - 1 >= 0 /\ X_2 + X_6 - 1 >= 0 /\ X_1 + X_6 - 1 >= 0 /\ X_2 - X_5 - 1 >= 0 /\ X_5 >= 0 /\ X_4 + X_5 >= 0 /\ X_3 + X_5 - 1 >= 0 /\ X_2 + X_5 - 1 >= 0 /\ X_1 + X_5 - 1 >= 0 /\ X_3 - X_4 - 1 >= 0 /\ X_1 - X_4 - 1 >= 0 /\ X_4 >= 0 /\ X_3 + X_4 - 1 >= 0 /\ X_2 + X_4 - 1 >= 0 /\ X_1 + X_4 - 1 >= 0 /\ X_3 - 1 >= 0 /\ X_2 + X_3 - 2 >= 0 /\ X_1 + X_3 - 2 >= 0 /\ X_2 - 1 >= 0 /\ X_1 + X_2 - 2 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalNestedLoopbb3in: X_8 >= 0 /\ X_7 + X_8 - 1 >= 0 /\ X_6 + X_8 >= 0 /\ -X_6 + X_8 >= 0 /\ X_5 + X_8 >= 0 /\ X_4 + X_8 >= 0 /\ -X_4 + X_8 >= 0 /\ X_3 + X_8 >= 0 /\ X_2 + X_8 - 1 >= 0 /\ X_1 + X_8 - 1 >= 0 /\ X_5 - X_7 + 1 >= 0 /\ X_2 - X_7 >= 0 /\ X_7 - 1 >= 0 /\ X_6 + X_7 - 1 >= 0 /\ X_5 + X_7 - 1 >= 0 /\ -X_5 + X_7 - 1 >= 0 /\ X_4 + X_7 - 1 >= 0 /\ X_3 + X_7 - 1 >= 0 /\ X_2 + X_7 - 2 >= 0 /\ X_1 + X_7 - 2 >= 0 /\ X_6 >= 0 /\ X_5 + X_6 >= 0 /\ X_4 + X_6 >= 0 /\ -X_4 + X_6 >= 0 /\ X_3 + X_6 >= 0 /\ X_2 + X_6 - 1 >= 0 /\ X_1 + X_6 - 1 >= 0 /\ X_2 - X_5 - 1 >= 0 /\ X_5 >= 0 /\ X_4 + X_5 >= 0 /\ X_3 + X_5 >= 0 /\ X_2 + X_5 - 1 >= 0 /\ X_1 + X_5 - 1 >= 0 /\ X_1 - X_4 - 1 >= 0 /\ X_4 >= 0 /\ X_3 + X_4 >= 0 /\ X_2 + X_4 - 1 >= 0 /\ X_1 + X_4 - 1 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 - 1 >= 0 /\ X_1 + X_3 - 1 >= 0 /\ X_2 - 1 >= 0 /\ X_1 + X_2 - 2 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalNestedLoopbb4in: X_3 - X_8 - 1 >= 0 /\ X_8 >= 0 /\ X_7 + X_8 - 1 >= 0 /\ X_6 + X_8 >= 0 /\ -X_6 + X_8 >= 0 /\ X_5 + X_8 >= 0 /\ X_4 + X_8 >= 0 /\ -X_4 + X_8 >= 0 /\ X_3 + X_8 - 1 >= 0 /\ X_2 + X_8 - 1 >= 0 /\ X_1 + X_8 - 1 >= 0 /\ X_5 - X_7 + 1 >= 0 /\ X_2 - X_7 >= 0 /\ X_7 - 1 >= 0 /\ X_6 + X_7 - 1 >= 0 /\ X_5 + X_7 - 1 >= 0 /\ -X_5 + X_7 - 1 >= 0 /\ X_4 + X_7 - 1 >= 0 /\ X_3 + X_7 - 2 >= 0 /\ X_2 + X_7 - 2 >= 0 /\ X_1 + X_7 - 2 >= 0 /\ X_3 - X_6 - 1 >= 0 /\ X_6 >= 0 /\ X_5 + X_6 >= 0 /\ X_4 + X_6 >= 0 /\ -X_4 + X_6 >= 0 /\ X_3 + X_6 - 1 >= 0 /\ X_2 + X_6 - 1 >= 0 /\ X_1 + X_6 - 1 >= 0 /\ X_2 - X_5 - 1 >= 0 /\ X_5 >= 0 /\ X_4 + X_5 >= 0 /\ X_3 + X_5 - 1 >= 0 /\ X_2 + X_5 - 1 >= 0 /\ X_1 + X_5 - 1 >= 0 /\ X_3 - X_4 - 1 >= 0 /\ X_1 - X_4 - 1 >= 0 /\ X_4 >= 0 /\ X_3 + X_4 - 1 >= 0 /\ X_2 + X_4 - 1 >= 0 /\ X_1 + X_4 - 1 >= 0 /\ X_3 - 1 >= 0 /\ X_2 + X_3 - 2 >= 0 /\ X_1 + X_3 - 2 >= 0 /\ X_2 - 1 >= 0 /\ X_1 + X_2 - 2 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalNestedLoopbb6in: X_6 >= 0 /\ X_5 + X_6 >= 0 /\ X_4 + X_6 >= 0 /\ -X_4 + X_6 >= 0 /\ X_3 + X_6 >= 0 /\ X_2 + X_6 >= 0 /\ X_1 + X_6 - 1 >= 0 /\ X_2 - X_5 >= 0 /\ X_5 >= 0 /\ X_4 + X_5 >= 0 /\ X_3 + X_5 >= 0 /\ X_2 + X_5 >= 0 /\ X_1 + X_5 - 1 >= 0 /\ X_1 - X_4 - 1 >= 0 /\ X_4 >= 0 /\ X_3 + X_4 >= 0 /\ X_2 + X_4 >= 0 /\ X_1 + X_4 - 1 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 - 1 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 - 1 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalNestedLoopbb7in: X_6 >= 0 /\ X_5 + X_6 >= 0 /\ X_4 + X_6 >= 0 /\ -X_4 + X_6 >= 0 /\ X_3 + X_6 >= 0 /\ X_2 + X_6 - 1 >= 0 /\ X_1 + X_6 - 1 >= 0 /\ X_2 - X_5 - 1 >= 0 /\ X_5 >= 0 /\ X_4 + X_5 >= 0 /\ X_3 + X_5 >= 0 /\ X_2 + X_5 - 1 >= 0 /\ X_1 + X_5 - 1 >= 0 /\ X_1 - X_4 - 1 >= 0 /\ X_4 >= 0 /\ X_3 + X_4 >= 0 /\ X_2 + X_4 - 1 >= 0 /\ X_1 + X_4 - 1 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 - 1 >= 0 /\ X_1 + X_3 - 1 >= 0 /\ X_2 - 1 >= 0 /\ X_1 + X_2 - 2 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalNestedLoopbb8in: X_6 >= 0 /\ X_5 + X_6 >= 0 /\ X_4 + X_6 >= 0 /\ -X_4 + X_6 >= 0 /\ X_3 + X_6 >= 0 /\ X_2 + X_6 >= 0 /\ X_1 + X_6 - 1 >= 0 /\ X_2 - X_5 >= 0 /\ X_5 >= 0 /\ X_4 + X_5 >= 0 /\ X_3 + X_5 >= 0 /\ X_2 + X_5 >= 0 /\ X_1 + X_5 - 1 >= 0 /\ X_1 - X_4 - 1 >= 0 /\ X_4 >= 0 /\ X_3 + X_4 >= 0 /\ X_2 + X_4 >= 0 /\ X_1 + X_4 - 1 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 - 1 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 - 1 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalNestedLoopbb9in: X_4 >= 0 /\ X_3 + X_4 >= 0 /\ X_2 + X_4 >= 0 /\ X_1 + X_4 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 >= 0 /\ X_1 >= 0
+  For symbol evalNestedLoopreturnin: X_4 >= 0 /\ X_3 + X_4 >= 0 /\ X_2 + X_4 >= 0 /\ X_1 + X_4 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 >= 0 /\ X_1 >= 0
+
+
+This yielded the following problem:
+10:	T:
+		(Comp: 1, Cost: 0)                                    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)                                    evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4, Cost: 1)    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ I >= 1 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 1 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= Ar_7 + 1 ]
+		(Comp: 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4, Cost: 1)    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 1 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_7 >= Ar_2 ]
+		(Comp: 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4, Cost: 1)    evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ I >= 1 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= I + 1 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)    evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= Ar_4 + 1 ]
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_4 >= Ar_1 ]
+		(Comp: 2, Cost: 1)                                    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ I >= 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= I + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_0 >= Ar_3 + 1 ]
+		(Comp: 2, Cost: 1)                                    evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_3 >= Ar_0 ]
+		(Comp: 1, Cost: 1)                                    evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 1, Cost: 1)                                    evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(koat_start) = 2*V_2 + 3*V_3
+	Pol(evalNestedLoopstart) = 2*V_2 + 3*V_3
+	Pol(evalNestedLoopreturnin) = 2*V_2 - 3*V_4
+	Pol(evalNestedLoopstop) = -3*V_4
+	Pol(evalNestedLoopbb8in) = 2*V_2 + 3*V_3 - 3*V_6
+	Pol(evalNestedLoopbb9in) = 2*V_2 + 3*V_3 - 3*V_4
+	Pol(evalNestedLoopbb2in) = 2*V_2 + 3*V_3 + 2*V_5 - 2*V_7 - 3*V_8
+	Pol(evalNestedLoopbb3in) = 2*V_2 + 3*V_3 - 3*V_8
+	Pol(evalNestedLoopbb4in) = 2*V_2 + 3*V_3 - 3*V_8
+	Pol(evalNestedLoopbb6in) = 2*V_2 + 3*V_3 - 3*V_6
+	Pol(evalNestedLoopbb1in) = 2*V_2 + 3*V_3 - 3*V_6
+	Pol(evalNestedLoopbb7in) = 2*V_2 + 3*V_3 - 3*V_6
+	Pol(evalNestedLoopbb10in) = 2*V_2 + 3*V_3 - 3*V_4
+	Pol(evalNestedLoopentryin) = 2*V_2 + 3*V_3
+orients all transitions weakly and the transitions
+	evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ I >= 1 ]
+	evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= I + 1 ]
+	evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+strictly and produces the following problem:
+11:	T:
+		(Comp: 1, Cost: 0)                                    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)                                    evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2*Ar_1 + 3*Ar_2, Cost: 1)                      evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4, Cost: 1)    evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2*Ar_1 + 3*Ar_2, Cost: 1)                      evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ I >= 1 ]
+		(Comp: 2*Ar_1 + 3*Ar_2, Cost: 1)                      evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= I + 1 ]
+		(Comp: ?, Cost: 1)                                    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 1 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= Ar_7 + 1 ]
+		(Comp: 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4, Cost: 1)    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 1 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_7 >= Ar_2 ]
+		(Comp: 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4, Cost: 1)    evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ I >= 1 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= I + 1 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)    evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= Ar_4 + 1 ]
+		(Comp: 4*Ar_0 + 4, Cost: 1)                           evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_4 >= Ar_1 ]
+		(Comp: 2, Cost: 1)                                    evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ I >= 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= I + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)                             evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_0 >= Ar_3 + 1 ]
+		(Comp: 2, Cost: 1)                                    evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_3 >= Ar_0 ]
+		(Comp: 1, Cost: 1)                                    evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 1, Cost: 1)                                    evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 11 produces the following problem:
+12:	T:
+		(Comp: 1, Cost: 0)                                             koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)                                             evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopstop(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 4*Ar_0 + 4, Cost: 1)                                    evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_5 + 1, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2*Ar_1 + 3*Ar_2, Cost: 1)                               evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7 + 1)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4, Cost: 1)             evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2*Ar_1 + 3*Ar_2, Cost: 1)                               evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ I >= 1 ]
+		(Comp: 2*Ar_1 + 3*Ar_2, Cost: 1)                               evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb2in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_2 - Ar_7 - 1 >= 0 /\ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 - 1 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 2 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_2 - Ar_5 - 1 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 - 1 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 - 1 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= I + 1 ]
+		(Comp: 4*Ar_0*Ar_1 + 6*Ar_1 + 4*Ar_0 + 3*Ar_2 + 4, Cost: 1)    evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb4in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 1 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= Ar_7 + 1 ]
+		(Comp: 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4, Cost: 1)             evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_6, Ar_7, Ar_6, Ar_7)) [ Ar_7 >= 0 /\ Ar_6 + Ar_7 - 1 >= 0 /\ Ar_5 + Ar_7 >= 0 /\ -Ar_5 + Ar_7 >= 0 /\ Ar_4 + Ar_7 >= 0 /\ Ar_3 + Ar_7 >= 0 /\ -Ar_3 + Ar_7 >= 0 /\ Ar_2 + Ar_7 >= 0 /\ Ar_1 + Ar_7 - 1 >= 0 /\ Ar_0 + Ar_7 - 1 >= 0 /\ Ar_4 - Ar_6 + 1 >= 0 /\ Ar_1 - Ar_6 >= 0 /\ Ar_6 - 1 >= 0 /\ Ar_5 + Ar_6 - 1 >= 0 /\ Ar_4 + Ar_6 - 1 >= 0 /\ -Ar_4 + Ar_6 - 1 >= 0 /\ Ar_3 + Ar_6 - 1 >= 0 /\ Ar_2 + Ar_6 - 1 >= 0 /\ Ar_1 + Ar_6 - 2 >= 0 /\ Ar_0 + Ar_6 - 2 >= 0 /\ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_7 >= Ar_2 ]
+		(Comp: 4*Ar_0*Ar_1 + 4*Ar_1 + 4*Ar_0 + 4, Cost: 1)             evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb3in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_4 + 1, Ar_5)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 4*Ar_0 + 4, Cost: 1)                                    evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)             evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ I >= 1 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)             evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb1in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 - 1 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 - 1 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 - 1 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= I + 1 ]
+		(Comp: 2*Ar_0*Ar_1 + 2*Ar_1 + 2*Ar_0 + 2, Cost: 1)             evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb7in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= Ar_4 + 1 ]
+		(Comp: 4*Ar_0 + 4, Cost: 1)                                    evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb8in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_5 >= 0 /\ Ar_4 + Ar_5 >= 0 /\ Ar_3 + Ar_5 >= 0 /\ -Ar_3 + Ar_5 >= 0 /\ Ar_2 + Ar_5 >= 0 /\ Ar_1 + Ar_5 >= 0 /\ Ar_0 + Ar_5 - 1 >= 0 /\ Ar_1 - Ar_4 >= 0 /\ Ar_4 >= 0 /\ Ar_3 + Ar_4 >= 0 /\ Ar_2 + Ar_4 >= 0 /\ Ar_1 + Ar_4 >= 0 /\ Ar_0 + Ar_4 - 1 >= 0 /\ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_4 >= Ar_1 ]
+		(Comp: 2, Cost: 1)                                             evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: Ar_0 + 1, Cost: 1)                                      evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ I >= 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)                                      evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb6in(Ar_0, Ar_1, Ar_2, Ar_3, 0, Ar_3, Ar_6, Ar_7)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= I + 1 ]
+		(Comp: Ar_0 + 1, Cost: 1)                                      evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb10in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_0 >= Ar_3 + 1 ]
+		(Comp: 2, Cost: 1)                                             evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopreturnin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_3 >= 0 /\ Ar_2 + Ar_3 >= 0 /\ Ar_1 + Ar_3 >= 0 /\ Ar_0 + Ar_3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 >= 0 /\ Ar_0 >= 0 /\ Ar_3 >= Ar_0 ]
+		(Comp: 1, Cost: 1)                                             evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopbb9in(Ar_0, Ar_1, Ar_2, 0, Ar_4, Ar_5, Ar_6, Ar_7)) [ Ar_0 >= 0 /\ Ar_1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 1, Cost: 1)                                             evalNestedLoopstart(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7) -> Com_1(evalNestedLoopentryin(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5, Ar_6, Ar_7))
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 37*Ar_0 + 30*Ar_1 + 12*Ar_2 + 22*Ar_0*Ar_1 + 45
+
+Time: 0.745 sec (SMT: 0.419 sec)

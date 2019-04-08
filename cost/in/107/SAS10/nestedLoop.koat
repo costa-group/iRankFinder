@@ -1,0 +1,22 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E F G H I J K L A' B' C' D' E' F' G' H' I' J' K' L' NoDet10 NoDet1 NoDet4 NoDet7 NoDet8 NoDet9 NoDet5 NoDet0 NoDet6 NoDet2 NoDet11 NoDet3)
+(RULES 
+  pyRinit(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(start0(A,B,C,D,E,F,G,H,I,J,K,L))
+  lbl111(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(lbl111(A, B, C, D, E, 1 + F, G, H, I, J, K, L)) :|: A -F -1 >= 0 && F -J -1 >= 0 && E -1 >= 0 && J >= 0 && A -F >= 0 && C -J -1 >= 0 && H -1 = 0 && L -A = 0 && D -E = 0 && B -C = 0
+  lbl111(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(lbl121(A, B, C, D, E, F, G, H, I, F, K, L)) :|: A -J -1 >= 0 && E -1 >= 0 && J >= 0 && C -J -1 >= 0 && F -A = 0 && H -1 = 0 && L -A = 0 && D -E = 0 && B -C = 0
+  lbl121(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(lbl121(A, B, C, D, E, J, G, 1 + H, I, J, K, L)) :|: E -H -1 >= 0 && F -A >= 0 && A + C -F -1 >= 0 && A >= 0 && E -H >= 0 && H -1 >= 0 && J -F = 0 && L -A = 0 && D -E = 0 && B -C = 0
+  lbl121(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(lbl131(A, B, C, D, E, F, G, H, I, 1 + J, K, L)) :|: A + C -F -1 >= 0 && A >= 0 && F -A >= 0 && E -1 >= 0 && H -E = 0 && J -F = 0 && L -A = 0 && D -E = 0 && B -C = 0
+  lbl131(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(lbl111(A, B, C, D, E, 1 + J, G, 1, I, J, K, L)) :|: A -J -1 >= 0 && E -1 >= 0 && C -J -1 >= 0 && E >= 0 && A >= 0 && C -1 >= 0 && A + C -J >= 0 && J -1 >= 0 && H -E = 0 && L -A = 0 && D -E = 0 && B -C = 0
+  lbl131(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(lbl121(A, B, C, D, E, J, G, 1, I, J, K, L)) :|: E -1 >= 0 && C -J -1 >= 0 && J -A >= 0 && E >= 0 && A >= 0 && C -1 >= 0 && A + C -J >= 0 && J -1 >= 0 && H -E = 0 && L -A = 0 && D -E = 0 && B -C = 0
+  lbl131(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(lbl131(A, B, C, D, E, F, G, 0, I, 1 + J, K, L)) :|: C -J -1 >= 0 && A >= 0 && C -1 >= 0 && A + C -J >= 0 && J -1 >= 0 && H = 0 && D = 0 && L -A = 0 && E = 0 && B -C = 0
+  lbl131(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7, NoDet8, NoDet9, NoDet10, NoDet11)) :|: J -C >= 0 && E >= 0 && A >= 0 && C -1 >= 0 && A + C -J >= 0 && J -1 >= 0 && H -E = 0 && L -A = 0 && D -E = 0 && B -C = 0
+  start(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(lbl111(A, B, C, D, E, 1, G, 1, I, 0, K, L)) :|: A -1 >= 0 && E -1 >= 0 && C -1 >= 0 && B -C = 0 && D -E = 0 && F -G = 0 && H -I = 0 && J -K = 0 && L -A = 0
+  start(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(lbl121(A, B, C, D, E, 0, G, 1, I, 0, K, L)) :|: E -1 >= 0 && C -1 >= 0 && L = 0 && B -C = 0 && D -E = 0 && F -G = 0 && H -I = 0 && J -K = 0 && A = 0
+  start(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(lbl131(A, B, C, D, E, F, G, 0, I, 1, K, L)) :|: A >= 0 && C -1 >= 0 && D = 0 && B -C = 0 && E = 0 && F -G = 0 && H -I = 0 && J -K = 0 && L -A = 0
+  start(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7, NoDet8, NoDet9, NoDet10, NoDet11)) :|: -1 -A >= 0 && B -C = 0 && D -E = 0 && F -G = 0 && H -I = 0 && J -K = 0 && L -A = 0
+  start(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7, NoDet8, NoDet9, NoDet10, NoDet11)) :|: -1 -E >= 0 && B -C = 0 && D -E = 0 && F -G = 0 && H -I = 0 && J -K = 0 && L -A = 0
+  start(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7, NoDet8, NoDet9, NoDet10, NoDet11)) :|: -1 -C >= 0 && B -C = 0 && D -E = 0 && F -G = 0 && H -I = 0 && J -K = 0 && L -A = 0
+  start(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7, NoDet8, NoDet9, NoDet10, NoDet11)) :|: A >= 0 && E >= 0 && B = 0 && C = 0 && D -E = 0 && F -G = 0 && H -I = 0 && J -K = 0 && L -A = 0
+  start0(A,B,C,D,E,F,G,H,I,J,K,L) -> Com_1(start(A, C, C, E, E, G, G, I, I, K, K, A))
+)

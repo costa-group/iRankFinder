@@ -1,0 +1,103 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_4, Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ 2*Ar_0 - 1 >= 0 /\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ 2*Ar_0 - 1 >= 0 /\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_0, Fresh_1, Fresh_2, Fresh_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 = 0 /\ Ar_1 - 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 = 0 /\ Ar_1 - 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___3(0, 1, 1, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_4, Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ 2*Ar_0 - 1 >= 0 /\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ 2*Ar_0 - 1 >= 0 /\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)    n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_0, Fresh_1, Fresh_2, Fresh_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 = 0 /\ Ar_1 - 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 = 0 /\ Ar_1 - 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)    n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___3(0, 1, 1, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(pyRinit) = 1
+	Pol(n_sqrt) = 1
+	Pol(n_f___1) = 1
+	Pol(n_end___2) = 0
+	Pol(n_f___3) = 1
+	Pol(koat_start) = 1
+orients all transitions weakly and the transition
+	n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_4, Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ 2*Ar_0 - 1 >= 0 /\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_4, Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ 2*Ar_0 - 1 >= 0 /\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ 2*Ar_0 - 1 >= 0 /\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)    n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_0, Fresh_1, Fresh_2, Fresh_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 = 0 /\ Ar_1 - 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 = 0 /\ Ar_1 - 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)    n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___3(0, 1, 1, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(n_f___1) = -V_3 + V_4 + 1
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___3(0, 1, 1, Ar_3))", 0-0) = 0
+	S("n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___3(0, 1, 1, Ar_3))", 0-1) = 1
+	S("n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___3(0, 1, 1, Ar_3))", 0-2) = 1
+	S("n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___3(0, 1, 1, Ar_3))", 0-3) = Ar_3
+	S("n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 = 0 /\\ Ar_1 - 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ -Ar_2 + Ar_3 >= 0 ]", 0-0) = 1
+	S("n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 = 0 /\\ Ar_1 - 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ -Ar_2 + Ar_3 >= 0 ]", 0-1) = 3
+	S("n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 = 0 /\\ Ar_1 - 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ -Ar_2 + Ar_3 >= 0 ]", 0-2) = 4
+	S("n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 = 0 /\\ Ar_1 - 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ -Ar_2 + Ar_3 >= 0 ]", 0-3) = Ar_3
+	S("n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_0, Fresh_1, Fresh_2, Fresh_3)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 = 0 /\\ Ar_1 - 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ Ar_2 - Ar_3 - 1 >= 0 ]", 0-0) = ?
+	S("n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_0, Fresh_1, Fresh_2, Fresh_3)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 = 0 /\\ Ar_1 - 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ Ar_2 - Ar_3 - 1 >= 0 ]", 0-1) = ?
+	S("n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_0, Fresh_1, Fresh_2, Fresh_3)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 = 0 /\\ Ar_1 - 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ Ar_2 - Ar_3 - 1 >= 0 ]", 0-2) = ?
+	S("n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_0, Fresh_1, Fresh_2, Fresh_3)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ Ar_2 - 1 = 0 /\\ Ar_0 = 0 /\\ Ar_1 - 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ Ar_2 - Ar_3 - 1 >= 0 ]", 0-3) = ?
+	S("n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ 2*Ar_0 - 1 >= 0 /\\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\\ Ar_1 - 2 >= 0 /\\ -Ar_2 + Ar_3 >= 0 ]", 0-0) = ?
+	S("n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ 2*Ar_0 - 1 >= 0 /\\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\\ Ar_1 - 2 >= 0 /\\ -Ar_2 + Ar_3 >= 0 ]", 0-1) = ?
+	S("n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ 2*Ar_0 - 1 >= 0 /\\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\\ Ar_1 - 2 >= 0 /\\ -Ar_2 + Ar_3 >= 0 ]", 0-2) = ?
+	S("n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ 2*Ar_0 - 1 >= 0 /\\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\\ Ar_1 - 2 >= 0 /\\ -Ar_2 + Ar_3 >= 0 ]", 0-3) = Ar_3
+	S("n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_4, Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ 2*Ar_0 - 1 >= 0 /\\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\\ Ar_1 - 2 >= 0 /\\ Ar_2 - Ar_3 - 1 >= 0 ]", 0-0) = ?
+	S("n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_4, Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ 2*Ar_0 - 1 >= 0 /\\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\\ Ar_1 - 2 >= 0 /\\ Ar_2 - Ar_3 - 1 >= 0 ]", 0-1) = ?
+	S("n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_4, Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ 2*Ar_0 - 1 >= 0 /\\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\\ Ar_1 - 2 >= 0 /\\ Ar_2 - Ar_3 - 1 >= 0 ]", 0-2) = ?
+	S("n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_4, Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 >= 0 /\\ 2*Ar_0 - Ar_1 + 1 = 0 /\\ 2*Ar_0 + 1 >= 0 /\\ 2*Ar_0 - 1 >= 0 /\\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\\ Ar_1 - 2 >= 0 /\\ Ar_2 - Ar_3 - 1 >= 0 ]", 0-3) = ?
+	S("pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+orients the transitions
+	n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ 2*Ar_0 - 1 >= 0 /\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+weakly and the transition
+	n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ 2*Ar_0 - 1 >= 0 /\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)           pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)           n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_4, Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ 2*Ar_0 - 1 >= 0 /\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: Ar_3 + 5, Cost: 1)    n_f___1(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ 2*Ar_0 - 1 >= 0 /\ 2*Ar_0 - Ar_2 + Ar_3 + 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)           n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_end___2(Fresh_0, Fresh_1, Fresh_2, Fresh_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 = 0 /\ Ar_1 - 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ Ar_2 - Ar_3 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)           n_f___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___1(Ar_0 + 1, 2*Ar_0 + 3, 2*Ar_0 + Ar_2 + 3, Ar_3)) [ Ar_1 >= 0 /\ 2*Ar_0 - Ar_1 + 1 = 0 /\ Ar_2 - 1 = 0 /\ Ar_0 = 0 /\ Ar_1 - 1 = 0 /\ 2*Ar_0 + 1 >= 0 /\ -Ar_2 + Ar_3 >= 0 ]
+		(Comp: 1, Cost: 1)           n_sqrt(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_f___3(0, 1, 1, Ar_3))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound Ar_3 + 10
+
+Time: 0.148 sec (SMT: 0.138 sec)
+
+-- stats
+realtime 0:00.16
+usertime 0.13
+systime 0.02
+

@@ -1,0 +1,25 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A_P B_P C_P NoDet1 NoDet2 NoDet0)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(n_evalcyclicstart(A,B,C))
+  n_evalcyclicbb3in___10(A,B,C) -> Com_1(n_evalcyclicbb4in___9(A, B, C)) :|: -A + B -1 >= 0 && A >= 0 && B -C >= 0 && -A + C -1 >= 0 && A >= 0 && -1 -A + B >= 0 && -1 -A + C >= 0 && A >= 0 && -A + B -1 >= 0 && -A + C -1 >= 0 && 1 + A -C = 0 && A >= 0 && -1 -A + B >= 0
+  n_evalcyclicbb3in___3(A,B,C) -> Com_1(n_evalcyclicbb4in___2(A, B, C)) :|: -A + B -1 >= 0 && A >= 0 && B -C >= 0 && A >= 0 && A -C -1 >= 0 && -A + B -1 >= 0 && -1 -A + B >= 0 && A -C >= 0 && C >= 0
+  n_evalcyclicbb3in___3(A,B,C) -> Com_1(n_evalcyclicbb4in___9(A, B, C)) :|: -A + B -1 >= 0 && A >= 0 && B -C >= 0 && A >= 0 && -A + B -1 >= 0 && -A + C -1 >= 0 && -1 -A + B >= 0 && A -C >= 0 && C >= 0
+  n_evalcyclicbb3in___3(A,B,C) -> Com_1(n_evalcyclicstop___7(NoDet0, NoDet1, NoDet2)) :|: -A + B -1 >= 0 && A >= 0 && B -C >= 0 && B -C -1 >= 0 && C >= 0 && A -C = 0 && -1 -A + B >= 0 && A -C >= 0 && C >= 0
+  n_evalcyclicbb3in___6(A,B,C) -> Com_1(n_evalcyclicbb4in___5(A, B, C)) :|: -A + B -1 >= 0 && A >= 0 && -A + C -1 >= 0 && A >= 0 && -1 -A + B >= 0 && -1 -A + C >= 0 && A >= 0 && -A + B -1 >= 0 && -A + C -1 >= 0 && 1 + B -C >= 0 && A >= 0 && -2 -A + C >= 0
+  n_evalcyclicbb4in___2(A,B,C) -> Com_1(n_evalcyclicbbin___1(A, B, C)) :|: A -C -1 >= 0 && -A + B -1 >= 0 && A >= 0 && -A + B -1 >= 0 && A >= 0 && -1 -A + B >= 0 && C >= 0 && -1 + A -C >= 0
+  n_evalcyclicbb4in___2(A,B,C) -> Com_1(n_evalcyclicbbin___1(A, B, C)) :|: A -C -1 >= 0 && -A + B -1 >= 0 && A >= 0 && -A + B -1 >= 0 && A >= 0 && -1 -A + B >= 0 && C >= 0 && -1 + A -C >= 0
+  n_evalcyclicbb4in___2(A,B,C) -> Com_1(n_evalcyclicstop___7(NoDet0, NoDet1, NoDet2)) :|: A -C -1 >= 0 && -A + B -1 >= 0 && A >= 0 && -A + B -1 >= 0 && A >= 0 && -1 -A + B >= 0 && C >= 0 && -1 + A -C >= 0
+  n_evalcyclicbb4in___5(A,B,C) -> Com_1(n_evalcyclicbbin___4(A, B, C)) :|: -A + C -1 >= 0 && -A + B -1 >= 0 && A >= 0 && -A + B -1 >= 0 && A >= 0 && -2 -A + C >= 0 && 1 + B -C >= 0 && A >= 0
+  n_evalcyclicbb4in___5(A,B,C) -> Com_1(n_evalcyclicbbin___4(A, B, C)) :|: -A + C -1 >= 0 && -A + B -1 >= 0 && A >= 0 && -A + B -1 >= 0 && A >= 0 && -2 -A + C >= 0 && 1 + B -C >= 0 && A >= 0
+  n_evalcyclicbb4in___5(A,B,C) -> Com_1(n_evalcyclicstop___7(NoDet0, NoDet1, NoDet2)) :|: -A + C -1 >= 0 && -A + B -1 >= 0 && A >= 0 && -A + B -1 >= 0 && A >= 0 && -2 -A + C >= 0 && 1 + B -C >= 0 && A >= 0
+  n_evalcyclicbb4in___9(A,B,C) -> Com_1(n_evalcyclicbbin___8(A, B, C)) :|: B -C >= 0 && -A + C -1 >= 0 && A >= 0 && -A + B -1 >= 0 && A >= 0 && 1 + A -C = 0 && -1 -A + B >= 0 && A >= 0
+  n_evalcyclicbb4in___9(A,B,C) -> Com_1(n_evalcyclicbbin___8(A, B, C)) :|: B -C >= 0 && -A + C -1 >= 0 && A >= 0 && -A + B -1 >= 0 && A >= 0 && 1 + A -C = 0 && -1 -A + B >= 0 && A >= 0
+  n_evalcyclicbb4in___9(A,B,C) -> Com_1(n_evalcyclicstop___7(NoDet0, NoDet1, NoDet2)) :|: B -C >= 0 && -A + C -1 >= 0 && A >= 0 && -A + B -1 >= 0 && A >= 0 && 1 + A -C = 0 && -1 -A + B >= 0 && A >= 0
+  n_evalcyclicbbin___1(A,B,C) -> Com_1(n_evalcyclicbb3in___3(A, B, C + 1)) :|: A -C -1 >= 0 && -A + B -1 >= 0 && A >= 0 && A >= 0 && B -C >= 0 && -A + B -1 >= 0 && -1 -A + B >= 0 && C >= 0 && -1 + A -C >= 0
+  n_evalcyclicbbin___4(A,B,C) -> Com_1(n_evalcyclicbb3in___3(A, B, 0)) :|: -A + C -1 >= 0 && -A + B -1 >= 0 && A >= 0 && A >= 0 && -B + C -1 >= 0 && -A + B -1 >= 0 && -2 -A + C >= 0 && 1 + B -C >= 0 && A >= 0
+  n_evalcyclicbbin___4(A,B,C) -> Com_1(n_evalcyclicbb3in___6(A, B, C + 1)) :|: -A + C -1 >= 0 && -A + B -1 >= 0 && A >= 0 && A >= 0 && B -C >= 0 && -A + B -1 >= 0 && -2 -A + C >= 0 && 1 + B -C >= 0 && A >= 0
+  n_evalcyclicbbin___8(A,B,C) -> Com_1(n_evalcyclicbb3in___6(A, B, C + 1)) :|: B -C >= 0 && -A + C -1 >= 0 && A >= 0 && A >= 0 && B -C >= 0 && -A + B -1 >= 0 && 1 + A -C = 0 && A >= 0 && -1 -A + B >= 0
+  n_evalcyclicstart(A,B,C) -> Com_1(n_evalcyclicbb3in___10(A, B, A + 1)) :|: -A + B -1 >= 0 && A >= 0
+)

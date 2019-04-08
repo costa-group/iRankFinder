@@ -1,0 +1,21 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A_P B_P NoDet0 NoDet1)
+(RULES 
+  pyRinit(A,B) -> Com_1(n_evalwisestart(A,B))
+  n_evalwisebb3in___1(A,B) -> Com_1(n_evalwisebb6in___2(A, B + 1)) :|: A -B -3 >= 0 && B -1 >= 0 && B >= 0 && A -B -1 >= 0 && A + B -3 >= 0
+  n_evalwisebb3in___3(A,B) -> Com_1(n_evalwisebb6in___4(A + 1, B)) :|: -A + B -3 >= 0 && A -1 >= 0 && -A + B >= 0 && A >= 0 && A + B -3 >= 0
+  n_evalwisebb3in___5(A,B) -> Com_1(n_evalwisebb6in___2(A, B + 1)) :|: A -B -3 >= 0 && B >= 0 && B >= 0 && A -B -1 >= 0 && A + B -3 >= 0
+  n_evalwisebb3in___6(A,B) -> Com_1(n_evalwisebb6in___4(A + 1, B)) :|: -A + B -3 >= 0 && A >= 0 && -A + B >= 0 && A >= 0 && A + B -3 >= 0
+  n_evalwisebb6in___2(A,B) -> Com_1(n_evalwisebb3in___1(A, B)) :|: A >= 0 && B >= 0 && A -B >= 0 && -4 + A + B >= 0 && -1 + B >= 0 && A -B -3 >= 0 && B >= 0
+  n_evalwisebb6in___2(A,B) -> Com_1(n_evalwisestop___7(NoDet0, NoDet1)) :|: A >= 0 && B >= 0 && A -B >= 0 && -4 + A + B >= 0 && -1 + B >= 0 && -A + B + 2 >= 0 && A -B + 2 >= 0 && A >= 0 && B >= 0
+  n_evalwisebb6in___4(A,B) -> Com_1(n_evalwisebb3in___3(A, B)) :|: -1 + A >= 0 && -4 + A + B >= 0 && 1 -A + B >= 0 && A >= 0 && B >= 0 && A >= 0 && -A + B -3 >= 0
+  n_evalwisebb6in___4(A,B) -> Com_1(n_evalwisestop___7(NoDet0, NoDet1)) :|: -1 + A >= 0 && -4 + A + B >= 0 && 1 -A + B >= 0 && A >= 0 && B >= 0 && -A + B + 2 >= 0 && A -B + 2 >= 0 && A >= 0 && B >= 0
+  n_evalwisebb6in___8(A,B) -> Com_1(n_evalwisebb3in___5(A, B)) :|: A >= 0 && B >= 0 && A -B -3 >= 0 && B >= 0
+  n_evalwisebb6in___8(A,B) -> Com_1(n_evalwisebb3in___6(A, B)) :|: A >= 0 && B >= 0 && A >= 0 && -A + B -3 >= 0
+  n_evalwisebb6in___8(A,B) -> Com_1(n_evalwisestop___7(NoDet0, NoDet1)) :|: A >= 0 && B >= 0 && -A + B + 2 >= 0 && A -B + 2 >= 0 && A >= 0 && B >= 0
+  n_evalwiseentryin___9(A,B) -> Com_1(n_evalwisebb6in___8(B, A)) :|: A >= 0 && B >= 0
+  n_evalwiseentryin___9(A,B) -> Com_1(n_evalwisestop___7(NoDet0, NoDet1)) :|: -A -1 >= 0
+  n_evalwiseentryin___9(A,B) -> Com_1(n_evalwisestop___7(NoDet0, NoDet1)) :|: -B -1 >= 0
+  n_evalwisestart(A,B) -> Com_1(n_evalwiseentryin___9(A, B))
+)

@@ -1,0 +1,74 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: l0,
+  nodes: {
+    l0: {
+      inv_polyhedra: [],
+    },
+    l1: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    l2: {
+      cfr_properties: [
+        // RFs Properties
+        [C >= 0],
+        [-C > 0],
+      ],
+      inv_polyhedra: [-B >= 0, C >= 0, A -C >= 0],
+    },
+    l3: {
+      cfr_properties: [
+        // RFs Properties
+        [C >= 0],
+        [-C > 0],
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [-B >= 0, A -C >= 0, -1 + C >= 0, C -D >= 0],
+    },
+  },
+  transitions: [
+    {
+	source: l0,
+	target: l1,
+	name: t0,
+	constraints: [-A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: l1,
+	target: l1,
+	name: t1,
+	constraints: [B -1 >= 0, A + 1 -A' = 0, B -1 -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: l1,
+	target: l2,
+	name: t2,
+	constraints: [-B >= 0, A -A' = 0, B -B' = 0, A -C' = 0, D -D' = 0]
+    },
+    {
+	source: l2,
+	target: l3,
+	name: t3,
+	constraints: [C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, C -D' = 0]
+    },
+    {
+	source: l3,
+	target: l3,
+	name: t4,
+	constraints: [D -1 >= 0, C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -1 -D' = 0]
+    },
+    {
+	source: l3,
+	target: l2,
+	name: t5,
+	constraints: [-D >= 0, C -1 >= 0, A -A' = 0, B -B' = 0, C -1 -C' = 0, D -D' = 0]
+    }
+  ]
+}

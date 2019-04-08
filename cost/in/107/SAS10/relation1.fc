@@ -1,0 +1,39 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: start0,
+  nodes: {
+    lbl41: {
+      inv_polyhedra: [C -D == 0],
+    },
+    start: {
+      inv_polyhedra: [C -D == 0, A -B == 0],
+    },
+    start0: {
+      inv_polyhedra: [],
+    },
+    stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: start,
+	target: lbl41,
+	name: t0,
+	constraints: [A -B = 0, C -D = 0, E -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: lbl41,
+	target: stop,
+	name: t1,
+	constraints: [C -D = 0]
+    },
+    {
+	source: start0,
+	target: start,
+	name: t2,
+	constraints: [B -A' = 0, B -B' = 0, D -C' = 0, D -D' = 0]
+    }
+  ]
+}

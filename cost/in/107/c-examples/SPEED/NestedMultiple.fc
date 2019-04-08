@@ -1,0 +1,139 @@
+{
+  vars: [A,B,C,D,E],
+  pvars: [A',B',C',D',E'],
+  initnode: evalNestedMultiplestart,
+  nodes: {
+    evalNestedMultiplebb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -B >= 0],
+        [-A + B > 0],
+        [C -E >= 0],
+        [-C + E > 0],
+      ],
+      inv_polyhedra: [-D + E >= 0, -1 + C -E >= 0, -1 + A -B >= 0],
+    },
+    evalNestedMultiplebb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -B >= 0],
+        [-A + B > 0],
+        [C -E >= 0],
+        [-C + E > 0],
+      ],
+      inv_polyhedra: [-1 + A -B >= 0, -D + E >= 0],
+    },
+    evalNestedMultiplebb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -B >= 0],
+        [-A + B > 0],
+        [C -E >= 0],
+        [-C + E > 0],
+      ],
+      inv_polyhedra: [-D + E >= 0, -1 + C -E >= 0, -1 + A -B >= 0],
+    },
+    evalNestedMultiplebb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [-D + E >= 0, -1 + A -B >= 0],
+    },
+    evalNestedMultiplebb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalNestedMultipleentryin: {
+      inv_polyhedra: [],
+    },
+    evalNestedMultiplereturnin: {
+      inv_polyhedra: [-A + B >= 0],
+    },
+    evalNestedMultiplestart: {
+      inv_polyhedra: [],
+    },
+    evalNestedMultiplestop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalNestedMultiplestart,
+	target: evalNestedMultipleentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultipleentryin,
+	target: evalNestedMultiplebb5in,
+	name: t1,
+	constraints: [B -A' = 0, A -B' = 0, D -C' = 0, C -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultiplebb4in,
+	target: evalNestedMultiplebb5in,
+	name: t10,
+	constraints: [A -A' = 0, B + 1 -B' = 0, C -C' = 0, E -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultiplereturnin,
+	target: evalNestedMultiplestop,
+	name: t11,
+	constraints: []
+    },
+    {
+	source: evalNestedMultiplebb5in,
+	target: evalNestedMultiplebb2in,
+	name: t2,
+	constraints: [A -B -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, D -E' = 0]
+    },
+    {
+	source: evalNestedMultiplebb5in,
+	target: evalNestedMultiplereturnin,
+	name: t3,
+	constraints: [B -A >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultiplebb2in,
+	target: evalNestedMultiplebb4in,
+	name: t4,
+	constraints: [E -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultiplebb2in,
+	target: evalNestedMultiplebb3in,
+	name: t5,
+	constraints: [C -E -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultiplebb3in,
+	target: evalNestedMultiplebb1in,
+	name: t6,
+	constraints: [-1 -F >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultiplebb3in,
+	target: evalNestedMultiplebb1in,
+	name: t7,
+	constraints: [F -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultiplebb3in,
+	target: evalNestedMultiplebb4in,
+	name: t8,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalNestedMultiplebb1in,
+	target: evalNestedMultiplebb2in,
+	name: t9,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E + 1 -E' = 0]
+    }
+  ]
+}

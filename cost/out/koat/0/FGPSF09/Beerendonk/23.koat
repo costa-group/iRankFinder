@@ -1,0 +1,60 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    eval1(Ar_0, Ar_1, Ar_2) -> Com_1(eval2(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    eval2(Ar_0, Ar_1, Ar_2) -> Com_1(eval2(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 >= Ar_1 + 1 /\ Ar_2 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    eval2(Ar_0, Ar_1, Ar_2) -> Com_1(eval1(Ar_0 - 1, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 + 1 /\ Ar_1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2) -> Com_1(eval1(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: ?, Cost: 1)    eval1(Ar_0, Ar_1, Ar_2) -> Com_1(eval2(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    eval2(Ar_0, Ar_1, Ar_2) -> Com_1(eval2(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 >= Ar_1 + 1 /\ Ar_2 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    eval2(Ar_0, Ar_1, Ar_2) -> Com_1(eval1(Ar_0 - 1, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 + 1 /\ Ar_1 >= Ar_2 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2) -> Com_1(eval1(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(eval1) = 2*V_1 - 2*V_2
+	Pol(eval2) = 2*V_1 - 2*V_2 - 1
+	Pol(start) = 2*V_1 - 2*V_2
+	Pol(koat_start) = 2*V_1 - 2*V_2
+orients all transitions weakly and the transitions
+	eval2(Ar_0, Ar_1, Ar_2) -> Com_1(eval1(Ar_0 - 1, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 + 1 /\ Ar_1 >= Ar_2 ]
+	eval1(Ar_0, Ar_1, Ar_2) -> Com_1(eval2(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 + 1 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 2*Ar_0 + 2*Ar_1, Cost: 1)    eval1(Ar_0, Ar_1, Ar_2) -> Com_1(eval2(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)                  eval2(Ar_0, Ar_1, Ar_2) -> Com_1(eval2(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 >= Ar_1 + 1 /\ Ar_2 >= Ar_1 + 1 ]
+		(Comp: 2*Ar_0 + 2*Ar_1, Cost: 1)    eval2(Ar_0, Ar_1, Ar_2) -> Com_1(eval1(Ar_0 - 1, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 + 1 /\ Ar_1 >= Ar_2 ]
+		(Comp: 1, Cost: 1)                  start(Ar_0, Ar_1, Ar_2) -> Com_1(eval1(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)                  koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(eval1) = -V_2 + V_3
+	Pol(eval2) = -V_2 + V_3
+	Pol(start) = -V_2 + V_3
+	Pol(koat_start) = -V_2 + V_3
+orients all transitions weakly and the transition
+	eval2(Ar_0, Ar_1, Ar_2) -> Com_1(eval2(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 >= Ar_1 + 1 /\ Ar_2 >= Ar_1 + 1 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 2*Ar_0 + 2*Ar_1, Cost: 1)    eval1(Ar_0, Ar_1, Ar_2) -> Com_1(eval2(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: Ar_1 + Ar_2, Cost: 1)        eval2(Ar_0, Ar_1, Ar_2) -> Com_1(eval2(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 >= Ar_1 + 1 /\ Ar_2 >= Ar_1 + 1 ]
+		(Comp: 2*Ar_0 + 2*Ar_1, Cost: 1)    eval2(Ar_0, Ar_1, Ar_2) -> Com_1(eval1(Ar_0 - 1, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 + 1 /\ Ar_1 >= Ar_2 ]
+		(Comp: 1, Cost: 1)                  start(Ar_0, Ar_1, Ar_2) -> Com_1(eval1(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)                  koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 4*Ar_0 + 5*Ar_1 + Ar_2 + 1
+
+Time: 0.033 sec (SMT: 0.028 sec)

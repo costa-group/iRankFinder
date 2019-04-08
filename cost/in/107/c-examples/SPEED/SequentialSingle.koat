@@ -1,0 +1,18 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A' B' NoDet0 NoDet1 C)
+(RULES 
+  pyRinit(A,B) -> Com_1(evalSequentialSinglestart(A,B))
+  evalSequentialSinglebb1in(A,B) -> Com_1(evalSequentialSinglebb2in(A, B)) :|: B -A -1 >= 0
+  evalSequentialSinglebb1in(A,B) -> Com_1(evalSequentialSinglebb5in(A, B)) :|: A -B >= 0
+  evalSequentialSinglebb2in(A,B) -> Com_1(evalSequentialSinglebb5in(A, B))
+  evalSequentialSinglebb2in(A,B) -> Com_1(evalSequentialSinglebbin(A, B)) :|: -1 -C >= 0
+  evalSequentialSinglebb2in(A,B) -> Com_1(evalSequentialSinglebbin(A, B)) :|: C -1 >= 0
+  evalSequentialSinglebb4in(A,B) -> Com_1(evalSequentialSinglebb5in(A + 1, B))
+  evalSequentialSinglebb5in(A,B) -> Com_1(evalSequentialSinglebb4in(A, B)) :|: B -A -1 >= 0
+  evalSequentialSinglebb5in(A,B) -> Com_1(evalSequentialSinglereturnin(A, B)) :|: A -B >= 0
+  evalSequentialSinglebbin(A,B) -> Com_1(evalSequentialSinglebb1in(A + 1, B))
+  evalSequentialSingleentryin(A,B) -> Com_1(evalSequentialSinglebb1in(0, B))
+  evalSequentialSinglereturnin(A,B) -> Com_1(evalSequentialSinglestop(NoDet0, NoDet1))
+  evalSequentialSinglestart(A,B) -> Com_1(evalSequentialSingleentryin(A, B))
+)

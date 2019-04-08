@@ -1,0 +1,291 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalperfectbb3in/9,evalperfectbb4in/9]
+1. recursive  : [evalperfectbb4in_loop_cont/10,evalperfectbb5in/9,evalperfectbb8in/9]
+2. non_recursive  : [evalperfectstop/5]
+3. non_recursive  : [evalperfectreturnin/5]
+4. non_recursive  : [evalperfectbb9in/5]
+5. non_recursive  : [exit_location/1]
+6. non_recursive  : [evalperfectbb8in_loop_cont/6]
+7. non_recursive  : [evalperfectbb1in/5]
+8. non_recursive  : [evalperfectentryin/5]
+9. non_recursive  : [evalperfectstart/5]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalperfectbb4in/9
+1. SCC is partially evaluated into evalperfectbb8in/9
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into evalperfectbb9in/5
+5. SCC is completely evaluated into other SCCs
+6. SCC is partially evaluated into evalperfectbb8in_loop_cont/6
+7. SCC is partially evaluated into evalperfectbb1in/5
+8. SCC is partially evaluated into evalperfectentryin/5
+9. SCC is partially evaluated into evalperfectstart/5
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalperfectbb4in/9 
+* CE 15 is refined into CE [19] 
+* CE 14 is refined into CE [20] 
+* CE 13 is refined into CE [21] 
+
+
+### Cost equations --> "Loop" of evalperfectbb4in/9 
+* CEs [21] --> Loop 18 
+* CEs [19] --> Loop 19 
+* CEs [20] --> Loop 20 
+
+### Ranking functions of CR evalperfectbb4in(A,B,C,D,E,F,G,H,I) 
+* RF of phase [18]: [-C+D+1,D]
+
+#### Partial ranking functions of CR evalperfectbb4in(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [18]:
+  - RF of loop [18:1]:
+    -C+D+1
+    D
+
+
+### Specialization of cost equations evalperfectbb8in/9 
+* CE 9 is refined into CE [22] 
+* CE 8 is refined into CE [23] 
+* CE 10 is refined into CE [24] 
+* CE 5 is refined into CE [25,26] 
+* CE 6 is refined into CE [27] 
+* CE 7 is refined into CE [28,29] 
+
+
+### Cost equations --> "Loop" of evalperfectbb8in/9 
+* CEs [26] --> Loop 21 
+* CEs [25] --> Loop 22 
+* CEs [27] --> Loop 23 
+* CEs [29] --> Loop 24 
+* CEs [28] --> Loop 25 
+* CEs [22] --> Loop 26 
+* CEs [23,24] --> Loop 27 
+
+### Ranking functions of CR evalperfectbb8in(A,B,C,D,E,F,G,H,I) 
+* RF of phase [21,24]: [C]
+
+#### Partial ranking functions of CR evalperfectbb8in(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [21,24]:
+  - RF of loop [21:1]:
+    C-1
+  - RF of loop [24:1]:
+    C
+
+
+### Specialization of cost equations evalperfectbb9in/5 
+* CE 17 is refined into CE [30] 
+* CE 16 is refined into CE [31] 
+* CE 18 is refined into CE [32] 
+
+
+### Cost equations --> "Loop" of evalperfectbb9in/5 
+* CEs [30] --> Loop 28 
+* CEs [31] --> Loop 29 
+* CEs [32] --> Loop 30 
+
+### Ranking functions of CR evalperfectbb9in(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalperfectbb9in(A,B,C,D,E) 
+
+
+### Specialization of cost equations evalperfectbb8in_loop_cont/6 
+* CE 11 is refined into CE [33,34,35] 
+* CE 12 is refined into CE [36] 
+
+
+### Cost equations --> "Loop" of evalperfectbb8in_loop_cont/6 
+* CEs [35] --> Loop 31 
+* CEs [34] --> Loop 32 
+* CEs [33] --> Loop 33 
+* CEs [36] --> Loop 34 
+
+### Ranking functions of CR evalperfectbb8in_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR evalperfectbb8in_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations evalperfectbb1in/5 
+* CE 4 is refined into CE [37,38,39,40] 
+
+
+### Cost equations --> "Loop" of evalperfectbb1in/5 
+* CEs [37,38,39,40] --> Loop 35 
+
+### Ranking functions of CR evalperfectbb1in(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalperfectbb1in(A,B,C,D,E) 
+
+
+### Specialization of cost equations evalperfectentryin/5 
+* CE 3 is refined into CE [41] 
+* CE 2 is refined into CE [42] 
+
+
+### Cost equations --> "Loop" of evalperfectentryin/5 
+* CEs [41] --> Loop 36 
+* CEs [42] --> Loop 37 
+
+### Ranking functions of CR evalperfectentryin(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalperfectentryin(A,B,C,D,E) 
+
+
+### Specialization of cost equations evalperfectstart/5 
+* CE 1 is refined into CE [43,44] 
+
+
+### Cost equations --> "Loop" of evalperfectstart/5 
+* CEs [44] --> Loop 38 
+* CEs [43] --> Loop 39 
+
+### Ranking functions of CR evalperfectstart(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalperfectstart(A,B,C,D,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalperfectbb4in(A,B,C,D,E,F,G,H,I):
+* Chain [[18],20]: 2*it(18)+1
+  Such that:it(18) =< D-H+1
+
+  with precondition: [E=2,A=F,B=G,C=H,I>=0,A>=D,C>=I+1,D>=C+I] 
+
+* Chain [[18],19]: 2*it(18)+0
+  Such that:it(18) =< -C+D+1
+
+  with precondition: [E=3,C>=1,D>=C,A>=D] 
+
+* Chain [20]: 1
+  with precondition: [E=2,G=B,A=F,C=H,D=I,C>=1,A>=D,C>=D+1] 
+
+* Chain [19]: 0
+  with precondition: [E=3,C>=1,A>=D] 
+
+
+#### Cost of chains of evalperfectbb8in(A,B,C,D,E,F,G,H,I):
+* Chain [[21,24],27]: 6*it(21)+2*s(2)+2*s(7)+2*s(8)+1
+  Such that:aux(1) =< A
+s(2) =< A+1
+aux(5) =< C
+it(21) =< aux(5)
+aux(2) =< aux(1)
+s(7) =< it(21)*aux(1)
+s(8) =< it(21)*aux(2)
+
+  with precondition: [E=3,C>=1,A>=B,A>=C+1] 
+
+* Chain [[21,24],26]: 6*it(21)+2*s(7)+2*s(8)+1
+  Such that:aux(1) =< A
+aux(6) =< C
+it(21) =< aux(6)
+aux(2) =< aux(1)
+s(7) =< it(21)*aux(1)
+s(8) =< it(21)*aux(2)
+
+  with precondition: [E=4,H=0,I=0,F=G,C>=1,A>=B,A>=C+1,B>=F+1] 
+
+* Chain [27]: 2*s(2)+1
+  Such that:s(2) =< A-C+1
+
+  with precondition: [E=3,A>=B,A>=C+1,A+C>=B+1] 
+
+
+#### Cost of chains of evalperfectbb9in(A,B,C,D,E):
+* Chain [30]: 2
+  with precondition: [A=0] 
+
+* Chain [29]: 2
+  with precondition: [0>=A+1] 
+
+* Chain [28]: 2
+  with precondition: [A>=1] 
+
+
+#### Cost of chains of evalperfectbb8in_loop_cont(A,B,C,D,E,F):
+* Chain [34]: 0
+  with precondition: [A=3] 
+
+* Chain [33]: 2
+  with precondition: [A=4,B=0] 
+
+* Chain [32]: 2
+  with precondition: [A=4,0>=B+1] 
+
+* Chain [31]: 2
+  with precondition: [A=4,B>=1] 
+
+
+#### Cost of chains of evalperfectbb1in(A,B,C,D,E):
+* Chain [35]: 2*s(18)+2*s(19)+24*s(21)+8*s(23)+8*s(24)+4
+  Such that:s(19) =< 2
+s(18) =< A+1
+aux(11) =< A
+s(21) =< aux(11)
+s(22) =< aux(11)
+s(23) =< s(21)*aux(11)
+s(24) =< s(21)*s(22)
+
+  with precondition: [A>=2] 
+
+
+#### Cost of chains of evalperfectentryin(A,B,C,D,E):
+* Chain [37]: 2
+  with precondition: [1>=A] 
+
+* Chain [36]: 2*s(43)+2*s(44)+24*s(46)+8*s(48)+8*s(49)+5
+  Such that:s(43) =< 2
+s(45) =< A
+s(44) =< A+1
+s(46) =< s(45)
+s(47) =< s(45)
+s(48) =< s(46)*s(45)
+s(49) =< s(46)*s(47)
+
+  with precondition: [A>=2] 
+
+
+#### Cost of chains of evalperfectstart(A,B,C,D,E):
+* Chain [39]: 3
+  with precondition: [1>=A] 
+
+* Chain [38]: 2*s(50)+2*s(52)+24*s(53)+8*s(55)+8*s(56)+6
+  Such that:s(50) =< 2
+s(51) =< A
+s(52) =< A+1
+s(53) =< s(51)
+s(54) =< s(51)
+s(55) =< s(53)*s(51)
+s(56) =< s(53)*s(54)
+
+  with precondition: [A>=2] 
+
+
+Closed-form bounds of evalperfectstart(A,B,C,D,E): 
+-------------------------------------
+* Chain [39] with precondition: [1>=A] 
+    - Upper bound: 3 
+    - Complexity: constant 
+* Chain [38] with precondition: [A>=2] 
+    - Upper bound: 24*A+10+16*A*A+ (2*A+2) 
+    - Complexity: n^2 
+
+### Maximum cost of evalperfectstart(A,B,C,D,E): nat(A)*24+7+nat(A)*16*nat(A)+nat(A+1)*2+3 
+Asymptotic class: n^2 
+* Total analysis performed in 508 ms.
+
+
+-- stats
+realtime 0:00.63
+usertime 0.57
+systime 0.00
+

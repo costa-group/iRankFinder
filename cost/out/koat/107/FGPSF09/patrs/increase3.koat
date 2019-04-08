@@ -1,0 +1,56 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_start(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    n_f___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1 + 1, Ar_2)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ 2*Ar_0 - Ar_1 - Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_f___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ 2*Ar_0 - Ar_1 - Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_f___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1 + 1, Ar_2)) [ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_f___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_start(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___2(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_start(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    n_f___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1 + 1, Ar_2)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ 2*Ar_0 - Ar_1 - Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_f___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ 2*Ar_0 - Ar_1 - Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_f___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1 + 1, Ar_2)) [ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_f___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_start(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___2(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(pyRinit) = 2*V_1 - V_2 - V_3
+	Pol(n_start) = 2*V_1 - V_2 - V_3
+	Pol(n_f___1) = 2*V_1 - V_2 - V_3
+	Pol(n_f___2) = 2*V_1 - V_2 - V_3
+	Pol(koat_start) = 2*V_1 - V_2 - V_3
+orients all transitions weakly and the transitions
+	n_f___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1 + 1, Ar_2)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ 2*Ar_0 - Ar_1 - Ar_2 - 1 >= 0 ]
+	n_f___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ 2*Ar_0 - Ar_1 - Ar_2 - 1 >= 0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)                       pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_start(Ar_0, Ar_1, Ar_2))
+		(Comp: 2*Ar_0 + Ar_1 + Ar_2, Cost: 1)    n_f___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1 + 1, Ar_2)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ 2*Ar_0 - Ar_1 - Ar_2 - 1 >= 0 ]
+		(Comp: 2*Ar_0 + Ar_1 + Ar_2, Cost: 1)    n_f___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ 2*Ar_0 - Ar_1 - Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)                       n_f___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1 + 1, Ar_2)) [ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)                       n_f___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___1(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_0 - Ar_2 - 1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)                       n_start(Ar_0, Ar_1, Ar_2) -> Com_1(n_f___2(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)                       koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 4*Ar_0 + 2*Ar_1 + 2*Ar_2 + 4
+
+Time: 0.081 sec (SMT: 0.073 sec)
+
+-- stats
+realtime 0:00.09
+usertime 0.05
+systime 0.04
+

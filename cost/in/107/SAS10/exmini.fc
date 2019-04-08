@@ -1,0 +1,68 @@
+{
+  vars: [A,B,C,D,E,F,G,H],
+  pvars: [A',B',C',D',E',F',G',H'],
+  initnode: start0,
+  nodes: {
+    lbl71: {
+      cfr_properties: [
+        // RFs Properties
+        [100 -A + 2 * D -E -G >= 0],
+        [-100 + A -2 * D + E + G > 0],
+      ],
+      inv_polyhedra: [-1 + A -B -D + E + G -H == 0, 1 + B -F == 0, 100 -B >= 0, 2 -A + B + 2 * D -E -G >= 0, 100 -A >= 0, -1 -D + E >= 0, E -G >= 0],
+    },
+    start: {
+      inv_polyhedra: [A -H == 0, F -G == 0, D -E == 0, B -C == 0],
+    },
+    start0: {
+      inv_polyhedra: [],
+    },
+    stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: start,
+	target: stop,
+	name: t0,
+	constraints: [A -101 >= 0, B -C = 0, D -E = 0, F -G = 0, H -A = 0]
+    },
+    {
+	source: start,
+	target: stop,
+	name: t1,
+	constraints: [G -E -1 >= 0, B -C = 0, D -E = 0, F -G = 0, H -A = 0]
+    },
+    {
+	source: start,
+	target: lbl71,
+	name: t2,
+	constraints: [E -G >= 0, 100 -A >= 0, B -C = 0, D -E = 0, F -G = 0, H -A = 0, A -A' = 0, H -B' = 0, C -C' = 0, D -1 -D' = 0, E -E' = 0, 1 + H -F' = 0, G -G' = 0, F -H' = 0]
+    },
+    {
+	source: lbl71,
+	target: stop,
+	name: t3,
+	constraints: [A + G + E -B -102 -D >= 0, E -1 -D >= 0, 100 -A >= 0, E -G >= 0, 2 * D + 2 + B -A -G -E >= 0, 100 -B >= 0, F -B -1 = 0, H + B + 1 + D -A -G -E = 0]
+    },
+    {
+	source: lbl71,
+	target: stop,
+	name: t4,
+	constraints: [B -D >= 0, E -1 -D >= 0, 100 -A >= 0, E -G >= 0, 2 * D + 2 + B -A -G -E >= 0, 100 -B >= 0, F -B -1 = 0, H + B + 1 + D -A -G -E = 0]
+    },
+    {
+	source: lbl71,
+	target: lbl71,
+	name: t5,
+	constraints: [D -B -1 >= 0, 101 + B + D -A -G -E >= 0, E -1 -D >= 0, 100 -A >= 0, E -G >= 0, 2 * D + 2 + B -A -G -E >= 0, 100 -B >= 0, F -B -1 = 0, H + B + 1 + D -A -G -E = 0, A -A' = 0, H -B' = 0, C -C' = 0, D -1 -D' = 0, E -E' = 0, 1 + H -F' = 0, G -G' = 0, F -H' = 0]
+    },
+    {
+	source: start0,
+	target: start,
+	name: t6,
+	constraints: [A -A' = 0, C -B' = 0, C -C' = 0, E -D' = 0, E -E' = 0, G -F' = 0, G -G' = 0, A -H' = 0]
+    }
+  ]
+}

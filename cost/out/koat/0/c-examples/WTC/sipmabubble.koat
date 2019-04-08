@@ -1,0 +1,245 @@
+WORST_CASE(?, O(n^2))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(evalsipmabubbleentryin(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    evalsipmabubbleentryin(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblereturnin(Ar_0, Ar_1)) [ 0 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb5in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb2in(Ar_0, Ar_1)) [ C >= D + 1 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1)) [ D >= C ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb2in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    evalsipmabubblebb3in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, Ar_1 + 1))
+		(Comp: ?, Cost: 1)    evalsipmabubblebb5in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0 - 1, Ar_1))
+		(Comp: ?, Cost: 1)    evalsipmabubblereturnin(Ar_0, Ar_1) -> Com_1(evalsipmabubblestop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(evalsipmabubblestart(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(evalsipmabubbleentryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)    evalsipmabubbleentryin(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblereturnin(Ar_0, Ar_1)) [ 0 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb5in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb2in(Ar_0, Ar_1)) [ C >= D + 1 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1)) [ D >= C ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb2in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    evalsipmabubblebb3in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, Ar_1 + 1))
+		(Comp: ?, Cost: 1)    evalsipmabubblebb5in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0 - 1, Ar_1))
+		(Comp: ?, Cost: 1)    evalsipmabubblereturnin(Ar_0, Ar_1) -> Com_1(evalsipmabubblestop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(evalsipmabubblestart(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalsipmabubblestart) = 2
+	Pol(evalsipmabubbleentryin) = 2
+	Pol(evalsipmabubblebb6in) = 2
+	Pol(evalsipmabubblebb4in) = 2
+	Pol(evalsipmabubblereturnin) = 1
+	Pol(evalsipmabubblebb1in) = 2
+	Pol(evalsipmabubblebb5in) = 2
+	Pol(evalsipmabubblebb2in) = 2
+	Pol(evalsipmabubblebb3in) = 2
+	Pol(evalsipmabubblestop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalsipmabubblereturnin(Ar_0, Ar_1) -> Com_1(evalsipmabubblestop(Ar_0, Ar_1))
+	evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblereturnin(Ar_0, Ar_1)) [ 0 >= Ar_0 + 1 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(evalsipmabubbleentryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)    evalsipmabubbleentryin(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: 2, Cost: 1)    evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblereturnin(Ar_0, Ar_1)) [ 0 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb5in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb2in(Ar_0, Ar_1)) [ C >= D + 1 ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1)) [ D >= C ]
+		(Comp: ?, Cost: 1)    evalsipmabubblebb2in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    evalsipmabubblebb3in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, Ar_1 + 1))
+		(Comp: ?, Cost: 1)    evalsipmabubblebb5in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0 - 1, Ar_1))
+		(Comp: 2, Cost: 1)    evalsipmabubblereturnin(Ar_0, Ar_1) -> Com_1(evalsipmabubblestop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(evalsipmabubblestart(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalsipmabubblestart) = V_1 + 1
+	Pol(evalsipmabubbleentryin) = V_1 + 1
+	Pol(evalsipmabubblebb6in) = V_1 + 1
+	Pol(evalsipmabubblebb4in) = V_1
+	Pol(evalsipmabubblereturnin) = V_1
+	Pol(evalsipmabubblebb1in) = V_1
+	Pol(evalsipmabubblebb5in) = V_1
+	Pol(evalsipmabubblebb2in) = V_1
+	Pol(evalsipmabubblebb3in) = V_1
+	Pol(evalsipmabubblestop) = V_1
+	Pol(koat_start) = V_1 + 1
+orients all transitions weakly and the transition
+	evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, 0)) [ Ar_0 >= 0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)           evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(evalsipmabubbleentryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)           evalsipmabubbleentryin(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0, Ar_1))
+		(Comp: Ar_0 + 1, Cost: 1)    evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: 2, Cost: 1)           evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblereturnin(Ar_0, Ar_1)) [ 0 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)           evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)           evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb5in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)           evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb2in(Ar_0, Ar_1)) [ C >= D + 1 ]
+		(Comp: ?, Cost: 1)           evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1)) [ D >= C ]
+		(Comp: ?, Cost: 1)           evalsipmabubblebb2in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)           evalsipmabubblebb3in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, Ar_1 + 1))
+		(Comp: ?, Cost: 1)           evalsipmabubblebb5in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0 - 1, Ar_1))
+		(Comp: 2, Cost: 1)           evalsipmabubblereturnin(Ar_0, Ar_1) -> Com_1(evalsipmabubblestop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1) -> Com_1(evalsipmabubblestart(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalsipmabubblebb5in) = 1
+	Pol(evalsipmabubblebb6in) = 0
+	Pol(evalsipmabubblebb4in) = 2
+	Pol(evalsipmabubblebb1in) = 2
+	Pol(evalsipmabubblebb3in) = 2
+	Pol(evalsipmabubblebb2in) = 2
+and size complexities
+	S("koat_start(Ar_0, Ar_1) -> Com_1(evalsipmabubblestart(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1) -> Com_1(evalsipmabubblestart(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("evalsipmabubblereturnin(Ar_0, Ar_1) -> Com_1(evalsipmabubblestop(Ar_0, Ar_1))", 0-0) = ?
+	S("evalsipmabubblereturnin(Ar_0, Ar_1) -> Com_1(evalsipmabubblestop(Ar_0, Ar_1))", 0-1) = ?
+	S("evalsipmabubblebb5in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0 - 1, Ar_1))", 0-0) = ?
+	S("evalsipmabubblebb5in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0 - 1, Ar_1))", 0-1) = ?
+	S("evalsipmabubblebb3in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, Ar_1 + 1))", 0-0) = ?
+	S("evalsipmabubblebb3in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, Ar_1 + 1))", 0-1) = ?
+	S("evalsipmabubblebb2in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1))", 0-0) = ?
+	S("evalsipmabubblebb2in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1))", 0-1) = ?
+	S("evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1)) [ D >= C ]", 0-0) = ?
+	S("evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1)) [ D >= C ]", 0-1) = ?
+	S("evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb2in(Ar_0, Ar_1)) [ C >= D + 1 ]", 0-0) = ?
+	S("evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb2in(Ar_0, Ar_1)) [ C >= D + 1 ]", 0-1) = ?
+	S("evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb5in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]", 0-0) = ?
+	S("evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb5in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]", 0-1) = ?
+	S("evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]", 0-0) = ?
+	S("evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]", 0-1) = ?
+	S("evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblereturnin(Ar_0, Ar_1)) [ 0 >= Ar_0 + 1 ]", 0-0) = ?
+	S("evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblereturnin(Ar_0, Ar_1)) [ 0 >= Ar_0 + 1 ]", 0-1) = ?
+	S("evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, 0)) [ Ar_0 >= 0 ]", 0-0) = ?
+	S("evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, 0)) [ Ar_0 >= 0 ]", 0-1) = 0
+	S("evalsipmabubbleentryin(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0, Ar_1))", 0-0) = Ar_0
+	S("evalsipmabubbleentryin(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0, Ar_1))", 0-1) = Ar_1
+	S("evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(evalsipmabubbleentryin(Ar_0, Ar_1))", 0-0) = Ar_0
+	S("evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(evalsipmabubbleentryin(Ar_0, Ar_1))", 0-1) = Ar_1
+orients the transitions
+	evalsipmabubblebb5in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0 - 1, Ar_1))
+	evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb5in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]
+	evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+	evalsipmabubblebb3in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, Ar_1 + 1))
+	evalsipmabubblebb2in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1))
+	evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1)) [ D >= C ]
+	evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb2in(Ar_0, Ar_1)) [ C >= D + 1 ]
+weakly and the transitions
+	evalsipmabubblebb5in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0 - 1, Ar_1))
+	evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb5in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)             evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(evalsipmabubbleentryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)             evalsipmabubbleentryin(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0, Ar_1))
+		(Comp: Ar_0 + 1, Cost: 1)      evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: 2, Cost: 1)             evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblereturnin(Ar_0, Ar_1)) [ 0 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)             evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 2*Ar_0 + 2, Cost: 1)    evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb5in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)             evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb2in(Ar_0, Ar_1)) [ C >= D + 1 ]
+		(Comp: ?, Cost: 1)             evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1)) [ D >= C ]
+		(Comp: ?, Cost: 1)             evalsipmabubblebb2in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)             evalsipmabubblebb3in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, Ar_1 + 1))
+		(Comp: 2*Ar_0 + 2, Cost: 1)    evalsipmabubblebb5in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0 - 1, Ar_1))
+		(Comp: 2, Cost: 1)             evalsipmabubblereturnin(Ar_0, Ar_1) -> Com_1(evalsipmabubblestop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1) -> Com_1(evalsipmabubblestart(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalsipmabubblebb4in) = V_1 - V_2 + 1
+	Pol(evalsipmabubblebb1in) = V_1 - V_2
+	Pol(evalsipmabubblebb3in) = V_1 - V_2
+	Pol(evalsipmabubblebb2in) = V_1 - V_2
+and size complexities
+	S("koat_start(Ar_0, Ar_1) -> Com_1(evalsipmabubblestart(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1) -> Com_1(evalsipmabubblestart(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("evalsipmabubblereturnin(Ar_0, Ar_1) -> Com_1(evalsipmabubblestop(Ar_0, Ar_1))", 0-0) = 3*Ar_0 + 162
+	S("evalsipmabubblereturnin(Ar_0, Ar_1) -> Com_1(evalsipmabubblestop(Ar_0, Ar_1))", 0-1) = ?
+	S("evalsipmabubblebb5in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0 - 1, Ar_1))", 0-0) = 3*Ar_0 + 18
+	S("evalsipmabubblebb5in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0 - 1, Ar_1))", 0-1) = ?
+	S("evalsipmabubblebb3in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, Ar_1 + 1))", 0-0) = 3*Ar_0 + 18
+	S("evalsipmabubblebb3in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, Ar_1 + 1))", 0-1) = ?
+	S("evalsipmabubblebb2in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1))", 0-0) = 3*Ar_0 + 18
+	S("evalsipmabubblebb2in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1))", 0-1) = ?
+	S("evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1)) [ D >= C ]", 0-0) = 3*Ar_0 + 18
+	S("evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1)) [ D >= C ]", 0-1) = ?
+	S("evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb2in(Ar_0, Ar_1)) [ C >= D + 1 ]", 0-0) = 3*Ar_0 + 18
+	S("evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb2in(Ar_0, Ar_1)) [ C >= D + 1 ]", 0-1) = ?
+	S("evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb5in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]", 0-0) = 3*Ar_0 + 18
+	S("evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb5in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]", 0-1) = ?
+	S("evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]", 0-0) = 3*Ar_0 + 18
+	S("evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]", 0-1) = ?
+	S("evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblereturnin(Ar_0, Ar_1)) [ 0 >= Ar_0 + 1 ]", 0-0) = 3*Ar_0 + 54
+	S("evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblereturnin(Ar_0, Ar_1)) [ 0 >= Ar_0 + 1 ]", 0-1) = ?
+	S("evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, 0)) [ Ar_0 >= 0 ]", 0-0) = 3*Ar_0 + 18
+	S("evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, 0)) [ Ar_0 >= 0 ]", 0-1) = 0
+	S("evalsipmabubbleentryin(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0, Ar_1))", 0-0) = Ar_0
+	S("evalsipmabubbleentryin(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0, Ar_1))", 0-1) = Ar_1
+	S("evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(evalsipmabubbleentryin(Ar_0, Ar_1))", 0-0) = Ar_0
+	S("evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(evalsipmabubbleentryin(Ar_0, Ar_1))", 0-1) = Ar_1
+orients the transitions
+	evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+	evalsipmabubblebb3in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, Ar_1 + 1))
+	evalsipmabubblebb2in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1))
+	evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1)) [ D >= C ]
+	evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb2in(Ar_0, Ar_1)) [ C >= D + 1 ]
+weakly and the transition
+	evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+strictly and produces the following problem:
+6:	T:
+		(Comp: 1, Cost: 1)                          evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(evalsipmabubbleentryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)                          evalsipmabubbleentryin(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0, Ar_1))
+		(Comp: Ar_0 + 1, Cost: 1)                   evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: 2, Cost: 1)                          evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblereturnin(Ar_0, Ar_1)) [ 0 >= Ar_0 + 1 ]
+		(Comp: 3*Ar_0^2 + 22*Ar_0 + 19, Cost: 1)    evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 2*Ar_0 + 2, Cost: 1)                 evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb5in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)                          evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb2in(Ar_0, Ar_1)) [ C >= D + 1 ]
+		(Comp: ?, Cost: 1)                          evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1)) [ D >= C ]
+		(Comp: ?, Cost: 1)                          evalsipmabubblebb2in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)                          evalsipmabubblebb3in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, Ar_1 + 1))
+		(Comp: 2*Ar_0 + 2, Cost: 1)                 evalsipmabubblebb5in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0 - 1, Ar_1))
+		(Comp: 2, Cost: 1)                          evalsipmabubblereturnin(Ar_0, Ar_1) -> Com_1(evalsipmabubblestop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)                          koat_start(Ar_0, Ar_1) -> Com_1(evalsipmabubblestart(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 6 produces the following problem:
+7:	T:
+		(Comp: 1, Cost: 1)                          evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(evalsipmabubbleentryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)                          evalsipmabubbleentryin(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0, Ar_1))
+		(Comp: Ar_0 + 1, Cost: 1)                   evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: 2, Cost: 1)                          evalsipmabubblebb6in(Ar_0, Ar_1) -> Com_1(evalsipmabubblereturnin(Ar_0, Ar_1)) [ 0 >= Ar_0 + 1 ]
+		(Comp: 3*Ar_0^2 + 22*Ar_0 + 19, Cost: 1)    evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb1in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 2*Ar_0 + 2, Cost: 1)                 evalsipmabubblebb4in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb5in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: 3*Ar_0^2 + 22*Ar_0 + 19, Cost: 1)    evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb2in(Ar_0, Ar_1)) [ C >= D + 1 ]
+		(Comp: 3*Ar_0^2 + 22*Ar_0 + 19, Cost: 1)    evalsipmabubblebb1in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1)) [ D >= C ]
+		(Comp: 3*Ar_0^2 + 22*Ar_0 + 19, Cost: 1)    evalsipmabubblebb2in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb3in(Ar_0, Ar_1))
+		(Comp: 6*Ar_0^2 + 44*Ar_0 + 38, Cost: 1)    evalsipmabubblebb3in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb4in(Ar_0, Ar_1 + 1))
+		(Comp: 2*Ar_0 + 2, Cost: 1)                 evalsipmabubblebb5in(Ar_0, Ar_1) -> Com_1(evalsipmabubblebb6in(Ar_0 - 1, Ar_1))
+		(Comp: 2, Cost: 1)                          evalsipmabubblereturnin(Ar_0, Ar_1) -> Com_1(evalsipmabubblestop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)                          koat_start(Ar_0, Ar_1) -> Com_1(evalsipmabubblestart(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 137*Ar_0 + 18*Ar_0^2 + 125
+
+Time: 0.055 sec (SMT: 0.047 sec)

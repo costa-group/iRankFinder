@@ -1,0 +1,13 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E F G H A' B' C' D' E' F' G' H' NoDet1 NoDet3 NoDet0 NoDet7 NoDet6 NoDet2 NoDet4 NoDet5)
+(RULES 
+  pyRinit(A,B,C,D,E,F,G,H) -> Com_1(start0(A,B,C,D,E,F,G,H))
+  lbl71(A,B,C,D,E,F,G,H) -> Com_1(lbl71(A, H, C, D -1, E, 1 + H, G, F)) :|: D -B -1 >= 0 && 101 + B + D -A -G -E >= 0 && E -1 -D >= 0 && 100 -A >= 0 && E -G >= 0 && 2 * D + 2 + B -A -G -E >= 0 && 100 -B >= 0 && F -B -1 = 0 && H + B + 1 + D -A -G -E = 0
+  lbl71(A,B,C,D,E,F,G,H) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7)) :|: A + G + E -B -102 -D >= 0 && E -1 -D >= 0 && 100 -A >= 0 && E -G >= 0 && 2 * D + 2 + B -A -G -E >= 0 && 100 -B >= 0 && F -B -1 = 0 && H + B + 1 + D -A -G -E = 0
+  lbl71(A,B,C,D,E,F,G,H) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7)) :|: B -D >= 0 && E -1 -D >= 0 && 100 -A >= 0 && E -G >= 0 && 2 * D + 2 + B -A -G -E >= 0 && 100 -B >= 0 && F -B -1 = 0 && H + B + 1 + D -A -G -E = 0
+  start(A,B,C,D,E,F,G,H) -> Com_1(lbl71(A, H, C, D -1, E, 1 + H, G, F)) :|: E -G >= 0 && 100 -A >= 0 && B -C = 0 && D -E = 0 && F -G = 0 && H -A = 0
+  start(A,B,C,D,E,F,G,H) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7)) :|: A -101 >= 0 && B -C = 0 && D -E = 0 && F -G = 0 && H -A = 0
+  start(A,B,C,D,E,F,G,H) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7)) :|: G -E -1 >= 0 && B -C = 0 && D -E = 0 && F -G = 0 && H -A = 0
+  start0(A,B,C,D,E,F,G,H) -> Com_1(start(A, C, C, E, E, G, G, A))
+)

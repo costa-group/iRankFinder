@@ -1,0 +1,17 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A_P B_P C_P D_P NoDet2 NoDet1 NoDet3 NoDet0)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(n_evalSimpleMultiplestart(A,B,C,D))
+  n_evalSimpleMultiplebb3in___3(A,B,C,D) -> Com_1(n_evalSimpleMultiplebbin___1(A, B, C, D)) :|: B >= 0 && A >= 0 && A -D >= 0 && A >= 0 && -1 + B >= 0 && -B + C >= 0 && A -D >= 0 && A >= 0 && B >= 0 && -B + C -1 >= 0
+  n_evalSimpleMultiplebb3in___3(A,B,C,D) -> Com_1(n_evalSimpleMultiplestop___5(NoDet0, NoDet1, NoDet2, NoDet3)) :|: B >= 0 && A >= 0 && A -D >= 0 && A >= 0 && -1 + B >= 0 && -B + C >= 0 && A -D >= 0 && B -C >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplebb3in___4(A,B,C,D) -> Com_1(n_evalSimpleMultiplebbin___2(A, B, C, D)) :|: -B + C -1 >= 0 && B >= 0 && A >= 0 && -1 + A >= 0 && B >= 0 && -1 -B + C >= 0 && -A + D >= 0 && A >= 0 && B >= 0 && -B + C -1 >= 0
+  n_evalSimpleMultiplebb3in___7(A,B,C,D) -> Com_1(n_evalSimpleMultiplebbin___6(A, B, C, D)) :|: B >= 0 && A >= 0 && B = 0 && A = 0 && A >= 0 && B >= 0 && -B + C -1 >= 0
+  n_evalSimpleMultiplebb3in___7(A,B,C,D) -> Com_1(n_evalSimpleMultiplestop___5(NoDet0, NoDet1, NoDet2, NoDet3)) :|: B >= 0 && A >= 0 && B = 0 && A = 0 && B -C >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplebbin___1(A,B,C,D) -> Com_1(n_evalSimpleMultiplebb3in___3(A, B + 1, C, D)) :|: A -D >= 0 && -B + C -1 >= 0 && B -1 >= 0 && A >= 0 && A -D >= 0 && -B + C -1 >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplebbin___2(A,B,C,D) -> Com_1(n_evalSimpleMultiplebb3in___3(A, B + 1, C, D)) :|: -A + D >= 0 && -B + C -1 >= 0 && B >= 0 && A -1 >= 0 && A -D >= 0 && -B + C -1 >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplebbin___2(A,B,C,D) -> Com_1(n_evalSimpleMultiplebb3in___4(A + 1, B, C, D)) :|: -A + D >= 0 && -B + C -1 >= 0 && B >= 0 && A -1 >= 0 && -A + D -1 >= 0 && -B + C -1 >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplebbin___6(A,B,C,D) -> Com_1(n_evalSimpleMultiplebb3in___3(A, B + 1, C, D)) :|: C -1 >= 0 && A = 0 && B = 0 && A -D >= 0 && -B + C -1 >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplebbin___6(A,B,C,D) -> Com_1(n_evalSimpleMultiplebb3in___4(A + 1, B, C, D)) :|: C -1 >= 0 && A = 0 && B = 0 && -A + D -1 >= 0 && -B + C -1 >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplestart(A,B,C,D) -> Com_1(n_evalSimpleMultiplebb3in___7(0, 0, C, D))
+)

@@ -1,0 +1,111 @@
+{
+  vars: [A,B,C],
+  pvars: [A',B',C'],
+  initnode: evalfstart,
+  nodes: {
+    evalfbb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+      ],
+      inv_polyhedra: [-A + C >= 0, B -C >= 0, -1 + A >= 0],
+    },
+    evalfbb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+      ],
+      inv_polyhedra: [-A + C >= 0, -A + B >= 0, -1 + A >= 0],
+    },
+    evalfbb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-A + B >= 0, -1 -B + C >= 0, -1 + A >= 0],
+    },
+    evalfbb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-1 + A >= 0],
+    },
+    evalfentryin: {
+      inv_polyhedra: [],
+    },
+    evalfreturnin: {
+      inv_polyhedra: [-1 + A -B >= 0, -1 + A >= 0],
+    },
+    evalfstart: {
+      inv_polyhedra: [],
+    },
+    evalfstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalfstart,
+	target: evalfentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalfentryin,
+	target: evalfbb4in,
+	name: t1,
+	constraints: [1 -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalfbb4in,
+	target: evalfbb2in,
+	name: t2,
+	constraints: [B -A >= 0, A -A' = 0, B -B' = 0, A -C' = 0]
+    },
+    {
+	source: evalfbb4in,
+	target: evalfreturnin,
+	name: t3,
+	constraints: [A -B -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalfbb2in,
+	target: evalfbb1in,
+	name: t4,
+	constraints: [B -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalfbb2in,
+	target: evalfbb3in,
+	name: t5,
+	constraints: [C -B -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalfbb1in,
+	target: evalfbb2in,
+	name: t6,
+	constraints: [A -A' = 0, B -B' = 0, C + 1 -C' = 0]
+    },
+    {
+	source: evalfbb3in,
+	target: evalfbb4in,
+	name: t7,
+	constraints: [A + 1 -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalfreturnin,
+	target: evalfstop,
+	name: t8,
+	constraints: []
+    }
+  ]
+}

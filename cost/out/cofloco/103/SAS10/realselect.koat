@@ -1,0 +1,151 @@
+WORST_CASE(?,O(1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. non_recursive  : [n_lbl53___1/15]
+1. non_recursive  : [n_lbl53___2/15]
+2. non_recursive  : [n_stop___4/15]
+3. non_recursive  : [n_lbl53___5/15]
+4. non_recursive  : [n_lbl53___3/15]
+5. non_recursive  : [n_lbl53___6/15]
+6. non_recursive  : [n_start___7/15]
+7. non_recursive  : [n_start0/15]
+8. non_recursive  : [pyRinit/15]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is completely evaluated into other SCCs
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into n_lbl53___5/15
+4. SCC is completely evaluated into other SCCs
+5. SCC is partially evaluated into n_lbl53___6/15
+6. SCC is partially evaluated into n_start___7/15
+7. SCC is completely evaluated into other SCCs
+8. SCC is partially evaluated into pyRinit/15
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_lbl53___5/15 
+* CE 5 is refined into CE [9] 
+* CE 6 is refined into CE [10] 
+
+
+### Cost equations --> "Loop" of n_lbl53___5/15 
+* CEs [9] --> Loop 8 
+* CEs [10] --> Loop 9 
+
+### Ranking functions of CR n_lbl53___5(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O) 
+
+#### Partial ranking functions of CR n_lbl53___5(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O) 
+
+
+### Specialization of cost equations n_lbl53___6/15 
+* CE 7 is refined into CE [11] 
+* CE 8 is refined into CE [12] 
+
+
+### Cost equations --> "Loop" of n_lbl53___6/15 
+* CEs [11] --> Loop 10 
+* CEs [12] --> Loop 11 
+
+### Ranking functions of CR n_lbl53___6(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O) 
+
+#### Partial ranking functions of CR n_lbl53___6(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O) 
+
+
+### Specialization of cost equations n_start___7/15 
+* CE 2 is refined into CE [13,14] 
+* CE 3 is refined into CE [15,16] 
+* CE 4 is refined into CE [17] 
+
+
+### Cost equations --> "Loop" of n_start___7/15 
+* CEs [14,16] --> Loop 12 
+* CEs [17] --> Loop 13 
+* CEs [13,15] --> Loop 14 
+
+### Ranking functions of CR n_start___7(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O) 
+
+#### Partial ranking functions of CR n_start___7(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O) 
+
+
+### Specialization of cost equations pyRinit/15 
+* CE 1 is refined into CE [18,19,20] 
+
+
+### Cost equations --> "Loop" of pyRinit/15 
+* CEs [20] --> Loop 15 
+* CEs [19] --> Loop 16 
+* CEs [18] --> Loop 17 
+
+### Ranking functions of CR pyRinit(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_lbl53___5(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O):
+* Chain [9]: 1
+  with precondition: [A=2,D=1,H=1,J=2,L=0,N=2,C=B,G=F] 
+
+* Chain [8]: 1
+  with precondition: [D=1,H=1,J=2,L=0,N=A,C=B,G=F,N>=3] 
+
+
+#### Cost of chains of n_lbl53___6(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O):
+* Chain [11]: 1
+  with precondition: [A=2,D=1,H=0,J=2,L=0,N=2,C=B,G=F] 
+
+* Chain [10]: 1
+  with precondition: [D=1,H=0,J=2,L=0,N=A,C=B,G=F,N>=3] 
+
+
+#### Cost of chains of n_start___7(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O):
+* Chain [14]: 2
+  with precondition: [A=2,N=2,C=B,E=D,G=F,I=H,K=J,M=L] 
+
+* Chain [13]: 1
+  with precondition: [N=A,C=B,E=D,G=F,I=H,K=J,M=L,1>=N] 
+
+* Chain [12]: 2
+  with precondition: [N=A,C=B,E=D,G=F,I=H,K=J,M=L,N>=3] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O):
+* Chain [17]: 4
+  with precondition: [A=2] 
+
+* Chain [16]: 3
+  with precondition: [1>=A] 
+
+* Chain [15]: 4
+  with precondition: [A>=3] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O): 
+-------------------------------------
+* Chain [17] with precondition: [A=2] 
+    - Upper bound: 4 
+    - Complexity: constant 
+* Chain [16] with precondition: [1>=A] 
+    - Upper bound: 3 
+    - Complexity: constant 
+* Chain [15] with precondition: [A>=3] 
+    - Upper bound: 4 
+    - Complexity: constant 
+
+### Maximum cost of pyRinit(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O): 4 
+Asymptotic class: constant 
+* Total analysis performed in 215 ms.
+
+
+-- stats
+realtime 0:00.27
+usertime 0.25
+systime 0.00
+

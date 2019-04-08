@@ -1,0 +1,154 @@
+WORST_CASE(?,O(1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_lbl51___2/9]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [n_stop___1/5]
+3. non_recursive  : [n_lbl51___2_loop_cont/6]
+4. non_recursive  : [n_start0/5]
+5. non_recursive  : [pyRinit/5]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_lbl51___2/9
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into n_lbl51___2_loop_cont/6
+4. SCC is partially evaluated into n_start0/5
+5. SCC is partially evaluated into pyRinit/5
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_lbl51___2/9 
+* CE 7 is refined into CE [10] 
+* CE 5 is refined into CE [11] 
+* CE 4 is refined into CE [12] 
+* CE 6 is refined into CE [13] 
+* CE 3 is refined into CE [14] 
+
+
+### Cost equations --> "Loop" of n_lbl51___2/9 
+* CEs [14] --> Loop 10 
+* CEs [10] --> Loop 11 
+* CEs [11] --> Loop 12 
+* CEs [12] --> Loop 13 
+* CEs [13] --> Loop 14 
+
+### Ranking functions of CR n_lbl51___2(A,B,C,D,E,F,G,H,I) 
+* RF of phase [10]: [-C+9]
+
+#### Partial ranking functions of CR n_lbl51___2(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [10]:
+  - RF of loop [10:1]:
+    -C+9
+
+
+### Specialization of cost equations n_lbl51___2_loop_cont/6 
+* CE 9 is refined into CE [15] 
+* CE 8 is refined into CE [16] 
+
+
+### Cost equations --> "Loop" of n_lbl51___2_loop_cont/6 
+* CEs [15] --> Loop 15 
+* CEs [16] --> Loop 16 
+
+### Ranking functions of CR n_lbl51___2_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR n_lbl51___2_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations n_start0/5 
+* CE 2 is refined into CE [17,18,19,20] 
+
+
+### Cost equations --> "Loop" of n_start0/5 
+* CEs [17,18,19,20] --> Loop 17 
+
+### Ranking functions of CR n_start0(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_start0(A,B,C,D,E) 
+
+
+### Specialization of cost equations pyRinit/5 
+* CE 1 is refined into CE [21] 
+
+
+### Cost equations --> "Loop" of pyRinit/5 
+* CEs [21] --> Loop 18 
+
+### Ranking functions of CR pyRinit(A,B,C,D,E) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_lbl51___2(A,B,C,D,E,F,G,H,I):
+* Chain [[10],14]: 1*it(10)+1
+  Such that:it(10) =< -C+9
+
+  with precondition: [E=2,9>=A,C>=0,C+2>=A,A>=C+1] 
+
+* Chain [[10],13]: 1*it(10)+1
+  Such that:it(10) =< -C+9
+
+  with precondition: [E=2,9>=A,C>=0,C+2>=A,A>=C+1] 
+
+* Chain [[10],12]: 1*it(10)+1
+  Such that:it(10) =< -C+9
+
+  with precondition: [E=2,9>=A,C>=0,C+2>=A,A>=C+1] 
+
+* Chain [[10],11]: 1*it(10)+0
+  Such that:it(10) =< -C+9
+
+  with precondition: [E=3,9>=A,C>=0,C+2>=A,A>=C+1] 
+
+* Chain [13]: 1
+  with precondition: [E=2,9>=C,C>=0,C>=A] 
+
+* Chain [12]: 1
+  with precondition: [E=2,9>=C,C>=0,A>=C+3] 
+
+* Chain [11]: 0
+  with precondition: [E=3,C>=0] 
+
+
+#### Cost of chains of n_lbl51___2_loop_cont(A,B,C,D,E,F):
+* Chain [16]: 0
+  with precondition: [A=2] 
+
+* Chain [15]: 0
+  with precondition: [A=3] 
+
+
+#### Cost of chains of n_start0(A,B,C,D,E):
+* Chain [17]: 38
+  with precondition: [] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D,E):
+* Chain [18]: 39
+  with precondition: [] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D,E): 
+-------------------------------------
+* Chain [18] with precondition: [] 
+    - Upper bound: 39 
+    - Complexity: constant 
+
+### Maximum cost of pyRinit(A,B,C,D,E): 39 
+Asymptotic class: constant 
+* Total analysis performed in 137 ms.
+
+
+-- stats
+realtime 0:00.20
+usertime 0.17
+systime 0.00
+

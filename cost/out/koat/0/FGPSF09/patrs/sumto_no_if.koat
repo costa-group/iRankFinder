@@ -1,0 +1,55 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    sumto(Ar_0, Ar_1) -> Com_1(end(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    sumto(Ar_0, Ar_1) -> Com_1(sumto(Ar_0 + 1, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1) -> Com_1(sumto(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: ?, Cost: 1)    sumto(Ar_0, Ar_1) -> Com_1(end(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    sumto(Ar_0, Ar_1) -> Com_1(sumto(Ar_0 + 1, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1) -> Com_1(sumto(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(sumto) = 1
+	Pol(end) = 0
+	Pol(start) = 1
+	Pol(koat_start) = 1
+orients all transitions weakly and the transition
+	sumto(Ar_0, Ar_1) -> Com_1(end(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    sumto(Ar_0, Ar_1) -> Com_1(end(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    sumto(Ar_0, Ar_1) -> Com_1(sumto(Ar_0 + 1, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1) -> Com_1(sumto(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(sumto) = -V_1 + V_2 + 1
+	Pol(end) = -V_1 + V_2
+	Pol(start) = -V_1 + V_2 + 1
+	Pol(koat_start) = -V_1 + V_2 + 1
+orients all transitions weakly and the transition
+	sumto(Ar_0, Ar_1) -> Com_1(sumto(Ar_0 + 1, Ar_1)) [ Ar_1 >= Ar_0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)                  sumto(Ar_0, Ar_1) -> Com_1(end(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: Ar_0 + Ar_1 + 1, Cost: 1)    sumto(Ar_0, Ar_1) -> Com_1(sumto(Ar_0 + 1, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: 1, Cost: 1)                  start(Ar_0, Ar_1) -> Com_1(sumto(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)                  koat_start(Ar_0, Ar_1) -> Com_1(start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound Ar_0 + Ar_1 + 3
+
+Time: 0.014 sec (SMT: 0.013 sec)

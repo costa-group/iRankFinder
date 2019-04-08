@@ -1,0 +1,155 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [l1/5]
+1. non_recursive  : [exit_location/1]
+2. recursive  : [l2/3]
+3. non_recursive  : [l2_loop_cont/2]
+4. non_recursive  : [l1_loop_cont/4]
+5. non_recursive  : [l0/3]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into l1/5
+1. SCC is completely evaluated into other SCCs
+2. SCC is partially evaluated into l2/3
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into l1_loop_cont/4
+5. SCC is partially evaluated into l0/3
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations l1/5 
+* CE 3 is refined into CE [9] 
+* CE 4 is refined into CE [10] 
+* CE 2 is refined into CE [11] 
+
+
+### Cost equations --> "Loop" of l1/5 
+* CEs [11] --> Loop 9 
+* CEs [9] --> Loop 10 
+* CEs [10] --> Loop 11 
+
+### Ranking functions of CR l1(A,B,C,D,E) 
+* RF of phase [9]: [A]
+
+#### Partial ranking functions of CR l1(A,B,C,D,E) 
+* Partial RF of phase [9]:
+  - RF of loop [9:1]:
+    A
+
+
+### Specialization of cost equations l2/3 
+* CE 8 is refined into CE [12] 
+* CE 7 is refined into CE [13] 
+
+
+### Cost equations --> "Loop" of l2/3 
+* CEs [13] --> Loop 12 
+* CEs [12] --> Loop 13 
+
+### Ranking functions of CR l2(A,B,C) 
+* RF of phase [12]: [B]
+
+#### Partial ranking functions of CR l2(A,B,C) 
+* Partial RF of phase [12]:
+  - RF of loop [12:1]:
+    B
+
+
+### Specialization of cost equations l1_loop_cont/4 
+* CE 5 is refined into CE [14] 
+* CE 6 is refined into CE [15] 
+
+
+### Cost equations --> "Loop" of l1_loop_cont/4 
+* CEs [14] --> Loop 14 
+* CEs [15] --> Loop 15 
+
+### Ranking functions of CR l1_loop_cont(A,B,C,D) 
+
+#### Partial ranking functions of CR l1_loop_cont(A,B,C,D) 
+
+
+### Specialization of cost equations l0/3 
+* CE 1 is refined into CE [16,17,18] 
+
+
+### Cost equations --> "Loop" of l0/3 
+* CEs [16,17,18] --> Loop 16 
+
+### Ranking functions of CR l0(A,B,C) 
+
+#### Partial ranking functions of CR l0(A,B,C) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of l1(A,B,C,D,E):
+* Chain [[9],11]: 1*it(9)+0
+  Such that:it(9) =< A
+
+  with precondition: [C=2,A>=1] 
+
+* Chain [[9],10]: 1*it(9)+1
+  Such that:it(9) =< A
+
+  with precondition: [C=3,D=0,A+B=E,A>=1] 
+
+* Chain [11]: 0
+  with precondition: [C=2] 
+
+* Chain [10]: 1
+  with precondition: [C=3,E=B,A=D,0>=A] 
+
+
+#### Cost of chains of l2(A,B,C):
+* Chain [[12],13]: 1*it(12)+0
+  Such that:it(12) =< B
+
+  with precondition: [C=2,B>=1] 
+
+* Chain [13]: 0
+  with precondition: [C=2] 
+
+
+#### Cost of chains of l1_loop_cont(A,B,C,D):
+* Chain [15]: 0
+  with precondition: [A=2] 
+
+* Chain [14]: 1*s(3)+0
+  Such that:s(3) =< C
+
+  with precondition: [A=3] 
+
+
+#### Cost of chains of l0(A,B,C):
+* Chain [16]: 2*s(4)+1*s(6)+1*s(7)+2
+  Such that:s(6) =< A+B
+s(7) =< B
+aux(1) =< A
+s(4) =< aux(1)
+
+  with precondition: [] 
+
+
+Closed-form bounds of l0(A,B,C): 
+-------------------------------------
+* Chain [16] with precondition: [] 
+    - Upper bound: nat(A)*2+2+nat(B)+nat(A+B) 
+    - Complexity: n 
+
+### Maximum cost of l0(A,B,C): nat(A)*2+2+nat(B)+nat(A+B) 
+Asymptotic class: n 
+* Total analysis performed in 88 ms.
+
+
+-- stats
+realtime 0:00.14
+usertime 0.12
+systime 0.01
+

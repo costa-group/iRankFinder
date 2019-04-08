@@ -1,0 +1,113 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: evalSimpleMultiplestart,
+  nodes: {
+    evalSimpleMultiplebb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + D >= 0],
+        [A -D > 0],
+      ],
+      inv_polyhedra: [-1 -A + D >= 0, -1 -B + C >= 0, B >= 0, A >= 0],
+    },
+    evalSimpleMultiplebb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + D >= 0],
+        [A -D > 0],
+        [-B + C >= 0],
+        [B -C > 0],
+      ],
+      inv_polyhedra: [-1 -B + C >= 0, B >= 0, A -D >= 0, A >= 0],
+    },
+    evalSimpleMultiplebb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + D >= 0],
+        [A -D > 0],
+        [-B + C >= 0],
+        [B -C > 0],
+      ],
+      inv_polyhedra: [B >= 0, A >= 0],
+    },
+    evalSimpleMultiplebbin: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + D >= 0],
+        [A -D > 0],
+        [-B + C >= 0],
+        [B -C > 0],
+      ],
+      inv_polyhedra: [-1 -B + C >= 0, B >= 0, A >= 0],
+    },
+    evalSimpleMultipleentryin: {
+      inv_polyhedra: [],
+    },
+    evalSimpleMultiplereturnin: {
+      inv_polyhedra: [B -C >= 0, B >= 0, A >= 0],
+    },
+    evalSimpleMultiplestart: {
+      inv_polyhedra: [],
+    },
+    evalSimpleMultiplestop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalSimpleMultiplestart,
+	target: evalSimpleMultipleentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleMultipleentryin,
+	target: evalSimpleMultiplebb3in,
+	name: t1,
+	constraints: [-A' = 0, -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleMultiplebb3in,
+	target: evalSimpleMultiplebbin,
+	name: t2,
+	constraints: [C -B -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleMultiplebb3in,
+	target: evalSimpleMultiplereturnin,
+	name: t3,
+	constraints: [B -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleMultiplebbin,
+	target: evalSimpleMultiplebb1in,
+	name: t4,
+	constraints: [D -A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleMultiplebbin,
+	target: evalSimpleMultiplebb2in,
+	name: t5,
+	constraints: [A -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleMultiplebb1in,
+	target: evalSimpleMultiplebb3in,
+	name: t6,
+	constraints: [A + 1 -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleMultiplebb2in,
+	target: evalSimpleMultiplebb3in,
+	name: t7,
+	constraints: [A -A' = 0, B + 1 -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleMultiplereturnin,
+	target: evalSimpleMultiplestop,
+	name: t8,
+	constraints: []
+    }
+  ]
+}

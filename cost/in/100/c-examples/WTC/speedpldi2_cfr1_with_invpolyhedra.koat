@@ -1,0 +1,18 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A_P B_P C_P NoDet2 NoDet1 NoDet0)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(n_evalspeedpldi2start(A,B,C))
+  n_evalspeedpldi2bb2in___2(A,B,C) -> Com_1(n_evalspeedpldi2bb5in___1(A, 0, C)) :|: C -1 >= 0 && A -B >= 0 && B -1 >= 0 && A -1 >= 0 && C -1 >= 0 && -A + B >= 0 && -1 + C >= 0 && -1 + B >= 0 && A -B >= 0
+  n_evalspeedpldi2bb2in___2(A,B,C) -> Com_1(n_evalspeedpldi2bb5in___3(A, B_P, C -1)) :|: C -1 >= 0 && A -B >= 0 && B -1 >= 0 && C -1 >= 0 && A -B_P >= 0 && B_P -1 >= 0 && B -B_P + 1 = 0 && -1 + C >= 0 && -1 + B >= 0 && A -B >= 0
+  n_evalspeedpldi2bb2in___4(A,B,C) -> Com_1(n_evalspeedpldi2bb5in___3(A, B_P, C -1)) :|: C -1 >= 0 && A -1 >= 0 && B = 0 && C -1 >= 0 && A -B_P >= 0 && B_P -1 >= 0 && B -B_P + 1 = 0 && B = 0 && -1 + C >= 0 && -1 + A >= 0
+  n_evalspeedpldi2bb5in___1(A,B,C) -> Com_1(n_evalspeedpldi2bb2in___4(A, B, C)) :|: B = 0 && -1 + A >= 0 && C >= 0 && B = 0 && -1 + A >= 0 && -1 + C >= 0 && A -1 >= 0 && B >= 0 && C -1 >= 0 && B = 0 && -1 + C >= 0 && -1 + A >= 0
+  n_evalspeedpldi2bb5in___3(A,B,C) -> Com_1(n_evalspeedpldi2bb2in___2(A, B, C)) :|: -1 + B >= 0 && A -B >= 0 && C >= 0 && A -1 >= 0 && B >= 0 && C -1 >= 0 && C >= 0 && A -B >= 0 && -1 + B >= 0
+  n_evalspeedpldi2bb5in___3(A,B,C) -> Com_1(n_evalspeedpldi2stop___5(NoDet0, NoDet1, NoDet2)) :|: -1 + B >= 0 && A -B >= 0 && C >= 0 && B >= 0 && A -1 >= 0 && C = 0 && C >= 0 && A -B >= 0 && -1 + B >= 0
+  n_evalspeedpldi2bb5in___6(A,B,C) -> Com_1(n_evalspeedpldi2bb2in___4(A, B, C)) :|: B = 0 && -1 + A >= 0 && C >= 0 && A -1 >= 0 && B >= 0 && C -1 >= 0 && B = 0 && C >= 0 && -1 + A >= 0
+  n_evalspeedpldi2bb5in___6(A,B,C) -> Com_1(n_evalspeedpldi2stop___5(NoDet0, NoDet1, NoDet2)) :|: B = 0 && -1 + A >= 0 && C >= 0 && B >= 0 && A -1 >= 0 && C = 0 && B = 0 && C >= 0 && -1 + A >= 0
+  n_evalspeedpldi2entryin___7(A,B,C) -> Com_1(n_evalspeedpldi2bb5in___6(B, 0, A)) :|: A >= 0 && B -1 >= 0
+  n_evalspeedpldi2entryin___7(A,B,C) -> Com_1(n_evalspeedpldi2stop___5(NoDet0, NoDet1, NoDet2)) :|: -A -1 >= 0
+  n_evalspeedpldi2entryin___7(A,B,C) -> Com_1(n_evalspeedpldi2stop___5(NoDet0, NoDet1, NoDet2)) :|: -B >= 0
+  n_evalspeedpldi2start(A,B,C) -> Com_1(n_evalspeedpldi2entryin___7(A, B, C))
+)

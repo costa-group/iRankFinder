@@ -1,0 +1,34 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A' B' C' D' NoDet2 NoDet3 NoDet0 F NoDet1 G E)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(evalrealheapsortstart(A,B,C,D))
+  evalrealheapsortbb10in(A,B,C,D) -> Com_1(evalrealheapsortbb11in(A, B, C, D))
+  evalrealheapsortbb10in(A,B,C,D) -> Com_1(evalrealheapsortbb12in(A, B, C, D))
+  evalrealheapsortbb11in(A,B,C,D) -> Com_1(evalrealheapsortbb13in(A, B, C, 2 * C + 1))
+  evalrealheapsortbb12in(A,B,C,D) -> Com_1(evalrealheapsortbb13in(A, B, C, 2 * C + 2))
+  evalrealheapsortbb13in(A,B,C,D) -> Com_1(evalrealheapsortbb14in(A, B, C, D))
+  evalrealheapsortbb13in(A,B,C,D) -> Com_1(evalrealheapsortbb16in(A, B, A, D))
+  evalrealheapsortbb14in(A,B,C,D) -> Com_1(evalrealheapsortbb16in(A, B, D, D))
+  evalrealheapsortbb16in(A,B,C,D) -> Com_1(evalrealheapsortbb17in(A, B, C, D)) :|: 2 * C + 2 + B -A >= 0
+  evalrealheapsortbb16in(A,B,C,D) -> Com_1(evalrealheapsortbb9in(A, B, C, D)) :|: A -B -3 -2 * C >= 0
+  evalrealheapsortbb17in(A,B,C,D) -> Com_1(evalrealheapsortbb18in(A, B + 1, C, D))
+  evalrealheapsortbb18in(A,B,C,D) -> Com_1(evalrealheapsortbb8in(A, B, C, D)) :|: A -2 -B >= 0
+  evalrealheapsortbb18in(A,B,C,D) -> Com_1(evalrealheapsortreturnin(A, B, C, D)) :|: B + 1 -A >= 0
+  evalrealheapsortbb2in(A,B,C,D) -> Com_1(evalrealheapsortbb3in(A, B, E -1, D)) :|: C >= 0 && F >= 0 && C + 1 -2 * F >= 0 && 2 * F -C >= 0 && G >= 0 && C + 1 -2 * G >= 0 && 2 * G -C >= 0 && E >= 0 && C + 1 -2 * E >= 0 && 2 * E -C >= 0
+  evalrealheapsortbb3in(A,B,C,D) -> Com_1(evalrealheapsortbb4in(A, B, C, D)) :|: C -1 >= 0
+  evalrealheapsortbb3in(A,B,C,D) -> Com_1(evalrealheapsortbb5in(A, B, C, D)) :|: -C >= 0
+  evalrealheapsortbb4in(A,B,C,D) -> Com_1(evalrealheapsortbb2in(A, B, C, D)) :|: C >= 0 && E >= 0 && C + 1 -2 * E >= 0 && 2 * E -C >= 0
+  evalrealheapsortbb4in(A,B,C,D) -> Com_1(evalrealheapsortbb5in(A, B, C, D)) :|: C >= 0 && E >= 0 && C + 1 -2 * E >= 0 && 2 * E -C >= 0
+  evalrealheapsortbb5in(A,B,C,D) -> Com_1(evalrealheapsortbb6in(A, B + 1, C, D))
+  evalrealheapsortbb6in(A,B,C,D) -> Com_1(evalrealheapsortbb3in(A, B, B, D)) :|: A -1 -B >= 0
+  evalrealheapsortbb6in(A,B,C,D) -> Com_1(evalrealheapsortbb7in(A, B, C, D)) :|: B -A >= 0
+  evalrealheapsortbb7in(A,B,C,D) -> Com_1(evalrealheapsortbb18in(A, 0, C, D))
+  evalrealheapsortbb8in(A,B,C,D) -> Com_1(evalrealheapsortbb16in(A, B, 0, D))
+  evalrealheapsortbb9in(A,B,C,D) -> Com_1(evalrealheapsortbb10in(A, B, C, D)) :|: A -B -4 -2 * C >= 0
+  evalrealheapsortbb9in(A,B,C,D) -> Com_1(evalrealheapsortbb11in(A, B, C, D)) :|: A -2 * C -3 -B = 0
+  evalrealheapsortentryin(A,B,C,D) -> Com_1(evalrealheapsortbb6in(A, 1, C, D)) :|: A -3 >= 0
+  evalrealheapsortentryin(A,B,C,D) -> Com_1(evalrealheapsortreturnin(A, B, C, D)) :|: 2 -A >= 0
+  evalrealheapsortreturnin(A,B,C,D) -> Com_1(evalrealheapsortstop(NoDet0, NoDet1, NoDet2, NoDet3))
+  evalrealheapsortstart(A,B,C,D) -> Com_1(evalrealheapsortentryin(A, B, C, D))
+)

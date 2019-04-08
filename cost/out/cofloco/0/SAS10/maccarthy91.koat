@@ -1,0 +1,351 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [lbl111/17]
+1. non_recursive  : [exit_location/1]
+2. recursive  : [lbl221/17]
+3. recursive  : [lbl161/17,lbl221_loop_cont/18]
+4. non_recursive  : [stop/9]
+5. non_recursive  : [lbl161_loop_cont/10]
+6. non_recursive  : [lbl111_loop_cont/10]
+7. non_recursive  : [start/9]
+8. non_recursive  : [start0/9]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into lbl111/17
+1. SCC is completely evaluated into other SCCs
+2. SCC is partially evaluated into lbl221/17
+3. SCC is partially evaluated into lbl161/17
+4. SCC is completely evaluated into other SCCs
+5. SCC is partially evaluated into lbl161_loop_cont/10
+6. SCC is partially evaluated into lbl111_loop_cont/10
+7. SCC is partially evaluated into start/9
+8. SCC is partially evaluated into start0/9
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations lbl111/17 
+* CE 6 is refined into CE [21] 
+* CE 8 is refined into CE [22] 
+* CE 7 is refined into CE [23] 
+* CE 5 is refined into CE [24] 
+* CE 4 is refined into CE [25] 
+
+
+### Cost equations --> "Loop" of lbl111/17 
+* CEs [25] --> Loop 20 
+* CEs [21] --> Loop 21 
+* CEs [22] --> Loop 22 
+* CEs [23] --> Loop 23 
+* CEs [24] --> Loop 24 
+
+### Ranking functions of CR lbl111(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* RF of phase [20]: [-A/11-D+112/11,-D-H/11+112/11,-F/11+101/11]
+
+#### Partial ranking functions of CR lbl111(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* Partial RF of phase [20]:
+  - RF of loop [20:1]:
+    -A/11-D+112/11
+    -D-H/11+112/11
+    -F/11+101/11
+
+
+### Specialization of cost equations lbl221/17 
+* CE 16 is refined into CE [26] 
+* CE 13 is refined into CE [27] 
+* CE 14 is refined into CE [28] 
+* CE 15 is refined into CE [29] 
+
+
+### Cost equations --> "Loop" of lbl221/17 
+* CEs [28] --> Loop 25 
+* CEs [29] --> Loop 26 
+* CEs [26] --> Loop 27 
+* CEs [27] --> Loop 28 
+
+### Ranking functions of CR lbl221(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* RF of phase [25,26]: [10*D-F+91]
+
+#### Partial ranking functions of CR lbl221(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* Partial RF of phase [25,26]:
+  - RF of loop [25:1]:
+    -F+111 depends on loops [26:1] 
+  - RF of loop [26:1]:
+    D-2
+    F/9-110/9 depends on loops [25:1] 
+
+
+### Specialization of cost equations lbl161/17 
+* CE 20 is refined into CE [30] 
+* CE 19 is refined into CE [31] 
+
+
+### Cost equations --> "Loop" of lbl161/17 
+* CEs [30] --> Loop 29 
+* CEs [31] --> Loop 30 
+
+### Ranking functions of CR lbl161(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+
+#### Partial ranking functions of CR lbl161(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+
+
+### Specialization of cost equations lbl161_loop_cont/10 
+* CE 18 is refined into CE [32] 
+* CE 17 is refined into CE [33] 
+
+
+### Cost equations --> "Loop" of lbl161_loop_cont/10 
+* CEs [32] --> Loop 31 
+* CEs [33] --> Loop 32 
+
+### Ranking functions of CR lbl161_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+#### Partial ranking functions of CR lbl161_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+
+### Specialization of cost equations lbl111_loop_cont/10 
+* CE 9 is refined into CE [34] 
+* CE 10 is refined into CE [35,36,37,38] 
+* CE 12 is refined into CE [39] 
+* CE 11 is refined into CE [40,41] 
+
+
+### Cost equations --> "Loop" of lbl111_loop_cont/10 
+* CEs [34,35,36,37,38] --> Loop 33 
+* CEs [39] --> Loop 34 
+* CEs [40,41] --> Loop 35 
+
+### Ranking functions of CR lbl111_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+#### Partial ranking functions of CR lbl111_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+
+### Specialization of cost equations start/9 
+* CE 2 is refined into CE [42] 
+* CE 3 is refined into CE [43,44,45,46,47] 
+
+
+### Cost equations --> "Loop" of start/9 
+* CEs [42] --> Loop 36 
+* CEs [43,44,45,46,47] --> Loop 37 
+
+### Ranking functions of CR start(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR start(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations start0/9 
+* CE 1 is refined into CE [48,49] 
+
+
+### Cost equations --> "Loop" of start0/9 
+* CEs [49] --> Loop 38 
+* CEs [48] --> Loop 39 
+
+### Ranking functions of CR start0(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR start0(A,B,C,D,E,F,G,H,I) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of lbl111(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [[20],23]: 1*it(20)+1
+  Such that:it(20) =< -A/11-D+112/11
+
+  with precondition: [I=5,O=102,B=C,A=H,A=J,B=K,B=L,E=N,G=P,A=Q,A+11*M=111,A+11*D=F+11,100>=F,F>=A+11] 
+
+* Chain [[20],22]: 1*it(20)+0
+  Such that:it(20) =< -F/11+101/11
+
+  with precondition: [I=4,B=C,A=H,A+11*D=F+11,100>=F,F>=A+11] 
+
+* Chain [[20],21]: 1*it(20)+1
+  Such that:it(20) =< -A/11-D+112/11
+
+  with precondition: [I=5,B=C,A=H,A=J,B=K,B=L,E=N,G=P,A=Q,A+11*D=F+11,A+11*M=O+10,121>=11*M+A,F>=A+11,A+11*M>=112,A+11*M>=F+22] 
+
+* Chain [24]: 1
+  with precondition: [A=100,D=2,F=111,H=100,I=3,J=100,K=91,M=1,O=101,Q=100,C=B,N=E,P=G,C=L] 
+
+* Chain [22]: 0
+  with precondition: [I=4,C=B,A=H,A+11*D=F+11,111>=F,F>=A+11] 
+
+* Chain [21]: 1
+  with precondition: [I=5,C=B,N=E,P=G,A=H,A=J,C=K,C=L,D=M,A=Q,A+11*D=F+11,A+11*D=O+10,D>=2,121>=11*D+A,A+11*D>=112] 
+
+
+#### Cost of chains of lbl221(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [[25,26],28]: 1*it(25)+1*it(26)+1
+  Such that:it(26) =< D
+aux(7) =< 10*D-F+91
+it(25) =< aux(7)
+it(26) =< aux(7)
+
+  with precondition: [I=3,K=91,M=1,O=101,B=C,A=H,A=J,B=L,E=N,G=P,A=Q,111>=F,D>=2,F>=102,91>=A+D,D+108>=F,F+10>=11*D+A] 
+
+* Chain [[25,26],27]: 1*it(25)+1*it(26)+0
+  Such that:aux(5) =< 10*D-F+91
+aux(6) =< -F-10*H+1001
+it(26) =< -H+89
+it(25) =< aux(5)
+it(26) =< aux(5)
+it(25) =< aux(6)
+it(26) =< aux(6)
+
+  with precondition: [I=4,B=C,A=H,89>=A,111>=F,D>=2,F>=102,199>=A+F,D+108>=F,F+10>=11*D+A] 
+
+* Chain [28]: 1
+  with precondition: [D=2,F=111,I=3,K=91,M=1,O=101,B=C,N=E,P=G,A=H,A=J,B=L,A=Q,89>=A] 
+
+* Chain [27]: 0
+  with precondition: [I=4] 
+
+
+#### Cost of chains of lbl161(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [30]: 1
+  with precondition: [B=91,D=1,F=101,I=2,K=91,M=1,O=101,L=C,N=E,P=G,A=H,A=J,A=Q,89>=A] 
+
+* Chain [29]: 0
+  with precondition: [I=4] 
+
+
+#### Cost of chains of lbl161_loop_cont(A,B,C,D,E,F,G,H,I,J):
+* Chain [32]: 0
+  with precondition: [A=2] 
+
+* Chain [31]: 0
+  with precondition: [A=4] 
+
+
+#### Cost of chains of lbl111_loop_cont(A,B,C,D,E,F,G,H,I,J):
+* Chain [35]: 1
+  with precondition: [A=3] 
+
+* Chain [34]: 0
+  with precondition: [A=4] 
+
+* Chain [33]: 1*s(8)+1*s(9)+2*s(10)+2*s(12)+2
+  Such that:s(7) =< -G-10*I+1001
+s(8) =< -I+89
+aux(8) =< E
+aux(9) =< 10*E-G+91
+s(10) =< aux(8)
+s(12) =< aux(9)
+s(10) =< aux(9)
+s(9) =< aux(9)
+s(8) =< aux(9)
+s(9) =< s(7)
+s(8) =< s(7)
+
+  with precondition: [A=5] 
+
+
+#### Cost of chains of start(A,B,C,D,E,F,G,H,I):
+* Chain [37]: 3*s(16)+1*s(19)+2*s(22)+2*s(23)+1*s(24)+1*s(26)+2*s(29)+2*s(30)+1*s(31)+1*s(34)+4*s(37)+1*s(39)+4
+  Such that:s(27) =< 2
+s(33) =< -11*A+1011
+s(18) =< -10*A+899
+s(28) =< -A+99
+aux(10) =< -A+101
+s(21) =< -10/11*A+989/11
+s(20) =< -A/11+111/11
+s(25) =< -11*H+989
+s(26) =< -H+89
+aux(11) =< -A+89
+aux(12) =< -A/11+90/11
+s(19) =< aux(11)
+s(34) =< aux(11)
+s(16) =< aux(12)
+s(29) =< s(27)
+s(30) =< s(28)
+s(29) =< s(28)
+s(31) =< s(28)
+s(26) =< s(28)
+s(31) =< s(25)
+s(26) =< s(25)
+s(37) =< aux(10)
+s(39) =< aux(10)
+s(34) =< aux(10)
+s(39) =< s(33)
+s(34) =< s(33)
+s(22) =< s(20)
+s(23) =< s(21)
+s(22) =< s(21)
+s(24) =< s(21)
+s(19) =< s(21)
+s(24) =< s(18)
+s(19) =< s(18)
+
+  with precondition: [H=A,C=B,E=D,G=F,100>=H] 
+
+* Chain [36]: 1
+  with precondition: [H=A,C=B,E=D,G=F,H>=101] 
+
+
+#### Cost of chains of start0(A,B,C,D,E,F,G,H,I):
+* Chain [39]: 1*s(48)+1*s(51)+1*s(52)+3*s(53)+2*s(54)+2*s(55)+1*s(56)+4*s(57)+1*s(58)+2*s(59)+2*s(60)+1*s(61)+5
+  Such that:s(40) =< 2
+s(47) =< -11*A+989
+s(41) =< -11*A+1011
+s(42) =< -10*A+899
+s(43) =< -A+99
+s(44) =< -A+101
+s(45) =< -10/11*A+989/11
+s(50) =< -A/11+90/11
+s(46) =< -A/11+111/11
+aux(13) =< -A+89
+s(48) =< aux(13)
+s(51) =< aux(13)
+s(52) =< aux(13)
+s(53) =< s(50)
+s(54) =< s(40)
+s(55) =< s(43)
+s(54) =< s(43)
+s(56) =< s(43)
+s(48) =< s(43)
+s(56) =< s(47)
+s(48) =< s(47)
+s(57) =< s(44)
+s(58) =< s(44)
+s(52) =< s(44)
+s(58) =< s(41)
+s(52) =< s(41)
+s(59) =< s(46)
+s(60) =< s(45)
+s(59) =< s(45)
+s(61) =< s(45)
+s(51) =< s(45)
+s(61) =< s(42)
+s(51) =< s(42)
+
+  with precondition: [100>=A] 
+
+* Chain [38]: 2
+  with precondition: [A>=101] 
+
+
+Closed-form bounds of start0(A,B,C,D,E,F,G,H,I): 
+-------------------------------------
+* Chain [39] with precondition: [100>=A] 
+    - Upper bound: nat(-A+89)*3+9+nat(-A+99)*3+ (-5*A+505)+nat(-10/11*A+989/11)*3+nat(-A/11+90/11)*3+ (-2/11*A+222/11) 
+    - Complexity: n 
+* Chain [38] with precondition: [A>=101] 
+    - Upper bound: 2 
+    - Complexity: constant 
+
+### Maximum cost of start0(A,B,C,D,E,F,G,H,I): nat(-A+89)*3+7+nat(-A+99)*3+nat(-A+101)*5+nat(-10/11*A+989/11)*3+nat(-A/11+90/11)*3+nat(-A/11+111/11)*2+2 
+Asymptotic class: n 
+* Total analysis performed in 1066 ms.
+
+
+-- stats
+realtime 0:01.47
+usertime 1.14
+systime 0.01
+

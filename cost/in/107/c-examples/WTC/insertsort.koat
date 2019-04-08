@@ -1,0 +1,18 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A' B' C' D' E NoDet1 NoDet3 NoDet2 NoDet0)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(evalinsertsortstart(A,B,C,D))
+  evalinsertsortbb1in(A,B,C,D) -> Com_1(evalinsertsortbb2in(A, B, C, D -1))
+  evalinsertsortbb2in(A,B,C,D) -> Com_1(evalinsertsortbb3in(A, B, C, D)) :|: D >= 0
+  evalinsertsortbb2in(A,B,C,D) -> Com_1(evalinsertsortbb4in(A, B, C, D)) :|: -1 -D >= 0
+  evalinsertsortbb3in(A,B,C,D) -> Com_1(evalinsertsortbb1in(A, B, C, D)) :|: E -C -1 >= 0
+  evalinsertsortbb3in(A,B,C,D) -> Com_1(evalinsertsortbb4in(A, B, C, D)) :|: C -E >= 0
+  evalinsertsortbb4in(A,B,C,D) -> Com_1(evalinsertsortbb5in(A + 1, B, C, D))
+  evalinsertsortbb5in(A,B,C,D) -> Com_1(evalinsertsortbbin(A, B, C, D)) :|: B -A -1 >= 0
+  evalinsertsortbb5in(A,B,C,D) -> Com_1(evalinsertsortreturnin(A, B, C, D)) :|: A -B >= 0
+  evalinsertsortbbin(A,B,C,D) -> Com_1(evalinsertsortbb2in(A, B, E, A -1))
+  evalinsertsortentryin(A,B,C,D) -> Com_1(evalinsertsortbb5in(1, B, C, D))
+  evalinsertsortreturnin(A,B,C,D) -> Com_1(evalinsertsortstop(NoDet0, NoDet1, NoDet2, NoDet3))
+  evalinsertsortstart(A,B,C,D) -> Com_1(evalinsertsortentryin(A, B, C, D))
+)

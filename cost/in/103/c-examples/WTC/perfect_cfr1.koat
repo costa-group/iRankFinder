@@ -1,0 +1,21 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A_P B_P C_P D_P NoDet0 NoDet2 NoDet1 NoDet3)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(n_evalperfectstart(A,B,C,D))
+  n_evalperfectbb4in___4(A,B,C,D) -> Com_1(n_evalperfectbb4in___4(A, B, C_P, D_P)) :|: A -D >= 0 && A -C -1 >= 0 && A -B >= 0 && C -1 >= 0 && A -C_P -D_P >= 0 && D_P >= 0 && A -C_P -1 >= 0 && A -B >= 0 && C_P -1 >= 0 && C -C_P = 0 && D -C_P -D_P = 0
+  n_evalperfectbb4in___4(A,B,C,D) -> Com_1(n_evalperfectbb5in___3(A, B, C, D)) :|: A -D >= 0 && A -C -1 >= 0 && A -B >= 0 && C -1 >= 0 && A -C -1 >= 0 && A -B >= 0 && C -1 >= 0 && C -D -1 >= 0
+  n_evalperfectbb4in___5(A,B,C,D) -> Com_1(n_evalperfectbb4in___4(A, B, C_P, D_P)) :|: A -D >= 0 && -C + D >= 0 && A -C -1 >= 0 && A -B >= 0 && C -1 >= 0 && D -1 >= 0 && A -C_P -D_P >= 0 && D_P >= 0 && A -C_P -1 >= 0 && A -B >= 0 && C_P -1 >= 0 && C -C_P = 0 && D -C_P -D_P = 0
+  n_evalperfectbb5in___3(A,B,C,D) -> Com_1(n_evalperfectbb8in___2(A, B, C -1, D)) :|: A -B >= 0 && C -D -1 >= 0 && A -C -1 >= 0 && C -1 >= 0 && A -B >= 0 && C -1 >= 0 && A -C -1 >= 0 && -D -1 >= 0
+  n_evalperfectbb5in___3(A,B,C,D) -> Com_1(n_evalperfectbb8in___2(A, B -C, C -1, 0)) :|: A -B >= 0 && C -D -1 >= 0 && A -C -1 >= 0 && C -1 >= 0 && A -C -1 >= 0 && A -B >= 0 && C -1 >= 0 && D = 0
+  n_evalperfectbb5in___3(A,B,C,D) -> Com_1(n_evalperfectbb8in___7(A, B, C -1, D)) :|: A -B >= 0 && C -D -1 >= 0 && A -C -1 >= 0 && C -1 >= 0 && A -C -1 >= 0 && A -B >= 0 && C -D -1 >= 0 && D -1 >= 0
+  n_evalperfectbb8in___2(A,B,C,D) -> Com_1(n_evalperfectbb4in___5(A, B, C, A)) :|: A -B >= 0 && A -C -1 >= 0 && A -C -1 >= 0 && A -B >= 0 && C -1 >= 0
+  n_evalperfectbb8in___2(A,B,C,D) -> Com_1(n_evalperfectbb9in___1(B, B, C, D)) :|: A -B >= 0 && A -C -1 >= 0 && A -C -1 >= 0 && A -B >= 0 && -C >= 0
+  n_evalperfectbb8in___7(A,B,C,D) -> Com_1(n_evalperfectbb4in___5(A, B, C, A)) :|: A -B >= 0 && A -C -1 >= 0 && C -1 >= 0 && A -C -1 >= 0 && A -B >= 0 && C -1 >= 0
+  n_evalperfectbb9in___1(A,B,C,D) -> Com_1(n_evalperfectstop___6(NoDet0, NoDet1, NoDet2, NoDet3)) :|: -C >= 0 && A -B = 0 && -A -1 >= 0 && -C >= 0 && A -B = 0
+  n_evalperfectbb9in___1(A,B,C,D) -> Com_1(n_evalperfectstop___6(NoDet0, NoDet1, NoDet2, NoDet3)) :|: -C >= 0 && A -B = 0 && -C >= 0 && A -1 >= 0 && A -B = 0
+  n_evalperfectbb9in___1(A,B,C,D) -> Com_1(n_evalperfectstop___6(NoDet0, NoDet1, NoDet2, NoDet3)) :|: -C >= 0 && A -B = 0 && -C >= 0 && A = 0 && B = 0
+  n_evalperfectentryin___8(A,B,C,D) -> Com_1(n_evalperfectbb8in___7(A, A, A -1, D)) :|: A -2 >= 0
+  n_evalperfectentryin___8(A,B,C,D) -> Com_1(n_evalperfectstop___6(NoDet0, NoDet1, NoDet2, NoDet3)) :|: -A + 1 >= 0
+  n_evalperfectstart(A,B,C,D) -> Com_1(n_evalperfectentryin___8(A, B, C, D))
+)

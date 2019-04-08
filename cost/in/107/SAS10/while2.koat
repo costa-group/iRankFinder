@@ -1,0 +1,13 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E F A' B' C' D' E' F' NoDet4 NoDet0 NoDet1 NoDet5 NoDet3 NoDet2)
+(RULES 
+  pyRinit(A,B,C,D,E,F) -> Com_1(start0(A,B,C,D,E,F))
+  lbl62(A,B,C,D,E,F) -> Com_1(lbl62(A, B -1, C, D, E, F)) :|: B -1 >= 0 && A -D >= 0 && A -B -1 >= 0 && B >= 0 && D -1 >= 0 && F -A = 0
+  lbl62(A,B,C,D,E,F) -> Com_1(lbl72(A, B, C, D -1, E, F)) :|: A -D >= 0 && A -1 >= 0 && D -1 >= 0 && B = 0 && F -A = 0
+  lbl72(A,B,C,D,E,F) -> Com_1(lbl62(A, F -1, C, D, E, F)) :|: A -1 >= 0 && D -1 >= 0 && D >= 0 && A -D -1 >= 0 && B = 0 && F -A = 0
+  lbl72(A,B,C,D,E,F) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5)) :|: A -1 >= 0 && D = 0 && B = 0 && F -A = 0
+  start(A,B,C,D,E,F) -> Com_1(lbl62(A, F -1, C, F, E, F)) :|: A -1 >= 0 && B -C = 0 && D -E = 0 && F -A = 0
+  start(A,B,C,D,E,F) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5)) :|: -A >= 0 && B -C = 0 && D -E = 0 && F -A = 0
+  start0(A,B,C,D,E,F) -> Com_1(start(A, C, C, E, E, A))
+)

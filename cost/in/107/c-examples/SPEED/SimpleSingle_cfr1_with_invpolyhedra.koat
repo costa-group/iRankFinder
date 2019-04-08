@@ -1,0 +1,11 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A_P B_P NoDet0 NoDet1)
+(RULES 
+  pyRinit(A,B) -> Com_1(n_evalSimpleSinglestart(A,B))
+  n_evalSimpleSinglebb3in___2(A,B) -> Com_1(n_evalSimpleSinglebb3in___2(A + 1, B)) :|: -A + B >= 0 && -A + B >= 0 && -A + B -1 >= 0 && A >= 0 && -A + B >= 0 && -1 + A >= 0
+  n_evalSimpleSinglebb3in___2(A,B) -> Com_1(n_evalSimpleSinglestop___1(NoDet0, NoDet1)) :|: -A + B >= 0 && -A + B >= 0 && A -B >= 0 && A >= 0 && -A + B >= 0 && -1 + A >= 0
+  n_evalSimpleSinglebb3in___3(A,B) -> Com_1(n_evalSimpleSinglebb3in___2(A + 1, B)) :|: -A + B -1 >= 0 && A >= 0 && A = 0
+  n_evalSimpleSinglebb3in___3(A,B) -> Com_1(n_evalSimpleSinglestop___1(NoDet0, NoDet1)) :|: A -B >= 0 && A >= 0 && A = 0
+  n_evalSimpleSinglestart(A,B) -> Com_1(n_evalSimpleSinglebb3in___3(0, B))
+)

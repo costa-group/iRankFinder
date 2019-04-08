@@ -1,0 +1,12 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A' B' NoDet0 NoDet1)
+(RULES 
+  pyRinit(A,B) -> Com_1(evalSimpleSinglestart(A,B))
+  evalSimpleSinglebb3in(A,B) -> Com_1(evalSimpleSinglebbin(A, B)) :|: B -A -1 >= 0
+  evalSimpleSinglebb3in(A,B) -> Com_1(evalSimpleSinglereturnin(A, B)) :|: A -B >= 0
+  evalSimpleSinglebbin(A,B) -> Com_1(evalSimpleSinglebb3in(A + 1, B))
+  evalSimpleSingleentryin(A,B) -> Com_1(evalSimpleSinglebb3in(0, B))
+  evalSimpleSinglereturnin(A,B) -> Com_1(evalSimpleSinglestop(NoDet0, NoDet1))
+  evalSimpleSinglestart(A,B) -> Com_1(evalSimpleSingleentryin(A, B))
+)

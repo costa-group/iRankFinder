@@ -1,0 +1,29 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A' B' C' D' NoDet3 E NoDet0 NoDet2 NoDet1)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(evalrandom2dstart(A,B,C,D))
+  evalrandom2dLeafBlock1in(A,B,C,D) -> Com_1(evalrandom2dbb5in(A, B, C, D)) :|: D -1 = 0
+  evalrandom2dLeafBlock3in(A,B,C,D) -> Com_1(evalrandom2dbb7in(A, B, C, D)) :|: D -2 = 0
+  evalrandom2dLeafBlock5in(A,B,C,D) -> Com_1(evalrandom2dbb9in(A, B, C, D)) :|: D -3 = 0
+  evalrandom2dLeafBlockin(A,B,C,D) -> Com_1(evalrandom2dbb3in(A, B, C, D)) :|: D = 0
+  evalrandom2dNodeBlock7in(A,B,C,D) -> Com_1(evalrandom2dLeafBlock3in(A, B, C, D)) :|: 2 -D >= 0
+  evalrandom2dNodeBlock7in(A,B,C,D) -> Com_1(evalrandom2dLeafBlock5in(A, B, C, D)) :|: D -3 >= 0
+  evalrandom2dNodeBlock9in(A,B,C,D) -> Com_1(evalrandom2dNodeBlock7in(A, B, C, D)) :|: D -2 >= 0
+  evalrandom2dNodeBlock9in(A,B,C,D) -> Com_1(evalrandom2dNodeBlockin(A, B, C, D)) :|: 1 -D >= 0
+  evalrandom2dNodeBlockin(A,B,C,D) -> Com_1(evalrandom2dLeafBlock1in(A, B, C, D)) :|: D -1 >= 0
+  evalrandom2dNodeBlockin(A,B,C,D) -> Com_1(evalrandom2dLeafBlockin(A, B, C, D)) :|: -D >= 0
+  evalrandom2dbb10in(A,B,C,D) -> Com_1(evalrandom2dbbin(A, B, C, D)) :|: B -A -1 >= 0
+  evalrandom2dbb10in(A,B,C,D) -> Com_1(evalrandom2dreturnin(A, B, C, D)) :|: A -B >= 0
+  evalrandom2dbb2in(A,B,C,D) -> Com_1(evalrandom2dNodeBlock9in(A, B, C, D))
+  evalrandom2dbb3in(A,B,C,D) -> Com_1(evalrandom2dbb10in(C, B, C, D))
+  evalrandom2dbb5in(A,B,C,D) -> Com_1(evalrandom2dbb10in(C, B, C, D))
+  evalrandom2dbb7in(A,B,C,D) -> Com_1(evalrandom2dbb10in(C, B, C, D))
+  evalrandom2dbb9in(A,B,C,D) -> Com_1(evalrandom2dbb10in(C, B, C, D))
+  evalrandom2dbbin(A,B,C,D) -> Com_1(evalrandom2dbb10in(A + 1, B, C, D)) :|: -1 -E >= 0
+  evalrandom2dbbin(A,B,C,D) -> Com_1(evalrandom2dbb10in(A + 1, B, C, D)) :|: E -4 >= 0
+  evalrandom2dbbin(A,B,C,D) -> Com_1(evalrandom2dbb2in(A, B, A + 1, E)) :|: E >= 0 && 3 -E >= 0
+  evalrandom2dentryin(A,B,C,D) -> Com_1(evalrandom2dbb10in(0, B, C, D))
+  evalrandom2dreturnin(A,B,C,D) -> Com_1(evalrandom2dstop(NoDet0, NoDet1, NoDet2, NoDet3))
+  evalrandom2dstart(A,B,C,D) -> Com_1(evalrandom2dentryin(A, B, C, D))
+)

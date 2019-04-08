@@ -1,0 +1,15 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A' B' C' D' NoDet0 NoDet1 NoDet3 NoDet2)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(evalSimpleMultiplestart(A,B,C,D))
+  evalSimpleMultiplebb1in(A,B,C,D) -> Com_1(evalSimpleMultiplebb3in(A + 1, B, C, D))
+  evalSimpleMultiplebb2in(A,B,C,D) -> Com_1(evalSimpleMultiplebb3in(A, B + 1, C, D))
+  evalSimpleMultiplebb3in(A,B,C,D) -> Com_1(evalSimpleMultiplebbin(A, B, C, D)) :|: C -B -1 >= 0
+  evalSimpleMultiplebb3in(A,B,C,D) -> Com_1(evalSimpleMultiplereturnin(A, B, C, D)) :|: B -C >= 0
+  evalSimpleMultiplebbin(A,B,C,D) -> Com_1(evalSimpleMultiplebb1in(A, B, C, D)) :|: D -A -1 >= 0
+  evalSimpleMultiplebbin(A,B,C,D) -> Com_1(evalSimpleMultiplebb2in(A, B, C, D)) :|: A -D >= 0
+  evalSimpleMultipleentryin(A,B,C,D) -> Com_1(evalSimpleMultiplebb3in(0, 0, C, D))
+  evalSimpleMultiplereturnin(A,B,C,D) -> Com_1(evalSimpleMultiplestop(NoDet0, NoDet1, NoDet2, NoDet3))
+  evalSimpleMultiplestart(A,B,C,D) -> Com_1(evalSimpleMultipleentryin(A, B, C, D))
+)

@@ -1,0 +1,9 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A' B')
+(RULES 
+  pyRinit(A,B) -> Com_1(start(A,B))
+  merge(A,B) -> Com_1(merge(A -1, B)) :|: A -1 >= 0 && B -1 >= 0
+  merge(A,B) -> Com_1(merge(A, B -1)) :|: A -1 >= 0 && B -1 >= 0
+  start(A,B) -> Com_1(merge(A, B))
+)

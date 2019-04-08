@@ -1,0 +1,17 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A' B' NoDet1 NoDet0)
+(RULES 
+  pyRinit(A,B) -> Com_1(evalspeedpldi4start(A,B))
+  evalspeedpldi4bb2in(A,B) -> Com_1(evalspeedpldi4bb3in(A, B)) :|: A -B -1 >= 0
+  evalspeedpldi4bb2in(A,B) -> Com_1(evalspeedpldi4bb4in(A, B)) :|: B -A >= 0
+  evalspeedpldi4bb3in(A,B) -> Com_1(evalspeedpldi4bb5in(A, B -1))
+  evalspeedpldi4bb4in(A,B) -> Com_1(evalspeedpldi4bb5in(A, B -A))
+  evalspeedpldi4bb5in(A,B) -> Com_1(evalspeedpldi4bb2in(A, B)) :|: B -1 >= 0
+  evalspeedpldi4bb5in(A,B) -> Com_1(evalspeedpldi4returnin(A, B)) :|: -B >= 0
+  evalspeedpldi4entryin(A,B) -> Com_1(evalspeedpldi4bb5in(A, B)) :|: A -1 >= 0 && B -A -1 >= 0
+  evalspeedpldi4entryin(A,B) -> Com_1(evalspeedpldi4returnin(A, B)) :|: -A >= 0
+  evalspeedpldi4entryin(A,B) -> Com_1(evalspeedpldi4returnin(A, B)) :|: A -B >= 0
+  evalspeedpldi4returnin(A,B) -> Com_1(evalspeedpldi4stop(NoDet0, NoDet1))
+  evalspeedpldi4start(A,B) -> Com_1(evalspeedpldi4entryin(A, B))
+)

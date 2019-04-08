@@ -1,0 +1,115 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_f___1/4]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [n_f___1_loop_cont/2]
+3. non_recursive  : [n_f___2/4]
+4. non_recursive  : [n_start/4]
+5. non_recursive  : [pyRinit/4]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_f___1/4
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into n_f___2/4
+4. SCC is completely evaluated into other SCCs
+5. SCC is partially evaluated into pyRinit/4
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_f___1/4 
+* CE 6 is refined into CE [7] 
+* CE 5 is refined into CE [8] 
+* CE 4 is refined into CE [9] 
+
+
+### Cost equations --> "Loop" of n_f___1/4 
+* CEs [8] --> Loop 6 
+* CEs [9] --> Loop 7 
+* CEs [7] --> Loop 8 
+
+### Ranking functions of CR n_f___1(A,B,C,D) 
+* RF of phase [6,7]: [A-B-C]
+
+#### Partial ranking functions of CR n_f___1(A,B,C,D) 
+* Partial RF of phase [6,7]:
+  - RF of loop [6:1,7:1]:
+    A-B-C
+
+
+### Specialization of cost equations n_f___2/4 
+* CE 2 is refined into CE [10] 
+* CE 3 is refined into CE [11] 
+
+
+### Cost equations --> "Loop" of n_f___2/4 
+* CEs [10,11] --> Loop 9 
+
+### Ranking functions of CR n_f___2(A,B,C,D) 
+
+#### Partial ranking functions of CR n_f___2(A,B,C,D) 
+
+
+### Specialization of cost equations pyRinit/4 
+* CE 1 is refined into CE [12] 
+
+
+### Cost equations --> "Loop" of pyRinit/4 
+* CEs [12] --> Loop 10 
+
+### Ranking functions of CR pyRinit(A,B,C,D) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_f___1(A,B,C,D):
+* Chain [[6,7],8]: 2*it(6)+0
+  Such that:aux(3) =< A-B-C
+it(6) =< aux(3)
+
+  with precondition: [D=2,A>=B+C+1] 
+
+* Chain [8]: 0
+  with precondition: [D=2,A>=B+C] 
+
+
+#### Cost of chains of n_f___2(A,B,C,D):
+* Chain [9]: 4*s(4)+1
+  Such that:aux(4) =< A-B-C
+s(4) =< aux(4)
+
+  with precondition: [A>=B+C+1] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D):
+* Chain [10]: 4*s(8)+3
+  Such that:s(7) =< A-B-C
+s(8) =< s(7)
+
+  with precondition: [A>=B+C+1] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D): 
+-------------------------------------
+* Chain [10] with precondition: [A>=B+C+1] 
+    - Upper bound: 4*A-4*B-4*C+3 
+    - Complexity: n 
+
+### Maximum cost of pyRinit(A,B,C,D): 4*A-4*B-4*C+3 
+Asymptotic class: n 
+* Total analysis performed in 74 ms.
+
+
+-- stats
+realtime 0:00.12
+usertime 0.10
+systime 0.00
+

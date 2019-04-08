@@ -1,0 +1,40 @@
+{
+  vars: [A,B,C],
+  pvars: [A',B',C'],
+  initnode: eval0,
+  nodes: {
+    eval0: {
+      inv_polyhedra: [],
+    },
+    eval1: {
+      cfr_properties: [
+        // RFs Properties
+        [-B + C >= 0],
+        [B -C > 0],
+        [-A + C >= 0],
+        [A -C > 0],
+      ],
+      inv_polyhedra: [-1 + A >= 0],
+    },
+  },
+  transitions: [
+    {
+	source: eval0,
+	target: eval1,
+	name: t0,
+	constraints: [A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: eval1,
+	target: eval1,
+	name: t1,
+	constraints: [A -B -1 >= 0, C -A -1 >= 0, A -1 >= 0, A -A' = 0, B + A -B' = 0, C -C' = 0]
+    },
+    {
+	source: eval1,
+	target: eval1,
+	name: t2,
+	constraints: [A -B -1 >= 0, C -A -1 >= 0, A -1 >= 0, A -A' = 0, B -B' = 0, B -A -C' = 0]
+    }
+  ]
+}

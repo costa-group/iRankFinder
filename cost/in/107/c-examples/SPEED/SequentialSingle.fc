@@ -1,0 +1,133 @@
+{
+  vars: [A,B],
+  pvars: [A',B'],
+  initnode: evalSequentialSinglestart,
+  nodes: {
+    evalSequentialSinglebb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    evalSequentialSinglebb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-1 -A + B >= 0, A >= 0],
+    },
+    evalSequentialSinglebb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [A >= 0, -1 -A + B >= 0],
+    },
+    evalSequentialSinglebb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    evalSequentialSinglebbin: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-1 -A + B >= 0, A >= 0],
+    },
+    evalSequentialSingleentryin: {
+      inv_polyhedra: [],
+    },
+    evalSequentialSinglereturnin: {
+      inv_polyhedra: [A >= 0, A -B >= 0],
+    },
+    evalSequentialSinglestart: {
+      inv_polyhedra: [],
+    },
+    evalSequentialSinglestop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalSequentialSinglestart,
+	target: evalSequentialSingleentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSequentialSingleentryin,
+	target: evalSequentialSinglebb1in,
+	name: t1,
+	constraints: [-A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSequentialSinglebb4in,
+	target: evalSequentialSinglebb5in,
+	name: t10,
+	constraints: [A + 1 -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSequentialSinglereturnin,
+	target: evalSequentialSinglestop,
+	name: t11,
+	constraints: []
+    },
+    {
+	source: evalSequentialSinglebb1in,
+	target: evalSequentialSinglebb5in,
+	name: t2,
+	constraints: [A -B >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSequentialSinglebb1in,
+	target: evalSequentialSinglebb2in,
+	name: t3,
+	constraints: [B -A -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSequentialSinglebb2in,
+	target: evalSequentialSinglebbin,
+	name: t4,
+	constraints: [-1 -C >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSequentialSinglebb2in,
+	target: evalSequentialSinglebbin,
+	name: t5,
+	constraints: [C -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSequentialSinglebb2in,
+	target: evalSequentialSinglebb5in,
+	name: t6,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSequentialSinglebbin,
+	target: evalSequentialSinglebb1in,
+	name: t7,
+	constraints: [A + 1 -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSequentialSinglebb5in,
+	target: evalSequentialSinglebb4in,
+	name: t8,
+	constraints: [B -A -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSequentialSinglebb5in,
+	target: evalSequentialSinglereturnin,
+	name: t9,
+	constraints: [A -B >= 0, A -A' = 0, B -B' = 0]
+    }
+  ]
+}

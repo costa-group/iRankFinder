@@ -1,0 +1,139 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: evalSimpleSingle2start,
+  nodes: {
+    evalSimpleSingle2bb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + D >= 0],
+        [A -D > 0],
+        [-A + C >= 0],
+        [A -C > 0],
+      ],
+      inv_polyhedra: [A -B == 0, -1 -A + C >= 0, A >= 0],
+    },
+    evalSimpleSingle2bb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + D >= 0],
+        [A -D > 0],
+      ],
+      inv_polyhedra: [A -B == 0, A -C >= 0, A >= 0],
+    },
+    evalSimpleSingle2bb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + D >= 0],
+        [A -D > 0],
+      ],
+      inv_polyhedra: [A -B == 0, -1 -A + D >= 0, A -C >= 0, A >= 0],
+    },
+    evalSimpleSingle2bb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + D >= 0],
+        [A -D > 0],
+        [-A + C >= 0],
+        [A -C > 0],
+      ],
+      inv_polyhedra: [A -B == 0, A >= 0],
+    },
+    evalSimpleSingle2bbin: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + D >= 0],
+        [A -D > 0],
+        [-A + C >= 0],
+        [A -C > 0],
+      ],
+      inv_polyhedra: [A -B == 0, A >= 0],
+    },
+    evalSimpleSingle2entryin: {
+      inv_polyhedra: [],
+    },
+    evalSimpleSingle2returnin: {
+      inv_polyhedra: [A -B == 0, A >= 0],
+    },
+    evalSimpleSingle2start: {
+      inv_polyhedra: [],
+    },
+    evalSimpleSingle2stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalSimpleSingle2start,
+	target: evalSimpleSingle2entryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleSingle2entryin,
+	target: evalSimpleSingle2bb4in,
+	name: t1,
+	constraints: [-A' = 0, -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleSingle2bb3in,
+	target: evalSimpleSingle2bb4in,
+	name: t10,
+	constraints: [A + 1 -A' = 0, B + 1 -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleSingle2returnin,
+	target: evalSimpleSingle2stop,
+	name: t11,
+	constraints: []
+    },
+    {
+	source: evalSimpleSingle2bb4in,
+	target: evalSimpleSingle2bbin,
+	name: t2,
+	constraints: [-1 -E >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleSingle2bb4in,
+	target: evalSimpleSingle2bbin,
+	name: t3,
+	constraints: [E -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleSingle2bb4in,
+	target: evalSimpleSingle2returnin,
+	name: t4,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleSingle2bbin,
+	target: evalSimpleSingle2bb1in,
+	name: t5,
+	constraints: [C -B -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleSingle2bbin,
+	target: evalSimpleSingle2bb2in,
+	name: t6,
+	constraints: [B -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleSingle2bb1in,
+	target: evalSimpleSingle2bb4in,
+	name: t7,
+	constraints: [A + 1 -A' = 0, B + 1 -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleSingle2bb2in,
+	target: evalSimpleSingle2bb3in,
+	name: t8,
+	constraints: [D -A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalSimpleSingle2bb2in,
+	target: evalSimpleSingle2returnin,
+	name: t9,
+	constraints: [A -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    }
+  ]
+}

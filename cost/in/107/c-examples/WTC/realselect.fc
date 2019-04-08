@@ -1,0 +1,135 @@
+{
+  vars: [A,B,C],
+  pvars: [A',B',C'],
+  initnode: evalrealselectstart,
+  nodes: {
+    evalrealselectbb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+      ],
+      inv_polyhedra: [-1 + B -C >= 0, -1 -A + C >= 0, A >= 0],
+    },
+    evalrealselectbb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+      ],
+      inv_polyhedra: [A >= 0, -2 -A + B >= 0, -1 -A + C >= 0],
+    },
+    evalrealselectbb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-2 -A + B >= 0, -B + C >= 0, A >= 0],
+    },
+    evalrealselectbb6in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    evalrealselectbbin: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-2 -A + B >= 0, A >= 0],
+    },
+    evalrealselectentryin: {
+      inv_polyhedra: [],
+    },
+    evalrealselectreturnin: {
+      inv_polyhedra: [1 + A -B >= 0, A >= 0],
+    },
+    evalrealselectstart: {
+      inv_polyhedra: [],
+    },
+    evalrealselectstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalrealselectstart,
+	target: evalrealselectentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealselectentryin,
+	target: evalrealselectbb6in,
+	name: t1,
+	constraints: [-A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealselectreturnin,
+	target: evalrealselectstop,
+	name: t10,
+	constraints: []
+    },
+    {
+	source: evalrealselectbb6in,
+	target: evalrealselectbbin,
+	name: t2,
+	constraints: [B -2 -A >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealselectbb6in,
+	target: evalrealselectreturnin,
+	name: t3,
+	constraints: [A + 1 -B >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealselectbbin,
+	target: evalrealselectbb4in,
+	name: t4,
+	constraints: [A -A' = 0, B -B' = 0, A + 1 -C' = 0]
+    },
+    {
+	source: evalrealselectbb4in,
+	target: evalrealselectbb1in,
+	name: t5,
+	constraints: [B -C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealselectbb4in,
+	target: evalrealselectbb5in,
+	name: t6,
+	constraints: [C -B >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealselectbb1in,
+	target: evalrealselectbb4in,
+	name: t7,
+	constraints: [D -E -1 >= 0, A -A' = 0, B -B' = 0, C + 1 -C' = 0]
+    },
+    {
+	source: evalrealselectbb1in,
+	target: evalrealselectbb4in,
+	name: t8,
+	constraints: [E -D >= 0, A -A' = 0, B -B' = 0, C + 1 -C' = 0]
+    },
+    {
+	source: evalrealselectbb5in,
+	target: evalrealselectbb6in,
+	name: t9,
+	constraints: [A + 1 -A' = 0, B -B' = 0, C -C' = 0]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  vars: [A,B,C,D,E,F,G,H],
+  pvars: [A',B',C',D',E',F',G',H'],
+  initnode: start0,
+  nodes: {
+    cut: {
+      cfr_properties: [
+        // RFs Properties
+        [G >= 0],
+        [-G > 0],
+        [G >= 0],
+        [-G > 0],
+        [G >= 0],
+        [-G > 0],
+      ],
+      inv_polyhedra: [A -D == 0, -1 + G >= 0, A -E -G >= 0, E >= 0, -1 + A -G >= 0],
+    },
+    start: {
+      inv_polyhedra: [G -H == 0, E -F == 0, A -D == 0, B -C == 0],
+    },
+    start0: {
+      inv_polyhedra: [],
+    },
+    stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: start,
+	target: stop,
+	name: t0,
+	constraints: [-A >= 0, B -C = 0, D -A = 0, E -F = 0, G -H = 0]
+    },
+    {
+	source: start,
+	target: cut,
+	name: t1,
+	constraints: [A -2 >= 0, B -C = 0, D -A = 0, E -F = 0, G -H = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, -E' = 0, F -F' = 0, D -1 -G' = 0, H -H' = 0]
+    },
+    {
+	source: cut,
+	target: stop,
+	name: t10,
+	constraints: [A -E -2 >= 0, E >= 0, A -2 >= 0, A -1 -E >= 0, G -1 = 0, D -A = 0]
+    },
+    {
+	source: cut,
+	target: stop,
+	name: t12,
+	constraints: [A -1 >= 0, A -2 >= 0, G -1 = 0, E + 1 -A = 0, D -A = 0]
+    },
+    {
+	source: start0,
+	target: start,
+	name: t13,
+	constraints: [A -A' = 0, C -B' = 0, C -C' = 0, A -D' = 0, F -E' = 0, F -F' = 0, H -G' = 0, H -H' = 0]
+    },
+    {
+	source: start,
+	target: stop,
+	name: t2,
+	constraints: [D -1 = 0, B -C = 0, A -1 = 0, E -F = 0, G -H = 0]
+    },
+    {
+	source: start,
+	target: cut,
+	name: t3,
+	constraints: [A -2 >= 0, B -C = 0, D -A = 0, E -F = 0, G -H = 0, A -A' = 0, -B' = 0, C -C' = 0, D -D' = 0, 1 -E' = 0, F -F' = 0, D -1 -G' = 0, H -H' = 0]
+    },
+    {
+	source: start,
+	target: stop,
+	name: t4,
+	constraints: [D -1 = 0, B -C = 0, A -1 = 0, E -F = 0, G -H = 0]
+    },
+    {
+	source: cut,
+	target: cut,
+	name: t5,
+	constraints: [G -2 >= 0, E -2 >= 0, G -1 >= 0, E >= 0, A -G -1 >= 0, A -G -E >= 0, D -A = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -1 -E' = 0, F -F' = 0, G -1 -G' = 0, H -H' = 0]
+    },
+    {
+	source: cut,
+	target: stop,
+	name: t6,
+	constraints: [E -2 >= 0, E >= 0, A -2 >= 0, A -1 -E >= 0, G -1 = 0, D -A = 0]
+    },
+    {
+	source: cut,
+	target: cut,
+	name: t7,
+	constraints: [G -2 >= 0, 1 -E >= 0, G -1 >= 0, E >= 0, A -G -1 >= 0, A -G -E >= 0, D -A = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, -E' = 0, F -F' = 0, G -1 -G' = 0, H -H' = 0]
+    },
+    {
+	source: cut,
+	target: stop,
+	name: t8,
+	constraints: [1 -E >= 0, E >= 0, A -2 >= 0, A -1 -E >= 0, G -1 = 0, D -A = 0]
+    },
+    {
+	source: cut,
+	target: cut,
+	name: t9,
+	constraints: [G -2 >= 0, A -E -2 >= 0, G -1 >= 0, E >= 0, A -G -1 >= 0, A -G -E >= 0, D -A = 0, A -A' = 0, E -B' = 0, C -C' = 0, D -D' = 0, 1 + E -E' = 0, F -F' = 0, G -1 -G' = 0, H -H' = 0]
+    }
+  ]
+}

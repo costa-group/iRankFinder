@@ -1,0 +1,139 @@
+{
+  vars: [A,B,C],
+  pvars: [A',B',C'],
+  initnode: evalrealheapsortstep1start,
+  nodes: {
+    evalrealheapsortstep1bb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -B >= 0],
+        [-A + B > 0],
+        [2 * C >= 0],
+        [-2 * C > 0],
+      ],
+      inv_polyhedra: [-1 + C >= 0, B -C >= 0, -3 + A >= 0],
+    },
+    evalrealheapsortstep1bb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -B >= 0],
+        [-A + B > 0],
+        [2 * C >= 0],
+        [-2 * C > 0],
+      ],
+      inv_polyhedra: [1 + 2 * C >= 0, B -C >= 0, -1 + B >= 0, -3 + A >= 0],
+    },
+    evalrealheapsortstep1bb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -B >= 0],
+        [-A + B > 0],
+        [2 * C >= 0],
+        [-2 * C > 0],
+      ],
+      inv_polyhedra: [-1 + C >= 0, B -C >= 0, -3 + A >= 0],
+    },
+    evalrealheapsortstep1bb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [-1 + B >= 0, -3 + A >= 0, B -C >= 0, 1 + 2 * C >= 0],
+    },
+    evalrealheapsortstep1bb6in: {
+      cfr_properties: [
+        // RFs Properties
+        [1 + A -B >= 0],
+        [-1 -A + B > 0],
+      ],
+      inv_polyhedra: [-3 + A >= 0, -1 + B >= 0],
+    },
+    evalrealheapsortstep1entryin: {
+      inv_polyhedra: [],
+    },
+    evalrealheapsortstep1returnin: {
+      inv_polyhedra: [],
+    },
+    evalrealheapsortstep1start: {
+      inv_polyhedra: [],
+    },
+    evalrealheapsortstep1stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalrealheapsortstep1start,
+	target: evalrealheapsortstep1entryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealheapsortstep1entryin,
+	target: evalrealheapsortstep1bb6in,
+	name: t1,
+	constraints: [A -3 >= 0, A -A' = 0, 1 -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealheapsortstep1bb4in,
+	target: evalrealheapsortstep1bb5in,
+	name: t11,
+	constraints: [C >= 0, D >= 0, C + 1 -2 * D >= 0, 2 * D -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealheapsortstep1entryin,
+	target: evalrealheapsortstep1returnin,
+	name: t2,
+	constraints: [2 -A >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealheapsortstep1bb2in,
+	target: evalrealheapsortstep1bb3in,
+	name: t26,
+	constraints: [C >= 0, E >= 0, C + 1 -2 * E >= 0, 2 * E -C >= 0, F >= 0, C + 1 -2 * F >= 0, 2 * F -C >= 0, D >= 0, C + 1 -2 * D >= 0, 2 * D -C >= 0, A -A' = 0, B -B' = 0, D -1 -C' = 0]
+    },
+    {
+	source: evalrealheapsortstep1bb6in,
+	target: evalrealheapsortstep1bb3in,
+	name: t3,
+	constraints: [A -1 -B >= 0, A -A' = 0, B -B' = 0, B -C' = 0]
+    },
+    {
+	source: evalrealheapsortstep1bb6in,
+	target: evalrealheapsortstep1returnin,
+	name: t4,
+	constraints: [B -A >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealheapsortstep1bb5in,
+	target: evalrealheapsortstep1bb6in,
+	name: t40,
+	constraints: [A -A' = 0, B + 1 -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealheapsortstep1returnin,
+	target: evalrealheapsortstep1stop,
+	name: t41,
+	constraints: []
+    },
+    {
+	source: evalrealheapsortstep1bb3in,
+	target: evalrealheapsortstep1bb5in,
+	name: t5,
+	constraints: [-C >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealheapsortstep1bb3in,
+	target: evalrealheapsortstep1bb4in,
+	name: t6,
+	constraints: [C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalrealheapsortstep1bb4in,
+	target: evalrealheapsortstep1bb2in,
+	name: t8,
+	constraints: [C >= 0, D >= 0, C + 1 -2 * D >= 0, 2 * D -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    }
+  ]
+}

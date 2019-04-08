@@ -1,0 +1,19 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A_P B_P C_P NoDet0 NoDet2 NoDet1)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(n_evalfstart(A,B,C))
+  n_evalfbb2in___1(A,B,C) -> Com_1(n_evalfbb4in___4(A, B_P, C_P)) :|: B -1 >= 0 && A -C >= 0 && A -C = 0 && -1 + B >= 0 && A -C >= 0 && -1 + B >= 0 && -C >= 0 && -C_P >= 0 && B_P >= 0 && A -C_P >= 0 && B -B_P -1 = 0 && C -C_P = 0
+  n_evalfbb2in___2(A,B,C) -> Com_1(n_evalfbb2in___5(A, B, C_P)) :|: B -1 >= 0 && A -C >= 0 && C -1 >= 0 && -1 + C >= 0 && A -C >= 0 && -1 + B >= 0 && A -C = 0 && -1 + B >= 0 && -1 + C >= 0 && A -C >= 0 && -1 + B >= 0 && B -1 >= 0 && A -C_P -1 >= 0 && C_P >= 0 && C -C_P -1 = 0
+  n_evalfbb2in___5(A,B,C) -> Com_1(n_evalfbb2in___5(A, B, C_P)) :|: B -1 >= 0 && A -C >= 0 && C >= 0 && -1 + A -C >= 0 && -1 + B >= 0 && B -1 >= 0 && A -C_P -1 >= 0 && C_P >= 0 && C -C_P -1 = 0
+  n_evalfbb2in___5(A,B,C) -> Com_1(n_evalfbb4in___3(A, B_P, C_P)) :|: B -1 >= 0 && A -C >= 0 && C >= 0 && -1 + A -C >= 0 && -1 + B >= 0 && -C_P >= 0 && B_P >= 0 && A -C_P >= 0 && B -B_P -1 = 0 && C -C_P = 0
+  n_evalfbb2in___7(A,B,C) -> Com_1(n_evalfbb2in___5(A, B, C_P)) :|: B -1 >= 0 && A -C >= 0 && A -C = 0 && -1 + B >= 0 && B -1 >= 0 && A -C_P -1 >= 0 && C_P >= 0 && C -C_P -1 = 0
+  n_evalfbb2in___7(A,B,C) -> Com_1(n_evalfbb4in___4(A, B_P, C_P)) :|: B -1 >= 0 && A -C >= 0 && A -C = 0 && -1 + B >= 0 && -C_P >= 0 && B_P >= 0 && A -C_P >= 0 && B -B_P -1 = 0 && C -C_P = 0
+  n_evalfbb4in___3(A,B,C) -> Com_1(n_evalfbb2in___2(A, B, A)) :|: A -1 >= 0 && A -C >= 0 && B >= 0 && -C >= 0 && B -1 >= 0
+  n_evalfbb4in___3(A,B,C) -> Com_1(n_evalfstop___6(NoDet0, NoDet1, NoDet2)) :|: A -1 >= 0 && A -C >= 0 && B >= 0 && -C >= 0 && -B >= 0
+  n_evalfbb4in___4(A,B,C) -> Com_1(n_evalfbb2in___1(A, B, A)) :|: -A >= 0 && A -C >= 0 && B >= 0 && -C >= 0 && B -1 >= 0
+  n_evalfbb4in___4(A,B,C) -> Com_1(n_evalfstop___6(NoDet0, NoDet1, NoDet2)) :|: -A >= 0 && A -C >= 0 && B >= 0 && -C >= 0 && -B >= 0
+  n_evalfbb4in___8(A,B,C) -> Com_1(n_evalfbb2in___7(A, B, A)) :|: B -1 >= 0
+  n_evalfbb4in___8(A,B,C) -> Com_1(n_evalfstop___6(NoDet0, NoDet1, NoDet2)) :|: -B >= 0
+  n_evalfstart(A,B,C) -> Com_1(n_evalfbb4in___8(B, A, C))
+)

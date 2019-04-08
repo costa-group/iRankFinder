@@ -1,0 +1,92 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalterminatestart(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminateentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalterminateentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebb1in(Ar_1, Ar_0, Ar_2))
+		(Comp: ?, Cost: 1)    evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebbin(Ar_0, Ar_1, Ar_2)) [ 100 >= Ar_1 /\ Ar_0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= 101 ]
+		(Comp: ?, Cost: 1)    evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalterminatebbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebb1in(Ar_0 - 1, Ar_2, Ar_1 + 1))
+		(Comp: ?, Cost: 1)    evalterminatereturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatestop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatestart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalterminatestart(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminateentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)    evalterminateentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebb1in(Ar_1, Ar_0, Ar_2))
+		(Comp: ?, Cost: 1)    evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebbin(Ar_0, Ar_1, Ar_2)) [ 100 >= Ar_1 /\ Ar_0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= 101 ]
+		(Comp: ?, Cost: 1)    evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalterminatebbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebb1in(Ar_0 - 1, Ar_2, Ar_1 + 1))
+		(Comp: ?, Cost: 1)    evalterminatereturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatestop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatestart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalterminatestart) = 2
+	Pol(evalterminateentryin) = 2
+	Pol(evalterminatebb1in) = 2
+	Pol(evalterminatebbin) = 2
+	Pol(evalterminatereturnin) = 1
+	Pol(evalterminatestop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalterminatereturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatestop(Ar_0, Ar_1, Ar_2))
+	evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_0 + 1 ]
+	evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= 101 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalterminatestart(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminateentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)    evalterminateentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebb1in(Ar_1, Ar_0, Ar_2))
+		(Comp: ?, Cost: 1)    evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebbin(Ar_0, Ar_1, Ar_2)) [ 100 >= Ar_1 /\ Ar_0 >= Ar_2 ]
+		(Comp: 2, Cost: 1)    evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= 101 ]
+		(Comp: 2, Cost: 1)    evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalterminatebbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebb1in(Ar_0 - 1, Ar_2, Ar_1 + 1))
+		(Comp: 2, Cost: 1)    evalterminatereturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatestop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatestart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalterminatestart) = -V_1 + V_2 - V_3 + 101
+	Pol(evalterminateentryin) = -V_1 + V_2 - V_3 + 101
+	Pol(evalterminatebb1in) = V_1 - V_2 - V_3 + 101
+	Pol(evalterminatebbin) = V_1 - V_2 - V_3 + 100
+	Pol(evalterminatereturnin) = V_1 - V_2 - V_3
+	Pol(evalterminatestop) = V_1 - V_2 - V_3
+	Pol(koat_start) = -V_1 + V_2 - V_3 + 101
+orients all transitions weakly and the transition
+	evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebbin(Ar_0, Ar_1, Ar_2)) [ 100 >= Ar_1 /\ Ar_0 >= Ar_2 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)                           evalterminatestart(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminateentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)                           evalterminateentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebb1in(Ar_1, Ar_0, Ar_2))
+		(Comp: Ar_0 + Ar_1 + Ar_2 + 101, Cost: 1)    evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebbin(Ar_0, Ar_1, Ar_2)) [ 100 >= Ar_1 /\ Ar_0 >= Ar_2 ]
+		(Comp: 2, Cost: 1)                           evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= 101 ]
+		(Comp: 2, Cost: 1)                           evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)                           evalterminatebbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebb1in(Ar_0 - 1, Ar_2, Ar_1 + 1))
+		(Comp: 2, Cost: 1)                           evalterminatereturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatestop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)                           koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatestart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 4 produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)                           evalterminatestart(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminateentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)                           evalterminateentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebb1in(Ar_1, Ar_0, Ar_2))
+		(Comp: Ar_0 + Ar_1 + Ar_2 + 101, Cost: 1)    evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebbin(Ar_0, Ar_1, Ar_2)) [ 100 >= Ar_1 /\ Ar_0 >= Ar_2 ]
+		(Comp: 2, Cost: 1)                           evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= 101 ]
+		(Comp: 2, Cost: 1)                           evalterminatebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_0 + 1 ]
+		(Comp: Ar_0 + Ar_1 + Ar_2 + 101, Cost: 1)    evalterminatebbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatebb1in(Ar_0 - 1, Ar_2, Ar_1 + 1))
+		(Comp: 2, Cost: 1)                           evalterminatereturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatestop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)                           koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalterminatestart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 2*Ar_0 + 2*Ar_1 + 2*Ar_2 + 210
+
+Time: 0.032 sec (SMT: 0.026 sec)

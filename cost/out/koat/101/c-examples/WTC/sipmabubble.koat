@@ -1,0 +1,220 @@
+WORST_CASE(?, O(n^2))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestart(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_11)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_11 >= 0 /\ Fresh_11 - 1 >= 0 /\ Ar_1 - Fresh_11 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_10)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_10 >= 0 /\ Fresh_10 - 1 >= 0 /\ Ar_1 - Fresh_10 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_9)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_9 >= 0 /\ Fresh_9 - 1 >= 0 /\ Ar_1 - Fresh_9 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_8)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_8 >= 0 /\ Fresh_8 - 1 >= 0 /\ Ar_1 - Fresh_8 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___2(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___1(Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Fresh_7 >= 0 /\ Ar_1 - Fresh_7 = 0 /\ Ar_0 - Fresh_7 = 0 /\ Fresh_6 - Fresh_7 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___5(Ar_0, Ar_1)) [ Ar_1 = 0 /\ Ar_0 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___4(Fresh_4, Fresh_5)) [ Ar_1 = 0 /\ Ar_0 >= 0 /\ Fresh_5 >= 0 /\ Ar_1 - Fresh_5 = 0 /\ Ar_0 - Fresh_5 = 0 /\ Fresh_4 - Fresh_5 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb6in___1(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 - Ar_1 + 1 = 0 /\ Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb6in___4(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_2, Fresh_3)) [ Ar_0 - Ar_1 + 1 = 0 /\ Ar_1 >= 0 /\ -Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_0, Fresh_1)) [ -Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___8(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestart(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_11)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_11 >= 0 /\ Fresh_11 - 1 >= 0 /\ Ar_1 - Fresh_11 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_10)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_10 >= 0 /\ Fresh_10 - 1 >= 0 /\ Ar_1 - Fresh_10 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_9)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_9 >= 0 /\ Fresh_9 - 1 >= 0 /\ Ar_1 - Fresh_9 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_8)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_8 >= 0 /\ Fresh_8 - 1 >= 0 /\ Ar_1 - Fresh_8 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___2(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___1(Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Fresh_7 >= 0 /\ Ar_1 - Fresh_7 = 0 /\ Ar_0 - Fresh_7 = 0 /\ Fresh_6 - Fresh_7 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___5(Ar_0, Ar_1)) [ Ar_1 = 0 /\ Ar_0 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___4(Fresh_4, Fresh_5)) [ Ar_1 = 0 /\ Ar_0 >= 0 /\ Fresh_5 >= 0 /\ Ar_1 - Fresh_5 = 0 /\ Ar_0 - Fresh_5 = 0 /\ Fresh_4 - Fresh_5 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb6in___1(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 - Ar_1 + 1 = 0 /\ Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb6in___4(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_2, Fresh_3)) [ Ar_0 - Ar_1 + 1 = 0 /\ Ar_1 >= 0 /\ -Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 + 1 = 0 ]
+		(Comp: 1, Cost: 1)    n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_0, Fresh_1)) [ -Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___8(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(pyRinit) = 2
+	Pol(n_evalsipmabubblestart) = 2
+	Pol(n_evalsipmabubblebb1in___2) = 2
+	Pol(n_evalsipmabubblebb4in___3) = 2
+	Pol(n_evalsipmabubblebb1in___5) = 2
+	Pol(n_evalsipmabubblebb6in___1) = 2
+	Pol(n_evalsipmabubblebb4in___7) = 2
+	Pol(n_evalsipmabubblebb6in___4) = 1
+	Pol(n_evalsipmabubblestop___6) = 0
+	Pol(n_evalsipmabubblebb6in___8) = 2
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	n_evalsipmabubblebb6in___4(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_2, Fresh_3)) [ Ar_0 - Ar_1 + 1 = 0 /\ Ar_1 >= 0 /\ -Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 + 1 = 0 ]
+	n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___4(Fresh_4, Fresh_5)) [ Ar_1 = 0 /\ Ar_0 >= 0 /\ Fresh_5 >= 0 /\ Ar_1 - Fresh_5 = 0 /\ Ar_0 - Fresh_5 = 0 /\ Fresh_4 - Fresh_5 + 1 = 0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestart(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_11)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_11 >= 0 /\ Fresh_11 - 1 >= 0 /\ Ar_1 - Fresh_11 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_10)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_10 >= 0 /\ Fresh_10 - 1 >= 0 /\ Ar_1 - Fresh_10 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_9)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_9 >= 0 /\ Fresh_9 - 1 >= 0 /\ Ar_1 - Fresh_9 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_8)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_8 >= 0 /\ Fresh_8 - 1 >= 0 /\ Ar_1 - Fresh_8 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___2(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___1(Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Fresh_7 >= 0 /\ Ar_1 - Fresh_7 = 0 /\ Ar_0 - Fresh_7 = 0 /\ Fresh_6 - Fresh_7 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___5(Ar_0, Ar_1)) [ Ar_1 = 0 /\ Ar_0 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)    n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___4(Fresh_4, Fresh_5)) [ Ar_1 = 0 /\ Ar_0 >= 0 /\ Fresh_5 >= 0 /\ Ar_1 - Fresh_5 = 0 /\ Ar_0 - Fresh_5 = 0 /\ Fresh_4 - Fresh_5 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalsipmabubblebb6in___1(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 - Ar_1 + 1 = 0 /\ Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 2, Cost: 1)    n_evalsipmabubblebb6in___4(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_2, Fresh_3)) [ Ar_0 - Ar_1 + 1 = 0 /\ Ar_1 >= 0 /\ -Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 + 1 = 0 ]
+		(Comp: 1, Cost: 1)    n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_0, Fresh_1)) [ -Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___8(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(n_evalsipmabubblebb6in___1) = 4*V_1 + 2
+	Pol(n_evalsipmabubblebb4in___7) = 4*V_1 + 1
+	Pol(n_evalsipmabubblebb1in___5) = 4*V_1
+	Pol(n_evalsipmabubblebb4in___3) = 4*V_1 - 1
+	Pol(n_evalsipmabubblebb1in___2) = 4*V_1 - 1
+and size complexities
+	S("koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("n_evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___8(Ar_0, Ar_1))", 0-0) = Ar_0
+	S("n_evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___8(Ar_0, Ar_1))", 0-1) = Ar_1
+	S("n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_0, Fresh_1)) [ -Ar_0 - 1 >= 0 ]", 0-0) = ?
+	S("n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_0, Fresh_1)) [ -Ar_0 - 1 >= 0 ]", 0-1) = ?
+	S("n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 >= 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 >= 0 ]", 0-1) = 0
+	S("n_evalsipmabubblebb6in___4(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_2, Fresh_3)) [ Ar_0 - Ar_1 + 1 = 0 /\\ Ar_1 >= 0 /\\ -Ar_0 - 1 >= 0 /\\ Ar_1 = 0 /\\ Ar_0 + 1 = 0 ]", 0-0) = ?
+	S("n_evalsipmabubblebb6in___4(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_2, Fresh_3)) [ Ar_0 - Ar_1 + 1 = 0 /\\ Ar_1 >= 0 /\\ -Ar_0 - 1 >= 0 /\\ Ar_1 = 0 /\\ Ar_0 + 1 = 0 ]", 0-1) = ?
+	S("n_evalsipmabubblebb6in___1(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 - Ar_1 + 1 = 0 /\\ Ar_1 >= 0 /\\ Ar_0 >= 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb6in___1(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 - Ar_1 + 1 = 0 /\\ Ar_1 >= 0 /\\ Ar_0 >= 0 ]", 0-1) = 0
+	S("n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___4(Fresh_4, Fresh_5)) [ Ar_1 = 0 /\\ Ar_0 >= 0 /\\ Fresh_5 >= 0 /\\ Ar_1 - Fresh_5 = 0 /\\ Ar_0 - Fresh_5 = 0 /\\ Fresh_4 - Fresh_5 + 1 = 0 ]", 0-0) = 1
+	S("n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___4(Fresh_4, Fresh_5)) [ Ar_1 = 0 /\\ Ar_0 >= 0 /\\ Fresh_5 >= 0 /\\ Ar_1 - Fresh_5 = 0 /\\ Ar_0 - Fresh_5 = 0 /\\ Fresh_4 - Fresh_5 + 1 = 0 ]", 0-1) = 0
+	S("n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___5(Ar_0, Ar_1)) [ Ar_1 = 0 /\\ Ar_0 >= 0 /\\ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 >= 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___5(Ar_0, Ar_1)) [ Ar_1 = 0 /\\ Ar_0 >= 0 /\\ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 >= 0 ]", 0-1) = 0
+	S("n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___1(Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Fresh_7 >= 0 /\\ Ar_1 - Fresh_7 = 0 /\\ Ar_0 - Fresh_7 = 0 /\\ Fresh_6 - Fresh_7 + 1 = 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___1(Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Fresh_7 >= 0 /\\ Ar_1 - Fresh_7 = 0 /\\ Ar_0 - Fresh_7 = 0 /\\ Fresh_6 - Fresh_7 + 1 = 0 ]", 0-1) = Ar_0
+	S("n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___2(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 >= 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___2(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 >= 0 ]", 0-1) = Ar_0 + 1
+	S("n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_8)) [ Ar_0 - 1 >= 0 /\\ Ar_1 = 0 /\\ Ar_0 - Fresh_8 >= 0 /\\ Fresh_8 - 1 >= 0 /\\ Ar_1 - Fresh_8 + 1 = 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_8)) [ Ar_0 - 1 >= 0 /\\ Ar_1 = 0 /\\ Ar_0 - Fresh_8 >= 0 /\\ Fresh_8 - 1 >= 0 /\\ Ar_1 - Fresh_8 + 1 = 0 ]", 0-1) = 1
+	S("n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_9)) [ Ar_0 - 1 >= 0 /\\ Ar_1 = 0 /\\ Ar_0 - Fresh_9 >= 0 /\\ Fresh_9 - 1 >= 0 /\\ Ar_1 - Fresh_9 + 1 = 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_9)) [ Ar_0 - 1 >= 0 /\\ Ar_1 = 0 /\\ Ar_0 - Fresh_9 >= 0 /\\ Fresh_9 - 1 >= 0 /\\ Ar_1 - Fresh_9 + 1 = 0 ]", 0-1) = 1
+	S("n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_10)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 - Fresh_10 >= 0 /\\ Fresh_10 - 1 >= 0 /\\ Ar_1 - Fresh_10 + 1 = 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_10)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 - Fresh_10 >= 0 /\\ Fresh_10 - 1 >= 0 /\\ Ar_1 - Fresh_10 + 1 = 0 ]", 0-1) = Ar_0
+	S("n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_11)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 - Fresh_11 >= 0 /\\ Fresh_11 - 1 >= 0 /\\ Ar_1 - Fresh_11 + 1 = 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_11)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 - Fresh_11 >= 0 /\\ Fresh_11 - 1 >= 0 /\\ Ar_1 - Fresh_11 + 1 = 0 ]", 0-1) = Ar_0
+	S("pyRinit(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestart(Ar_0, Ar_1))", 0-0) = Ar_0
+	S("pyRinit(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestart(Ar_0, Ar_1))", 0-1) = Ar_1
+orients the transitions
+	n_evalsipmabubblebb6in___1(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 - Ar_1 + 1 = 0 /\ Ar_1 >= 0 /\ Ar_0 >= 0 ]
+	n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___5(Ar_0, Ar_1)) [ Ar_1 = 0 /\ Ar_0 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+	n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___1(Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Fresh_7 >= 0 /\ Ar_1 - Fresh_7 = 0 /\ Ar_0 - Fresh_7 = 0 /\ Fresh_6 - Fresh_7 + 1 = 0 ]
+	n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___2(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+	n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_9)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_9 >= 0 /\ Fresh_9 - 1 >= 0 /\ Ar_1 - Fresh_9 + 1 = 0 ]
+	n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_8)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_8 >= 0 /\ Fresh_8 - 1 >= 0 /\ Ar_1 - Fresh_8 + 1 = 0 ]
+	n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_11)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_11 >= 0 /\ Fresh_11 - 1 >= 0 /\ Ar_1 - Fresh_11 + 1 = 0 ]
+	n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_10)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_10 >= 0 /\ Fresh_10 - 1 >= 0 /\ Ar_1 - Fresh_10 + 1 = 0 ]
+weakly and the transitions
+	n_evalsipmabubblebb6in___1(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 - Ar_1 + 1 = 0 /\ Ar_1 >= 0 /\ Ar_0 >= 0 ]
+	n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___5(Ar_0, Ar_1)) [ Ar_1 = 0 /\ Ar_0 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+	n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___1(Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Fresh_7 >= 0 /\ Ar_1 - Fresh_7 = 0 /\ Ar_0 - Fresh_7 = 0 /\ Fresh_6 - Fresh_7 + 1 = 0 ]
+	n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_9)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_9 >= 0 /\ Fresh_9 - 1 >= 0 /\ Ar_1 - Fresh_9 + 1 = 0 ]
+	n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_8)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_8 >= 0 /\ Fresh_8 - 1 >= 0 /\ Ar_1 - Fresh_8 + 1 = 0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)             pyRinit(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestart(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)             n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_11)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_11 >= 0 /\ Fresh_11 - 1 >= 0 /\ Ar_1 - Fresh_11 + 1 = 0 ]
+		(Comp: ?, Cost: 1)             n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_10)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_10 >= 0 /\ Fresh_10 - 1 >= 0 /\ Ar_1 - Fresh_10 + 1 = 0 ]
+		(Comp: 4*Ar_0 + 1, Cost: 1)    n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_9)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_9 >= 0 /\ Fresh_9 - 1 >= 0 /\ Ar_1 - Fresh_9 + 1 = 0 ]
+		(Comp: 4*Ar_0 + 1, Cost: 1)    n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_8)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_8 >= 0 /\ Fresh_8 - 1 >= 0 /\ Ar_1 - Fresh_8 + 1 = 0 ]
+		(Comp: ?, Cost: 1)             n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___2(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 4*Ar_0 + 1, Cost: 1)    n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___1(Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Fresh_7 >= 0 /\ Ar_1 - Fresh_7 = 0 /\ Ar_0 - Fresh_7 = 0 /\ Fresh_6 - Fresh_7 + 1 = 0 ]
+		(Comp: 4*Ar_0 + 1, Cost: 1)    n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___5(Ar_0, Ar_1)) [ Ar_1 = 0 /\ Ar_0 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)             n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___4(Fresh_4, Fresh_5)) [ Ar_1 = 0 /\ Ar_0 >= 0 /\ Fresh_5 >= 0 /\ Ar_1 - Fresh_5 = 0 /\ Ar_0 - Fresh_5 = 0 /\ Fresh_4 - Fresh_5 + 1 = 0 ]
+		(Comp: 4*Ar_0 + 1, Cost: 1)    n_evalsipmabubblebb6in___1(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 - Ar_1 + 1 = 0 /\ Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 2, Cost: 1)             n_evalsipmabubblebb6in___4(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_2, Fresh_3)) [ Ar_0 - Ar_1 + 1 = 0 /\ Ar_1 >= 0 /\ -Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 + 1 = 0 ]
+		(Comp: 1, Cost: 1)             n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)             n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_0, Fresh_1)) [ -Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)             n_evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___8(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(n_evalsipmabubblebb4in___3) = 2*V_1 - 2*V_2 + 1
+	Pol(n_evalsipmabubblebb1in___2) = 2*V_1 - 2*V_2
+and size complexities
+	S("koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("n_evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___8(Ar_0, Ar_1))", 0-0) = Ar_0
+	S("n_evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___8(Ar_0, Ar_1))", 0-1) = Ar_1
+	S("n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_0, Fresh_1)) [ -Ar_0 - 1 >= 0 ]", 0-0) = ?
+	S("n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_0, Fresh_1)) [ -Ar_0 - 1 >= 0 ]", 0-1) = ?
+	S("n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 >= 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 >= 0 ]", 0-1) = 0
+	S("n_evalsipmabubblebb6in___4(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_2, Fresh_3)) [ Ar_0 - Ar_1 + 1 = 0 /\\ Ar_1 >= 0 /\\ -Ar_0 - 1 >= 0 /\\ Ar_1 = 0 /\\ Ar_0 + 1 = 0 ]", 0-0) = ?
+	S("n_evalsipmabubblebb6in___4(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_2, Fresh_3)) [ Ar_0 - Ar_1 + 1 = 0 /\\ Ar_1 >= 0 /\\ -Ar_0 - 1 >= 0 /\\ Ar_1 = 0 /\\ Ar_0 + 1 = 0 ]", 0-1) = ?
+	S("n_evalsipmabubblebb6in___1(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 - Ar_1 + 1 = 0 /\\ Ar_1 >= 0 /\\ Ar_0 >= 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb6in___1(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 - Ar_1 + 1 = 0 /\\ Ar_1 >= 0 /\\ Ar_0 >= 0 ]", 0-1) = 0
+	S("n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___4(Fresh_4, Fresh_5)) [ Ar_1 = 0 /\\ Ar_0 >= 0 /\\ Fresh_5 >= 0 /\\ Ar_1 - Fresh_5 = 0 /\\ Ar_0 - Fresh_5 = 0 /\\ Fresh_4 - Fresh_5 + 1 = 0 ]", 0-0) = 1
+	S("n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___4(Fresh_4, Fresh_5)) [ Ar_1 = 0 /\\ Ar_0 >= 0 /\\ Fresh_5 >= 0 /\\ Ar_1 - Fresh_5 = 0 /\\ Ar_0 - Fresh_5 = 0 /\\ Fresh_4 - Fresh_5 + 1 = 0 ]", 0-1) = 0
+	S("n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___5(Ar_0, Ar_1)) [ Ar_1 = 0 /\\ Ar_0 >= 0 /\\ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 >= 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___5(Ar_0, Ar_1)) [ Ar_1 = 0 /\\ Ar_0 >= 0 /\\ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 >= 0 ]", 0-1) = 0
+	S("n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___1(Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Fresh_7 >= 0 /\\ Ar_1 - Fresh_7 = 0 /\\ Ar_0 - Fresh_7 = 0 /\\ Fresh_6 - Fresh_7 + 1 = 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___1(Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Fresh_7 >= 0 /\\ Ar_1 - Fresh_7 = 0 /\\ Ar_0 - Fresh_7 = 0 /\\ Fresh_6 - Fresh_7 + 1 = 0 ]", 0-1) = Ar_0
+	S("n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___2(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 >= 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___2(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\\ Ar_0 - Ar_1 >= 0 /\\ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 >= 0 ]", 0-1) = Ar_0 + 1
+	S("n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_8)) [ Ar_0 - 1 >= 0 /\\ Ar_1 = 0 /\\ Ar_0 - Fresh_8 >= 0 /\\ Fresh_8 - 1 >= 0 /\\ Ar_1 - Fresh_8 + 1 = 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_8)) [ Ar_0 - 1 >= 0 /\\ Ar_1 = 0 /\\ Ar_0 - Fresh_8 >= 0 /\\ Fresh_8 - 1 >= 0 /\\ Ar_1 - Fresh_8 + 1 = 0 ]", 0-1) = 1
+	S("n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_9)) [ Ar_0 - 1 >= 0 /\\ Ar_1 = 0 /\\ Ar_0 - Fresh_9 >= 0 /\\ Fresh_9 - 1 >= 0 /\\ Ar_1 - Fresh_9 + 1 = 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_9)) [ Ar_0 - 1 >= 0 /\\ Ar_1 = 0 /\\ Ar_0 - Fresh_9 >= 0 /\\ Fresh_9 - 1 >= 0 /\\ Ar_1 - Fresh_9 + 1 = 0 ]", 0-1) = 1
+	S("n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_10)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 - Fresh_10 >= 0 /\\ Fresh_10 - 1 >= 0 /\\ Ar_1 - Fresh_10 + 1 = 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_10)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 - Fresh_10 >= 0 /\\ Fresh_10 - 1 >= 0 /\\ Ar_1 - Fresh_10 + 1 = 0 ]", 0-1) = Ar_0
+	S("n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_11)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 - Fresh_11 >= 0 /\\ Fresh_11 - 1 >= 0 /\\ Ar_1 - Fresh_11 + 1 = 0 ]", 0-0) = Ar_0
+	S("n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_11)) [ Ar_0 - Ar_1 - 1 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 - Fresh_11 >= 0 /\\ Fresh_11 - 1 >= 0 /\\ Ar_1 - Fresh_11 + 1 = 0 ]", 0-1) = Ar_0
+	S("pyRinit(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestart(Ar_0, Ar_1))", 0-0) = Ar_0
+	S("pyRinit(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestart(Ar_0, Ar_1))", 0-1) = Ar_1
+orients the transitions
+	n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___2(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+	n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_11)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_11 >= 0 /\ Fresh_11 - 1 >= 0 /\ Ar_1 - Fresh_11 + 1 = 0 ]
+	n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_10)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_10 >= 0 /\ Fresh_10 - 1 >= 0 /\ Ar_1 - Fresh_10 + 1 = 0 ]
+weakly and the transitions
+	n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___2(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+	n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_11)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_11 >= 0 /\ Fresh_11 - 1 >= 0 /\ Ar_1 - Fresh_11 + 1 = 0 ]
+	n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_10)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_10 >= 0 /\ Fresh_10 - 1 >= 0 /\ Ar_1 - Fresh_10 + 1 = 0 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)                          pyRinit(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestart(Ar_0, Ar_1))
+		(Comp: 16*Ar_0^2 + 28*Ar_0 + 6, Cost: 1)    n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_11)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_11 >= 0 /\ Fresh_11 - 1 >= 0 /\ Ar_1 - Fresh_11 + 1 = 0 ]
+		(Comp: 16*Ar_0^2 + 28*Ar_0 + 6, Cost: 1)    n_evalsipmabubblebb1in___2(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_10)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 - Fresh_10 >= 0 /\ Fresh_10 - 1 >= 0 /\ Ar_1 - Fresh_10 + 1 = 0 ]
+		(Comp: 4*Ar_0 + 1, Cost: 1)                 n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_9)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_9 >= 0 /\ Fresh_9 - 1 >= 0 /\ Ar_1 - Fresh_9 + 1 = 0 ]
+		(Comp: 4*Ar_0 + 1, Cost: 1)                 n_evalsipmabubblebb1in___5(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___3(Ar_0, Fresh_8)) [ Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 - Fresh_8 >= 0 /\ Fresh_8 - 1 >= 0 /\ Ar_1 - Fresh_8 + 1 = 0 ]
+		(Comp: 16*Ar_0^2 + 28*Ar_0 + 6, Cost: 1)    n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___2(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 4*Ar_0 + 1, Cost: 1)                 n_evalsipmabubblebb4in___3(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___1(Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_1 >= 0 /\ Fresh_7 >= 0 /\ Ar_1 - Fresh_7 = 0 /\ Ar_0 - Fresh_7 = 0 /\ Fresh_6 - Fresh_7 + 1 = 0 ]
+		(Comp: 4*Ar_0 + 1, Cost: 1)                 n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb1in___5(Ar_0, Ar_1)) [ Ar_1 = 0 /\ Ar_0 >= 0 /\ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 >= 0 ]
+		(Comp: 2, Cost: 1)                          n_evalsipmabubblebb4in___7(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___4(Fresh_4, Fresh_5)) [ Ar_1 = 0 /\ Ar_0 >= 0 /\ Fresh_5 >= 0 /\ Ar_1 - Fresh_5 = 0 /\ Ar_0 - Fresh_5 = 0 /\ Fresh_4 - Fresh_5 + 1 = 0 ]
+		(Comp: 4*Ar_0 + 1, Cost: 1)                 n_evalsipmabubblebb6in___1(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 - Ar_1 + 1 = 0 /\ Ar_1 >= 0 /\ Ar_0 >= 0 ]
+		(Comp: 2, Cost: 1)                          n_evalsipmabubblebb6in___4(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_2, Fresh_3)) [ Ar_0 - Ar_1 + 1 = 0 /\ Ar_1 >= 0 /\ -Ar_0 - 1 >= 0 /\ Ar_1 = 0 /\ Ar_0 + 1 = 0 ]
+		(Comp: 1, Cost: 1)                          n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb4in___7(Ar_0, 0)) [ Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)                          n_evalsipmabubblebb6in___8(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblestop___6(Fresh_0, Fresh_1)) [ -Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)                          n_evalsipmabubblestart(Ar_0, Ar_1) -> Com_1(n_evalsipmabubblebb6in___8(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)                          koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 48*Ar_0^2 + 104*Ar_0 + 31
+
+Time: 0.231 sec (SMT: 0.205 sec)
+
+-- stats
+realtime 0:00.24
+usertime 0.21
+systime 0.01
+

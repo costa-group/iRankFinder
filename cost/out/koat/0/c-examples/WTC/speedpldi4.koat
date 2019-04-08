@@ -1,0 +1,126 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalspeedpldi4start(Ar_0, Ar_1) -> Com_1(evalspeedpldi4entryin(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb5in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb2in(Ar_0, Ar_1)) [ Ar_1 >= 1 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb5in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ 0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb2in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb3in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb2in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb4in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb3in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1 - 1))
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb4in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1 - Ar_0))
+		(Comp: ?, Cost: 1)    evalspeedpldi4returnin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4stop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(evalspeedpldi4start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalspeedpldi4start(Ar_0, Ar_1) -> Com_1(evalspeedpldi4entryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)    evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)    evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 ]
+		(Comp: 1, Cost: 1)    evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb5in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb2in(Ar_0, Ar_1)) [ Ar_1 >= 1 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb5in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ 0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb2in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb3in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb2in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb4in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb3in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1 - 1))
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb4in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1 - Ar_0))
+		(Comp: ?, Cost: 1)    evalspeedpldi4returnin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4stop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(evalspeedpldi4start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalspeedpldi4start) = 2
+	Pol(evalspeedpldi4entryin) = 2
+	Pol(evalspeedpldi4returnin) = 1
+	Pol(evalspeedpldi4bb5in) = 2
+	Pol(evalspeedpldi4bb2in) = 2
+	Pol(evalspeedpldi4bb3in) = 2
+	Pol(evalspeedpldi4bb4in) = 2
+	Pol(evalspeedpldi4stop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalspeedpldi4returnin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4stop(Ar_0, Ar_1))
+	evalspeedpldi4bb5in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ 0 >= Ar_1 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalspeedpldi4start(Ar_0, Ar_1) -> Com_1(evalspeedpldi4entryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)    evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)    evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 ]
+		(Comp: 1, Cost: 1)    evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb5in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb2in(Ar_0, Ar_1)) [ Ar_1 >= 1 ]
+		(Comp: 2, Cost: 1)    evalspeedpldi4bb5in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ 0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb2in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb3in(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb2in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb4in(Ar_0, Ar_1)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb3in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1 - 1))
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb4in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1 - Ar_0))
+		(Comp: 2, Cost: 1)    evalspeedpldi4returnin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4stop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(evalspeedpldi4start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Applied AI with 'oct' on problem 3 to obtain the following invariants:
+  For symbol evalspeedpldi4bb2in: X_2 - 1 >= 0 /\ X_1 + X_2 - 2 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalspeedpldi4bb3in: X_1 - X_2 - 1 >= 0 /\ X_2 - 1 >= 0 /\ X_1 + X_2 - 3 >= 0 /\ X_1 - 2 >= 0
+  For symbol evalspeedpldi4bb4in: X_2 - 1 >= 0 /\ X_1 + X_2 - 2 >= 0 /\ -X_1 + X_2 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalspeedpldi4bb5in: X_1 - 1 >= 0
+
+
+This yielded the following problem:
+4:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(evalspeedpldi4start(Ar_0, Ar_1)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)    evalspeedpldi4returnin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4stop(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb4in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1 - Ar_0)) [ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 + Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb3in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1 - 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 2 >= 0 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb2in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb4in(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb2in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb3in(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 2, Cost: 1)    evalspeedpldi4bb5in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ 0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalspeedpldi4bb5in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb2in(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ Ar_1 >= 1 ]
+		(Comp: 1, Cost: 1)    evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)    evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 ]
+		(Comp: 1, Cost: 1)    evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)    evalspeedpldi4start(Ar_0, Ar_1) -> Com_1(evalspeedpldi4entryin(Ar_0, Ar_1))
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(koat_start) = 3*V_2
+	Pol(evalspeedpldi4start) = 3*V_2
+	Pol(evalspeedpldi4returnin) = 3*V_2
+	Pol(evalspeedpldi4stop) = 3*V_2
+	Pol(evalspeedpldi4bb4in) = -3*V_1 + 3*V_2 + 1
+	Pol(evalspeedpldi4bb5in) = 3*V_2
+	Pol(evalspeedpldi4bb3in) = 3*V_2 - 2
+	Pol(evalspeedpldi4bb2in) = 3*V_2 - 1
+	Pol(evalspeedpldi4entryin) = 3*V_2
+orients all transitions weakly and the transitions
+	evalspeedpldi4bb5in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb2in(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ Ar_1 >= 1 ]
+	evalspeedpldi4bb4in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1 - Ar_0)) [ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 + Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+	evalspeedpldi4bb3in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1 - 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 2 >= 0 ]
+	evalspeedpldi4bb2in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb4in(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= Ar_0 ]
+	evalspeedpldi4bb2in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb3in(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 >= Ar_1 + 1 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 0)         koat_start(Ar_0, Ar_1) -> Com_1(evalspeedpldi4start(Ar_0, Ar_1)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)         evalspeedpldi4returnin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4stop(Ar_0, Ar_1))
+		(Comp: 3*Ar_1, Cost: 1)    evalspeedpldi4bb4in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1 - Ar_0)) [ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 + Ar_1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 3*Ar_1, Cost: 1)    evalspeedpldi4bb3in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1 - 1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 2 >= 0 ]
+		(Comp: 3*Ar_1, Cost: 1)    evalspeedpldi4bb2in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb4in(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= Ar_0 ]
+		(Comp: 3*Ar_1, Cost: 1)    evalspeedpldi4bb2in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb3in(Ar_0, Ar_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 2, Cost: 1)         evalspeedpldi4bb5in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ 0 >= Ar_1 ]
+		(Comp: 3*Ar_1, Cost: 1)    evalspeedpldi4bb5in(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb2in(Ar_0, Ar_1)) [ Ar_0 - 1 >= 0 /\ Ar_1 >= 1 ]
+		(Comp: 1, Cost: 1)         evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4bb5in(Ar_0, Ar_1)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)         evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ Ar_0 >= Ar_1 ]
+		(Comp: 1, Cost: 1)         evalspeedpldi4entryin(Ar_0, Ar_1) -> Com_1(evalspeedpldi4returnin(Ar_0, Ar_1)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalspeedpldi4start(Ar_0, Ar_1) -> Com_1(evalspeedpldi4entryin(Ar_0, Ar_1))
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 15*Ar_1 + 8
+
+Time: 0.099 sec (SMT: 0.087 sec)

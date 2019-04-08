@@ -1,0 +1,107 @@
+WORST_CASE(?, O(1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_start0(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    n_lbl51___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_lbl51___2(Fresh_22, Ar_1, Ar_0, Ar_3)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ -Ar_0 + Ar_2 + 2 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + 9 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_stop___1(Fresh_18, Fresh_19, Fresh_20, Fresh_21)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_stop___1(Fresh_14, Fresh_15, Fresh_16, Fresh_17)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___2(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_stop___1(Fresh_10, Fresh_11, Fresh_12, Fresh_13)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_0 - 10 >= 0 /\ -Ar_0 + Ar_2 + 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_lbl51___2(Fresh_9, Ar_1, Ar_0, Ar_3)) [ Ar_2 = 0 /\ -Ar_0 + Ar_2 + 2 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + 9 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_stop___1(Fresh_5, Fresh_6, Fresh_7, Fresh_8)) [ Ar_2 = 0 /\ Ar_2 >= 0 /\ -Ar_2 + 9 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___3(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_stop___1(Fresh_1, Fresh_2, Fresh_3, Fresh_4)) [ Ar_2 = 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ -Ar_2 + 9 >= 0 ]
+		(Comp: ?, Cost: 1)    n_start0(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(n_lbl51___3(Fresh_0, Ar_1, 0, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Slicing away variables that do not contribute to conditions from problem 1 leaves variables [Ar_0, Ar_2].
+We thus obtain the following problem:
+2:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_2)) [ 0 <= 0 ]
+		(Comp: ?, Cost: 1)    n_start0(Ar_0, Ar_2) -> Com_1(n_lbl51___3(Fresh_0, 0))
+		(Comp: ?, Cost: 1)    n_lbl51___3(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_1, Fresh_3)) [ Ar_2 = 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ -Ar_2 + 9 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___3(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_5, Fresh_7)) [ Ar_2 = 0 /\ Ar_2 >= 0 /\ -Ar_2 + 9 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___3(Ar_0, Ar_2) -> Com_1(n_lbl51___2(Fresh_9, Ar_0)) [ Ar_2 = 0 /\ -Ar_0 + Ar_2 + 2 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + 9 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_10, Fresh_12)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_0 - 10 >= 0 /\ -Ar_0 + Ar_2 + 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_14, Fresh_16)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_18, Fresh_20)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_lbl51___2(Fresh_22, Ar_0)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ -Ar_0 + Ar_2 + 2 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + 9 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_2) -> Com_1(n_start0(Ar_0, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 2 produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_2)) [ 0 <= 0 ]
+		(Comp: 1, Cost: 1)    n_start0(Ar_0, Ar_2) -> Com_1(n_lbl51___3(Fresh_0, 0))
+		(Comp: 1, Cost: 1)    n_lbl51___3(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_1, Fresh_3)) [ Ar_2 = 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ -Ar_2 + 9 >= 0 ]
+		(Comp: 1, Cost: 1)    n_lbl51___3(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_5, Fresh_7)) [ Ar_2 = 0 /\ Ar_2 >= 0 /\ -Ar_2 + 9 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: 1, Cost: 1)    n_lbl51___3(Ar_0, Ar_2) -> Com_1(n_lbl51___2(Fresh_9, Ar_0)) [ Ar_2 = 0 /\ -Ar_0 + Ar_2 + 2 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + 9 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_10, Fresh_12)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_0 - 10 >= 0 /\ -Ar_0 + Ar_2 + 2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_14, Fresh_16)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_18, Fresh_20)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_lbl51___2(Fresh_22, Ar_0)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ -Ar_0 + Ar_2 + 2 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + 9 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_2) -> Com_1(n_start0(Ar_0, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(koat_start) = 1
+	Pol(pyRinit) = 1
+	Pol(n_start0) = 1
+	Pol(n_lbl51___3) = 1
+	Pol(n_stop___1) = 0
+	Pol(n_lbl51___2) = 1
+orients all transitions weakly and the transitions
+	n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_18, Fresh_20)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+	n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_14, Fresh_16)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 ]
+	n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_10, Fresh_12)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_0 - 10 >= 0 /\ -Ar_0 + Ar_2 + 2 >= 0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_2)) [ 0 <= 0 ]
+		(Comp: 1, Cost: 1)    n_start0(Ar_0, Ar_2) -> Com_1(n_lbl51___3(Fresh_0, 0))
+		(Comp: 1, Cost: 1)    n_lbl51___3(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_1, Fresh_3)) [ Ar_2 = 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ -Ar_2 + 9 >= 0 ]
+		(Comp: 1, Cost: 1)    n_lbl51___3(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_5, Fresh_7)) [ Ar_2 = 0 /\ Ar_2 >= 0 /\ -Ar_2 + 9 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: 1, Cost: 1)    n_lbl51___3(Ar_0, Ar_2) -> Com_1(n_lbl51___2(Fresh_9, Ar_0)) [ Ar_2 = 0 /\ -Ar_0 + Ar_2 + 2 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + 9 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_10, Fresh_12)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_0 - 10 >= 0 /\ -Ar_0 + Ar_2 + 2 >= 0 ]
+		(Comp: 1, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_14, Fresh_16)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 1, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_18, Fresh_20)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_lbl51___2(Fresh_22, Ar_0)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ -Ar_0 + Ar_2 + 2 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + 9 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_2) -> Com_1(n_start0(Ar_0, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(koat_start) = 8
+	Pol(pyRinit) = 8
+	Pol(n_start0) = 8
+	Pol(n_lbl51___3) = 8
+	Pol(n_stop___1) = 0
+	Pol(n_lbl51___2) = -V_2 + 9
+orients all transitions weakly and the transition
+	n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_lbl51___2(Fresh_22, Ar_0)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ -Ar_0 + Ar_2 + 2 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + 9 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_2)) [ 0 <= 0 ]
+		(Comp: 1, Cost: 1)    n_start0(Ar_0, Ar_2) -> Com_1(n_lbl51___3(Fresh_0, 0))
+		(Comp: 1, Cost: 1)    n_lbl51___3(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_1, Fresh_3)) [ Ar_2 = 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ -Ar_2 + 9 >= 0 ]
+		(Comp: 1, Cost: 1)    n_lbl51___3(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_5, Fresh_7)) [ Ar_2 = 0 /\ Ar_2 >= 0 /\ -Ar_2 + 9 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: 1, Cost: 1)    n_lbl51___3(Ar_0, Ar_2) -> Com_1(n_lbl51___2(Fresh_9, Ar_0)) [ Ar_2 = 0 /\ -Ar_0 + Ar_2 + 2 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + 9 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_10, Fresh_12)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_0 - 10 >= 0 /\ -Ar_0 + Ar_2 + 2 >= 0 ]
+		(Comp: 1, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_14, Fresh_16)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 1, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_stop___1(Fresh_18, Fresh_20)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: 8, Cost: 1)    n_lbl51___2(Ar_0, Ar_2) -> Com_1(n_lbl51___2(Fresh_22, Ar_0)) [ Ar_2 - 1 >= 0 /\ -Ar_2 + 9 >= 0 /\ -Ar_0 + Ar_2 + 2 >= 0 /\ Ar_2 >= 0 /\ -Ar_0 + 9 >= 0 /\ Ar_0 - Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_2) -> Com_1(n_start0(Ar_0, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 16
+
+Time: 0.070 sec (SMT: 0.057 sec)
+
+-- stats
+realtime 0:00.08
+usertime 0.05
+systime 0.02
+

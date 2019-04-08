@@ -1,0 +1,1041 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_lbl111___12/17]
+1. recursive  : [n_lbl111___12_loop_cont/18,n_lbl111___13/17,n_lbl82___10/17,n_lbl82___11/17]
+2. non_recursive  : [exit_location/1]
+3. non_recursive  : [n_stop___17/9]
+4. non_recursive  : [n_lbl111___13_loop_cont/10]
+5. non_recursive  : [n_lbl82___14/9]
+6. non_recursive  : [n_lbl111___16/9]
+7. recursive  : [n_lbl111___4/17,n_lbl111___8/17,n_lbl82___6/17]
+8. non_recursive  : [n_lbl82___5/9]
+9. non_recursive  : [n_lbl111___8_loop_cont/10]
+10. recursive  : [n_lbl111___3/17,n_lbl82___7/17]
+11. recursive  : [n_lbl111___2/17]
+12. non_recursive  : [n_lbl82___1/9]
+13. non_recursive  : [n_lbl111___2_loop_cont/10]
+14. non_recursive  : [n_lbl82___7_loop_cont/10]
+15. non_recursive  : [n_lbl111___9/9]
+16. non_recursive  : [n_lbl82___15/9]
+17. non_recursive  : [n_lbl111___18/9]
+18. non_recursive  : [n_start___19/9]
+19. non_recursive  : [n_start0/9]
+20. non_recursive  : [pyRinit/9]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_lbl111___12/17
+1. SCC is partially evaluated into n_lbl111___13/17
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into n_lbl111___13_loop_cont/10
+5. SCC is partially evaluated into n_lbl82___14/9
+6. SCC is completely evaluated into other SCCs
+7. SCC is partially evaluated into n_lbl111___8/17
+8. SCC is partially evaluated into n_lbl82___5/9
+9. SCC is partially evaluated into n_lbl111___8_loop_cont/10
+10. SCC is partially evaluated into n_lbl82___7/17
+11. SCC is partially evaluated into n_lbl111___2/17
+12. SCC is partially evaluated into n_lbl82___1/9
+13. SCC is partially evaluated into n_lbl111___2_loop_cont/10
+14. SCC is partially evaluated into n_lbl82___7_loop_cont/10
+15. SCC is partially evaluated into n_lbl111___9/9
+16. SCC is completely evaluated into other SCCs
+17. SCC is partially evaluated into n_lbl111___18/9
+18. SCC is partially evaluated into n_start___19/9
+19. SCC is completely evaluated into other SCCs
+20. SCC is partially evaluated into pyRinit/9
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_lbl111___12/17 
+* CE 30 is refined into CE [40] 
+* CE 29 is refined into CE [41] 
+* CE 28 is refined into CE [42] 
+* CE 27 is refined into CE [43] 
+
+
+### Cost equations --> "Loop" of n_lbl111___12/17 
+* CEs [43] --> Loop 38 
+* CEs [40] --> Loop 39 
+* CEs [41] --> Loop 40 
+* CEs [42] --> Loop 41 
+
+### Ranking functions of CR n_lbl111___12(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* RF of phase [38]: [D,D-F+1]
+
+#### Partial ranking functions of CR n_lbl111___12(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* Partial RF of phase [38]:
+  - RF of loop [38:1]:
+    D
+    D-F+1
+
+
+### Specialization of cost equations n_lbl111___13/17 
+* CE 12 is refined into CE [44] 
+* CE 9 is refined into CE [45] 
+* CE 13 is refined into CE [46] 
+* CE 10 is refined into CE [47,48] 
+* CE 11 is refined into CE [49] 
+
+
+### Cost equations --> "Loop" of n_lbl111___13/17 
+* CEs [49] --> Loop 42 
+* CEs [48] --> Loop 43 
+* CEs [47] --> Loop 44 
+* CEs [45,46] --> Loop 45 
+* CEs [44] --> Loop 46 
+
+### Ranking functions of CR n_lbl111___13(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* RF of phase [42,43]: [A-D-1,-D+H-1,F-1]
+* RF of phase [44]: [-A/3+F,2/3*A-D,-B/2+F-1/2,4/3*B-D,-D+2/3*H,-D/3+2/3*F,F-2,F-H/3]
+
+#### Partial ranking functions of CR n_lbl111___13(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* Partial RF of phase [42,43]:
+  - RF of loop [42:1,43:1]:
+    A-D-1
+    -D+H-1
+    F-1
+* Partial RF of phase [44]:
+  - RF of loop [44:1]:
+    -A/3+F
+    2/3*A-D
+    -B/2+F-1/2
+    4/3*B-D
+    -D+2/3*H
+    -D/3+2/3*F
+    F-2
+    F-H/3
+
+
+### Specialization of cost equations n_lbl111___13_loop_cont/10 
+* CE 15 is refined into CE [50] 
+* CE 14 is refined into CE [51] 
+
+
+### Cost equations --> "Loop" of n_lbl111___13_loop_cont/10 
+* CEs [50] --> Loop 47 
+* CEs [51] --> Loop 48 
+
+### Ranking functions of CR n_lbl111___13_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+#### Partial ranking functions of CR n_lbl111___13_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+
+### Specialization of cost equations n_lbl82___14/9 
+* CE 6 is refined into CE [52] 
+
+
+### Cost equations --> "Loop" of n_lbl82___14/9 
+* CEs [52] --> Loop 49 
+
+### Ranking functions of CR n_lbl82___14(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR n_lbl82___14(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations n_lbl111___8/17 
+* CE 19 is refined into CE [53] 
+* CE 18 is refined into CE [54] 
+* CE 16 is refined into CE [55] 
+* CE 17 is refined into CE [56] 
+
+
+### Cost equations --> "Loop" of n_lbl111___8/17 
+* CEs [55] --> Loop 50 
+* CEs [56] --> Loop 51 
+* CEs [53] --> Loop 52 
+* CEs [54] --> Loop 53 
+
+### Ranking functions of CR n_lbl111___8(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+
+#### Partial ranking functions of CR n_lbl111___8(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* Partial RF of phase [50,51]:
+  - RF of loop [50:1]:
+    A/6-D/2-1/6 depends on loops [51:1] 
+    B/6-D/2-1/6 depends on loops [51:1] 
+    -D/2+H/6-1/6 depends on loops [51:1] 
+    -D/3+F/3 depends on loops [51:1] 
+    F-1
+  - RF of loop [51:1]:
+    D depends on loops [50:1] 
+    D-F+1 depends on loops [50:1] 
+
+
+### Specialization of cost equations n_lbl82___5/9 
+* CE 31 is refined into CE [57,58,59,60,61] 
+* CE 32 is refined into CE [62] 
+
+
+### Cost equations --> "Loop" of n_lbl82___5/9 
+* CEs [57,58,59,60,61] --> Loop 54 
+* CEs [62] --> Loop 55 
+
+### Ranking functions of CR n_lbl82___5(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR n_lbl82___5(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations n_lbl111___8_loop_cont/10 
+* CE 20 is refined into CE [63,64] 
+* CE 21 is refined into CE [65] 
+
+
+### Cost equations --> "Loop" of n_lbl111___8_loop_cont/10 
+* CEs [64] --> Loop 56 
+* CEs [63] --> Loop 57 
+* CEs [65] --> Loop 58 
+
+### Ranking functions of CR n_lbl111___8_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+#### Partial ranking functions of CR n_lbl111___8_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+
+### Specialization of cost equations n_lbl82___7/17 
+* CE 23 is refined into CE [66] 
+* CE 24 is refined into CE [67] 
+* CE 22 is refined into CE [68] 
+
+
+### Cost equations --> "Loop" of n_lbl82___7/17 
+* CEs [68] --> Loop 59 
+* CEs [66] --> Loop 60 
+* CEs [67] --> Loop 61 
+
+### Ranking functions of CR n_lbl82___7(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* RF of phase [59]: [-A/2+F,-B/2+F,-D/2+F,F-3,F-H/2]
+
+#### Partial ranking functions of CR n_lbl82___7(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+* Partial RF of phase [59]:
+  - RF of loop [59:1]:
+    -A/2+F
+    -B/2+F
+    -D/2+F
+    F-3
+    F-H/2
+
+
+### Specialization of cost equations n_lbl111___2/17 
+* CE 35 is refined into CE [69] 
+* CE 34 is refined into CE [70] 
+* CE 33 is refined into CE [71] 
+
+
+### Cost equations --> "Loop" of n_lbl111___2/17 
+* CEs [69] --> Loop 62 
+* CEs [70] --> Loop 63 
+* CEs [71] --> Loop 64 
+
+### Ranking functions of CR n_lbl111___2(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+
+#### Partial ranking functions of CR n_lbl111___2(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q) 
+
+
+### Specialization of cost equations n_lbl82___1/9 
+* CE 39 is refined into CE [72,73,74,75] 
+
+
+### Cost equations --> "Loop" of n_lbl82___1/9 
+* CEs [72,73,74,75] --> Loop 65 
+
+### Ranking functions of CR n_lbl82___1(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR n_lbl82___1(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations n_lbl111___2_loop_cont/10 
+* CE 36 is refined into CE [76,77,78] 
+* CE 37 is refined into CE [79] 
+* CE 38 is refined into CE [80] 
+
+
+### Cost equations --> "Loop" of n_lbl111___2_loop_cont/10 
+* CEs [76,77,78] --> Loop 66 
+* CEs [79] --> Loop 67 
+* CEs [80] --> Loop 68 
+
+### Ranking functions of CR n_lbl111___2_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+#### Partial ranking functions of CR n_lbl111___2_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+
+### Specialization of cost equations n_lbl82___7_loop_cont/10 
+* CE 25 is refined into CE [81,82,83] 
+* CE 26 is refined into CE [84] 
+
+
+### Cost equations --> "Loop" of n_lbl82___7_loop_cont/10 
+* CEs [81,82,83] --> Loop 69 
+* CEs [84] --> Loop 70 
+
+### Ranking functions of CR n_lbl82___7_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+#### Partial ranking functions of CR n_lbl82___7_loop_cont(A,B,C,D,E,F,G,H,I,J) 
+
+
+### Specialization of cost equations n_lbl111___9/9 
+* CE 8 is refined into CE [85,86,87] 
+* CE 7 is refined into CE [88,89,90] 
+
+
+### Cost equations --> "Loop" of n_lbl111___9/9 
+* CEs [85,86,87] --> Loop 71 
+* CEs [88] --> Loop 72 
+* CEs [89,90] --> Loop 73 
+
+### Ranking functions of CR n_lbl111___9(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR n_lbl111___9(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations n_lbl111___18/9 
+* CE 5 is refined into CE [91,92] 
+* CE 4 is refined into CE [93] 
+
+
+### Cost equations --> "Loop" of n_lbl111___18/9 
+* CEs [92] --> Loop 74 
+* CEs [91] --> Loop 75 
+* CEs [93] --> Loop 76 
+
+### Ranking functions of CR n_lbl111___18(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR n_lbl111___18(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations n_start___19/9 
+* CE 2 is refined into CE [94,95,96] 
+* CE 3 is refined into CE [97] 
+
+
+### Cost equations --> "Loop" of n_start___19/9 
+* CEs [96] --> Loop 77 
+* CEs [97] --> Loop 78 
+* CEs [95] --> Loop 79 
+* CEs [94] --> Loop 80 
+
+### Ranking functions of CR n_start___19(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR n_start___19(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations pyRinit/9 
+* CE 1 is refined into CE [98,99,100,101] 
+
+
+### Cost equations --> "Loop" of pyRinit/9 
+* CEs [101] --> Loop 81 
+* CEs [100] --> Loop 82 
+* CEs [99] --> Loop 83 
+* CEs [98] --> Loop 84 
+
+### Ranking functions of CR pyRinit(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D,E,F,G,H,I) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_lbl111___12(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [[38],41]: 1*it(38)+1
+  Such that:it(38) =< D-O
+
+  with precondition: [I=2,A=H,A=J,C=L,A=M,E=N,F=O+1,G=P,A=Q,F+K=B,F>=1,A>=2*F+2,D>=F,A>=2*F+D,A>=B+F+1] 
+
+* Chain [[38],40]: 1*it(38)+1
+  Such that:it(38) =< D-O
+
+  with precondition: [I=3,A=H,A=J,B=K,C=L,A=M,E=N,F=O+1,G=P,A=Q,F>=2,D>=F+1,A>=2*F+D,A>=B+F+1] 
+
+* Chain [[38],39]: 1*it(38)+0
+  Such that:it(38) =< D-F+1
+
+  with precondition: [I=4,A=H,F>=1,A>=2*F+2,D>=F,A>=2*F+D,A>=B+F+1] 
+
+* Chain [40]: 1
+  with precondition: [I=3,H=A,L=C,N=E,P=G,H=J,B=K,H=M,F=O+1,H=Q,D>=1,H>=2*F+2,F>=D+1,H>=2*F+D,H>=B+F+1] 
+
+* Chain [39]: 0
+  with precondition: [I=4,H=A,D>=0,F>=1,H>=2*F+2,H>=2*F+D,H>=B+F+1] 
+
+
+#### Cost of chains of n_lbl111___13(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [[44],[42,43],46]: 6*it(42)+3*it(44)+1*s(2)+1*s(7)+1*s(8)+3
+  Such that:it(44) =< F-H/3
+aux(10) =< H
+aux(9) =< H/3
+s(2) =< aux(10)
+it(42) =< aux(9)
+aux(2) =< aux(10)
+s(7) =< it(42)*aux(10)
+s(8) =< it(42)*aux(2)
+
+  with precondition: [I=7,A=H,A=D+F,2*A>=3*D+1,2*B>=A,D>=B+1] 
+
+* Chain [[44],[42,43],45]: 6*it(42)+3*it(44)+1*s(7)+1*s(8)+1*s(9)+1
+  Such that:it(44) =< F-H/3
+aux(12) =< H
+aux(11) =< H/3
+s(9) =< aux(12)
+it(42) =< aux(11)
+aux(2) =< aux(12)
+s(7) =< it(42)*aux(12)
+s(8) =< it(42)*aux(2)
+
+  with precondition: [I=4,A=H,A=D+F,2*A>=3*D+1,2*B>=A,D>=B+1] 
+
+* Chain [[44],45]: 3*it(44)+1*s(9)+1
+  Such that:s(9) =< 3
+it(44) =< -D+2/3*H
+
+  with precondition: [I=4,A=H,A=D+F,2*A>=3*D+1,2*B>=A,D>=B+1] 
+
+* Chain [[42,43],46]: 6*it(42)+1*s(2)+1*s(7)+1*s(8)+3
+  Such that:aux(9) =< F
+aux(10) =< H
+s(2) =< aux(10)
+it(42) =< aux(9)
+aux(2) =< aux(10)
+s(7) =< it(42)*aux(10)
+s(8) =< it(42)*aux(2)
+
+  with precondition: [I=7,A=H,A=D+F,3*D>=2*A,D>=B+1,A>=D+2] 
+
+* Chain [[42,43],45]: 6*it(42)+1*s(7)+1*s(8)+1*s(9)+1
+  Such that:aux(11) =< F
+aux(12) =< H
+s(9) =< aux(12)
+it(42) =< aux(11)
+aux(2) =< aux(12)
+s(7) =< it(42)*aux(12)
+s(8) =< it(42)*aux(2)
+
+  with precondition: [I=4,A=H,A=D+F,3*D>=2*A,D>=B+1,A>=D+2] 
+
+* Chain [46]: 1*s(2)+3
+  Such that:s(2) =< H
+
+  with precondition: [F=1,I=7,D+1=A,D+1=H,D>=3,D>=B+1] 
+
+* Chain [45]: 1*s(9)+1
+  Such that:s(9) =< 3*D-2*H+1
+
+  with precondition: [I=4,A=H,A=D+F,2*D>=A+2,D>=B+1,A>=D+1] 
+
+
+#### Cost of chains of n_lbl111___13_loop_cont(A,B,C,D,E,F,G,H,I,J):
+* Chain [48]: 0
+  with precondition: [A=4] 
+
+* Chain [47]: 0
+  with precondition: [A=7] 
+
+
+#### Cost of chains of n_lbl82___14(A,B,C,D,E,F,G,H,I):
+* Chain [49]: 1
+  with precondition: [A=2,B=1,D=2,F=0,H=2] 
+
+
+#### Cost of chains of n_lbl111___8(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [[50,51],53]: 3*it(50)+1*it(51)+1
+  Such that:aux(32) =< D-F+1
+aux(36) =< D-F+O+1
+it(50) =< F+K-M
+aux(55) =< M
+aux(56) =< D
+aux(29) =< it(50)*aux(55)
+it(51) =< aux(29)+aux(32)
+it(51) =< aux(29)+aux(56)
+it(51) =< aux(29)+aux(36)
+
+  with precondition: [I=8,A=B,A=H,A=J,C=L,A=M,E=N,G=P,A=Q,A=K+O+1,D>=1,F>=1,3*K>=2*A,A>=2*F+D,F+K>=A] 
+
+* Chain [[50,51],52]: 3*it(50)+1*it(51)+0
+  Such that:aux(32) =< D-F+1
+it(50) =< F
+aux(55) =< H
+aux(57) =< D
+aux(29) =< it(50)*aux(55)
+it(51) =< aux(29)+aux(32)
+it(51) =< aux(29)+aux(57)
+
+  with precondition: [I=4,A=B,A=H,D>=1,F>=1,A>=2*F+D] 
+
+* Chain [53]: 1
+  with precondition: [D=0,I=8,A=B,L=C,N=E,P=G,A=H,A=J,A=M,F=O+1,A=Q,A=F+K,F>=1,A>=2*F,A>=F+2] 
+
+* Chain [52]: 0
+  with precondition: [I=4,A=B,A=H,D>=0,F>=1,A>=F+2,A>=2*F+D] 
+
+
+#### Cost of chains of n_lbl82___5(A,B,C,D,E,F,G,H,I):
+* Chain [55]: 1
+  with precondition: [F=0,A=B+1,A=D,A=H,A>=3] 
+
+* Chain [54]: 4*s(27)+1*s(28)+6*s(29)+1*s(30)+1*s(34)+6*s(35)+1*s(37)+1*s(38)+12*s(42)+2*s(44)+2*s(45)+3*s(46)+6*s(50)+1*s(52)+1*s(53)+4
+  Such that:s(28) =< 3
+s(32) =< A
+aux(58) =< -A/3+F
+s(33) =< A/3
+s(46) =< -B+2/3*H
+s(30) =< D-3*F+1
+s(48) =< H/3
+aux(59) =< F
+aux(60) =< H
+s(27) =< aux(60)
+s(29) =< aux(58)
+s(34) =< s(32)
+s(35) =< s(33)
+s(36) =< s(32)
+s(37) =< s(35)*s(32)
+s(38) =< s(35)*s(36)
+s(50) =< s(48)
+s(43) =< aux(60)
+s(52) =< s(50)*aux(60)
+s(53) =< s(50)*s(43)
+s(42) =< aux(59)
+s(44) =< s(42)*aux(60)
+s(45) =< s(42)*s(43)
+
+  with precondition: [A=D,A=H,A=B+F+1,2*B>=A,A>=B+2] 
+
+
+#### Cost of chains of n_lbl111___8_loop_cont(A,B,C,D,E,F,G,H,I,J):
+* Chain [58]: 0
+  with precondition: [A=4] 
+
+* Chain [57]: 1
+  with precondition: [A=8,G=0,B=C+1,B=E,B=I,B>=3] 
+
+* Chain [56]: 1*s(61)+3*s(65)+1*s(66)+5*s(70)+6*s(71)+12*s(73)+2*s(75)+2*s(76)+12*s(81)+2*s(82)+2*s(83)+4
+  Such that:s(61) =< 3
+s(63) =< -C+2/3*E
+s(68) =< -C+I
+s(65) =< -C+2/3*I
+s(66) =< 3*C-2*I+4
+aux(61) =< I
+aux(62) =< I/3
+s(70) =< aux(61)
+s(71) =< s(63)
+s(73) =< aux(62)
+s(74) =< aux(61)
+s(75) =< s(73)*aux(61)
+s(76) =< s(73)*s(74)
+s(81) =< s(68)
+s(82) =< s(81)*aux(61)
+s(83) =< s(81)*s(74)
+
+  with precondition: [A=8,B=E,B=I,B=C+G+1,2*C>=B,B>=C+2] 
+
+
+#### Cost of chains of n_lbl82___7(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [[59],61]: 2*it(59)+0
+  Such that:it(59) =< F-H/2
+
+  with precondition: [I=4,A=B,A=D,A=H,2*F>=A+1,A>=F+3] 
+
+* Chain [[59],60]: 2*it(59)+2
+  Such that:it(59) =< -A/2+F
+
+  with precondition: [I=9,A=B,A=D,A=H,A=J,A=K,C=L,E=N,G=P,A=Q,A=2*O+M,1>=M,M>=0,A>=F+3,M+2*F>=A+2] 
+
+* Chain [61]: 0
+  with precondition: [I=4,A=B,A=D,A=H,2*F+1>=A,A>=F+3] 
+
+* Chain [60]: 2
+  with precondition: [I=9,A=B,L=C,A=D,N=E,P=G,A=H,A=J,A=K,F=O,A=Q,A=2*F+M,A>=2*F,2*F+1>=A,A>=F+3] 
+
+
+#### Cost of chains of n_lbl111___2(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q):
+* Chain [64]: 1
+  with precondition: [D=0,I=5,A=2*F,A=2*K,A=2*O+2,A=B,L=C,N=E,P=G,A=H,A=J,A=M,A=Q,A>=6] 
+
+* Chain [63]: 1
+  with precondition: [D=1,I=6,A=2*F+1,A=2*O+3,A=B,L=C,N=E,P=G,A=H,A=J,A=K,A=M,A=Q,A>=5] 
+
+* Chain [62]: 0
+  with precondition: [I=4] 
+
+
+#### Cost of chains of n_lbl82___1(A,B,C,D,E,F,G,H,I):
+* Chain [65]: 1*s(85)+6*s(86)+1*s(87)+1*s(91)+6*s(92)+1*s(94)+1*s(95)+2*s(98)+12*s(99)+2*s(101)+2*s(102)+3*s(103)+1*s(106)+6*s(107)+1*s(109)+1*s(110)+4
+  Such that:s(85) =< 3
+s(89) =< A
+s(90) =< A/3
+aux(63) =< A/6
+s(87) =< -B+4
+s(104) =< H
+s(105) =< H/3
+s(103) =< H/6
+aux(64) =< 2
+aux(65) =< 6
+s(98) =< aux(65)
+s(99) =< aux(64)
+s(100) =< aux(65)
+s(101) =< s(99)*aux(65)
+s(102) =< s(99)*s(100)
+s(86) =< aux(63)
+s(91) =< s(89)
+s(92) =< s(90)
+s(93) =< s(89)
+s(94) =< s(92)*s(89)
+s(95) =< s(92)*s(93)
+s(106) =< s(104)
+s(107) =< s(105)
+s(108) =< s(104)
+s(109) =< s(107)*s(104)
+s(110) =< s(107)*s(108)
+
+  with precondition: [A=2*B,A=2*F+2,A=D,A=H,A>=6] 
+
+
+#### Cost of chains of n_lbl111___2_loop_cont(A,B,C,D,E,F,G,H,I,J):
+* Chain [68]: 0
+  with precondition: [A=4] 
+
+* Chain [67]: 1*s(118)+1*s(122)+9*s(125)+2*s(128)+12*s(129)+2*s(131)+2*s(132)+2*s(134)+12*s(135)+2*s(137)+2*s(138)+4
+  Such that:s(126) =< 2
+s(118) =< 3
+s(127) =< 6
+s(122) =< -C+4
+aux(66) =< 2*C
+aux(67) =< C/3
+aux(68) =< 2/3*C
+s(125) =< aux(67)
+s(128) =< s(127)
+s(129) =< s(126)
+s(130) =< s(127)
+s(131) =< s(129)*s(127)
+s(132) =< s(129)*s(130)
+s(134) =< aux(66)
+s(135) =< aux(68)
+s(136) =< aux(66)
+s(137) =< s(135)*aux(66)
+s(138) =< s(135)*s(136)
+
+  with precondition: [A=5,B=2*C,B=2*G+2,B=E,B=I,B>=6] 
+
+* Chain [66]: 9*s(146)+1*s(149)+1*s(156)+1*s(163)+1*s(164)+13*s(168)+5*s(171)+12*s(173)+2*s(175)+2*s(176)+2*s(178)+2*s(179)+7
+  Such that:s(164) =< 3
+aux(71) =< B
+aux(72) =< B+4
+s(161) =< B-2*G
+s(170) =< B/3
+s(157) =< C-3*G+1
+s(158) =< 4/3*C-3*G
+aux(69) =< E-3*G+1
+s(145) =< -3*G+I+1
+aux(73) =< E
+aux(74) =< E-2*G
+aux(75) =< G
+s(146) =< aux(75)
+s(168) =< aux(72)
+s(171) =< aux(71)
+s(173) =< s(170)
+s(174) =< aux(71)
+s(175) =< s(173)*aux(71)
+s(176) =< s(173)*s(174)
+s(178) =< s(168)*aux(71)
+s(179) =< s(168)*s(174)
+s(162) =< s(146)*aux(71)
+s(163) =< s(162)+s(157)
+s(163) =< s(162)+s(161)
+s(163) =< s(162)+s(158)
+s(148) =< s(146)*aux(73)
+s(149) =< s(148)+s(145)
+s(149) =< s(148)+aux(74)
+s(156) =< s(148)+aux(69)
+s(156) =< s(148)+aux(74)
+
+  with precondition: [A=6,B=C,B=E,B=I,G>=1,B>=2*G+3] 
+
+
+#### Cost of chains of n_lbl82___7_loop_cont(A,B,C,D,E,F,G,H,I,J):
+* Chain [70]: 0
+  with precondition: [A=4] 
+
+* Chain [69]: 2*s(181)+1*s(183)+9*s(187)+2*s(188)+12*s(189)+2*s(191)+2*s(192)+2*s(193)+12*s(194)+2*s(196)+2*s(197)+9*s(210)+13*s(211)+5*s(212)+12*s(213)+2*s(215)+2*s(216)+2*s(217)+2*s(218)+1*s(220)+2*s(222)+8
+  Such that:s(180) =< 2
+s(182) =< 6
+aux(77) =< B
+s(200) =< B+4
+aux(78) =< -B/2+11/2
+s(204) =< -B/6+9/2
+s(209) =< B/2
+s(202) =< B/3
+s(184) =< C
+s(183) =< -C/2+4
+s(186) =< C/3
+s(185) =< C/6
+aux(79) =< 3
+s(181) =< aux(79)
+s(187) =< s(185)
+s(188) =< s(182)
+s(189) =< s(180)
+s(190) =< s(182)
+s(191) =< s(189)*s(182)
+s(192) =< s(189)*s(190)
+s(193) =< s(184)
+s(194) =< s(186)
+s(195) =< s(184)
+s(196) =< s(194)*s(184)
+s(197) =< s(194)*s(195)
+s(210) =< s(209)
+s(211) =< s(200)
+s(212) =< aux(77)
+s(213) =< s(202)
+s(214) =< aux(77)
+s(215) =< s(213)*aux(77)
+s(216) =< s(213)*s(214)
+s(217) =< s(211)*aux(77)
+s(218) =< s(211)*s(214)
+s(219) =< s(210)*aux(77)
+s(220) =< s(219)+aux(78)
+s(220) =< s(219)+aux(79)
+s(220) =< s(219)+s(204)
+s(222) =< s(219)+aux(78)
+s(222) =< s(219)+aux(79)
+
+  with precondition: [A=9] 
+
+
+#### Cost of chains of n_lbl111___9(A,B,C,D,E,F,G,H,I):
+* Chain [73]: 3*s(226)+1*s(229)+1*s(236)+3
+  Such that:aux(81) =< 1
+s(224) =< -A+4
+aux(80) =< A
+s(225) =< -2*F+3
+s(236) =< aux(81)
+s(226) =< aux(80)
+s(228) =< s(226)*aux(80)
+s(229) =< s(228)+s(225)
+s(229) =< s(228)+s(224)
+
+  with precondition: [D=2,B=A,B=F+2,B=H,4>=B,B>=3] 
+
+* Chain [72]: 1*s(237)+9*s(240)+13*s(241)+5*s(244)+12*s(246)+2*s(248)+2*s(249)+2*s(251)+2*s(252)+6
+  Such that:s(237) =< 3
+s(242) =< 4
+s(243) =< 4/3
+aux(82) =< 2
+aux(83) =< 2/3
+s(241) =< aux(82)
+s(240) =< aux(83)
+s(244) =< s(242)
+s(246) =< s(243)
+s(247) =< s(242)
+s(248) =< s(246)*s(242)
+s(249) =< s(246)*s(247)
+s(251) =< s(241)*s(242)
+s(252) =< s(241)*s(247)
+
+  with precondition: [A=4,B=4,D=2,F=2,H=4] 
+
+* Chain [71]: 11*s(253)+1*s(263)+4*s(267)+9*s(268)+4*s(269)+24*s(270)+4*s(272)+4*s(273)+7*s(274)+24*s(275)+4*s(277)+4*s(278)+13*s(280)+2*s(286)+2*s(287)+1*s(289)+2*s(290)+11*s(291)+1*s(301)+9*s(306)+7*s(312)+24*s(313)+4*s(315)+4*s(316)+13*s(318)+2*s(324)+2*s(325)+1*s(327)+2*s(328)+11
+  Such that:aux(86) =< B
+s(295) =< B+4
+aux(87) =< B/2
+aux(88) =< B/3
+s(303) =< B/6
+s(301) =< -F/2+3
+s(296) =< -F/2+9/2
+s(297) =< -F/6+25/6
+aux(84) =< H
+s(257) =< H+4
+s(263) =< -H/2+4
+s(258) =< -H/2+11/2
+s(259) =< -H/6+9/2
+aux(85) =< H/3
+s(265) =< H/6
+aux(89) =< 2
+aux(90) =< 3
+aux(91) =< 6
+aux(92) =< H/2
+s(253) =< aux(92)
+s(267) =< aux(90)
+s(268) =< s(265)
+s(269) =< aux(91)
+s(270) =< aux(89)
+s(271) =< aux(91)
+s(272) =< s(270)*aux(91)
+s(273) =< s(270)*s(271)
+s(274) =< aux(84)
+s(275) =< aux(85)
+s(276) =< aux(84)
+s(277) =< s(275)*aux(84)
+s(278) =< s(275)*s(276)
+s(280) =< s(257)
+s(286) =< s(280)*aux(84)
+s(287) =< s(280)*s(276)
+s(288) =< s(253)*aux(84)
+s(289) =< s(288)+s(258)
+s(289) =< s(288)+aux(90)
+s(289) =< s(288)+s(259)
+s(290) =< s(288)+s(258)
+s(290) =< s(288)+aux(90)
+s(291) =< aux(87)
+s(306) =< s(303)
+s(312) =< aux(86)
+s(313) =< aux(88)
+s(314) =< aux(86)
+s(315) =< s(313)*aux(86)
+s(316) =< s(313)*s(314)
+s(318) =< s(295)
+s(324) =< s(318)*aux(86)
+s(325) =< s(318)*s(314)
+s(326) =< s(291)*aux(86)
+s(327) =< s(326)+s(296)
+s(327) =< s(326)+aux(90)
+s(327) =< s(326)+s(297)
+s(328) =< s(326)+s(296)
+s(328) =< s(326)+aux(90)
+
+  with precondition: [D=2,B=A,B=F+2,B=H,B>=5] 
+
+
+#### Cost of chains of n_lbl111___18(A,B,C,D,E,F,G,H,I):
+* Chain [76]: 3
+  with precondition: [A=2,B=2,D=1,F=1,H=2] 
+
+* Chain [75]: 1*s(353)+1*s(360)+3*s(361)+1*s(363)+13*s(364)+9*s(365)+5*s(366)+12*s(367)+2*s(369)+2*s(370)+2*s(371)+2*s(372)+8
+  Such that:s(351) =< 1
+s(352) =< 2
+s(353) =< 3
+s(354) =< 4
+s(355) =< 2/3
+s(356) =< 4/3
+s(357) =< -F+3
+s(358) =< F+1
+s(359) =< -2*H+7
+s(360) =< s(351)
+s(361) =< s(358)
+s(362) =< s(361)*s(358)
+s(363) =< s(362)+s(359)
+s(363) =< s(362)+s(357)
+s(364) =< s(352)
+s(365) =< s(355)
+s(366) =< s(354)
+s(367) =< s(356)
+s(368) =< s(354)
+s(369) =< s(367)*s(354)
+s(370) =< s(367)*s(368)
+s(371) =< s(364)*s(354)
+s(372) =< s(364)*s(368)
+
+  with precondition: [D=1,B=A,B=F+1,B=H,4>=B,B>=3] 
+
+* Chain [74]: 2*s(378)+22*s(392)+4*s(393)+18*s(394)+4*s(395)+24*s(396)+4*s(398)+4*s(399)+14*s(400)+48*s(401)+8*s(403)+8*s(404)+26*s(405)+4*s(406)+4*s(407)+2*s(409)+4*s(410)+13
+  Such that:s(388) =< 2
+s(389) =< 3
+s(390) =< 6
+aux(93) =< H
+aux(94) =< H+4
+aux(95) =< -H/2+4
+aux(96) =< -H/2+11/2
+aux(97) =< -H/6+9/2
+aux(98) =< H/2
+aux(99) =< H/3
+aux(100) =< H/6
+s(378) =< aux(95)
+s(392) =< aux(98)
+s(393) =< s(389)
+s(394) =< aux(100)
+s(395) =< s(390)
+s(396) =< s(388)
+s(397) =< s(390)
+s(398) =< s(396)*s(390)
+s(399) =< s(396)*s(397)
+s(400) =< aux(93)
+s(401) =< aux(99)
+s(402) =< aux(93)
+s(403) =< s(401)*aux(93)
+s(404) =< s(401)*s(402)
+s(405) =< aux(94)
+s(406) =< s(405)*aux(93)
+s(407) =< s(405)*s(402)
+s(408) =< s(392)*aux(93)
+s(409) =< s(408)+aux(96)
+s(409) =< s(408)+s(389)
+s(409) =< s(408)+aux(97)
+s(410) =< s(408)+aux(96)
+s(410) =< s(408)+s(389)
+
+  with precondition: [D=1,B=A,B=F+1,B=H,B>=5] 
+
+
+#### Cost of chains of n_start___19(A,B,C,D,E,F,G,H,I):
+* Chain [80]: 4
+  with precondition: [A=2,H=2,C=B,E=D,G=F] 
+
+* Chain [79]: 1*s(426)+1*s(433)+3*s(434)+1*s(436)+13*s(437)+9*s(438)+5*s(439)+12*s(440)+2*s(442)+2*s(443)+2*s(444)+2*s(445)+9
+  Such that:s(424) =< 1
+s(425) =< 2
+s(426) =< 3
+s(427) =< 4
+s(428) =< 2/3
+s(429) =< 4/3
+s(432) =< -2*A+7
+s(430) =< -A+4
+s(431) =< A
+s(433) =< s(424)
+s(434) =< s(431)
+s(435) =< s(434)*s(431)
+s(436) =< s(435)+s(432)
+s(436) =< s(435)+s(430)
+s(437) =< s(425)
+s(438) =< s(428)
+s(439) =< s(427)
+s(440) =< s(429)
+s(441) =< s(427)
+s(442) =< s(440)*s(427)
+s(443) =< s(440)*s(441)
+s(444) =< s(437)*s(427)
+s(445) =< s(437)*s(441)
+
+  with precondition: [H=A,C=B,E=D,G=F,4>=H,H>=3] 
+
+* Chain [78]: 1
+  with precondition: [H=A,C=B,E=D,G=F,1>=H] 
+
+* Chain [77]: 2*s(457)+22*s(458)+4*s(459)+18*s(460)+4*s(461)+24*s(462)+4*s(464)+4*s(465)+14*s(466)+48*s(467)+8*s(469)+8*s(470)+26*s(471)+4*s(472)+4*s(473)+2*s(475)+4*s(476)+14
+  Such that:s(446) =< 2
+s(447) =< 3
+s(448) =< 6
+s(449) =< A
+s(450) =< A+4
+s(451) =< -A/2+4
+s(452) =< -A/2+11/2
+s(453) =< -A/6+9/2
+s(454) =< A/2
+s(455) =< A/3
+s(456) =< A/6
+s(457) =< s(451)
+s(458) =< s(454)
+s(459) =< s(447)
+s(460) =< s(456)
+s(461) =< s(448)
+s(462) =< s(446)
+s(463) =< s(448)
+s(464) =< s(462)*s(448)
+s(465) =< s(462)*s(463)
+s(466) =< s(449)
+s(467) =< s(455)
+s(468) =< s(449)
+s(469) =< s(467)*s(449)
+s(470) =< s(467)*s(468)
+s(471) =< s(450)
+s(472) =< s(471)*s(449)
+s(473) =< s(471)*s(468)
+s(474) =< s(458)*s(449)
+s(475) =< s(474)+s(452)
+s(475) =< s(474)+s(447)
+s(475) =< s(474)+s(453)
+s(476) =< s(474)+s(452)
+s(476) =< s(474)+s(447)
+
+  with precondition: [H=A,C=B,E=D,G=F,H>=5] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D,E,F,G,H,I):
+* Chain [84]: 6
+  with precondition: [A=2] 
+
+* Chain [83]: 1*s(479)+1*s(486)+3*s(487)+1*s(489)+13*s(490)+9*s(491)+5*s(492)+12*s(493)+2*s(495)+2*s(496)+2*s(497)+2*s(498)+11
+  Such that:s(477) =< 1
+s(478) =< 2
+s(479) =< 3
+s(480) =< 4
+s(481) =< 2/3
+s(482) =< 4/3
+s(483) =< -2*A+7
+s(484) =< -A+4
+s(485) =< A
+s(486) =< s(477)
+s(487) =< s(485)
+s(488) =< s(487)*s(485)
+s(489) =< s(488)+s(483)
+s(489) =< s(488)+s(484)
+s(490) =< s(478)
+s(491) =< s(481)
+s(492) =< s(480)
+s(493) =< s(482)
+s(494) =< s(480)
+s(495) =< s(493)*s(480)
+s(496) =< s(493)*s(494)
+s(497) =< s(490)*s(480)
+s(498) =< s(490)*s(494)
+
+  with precondition: [4>=A,A>=3] 
+
+* Chain [82]: 3
+  with precondition: [1>=A] 
+
+* Chain [81]: 2*s(510)+22*s(511)+4*s(512)+18*s(513)+4*s(514)+24*s(515)+4*s(517)+4*s(518)+14*s(519)+48*s(520)+8*s(522)+8*s(523)+26*s(524)+4*s(525)+4*s(526)+2*s(528)+4*s(529)+16
+  Such that:s(499) =< 2
+s(500) =< 3
+s(501) =< 6
+s(502) =< A
+s(503) =< A+4
+s(504) =< -A/2+4
+s(505) =< -A/2+11/2
+s(506) =< -A/6+9/2
+s(507) =< A/2
+s(508) =< A/3
+s(509) =< A/6
+s(510) =< s(504)
+s(511) =< s(507)
+s(512) =< s(500)
+s(513) =< s(509)
+s(514) =< s(501)
+s(515) =< s(499)
+s(516) =< s(501)
+s(517) =< s(515)*s(501)
+s(518) =< s(515)*s(516)
+s(519) =< s(502)
+s(520) =< s(508)
+s(521) =< s(502)
+s(522) =< s(520)*s(502)
+s(523) =< s(520)*s(521)
+s(524) =< s(503)
+s(525) =< s(524)*s(502)
+s(526) =< s(524)*s(521)
+s(527) =< s(511)*s(502)
+s(528) =< s(527)+s(505)
+s(528) =< s(527)+s(500)
+s(528) =< s(527)+s(506)
+s(529) =< s(527)+s(505)
+s(529) =< s(527)+s(500)
+
+  with precondition: [A>=5] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D,E,F,G,H,I): 
+-------------------------------------
+* Chain [84] with precondition: [A=2] 
+    - Upper bound: 6 
+    - Complexity: constant 
+* Chain [83] with precondition: [4>=A,A>=3] 
+    - Upper bound: 3*A+409/3+A*A+nat(-2*A+7) 
+    - Complexity: n^2 
+* Chain [82] with precondition: [1>=A] 
+    - Upper bound: 3 
+    - Complexity: constant 
+* Chain [81] with precondition: [A>=5] 
+    - Upper bound: 14*A+196+ (A+4)* (8*A)+A/2* (6*A)+A/3* (16*A)+ (26*A+104)+nat(-A/2+4)*2+nat(-A/2+11/2)*6+11*A+16*A+3*A 
+    - Complexity: n^2 
+
+### Maximum cost of pyRinit(A,B,C,D,E,F,G,H,I): 391/3+nat(A)*3+max([nat(A)*nat(A)+nat(-2*A+7),179/3+nat(A)*11+nat(A)*8*nat(A+4)+nat(A)*6*nat(A/2)+nat(A)*16*nat(A/3)+nat(A+4)*26+nat(-A/2+4)*2+nat(-A/2+11/2)*6+nat(A/2)*22+nat(A/3)*48+nat(A/6)*18])+6 
+Asymptotic class: n^2 
+* Total analysis performed in 2915 ms.
+
+
+-- stats
+realtime 0:03.36
+usertime 2.99
+systime 0.02
+

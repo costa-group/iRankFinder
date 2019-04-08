@@ -1,0 +1,89 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministart(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_6 >= 0 /\ Ar_2 - Fresh_6 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalexministart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_1, Ar_0, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministart(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_6 >= 0 /\ Ar_2 - Fresh_6 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalexministart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_1, Ar_0, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(pyRinit) = 1
+	Pol(n_evalexministart) = 1
+	Pol(n_evalexminibb1in___2) = 1
+	Pol(n_evalexministop___1) = 0
+	Pol(koat_start) = 1
+orients all transitions weakly and the transitions
+	n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]
+	n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministart(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_6 >= 0 /\ Ar_2 - Fresh_6 = 0 ]
+		(Comp: 1, Cost: 1)    n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalexministart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_1, Ar_0, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(n_evalexminibb1in___2) = V_1 - V_2 - V_3 + 101
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("n_evalexministart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_1, Ar_0, Ar_2))", 0-0) = Ar_1
+	S("n_evalexministart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_1, Ar_0, Ar_2))", 0-1) = Ar_0
+	S("n_evalexministart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_1, Ar_0, Ar_2))", 0-2) = Ar_2
+	S("n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]", 0-0) = ?
+	S("n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]", 0-1) = ?
+	S("n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]", 0-2) = ?
+	S("n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]", 0-0) = ?
+	S("n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]", 0-1) = ?
+	S("n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]", 0-2) = ?
+	S("n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Fresh_6 >= 0 /\\ Ar_2 - Fresh_6 = 0 ]", 0-0) = ?
+	S("n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Fresh_6 >= 0 /\\ Ar_2 - Fresh_6 = 0 ]", 0-1) = Ar_0 + Ar_2 + 101
+	S("n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Fresh_6 >= 0 /\\ Ar_2 - Fresh_6 = 0 ]", 0-2) = Ar_0 + Ar_2 + 101
+	S("pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministart(Ar_0, Ar_1, Ar_2))", 0-0) = Ar_0
+	S("pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministart(Ar_0, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministart(Ar_0, Ar_1, Ar_2))", 0-2) = Ar_2
+orients the transitions
+	n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_6 >= 0 /\ Ar_2 - Fresh_6 = 0 ]
+weakly and the transition
+	n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_6 >= 0 /\ Ar_2 - Fresh_6 = 0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)                           pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministart(Ar_0, Ar_1, Ar_2))
+		(Comp: Ar_1 + Ar_0 + Ar_2 + 101, Cost: 1)    n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_0 - 1, Fresh_6, Ar_1 + 1)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - Fresh_6 >= 0 /\ Ar_2 - Fresh_6 = 0 ]
+		(Comp: 1, Cost: 1)                           n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_3, Fresh_4, Fresh_5)) [ Ar_1 - 101 >= 0 ]
+		(Comp: 1, Cost: 1)                           n_evalexminibb1in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexministop___1(Fresh_0, Fresh_1, Fresh_2)) [ -Ar_0 + Ar_2 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)                           n_evalexministart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalexminibb1in___2(Ar_1, Ar_0, Ar_2))
+		(Comp: 1, Cost: 0)                           koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound Ar_1 + Ar_0 + Ar_2 + 105
+
+Time: 0.102 sec (SMT: 0.094 sec)
+
+-- stats
+realtime 0:00.11
+usertime 0.08
+systime 0.01
+

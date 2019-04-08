@@ -1,0 +1,13 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A_P B_P NoDet1 NoDet0)
+(RULES 
+  pyRinit(A,B) -> Com_1(n_evaleasy1start(A,B))
+  n_evaleasy1bb3in___2(A,B) -> Com_1(n_evaleasy1bbin___3(A, B)) :|: A >= 0 && -A + 39 >= 0 && -1 + A >= 0
+  n_evaleasy1bb3in___2(A,B) -> Com_1(n_evaleasy1stop___1(NoDet0, NoDet1)) :|: A -40 >= 0 && -1 + A >= 0
+  n_evaleasy1bb3in___4(A,B) -> Com_1(n_evaleasy1bbin___3(A, B)) :|: 39 -A >= 0 && 39 -A >= 0 && A >= 0 && -A + 39 >= 0 && A = 0
+  n_evaleasy1bbin___3(A,B) -> Com_1(n_evaleasy1bb3in___2(A + 1, 0)) :|: -A + 39 >= 0 && A >= 0 && A >= 0 && B = 0 && A >= 0
+  n_evaleasy1bbin___3(A,B) -> Com_1(n_evaleasy1bb3in___2(A + 2, B)) :|: -A + 39 >= 0 && A >= 0 && -B -1 >= 0 && A >= 0 && A >= 0
+  n_evaleasy1bbin___3(A,B) -> Com_1(n_evaleasy1bb3in___2(A + 2, B)) :|: -A + 39 >= 0 && A >= 0 && B -1 >= 0 && A >= 0 && A >= 0
+  n_evaleasy1start(A,B) -> Com_1(n_evaleasy1bb3in___4(0, B))
+)

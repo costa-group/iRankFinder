@@ -1,0 +1,185 @@
+{
+  vars: [A,B,C,D,E],
+  pvars: [A',B',C',D',E'],
+  initnode: evalfstart,
+  nodes: {
+    evalfbb10in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-1 + A >= 0],
+    },
+    evalfbb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+        [B -D >= 0],
+        [-B + D > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+      ],
+      inv_polyhedra: [A -C >= 0, -1 + C >= 0, B -D >= 0, D -E >= 0, -1 + E >= 0, -1 -A + D >= 0],
+    },
+    evalfbb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+        [B -D >= 0],
+        [-B + D > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+      ],
+      inv_polyhedra: [B -D >= 0, -1 -A + D >= 0, A -C >= 0, -1 + C >= 0, -1 + E >= 0],
+    },
+    evalfbb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+        [B -D >= 0],
+        [-B + D > 0],
+      ],
+      inv_polyhedra: [-1 -A + D >= 0, -1 -D + E >= 0, -1 + C >= 0, B -D >= 0, A -C >= 0],
+    },
+    evalfbb6in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+        [B -D >= 0],
+        [-B + D > 0],
+      ],
+      inv_polyhedra: [-1 -A + D >= 0, -1 + C >= 0, 1 + B -D >= 0, A -C >= 0],
+    },
+    evalfbb7in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+      ],
+      inv_polyhedra: [1 + B -D == 0, -A + B >= 0, -1 + C >= 0, A -C >= 0],
+    },
+    evalfbb8in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+      ],
+      inv_polyhedra: [-A + B >= 0, -1 + C >= 0, 1 + A -C >= 0, -1 + A >= 0],
+    },
+    evalfentryin: {
+      inv_polyhedra: [],
+    },
+    evalfreturnin: {
+      inv_polyhedra: [-1 + A -B >= 0, -1 + A >= 0],
+    },
+    evalfstart: {
+      inv_polyhedra: [],
+    },
+    evalfstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalfstart,
+	target: evalfentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalfentryin,
+	target: evalfbb10in,
+	name: t1,
+	constraints: [1 -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalfbb3in,
+	target: evalfbb4in,
+	name: t10,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E + 1 -E' = 0]
+    },
+    {
+	source: evalfbb5in,
+	target: evalfbb6in,
+	name: t11,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D + 1 -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalfbb7in,
+	target: evalfbb8in,
+	name: t12,
+	constraints: [A -A' = 0, B -B' = 0, C + 1 -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalfreturnin,
+	target: evalfstop,
+	name: t13,
+	constraints: []
+    },
+    {
+	source: evalfbb10in,
+	target: evalfbb8in,
+	name: t2,
+	constraints: [B -A >= 0, A -A' = 0, B -B' = 0, 1 -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalfbb10in,
+	target: evalfreturnin,
+	name: t3,
+	constraints: [A -B -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalfbb8in,
+	target: evalfbb6in,
+	name: t4,
+	constraints: [A -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, A + 1 -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalfbb8in,
+	target: evalfbb10in,
+	name: t5,
+	constraints: [C -A -1 >= 0, A + 1 -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalfbb6in,
+	target: evalfbb4in,
+	name: t6,
+	constraints: [B -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, 1 -E' = 0]
+    },
+    {
+	source: evalfbb6in,
+	target: evalfbb7in,
+	name: t7,
+	constraints: [D -B -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalfbb4in,
+	target: evalfbb3in,
+	name: t8,
+	constraints: [D -E >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalfbb4in,
+	target: evalfbb5in,
+	name: t9,
+	constraints: [E -D -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    }
+  ]
+}

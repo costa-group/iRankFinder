@@ -1,0 +1,79 @@
+{
+  vars: [A,B,C],
+  pvars: [A',B',C'],
+  initnode: evalterminatestart,
+  nodes: {
+    evalterminatebb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [100 + A -B -C >= 0],
+        [-100 -A + B + C > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalterminatebbin: {
+      cfr_properties: [
+        // RFs Properties
+        [100 + A -B -C >= 0],
+        [-100 -A + B + C > 0],
+      ],
+      inv_polyhedra: [100 -B >= 0, A -C >= 0],
+    },
+    evalterminateentryin: {
+      inv_polyhedra: [],
+    },
+    evalterminatereturnin: {
+      inv_polyhedra: [],
+    },
+    evalterminatestart: {
+      inv_polyhedra: [],
+    },
+    evalterminatestop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalterminatestart,
+	target: evalterminateentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalterminateentryin,
+	target: evalterminatebb1in,
+	name: t1,
+	constraints: [B -A' = 0, A -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalterminatebb1in,
+	target: evalterminatebbin,
+	name: t2,
+	constraints: [100 -B >= 0, A -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalterminatebb1in,
+	target: evalterminatereturnin,
+	name: t3,
+	constraints: [B -101 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalterminatebb1in,
+	target: evalterminatereturnin,
+	name: t4,
+	constraints: [C -A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalterminatebbin,
+	target: evalterminatebb1in,
+	name: t5,
+	constraints: [A -1 -A' = 0, C -B' = 0, B + 1 -C' = 0]
+    },
+    {
+	source: evalterminatereturnin,
+	target: evalterminatestop,
+	name: t6,
+	constraints: []
+    }
+  ]
+}

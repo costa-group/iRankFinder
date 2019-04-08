@@ -1,0 +1,249 @@
+{
+  vars: [A,B,C,D,E,F,G,H],
+  pvars: [A',B',C',D',E',F',G',H'],
+  initnode: evalNestedLoopstart,
+  nodes: {
+    evalNestedLoopbb10in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+      ],
+      inv_polyhedra: [D >= 0, C >= 0, B >= 0, -1 + A -D >= 0],
+    },
+    evalNestedLoopbb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+      ],
+      inv_polyhedra: [-D + F >= 0, E >= 0, D >= 0, C + D -F >= 0, -1 + B -E >= 0, -1 + A -D >= 0],
+    },
+    evalNestedLoopbb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+        [C -H >= 0],
+        [-C + H > 0],
+      ],
+      inv_polyhedra: [1 + E -G == 0, -D + F >= 0, -F + H >= 0, E >= 0, D >= 0, -1 + C -H >= 0, -1 + B -E >= 0, -1 + A -D >= 0],
+    },
+    evalNestedLoopbb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+        [C -H >= 0],
+        [-C + H > 0],
+      ],
+      inv_polyhedra: [1 + E -G == 0, -D + F >= 0, E >= 0, -1 + B -E >= 0, -1 + A -D >= 0, D >= 0, C + D -H >= 0, -F + H >= 0],
+    },
+    evalNestedLoopbb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+        [C -H >= 0],
+        [-C + H > 0],
+      ],
+      inv_polyhedra: [1 + E -G == 0, -D + F >= 0, -F + H >= 0, E >= 0, D >= 0, -1 + C -H >= 0, -1 + B -E >= 0, -1 + A -D >= 0],
+    },
+    evalNestedLoopbb6in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+      ],
+      inv_polyhedra: [B -E >= 0, -1 + A -D >= 0, -D + F >= 0, C + D -F >= 0, D >= 0, E >= 0],
+    },
+    evalNestedLoopbb7in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+        [B -E >= 0],
+        [-B + E > 0],
+      ],
+      inv_polyhedra: [-D + F >= 0, E >= 0, D >= 0, C + D -F >= 0, -1 + B -E >= 0, -1 + A -D >= 0],
+    },
+    evalNestedLoopbb8in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+      ],
+      inv_polyhedra: [-D + F >= 0, E >= 0, D >= 0, C + D -F >= 0, -1 + A -D >= 0, B -E >= 0],
+    },
+    evalNestedLoopbb9in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+      ],
+      inv_polyhedra: [A + C -D >= 0, C >= 0, B >= 0, D >= 0, A >= 0],
+    },
+    evalNestedLoopentryin: {
+      inv_polyhedra: [],
+    },
+    evalNestedLoopreturnin: {
+      inv_polyhedra: [B >= 0, A >= 0, A + C -D >= 0, C >= 0, D >= 0],
+    },
+    evalNestedLoopstart: {
+      inv_polyhedra: [],
+    },
+    evalNestedLoopstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalNestedLoopstart,
+	target: evalNestedLoopentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopentryin,
+	target: evalNestedLoopbb9in,
+	name: t1,
+	constraints: [A >= 0, B >= 0, C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb7in,
+	target: evalNestedLoopbb1in,
+	name: t10,
+	constraints: [I -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb7in,
+	target: evalNestedLoopbb8in,
+	name: t11,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb1in,
+	target: evalNestedLoopbb3in,
+	name: t12,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, E + 1 -G' = 0, F -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb3in,
+	target: evalNestedLoopbb6in,
+	name: t13,
+	constraints: [H -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, G -E' = 0, H -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb3in,
+	target: evalNestedLoopbb4in,
+	name: t14,
+	constraints: [C -H -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb4in,
+	target: evalNestedLoopbb2in,
+	name: t15,
+	constraints: [-1 -I >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb4in,
+	target: evalNestedLoopbb2in,
+	name: t16,
+	constraints: [I -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb4in,
+	target: evalNestedLoopbb6in,
+	name: t17,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, G -E' = 0, H -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb2in,
+	target: evalNestedLoopbb3in,
+	name: t18,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H + 1 -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb8in,
+	target: evalNestedLoopbb9in,
+	name: t19,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, F + 1 -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb9in,
+	target: evalNestedLoopreturnin,
+	name: t2,
+	constraints: [D -A >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopreturnin,
+	target: evalNestedLoopstop,
+	name: t20,
+	constraints: []
+    },
+    {
+	source: evalNestedLoopbb9in,
+	target: evalNestedLoopbb10in,
+	name: t3,
+	constraints: [A -D -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb10in,
+	target: evalNestedLoopbb6in,
+	name: t4,
+	constraints: [-1 -I >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, -E' = 0, D -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb10in,
+	target: evalNestedLoopbb6in,
+	name: t5,
+	constraints: [I -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, -E' = 0, D -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb10in,
+	target: evalNestedLoopreturnin,
+	name: t6,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb6in,
+	target: evalNestedLoopbb8in,
+	name: t7,
+	constraints: [E -B >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb6in,
+	target: evalNestedLoopbb7in,
+	name: t8,
+	constraints: [B -E -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: evalNestedLoopbb7in,
+	target: evalNestedLoopbb1in,
+	name: t9,
+	constraints: [-1 -I >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    }
+  ]
+}

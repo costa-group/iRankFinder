@@ -1,0 +1,732 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_evalrealheapsortbb3in___14/9,n_evalrealheapsortbb4in___15/9]
+1. recursive  : [n_evalrealheapsortbb3in___16/9,n_evalrealheapsortbb4in___15_loop_cont/10,n_evalrealheapsortbb6in___13/9]
+2. non_recursive  : [exit_location/1]
+3. recursive  : [n_evalrealheapsortbb16in___2/9,n_evalrealheapsortbb18in___1/9]
+4. recursive  : [n_evalrealheapsortbb10in___9/9,n_evalrealheapsortbb13in___6/9,n_evalrealheapsortbb13in___7/9,n_evalrealheapsortbb13in___8/9,n_evalrealheapsortbb16in___2_loop_cont/10,n_evalrealheapsortbb16in___4/9,n_evalrealheapsortbb16in___5/9,n_evalrealheapsortbb18in___3/9,n_evalrealheapsortbb9in___10/9]
+5. non_recursive  : [n_evalrealheapsortstop___17/5]
+6. non_recursive  : [n_evalrealheapsortbb9in___10_loop_cont/6]
+7. non_recursive  : [n_evalrealheapsortbb16in___11/5]
+8. non_recursive  : [n_evalrealheapsortbb18in___12/5]
+9. non_recursive  : [n_evalrealheapsortbb3in___16_loop_cont/6]
+10. non_recursive  : [n_evalrealheapsortbb6in___18/5]
+11. non_recursive  : [n_evalrealheapsortentryin___19/5]
+12. non_recursive  : [n_evalrealheapsortstart/5]
+13. non_recursive  : [pyRinit/5]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_evalrealheapsortbb4in___15/9
+1. SCC is partially evaluated into n_evalrealheapsortbb3in___16/9
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into n_evalrealheapsortbb16in___2/9
+4. SCC is partially evaluated into n_evalrealheapsortbb9in___10/9
+5. SCC is completely evaluated into other SCCs
+6. SCC is partially evaluated into n_evalrealheapsortbb9in___10_loop_cont/6
+7. SCC is partially evaluated into n_evalrealheapsortbb16in___11/5
+8. SCC is completely evaluated into other SCCs
+9. SCC is partially evaluated into n_evalrealheapsortbb3in___16_loop_cont/6
+10. SCC is partially evaluated into n_evalrealheapsortbb6in___18/5
+11. SCC is partially evaluated into n_evalrealheapsortentryin___19/5
+12. SCC is completely evaluated into other SCCs
+13. SCC is partially evaluated into pyRinit/5
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_evalrealheapsortbb4in___15/9 
+* CE 14 is refined into CE [33] 
+* CE 11 is refined into CE [34] 
+* CE 13 is refined into CE [35] 
+* CE 12 is refined into CE [36] 
+
+
+### Cost equations --> "Loop" of n_evalrealheapsortbb4in___15/9 
+* CEs [36] --> Loop 26 
+* CEs [33] --> Loop 27 
+* CEs [34] --> Loop 28 
+* CEs [35] --> Loop 29 
+
+### Ranking functions of CR n_evalrealheapsortbb4in___15(A,B,C,D,E,F,G,H,I) 
+* RF of phase [26]: [C/2-1]
+
+#### Partial ranking functions of CR n_evalrealheapsortbb4in___15(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [26]:
+  - RF of loop [26:1]:
+    C/2-1
+
+
+### Specialization of cost equations n_evalrealheapsortbb3in___16/9 
+* CE 6 is refined into CE [37,38,39,40] 
+* CE 5 is refined into CE [41] 
+* CE 8 is refined into CE [42] 
+* CE 7 is refined into CE [43,44,45,46] 
+
+
+### Cost equations --> "Loop" of n_evalrealheapsortbb3in___16/9 
+* CEs [43,44,45,46] --> Loop 30 
+* CEs [40] --> Loop 31 
+* CEs [39] --> Loop 32 
+* CEs [37] --> Loop 33 
+* CEs [41,42] --> Loop 34 
+* CEs [38] --> Loop 35 
+
+### Ranking functions of CR n_evalrealheapsortbb3in___16(A,B,C,D,E,F,G,H,I) 
+* RF of phase [30]: [A-B-1,A-C-1]
+
+#### Partial ranking functions of CR n_evalrealheapsortbb3in___16(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [30]:
+  - RF of loop [30:1]:
+    A-B-1
+    A-C-1
+
+
+### Specialization of cost equations n_evalrealheapsortbb16in___2/9 
+* CE 32 is refined into CE [47] 
+* CE 31 is refined into CE [48] 
+* CE 30 is refined into CE [49] 
+
+
+### Cost equations --> "Loop" of n_evalrealheapsortbb16in___2/9 
+* CEs [48] --> Loop 36 
+* CEs [47] --> Loop 37 
+* CEs [49] --> Loop 38 
+
+### Ranking functions of CR n_evalrealheapsortbb16in___2(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR n_evalrealheapsortbb16in___2(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations n_evalrealheapsortbb9in___10/9 
+* CE 16 is discarded (unfeasible) 
+* CE 17 is discarded (unfeasible) 
+* CE 18 is refined into CE [50] 
+* CE 19 is refined into CE [51] 
+* CE 20 is refined into CE [52] 
+* CE 21 is refined into CE [53] 
+* CE 27 is refined into CE [54] 
+* CE 24 is refined into CE [55] 
+* CE 26 is refined into CE [56] 
+* CE 22 is refined into CE [57] 
+* CE 23 is refined into CE [58] 
+* CE 25 is refined into CE [59] 
+
+
+### Cost equations --> "Loop" of n_evalrealheapsortbb9in___10/9 
+* CEs [56] --> Loop 39 
+* CEs [59] --> Loop 40 
+* CEs [58] --> Loop 41 
+* CEs [55] --> Loop 42 
+* CEs [57] --> Loop 43 
+* CEs [51,52,53,54] --> Loop 44 
+* CEs [50] --> Loop 45 
+
+### Ranking functions of CR n_evalrealheapsortbb9in___10(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR n_evalrealheapsortbb9in___10(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [39,40,41,42,43]:
+  - RF of loop [39:1]:
+    A/8-B/8-C/2-3/4 depends on loops [41:1,42:1,43:1] 
+    A/8-C/2-3/4 depends on loops [41:1,42:1,43:1] 
+  - RF of loop [40:1]:
+    A/4-B/4-C-1 depends on loops [41:1,42:1,43:1] 
+    A/4-C-1 depends on loops [41:1,42:1,43:1] 
+  - RF of loop [41:1,42:1,43:1]:
+    A-B-3
+  - RF of loop [42:1]:
+    2*C depends on loops [39:1,40:1] 
+
+
+### Specialization of cost equations n_evalrealheapsortbb9in___10_loop_cont/6 
+* CE 29 is refined into CE [60] 
+* CE 28 is refined into CE [61] 
+
+
+### Cost equations --> "Loop" of n_evalrealheapsortbb9in___10_loop_cont/6 
+* CEs [60] --> Loop 46 
+* CEs [61] --> Loop 47 
+
+### Ranking functions of CR n_evalrealheapsortbb9in___10_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR n_evalrealheapsortbb9in___10_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations n_evalrealheapsortbb16in___11/5 
+* CE 15 is refined into CE [62,63,64] 
+
+
+### Cost equations --> "Loop" of n_evalrealheapsortbb16in___11/5 
+* CEs [62,63,64] --> Loop 48 
+
+### Ranking functions of CR n_evalrealheapsortbb16in___11(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalrealheapsortbb16in___11(A,B,C,D,E) 
+
+
+### Specialization of cost equations n_evalrealheapsortbb3in___16_loop_cont/6 
+* CE 10 is refined into CE [65] 
+* CE 9 is refined into CE [66] 
+
+
+### Cost equations --> "Loop" of n_evalrealheapsortbb3in___16_loop_cont/6 
+* CEs [65] --> Loop 49 
+* CEs [66] --> Loop 50 
+
+### Ranking functions of CR n_evalrealheapsortbb3in___16_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR n_evalrealheapsortbb3in___16_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations n_evalrealheapsortbb6in___18/5 
+* CE 4 is refined into CE [67,68,69,70,71] 
+
+
+### Cost equations --> "Loop" of n_evalrealheapsortbb6in___18/5 
+* CEs [67,68,69,70,71] --> Loop 51 
+
+### Ranking functions of CR n_evalrealheapsortbb6in___18(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalrealheapsortbb6in___18(A,B,C,D,E) 
+
+
+### Specialization of cost equations n_evalrealheapsortentryin___19/5 
+* CE 2 is refined into CE [72] 
+* CE 3 is refined into CE [73] 
+
+
+### Cost equations --> "Loop" of n_evalrealheapsortentryin___19/5 
+* CEs [72] --> Loop 52 
+* CEs [73] --> Loop 53 
+
+### Ranking functions of CR n_evalrealheapsortentryin___19(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalrealheapsortentryin___19(A,B,C,D,E) 
+
+
+### Specialization of cost equations pyRinit/5 
+* CE 1 is refined into CE [74,75] 
+
+
+### Cost equations --> "Loop" of pyRinit/5 
+* CEs [75] --> Loop 54 
+* CEs [74] --> Loop 55 
+
+### Ranking functions of CR pyRinit(A,B,C,D,E) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_evalrealheapsortbb4in___15(A,B,C,D,E,F,G,H,I):
+* Chain [[26],29]: 2*it(26)+1
+  Such that:it(26) =< C/2-H/2
+
+  with precondition: [E=2,A=F,B+1=G,D=I,H>=1,C>=2*H+1,A>=B+1,B>=C] 
+
+* Chain [[26],28]: 2*it(26)+2
+  Such that:it(26) =< C/2
+
+  with precondition: [E=2,A=F,B+1=G,D=I,0>=H,C>=3,2*H+1>=0,A>=B+1,B>=C] 
+
+* Chain [[26],27]: 2*it(26)+0
+  Such that:it(26) =< C/2
+
+  with precondition: [E=3,C>=3,A>=B+1,B>=C] 
+
+* Chain [29]: 1
+  with precondition: [E=2,I=D,A=F,B+1=G,C=H,C>=1,A>=B+1,B>=C,C+2*A>=B+6] 
+
+* Chain [28]: 2
+  with precondition: [E=2,I=D,A=F,B+1=G,0>=H,C>=1,A>=B+1,B>=C,2*H+2>=C,C+2*A>=B+6] 
+
+* Chain [27]: 0
+  with precondition: [E=3,C>=1,A>=B+1,B>=C,C+2*A>=B+6] 
+
+
+#### Cost of chains of n_evalrealheapsortbb3in___16(A,B,C,D,E,F,G,H,I):
+* Chain [[30],35]: 4*it(30)+4*s(6)+4
+  Such that:it(30) =< 1
+aux(2) =< 3/2
+s(7) =< it(30)*aux(2)
+s(6) =< s(7)
+
+  with precondition: [A=3,B=1,C=1,E=6,F=3,G=0,H=0,D=I] 
+
+* Chain [[30],34]: 4*it(30)+4*s(6)+2*s(8)+1
+  Such that:it(30) =< A-C
+aux(3) =< A/2
+s(8) =< aux(3)
+s(7) =< it(30)*aux(3)
+s(6) =< s(7)
+
+  with precondition: [E=3,B=C,B>=1,A>=B+2] 
+
+* Chain [[30],33]: 4*it(30)+4*s(6)+3
+  Such that:it(30) =< -B+H
+aux(2) =< H/2+1/2
+s(7) =< it(30)*aux(2)
+s(6) =< s(7)
+
+  with precondition: [E=6,G=0,B=C,A=F,A=H+1,D=I,B>=1,A>=B+2] 
+
+* Chain [[30],32]: 4*it(30)+4*s(6)+2*s(9)+4
+  Such that:it(30) =< -B+F
+aux(4) =< F/2
+s(9) =< aux(4)
+s(7) =< it(30)*aux(4)
+s(6) =< s(7)
+
+  with precondition: [E=6,G=0,B=C,A=F,D=I,0>=H,A>=4,B>=1,2*H+1>=0,A>=B+2] 
+
+* Chain [[30],31]: 4*it(30)+4*s(6)+2*s(10)+3
+  Such that:it(30) =< -B+F
+aux(5) =< F/2
+s(10) =< aux(5)
+s(7) =< it(30)*aux(5)
+s(6) =< s(7)
+
+  with precondition: [E=6,G=0,B=C,A=F,D=I,B>=1,H>=1,A>=2*H+2,A>=B+2] 
+
+* Chain [34]: 2*s(8)+1
+  Such that:s(8) =< C/2
+
+  with precondition: [E=3,C=B,A>=3,C>=1,A>=C+1] 
+
+
+#### Cost of chains of n_evalrealheapsortbb16in___2(A,B,C,D,E,F,G,H,I):
+* Chain [38]: 2
+  with precondition: [C=0,D=1,E=5,B+2=A,B>=1] 
+
+* Chain [37]: 0
+  with precondition: [C=0,E=3,B>=1,D>=1,A>=B+D+1] 
+
+* Chain [36]: 1
+  with precondition: [C=0,E=4,H=0,A=F,B=G,D=I,B>=1,D>=1,A>=B+3,A>=B+D+1] 
+
+
+#### Cost of chains of n_evalrealheapsortbb9in___10(A,B,C,D,E,F,G,H,I):
+* Chain [[39,40,41,42,43],45]: 4*it(39)+4*it(40)+17*it(41)+6
+  Such that:aux(140) =< A/2-B/2
+aux(25) =< A/4-C
+aux(9) =< A/8-C/2
+aux(33) =< -C
+aux(17) =< -C/2
+aux(145) =< A-B
+aux(146) =< A/4-B/4-C
+aux(147) =< A/8-B/8-C/2
+it(41) =< aux(145)
+aux(128) =< aux(140)
+aux(66) =< aux(140)-1/4
+aux(104) =< aux(140)+1/4
+aux(22) =< it(41)*aux(140)
+aux(24) =< it(41)*aux(128)
+aux(26) =< it(41)*aux(66)
+aux(23) =< it(41)*aux(104)
+aux(8) =< aux(24)* (1/2)
+aux(10) =< aux(26)* (1/2)
+aux(7) =< aux(23)* (1/2)
+aux(6) =< aux(22)* (1/2)
+it(40) =< aux(26)+aux(22)+aux(26)+aux(146)
+it(40) =< aux(24)+aux(23)+aux(22)+aux(25)
+it(40) =< aux(24)+aux(23)+aux(22)+aux(33)
+it(39) =< aux(10)+aux(6)+aux(10)+aux(147)
+it(39) =< aux(8)+aux(7)+aux(6)+aux(17)
+it(39) =< aux(8)+aux(7)+aux(6)+aux(9)
+
+  with precondition: [E=5,B>=0,C>=0,A>=B+4,A>=2*C+B+3] 
+
+* Chain [[39,40,41,42,43],44]: 4*it(39)+4*it(40)+17*it(41)+5
+  Such that:aux(33) =< A-B-C
+aux(140) =< A/2-B/2
+aux(29) =< A/4-B/4-C
+aux(25) =< A/4-C
+aux(13) =< A/8-B/8-C/2
+aux(9) =< A/8-C/2
+aux(37) =< 3/4*A-3/4*B-C
+aux(17) =< 3/8*A-3/8*B-3/4*C
+aux(21) =< 5/16*A-5/16*B-5/8*C
+aux(148) =< A-B
+it(41) =< aux(148)
+aux(128) =< aux(140)
+aux(66) =< aux(140)-1/4
+aux(104) =< aux(140)+1/4
+aux(22) =< it(41)*aux(140)
+aux(24) =< it(41)*aux(128)
+aux(26) =< it(41)*aux(66)
+aux(23) =< it(41)*aux(104)
+aux(8) =< aux(24)* (1/2)
+aux(10) =< aux(26)* (1/2)
+aux(7) =< aux(23)* (1/2)
+aux(6) =< aux(22)* (1/2)
+it(40) =< aux(26)+aux(22)+aux(26)+aux(29)
+it(40) =< aux(24)+aux(23)+aux(22)+aux(25)
+it(40) =< aux(26)+aux(22)+aux(26)+aux(37)
+it(40) =< aux(24)+aux(23)+aux(22)+aux(33)
+it(39) =< aux(10)+aux(6)+aux(10)+aux(21)
+it(39) =< aux(8)+aux(7)+aux(6)+aux(17)
+it(39) =< aux(10)+aux(6)+aux(10)+aux(13)
+it(39) =< aux(8)+aux(7)+aux(6)+aux(9)
+
+  with precondition: [E=3,B>=0,C>=0,A>=B+4,A>=2*C+B+3] 
+
+* Chain [45]: 6
+  with precondition: [C=0,E=5,B+3=A,B>=0] 
+
+* Chain [44]: 5
+  with precondition: [E=3,B>=0,C>=0,A>=2*C+B+3] 
+
+
+#### Cost of chains of n_evalrealheapsortbb9in___10_loop_cont(A,B,C,D,E,F):
+* Chain [47]: 0
+  with precondition: [A=3] 
+
+* Chain [46]: 0
+  with precondition: [A=5] 
+
+
+#### Cost of chains of n_evalrealheapsortbb16in___11(A,B,C,D,E):
+* Chain [48]: 34*s(51)+4*s(63)+4*s(64)+4*s(85)+4*s(86)+7
+  Such that:s(48) =< 3/4*A
+s(49) =< 3/8*A
+s(50) =< 5/16*A
+aux(155) =< A
+aux(156) =< A/2
+aux(157) =< A/4
+aux(158) =< A/8
+s(51) =< aux(155)
+s(52) =< aux(156)
+s(53) =< aux(156)-1/4
+s(54) =< aux(156)+1/4
+s(55) =< s(51)*aux(156)
+s(56) =< s(51)*s(52)
+s(57) =< s(51)*s(53)
+s(58) =< s(51)*s(54)
+s(59) =< s(56)* (1/2)
+s(60) =< s(57)* (1/2)
+s(61) =< s(58)* (1/2)
+s(62) =< s(55)* (1/2)
+s(85) =< s(57)+s(55)+s(57)+aux(157)
+s(85) =< s(56)+s(58)+s(55)+aux(157)
+s(85) =< s(56)+s(58)+s(55)
+s(86) =< s(60)+s(62)+s(60)+aux(158)
+s(86) =< s(59)+s(61)+s(62)
+s(86) =< s(59)+s(61)+s(62)+aux(158)
+s(63) =< s(57)+s(55)+s(57)+aux(157)
+s(63) =< s(56)+s(58)+s(55)+aux(157)
+s(63) =< s(57)+s(55)+s(57)+s(48)
+s(63) =< s(56)+s(58)+s(55)+aux(155)
+s(64) =< s(60)+s(62)+s(60)+s(50)
+s(64) =< s(59)+s(61)+s(62)+s(49)
+s(64) =< s(60)+s(62)+s(60)+aux(158)
+s(64) =< s(59)+s(61)+s(62)+aux(158)
+
+  with precondition: [B=0,C=0,A>=3] 
+
+
+#### Cost of chains of n_evalrealheapsortbb3in___16_loop_cont(A,B,C,D,E,F):
+* Chain [50]: 0
+  with precondition: [A=3] 
+
+* Chain [49]: 34*s(94)+4*s(106)+4*s(107)+4*s(108)+4*s(109)+8
+  Such that:s(90) =< B
+s(91) =< B/2
+s(92) =< B/4
+s(93) =< B/8
+s(87) =< 3/4*B
+s(88) =< 3/8*B
+s(89) =< 5/16*B
+s(94) =< s(90)
+s(95) =< s(91)
+s(96) =< s(91)-1/4
+s(97) =< s(91)+1/4
+s(98) =< s(94)*s(91)
+s(99) =< s(94)*s(95)
+s(100) =< s(94)*s(96)
+s(101) =< s(94)*s(97)
+s(102) =< s(99)* (1/2)
+s(103) =< s(100)* (1/2)
+s(104) =< s(101)* (1/2)
+s(105) =< s(98)* (1/2)
+s(106) =< s(100)+s(98)+s(100)+s(92)
+s(106) =< s(99)+s(101)+s(98)+s(92)
+s(106) =< s(99)+s(101)+s(98)
+s(107) =< s(103)+s(105)+s(103)+s(93)
+s(107) =< s(102)+s(104)+s(105)
+s(107) =< s(102)+s(104)+s(105)+s(93)
+s(108) =< s(100)+s(98)+s(100)+s(92)
+s(108) =< s(99)+s(101)+s(98)+s(92)
+s(108) =< s(100)+s(98)+s(100)+s(87)
+s(108) =< s(99)+s(101)+s(98)+s(90)
+s(109) =< s(103)+s(105)+s(103)+s(89)
+s(109) =< s(102)+s(104)+s(105)+s(88)
+s(109) =< s(103)+s(105)+s(103)+s(93)
+s(109) =< s(102)+s(104)+s(105)+s(93)
+
+  with precondition: [A=6,C=0,B>=3] 
+
+
+#### Cost of chains of n_evalrealheapsortbb6in___18(A,B,C,D,E):
+* Chain [51]: 4*s(110)+4*s(113)+34*s(121)+4*s(133)+4*s(134)+4*s(135)+4*s(136)+118*s(137)+2*s(139)+6*s(140)+16*s(142)+12*s(166)+12*s(167)+12*s(168)+12*s(169)+13
+  Such that:s(110) =< 1
+s(114) =< 3
+s(139) =< 1/2
+aux(159) =< 3/2
+s(116) =< 3/4
+s(117) =< 3/8
+s(118) =< 9/4
+s(119) =< 9/8
+s(120) =< 15/16
+aux(166) =< A
+aux(167) =< A/2
+aux(168) =< A/4
+aux(169) =< A/8
+aux(170) =< 3/4*A
+aux(171) =< 3/8*A
+aux(172) =< 5/16*A
+s(137) =< aux(166)
+s(121) =< s(114)
+s(122) =< aux(159)
+s(123) =< aux(159)-1/4
+s(124) =< aux(159)+1/4
+s(125) =< s(121)*aux(159)
+s(126) =< s(121)*s(122)
+s(127) =< s(121)*s(123)
+s(128) =< s(121)*s(124)
+s(129) =< s(126)* (1/2)
+s(130) =< s(127)* (1/2)
+s(131) =< s(128)* (1/2)
+s(132) =< s(125)* (1/2)
+s(133) =< s(127)+s(125)+s(127)+s(116)
+s(133) =< s(126)+s(128)+s(125)+s(116)
+s(133) =< s(126)+s(128)+s(125)
+s(134) =< s(130)+s(132)+s(130)+s(117)
+s(134) =< s(129)+s(131)+s(132)
+s(134) =< s(129)+s(131)+s(132)+s(117)
+s(135) =< s(127)+s(125)+s(127)+s(116)
+s(135) =< s(126)+s(128)+s(125)+s(116)
+s(135) =< s(127)+s(125)+s(127)+s(118)
+s(135) =< s(126)+s(128)+s(125)+s(114)
+s(136) =< s(130)+s(132)+s(130)+s(120)
+s(136) =< s(129)+s(131)+s(132)+s(119)
+s(136) =< s(130)+s(132)+s(130)+s(117)
+s(136) =< s(129)+s(131)+s(132)+s(117)
+s(112) =< s(110)*aux(159)
+s(113) =< s(112)
+s(140) =< aux(167)
+s(141) =< s(137)*aux(167)
+s(142) =< s(141)
+s(155) =< aux(167)
+s(156) =< aux(167)-1/4
+s(157) =< aux(167)+1/4
+s(159) =< s(137)*s(155)
+s(160) =< s(137)*s(156)
+s(161) =< s(137)*s(157)
+s(162) =< s(159)* (1/2)
+s(163) =< s(160)* (1/2)
+s(164) =< s(161)* (1/2)
+s(165) =< s(141)* (1/2)
+s(166) =< s(160)+s(141)+s(160)+aux(168)
+s(166) =< s(159)+s(161)+s(141)+aux(168)
+s(166) =< s(159)+s(161)+s(141)
+s(167) =< s(163)+s(165)+s(163)+aux(169)
+s(167) =< s(162)+s(164)+s(165)
+s(167) =< s(162)+s(164)+s(165)+aux(169)
+s(168) =< s(160)+s(141)+s(160)+aux(168)
+s(168) =< s(159)+s(161)+s(141)+aux(168)
+s(168) =< s(160)+s(141)+s(160)+aux(170)
+s(168) =< s(159)+s(161)+s(141)+aux(166)
+s(169) =< s(163)+s(165)+s(163)+aux(172)
+s(169) =< s(162)+s(164)+s(165)+aux(171)
+s(169) =< s(163)+s(165)+s(163)+aux(169)
+s(169) =< s(162)+s(164)+s(165)+aux(169)
+
+  with precondition: [B=1,A>=3] 
+
+
+#### Cost of chains of n_evalrealheapsortentryin___19(A,B,C,D,E):
+* Chain [53]: 1
+  with precondition: [2>=A] 
+
+* Chain [52]: 4*s(226)+2*s(228)+118*s(242)+34*s(243)+4*s(255)+4*s(256)+4*s(257)+4*s(258)+4*s(260)+6*s(261)+16*s(263)+12*s(274)+12*s(275)+12*s(276)+12*s(277)+14
+  Such that:s(226) =< 1
+s(227) =< 3
+s(228) =< 1/2
+s(229) =< 3/2
+s(230) =< 3/4
+s(231) =< 3/8
+s(232) =< 9/4
+s(233) =< 9/8
+s(234) =< 15/16
+s(235) =< A
+s(236) =< A/2
+s(237) =< A/4
+s(238) =< A/8
+s(239) =< 3/4*A
+s(240) =< 3/8*A
+s(241) =< 5/16*A
+s(242) =< s(235)
+s(243) =< s(227)
+s(244) =< s(229)
+s(245) =< s(229)-1/4
+s(246) =< s(229)+1/4
+s(247) =< s(243)*s(229)
+s(248) =< s(243)*s(244)
+s(249) =< s(243)*s(245)
+s(250) =< s(243)*s(246)
+s(251) =< s(248)* (1/2)
+s(252) =< s(249)* (1/2)
+s(253) =< s(250)* (1/2)
+s(254) =< s(247)* (1/2)
+s(255) =< s(249)+s(247)+s(249)+s(230)
+s(255) =< s(248)+s(250)+s(247)+s(230)
+s(255) =< s(248)+s(250)+s(247)
+s(256) =< s(252)+s(254)+s(252)+s(231)
+s(256) =< s(251)+s(253)+s(254)
+s(256) =< s(251)+s(253)+s(254)+s(231)
+s(257) =< s(249)+s(247)+s(249)+s(230)
+s(257) =< s(248)+s(250)+s(247)+s(230)
+s(257) =< s(249)+s(247)+s(249)+s(232)
+s(257) =< s(248)+s(250)+s(247)+s(227)
+s(258) =< s(252)+s(254)+s(252)+s(234)
+s(258) =< s(251)+s(253)+s(254)+s(233)
+s(258) =< s(252)+s(254)+s(252)+s(231)
+s(258) =< s(251)+s(253)+s(254)+s(231)
+s(259) =< s(226)*s(229)
+s(260) =< s(259)
+s(261) =< s(236)
+s(262) =< s(242)*s(236)
+s(263) =< s(262)
+s(264) =< s(236)
+s(265) =< s(236)-1/4
+s(266) =< s(236)+1/4
+s(267) =< s(242)*s(264)
+s(268) =< s(242)*s(265)
+s(269) =< s(242)*s(266)
+s(270) =< s(267)* (1/2)
+s(271) =< s(268)* (1/2)
+s(272) =< s(269)* (1/2)
+s(273) =< s(262)* (1/2)
+s(274) =< s(268)+s(262)+s(268)+s(237)
+s(274) =< s(267)+s(269)+s(262)+s(237)
+s(274) =< s(267)+s(269)+s(262)
+s(275) =< s(271)+s(273)+s(271)+s(238)
+s(275) =< s(270)+s(272)+s(273)
+s(275) =< s(270)+s(272)+s(273)+s(238)
+s(276) =< s(268)+s(262)+s(268)+s(237)
+s(276) =< s(267)+s(269)+s(262)+s(237)
+s(276) =< s(268)+s(262)+s(268)+s(239)
+s(276) =< s(267)+s(269)+s(262)+s(235)
+s(277) =< s(271)+s(273)+s(271)+s(241)
+s(277) =< s(270)+s(272)+s(273)+s(240)
+s(277) =< s(271)+s(273)+s(271)+s(238)
+s(277) =< s(270)+s(272)+s(273)+s(238)
+
+  with precondition: [A>=3] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D,E):
+* Chain [55]: 3
+  with precondition: [2>=A] 
+
+* Chain [54]: 4*s(278)+2*s(280)+118*s(294)+34*s(295)+4*s(307)+4*s(308)+4*s(309)+4*s(310)+4*s(312)+6*s(313)+16*s(315)+12*s(326)+12*s(327)+12*s(328)+12*s(329)+16
+  Such that:s(278) =< 1
+s(279) =< 3
+s(280) =< 1/2
+s(281) =< 3/2
+s(282) =< 3/4
+s(283) =< 3/8
+s(284) =< 9/4
+s(285) =< 9/8
+s(286) =< 15/16
+s(287) =< A
+s(288) =< A/2
+s(289) =< A/4
+s(290) =< A/8
+s(291) =< 3/4*A
+s(292) =< 3/8*A
+s(293) =< 5/16*A
+s(294) =< s(287)
+s(295) =< s(279)
+s(296) =< s(281)
+s(297) =< s(281)-1/4
+s(298) =< s(281)+1/4
+s(299) =< s(295)*s(281)
+s(300) =< s(295)*s(296)
+s(301) =< s(295)*s(297)
+s(302) =< s(295)*s(298)
+s(303) =< s(300)* (1/2)
+s(304) =< s(301)* (1/2)
+s(305) =< s(302)* (1/2)
+s(306) =< s(299)* (1/2)
+s(307) =< s(301)+s(299)+s(301)+s(282)
+s(307) =< s(300)+s(302)+s(299)+s(282)
+s(307) =< s(300)+s(302)+s(299)
+s(308) =< s(304)+s(306)+s(304)+s(283)
+s(308) =< s(303)+s(305)+s(306)
+s(308) =< s(303)+s(305)+s(306)+s(283)
+s(309) =< s(301)+s(299)+s(301)+s(282)
+s(309) =< s(300)+s(302)+s(299)+s(282)
+s(309) =< s(301)+s(299)+s(301)+s(284)
+s(309) =< s(300)+s(302)+s(299)+s(279)
+s(310) =< s(304)+s(306)+s(304)+s(286)
+s(310) =< s(303)+s(305)+s(306)+s(285)
+s(310) =< s(304)+s(306)+s(304)+s(283)
+s(310) =< s(303)+s(305)+s(306)+s(283)
+s(311) =< s(278)*s(281)
+s(312) =< s(311)
+s(313) =< s(288)
+s(314) =< s(294)*s(288)
+s(315) =< s(314)
+s(316) =< s(288)
+s(317) =< s(288)-1/4
+s(318) =< s(288)+1/4
+s(319) =< s(294)*s(316)
+s(320) =< s(294)*s(317)
+s(321) =< s(294)*s(318)
+s(322) =< s(319)* (1/2)
+s(323) =< s(320)* (1/2)
+s(324) =< s(321)* (1/2)
+s(325) =< s(314)* (1/2)
+s(326) =< s(320)+s(314)+s(320)+s(289)
+s(326) =< s(319)+s(321)+s(314)+s(289)
+s(326) =< s(319)+s(321)+s(314)
+s(327) =< s(323)+s(325)+s(323)+s(290)
+s(327) =< s(322)+s(324)+s(325)
+s(327) =< s(322)+s(324)+s(325)+s(290)
+s(328) =< s(320)+s(314)+s(320)+s(289)
+s(328) =< s(319)+s(321)+s(314)+s(289)
+s(328) =< s(320)+s(314)+s(320)+s(291)
+s(328) =< s(319)+s(321)+s(314)+s(287)
+s(329) =< s(323)+s(325)+s(323)+s(293)
+s(329) =< s(322)+s(324)+s(325)+s(292)
+s(329) =< s(323)+s(325)+s(323)+s(290)
+s(329) =< s(322)+s(324)+s(325)+s(290)
+
+  with precondition: [A>=3] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D,E): 
+-------------------------------------
+* Chain [55] with precondition: [2>=A] 
+    - Upper bound: 3 
+    - Complexity: constant 
+* Chain [54] with precondition: [A>=3] 
+    - Upper bound: 118*A+1137/4+ (36*A-18)*A+15/4*A+3*A+26*A*A+6*A+3/2*A 
+    - Complexity: n^2 
+
+### Maximum cost of pyRinit(A,B,C,D,E): 1125/4+nat(A)*118+nat(-1/4+nat(A/2))*72*nat(A)+nat(5/16*A)*12+nat(A/2)*6+nat(A/2)*52*nat(A)+nat(A/4)*24+nat(A/8)*12+3 
+Asymptotic class: n^2 
+* Total analysis performed in 2088 ms.
+
+
+-- stats
+realtime 0:02.39
+usertime 2.26
+systime 0.02
+

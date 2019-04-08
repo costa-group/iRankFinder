@@ -1,0 +1,113 @@
+{
+  vars: [A,B],
+  pvars: [A',B'],
+  initnode: evaleasy1start,
+  nodes: {
+    evaleasy1bb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [38 -A >= 0],
+        [-38 + A > 0],
+      ],
+      inv_polyhedra: [B == 0, A >= 0],
+    },
+    evaleasy1bb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [37 -A >= 0],
+        [-37 + A > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    evaleasy1bb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [39 -A >= 0],
+        [-39 + A > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    evaleasy1bbin: {
+      cfr_properties: [
+        // RFs Properties
+        [38 -A >= 0],
+        [-38 + A > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    evaleasy1entryin: {
+      inv_polyhedra: [],
+    },
+    evaleasy1returnin: {
+      inv_polyhedra: [-40 + A >= 0],
+    },
+    evaleasy1start: {
+      inv_polyhedra: [],
+    },
+    evaleasy1stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evaleasy1start,
+	target: evaleasy1entryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evaleasy1entryin,
+	target: evaleasy1bb3in,
+	name: t1,
+	constraints: [-A' = 0, B -B' = 0]
+    },
+    {
+	source: evaleasy1bb3in,
+	target: evaleasy1bbin,
+	name: t2,
+	constraints: [39 -A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evaleasy1bb3in,
+	target: evaleasy1returnin,
+	name: t3,
+	constraints: [A -40 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evaleasy1bbin,
+	target: evaleasy1bb1in,
+	name: t4,
+	constraints: [B = 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evaleasy1bbin,
+	target: evaleasy1bb2in,
+	name: t5,
+	constraints: [-1 -B >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evaleasy1bbin,
+	target: evaleasy1bb2in,
+	name: t6,
+	constraints: [B -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evaleasy1bb1in,
+	target: evaleasy1bb3in,
+	name: t7,
+	constraints: [A + 1 -A' = 0, B -B' = 0]
+    },
+    {
+	source: evaleasy1bb2in,
+	target: evaleasy1bb3in,
+	name: t8,
+	constraints: [A + 2 -A' = 0, B -B' = 0]
+    },
+    {
+	source: evaleasy1returnin,
+	target: evaleasy1stop,
+	name: t9,
+	constraints: []
+    }
+  ]
+}

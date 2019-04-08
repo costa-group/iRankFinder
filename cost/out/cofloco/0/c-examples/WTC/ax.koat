@@ -1,0 +1,206 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalaxbb1in/7,evalaxbb2in/7]
+1. recursive  : [evalaxbb2in_loop_cont/8,evalaxbb3in/7,evalaxbbin/7]
+2. non_recursive  : [evalaxstop/4]
+3. non_recursive  : [evalaxreturnin/4]
+4. non_recursive  : [exit_location/1]
+5. non_recursive  : [evalaxbbin_loop_cont/5]
+6. non_recursive  : [evalaxentryin/4]
+7. non_recursive  : [evalaxstart/4]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalaxbb2in/7
+1. SCC is partially evaluated into evalaxbbin/7
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is completely evaluated into other SCCs
+5. SCC is partially evaluated into evalaxbbin_loop_cont/5
+6. SCC is partially evaluated into evalaxentryin/4
+7. SCC is partially evaluated into evalaxstart/4
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalaxbb2in/7 
+* CE 12 is refined into CE [13] 
+* CE 11 is refined into CE [14] 
+* CE 10 is refined into CE [15] 
+
+
+### Cost equations --> "Loop" of evalaxbb2in/7 
+* CEs [15] --> Loop 12 
+* CEs [13] --> Loop 13 
+* CEs [14] --> Loop 14 
+
+### Ranking functions of CR evalaxbb2in(A,B,C,D,E,F,G) 
+* RF of phase [12]: [-B+C-1]
+
+#### Partial ranking functions of CR evalaxbb2in(A,B,C,D,E,F,G) 
+* Partial RF of phase [12]:
+  - RF of loop [12:1]:
+    -B+C-1
+
+
+### Specialization of cost equations evalaxbbin/7 
+* CE 3 is refined into CE [16,17] 
+* CE 4 is discarded (unfeasible) 
+* CE 6 is refined into CE [18] 
+* CE 7 is refined into CE [19] 
+* CE 5 is refined into CE [20,21] 
+
+
+### Cost equations --> "Loop" of evalaxbbin/7 
+* CEs [21] --> Loop 15 
+* CEs [20] --> Loop 16 
+* CEs [17] --> Loop 17 
+* CEs [16] --> Loop 18 
+* CEs [18,19] --> Loop 19 
+
+### Ranking functions of CR evalaxbbin(A,B,C,D,E,F,G) 
+* RF of phase [15]: [-A+C-2]
+
+#### Partial ranking functions of CR evalaxbbin(A,B,C,D,E,F,G) 
+* Partial RF of phase [15]:
+  - RF of loop [15:1]:
+    -A+C-2
+
+
+### Specialization of cost equations evalaxbbin_loop_cont/5 
+* CE 8 is refined into CE [22] 
+* CE 9 is refined into CE [23] 
+
+
+### Cost equations --> "Loop" of evalaxbbin_loop_cont/5 
+* CEs [22] --> Loop 20 
+* CEs [23] --> Loop 21 
+
+### Ranking functions of CR evalaxbbin_loop_cont(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalaxbbin_loop_cont(A,B,C,D,E) 
+
+
+### Specialization of cost equations evalaxentryin/4 
+* CE 2 is refined into CE [24,25,26,27] 
+
+
+### Cost equations --> "Loop" of evalaxentryin/4 
+* CEs [24,25,26,27] --> Loop 22 
+
+### Ranking functions of CR evalaxentryin(A,B,C,D) 
+
+#### Partial ranking functions of CR evalaxentryin(A,B,C,D) 
+
+
+### Specialization of cost equations evalaxstart/4 
+* CE 1 is refined into CE [28] 
+
+
+### Cost equations --> "Loop" of evalaxstart/4 
+* CEs [28] --> Loop 23 
+
+### Ranking functions of CR evalaxstart(A,B,C,D) 
+
+#### Partial ranking functions of CR evalaxstart(A,B,C,D) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalaxbb2in(A,B,C,D,E,F,G):
+* Chain [[12],14]: 2*it(12)+1
+  Such that:it(12) =< -B+F
+
+  with precondition: [D=2,A=E,C=F+1,C=G,B>=0,C>=B+2] 
+
+* Chain [[12],13]: 2*it(12)+0
+  Such that:it(12) =< -B+C
+
+  with precondition: [D=3,B>=0,C>=B+2] 
+
+* Chain [14]: 1
+  with precondition: [D=2,E=A,B=F,C=G,B>=0,B+1>=C] 
+
+* Chain [13]: 0
+  with precondition: [D=3,B>=0] 
+
+
+#### Cost of chains of evalaxbbin(A,B,C,D,E,F,G):
+* Chain [[15],19]: 3*it(15)+2*s(2)+2*s(5)+1
+  Such that:it(15) =< -A+C
+aux(2) =< C
+s(2) =< aux(2)
+s(5) =< it(15)*aux(2)
+
+  with precondition: [D=3,A>=0,C>=A+3] 
+
+* Chain [[15],17]: 3*it(15)+2*s(5)+2*s(6)+3
+  Such that:it(15) =< -A+F
+aux(3) =< F+1
+s(6) =< aux(3)
+s(5) =< it(15)*aux(3)
+
+  with precondition: [D=4,C=E+2,C=F+1,C=G,A>=0,C>=A+3] 
+
+* Chain [19]: 2*s(2)+1
+  Such that:s(2) =< C
+
+  with precondition: [D=3,A>=0] 
+
+* Chain [18]: 3
+  with precondition: [A=0,D=4,E=0,F=0,C=G,1>=C] 
+
+* Chain [17]: 2*s(6)+3
+  Such that:s(6) =< C
+
+  with precondition: [D=4,A=E,C=F+1,C=G,C>=2,A+2>=C] 
+
+
+#### Cost of chains of evalaxbbin_loop_cont(A,B,C,D,E):
+* Chain [21]: 0
+  with precondition: [A=3] 
+
+* Chain [20]: 1
+  with precondition: [A=4] 
+
+
+#### Cost of chains of evalaxentryin(A,B,C,D):
+* Chain [22]: 12*s(12)+4*s(15)+2*s(16)+5
+  Such that:s(16) =< 2
+aux(7) =< C
+s(12) =< aux(7)
+s(15) =< s(12)*aux(7)
+
+  with precondition: [] 
+
+
+#### Cost of chains of evalaxstart(A,B,C,D):
+* Chain [23]: 2*s(21)+12*s(23)+4*s(24)+6
+  Such that:s(21) =< 2
+s(22) =< C
+s(23) =< s(22)
+s(24) =< s(23)*s(22)
+
+  with precondition: [] 
+
+
+Closed-form bounds of evalaxstart(A,B,C,D): 
+-------------------------------------
+* Chain [23] with precondition: [] 
+    - Upper bound: nat(C)*12+10+nat(C)*4*nat(C) 
+    - Complexity: n^2 
+
+### Maximum cost of evalaxstart(A,B,C,D): nat(C)*12+10+nat(C)*4*nat(C) 
+Asymptotic class: n^2 
+* Total analysis performed in 246 ms.
+
+
+-- stats
+realtime 0:00.31
+usertime 0.28
+systime 0.01
+

@@ -1,0 +1,18 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A_P B_P C_P NoDet0 NoDet1 NoDet2)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(n_evalEx7start(A,B,C))
+  n_evalEx7bb3in___3(A,B,C) -> Com_1(n_evalEx7bbin___2(A, B, C)) :|: -1 + A >= 0 && -1 -A + B >= 0 && 1 + B -C >= 0 && A -1 >= 0 && A -C -1 >= 0 && -A + B -1 >= 0 && -1 -A + B >= 0 && A -C >= 0 && -1 + C >= 0
+  n_evalEx7bb3in___3(A,B,C) -> Com_1(n_evalEx7bbin___6(A, B, C)) :|: -1 + A >= 0 && -1 -A + B >= 0 && 1 + B -C >= 0 && A -1 >= 0 && -A + B -1 >= 0 && -A + C -1 >= 0 && -1 -A + B >= 0 && A -C >= 0 && -1 + C >= 0
+  n_evalEx7bb3in___3(A,B,C) -> Com_1(n_evalEx7stop___1(NoDet0, NoDet1, NoDet2)) :|: -1 + A >= 0 && -1 -A + B >= 0 && 1 + B -C >= 0 && -A + B -1 >= 0 && A -1 >= 0 && A -C = 0 && -1 -A + B >= 0 && A -C >= 0 && -1 + C >= 0
+  n_evalEx7bb3in___5(A,B,C) -> Com_1(n_evalEx7bbin___4(A, B, C)) :|: C = 0 && -1 + A >= 0 && -1 -A + B >= 0 && -1 + A >= 0 && -1 -A + B >= 0 && 1 + B -C >= 0 && -1 + A >= 0 && -1 -A + B >= 0 && -1 + A -C >= 0 && A -1 >= 0 && A -C -1 >= 0 && -A + B -1 >= 0 && C = 0 && -1 -A + B >= 0 && -1 + A >= 0
+  n_evalEx7bb3in___7(A,B,C) -> Com_1(n_evalEx7bbin___6(A, B, C)) :|: -1 + A >= 0 && -1 -A + B >= 0 && 1 + B -C >= 0 && -1 + A >= 0 && -1 -A + B >= 0 && -1 -A + C >= 0 && A -1 >= 0 && -A + B -1 >= 0 && -A + C -1 >= 0 && 1 + B -C >= 0 && -1 + A >= 0 && -2 -A + C >= 0
+  n_evalEx7bb3in___9(A,B,C) -> Com_1(n_evalEx7bbin___8(A, B, C)) :|: 1 + A -C = 0 && -1 + A >= 0 && -1 -A + B >= 0 && -1 + A >= 0 && -1 -A + B >= 0 && 1 + B -C >= 0 && -1 + A >= 0 && -1 -A + B >= 0 && -1 -A + C >= 0 && A -1 >= 0 && -A + B -1 >= 0 && -A + C -1 >= 0 && 1 + A -C = 0 && -1 -A + B >= 0 && -1 + A >= 0
+  n_evalEx7bbin___2(A,B,C) -> Com_1(n_evalEx7bb3in___3(A, B, C + 1)) :|: A -C -1 >= 0 && -A + B -1 >= 0 && A -1 >= 0 && A -1 >= 0 && B -C >= 0 && -A + B -1 >= 0 && -1 -A + B >= 0 && -1 + C >= 0 && -1 + A -C >= 0
+  n_evalEx7bbin___4(A,B,C) -> Com_1(n_evalEx7bb3in___3(A, B, C + 1)) :|: -A + B -1 >= 0 && A -1 >= 0 && C = 0 && A -1 >= 0 && B -C >= 0 && -A + B -1 >= 0 && C = 0 && -1 -A + B >= 0 && -1 + A >= 0
+  n_evalEx7bbin___6(A,B,C) -> Com_1(n_evalEx7bb3in___5(A, B, 0)) :|: B -C + 1 >= 0 && -A + C -1 >= 0 && -A + B -1 >= 0 && A -1 >= 0 && A -1 >= 0 && -B + C -1 >= 0 && -A + B -1 >= 0 && -2 -A + C >= 0 && 1 + B -C >= 0 && -1 + A >= 0
+  n_evalEx7bbin___6(A,B,C) -> Com_1(n_evalEx7bb3in___7(A, B, C + 1)) :|: B -C + 1 >= 0 && -A + C -1 >= 0 && -A + B -1 >= 0 && A -1 >= 0 && A -1 >= 0 && B -C >= 0 && -A + B -1 >= 0 && -2 -A + C >= 0 && 1 + B -C >= 0 && -1 + A >= 0
+  n_evalEx7bbin___8(A,B,C) -> Com_1(n_evalEx7bb3in___7(A, B, C + 1)) :|: -A + B -1 >= 0 && A -1 >= 0 && A -C + 1 = 0 && A -1 >= 0 && B -C >= 0 && -A + B -1 >= 0 && 1 + A -C = 0 && -1 -A + B >= 0 && -1 + A >= 0
+  n_evalEx7start(A,B,C) -> Com_1(n_evalEx7bb3in___9(A, B, A + 1)) :|: -A + B -1 >= 0 && A -1 >= 0
+)

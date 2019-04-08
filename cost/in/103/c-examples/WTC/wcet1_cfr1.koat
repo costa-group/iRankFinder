@@ -1,0 +1,46 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A_P B_P C_P D_P NoDet3 NoDet1 NoDet2 NoDet0)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(n_evalwcet1start(A,B,C,D))
+  n_evalwcet1bb1in___13(A,B,C,D) -> Com_1(n_evalwcet1bb6in___10(A, B, C, B + 1)) :|: C -1 >= 0 && A -1 >= 0 && B -D = 0 && A -B -2 >= 0 && C -1 >= 0
+  n_evalwcet1bb1in___13(A,B,C,D) -> Com_1(n_evalwcet1bb6in___11(A, B, C, 0)) :|: C -1 >= 0 && A -1 >= 0 && B -D = 0 && C -1 >= 0 && -A + B + 1 >= 0
+  n_evalwcet1bb1in___18(A,B,C,D) -> Com_1(n_evalwcet1bb6in___15(A, B, C, B + 1)) :|: A -1 >= 0 && B = 0 && A -C = 0 && A -B -2 >= 0 && C -1 >= 0
+  n_evalwcet1bb1in___18(A,B,C,D) -> Com_1(n_evalwcet1bb6in___16(A, B, C, 0)) :|: A -1 >= 0 && B = 0 && A -C = 0 && C -1 >= 0 && -A + B + 1 >= 0
+  n_evalwcet1bb1in___8(A,B,C,D) -> Com_1(n_evalwcet1bb6in___5(A, B, C, B + 1)) :|: C -1 >= 0 && A -1 >= 0 && D = 0 && B = 0 && A -B -2 >= 0 && C -1 >= 0
+  n_evalwcet1bb1in___8(A,B,C,D) -> Com_1(n_evalwcet1bb6in___6(A, B, C, 0)) :|: C -1 >= 0 && A -1 >= 0 && D = 0 && B = 0 && C -1 >= 0 && -A + B + 1 >= 0
+  n_evalwcet1bb4in___12(A,B,C,D) -> Com_1(n_evalwcet1bb6in___2(A, B, C, B -1)) :|: C -1 >= 0 && A -1 >= 0 && B -D = 0 && B -2 >= 0 && C -1 >= 0
+  n_evalwcet1bb4in___12(A,B,C,D) -> Com_1(n_evalwcet1bb6in___3(A, B, C_P, 0)) :|: C -1 >= 0 && A -1 >= 0 && B -D = 0 && -B + 1 >= 0 && C_P -1 >= 0 && C -C_P = 0
+  n_evalwcet1bb4in___17(A,B,C,D) -> Com_1(n_evalwcet1bb6in___1(A, B, C_P, 0)) :|: A -1 >= 0 && B = 0 && A -C = 0 && -B + 1 >= 0 && C_P -1 >= 0 && C -C_P = 0
+  n_evalwcet1bb4in___7(A,B,C,D) -> Com_1(n_evalwcet1bb6in___4(A, B, C_P, 0)) :|: C -1 >= 0 && A -1 >= 0 && D = 0 && B = 0 && -B + 1 >= 0 && C_P -1 >= 0 && C -C_P = 0
+  n_evalwcet1bb6in___1(A,B,C,D) -> Com_1(n_evalwcet1bbin___9(A, D, C -1, D)) :|: A -1 >= 0 && B = 0 && A -C = 0 && D = 0 && C -2 >= 0
+  n_evalwcet1bb6in___1(A,B,C,D) -> Com_1(n_evalwcet1stop___19(NoDet0, NoDet1, NoDet2, NoDet3)) :|: A -1 >= 0 && B = 0 && A -C = 0 && D = 0 && -C + 1 >= 0
+  n_evalwcet1bb6in___10(A,B,C,D) -> Com_1(n_evalwcet1bbin___14(A, D, C -1, D)) :|: A -B -2 >= 0 && C -1 >= 0 && A -1 >= 0 && B -D + 1 = 0 && C -2 >= 0
+  n_evalwcet1bb6in___10(A,B,C,D) -> Com_1(n_evalwcet1stop___19(NoDet0, NoDet1, NoDet2, NoDet3)) :|: A -B -2 >= 0 && C -1 >= 0 && A -1 >= 0 && B -D + 1 = 0 && -C + 1 >= 0
+  n_evalwcet1bb6in___11(A,B,C,D) -> Com_1(n_evalwcet1bbin___9(A, D, C -1, D)) :|: C -1 >= 0 && -A + B + 1 >= 0 && A -1 >= 0 && D = 0 && C -2 >= 0
+  n_evalwcet1bb6in___11(A,B,C,D) -> Com_1(n_evalwcet1stop___19(NoDet0, NoDet1, NoDet2, NoDet3)) :|: C -1 >= 0 && -A + B + 1 >= 0 && A -1 >= 0 && D = 0 && -C + 1 >= 0
+  n_evalwcet1bb6in___15(A,B,C,D) -> Com_1(n_evalwcet1bbin___14(A, D, C -1, D)) :|: A -2 >= 0 && B = 0 && A -C = 0 && D -1 = 0 && C -2 >= 0
+  n_evalwcet1bb6in___16(A,B,C,D) -> Com_1(n_evalwcet1stop___19(NoDet0, NoDet1, NoDet2, NoDet3)) :|: C -1 = 0 && B = 0 && A -1 = 0 && D = 0 && -C + 1 >= 0
+  n_evalwcet1bb6in___2(A,B,C,D) -> Com_1(n_evalwcet1bbin___14(A, D, C -1, D)) :|: C -1 >= 0 && B -2 >= 0 && A -1 >= 0 && B -D -1 = 0 && C -2 >= 0
+  n_evalwcet1bb6in___2(A,B,C,D) -> Com_1(n_evalwcet1stop___19(NoDet0, NoDet1, NoDet2, NoDet3)) :|: C -1 >= 0 && B -2 >= 0 && A -1 >= 0 && B -D -1 = 0 && -C + 1 >= 0
+  n_evalwcet1bb6in___3(A,B,C,D) -> Com_1(n_evalwcet1bbin___9(A, D, C -1, D)) :|: -B + 1 >= 0 && C -1 >= 0 && A -1 >= 0 && D = 0 && C -2 >= 0
+  n_evalwcet1bb6in___3(A,B,C,D) -> Com_1(n_evalwcet1stop___19(NoDet0, NoDet1, NoDet2, NoDet3)) :|: -B + 1 >= 0 && C -1 >= 0 && A -1 >= 0 && D = 0 && -C + 1 >= 0
+  n_evalwcet1bb6in___4(A,B,C,D) -> Com_1(n_evalwcet1bbin___9(A, D, C -1, D)) :|: C -1 >= 0 && A -1 >= 0 && D = 0 && B = 0 && C -2 >= 0
+  n_evalwcet1bb6in___4(A,B,C,D) -> Com_1(n_evalwcet1stop___19(NoDet0, NoDet1, NoDet2, NoDet3)) :|: C -1 >= 0 && A -1 >= 0 && D = 0 && B = 0 && -C + 1 >= 0
+  n_evalwcet1bb6in___5(A,B,C,D) -> Com_1(n_evalwcet1bbin___14(A, D, C -1, D)) :|: C -1 >= 0 && A -2 >= 0 && D -1 = 0 && B = 0 && C -2 >= 0
+  n_evalwcet1bb6in___5(A,B,C,D) -> Com_1(n_evalwcet1stop___19(NoDet0, NoDet1, NoDet2, NoDet3)) :|: C -1 >= 0 && A -2 >= 0 && D -1 = 0 && B = 0 && -C + 1 >= 0
+  n_evalwcet1bb6in___6(A,B,C,D) -> Com_1(n_evalwcet1bbin___9(A, D, C -1, D)) :|: C -1 >= 0 && B = 0 && A -1 = 0 && D = 0 && C -2 >= 0
+  n_evalwcet1bb6in___6(A,B,C,D) -> Com_1(n_evalwcet1stop___19(NoDet0, NoDet1, NoDet2, NoDet3)) :|: C -1 >= 0 && B = 0 && A -1 = 0 && D = 0 && -C + 1 >= 0
+  n_evalwcet1bbin___14(A,B,C,D) -> Com_1(n_evalwcet1bb1in___13(A, B, C_P, D)) :|: B -D = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && B -D = 0 && -1 + C >= 0 && -1 + A >= 0 && -1 + C >= 0 && B -D = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && C_P -1 >= 0 && C -C_P = 0
+  n_evalwcet1bbin___14(A,B,C,D) -> Com_1(n_evalwcet1bb1in___13(A, B, C_P, D)) :|: B -D = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && B -D = 0 && -1 + C >= 0 && -1 + A >= 0 && -1 + C >= 0 && B -D = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && C_P -1 >= 0 && C -C_P = 0
+  n_evalwcet1bbin___14(A,B,C,D) -> Com_1(n_evalwcet1bb4in___12(A, B, C, D)) :|: B -D = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && B -D = 0 && -1 + C >= 0 && -1 + A >= 0 && -1 + C >= 0 && B -D = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && C -1 >= 0
+  n_evalwcet1bbin___20(A,B,C,D) -> Com_1(n_evalwcet1bb1in___18(A, B, C_P, D)) :|: B = 0 && A -C = 0 && -1 + A >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && B = 0 && A -C = 0 && -1 + A >= 0 && B = 0 && A -C = 0 && -1 + A >= 0 && -1 + A >= 0 && B = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && C_P -1 >= 0 && C -C_P = 0
+  n_evalwcet1bbin___20(A,B,C,D) -> Com_1(n_evalwcet1bb1in___18(A, B, C_P, D)) :|: B = 0 && A -C = 0 && -1 + A >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && B = 0 && A -C = 0 && -1 + A >= 0 && B = 0 && A -C = 0 && -1 + A >= 0 && -1 + A >= 0 && B = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && C_P -1 >= 0 && C -C_P = 0
+  n_evalwcet1bbin___20(A,B,C,D) -> Com_1(n_evalwcet1bb4in___17(A, B, C, D)) :|: B = 0 && A -C = 0 && -1 + A >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && B = 0 && A -C = 0 && -1 + A >= 0 && B = 0 && A -C = 0 && -1 + A >= 0 && -1 + A >= 0 && B = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && C -1 >= 0
+  n_evalwcet1bbin___9(A,B,C,D) -> Com_1(n_evalwcet1bb1in___8(A, B, C_P, D)) :|: B -D = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && B -D = 0 && -1 + C >= 0 && -1 + A >= 0 && B = 0 && -1 + C >= 0 && B -D = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && C_P -1 >= 0 && C -C_P = 0
+  n_evalwcet1bbin___9(A,B,C,D) -> Com_1(n_evalwcet1bb1in___8(A, B, C_P, D)) :|: B -D = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && B -D = 0 && -1 + C >= 0 && -1 + A >= 0 && B = 0 && -1 + C >= 0 && B -D = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && C_P -1 >= 0 && C -C_P = 0
+  n_evalwcet1bbin___9(A,B,C,D) -> Com_1(n_evalwcet1bb4in___7(A, B, C, D)) :|: B -D = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && B -D = 0 && -1 + C >= 0 && -1 + A >= 0 && B = 0 && -1 + C >= 0 && B -D = 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && -1 + C >= 0 && C -1 >= 0
+  n_evalwcet1entryin___21(A,B,C,D) -> Com_1(n_evalwcet1bbin___20(A, 0, A, D)) :|: A -1 >= 0
+  n_evalwcet1entryin___21(A,B,C,D) -> Com_1(n_evalwcet1stop___19(NoDet0, NoDet1, NoDet2, NoDet3)) :|: -A >= 0
+  n_evalwcet1start(A,B,C,D) -> Com_1(n_evalwcet1entryin___21(A, B, C, D))
+)

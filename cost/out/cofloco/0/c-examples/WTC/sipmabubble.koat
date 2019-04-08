@@ -1,0 +1,209 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalsipmabubblebb1in/5,evalsipmabubblebb2in/5,evalsipmabubblebb3in/5,evalsipmabubblebb4in/5]
+1. recursive  : [evalsipmabubblebb4in_loop_cont/6,evalsipmabubblebb5in/5,evalsipmabubblebb6in/5]
+2. non_recursive  : [evalsipmabubblestop/3]
+3. non_recursive  : [evalsipmabubblereturnin/3]
+4. non_recursive  : [exit_location/1]
+5. non_recursive  : [evalsipmabubblebb6in_loop_cont/4]
+6. non_recursive  : [evalsipmabubbleentryin/3]
+7. non_recursive  : [evalsipmabubblestart/3]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalsipmabubblebb4in/5
+1. SCC is partially evaluated into evalsipmabubblebb6in/5
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is completely evaluated into other SCCs
+5. SCC is partially evaluated into evalsipmabubblebb6in_loop_cont/4
+6. SCC is partially evaluated into evalsipmabubbleentryin/3
+7. SCC is partially evaluated into evalsipmabubblestart/3
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalsipmabubblebb4in/5 
+* CE 12 is refined into CE [13] 
+* CE 11 is refined into CE [14] 
+* CE 9 is refined into CE [15] 
+* CE 10 is refined into CE [16] 
+
+
+### Cost equations --> "Loop" of evalsipmabubblebb4in/5 
+* CEs [15,16] --> Loop 11 
+* CEs [13] --> Loop 12 
+* CEs [14] --> Loop 13 
+
+### Ranking functions of CR evalsipmabubblebb4in(A,B,E,F,G) 
+* RF of phase [11]: [A-B]
+
+#### Partial ranking functions of CR evalsipmabubblebb4in(A,B,E,F,G) 
+* Partial RF of phase [11]:
+  - RF of loop [11:1]:
+    A-B
+
+
+### Specialization of cost equations evalsipmabubblebb6in/5 
+* CE 5 is refined into CE [17] 
+* CE 3 is refined into CE [18] 
+* CE 6 is refined into CE [19] 
+* CE 4 is refined into CE [20,21] 
+
+
+### Cost equations --> "Loop" of evalsipmabubblebb6in/5 
+* CEs [21] --> Loop 14 
+* CEs [20] --> Loop 15 
+* CEs [17] --> Loop 16 
+* CEs [18,19] --> Loop 17 
+
+### Ranking functions of CR evalsipmabubblebb6in(A,B,E,F,G) 
+* RF of phase [14]: [A]
+
+#### Partial ranking functions of CR evalsipmabubblebb6in(A,B,E,F,G) 
+* Partial RF of phase [14]:
+  - RF of loop [14:1]:
+    A
+
+
+### Specialization of cost equations evalsipmabubblebb6in_loop_cont/4 
+* CE 7 is refined into CE [22] 
+* CE 8 is refined into CE [23] 
+
+
+### Cost equations --> "Loop" of evalsipmabubblebb6in_loop_cont/4 
+* CEs [22] --> Loop 18 
+* CEs [23] --> Loop 19 
+
+### Ranking functions of CR evalsipmabubblebb6in_loop_cont(A,B,C,D) 
+
+#### Partial ranking functions of CR evalsipmabubblebb6in_loop_cont(A,B,C,D) 
+
+
+### Specialization of cost equations evalsipmabubbleentryin/3 
+* CE 2 is refined into CE [24,25,26,27] 
+
+
+### Cost equations --> "Loop" of evalsipmabubbleentryin/3 
+* CEs [24,25,26,27] --> Loop 20 
+
+### Ranking functions of CR evalsipmabubbleentryin(A,B,E) 
+
+#### Partial ranking functions of CR evalsipmabubbleentryin(A,B,E) 
+
+
+### Specialization of cost equations evalsipmabubblestart/3 
+* CE 1 is refined into CE [28] 
+
+
+### Cost equations --> "Loop" of evalsipmabubblestart/3 
+* CEs [28] --> Loop 21 
+
+### Ranking functions of CR evalsipmabubblestart(A,B,E) 
+
+#### Partial ranking functions of CR evalsipmabubblestart(A,B,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalsipmabubblebb4in(A,B,E,F,G):
+* Chain [[11],13]: 4*it(11)+1
+  Such that:it(11) =< -B+G
+
+  with precondition: [E=2,A=F,A=G,B>=0,A>=B+1] 
+
+* Chain [[11],12]: 4*it(11)+0
+  Such that:it(11) =< A-B
+
+  with precondition: [E=3,B>=0,A>=B+1] 
+
+* Chain [13]: 1
+  with precondition: [E=2,B=A,B=F,B=G,B>=0] 
+
+* Chain [12]: 0
+  with precondition: [E=3,B>=0,A>=B] 
+
+
+#### Cost of chains of evalsipmabubblebb6in(A,B,E,F,G):
+* Chain [[14],17]: 7*it(14)+4*s(5)+1
+  Such that:aux(3) =< A
+it(14) =< aux(3)
+s(5) =< it(14)*aux(3)
+
+  with precondition: [E=3,A>=1] 
+
+* Chain [[14],15,17]: 3*it(14)+4*s(5)+4
+  Such that:aux(4) =< A
+it(14) =< aux(4)
+s(5) =< it(14)*aux(4)
+
+  with precondition: [E=3,A>=1] 
+
+* Chain [[14],15,16]: 3*it(14)+4*s(5)+4
+  Such that:aux(5) =< A
+it(14) =< aux(5)
+s(5) =< it(14)*aux(5)
+
+  with precondition: [E=4,F+1=0,G=0,A>=1] 
+
+* Chain [17]: 4*s(2)+1
+  Such that:s(2) =< A
+
+  with precondition: [E=3] 
+
+* Chain [16]: 1
+  with precondition: [E=4,G=B,A=F,0>=A+1] 
+
+* Chain [15,17]: 4
+  with precondition: [A=0,E=3] 
+
+* Chain [15,16]: 4
+  with precondition: [A=0,E=4,F+1=0,G=0] 
+
+
+#### Cost of chains of evalsipmabubblebb6in_loop_cont(A,B,C,D):
+* Chain [19]: 0
+  with precondition: [A=3] 
+
+* Chain [18]: 1
+  with precondition: [A=4] 
+
+
+#### Cost of chains of evalsipmabubbleentryin(A,B,E):
+* Chain [20]: 17*s(14)+12*s(15)+6
+  Such that:aux(7) =< A
+s(14) =< aux(7)
+s(15) =< s(14)*aux(7)
+
+  with precondition: [] 
+
+
+#### Cost of chains of evalsipmabubblestart(A,B,E):
+* Chain [21]: 17*s(20)+12*s(21)+7
+  Such that:s(19) =< A
+s(20) =< s(19)
+s(21) =< s(20)*s(19)
+
+  with precondition: [] 
+
+
+Closed-form bounds of evalsipmabubblestart(A,B,E): 
+-------------------------------------
+* Chain [21] with precondition: [] 
+    - Upper bound: nat(A)*17+7+nat(A)*12*nat(A) 
+    - Complexity: n^2 
+
+### Maximum cost of evalsipmabubblestart(A,B,E): nat(A)*17+7+nat(A)*12*nat(A) 
+Asymptotic class: n^2 
+* Total analysis performed in 187 ms.
+
+
+-- stats
+realtime 0:00.27
+usertime 0.22
+systime 0.01
+

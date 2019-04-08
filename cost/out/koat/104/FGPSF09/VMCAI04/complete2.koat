@@ -1,0 +1,99 @@
+WORST_CASE(?, O(1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0) -> Com_1(n_start(Ar_0))
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0) -> Com_1(n_eval___1(Fresh_0)) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 ]
+		(Comp: ?, Cost: 1)    n_start(Ar_0) -> Com_1(n_eval___1(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0) -> Com_1(n_start(Ar_0))
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0) -> Com_1(n_eval___1(Fresh_0)) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 ]
+		(Comp: 1, Cost: 1)    n_start(Ar_0) -> Com_1(n_eval___1(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition pyRinit(Ar_0) -> Com_1(n_start(Ar_0)) with all transitions in problem 2, the following new transition is obtained:
+	pyRinit(Ar_0) -> Com_1(n_eval___1(Ar_0))
+We thus obtain the following problem:
+3:	T:
+		(Comp: 1, Cost: 2)    pyRinit(Ar_0) -> Com_1(n_eval___1(Ar_0))
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0) -> Com_1(n_eval___1(Fresh_0)) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 ]
+		(Comp: 1, Cost: 1)    n_start(Ar_0) -> Com_1(n_eval___1(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 3:
+	n_start(Ar_0) -> Com_1(n_eval___1(Ar_0))
+We thus obtain the following problem:
+4:	T:
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0) -> Com_1(n_eval___1(Fresh_0)) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 ]
+		(Comp: 1, Cost: 2)    pyRinit(Ar_0) -> Com_1(n_eval___1(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition pyRinit(Ar_0) -> Com_1(n_eval___1(Ar_0)) with all transitions in problem 4, the following new transition is obtained:
+	pyRinit(Ar_0) -> Com_1(n_eval___1(Fresh_0)) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 ]
+We thus obtain the following problem:
+5:	T:
+		(Comp: 1, Cost: 3)    pyRinit(Ar_0) -> Com_1(n_eval___1(Fresh_0)) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0) -> Com_1(n_eval___1(Fresh_0)) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition pyRinit(Ar_0) -> Com_1(n_eval___1(Fresh_0)) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 ] with all transitions in problem 5, the following new transition is obtained:
+	pyRinit(Ar_0) -> Com_1(n_eval___1(Fresh_0')) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 /\ -Fresh_0' + 10 >= 0 /\ 2*Fresh_0 + Fresh_0' - 10 = 0 ]
+We thus obtain the following problem:
+6:	T:
+		(Comp: 1, Cost: 4)    pyRinit(Ar_0) -> Com_1(n_eval___1(Fresh_0')) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 /\ -Fresh_0' + 10 >= 0 /\ 2*Fresh_0 + Fresh_0' - 10 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0) -> Com_1(n_eval___1(Fresh_0)) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition pyRinit(Ar_0) -> Com_1(n_eval___1(Fresh_0')) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 /\ -Fresh_0' + 10 >= 0 /\ 2*Fresh_0 + Fresh_0' - 10 = 0 ] with all transitions in problem 6, the following new transition is obtained:
+	pyRinit(Ar_0) -> Com_1(n_eval___1(Fresh_0'')) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 /\ -Fresh_0' + 10 >= 0 /\ 2*Fresh_0 + Fresh_0' - 10 = 0 /\ -Fresh_0'' + 10 >= 0 /\ 2*Fresh_0' + Fresh_0'' - 10 = 0 ]
+We thus obtain the following problem:
+7:	T:
+		(Comp: 1, Cost: 5)    pyRinit(Ar_0) -> Com_1(n_eval___1(Fresh_0'')) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 /\ -Fresh_0' + 10 >= 0 /\ 2*Fresh_0 + Fresh_0' - 10 = 0 /\ -Fresh_0'' + 10 >= 0 /\ 2*Fresh_0' + Fresh_0'' - 10 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0) -> Com_1(n_eval___1(Fresh_0)) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition pyRinit(Ar_0) -> Com_1(n_eval___1(Fresh_0'')) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 /\ -Fresh_0' + 10 >= 0 /\ 2*Fresh_0 + Fresh_0' - 10 = 0 /\ -Fresh_0'' + 10 >= 0 /\ 2*Fresh_0' + Fresh_0'' - 10 = 0 ] with all transitions in problem 7, the following new transition is obtained:
+	pyRinit(Ar_0) -> Com_1(n_eval___1(Fresh_0''')) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 /\ -Fresh_0' + 10 >= 0 /\ 2*Fresh_0 + Fresh_0' - 10 = 0 /\ -Fresh_0'' + 10 >= 0 /\ 2*Fresh_0' + Fresh_0'' - 10 = 0 /\ -Fresh_0''' + 10 >= 0 /\ 2*Fresh_0'' + Fresh_0''' - 10 = 0 ]
+We thus obtain the following problem:
+8:	T:
+		(Comp: 1, Cost: 6)    pyRinit(Ar_0) -> Com_1(n_eval___1(Fresh_0''')) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 /\ -Fresh_0' + 10 >= 0 /\ 2*Fresh_0 + Fresh_0' - 10 = 0 /\ -Fresh_0'' + 10 >= 0 /\ 2*Fresh_0' + Fresh_0'' - 10 = 0 /\ -Fresh_0''' + 10 >= 0 /\ 2*Fresh_0'' + Fresh_0''' - 10 = 0 ]
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0) -> Com_1(n_eval___1(Fresh_0)) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 8:
+	n_eval___1(Ar_0) -> Com_1(n_eval___1(Fresh_0)) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 ]
+We thus obtain the following problem:
+9:	T:
+		(Comp: 1, Cost: 6)    pyRinit(Ar_0) -> Com_1(n_eval___1(Fresh_0''')) [ -Fresh_0 + 10 >= 0 /\ 2*Ar_0 + Fresh_0 - 10 = 0 /\ -Fresh_0' + 10 >= 0 /\ 2*Fresh_0 + Fresh_0' - 10 = 0 /\ -Fresh_0'' + 10 >= 0 /\ 2*Fresh_0' + Fresh_0'' - 10 = 0 /\ -Fresh_0''' + 10 >= 0 /\ 2*Fresh_0'' + Fresh_0''' - 10 = 0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(pyRinit(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 6
+
+Time: 0.149 sec (SMT: 0.130 sec)
+
+-- stats
+realtime 0:00.15
+usertime 0.13
+systime 0.02
+

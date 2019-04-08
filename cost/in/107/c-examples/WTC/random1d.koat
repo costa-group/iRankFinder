@@ -1,0 +1,15 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A' B' NoDet0 C NoDet1)
+(RULES 
+  pyRinit(A,B) -> Com_1(evalrandom1dstart(A,B))
+  evalrandom1dbb1in(A,B) -> Com_1(evalrandom1dbb5in(A, B + 1)) :|: -1 -C >= 0
+  evalrandom1dbb1in(A,B) -> Com_1(evalrandom1dbb5in(A, B + 1)) :|: C -1 >= 0
+  evalrandom1dbb1in(A,B) -> Com_1(evalrandom1dbb5in(A, B + 1))
+  evalrandom1dbb5in(A,B) -> Com_1(evalrandom1dbb1in(A, B)) :|: A -B >= 0
+  evalrandom1dbb5in(A,B) -> Com_1(evalrandom1dreturnin(A, B)) :|: B -A -1 >= 0
+  evalrandom1dentryin(A,B) -> Com_1(evalrandom1dbb5in(A, 1)) :|: A -1 >= 0
+  evalrandom1dentryin(A,B) -> Com_1(evalrandom1dreturnin(A, B)) :|: -A >= 0
+  evalrandom1dreturnin(A,B) -> Com_1(evalrandom1dstop(NoDet0, NoDet1))
+  evalrandom1dstart(A,B) -> Com_1(evalrandom1dentryin(A, B))
+)

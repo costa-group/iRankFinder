@@ -1,0 +1,56 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(0)) [ 2*B >= 0 /\ 0 >= 2*B /\ Ar_0 = 1 ]
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(2*Fresh_2)) [ 2*Fresh_2 >= 0 /\ 2*Fresh_2 + 2 >= 0 /\ Ar_0 = 2*Fresh_2 + 1 ]
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(Fresh_1)) [ 1 >= 2*C /\ 2*C >= 0 /\ 2*D >= 1 /\ 1 >= 2*D /\ 1 >= 2*E /\ 3*E >= 2 /\ Fresh_1 >= E /\ 1 >= 2*F /\ 3*F >= 2 /\ F >= Fresh_1 /\ Ar_0 = 1 ]
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(Fresh_0)) [ 2*D >= 1 /\ 2*D + 1 >= 0 /\ 2*D >= 2*C /\ 2*C + 1 >= 2*D /\ 2*D >= 2*E /\ 3*E >= 2*D + 1 /\ Fresh_0 >= E /\ 2*D >= 2*F /\ 3*F >= 2*D + 1 /\ F >= Fresh_0 /\ Ar_0 = 2*D ]
+		(Comp: ?, Cost: 1)    start(Ar_0) -> Com_1(eval(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 1:
+	eval(Ar_0) -> Com_1(eval(Fresh_1)) [ 1 >= 2*C /\ 2*C >= 0 /\ 2*D >= 1 /\ 1 >= 2*D /\ 1 >= 2*E /\ 3*E >= 2 /\ Fresh_1 >= E /\ 1 >= 2*F /\ 3*F >= 2 /\ F >= Fresh_1 /\ Ar_0 = 1 ]
+We thus obtain the following problem:
+2:	T:
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(Fresh_0)) [ 2*D >= 1 /\ 2*D + 1 >= 0 /\ 2*D >= 2*C /\ 2*C + 1 >= 2*D /\ 2*D >= 2*E /\ 3*E >= 2*D + 1 /\ Fresh_0 >= E /\ 2*D >= 2*F /\ 3*F >= 2*D + 1 /\ F >= Fresh_0 /\ Ar_0 = 2*D ]
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(2*Fresh_2)) [ 2*Fresh_2 >= 0 /\ 2*Fresh_2 + 2 >= 0 /\ Ar_0 = 2*Fresh_2 + 1 ]
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(0)) [ 2*B >= 0 /\ 0 >= 2*B /\ Ar_0 = 1 ]
+		(Comp: ?, Cost: 1)    start(Ar_0) -> Com_1(eval(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 2 produces the following problem:
+3:	T:
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(Fresh_0)) [ 2*D >= 1 /\ 2*D + 1 >= 0 /\ 2*D >= 2*C /\ 2*C + 1 >= 2*D /\ 2*D >= 2*E /\ 3*E >= 2*D + 1 /\ Fresh_0 >= E /\ 2*D >= 2*F /\ 3*F >= 2*D + 1 /\ F >= Fresh_0 /\ Ar_0 = 2*D ]
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(2*Fresh_2)) [ 2*Fresh_2 >= 0 /\ 2*Fresh_2 + 2 >= 0 /\ Ar_0 = 2*Fresh_2 + 1 ]
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(0)) [ 2*B >= 0 /\ 0 >= 2*B /\ Ar_0 = 1 ]
+		(Comp: 1, Cost: 1)    start(Ar_0) -> Com_1(eval(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(eval) = 2*V_1
+	Pol(start) = 2*V_1
+	Pol(koat_start) = 2*V_1
+orients all transitions weakly and the transitions
+	eval(Ar_0) -> Com_1(eval(2*Fresh_2)) [ 2*Fresh_2 >= 0 /\ 2*Fresh_2 + 2 >= 0 /\ Ar_0 = 2*Fresh_2 + 1 ]
+	eval(Ar_0) -> Com_1(eval(Fresh_0)) [ 2*D >= 1 /\ 2*D + 1 >= 0 /\ 2*D >= 2*C /\ 2*C + 1 >= 2*D /\ 2*D >= 2*E /\ 3*E >= 2*D + 1 /\ Fresh_0 >= E /\ 2*D >= 2*F /\ 3*F >= 2*D + 1 /\ F >= Fresh_0 /\ Ar_0 = 2*D ]
+	eval(Ar_0) -> Com_1(eval(0)) [ 2*B >= 0 /\ 0 >= 2*B /\ Ar_0 = 1 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 2*Ar_0, Cost: 1)    eval(Ar_0) -> Com_1(eval(Fresh_0)) [ 2*D >= 1 /\ 2*D + 1 >= 0 /\ 2*D >= 2*C /\ 2*C + 1 >= 2*D /\ 2*D >= 2*E /\ 3*E >= 2*D + 1 /\ Fresh_0 >= E /\ 2*D >= 2*F /\ 3*F >= 2*D + 1 /\ F >= Fresh_0 /\ Ar_0 = 2*D ]
+		(Comp: 2*Ar_0, Cost: 1)    eval(Ar_0) -> Com_1(eval(2*Fresh_2)) [ 2*Fresh_2 >= 0 /\ 2*Fresh_2 + 2 >= 0 /\ Ar_0 = 2*Fresh_2 + 1 ]
+		(Comp: 2*Ar_0, Cost: 1)    eval(Ar_0) -> Com_1(eval(0)) [ 2*B >= 0 /\ 0 >= 2*B /\ Ar_0 = 1 ]
+		(Comp: 1, Cost: 1)         start(Ar_0) -> Com_1(eval(Ar_0))
+		(Comp: 1, Cost: 0)         koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 6*Ar_0 + 1
+
+Time: 0.042 sec (SMT: 0.036 sec)

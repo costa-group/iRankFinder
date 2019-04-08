@@ -1,0 +1,526 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]
+		(Comp: ?, Cost: 1)    evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\ Ar_0 = 2 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_2 >= 101 /\ 100 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 1, Ar_2, Ar_3)) [ 100 >= Ar_2 /\ Ar_2 >= 101 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transitions from problem 1:
+	evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 1 >= Ar_0 ]
+	evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_2 >= 101 /\ 100 >= Ar_2 ]
+	evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 1, Ar_2, Ar_3)) [ 100 >= Ar_2 /\ Ar_2 >= 101 ]
+We thus obtain the following problem:
+2:	T:
+		(Comp: ?, Cost: 1)    evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\ Ar_0 = 2 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]
+		(Comp: ?, Cost: 1)    evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 2 produces the following problem:
+3:	T:
+		(Comp: ?, Cost: 1)    evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\ Ar_0 = 2 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]
+		(Comp: 1, Cost: 1)    evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]
+		(Comp: 1, Cost: 1)    evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalsipma91bb8in) = 2
+	Pol(evalsipma91bb11in) = 2
+	Pol(evalsipma91bb5in) = 2
+	Pol(evalsipma91returnin) = 1
+	Pol(evalsipma91bb3in) = 3
+	Pol(evalsipma91bb2in) = 3
+	Pol(evalsipma91stop) = 0
+	Pol(evalsipma91entryin) = 3
+	Pol(evalsipma91start) = 3
+	Pol(koat_start) = 3
+orients all transitions weakly and the transitions
+	evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]
+	evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: ?, Cost: 1)    evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\ Ar_0 = 2 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]
+		(Comp: 3, Cost: 1)    evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]
+		(Comp: 3, Cost: 1)    evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]
+		(Comp: ?, Cost: 1)    evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]
+		(Comp: 3, Cost: 1)    evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]
+		(Comp: 1, Cost: 1)    evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]
+		(Comp: 1, Cost: 1)    evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalsipma91bb3in) = -V_2 + 101
+	Pol(evalsipma91bb2in) = -V_2 + 90
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-0) = Ar_0
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-1) = Ar_1
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-2) = Ar_2
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-3) = Ar_3
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-0) = 1
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-1) = Ar_0
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-2) = Ar_2
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = ?
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]", 0-0) = ?
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]", 0-1) = ?
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]", 0-2) = Ar_2
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]", 0-3) = Ar_3
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))", 0-0) = ?
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))", 0-1) = ?
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]", 0-0) = ?
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]", 0-1) = ?
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]", 0-2) = Ar_2
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]", 0-3) = Ar_3
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]", 0-0) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]", 0-1) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]", 0-2) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]", 0-3) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]", 0-0) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]", 0-1) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]", 0-2) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]", 0-3) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]", 0-0) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]", 0-1) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]", 0-2) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]", 0-3) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]", 0-0) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]", 0-1) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]", 0-2) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]", 0-3) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-0) = 1
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-1) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-2) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-3) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]", 0-0) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]", 0-1) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]", 0-2) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]", 0-3) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]", 0-0) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]", 0-1) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]", 0-2) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]", 0-3) = ?
+orients the transitions
+	evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]
+	evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))
+weakly and the transition
+	evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: ?, Cost: 1)             evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]
+		(Comp: ?, Cost: 1)             evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]
+		(Comp: ?, Cost: 1)             evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\ Ar_0 = 2 ]
+		(Comp: ?, Cost: 1)             evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]
+		(Comp: ?, Cost: 1)             evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]
+		(Comp: 3, Cost: 1)             evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)             evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]
+		(Comp: 3, Cost: 1)             evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]
+		(Comp: ?, Cost: 1)             evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))
+		(Comp: Ar_0 + 101, Cost: 1)    evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]
+		(Comp: 3, Cost: 1)             evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)             evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]
+		(Comp: 1, Cost: 1)             evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]
+		(Comp: 1, Cost: 1)             evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 5 produces the following problem:
+6:	T:
+		(Comp: ?, Cost: 1)             evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]
+		(Comp: ?, Cost: 1)             evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]
+		(Comp: ?, Cost: 1)             evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\ Ar_0 = 2 ]
+		(Comp: ?, Cost: 1)             evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]
+		(Comp: ?, Cost: 1)             evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]
+		(Comp: 3, Cost: 1)             evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)             evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]
+		(Comp: 3, Cost: 1)             evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]
+		(Comp: Ar_0 + 101, Cost: 1)    evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))
+		(Comp: Ar_0 + 101, Cost: 1)    evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]
+		(Comp: 3, Cost: 1)             evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)             evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]
+		(Comp: 1, Cost: 1)             evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]
+		(Comp: 1, Cost: 1)             evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalsipma91bb8in) = V_4 + 1
+	Pol(evalsipma91bb11in) = V_1
+	Pol(evalsipma91bb5in) = V_1
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-0) = Ar_0
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-1) = Ar_1
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-2) = Ar_2
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-3) = Ar_3
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-0) = 1
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-1) = Ar_0
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-2) = Ar_2
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = ?
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]", 0-1) = 12*Ar_0 + 159984
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]", 0-2) = Ar_2
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]", 0-3) = Ar_3
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))", 0-0) = Ar_0 + 102
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))", 0-1) = 12*Ar_0 + 159984
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]", 0-1) = 12*Ar_0 + 1919808
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]", 0-2) = Ar_2
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]", 0-3) = Ar_3
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]", 0-0) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]", 0-1) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]", 0-2) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]", 0-3) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]", 0-0) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]", 0-1) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]", 0-2) = ?
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]", 0-3) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]", 0-0) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]", 0-1) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]", 0-2) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]", 0-3) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]", 0-0) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]", 0-1) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]", 0-2) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]", 0-3) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-0) = 1
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-1) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-2) = ?
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-3) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]", 0-0) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]", 0-1) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]", 0-2) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]", 0-3) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]", 0-0) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]", 0-1) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]", 0-2) = ?
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]", 0-3) = ?
+orients the transitions
+	evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]
+	evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]
+	evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]
+	evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]
+	evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\ Ar_0 = 2 ]
+	evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]
+weakly and the transition
+	evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\ Ar_0 = 2 ]
+strictly and produces the following problem:
+7:	T:
+		(Comp: ?, Cost: 1)               evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_2 >= 101 ]
+		(Comp: ?, Cost: 1)               evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ 100 >= Ar_2 ]
+		(Comp: 3*Ar_0 + 306, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 >= 111 /\ Ar_0 = 2 ]
+		(Comp: ?, Cost: 1)               evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_0 >= 3 ]
+		(Comp: ?, Cost: 1)               evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ 110 >= Ar_1 ]
+		(Comp: 3, Cost: 1)               evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)               evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 2 ]
+		(Comp: 3, Cost: 1)               evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 101 ]
+		(Comp: Ar_0 + 101, Cost: 1)      evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3))
+		(Comp: Ar_0 + 101, Cost: 1)      evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 100 >= Ar_1 ]
+		(Comp: 3, Cost: 1)               evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)               evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]
+		(Comp: 1, Cost: 1)               evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]
+		(Comp: 1, Cost: 1)               evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)               koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Applied AI with 'oct' on problem 7 to obtain the following invariants:
+  For symbol evalsipma91bb11in: X_2 - 101 >= 0 /\ X_1 + X_2 - 102 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalsipma91bb2in: -X_2 + 100 >= 0 /\ X_1 - X_2 + 99 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalsipma91bb3in: X_1 - 1 >= 0
+  For symbol evalsipma91bb5in: X_2 - 101 >= 0 /\ X_1 + X_2 - 103 >= 0 /\ X_1 - 2 >= 0
+  For symbol evalsipma91bb8in: X_1 - X_4 - 1 >= 0 /\ X_4 - 1 >= 0 /\ X_3 + X_4 - 92 >= 0 /\ X_2 + X_4 - 102 >= 0 /\ X_1 + X_4 - 3 >= 0 /\ -X_1 + X_4 + 1 >= 0 /\ X_2 - X_3 - 10 >= 0 /\ X_3 - 91 >= 0 /\ X_2 + X_3 - 192 >= 0 /\ -X_2 + X_3 + 10 >= 0 /\ X_1 + X_3 - 93 >= 0 /\ X_2 - 101 >= 0 /\ X_1 + X_2 - 103 >= 0 /\ X_1 - 2 >= 0
+  For symbol evalsipma91returnin: X_1 - 1 >= 0
+
+
+This yielded the following problem:
+8:	T:
+		(Comp: 1, Cost: 0)               koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+		(Comp: 1, Cost: 1)               evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)               evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]
+		(Comp: 1, Cost: 1)               evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]
+		(Comp: 3, Cost: 1)               evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 ]
+		(Comp: Ar_0 + 101, Cost: 1)      evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\ 100 >= Ar_1 ]
+		(Comp: Ar_0 + 101, Cost: 1)      evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 + 99 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 3, Cost: 1)               evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\ Ar_1 >= 101 ]
+		(Comp: ?, Cost: 1)               evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 102 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 >= 2 ]
+		(Comp: 3, Cost: 1)               evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 102 >= 0 /\ Ar_0 - 1 >= 0 /\ 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)               evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ 110 >= Ar_1 ]
+		(Comp: ?, Cost: 1)               evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_0 >= 3 ]
+		(Comp: 3*Ar_0 + 306, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_1 >= 111 /\ Ar_0 = 2 ]
+		(Comp: ?, Cost: 1)               evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 92 >= 0 /\ Ar_1 + Ar_3 - 102 >= 0 /\ Ar_0 + Ar_3 - 3 >= 0 /\ -Ar_0 + Ar_3 + 1 >= 0 /\ Ar_1 - Ar_2 - 10 >= 0 /\ Ar_2 - 91 >= 0 /\ Ar_1 + Ar_2 - 192 >= 0 /\ -Ar_1 + Ar_2 + 10 >= 0 /\ Ar_0 + Ar_2 - 93 >= 0 /\ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ 100 >= Ar_2 ]
+		(Comp: ?, Cost: 1)               evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 92 >= 0 /\ Ar_1 + Ar_3 - 102 >= 0 /\ Ar_0 + Ar_3 - 3 >= 0 /\ -Ar_0 + Ar_3 + 1 >= 0 /\ Ar_1 - Ar_2 - 10 >= 0 /\ Ar_2 - 91 >= 0 /\ Ar_1 + Ar_2 - 192 >= 0 /\ -Ar_1 + Ar_2 + 10 >= 0 /\ Ar_0 + Ar_2 - 93 >= 0 /\ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_2 >= 101 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalsipma91bb8in) = 19*V_1 - 2*V_2 + 183
+	Pol(evalsipma91bb11in) = 19*V_1 - 2*V_2 + 184
+	Pol(evalsipma91bb5in) = 19*V_1 - 2*V_2 + 184
+and size complexities
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_2 >= 101 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_2 >= 101 ]", 0-1) = Ar_0 + 222
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_2 >= 101 ]", 0-2) = Ar_0 + 222
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_2 >= 101 ]", 0-3) = Ar_0 + 102
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 100 >= Ar_2 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 100 >= Ar_2 ]", 0-1) = 111
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 100 >= Ar_2 ]", 0-2) = 100
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 100 >= Ar_2 ]", 0-3) = Ar_0 + 102
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-0) = 1
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-1) = Ar_0 + 222
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-2) = Ar_0 + Ar_2 + 322
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-3) = Ar_0 + Ar_3 + 102
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 >= 3 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 >= 3 ]", 0-1) = Ar_0 + 222
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 >= 3 ]", 0-2) = Ar_0 + 222
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 >= 3 ]", 0-3) = Ar_0 + 102
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 110 >= Ar_1 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 110 >= Ar_1 ]", 0-1) = 110
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 110 >= Ar_1 ]", 0-2) = 100
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 110 >= Ar_1 ]", 0-3) = Ar_0 + 102
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ 1 >= Ar_0 ]", 0-0) = 1
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ 1 >= Ar_0 ]", 0-1) = Ar_0 + 222
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ 1 >= Ar_0 ]", 0-2) = Ar_0 + Ar_2 + 322
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ 1 >= Ar_0 ]", 0-3) = Ar_0 + Ar_3 + 102
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 >= 2 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 >= 2 ]", 0-1) = Ar_0 + 222
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 >= 2 ]", 0-2) = Ar_0 + Ar_2 + 322
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 >= 2 ]", 0-3) = Ar_0 + Ar_3 + 102
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ Ar_1 >= 101 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ Ar_1 >= 101 ]", 0-1) = Ar_0 + 111
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ Ar_1 >= 101 ]", 0-2) = Ar_2
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ Ar_1 >= 101 ]", 0-3) = Ar_3
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 + 99 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 + 99 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = Ar_0 + 111
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 + 99 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = Ar_2
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 + 99 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-3) = Ar_3
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ 100 >= Ar_1 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ 100 >= Ar_1 ]", 0-1) = Ar_0 + 111
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ 100 >= Ar_1 ]", 0-2) = Ar_2
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ 100 >= Ar_1 ]", 0-3) = Ar_3
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 ]", 0-0) = Ar_0 + 1
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 ]", 0-1) = Ar_0 + Ar_1 + 222
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 ]", 0-2) = Ar_0 + Ar_2 + 322
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 ]", 0-3) = Ar_0 + Ar_3 + 102
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-0) = 1
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-1) = Ar_0
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-2) = Ar_2
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-0) = Ar_0
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-1) = Ar_1
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-2) = Ar_2
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-3) = Ar_3
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+orients the transitions
+	evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 92 >= 0 /\ Ar_1 + Ar_3 - 102 >= 0 /\ Ar_0 + Ar_3 - 3 >= 0 /\ -Ar_0 + Ar_3 + 1 >= 0 /\ Ar_1 - Ar_2 - 10 >= 0 /\ Ar_2 - 91 >= 0 /\ Ar_1 + Ar_2 - 192 >= 0 /\ -Ar_1 + Ar_2 + 10 >= 0 /\ Ar_0 + Ar_2 - 93 >= 0 /\ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ 100 >= Ar_2 ]
+	evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 92 >= 0 /\ Ar_1 + Ar_3 - 102 >= 0 /\ Ar_0 + Ar_3 - 3 >= 0 /\ -Ar_0 + Ar_3 + 1 >= 0 /\ Ar_1 - Ar_2 - 10 >= 0 /\ Ar_2 - 91 >= 0 /\ Ar_1 + Ar_2 - 192 >= 0 /\ -Ar_1 + Ar_2 + 10 >= 0 /\ Ar_0 + Ar_2 - 93 >= 0 /\ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_2 >= 101 ]
+	evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ 110 >= Ar_1 ]
+	evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_0 >= 3 ]
+	evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 102 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 >= 2 ]
+weakly and the transitions
+	evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 92 >= 0 /\ Ar_1 + Ar_3 - 102 >= 0 /\ Ar_0 + Ar_3 - 3 >= 0 /\ -Ar_0 + Ar_3 + 1 >= 0 /\ Ar_1 - Ar_2 - 10 >= 0 /\ Ar_2 - 91 >= 0 /\ Ar_1 + Ar_2 - 192 >= 0 /\ -Ar_1 + Ar_2 + 10 >= 0 /\ Ar_0 + Ar_2 - 93 >= 0 /\ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ 100 >= Ar_2 ]
+	evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ 110 >= Ar_1 ]
+strictly and produces the following problem:
+9:	T:
+		(Comp: 1, Cost: 0)                 koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+		(Comp: 1, Cost: 1)                 evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)                 evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]
+		(Comp: 1, Cost: 1)                 evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]
+		(Comp: 3, Cost: 1)                 evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 ]
+		(Comp: Ar_0 + 101, Cost: 1)        evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\ 100 >= Ar_1 ]
+		(Comp: Ar_0 + 101, Cost: 1)        evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 + 99 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 3, Cost: 1)                 evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\ Ar_1 >= 101 ]
+		(Comp: ?, Cost: 1)                 evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 102 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 >= 2 ]
+		(Comp: 3, Cost: 1)                 evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 102 >= 0 /\ Ar_0 - 1 >= 0 /\ 1 >= Ar_0 ]
+		(Comp: 63*Ar_0 + 7032, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ 110 >= Ar_1 ]
+		(Comp: ?, Cost: 1)                 evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_0 >= 3 ]
+		(Comp: 3*Ar_0 + 306, Cost: 1)      evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_1 >= 111 /\ Ar_0 = 2 ]
+		(Comp: 63*Ar_0 + 7032, Cost: 1)    evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 92 >= 0 /\ Ar_1 + Ar_3 - 102 >= 0 /\ Ar_0 + Ar_3 - 3 >= 0 /\ -Ar_0 + Ar_3 + 1 >= 0 /\ Ar_1 - Ar_2 - 10 >= 0 /\ Ar_2 - 91 >= 0 /\ Ar_1 + Ar_2 - 192 >= 0 /\ -Ar_1 + Ar_2 + 10 >= 0 /\ Ar_0 + Ar_2 - 93 >= 0 /\ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ 100 >= Ar_2 ]
+		(Comp: ?, Cost: 1)                 evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 92 >= 0 /\ Ar_1 + Ar_3 - 102 >= 0 /\ Ar_0 + Ar_3 - 3 >= 0 /\ -Ar_0 + Ar_3 + 1 >= 0 /\ Ar_1 - Ar_2 - 10 >= 0 /\ Ar_2 - 91 >= 0 /\ Ar_1 + Ar_2 - 192 >= 0 /\ -Ar_1 + Ar_2 + 10 >= 0 /\ Ar_0 + Ar_2 - 93 >= 0 /\ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_2 >= 101 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalsipma91bb8in) = 3*V_3 + 12
+	Pol(evalsipma91bb11in) = 3*V_2
+	Pol(evalsipma91bb5in) = 3*V_2 - 9
+and size complexities
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_2 >= 101 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_2 >= 101 ]", 0-1) = Ar_0 + 222
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_2 >= 101 ]", 0-2) = Ar_0 + 222
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_2 >= 101 ]", 0-3) = Ar_0 + 102
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 100 >= Ar_2 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 100 >= Ar_2 ]", 0-1) = 111
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 100 >= Ar_2 ]", 0-2) = 100
+	S("evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\\ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 92 >= 0 /\\ Ar_1 + Ar_3 - 102 >= 0 /\\ Ar_0 + Ar_3 - 3 >= 0 /\\ -Ar_0 + Ar_3 + 1 >= 0 /\\ Ar_1 - Ar_2 - 10 >= 0 /\\ Ar_2 - 91 >= 0 /\\ Ar_1 + Ar_2 - 192 >= 0 /\\ -Ar_1 + Ar_2 + 10 >= 0 /\\ Ar_0 + Ar_2 - 93 >= 0 /\\ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 100 >= Ar_2 ]", 0-3) = Ar_0 + 102
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-0) = 1
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-1) = Ar_0 + 222
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-2) = Ar_0 + Ar_2 + 322
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_1 >= 111 /\\ Ar_0 = 2 ]", 0-3) = Ar_0 + Ar_3 + 102
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 >= 3 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 >= 3 ]", 0-1) = Ar_0 + 222
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 >= 3 ]", 0-2) = Ar_0 + 222
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ Ar_0 >= 3 ]", 0-3) = Ar_0 + 102
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 110 >= Ar_1 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 110 >= Ar_1 ]", 0-1) = 110
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 110 >= Ar_1 ]", 0-2) = 100
+	S("evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 103 >= 0 /\\ Ar_0 - 2 >= 0 /\\ 110 >= Ar_1 ]", 0-3) = Ar_0 + 102
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ 1 >= Ar_0 ]", 0-0) = 1
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ 1 >= Ar_0 ]", 0-1) = Ar_0 + 222
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ 1 >= Ar_0 ]", 0-2) = Ar_0 + Ar_2 + 322
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ 1 >= Ar_0 ]", 0-3) = Ar_0 + Ar_3 + 102
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 >= 2 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 >= 2 ]", 0-1) = Ar_0 + 222
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 >= 2 ]", 0-2) = Ar_0 + Ar_2 + 322
+	S("evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\\ Ar_0 + Ar_1 - 102 >= 0 /\\ Ar_0 - 1 >= 0 /\\ Ar_0 >= 2 ]", 0-3) = Ar_0 + Ar_3 + 102
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ Ar_1 >= 101 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ Ar_1 >= 101 ]", 0-1) = Ar_0 + 111
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ Ar_1 >= 101 ]", 0-2) = Ar_2
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ Ar_1 >= 101 ]", 0-3) = Ar_3
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 + 99 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 + 99 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = Ar_0 + 111
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 + 99 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = Ar_2
+	S("evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\\ Ar_0 - Ar_1 + 99 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-3) = Ar_3
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ 100 >= Ar_1 ]", 0-0) = Ar_0 + 102
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ 100 >= Ar_1 ]", 0-1) = Ar_0 + 111
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ 100 >= Ar_1 ]", 0-2) = Ar_2
+	S("evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\\ 100 >= Ar_1 ]", 0-3) = Ar_3
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 ]", 0-0) = Ar_0 + 1
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 ]", 0-1) = Ar_0 + Ar_1 + 222
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 ]", 0-2) = Ar_0 + Ar_2 + 322
+	S("evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 ]", 0-3) = Ar_0 + Ar_3 + 102
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-0) = 1
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-1) = Ar_0
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-2) = Ar_2
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-0) = Ar_0
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-1) = Ar_1
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-2) = Ar_2
+	S("evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]", 0-3) = Ar_3
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+orients the transitions
+	evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 92 >= 0 /\ Ar_1 + Ar_3 - 102 >= 0 /\ Ar_0 + Ar_3 - 3 >= 0 /\ -Ar_0 + Ar_3 + 1 >= 0 /\ Ar_1 - Ar_2 - 10 >= 0 /\ Ar_2 - 91 >= 0 /\ Ar_1 + Ar_2 - 192 >= 0 /\ -Ar_1 + Ar_2 + 10 >= 0 /\ Ar_0 + Ar_2 - 93 >= 0 /\ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_2 >= 101 ]
+	evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_0 >= 3 ]
+	evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 102 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 >= 2 ]
+weakly and the transitions
+	evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 92 >= 0 /\ Ar_1 + Ar_3 - 102 >= 0 /\ Ar_0 + Ar_3 - 3 >= 0 /\ -Ar_0 + Ar_3 + 1 >= 0 /\ Ar_1 - Ar_2 - 10 >= 0 /\ Ar_2 - 91 >= 0 /\ Ar_1 + Ar_2 - 192 >= 0 /\ -Ar_1 + Ar_2 + 10 >= 0 /\ Ar_0 + Ar_2 - 93 >= 0 /\ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_2 >= 101 ]
+	evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_0 >= 3 ]
+	evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 102 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 >= 2 ]
+strictly and produces the following problem:
+10:	T:
+		(Comp: 1, Cost: 0)                       koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+		(Comp: 1, Cost: 1)                       evalsipma91start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)                       evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= 101 ]
+		(Comp: 1, Cost: 1)                       evalsipma91entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(1, Ar_0, Ar_2, Ar_3)) [ 100 >= Ar_0 ]
+		(Comp: 3, Cost: 1)                       evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91stop(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 ]
+		(Comp: Ar_0 + 101, Cost: 1)              evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\ 100 >= Ar_1 ]
+		(Comp: Ar_0 + 101, Cost: 1)              evalsipma91bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb3in(Ar_0 + 1, Ar_1 + 11, Ar_2, Ar_3)) [ -Ar_1 + 100 >= 0 /\ Ar_0 - Ar_1 + 99 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 3, Cost: 1)                       evalsipma91bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - 1 >= 0 /\ Ar_1 >= 101 ]
+		(Comp: 20988*Ar_0 + 2342655, Cost: 1)    evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 102 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 >= 2 ]
+		(Comp: 3, Cost: 1)                       evalsipma91bb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 102 >= 0 /\ Ar_0 - 1 >= 0 /\ 1 >= Ar_0 ]
+		(Comp: 63*Ar_0 + 7032, Cost: 1)          evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ 110 >= Ar_1 ]
+		(Comp: 20988*Ar_0 + 2342655, Cost: 1)    evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb8in(Ar_0, Ar_1, Ar_1 - 10, Ar_0 - 1)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_0 >= 3 ]
+		(Comp: 3*Ar_0 + 306, Cost: 1)            evalsipma91bb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_0 - 1, Ar_1 - 10, Ar_2, Ar_3)) [ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_1 >= 111 /\ Ar_0 = 2 ]
+		(Comp: 63*Ar_0 + 7032, Cost: 1)          evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3 + 1, Ar_2 + 11, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 92 >= 0 /\ Ar_1 + Ar_3 - 102 >= 0 /\ Ar_0 + Ar_3 - 3 >= 0 /\ -Ar_0 + Ar_3 + 1 >= 0 /\ Ar_1 - Ar_2 - 10 >= 0 /\ Ar_2 - 91 >= 0 /\ Ar_1 + Ar_2 - 192 >= 0 /\ -Ar_1 + Ar_2 + 10 >= 0 /\ Ar_0 + Ar_2 - 93 >= 0 /\ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ 100 >= Ar_2 ]
+		(Comp: 20988*Ar_0 + 2342655, Cost: 1)    evalsipma91bb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalsipma91bb11in(Ar_3, Ar_2 + 1, Ar_2, Ar_3)) [ Ar_0 - Ar_3 - 1 >= 0 /\ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 92 >= 0 /\ Ar_1 + Ar_3 - 102 >= 0 /\ Ar_0 + Ar_3 - 3 >= 0 /\ -Ar_0 + Ar_3 + 1 >= 0 /\ Ar_1 - Ar_2 - 10 >= 0 /\ Ar_2 - 91 >= 0 /\ Ar_1 + Ar_2 - 192 >= 0 /\ -Ar_1 + Ar_2 + 10 >= 0 /\ Ar_0 + Ar_2 - 93 >= 0 /\ Ar_1 - 101 >= 0 /\ Ar_0 + Ar_1 - 103 >= 0 /\ Ar_0 - 2 >= 0 /\ Ar_2 >= 101 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 63095*Ar_0 + 7042549
+
+Time: 0.341 sec (SMT: 0.272 sec)

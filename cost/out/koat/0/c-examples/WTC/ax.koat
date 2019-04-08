@@ -1,0 +1,248 @@
+WORST_CASE(?, O(n^2))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))
+		(Comp: ?, Cost: 1)    evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+		(Comp: ?, Cost: 1)    evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))
+		(Comp: ?, Cost: 1)    evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\ Ar_2 >= Ar_0 + 3 ]
+		(Comp: ?, Cost: 1)    evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+		(Comp: ?, Cost: 1)    evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 1:
+	evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+We thus obtain the following problem:
+2:	T:
+		(Comp: ?, Cost: 1)    evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\ Ar_2 >= Ar_0 + 3 ]
+		(Comp: ?, Cost: 1)    evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))
+		(Comp: ?, Cost: 1)    evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+		(Comp: ?, Cost: 1)    evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))
+		(Comp: ?, Cost: 1)    evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 2 produces the following problem:
+3:	T:
+		(Comp: ?, Cost: 1)    evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\ Ar_2 >= Ar_0 + 3 ]
+		(Comp: ?, Cost: 1)    evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))
+		(Comp: ?, Cost: 1)    evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+		(Comp: ?, Cost: 1)    evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))
+		(Comp: 1, Cost: 1)    evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)    evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalaxreturnin) = 1
+	Pol(evalaxstop) = 0
+	Pol(evalaxbb3in) = 2
+	Pol(evalaxbbin) = 2
+	Pol(evalaxbb1in) = 2
+	Pol(evalaxbb2in) = 2
+	Pol(evalaxentryin) = 2
+	Pol(evalaxstart) = 2
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))
+	evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 2, Cost: 1)    evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)    evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\ Ar_2 >= Ar_0 + 3 ]
+		(Comp: ?, Cost: 1)    evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))
+		(Comp: ?, Cost: 1)    evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+		(Comp: ?, Cost: 1)    evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))
+		(Comp: 1, Cost: 1)    evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)    evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalaxreturnin) = -V_1 + V_3
+	Pol(evalaxstop) = -V_1 + V_3
+	Pol(evalaxbb3in) = -V_1 + V_3
+	Pol(evalaxbbin) = -V_1 + V_3
+	Pol(evalaxbb1in) = -V_1 + V_3
+	Pol(evalaxbb2in) = -V_1 + V_3
+	Pol(evalaxentryin) = V_3
+	Pol(evalaxstart) = V_3
+	Pol(koat_start) = V_3
+orients all transitions weakly and the transition
+	evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\ Ar_2 >= Ar_0 + 3 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: 2, Cost: 1)       evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)       evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]
+		(Comp: Ar_2, Cost: 1)    evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\ Ar_2 >= Ar_0 + 3 ]
+		(Comp: ?, Cost: 1)       evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))
+		(Comp: ?, Cost: 1)       evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)       evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+		(Comp: ?, Cost: 1)       evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))
+		(Comp: 1, Cost: 1)       evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)       evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)       koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 5 produces the following problem:
+6:	T:
+		(Comp: 2, Cost: 1)           evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)           evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]
+		(Comp: Ar_2, Cost: 1)        evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\ Ar_2 >= Ar_0 + 3 ]
+		(Comp: ?, Cost: 1)           evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))
+		(Comp: ?, Cost: 1)           evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)           evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+		(Comp: Ar_2 + 1, Cost: 1)    evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))
+		(Comp: 1, Cost: 1)           evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)           evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalaxbb2in) = 1
+	Pol(evalaxbb3in) = 0
+	Pol(evalaxbb1in) = 1
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))", 0-0) = Ar_0
+	S("evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))", 0-2) = Ar_2
+	S("evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))", 0-0) = 0
+	S("evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))", 0-2) = Ar_2
+	S("evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))", 0-0) = Ar_2
+	S("evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))", 0-1) = 0
+	S("evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))", 0-2) = Ar_2
+	S("evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]", 0-0) = Ar_2
+	S("evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]", 0-1) = ?
+	S("evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]", 0-2) = Ar_2
+	S("evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]", 0-0) = Ar_2
+	S("evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]", 0-1) = ?
+	S("evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]", 0-2) = Ar_2
+	S("evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))", 0-0) = Ar_2
+	S("evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))", 0-1) = ?
+	S("evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))", 0-2) = Ar_2
+	S("evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\\ Ar_2 >= Ar_0 + 3 ]", 0-0) = Ar_2
+	S("evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\\ Ar_2 >= Ar_0 + 3 ]", 0-1) = ?
+	S("evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\\ Ar_2 >= Ar_0 + 3 ]", 0-2) = Ar_2
+	S("evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]", 0-0) = Ar_2
+	S("evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]", 0-1) = ?
+	S("evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]", 0-2) = Ar_2
+	S("evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))", 0-0) = Ar_2
+	S("evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))", 0-1) = ?
+	S("evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))", 0-2) = Ar_2
+orients the transitions
+	evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]
+	evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+	evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))
+weakly and the transition
+	evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]
+strictly and produces the following problem:
+7:	T:
+		(Comp: 2, Cost: 1)           evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)           evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]
+		(Comp: Ar_2, Cost: 1)        evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\ Ar_2 >= Ar_0 + 3 ]
+		(Comp: ?, Cost: 1)           evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))
+		(Comp: Ar_2 + 1, Cost: 1)    evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)           evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+		(Comp: Ar_2 + 1, Cost: 1)    evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))
+		(Comp: 1, Cost: 1)           evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)           evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalaxbb2in) = -V_2 + V_3
+	Pol(evalaxbb1in) = -V_2 + V_3 - 1
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))", 0-0) = Ar_0
+	S("evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))", 0-2) = Ar_2
+	S("evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))", 0-0) = 0
+	S("evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))", 0-2) = Ar_2
+	S("evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))", 0-0) = Ar_2
+	S("evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))", 0-1) = 0
+	S("evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))", 0-2) = Ar_2
+	S("evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]", 0-0) = Ar_2
+	S("evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]", 0-1) = ?
+	S("evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]", 0-2) = Ar_2
+	S("evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]", 0-0) = Ar_2
+	S("evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]", 0-1) = ?
+	S("evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]", 0-2) = Ar_2
+	S("evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))", 0-0) = Ar_2
+	S("evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))", 0-1) = ?
+	S("evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))", 0-2) = Ar_2
+	S("evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\\ Ar_2 >= Ar_0 + 3 ]", 0-0) = Ar_2
+	S("evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\\ Ar_2 >= Ar_0 + 3 ]", 0-1) = ?
+	S("evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\\ Ar_2 >= Ar_0 + 3 ]", 0-2) = Ar_2
+	S("evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]", 0-0) = Ar_2
+	S("evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]", 0-1) = ?
+	S("evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]", 0-2) = Ar_2
+	S("evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))", 0-0) = Ar_2
+	S("evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))", 0-1) = ?
+	S("evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))", 0-2) = Ar_2
+orients the transitions
+	evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+	evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))
+weakly and the transition
+	evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+strictly and produces the following problem:
+8:	T:
+		(Comp: 2, Cost: 1)                evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)                evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]
+		(Comp: Ar_2, Cost: 1)             evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\ Ar_2 >= Ar_0 + 3 ]
+		(Comp: ?, Cost: 1)                evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))
+		(Comp: Ar_2 + 1, Cost: 1)         evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]
+		(Comp: Ar_2^2 + Ar_2, Cost: 1)    evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+		(Comp: Ar_2 + 1, Cost: 1)         evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))
+		(Comp: 1, Cost: 1)                evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)                evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)                koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 8 produces the following problem:
+9:	T:
+		(Comp: 2, Cost: 1)                evalaxreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)                evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 2 >= Ar_2 ]
+		(Comp: Ar_2, Cost: 1)             evalaxbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(Ar_0 + 1, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 /\ Ar_2 >= Ar_0 + 3 ]
+		(Comp: Ar_2^2 + Ar_2, Cost: 1)    evalaxbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, Ar_1 + 1, Ar_2))
+		(Comp: Ar_2 + 1, Cost: 1)         evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 + 1 >= Ar_2 ]
+		(Comp: Ar_2^2 + Ar_2, Cost: 1)    evalaxbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 + 2 ]
+		(Comp: Ar_2 + 1, Cost: 1)         evalaxbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbb2in(Ar_0, 0, Ar_2))
+		(Comp: 1, Cost: 1)                evalaxentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxbbin(0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)                evalaxstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)                koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalaxstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 5*Ar_2 + 2*Ar_2^2 + 8
+
+Time: 0.047 sec (SMT: 0.038 sec)

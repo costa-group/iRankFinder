@@ -1,0 +1,132 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [eval/3]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [eval_loop_cont/2]
+3. non_recursive  : [start/3]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into eval/3
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into start/3
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations eval/3 
+* CE 5 is refined into CE [6] 
+* CE 2 is refined into CE [7] 
+* CE 4 is refined into CE [8] 
+* CE 3 is refined into CE [9] 
+
+
+### Cost equations --> "Loop" of eval/3 
+* CEs [7] --> Loop 6 
+* CEs [8] --> Loop 7 
+* CEs [9] --> Loop 8 
+* CEs [6] --> Loop 9 
+
+### Ranking functions of CR eval(A,B,C) 
+* RF of phase [6]: [A,A-B,A+B]
+* RF of phase [7,8]: [A+B]
+
+#### Partial ranking functions of CR eval(A,B,C) 
+* Partial RF of phase [6]:
+  - RF of loop [6:1]:
+    A
+    A-B
+    A+B
+* Partial RF of phase [7,8]:
+  - RF of loop [7:1]:
+    -A+B depends on loops [8:1] 
+    A+B
+    B
+  - RF of loop [8:1]:
+    A+1
+    A-B+1 depends on loops [7:1] 
+
+
+### Specialization of cost equations start/3 
+* CE 1 is refined into CE [10] 
+
+
+### Cost equations --> "Loop" of start/3 
+* CEs [10] --> Loop 10 
+
+### Ranking functions of CR start(A,B,C) 
+
+#### Partial ranking functions of CR start(A,B,C) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of eval(A,B,C):
+* Chain [[7,8],9]: 1*it(7)+1*it(8)+0
+  Such that:it(8) =< A+1
+it(7) =< B
+aux(7) =< A+B
+it(7) =< aux(7)
+it(8) =< aux(7)
+
+  with precondition: [C=2,B>=A,A+B>=1] 
+
+* Chain [[6],[7,8],9]: 1*it(6)+1*it(7)+1*it(8)+0
+  Such that:it(6) =< A-B
+it(7) =< B
+it(8) =< B+1
+aux(7) =< 2*B
+it(7) =< aux(7)
+it(8) =< aux(7)
+
+  with precondition: [C=2,2*B>=1,A>=B+1] 
+
+* Chain [[6],9]: 1*it(6)+0
+  Such that:it(6) =< A-B
+
+  with precondition: [C=2,A>=B+1,A+B>=1] 
+
+* Chain [9]: 0
+  with precondition: [C=2] 
+
+
+#### Cost of chains of start(A,B,C):
+* Chain [10]: 1*s(9)+1*s(11)+2*s(15)+1*s(16)+1*s(17)+1
+  Such that:s(9) =< A+1
+s(13) =< A-B
+s(10) =< A+B
+s(14) =< B
+s(11) =< B+1
+s(12) =< 2*B
+s(15) =< s(13)
+s(16) =< s(14)
+s(17) =< s(14)
+s(17) =< s(10)
+s(9) =< s(10)
+s(16) =< s(12)
+s(11) =< s(12)
+
+  with precondition: [] 
+
+
+Closed-form bounds of start(A,B,C): 
+-------------------------------------
+* Chain [10] with precondition: [] 
+    - Upper bound: nat(B)*2+1+nat(A+1)+nat(B+1)+nat(A-B)*2 
+    - Complexity: n 
+
+### Maximum cost of start(A,B,C): nat(B)*2+1+nat(A+1)+nat(B+1)+nat(A-B)*2 
+Asymptotic class: n 
+* Total analysis performed in 107 ms.
+
+
+-- stats
+realtime 0:00.15
+usertime 0.14
+systime 0.01
+

@@ -1,0 +1,12 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A A' NoDet0)
+(RULES 
+  pyRinit(A) -> Com_1(evalndecrstart(A))
+  evalndecrbb1in(A) -> Com_1(evalndecrbbin(A)) :|: A -2 >= 0
+  evalndecrbb1in(A) -> Com_1(evalndecrreturnin(A)) :|: 1 -A >= 0
+  evalndecrbbin(A) -> Com_1(evalndecrbb1in(A -1))
+  evalndecrentryin(A) -> Com_1(evalndecrbb1in(A -1))
+  evalndecrreturnin(A) -> Com_1(evalndecrstop(NoDet0))
+  evalndecrstart(A) -> Com_1(evalndecrentryin(A))
+)

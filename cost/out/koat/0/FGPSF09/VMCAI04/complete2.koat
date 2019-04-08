@@ -1,0 +1,70 @@
+WORST_CASE(?, O(1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(Fresh_0)) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 ]
+		(Comp: ?, Cost: 1)    start(Ar_0) -> Com_1(eval(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(Fresh_0)) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 ]
+		(Comp: 1, Cost: 1)    start(Ar_0) -> Com_1(eval(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition start(Ar_0) -> Com_1(eval(Ar_0)) with all transitions in problem 2, the following new transition is obtained:
+	start(Ar_0) -> Com_1(eval(Fresh_0)) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 ]
+We thus obtain the following problem:
+3:	T:
+		(Comp: 1, Cost: 2)    start(Ar_0) -> Com_1(eval(Fresh_0)) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 ]
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(Fresh_0)) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition start(Ar_0) -> Com_1(eval(Fresh_0)) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 ] with all transitions in problem 3, the following new transition is obtained:
+	start(Ar_0) -> Com_1(eval(Fresh_0')) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 /\ Fresh_0 >= 0 /\ Fresh_0' + 2*Fresh_0 >= 10 /\ 10 >= 2*Fresh_0 + Fresh_0' ]
+We thus obtain the following problem:
+4:	T:
+		(Comp: 1, Cost: 3)    start(Ar_0) -> Com_1(eval(Fresh_0')) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 /\ Fresh_0 >= 0 /\ Fresh_0' + 2*Fresh_0 >= 10 /\ 10 >= 2*Fresh_0 + Fresh_0' ]
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(Fresh_0)) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition start(Ar_0) -> Com_1(eval(Fresh_0')) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 /\ Fresh_0 >= 0 /\ Fresh_0' + 2*Fresh_0 >= 10 /\ 10 >= 2*Fresh_0 + Fresh_0' ] with all transitions in problem 4, the following new transition is obtained:
+	start(Ar_0) -> Com_1(eval(Fresh_0'')) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 /\ Fresh_0 >= 0 /\ Fresh_0' + 2*Fresh_0 >= 10 /\ 10 >= 2*Fresh_0 + Fresh_0' /\ Fresh_0' >= 0 /\ Fresh_0'' + 2*Fresh_0' >= 10 /\ 10 >= 2*Fresh_0' + Fresh_0'' ]
+We thus obtain the following problem:
+5:	T:
+		(Comp: 1, Cost: 4)    start(Ar_0) -> Com_1(eval(Fresh_0'')) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 /\ Fresh_0 >= 0 /\ Fresh_0' + 2*Fresh_0 >= 10 /\ 10 >= 2*Fresh_0 + Fresh_0' /\ Fresh_0' >= 0 /\ Fresh_0'' + 2*Fresh_0' >= 10 /\ 10 >= 2*Fresh_0' + Fresh_0'' ]
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(Fresh_0)) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition start(Ar_0) -> Com_1(eval(Fresh_0'')) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 /\ Fresh_0 >= 0 /\ Fresh_0' + 2*Fresh_0 >= 10 /\ 10 >= 2*Fresh_0 + Fresh_0' /\ Fresh_0' >= 0 /\ Fresh_0'' + 2*Fresh_0' >= 10 /\ 10 >= 2*Fresh_0' + Fresh_0'' ] with all transitions in problem 5, the following new transition is obtained:
+	start(Ar_0) -> Com_1(eval(Fresh_0''')) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 /\ Fresh_0 >= 0 /\ Fresh_0' + 2*Fresh_0 >= 10 /\ 10 >= 2*Fresh_0 + Fresh_0' /\ Fresh_0' >= 0 /\ Fresh_0'' + 2*Fresh_0' >= 10 /\ 10 >= 2*Fresh_0' + Fresh_0'' /\ Fresh_0'' >= 0 /\ Fresh_0''' + 2*Fresh_0'' >= 10 /\ 10 >= 2*Fresh_0'' + Fresh_0''' ]
+We thus obtain the following problem:
+6:	T:
+		(Comp: 1, Cost: 5)    start(Ar_0) -> Com_1(eval(Fresh_0''')) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 /\ Fresh_0 >= 0 /\ Fresh_0' + 2*Fresh_0 >= 10 /\ 10 >= 2*Fresh_0 + Fresh_0' /\ Fresh_0' >= 0 /\ Fresh_0'' + 2*Fresh_0' >= 10 /\ 10 >= 2*Fresh_0' + Fresh_0'' /\ Fresh_0'' >= 0 /\ Fresh_0''' + 2*Fresh_0'' >= 10 /\ 10 >= 2*Fresh_0'' + Fresh_0''' ]
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(Fresh_0)) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 6:
+	eval(Ar_0) -> Com_1(eval(Fresh_0)) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 ]
+We thus obtain the following problem:
+7:	T:
+		(Comp: 1, Cost: 5)    start(Ar_0) -> Com_1(eval(Fresh_0''')) [ Ar_0 >= 0 /\ Fresh_0 + 2*Ar_0 >= 10 /\ 10 >= 2*Ar_0 + Fresh_0 /\ Fresh_0 >= 0 /\ Fresh_0' + 2*Fresh_0 >= 10 /\ 10 >= 2*Fresh_0 + Fresh_0' /\ Fresh_0' >= 0 /\ Fresh_0'' + 2*Fresh_0' >= 10 /\ 10 >= 2*Fresh_0' + Fresh_0'' /\ Fresh_0'' >= 0 /\ Fresh_0''' + 2*Fresh_0'' >= 10 /\ 10 >= 2*Fresh_0'' + Fresh_0''' ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 5
+
+Time: 0.083 sec (SMT: 0.076 sec)

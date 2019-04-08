@@ -1,0 +1,18 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A' B' C' D' NoDet2 E NoDet1 NoDet3 NoDet0)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(evalSimpleSingle2start(A,B,C,D))
+  evalSimpleSingle2bb1in(A,B,C,D) -> Com_1(evalSimpleSingle2bb4in(A + 1, B + 1, C, D))
+  evalSimpleSingle2bb2in(A,B,C,D) -> Com_1(evalSimpleSingle2bb3in(A, B, C, D)) :|: D -A -1 >= 0
+  evalSimpleSingle2bb2in(A,B,C,D) -> Com_1(evalSimpleSingle2returnin(A, B, C, D)) :|: A -D >= 0
+  evalSimpleSingle2bb3in(A,B,C,D) -> Com_1(evalSimpleSingle2bb4in(A + 1, B + 1, C, D))
+  evalSimpleSingle2bb4in(A,B,C,D) -> Com_1(evalSimpleSingle2bbin(A, B, C, D)) :|: -1 -E >= 0
+  evalSimpleSingle2bb4in(A,B,C,D) -> Com_1(evalSimpleSingle2bbin(A, B, C, D)) :|: E -1 >= 0
+  evalSimpleSingle2bb4in(A,B,C,D) -> Com_1(evalSimpleSingle2returnin(A, B, C, D))
+  evalSimpleSingle2bbin(A,B,C,D) -> Com_1(evalSimpleSingle2bb1in(A, B, C, D)) :|: C -B -1 >= 0
+  evalSimpleSingle2bbin(A,B,C,D) -> Com_1(evalSimpleSingle2bb2in(A, B, C, D)) :|: B -C >= 0
+  evalSimpleSingle2entryin(A,B,C,D) -> Com_1(evalSimpleSingle2bb4in(0, 0, C, D))
+  evalSimpleSingle2returnin(A,B,C,D) -> Com_1(evalSimpleSingle2stop(NoDet0, NoDet1, NoDet2, NoDet3))
+  evalSimpleSingle2start(A,B,C,D) -> Com_1(evalSimpleSingle2entryin(A, B, C, D))
+)

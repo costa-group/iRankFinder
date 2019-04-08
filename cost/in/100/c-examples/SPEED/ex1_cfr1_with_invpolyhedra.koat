@@ -1,0 +1,20 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A_P B_P C_P NoDet2 NoDet1 NoDet0)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(n_evalfstart(A,B,C))
+  n_evalfbb3in___3(A,B,C) -> Com_1(n_evalfbbin___2(A, B, C)) :|: -1 + A >= 0 && B >= 0 && -A + C >= 0 && A >= 0 && -1 + B >= 0 && A -C >= 0 && A >= 0 && B >= 0 && -B + 99 >= 0 && A -C = 0 && -1 + A >= 0 && -1 + B >= 0
+  n_evalfbb3in___3(A,B,C) -> Com_1(n_evalfstop___4(NoDet0, NoDet1, NoDet2)) :|: -1 + A >= 0 && B >= 0 && -A + C >= 0 && A >= 0 && -1 + B >= 0 && A -C >= 0 && B -100 >= 0 && A >= 0 && A -C = 0 && -1 + A >= 0 && -1 + B >= 0
+  n_evalfbb3in___6(A,B,C) -> Com_1(n_evalfbbin___1(A, B, C)) :|: A >= 0 && -1 + B >= 0 && A -C >= 0 && A >= 0 && B >= 0 && -B + 99 >= 0 && A = 0 && -C >= 0 && -1 + B >= 0
+  n_evalfbb3in___6(A,B,C) -> Com_1(n_evalfstop___4(NoDet0, NoDet1, NoDet2)) :|: A >= 0 && -1 + B >= 0 && A -C >= 0 && B -100 >= 0 && A >= 0 && A = 0 && -C >= 0 && -1 + B >= 0
+  n_evalfbb3in___7(A,B,C) -> Com_1(n_evalfbbin___5(A, B, C)) :|: -1 + A >= 0 && B >= 0 && -A + C >= 0 && A >= 0 && B >= 0 && -B + 99 >= 0 && B = 0 && -A + C >= 0 && -1 + A >= 0
+  n_evalfbb3in___7(A,B,C) -> Com_1(n_evalfstop___4(NoDet0, NoDet1, NoDet2)) :|: -1 + A >= 0 && B >= 0 && -A + C >= 0 && B -100 >= 0 && A >= 0 && B = 0 && -A + C >= 0 && -1 + A >= 0
+  n_evalfbb3in___9(A,B,C) -> Com_1(n_evalfbbin___8(A, B, C)) :|: B = 0 && A = 0 && A >= 0 && B >= 0 && -B + 99 >= 0 && B = 0 && A = 0
+  n_evalfbbin___1(A,B,C) -> Com_1(n_evalfbb3in___6(A, B + 1, C)) :|: -B + 99 >= 0 && B -1 >= 0 && A -C >= 0 && A >= 0 && A -C >= 0 && B >= 0 && A >= 0 && A = 0 && -C >= 0 && -1 + B >= 0
+  n_evalfbbin___2(A,B,C) -> Com_1(n_evalfbb3in___3(A, B + 1, C)) :|: -B + 99 >= 0 && B -1 >= 0 && A -1 >= 0 && A -C = 0 && A -C >= 0 && B >= 0 && A >= 0 && A -C = 0 && -1 + A >= 0 && -1 + B >= 0
+  n_evalfbbin___5(A,B,C) -> Com_1(n_evalfbb3in___3(A, B + 1, C)) :|: -B + 99 >= 0 && B >= 0 && A -1 >= 0 && -A + C >= 0 && A -C >= 0 && B >= 0 && A >= 0 && B = 0 && -A + C >= 0 && -1 + A >= 0
+  n_evalfbbin___5(A,B,C) -> Com_1(n_evalfbb3in___7(A + 1, B, C)) :|: -B + 99 >= 0 && B >= 0 && A -1 >= 0 && -A + C >= 0 && -A + C -1 >= 0 && B >= 0 && A >= 0 && B = 0 && -A + C >= 0 && -1 + A >= 0
+  n_evalfbbin___8(A,B,C) -> Com_1(n_evalfbb3in___6(A, B + 1, C)) :|: A = 0 && B = 0 && A -C >= 0 && B >= 0 && A >= 0 && B = 0 && A = 0
+  n_evalfbbin___8(A,B,C) -> Com_1(n_evalfbb3in___7(A + 1, B, C)) :|: A = 0 && B = 0 && -A + C -1 >= 0 && B >= 0 && A >= 0 && B = 0 && A = 0
+  n_evalfstart(A,B,C) -> Com_1(n_evalfbb3in___9(0, 0, C))
+)

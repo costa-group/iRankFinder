@@ -1,0 +1,90 @@
+{
+  vars: [A,B,C,D,E,F,G,H],
+  pvars: [A',B',C',D',E',F',G',H'],
+  initnode: start0,
+  nodes: {
+    lM1: {
+      cfr_properties: [
+        // RFs Properties
+        [B + D >= 0],
+        [-B -D > 0],
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [A -H == 0, F -G == 0, D >= 0, -1 + B >= 0, -B -D + F >= 0, A -B >= 0],
+    },
+    lZZ1: {
+      cfr_properties: [
+        // RFs Properties
+        [B + D >= 0],
+        [-B -D > 0],
+      ],
+      inv_polyhedra: [A -H == 0, F -G == 0, B == 0, -A -D + F >= 0, -1 + D >= 0],
+    },
+    start: {
+      inv_polyhedra: [A -H == 0, F -G == 0, D -E == 0, B -C == 0],
+    },
+    start0: {
+      inv_polyhedra: [],
+    },
+    stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: start,
+	target: stop,
+	name: t0,
+	constraints: [-A >= 0, B -C = 0, D -E = 0, F -G = 0, H -A = 0]
+    },
+    {
+	source: start,
+	target: stop,
+	name: t1,
+	constraints: [-1 -G >= 0, B -C = 0, D -E = 0, F -G = 0, H -A = 0]
+    },
+    {
+	source: start0,
+	target: start,
+	name: t10,
+	constraints: [A -A' = 0, C -B' = 0, C -C' = 0, E -D' = 0, E -E' = 0, G -F' = 0, G -G' = 0, A -H' = 0]
+    },
+    {
+	source: start,
+	target: stop,
+	name: t2,
+	constraints: [A -1 >= 0, F = 0, B -C = 0, D -E = 0, G = 0, H -A = 0]
+    },
+    {
+	source: start,
+	target: lM1,
+	name: t3,
+	constraints: [A -1 >= 0, G -1 >= 0, B -C = 0, D -E = 0, F -G = 0, H -A = 0, A -A' = 0, 1 -B' = 0, C -C' = 0, F -1 -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: lM1,
+	target: stop,
+	name: t4,
+	constraints: [A -B >= 0, G -B >= 0, B -1 >= 0, D = 0, H -A = 0, F -G = 0]
+    },
+    {
+	source: lM1,
+	target: lZZ1,
+	name: t5,
+	constraints: [D -1 >= 0, G -D -A >= 0, A -1 >= 0, D >= 0, B -A = 0, H -A = 0, F -G = 0, A -A' = 0, -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: lM1,
+	target: lM1,
+	name: t6,
+	constraints: [A -B -1 >= 0, D -1 >= 0, A -B >= 0, G -D -B >= 0, B -1 >= 0, D >= 0, H -A = 0, F -G = 0, A -A' = 0, 1 + B -B' = 0, C -C' = 0, D -1 -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    },
+    {
+	source: lZZ1,
+	target: lM1,
+	name: t9,
+	constraints: [A -1 >= 0, D -1 >= 0, G -A -D >= 0, A -2 >= 0, B = 0, H -A = 0, F -G = 0, A -A' = 0, 1 + B -B' = 0, C -C' = 0, D -1 -D' = 0, E -E' = 0, F -F' = 0, G -G' = 0, H -H' = 0]
+    }
+  ]
+}

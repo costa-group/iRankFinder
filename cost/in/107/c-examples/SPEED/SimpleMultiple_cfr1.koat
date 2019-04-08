@@ -1,0 +1,17 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A_P B_P C_P D_P NoDet0 NoDet1 NoDet3 NoDet2)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(n_evalSimpleMultiplestart(A,B,C,D))
+  n_evalSimpleMultiplebb3in___2(A,B,C,D) -> Com_1(n_evalSimpleMultiplebbin___5(A, B, C, D)) :|: -B + C >= 0 && -B + C >= 0 && A >= 0 && B >= 0 && -B + C -1 >= 0
+  n_evalSimpleMultiplebb3in___2(A,B,C,D) -> Com_1(n_evalSimpleMultiplestop___4(NoDet0, NoDet1, NoDet2, NoDet3)) :|: -B + C >= 0 && -B + C >= 0 && B -C >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplebb3in___3(A,B,C,D) -> Com_1(n_evalSimpleMultiplebbin___1(A, B, C, D)) :|: -A + D >= 0 && -B + C >= 0 && -A + D >= 0 && -B + C >= 0 && A >= 0 && B >= 0 && -B + C -1 >= 0
+  n_evalSimpleMultiplebb3in___3(A,B,C,D) -> Com_1(n_evalSimpleMultiplestop___4(NoDet0, NoDet1, NoDet2, NoDet3)) :|: -A + D >= 0 && -B + C >= 0 && -A + D >= 0 && -B + C >= 0 && B -C >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplebb3in___6(A,B,C,D) -> Com_1(n_evalSimpleMultiplebbin___5(A, B, C, D)) :|: A >= 0 && B >= 0 && -B + C -1 >= 0
+  n_evalSimpleMultiplebb3in___6(A,B,C,D) -> Com_1(n_evalSimpleMultiplestop___4(NoDet0, NoDet1, NoDet2, NoDet3)) :|: B -C >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplebbin___1(A,B,C,D) -> Com_1(n_evalSimpleMultiplebb3in___3(A + 1, B, C, D)) :|: -A + D >= 0 && -B + C -1 >= 0 && B >= 0 && A >= 0 && -A + D -1 >= 0 && -B + C -1 >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplebbin___1(A,B,C,D) -> Com_1(n_evalSimpleMultiplebb3in___3(A, B + 1, C, D)) :|: -A + D >= 0 && -B + C -1 >= 0 && B >= 0 && A >= 0 && A -D >= 0 && -B + C -1 >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplebbin___5(A,B,C,D) -> Com_1(n_evalSimpleMultiplebb3in___2(A, B + 1, C, D)) :|: -B + C -1 >= 0 && B >= 0 && A >= 0 && A -D >= 0 && -B + C -1 >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplebbin___5(A,B,C,D) -> Com_1(n_evalSimpleMultiplebb3in___3(A + 1, B, C, D)) :|: -B + C -1 >= 0 && B >= 0 && A >= 0 && -A + D -1 >= 0 && -B + C -1 >= 0 && B >= 0 && A >= 0
+  n_evalSimpleMultiplestart(A,B,C,D) -> Com_1(n_evalSimpleMultiplebb3in___6(0, 0, C, D))
+)

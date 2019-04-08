@@ -1,0 +1,125 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstart(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    n_evalfbb3in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb4in___2(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb3in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_8, Fresh_9, Fresh_10)) [ Ar_2 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb3in___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb4in___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 = 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___1(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___1(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___5(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___5(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_2, Fresh_3, Fresh_4)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbbin___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___3(Ar_0, Ar_1 - 1, Fresh_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - Fresh_1 >= 0 /\ Fresh_1 - 1 >= 0 /\ Ar_2 - Fresh_1 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbbin___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___7(Ar_0, Ar_1, 0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbbin___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___3(Ar_0, Ar_1 - 1, Fresh_0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_0 - Fresh_0 >= 0 /\ Fresh_0 - 1 >= 0 /\ Ar_2 - Fresh_0 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalfstart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___7(Ar_1, Ar_0, 0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstart(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    n_evalfbb3in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb4in___2(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb3in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_8, Fresh_9, Fresh_10)) [ Ar_2 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb3in___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb4in___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 = 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___1(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___1(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___5(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___5(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_2, Fresh_3, Fresh_4)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbbin___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___3(Ar_0, Ar_1 - 1, Fresh_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - Fresh_1 >= 0 /\ Fresh_1 - 1 >= 0 /\ Ar_2 - Fresh_1 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbbin___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___7(Ar_0, Ar_1, 0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbbin___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___3(Ar_0, Ar_1 - 1, Fresh_0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_0 - Fresh_0 >= 0 /\ Fresh_0 - 1 >= 0 /\ Ar_2 - Fresh_0 + 1 = 0 ]
+		(Comp: 1, Cost: 1)    n_evalfstart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___7(Ar_1, Ar_0, 0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(pyRinit) = 1
+	Pol(n_evalfstart) = 1
+	Pol(n_evalfbb3in___3) = 1
+	Pol(n_evalfbb4in___2) = 1
+	Pol(n_evalfstop___4) = 0
+	Pol(n_evalfbb3in___7) = 1
+	Pol(n_evalfbb4in___6) = 1
+	Pol(n_evalfbbin___1) = 1
+	Pol(n_evalfbbin___5) = 1
+	Pol(koat_start) = 1
+orients all transitions weakly and the transitions
+	n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_2, Fresh_3, Fresh_4)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+	n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+	n_evalfbb3in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_8, Fresh_9, Fresh_10)) [ Ar_2 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstart(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    n_evalfbb3in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb4in___2(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalfbb3in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_8, Fresh_9, Fresh_10)) [ Ar_2 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb3in___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb4in___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 = 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___1(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___1(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___5(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___5(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+		(Comp: 1, Cost: 1)    n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_2, Fresh_3, Fresh_4)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbbin___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___3(Ar_0, Ar_1 - 1, Fresh_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - Fresh_1 >= 0 /\ Fresh_1 - 1 >= 0 /\ Ar_2 - Fresh_1 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbbin___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___7(Ar_0, Ar_1, 0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: ?, Cost: 1)    n_evalfbbin___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___3(Ar_0, Ar_1 - 1, Fresh_0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_0 - Fresh_0 >= 0 /\ Fresh_0 - 1 >= 0 /\ Ar_2 - Fresh_0 + 1 = 0 ]
+		(Comp: 1, Cost: 1)    n_evalfstart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___7(Ar_1, Ar_0, 0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(pyRinit) = 6*V_1
+	Pol(n_evalfstart) = 6*V_1
+	Pol(n_evalfbb3in___3) = 6*V_2 + 2
+	Pol(n_evalfbb4in___2) = 6*V_2 + 1
+	Pol(n_evalfstop___4) = 2
+	Pol(n_evalfbb3in___7) = 6*V_2 - 1
+	Pol(n_evalfbb4in___6) = 6*V_2 - 2
+	Pol(n_evalfbbin___1) = 6*V_2
+	Pol(n_evalfbbin___5) = 6*V_2 - 3
+	Pol(koat_start) = 6*V_1
+orients all transitions weakly and the transitions
+	n_evalfbbin___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___3(Ar_0, Ar_1 - 1, Fresh_0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_0 - Fresh_0 >= 0 /\ Fresh_0 - 1 >= 0 /\ Ar_2 - Fresh_0 + 1 = 0 ]
+	n_evalfbbin___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___7(Ar_0, Ar_1, 0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+	n_evalfbbin___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___3(Ar_0, Ar_1 - 1, Fresh_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - Fresh_1 >= 0 /\ Fresh_1 - 1 >= 0 /\ Ar_2 - Fresh_1 + 1 = 0 ]
+	n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___5(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+	n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___1(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+	n_evalfbb3in___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb4in___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 = 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_2 >= 0 ]
+	n_evalfbb3in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb4in___2(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_2 >= 0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)         pyRinit(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstart(Ar_0, Ar_1, Ar_2))
+		(Comp: 6*Ar_0, Cost: 1)    n_evalfbb3in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb4in___2(Ar_0, Ar_1, Ar_2)) [ Ar_2 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 1, Cost: 1)         n_evalfbb3in___3(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_8, Fresh_9, Fresh_10)) [ Ar_2 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_1 >= 0 /\ -Ar_1 >= 0 /\ Ar_1 + Ar_2 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 6*Ar_0, Cost: 1)    n_evalfbb3in___7(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb4in___6(Ar_0, Ar_1, Ar_2)) [ Ar_2 = 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_2 >= 0 ]
+		(Comp: 6*Ar_0, Cost: 1)    n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___1(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 6*Ar_0, Cost: 1)    n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___1(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 1)         n_evalfbb4in___2(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_5, Fresh_6, Fresh_7)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 6*Ar_0, Cost: 1)    n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___5(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+		(Comp: 6*Ar_0, Cost: 1)    n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbbin___5(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+		(Comp: 1, Cost: 1)         n_evalfbb4in___6(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfstop___4(Fresh_2, Fresh_3, Fresh_4)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_2 >= 0 ]
+		(Comp: 6*Ar_0, Cost: 1)    n_evalfbbin___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___3(Ar_0, Ar_1 - 1, Fresh_1)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - Fresh_1 >= 0 /\ Fresh_1 - 1 >= 0 /\ Ar_2 - Fresh_1 + 1 = 0 ]
+		(Comp: 6*Ar_0, Cost: 1)    n_evalfbbin___1(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___7(Ar_0, Ar_1, 0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ -Ar_0 + Ar_2 >= 0 ]
+		(Comp: 6*Ar_0, Cost: 1)    n_evalfbbin___5(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___3(Ar_0, Ar_1 - 1, Fresh_0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 = 0 /\ Ar_0 - Fresh_0 >= 0 /\ Fresh_0 - 1 >= 0 /\ Ar_2 - Fresh_0 + 1 = 0 ]
+		(Comp: 1, Cost: 1)         n_evalfstart(Ar_0, Ar_1, Ar_2) -> Com_1(n_evalfbb3in___7(Ar_1, Ar_0, 0)) [ Ar_1 - 1 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 0)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(pyRinit(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 54*Ar_0 + 5
+
+Time: 0.209 sec (SMT: 0.186 sec)
+
+-- stats
+realtime 0:00.23
+usertime 0.17
+systime 0.03
+

@@ -1,0 +1,8 @@
+input_output_vars(lbl41(A,B,C,D,F),[A,B,C,D],[F]).
+input_output_vars(start(A,B,C,D,F),[A,B,C,D],[F]).
+input_output_vars(start0(A,B,C,D,F),[A,B,C,D],[F]).
+input_output_vars(stop(A,B,C,D,E),[A,B,C,D],[E]).
+eq(start0(A,B,C,D,F),1,[start(B,B,D,D,F)],[]).
+eq(lbl41(A,B,C,D,F),1,[stop(A,B,A,D,F)],[C=D]).
+eq(start(A,B,C,D,F),1,[lbl41(G,B,C,D,F)],[A=B,C=D]).
+eq(stop(A,B,C,D,E),0,[],[]).

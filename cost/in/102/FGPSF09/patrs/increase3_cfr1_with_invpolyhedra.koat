@@ -1,0 +1,13 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A_P B_P C_P)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(n_start(A,B,C))
+  n_f___1(A,B,C) -> Com_1(n_f___1(A, B, C + 1)) :|: -1 + A -B >= 0 && A -C >= 0 && -1 + A -B >= 0 && A -C >= 0 && A -C -1 >= 0 && A -B -1 >= 0 && -1 + A -B >= 0 && A -C >= 0
+  n_f___1(A,B,C) -> Com_1(n_f___2(A, B + 1, C)) :|: -1 + A -B >= 0 && A -C >= 0 && -1 + A -B >= 0 && A -C >= 0 && A -C -1 >= 0 && A -B -1 >= 0 && -1 + A -B >= 0 && A -C >= 0
+  n_f___2(A,B,C) -> Com_1(n_f___1(A, B, C + 1)) :|: A -B >= 0 && -1 + A -C >= 0 && A -B >= 0 && -1 + A -C >= 0 && A -C -1 >= 0 && A -B -1 >= 0 && A -B >= 0 && -1 + A -C >= 0
+  n_f___2(A,B,C) -> Com_1(n_f___2(A, B + 1, C)) :|: A -B >= 0 && -1 + A -C >= 0 && A -B >= 0 && -1 + A -C >= 0 && A -C -1 >= 0 && A -B -1 >= 0 && A -B >= 0 && -1 + A -C >= 0
+  n_f___3(A,B,C) -> Com_1(n_f___1(A, B, C + 1)) :|: A -C -1 >= 0 && A -B -1 >= 0
+  n_f___3(A,B,C) -> Com_1(n_f___2(A, B + 1, C)) :|: A -C -1 >= 0 && A -B -1 >= 0
+  n_start(A,B,C) -> Com_1(n_f___3(A, B, C))
+)

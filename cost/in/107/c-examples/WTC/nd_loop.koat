@@ -1,0 +1,13 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A A' B NoDet0)
+(RULES 
+  pyRinit(A) -> Com_1(evalndloopstart(A))
+  evalndloopbbin(A) -> Com_1(evalndloopbbin(B)) :|: 2 + A -B >= 0 && B -A -1 >= 0 && 9 -B >= 0
+  evalndloopbbin(A) -> Com_1(evalndloopreturnin(A)) :|: B -A -3 >= 0
+  evalndloopbbin(A) -> Com_1(evalndloopreturnin(A)) :|: A -B >= 0
+  evalndloopbbin(A) -> Com_1(evalndloopreturnin(A)) :|: B -10 >= 0
+  evalndloopentryin(A) -> Com_1(evalndloopbbin(0))
+  evalndloopreturnin(A) -> Com_1(evalndloopstop(NoDet0))
+  evalndloopstart(A) -> Com_1(evalndloopentryin(A))
+)

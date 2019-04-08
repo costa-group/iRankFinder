@@ -1,0 +1,17 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A' B' NoDet1 NoDet0)
+(RULES 
+  pyRinit(A,B) -> Com_1(evalfstart(A,B))
+  evalfbb1in(A,B) -> Com_1(evalfbb3in(A, B + 1))
+  evalfbb2in(A,B) -> Com_1(evalfbb3in(A, B -1))
+  evalfbb3in(A,B) -> Com_1(evalfbbin(A, B)) :|: B -1 >= 0 && 254 -B >= 0
+  evalfbb3in(A,B) -> Com_1(evalfreturnin(A, B)) :|: -B >= 0
+  evalfbb3in(A,B) -> Com_1(evalfreturnin(A, B)) :|: B -255 >= 0
+  evalfbbin(A,B) -> Com_1(evalfbb1in(A, B)) :|: -1 -A >= 0
+  evalfbbin(A,B) -> Com_1(evalfbb1in(A, B)) :|: A -1 >= 0
+  evalfbbin(A,B) -> Com_1(evalfbb2in(A, B)) :|: A = 0
+  evalfentryin(A,B) -> Com_1(evalfbb3in(B, A))
+  evalfreturnin(A,B) -> Com_1(evalfstop(NoDet0, NoDet1))
+  evalfstart(A,B) -> Com_1(evalfentryin(A, B))
+)

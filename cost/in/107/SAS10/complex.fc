@@ -1,0 +1,120 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: start0,
+  nodes: {
+    lbl151: {
+      cfr_properties: [
+        // RFs Properties
+        [208 -5 * A -C -2 * D >= 0],
+        [-208 + 5 * A + C + 2 * D > 0],
+        [174 + B -7 * D >= 0],
+        [-174 -B + 7 * D > 0],
+        [29 -D >= 0],
+        [-29 + D > 0],
+        [17 -D >= 0],
+        [-17 + D > 0],
+        [-B + D >= 0],
+        [B -D > 0],
+      ],
+      inv_polyhedra: [-7 -5 * A + B -C + 5 * D >= 0, -161 -140 * A + 23 * B -28 * C + 140 * D >= 0, -7 -5 * A -C + 6 * D >= 0, -7 * A -B + C + 7 * D >= 0, 5 -B + D >= 0, 29 -A >= 0, -1 -A + D >= 0, 5719 -140 * A + 23 * B -28 * C -56 * D >= 0],
+    },
+    lbl171: {
+      cfr_properties: [
+        // RFs Properties
+        [208 -5 * A -C -2 * D >= 0],
+        [-208 + 5 * A + C + 2 * D > 0],
+        [174 + B -7 * D >= 0],
+        [-174 -B + 7 * D > 0],
+        [29 -D >= 0],
+        [-29 + D > 0],
+        [17 -D >= 0],
+        [-17 + D > 0],
+      ],
+      inv_polyhedra: [12 + B -D >= 0, -5 * A + B -C + 5 * D >= 0, -24 -7 * A -B + C + 7 * D >= 0, 29 -A >= 0],
+    },
+    start: {
+      inv_polyhedra: [A -D == 0, B -C == 0],
+    },
+    start0: {
+      inv_polyhedra: [],
+    },
+    stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: start,
+	target: stop,
+	name: t0,
+	constraints: [A -30 >= 0, B -C = 0, D -A = 0]
+    },
+    {
+	source: start,
+	target: lbl171,
+	name: t1,
+	constraints: [C -A >= 0, 29 -A >= 0, B -C = 0, D -A = 0, A -A' = 0, B -10 -B' = 0, C -C' = 0, 2 + D -D' = 0]
+    },
+    {
+	source: lbl151,
+	target: lbl151,
+	name: t10,
+	constraints: [D -B -1 >= 0, 5 -B >= 0, 6 * D -5 * A -C -7 >= 0, 5 * D + B -5 * A -C -7 >= 0, D -A -1 >= 0, 29 -A >= 0, B + 203 -2 * D -5 * A -C >= 0, 2 * B + 1561 -14 * D -35 * A -7 * C >= 0, 140 * D + 23 * B -140 * A -28 * C -161 >= 0, 23 * B + 5719 -56 * D -140 * A -28 * C >= 0, D + 5 -B >= 0, 7 * D + C -B -7 * A >= 0, A -A' = 0, 2 + B -B' = 0, C -C' = 0, 1 + D -D' = 0]
+    },
+    {
+	source: start0,
+	target: start,
+	name: t11,
+	constraints: [A -A' = 0, C -B' = 0, C -C' = 0, A -D' = 0]
+    },
+    {
+	source: start,
+	target: lbl151,
+	name: t2,
+	constraints: [A -C -1 >= 0, C -6 >= 0, 29 -A >= 0, B -C = 0, D -A = 0, A -A' = 0, 7 + B -B' = 0, C -C' = 0, 1 + D -D' = 0]
+    },
+    {
+	source: start,
+	target: lbl151,
+	name: t3,
+	constraints: [A -C -1 >= 0, 5 -C >= 0, 29 -A >= 0, B -C = 0, D -A = 0, A -A' = 0, 2 + B -B' = 0, C -C' = 0, 1 + D -D' = 0]
+    },
+    {
+	source: lbl171,
+	target: stop,
+	name: t4,
+	constraints: [D -30 >= 0, 29 -A >= 0, 5 * D + B -5 * A -C >= 0, 7 * D + C -B -7 * A -24 >= 0, 7 * B + 1674 -19 * D -35 * A -7 * C >= 0, B + 12 -D >= 0]
+    },
+    {
+	source: lbl171,
+	target: lbl171,
+	name: t5,
+	constraints: [B -D >= 0, 29 -D >= 0, 29 -A >= 0, 5 * D + B -5 * A -C >= 0, 7 * D + C -B -7 * A -24 >= 0, 7 * B + 1674 -19 * D -35 * A -7 * C >= 0, B + 12 -D >= 0, A -A' = 0, B -10 -B' = 0, C -C' = 0, 2 + D -D' = 0]
+    },
+    {
+	source: lbl171,
+	target: lbl151,
+	name: t6,
+	constraints: [D -B -1 >= 0, B -6 >= 0, 29 -D >= 0, 29 -A >= 0, 5 * D + B -5 * A -C >= 0, 7 * D + C -B -7 * A -24 >= 0, 7 * B + 1674 -19 * D -35 * A -7 * C >= 0, B + 12 -D >= 0, A -A' = 0, 7 + B -B' = 0, C -C' = 0, 1 + D -D' = 0]
+    },
+    {
+	source: lbl171,
+	target: lbl151,
+	name: t7,
+	constraints: [D -B -1 >= 0, 5 -B >= 0, 29 -D >= 0, 29 -A >= 0, 5 * D + B -5 * A -C >= 0, 7 * D + C -B -7 * A -24 >= 0, 7 * B + 1674 -19 * D -35 * A -7 * C >= 0, B + 12 -D >= 0, A -A' = 0, 2 + B -B' = 0, C -C' = 0, 1 + D -D' = 0]
+    },
+    {
+	source: lbl151,
+	target: lbl171,
+	name: t8,
+	constraints: [B -D >= 0, 6 * D -5 * A -C -7 >= 0, 5 * D + B -5 * A -C -7 >= 0, D -A -1 >= 0, 29 -A >= 0, B + 203 -2 * D -5 * A -C >= 0, 2 * B + 1561 -14 * D -35 * A -7 * C >= 0, 140 * D + 23 * B -140 * A -28 * C -161 >= 0, 23 * B + 5719 -56 * D -140 * A -28 * C >= 0, D + 5 -B >= 0, 7 * D + C -B -7 * A >= 0, A -A' = 0, B -10 -B' = 0, C -C' = 0, 2 + D -D' = 0]
+    },
+    {
+	source: lbl151,
+	target: lbl151,
+	name: t9,
+	constraints: [D -B -1 >= 0, B -6 >= 0, 6 * D -5 * A -C -7 >= 0, 5 * D + B -5 * A -C -7 >= 0, D -A -1 >= 0, 29 -A >= 0, B + 203 -2 * D -5 * A -C >= 0, 2 * B + 1561 -14 * D -35 * A -7 * C >= 0, 140 * D + 23 * B -140 * A -28 * C -161 >= 0, 23 * B + 5719 -56 * D -140 * A -28 * C >= 0, D + 5 -B >= 0, 7 * D + C -B -7 * A >= 0, A -A' = 0, 7 + B -B' = 0, C -C' = 0, 1 + D -D' = 0]
+    }
+  ]
+}

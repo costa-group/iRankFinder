@@ -1,0 +1,311 @@
+WORST_CASE(?, O(n^2))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))
+		(Comp: ?, Cost: 1)    evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))
+		(Comp: ?, Cost: 1)    evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))
+		(Comp: ?, Cost: 1)    evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))
+		(Comp: ?, Cost: 1)    evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalinsertsortstart) = 2
+	Pol(evalinsertsortentryin) = 2
+	Pol(evalinsertsortbb5in) = 2
+	Pol(evalinsertsortbbin) = 2
+	Pol(evalinsertsortreturnin) = 1
+	Pol(evalinsertsortbb2in) = 2
+	Pol(evalinsertsortbb4in) = 2
+	Pol(evalinsertsortbb3in) = 2
+	Pol(evalinsertsortbb1in) = 2
+	Pol(evalinsertsortstop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)    evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))
+		(Comp: ?, Cost: 1)    evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]
+		(Comp: ?, Cost: 1)    evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))
+		(Comp: ?, Cost: 1)    evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)    evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalinsertsortstart) = V_2
+	Pol(evalinsertsortentryin) = V_2
+	Pol(evalinsertsortbb5in) = -V_1 + V_2 + 1
+	Pol(evalinsertsortbbin) = -V_1 + V_2
+	Pol(evalinsertsortreturnin) = -V_1 + V_2
+	Pol(evalinsertsortbb2in) = -V_1 + V_2
+	Pol(evalinsertsortbb4in) = -V_1 + V_2
+	Pol(evalinsertsortbb3in) = -V_1 + V_2
+	Pol(evalinsertsortbb1in) = -V_1 + V_2
+	Pol(evalinsertsortstop) = -V_1 + V_2
+	Pol(koat_start) = V_2
+orients all transitions weakly and the transition
+	evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)       evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)       evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)    evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)       evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)       evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))
+		(Comp: ?, Cost: 1)       evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)       evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)       evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)       evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]
+		(Comp: ?, Cost: 1)       evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))
+		(Comp: ?, Cost: 1)       evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)       evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)       koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 4 produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)       evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)       evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)    evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)       evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: Ar_1, Cost: 1)    evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))
+		(Comp: ?, Cost: 1)       evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)       evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)       evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)       evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]
+		(Comp: ?, Cost: 1)       evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))
+		(Comp: ?, Cost: 1)       evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)       evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)       koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalinsertsortbb4in) = 1
+	Pol(evalinsertsortbb5in) = 0
+	Pol(evalinsertsortbb3in) = 2
+	Pol(evalinsertsortbb1in) = 2
+	Pol(evalinsertsortbb2in) = 2
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = ?
+	S("evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-0) = ?
+	S("evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))", 0-0) = ?
+	S("evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))", 0-1) = Ar_1
+	S("evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))", 0-2) = ?
+	S("evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))", 0-3) = ?
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]", 0-0) = ?
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]", 0-1) = Ar_1
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]", 0-2) = ?
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]", 0-3) = ?
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]", 0-0) = ?
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]", 0-1) = Ar_1
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]", 0-2) = ?
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]", 0-3) = ?
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]", 0-0) = ?
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]", 0-1) = Ar_1
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]", 0-2) = ?
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]", 0-3) = ?
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]", 0-0) = ?
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]", 0-1) = Ar_1
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]", 0-2) = ?
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]", 0-3) = ?
+	S("evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))", 0-0) = ?
+	S("evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))", 0-1) = Ar_1
+	S("evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))", 0-2) = ?
+	S("evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))", 0-3) = ?
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]", 0-0) = ?
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]", 0-1) = Ar_1
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]", 0-2) = ?
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]", 0-3) = ?
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]", 0-0) = ?
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]", 0-1) = Ar_1
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]", 0-2) = ?
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]", 0-3) = ?
+	S("evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))", 0-0) = 1
+	S("evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+orients the transitions
+	evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+	evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]
+	evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]
+	evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+	evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]
+	evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))
+weakly and the transitions
+	evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+	evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]
+	evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+strictly and produces the following problem:
+6:	T:
+		(Comp: 1, Cost: 1)         evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)         evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)      evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)         evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: Ar_1, Cost: 1)      evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))
+		(Comp: 2*Ar_1, Cost: 1)    evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: ?, Cost: 1)         evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)         evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]
+		(Comp: 2*Ar_1, Cost: 1)    evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]
+		(Comp: ?, Cost: 1)         evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))
+		(Comp: 2*Ar_1, Cost: 1)    evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)         evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)         koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalinsertsortbb3in) = V_4
+	Pol(evalinsertsortbb1in) = V_4
+	Pol(evalinsertsortbb2in) = V_4 + 1
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = 2*Ar_1 + 20
+	S("evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-0) = 2*Ar_1 + 4
+	S("evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))", 0-0) = 2*Ar_1 + 4
+	S("evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))", 0-1) = Ar_1
+	S("evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))", 0-2) = ?
+	S("evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))", 0-3) = ?
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]", 0-0) = 2*Ar_1 + 4
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]", 0-1) = Ar_1
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]", 0-2) = ?
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]", 0-3) = ?
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]", 0-0) = 2*Ar_1 + 4
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]", 0-1) = Ar_1
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]", 0-2) = ?
+	S("evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]", 0-3) = ?
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]", 0-0) = 2*Ar_1 + 4
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]", 0-1) = Ar_1
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]", 0-2) = ?
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]", 0-3) = ?
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]", 0-0) = 2*Ar_1 + 4
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]", 0-1) = Ar_1
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]", 0-2) = ?
+	S("evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]", 0-3) = ?
+	S("evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))", 0-0) = 2*Ar_1 + 4
+	S("evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))", 0-1) = Ar_1
+	S("evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))", 0-2) = ?
+	S("evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))", 0-3) = 2*Ar_1 + 10
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]", 0-0) = 2*Ar_1 + 10
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]", 0-1) = Ar_1
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]", 0-2) = ?
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]", 0-3) = ?
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]", 0-0) = 2*Ar_1 + 4
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]", 0-1) = Ar_1
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]", 0-2) = ?
+	S("evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]", 0-3) = ?
+	S("evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))", 0-0) = 1
+	S("evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+orients the transitions
+	evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]
+	evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]
+	evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))
+weakly and the transition
+	evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]
+strictly and produces the following problem:
+7:	T:
+		(Comp: 1, Cost: 1)                     evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)                     evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)                  evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)                     evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: Ar_1, Cost: 1)                  evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))
+		(Comp: 2*Ar_1, Cost: 1)                evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: 2*Ar_1^2 + 11*Ar_1, Cost: 1)    evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]
+		(Comp: ?, Cost: 1)                     evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]
+		(Comp: 2*Ar_1, Cost: 1)                evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]
+		(Comp: ?, Cost: 1)                     evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))
+		(Comp: 2*Ar_1, Cost: 1)                evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)                     evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)                     koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 7 produces the following problem:
+8:	T:
+		(Comp: 1, Cost: 1)                     evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)                     evalinsertsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(1, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_1, Cost: 1)                  evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)                     evalinsertsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 ]
+		(Comp: Ar_1, Cost: 1)                  evalinsertsortbbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Fresh_0, Ar_0 - 1))
+		(Comp: 2*Ar_1, Cost: 1)                evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_3 + 1 ]
+		(Comp: 2*Ar_1^2 + 11*Ar_1, Cost: 1)    evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= 0 ]
+		(Comp: 2*Ar_1^2 + 11*Ar_1, Cost: 1)    evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= Ar_2 + 1 ]
+		(Comp: 2*Ar_1, Cost: 1)                evalinsertsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= E ]
+		(Comp: 2*Ar_1^2 + 11*Ar_1, Cost: 1)    evalinsertsortbb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3 - 1))
+		(Comp: 2*Ar_1, Cost: 1)                evalinsertsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortbb5in(Ar_0 + 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)                     evalinsertsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)                     koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalinsertsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 41*Ar_1 + 6*Ar_1^2 + 6
+
+Time: 0.070 sec (SMT: 0.054 sec)

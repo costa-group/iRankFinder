@@ -1,0 +1,78 @@
+{
+  vars: [A,B,C,D,E,F],
+  pvars: [A',B',C',D',E',F'],
+  initnode: start0,
+  nodes: {
+    cut: {
+      cfr_properties: [
+        // RFs Properties
+        [B -E >= 0],
+        [-B + E > 0],
+      ],
+      inv_polyhedra: [-1 + A -C == 0, A -B == 0, -1 + E >= 0, -2 + A -E >= 0],
+    },
+    lbl71: {
+      cfr_properties: [
+        // RFs Properties
+        [B -E >= 0],
+        [-B + E > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+      ],
+      inv_polyhedra: [A -B == 0, -1 + A -C >= 0, -2 + A -E >= 0, -1 + C >= 0, E >= 0],
+    },
+    start: {
+      inv_polyhedra: [E -F == 0, C -D == 0, A -B == 0],
+    },
+    start0: {
+      inv_polyhedra: [],
+    },
+    stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: start,
+	target: lbl71,
+	name: t0,
+	constraints: [A -2 >= 0, B -A = 0, C -D = 0, E -F = 0, A -A' = 0, B -B' = 0, 1 -C' = 0, D -D' = 0, -E' = 0, F -F' = 0]
+    },
+    {
+	source: start,
+	target: stop,
+	name: t1,
+	constraints: [1 -A >= 0, B -A = 0, C -D = 0, E -F = 0]
+    },
+    {
+	source: lbl71,
+	target: lbl71,
+	name: t2,
+	constraints: [A -C -2 >= 0, A -C -1 >= 0, A -E -2 >= 0, C -1 >= 0, E >= 0, B -A = 0, A -A' = 0, B -B' = 0, 1 + C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0]
+    },
+    {
+	source: lbl71,
+	target: cut,
+	name: t3,
+	constraints: [A -E -3 >= 0, A -E -2 >= 0, A -2 >= 0, E >= 0, C + 1 -A = 0, B -A = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, 1 + E -E' = 0, F -F' = 0]
+    },
+    {
+	source: lbl71,
+	target: stop,
+	name: t4,
+	constraints: [A -2 >= 0, E + 2 -A = 0, C + 1 -A = 0, B -A = 0]
+    },
+    {
+	source: cut,
+	target: lbl71,
+	name: t5,
+	constraints: [A -2 >= 0, A -2 -E >= 0, E -1 >= 0, C + 1 -A = 0, B -A = 0, A -A' = 0, B -B' = 0, 1 -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0]
+    },
+    {
+	source: start0,
+	target: start,
+	name: t8,
+	constraints: [A -A' = 0, A -B' = 0, D -C' = 0, D -D' = 0, F -E' = 0, F -F' = 0]
+    }
+  ]
+}

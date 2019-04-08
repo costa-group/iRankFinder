@@ -1,0 +1,215 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalNestedMultipleDepbb1in/11,evalNestedMultipleDepbb2in/11]
+1. recursive  : [evalNestedMultipleDepbb2in_loop_cont/12,evalNestedMultipleDepbb3in/11,evalNestedMultipleDepbbin/11]
+2. non_recursive  : [evalNestedMultipleDepstop/6]
+3. non_recursive  : [evalNestedMultipleDepreturnin/6]
+4. non_recursive  : [exit_location/1]
+5. non_recursive  : [evalNestedMultipleDepbb3in_loop_cont/7]
+6. non_recursive  : [evalNestedMultipleDepentryin/6]
+7. non_recursive  : [evalNestedMultipleDepstart/6]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalNestedMultipleDepbb2in/11
+1. SCC is partially evaluated into evalNestedMultipleDepbb3in/11
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is completely evaluated into other SCCs
+5. SCC is partially evaluated into evalNestedMultipleDepbb3in_loop_cont/7
+6. SCC is partially evaluated into evalNestedMultipleDepentryin/6
+7. SCC is partially evaluated into evalNestedMultipleDepstart/6
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalNestedMultipleDepbb2in/11 
+* CE 11 is refined into CE [12] 
+* CE 10 is refined into CE [13] 
+* CE 9 is refined into CE [14] 
+
+
+### Cost equations --> "Loop" of evalNestedMultipleDepbb2in/11 
+* CEs [14] --> Loop 11 
+* CEs [12] --> Loop 12 
+* CEs [13] --> Loop 13 
+
+### Ranking functions of CR evalNestedMultipleDepbb2in(A,B,C,D,E,F,G,H,I,J,K) 
+* RF of phase [11]: [-D+E]
+
+#### Partial ranking functions of CR evalNestedMultipleDepbb2in(A,B,C,D,E,F,G,H,I,J,K) 
+* Partial RF of phase [11]:
+  - RF of loop [11:1]:
+    -D+E
+
+
+### Specialization of cost equations evalNestedMultipleDepbb3in/11 
+* CE 5 is refined into CE [15] 
+* CE 3 is refined into CE [16] 
+* CE 6 is refined into CE [17] 
+* CE 4 is refined into CE [18,19] 
+
+
+### Cost equations --> "Loop" of evalNestedMultipleDepbb3in/11 
+* CEs [19] --> Loop 14 
+* CEs [18] --> Loop 15 
+* CEs [15] --> Loop 16 
+* CEs [16,17] --> Loop 17 
+
+### Ranking functions of CR evalNestedMultipleDepbb3in(A,B,C,D,E,F,G,H,I,J,K) 
+* RF of phase [14]: [-A+B]
+* RF of phase [15]: [-A+B]
+
+#### Partial ranking functions of CR evalNestedMultipleDepbb3in(A,B,C,D,E,F,G,H,I,J,K) 
+* Partial RF of phase [14]:
+  - RF of loop [14:1]:
+    -A+B
+* Partial RF of phase [15]:
+  - RF of loop [15:1]:
+    -A+B
+
+
+### Specialization of cost equations evalNestedMultipleDepbb3in_loop_cont/7 
+* CE 7 is refined into CE [20] 
+* CE 8 is refined into CE [21] 
+
+
+### Cost equations --> "Loop" of evalNestedMultipleDepbb3in_loop_cont/7 
+* CEs [20] --> Loop 18 
+* CEs [21] --> Loop 19 
+
+### Ranking functions of CR evalNestedMultipleDepbb3in_loop_cont(A,B,C,D,E,F,G) 
+
+#### Partial ranking functions of CR evalNestedMultipleDepbb3in_loop_cont(A,B,C,D,E,F,G) 
+
+
+### Specialization of cost equations evalNestedMultipleDepentryin/6 
+* CE 2 is refined into CE [22,23,24,25] 
+
+
+### Cost equations --> "Loop" of evalNestedMultipleDepentryin/6 
+* CEs [22,23,24,25] --> Loop 20 
+
+### Ranking functions of CR evalNestedMultipleDepentryin(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR evalNestedMultipleDepentryin(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations evalNestedMultipleDepstart/6 
+* CE 1 is refined into CE [26] 
+
+
+### Cost equations --> "Loop" of evalNestedMultipleDepstart/6 
+* CEs [26] --> Loop 21 
+
+### Ranking functions of CR evalNestedMultipleDepstart(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR evalNestedMultipleDepstart(A,B,C,D,E,F) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalNestedMultipleDepbb2in(A,B,C,D,E,F,G,H,I,J,K):
+* Chain [[11],13]: 2*it(11)+1
+  Such that:it(11) =< -D+J
+
+  with precondition: [F=2,A+1=C,A+1=G,B=H,A+1=I,E=J,E=K,D>=0,B>=A+1,E>=D+1] 
+
+* Chain [[11],12]: 2*it(11)+0
+  Such that:it(11) =< -D+E
+
+  with precondition: [F=3,A+1=C,D>=0,B>=A+1,E>=D+1] 
+
+* Chain [13]: 1
+  with precondition: [F=2,C=A+1,C=G,B=H,C=I,D=J,E=K,D>=0,B>=C,D>=E] 
+
+* Chain [12]: 0
+  with precondition: [F=3,C=A+1,D>=0,B>=C] 
+
+
+#### Cost of chains of evalNestedMultipleDepbb3in(A,B,C,D,E,F,G,H,I,J,K):
+* Chain [[15],17]: 3*it(15)+2*s(2)+2
+  Such that:it(15) =< -A+B
+s(2) =< E
+
+  with precondition: [F=3,0>=E,A>=0,B>=A+1] 
+
+* Chain [[15],16]: 3*it(15)+1
+  Such that:it(15) =< -A+I
+
+  with precondition: [F=4,J=0,B=G,B=H,B=I,E=K,0>=E,A>=0,B>=A+1] 
+
+* Chain [[14],17]: 3*it(14)+2*s(2)+2*s(5)+2
+  Such that:it(14) =< -A+B
+aux(2) =< E
+s(2) =< aux(2)
+s(5) =< it(14)*aux(2)
+
+  with precondition: [F=3,A>=0,E>=1,B>=A+1] 
+
+* Chain [[14],16]: 3*it(14)+2*s(5)+1
+  Such that:it(14) =< -A+I
+aux(1) =< J
+s(5) =< it(14)*aux(1)
+
+  with precondition: [F=4,B=G,B=H,B=I,E=J,E=K,A>=0,E>=1,B>=A+1] 
+
+* Chain [17]: 2*s(2)+2
+  Such that:s(2) =< E
+
+  with precondition: [F=3,A>=0] 
+
+* Chain [16]: 1
+  with precondition: [F=4,I=C,J=D,K=E,A=G,B=H,A>=0,A>=B] 
+
+
+#### Cost of chains of evalNestedMultipleDepbb3in_loop_cont(A,B,C,D,E,F,G):
+* Chain [19]: 0
+  with precondition: [A=3] 
+
+* Chain [18]: 1
+  with precondition: [A=4] 
+
+
+#### Cost of chains of evalNestedMultipleDepentryin(A,B,C,D,E,F):
+* Chain [20]: 12*s(15)+6*s(16)+4*s(17)+3
+  Such that:aux(5) =< B
+aux(6) =< E
+s(15) =< aux(5)
+s(16) =< aux(6)
+s(17) =< s(15)*aux(6)
+
+  with precondition: [] 
+
+
+#### Cost of chains of evalNestedMultipleDepstart(A,B,C,D,E,F):
+* Chain [21]: 12*s(24)+6*s(25)+4*s(26)+4
+  Such that:s(22) =< B
+s(23) =< E
+s(24) =< s(22)
+s(25) =< s(23)
+s(26) =< s(24)*s(23)
+
+  with precondition: [] 
+
+
+Closed-form bounds of evalNestedMultipleDepstart(A,B,C,D,E,F): 
+-------------------------------------
+* Chain [21] with precondition: [] 
+    - Upper bound: nat(B)*12+4+nat(E)*6+nat(E)*4*nat(B) 
+    - Complexity: n^2 
+
+### Maximum cost of evalNestedMultipleDepstart(A,B,C,D,E,F): nat(B)*12+4+nat(E)*6+nat(E)*4*nat(B) 
+Asymptotic class: n^2 
+* Total analysis performed in 386 ms.
+
+
+-- stats
+realtime 0:00.45
+usertime 0.43
+systime 0.01
+

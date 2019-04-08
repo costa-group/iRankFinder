@@ -1,0 +1,11 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A_P B_P C_P D_P)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(n_l0(A,B,C,D))
+  n_l0(A,B,C,D) -> Com_1(n_l1___3(0, B, C, D))
+  n_l1___3(A,B,C,D) -> Com_1(n_l2___2(A, B, 0, 0)) :|: B -1 >= 0
+  n_l2___1(A,B,C,D) -> Com_1(n_l1___3(A + D, B -1, B, D)) :|: B -C = 0
+  n_l2___1(A,B,C,D) -> Com_1(n_l2___1(A, B, C + 1, C + D)) :|: B -C -1 >= 0
+  n_l2___2(A,B,C,D) -> Com_1(n_l2___1(A, B, C + 1, C + D)) :|: B -C -1 >= 0 && -1 + B -C >= 0 && B -C -1 >= 0
+)

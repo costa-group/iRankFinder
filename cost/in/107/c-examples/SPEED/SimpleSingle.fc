@@ -1,0 +1,73 @@
+{
+  vars: [A,B],
+  pvars: [A',B'],
+  initnode: evalSimpleSinglestart,
+  nodes: {
+    evalSimpleSinglebb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    evalSimpleSinglebbin: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-1 -A + B >= 0, A >= 0],
+    },
+    evalSimpleSingleentryin: {
+      inv_polyhedra: [],
+    },
+    evalSimpleSinglereturnin: {
+      inv_polyhedra: [A -B >= 0, A >= 0],
+    },
+    evalSimpleSinglestart: {
+      inv_polyhedra: [],
+    },
+    evalSimpleSinglestop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalSimpleSinglestart,
+	target: evalSimpleSingleentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSimpleSingleentryin,
+	target: evalSimpleSinglebb3in,
+	name: t1,
+	constraints: [-A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSimpleSinglebb3in,
+	target: evalSimpleSinglebbin,
+	name: t2,
+	constraints: [B -A -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSimpleSinglebb3in,
+	target: evalSimpleSinglereturnin,
+	name: t3,
+	constraints: [A -B >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSimpleSinglebbin,
+	target: evalSimpleSinglebb3in,
+	name: t4,
+	constraints: [A + 1 -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalSimpleSinglereturnin,
+	target: evalSimpleSinglestop,
+	name: t5,
+	constraints: []
+    }
+  ]
+}

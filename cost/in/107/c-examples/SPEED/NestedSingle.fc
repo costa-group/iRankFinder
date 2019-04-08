@@ -1,0 +1,139 @@
+{
+  vars: [A,B,C],
+  pvars: [A',B',C'],
+  initnode: evalNestedSinglestart,
+  nodes: {
+    evalNestedSinglebb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+      ],
+      inv_polyhedra: [-A + C >= 0, -1 + B -C >= 0, A >= 0],
+    },
+    evalNestedSinglebb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+      ],
+      inv_polyhedra: [A >= 0, B -C >= 0, -A + C >= 0, -1 -A + B >= 0],
+    },
+    evalNestedSinglebb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+        [B -C >= 0],
+        [-B + C > 0],
+      ],
+      inv_polyhedra: [A >= 0, -1 + B -C >= 0, -A + C >= 0],
+    },
+    evalNestedSinglebb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [-A + C >= 0, -1 -A + B >= 0, B -C >= 0, A >= 0],
+    },
+    evalNestedSinglebb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    evalNestedSingleentryin: {
+      inv_polyhedra: [],
+    },
+    evalNestedSinglereturnin: {
+      inv_polyhedra: [A -B >= 0, A >= 0],
+    },
+    evalNestedSinglestart: {
+      inv_polyhedra: [],
+    },
+    evalNestedSinglestop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalNestedSinglestart,
+	target: evalNestedSingleentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalNestedSingleentryin,
+	target: evalNestedSinglebb5in,
+	name: t1,
+	constraints: [-A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalNestedSinglebb4in,
+	target: evalNestedSinglebb5in,
+	name: t10,
+	constraints: [C + 1 -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalNestedSinglereturnin,
+	target: evalNestedSinglestop,
+	name: t11,
+	constraints: []
+    },
+    {
+	source: evalNestedSinglebb5in,
+	target: evalNestedSinglebb2in,
+	name: t2,
+	constraints: [B -A -1 >= 0, A -A' = 0, B -B' = 0, A -C' = 0]
+    },
+    {
+	source: evalNestedSinglebb5in,
+	target: evalNestedSinglereturnin,
+	name: t3,
+	constraints: [A -B >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalNestedSinglebb2in,
+	target: evalNestedSinglebb4in,
+	name: t4,
+	constraints: [C -B >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalNestedSinglebb2in,
+	target: evalNestedSinglebb3in,
+	name: t5,
+	constraints: [B -C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalNestedSinglebb3in,
+	target: evalNestedSinglebb1in,
+	name: t6,
+	constraints: [-1 -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalNestedSinglebb3in,
+	target: evalNestedSinglebb1in,
+	name: t7,
+	constraints: [D -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalNestedSinglebb3in,
+	target: evalNestedSinglebb4in,
+	name: t8,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalNestedSinglebb1in,
+	target: evalNestedSinglebb2in,
+	name: t9,
+	constraints: [A -A' = 0, B -B' = 0, C + 1 -C' = 0]
+    }
+  ]
+}

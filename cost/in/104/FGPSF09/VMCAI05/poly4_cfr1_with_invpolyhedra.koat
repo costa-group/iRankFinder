@@ -1,0 +1,19 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E A_P B_P C_P D_P E_P)
+(RULES 
+  pyRinit(A,B,C,D,E) -> Com_1(n_start(A,B,C,D,E))
+  n_eval___1(A,B,C,D,E) -> Com_1(n_eval___1(A, B + 1, C, D, E + 1)) :|: -C + D >= 0 && A -B >= 0 && -C + D >= 0 && A -B -1 >= 0 && -C + D >= 0 && -C + D >= 0 && A -B >= 0
+  n_eval___2(A,B,C,D,E) -> Com_1(n_eval___2(A, B, C, D + 1, E + 1)) :|: -A + B >= 0 && C -D >= 0 && -A + B >= 0 && C -D -1 >= 0 && -A + B >= 0 && -A + B >= 0 && C -D >= 0
+  n_eval___3(A,B,C,D,E) -> Com_1(n_eval___1(A, B + 1, C, D, E + 1)) :|: A -B -1 >= 0 && -1 + A -B >= 0 && C -D >= 0 && A -B -1 >= 0 && -C + D >= 0 && C -D >= 0 && -1 + A -B >= 0
+  n_eval___3(A,B,C,D,E) -> Com_1(n_eval___3(A, B, C, D + 1, E + 1)) :|: A -B -1 >= 0 && -1 + A -B >= 0 && C -D >= 0 && A -B -1 >= 0 && C -D -1 >= 0 && C -D >= 0 && -1 + A -B >= 0
+  n_eval___3(A,B,C,D,E) -> Com_1(n_eval___4(A, B + 1, C, D, E + 1)) :|: A -B -1 >= 0 && -1 + A -B >= 0 && C -D >= 0 && A -B -1 >= 0 && C -D -1 >= 0 && C -D >= 0 && -1 + A -B >= 0
+  n_eval___4(A,B,C,D,E) -> Com_1(n_eval___2(A, B, C, D + 1, E + 1)) :|: C -D -1 >= 0 && A -B >= 0 && -1 + C -D >= 0 && C -D -1 >= 0 && -A + B >= 0 && -1 + C -D >= 0 && A -B >= 0
+  n_eval___4(A,B,C,D,E) -> Com_1(n_eval___3(A, B, C, D + 1, E + 1)) :|: C -D -1 >= 0 && A -B >= 0 && -1 + C -D >= 0 && A -B -1 >= 0 && C -D -1 >= 0 && -1 + C -D >= 0 && A -B >= 0
+  n_eval___4(A,B,C,D,E) -> Com_1(n_eval___4(A, B + 1, C, D, E + 1)) :|: C -D -1 >= 0 && A -B >= 0 && -1 + C -D >= 0 && A -B -1 >= 0 && C -D -1 >= 0 && -1 + C -D >= 0 && A -B >= 0
+  n_eval___5(A,B,C,D,E) -> Com_1(n_eval___1(A, B + 1, C, D, E + 1)) :|: A -B -1 >= 0 && -C + D >= 0
+  n_eval___5(A,B,C,D,E) -> Com_1(n_eval___2(A, B, C, D + 1, E + 1)) :|: C -D -1 >= 0 && -A + B >= 0
+  n_eval___5(A,B,C,D,E) -> Com_1(n_eval___3(A, B, C, D + 1, E + 1)) :|: A -B -1 >= 0 && C -D -1 >= 0
+  n_eval___5(A,B,C,D,E) -> Com_1(n_eval___4(A, B + 1, C, D, E + 1)) :|: A -B -1 >= 0 && C -D -1 >= 0
+  n_start(A,B,C,D,E) -> Com_1(n_eval___5(A, B, C, D, E))
+)

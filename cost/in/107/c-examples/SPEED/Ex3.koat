@@ -1,0 +1,18 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A' B' C' NoDet2 NoDet0 D NoDet1)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(evalEx3start(A,B,C))
+  evalEx3bb1in(A,B,C) -> Com_1(evalEx3bb2in(A, B, C -1))
+  evalEx3bb2in(A,B,C) -> Com_1(evalEx3bb3in(A, B, C)) :|: C -1 >= 0
+  evalEx3bb2in(A,B,C) -> Com_1(evalEx3bb4in(C, B, C)) :|: -C >= 0
+  evalEx3bb3in(A,B,C) -> Com_1(evalEx3bb1in(A, B, C))
+  evalEx3bb3in(A,B,C) -> Com_1(evalEx3bb4in(C, B, C)) :|: B -D -1 >= 0
+  evalEx3bb3in(A,B,C) -> Com_1(evalEx3bb4in(C, B, C)) :|: D -B -1 >= 0
+  evalEx3bb4in(A,B,C) -> Com_1(evalEx3bbin(A, B, C)) :|: A -1 >= 0
+  evalEx3bb4in(A,B,C) -> Com_1(evalEx3returnin(A, B, C)) :|: -A >= 0
+  evalEx3bbin(A,B,C) -> Com_1(evalEx3bb2in(A, D, A))
+  evalEx3entryin(A,B,C) -> Com_1(evalEx3bb4in(A, B, C))
+  evalEx3returnin(A,B,C) -> Com_1(evalEx3stop(NoDet0, NoDet1, NoDet2))
+  evalEx3start(A,B,C) -> Com_1(evalEx3entryin(A, B, C))
+)

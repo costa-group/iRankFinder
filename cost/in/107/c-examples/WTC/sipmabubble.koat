@@ -1,0 +1,18 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A' B' C D NoDet1 NoDet0)
+(RULES 
+  pyRinit(A,B) -> Com_1(evalsipmabubblestart(A,B))
+  evalsipmabubblebb1in(A,B) -> Com_1(evalsipmabubblebb2in(A, B)) :|: C -D -1 >= 0
+  evalsipmabubblebb1in(A,B) -> Com_1(evalsipmabubblebb3in(A, B)) :|: D -C >= 0
+  evalsipmabubblebb2in(A,B) -> Com_1(evalsipmabubblebb3in(A, B))
+  evalsipmabubblebb3in(A,B) -> Com_1(evalsipmabubblebb4in(A, B + 1))
+  evalsipmabubblebb4in(A,B) -> Com_1(evalsipmabubblebb1in(A, B)) :|: A -1 -B >= 0
+  evalsipmabubblebb4in(A,B) -> Com_1(evalsipmabubblebb5in(A, B)) :|: B -A >= 0
+  evalsipmabubblebb5in(A,B) -> Com_1(evalsipmabubblebb6in(A -1, B))
+  evalsipmabubblebb6in(A,B) -> Com_1(evalsipmabubblebb4in(A, 0)) :|: A >= 0
+  evalsipmabubblebb6in(A,B) -> Com_1(evalsipmabubblereturnin(A, B)) :|: -1 -A >= 0
+  evalsipmabubbleentryin(A,B) -> Com_1(evalsipmabubblebb6in(A, B))
+  evalsipmabubblereturnin(A,B) -> Com_1(evalsipmabubblestop(NoDet0, NoDet1))
+  evalsipmabubblestart(A,B) -> Com_1(evalsipmabubbleentryin(A, B))
+)

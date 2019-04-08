@@ -1,0 +1,155 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalexminibb1in/7,evalexminibbin/7]
+1. non_recursive  : [evalexministop/4]
+2. non_recursive  : [evalexminireturnin/4]
+3. non_recursive  : [exit_location/1]
+4. non_recursive  : [evalexminibb1in_loop_cont/5]
+5. non_recursive  : [evalexminientryin/4]
+6. non_recursive  : [evalexministart/4]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalexminibb1in/7
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into evalexminibb1in_loop_cont/5
+5. SCC is partially evaluated into evalexminientryin/4
+6. SCC is partially evaluated into evalexministart/4
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalexminibb1in/7 
+* CE 6 is refined into CE [9] 
+* CE 5 is refined into CE [10] 
+* CE 4 is refined into CE [11] 
+* CE 3 is refined into CE [12] 
+
+
+### Cost equations --> "Loop" of evalexminibb1in/7 
+* CEs [12] --> Loop 9 
+* CEs [9] --> Loop 10 
+* CEs [10] --> Loop 11 
+* CEs [11] --> Loop 12 
+
+### Ranking functions of CR evalexminibb1in(A,B,C,D,E,F,G) 
+* RF of phase [9]: [A/2-B/2-C/2+101/2]
+
+#### Partial ranking functions of CR evalexminibb1in(A,B,C,D,E,F,G) 
+* Partial RF of phase [9]:
+  - RF of loop [9:1]:
+    A/2-B/2-C/2+101/2
+
+
+### Specialization of cost equations evalexminibb1in_loop_cont/5 
+* CE 8 is refined into CE [13] 
+* CE 7 is refined into CE [14] 
+
+
+### Cost equations --> "Loop" of evalexminibb1in_loop_cont/5 
+* CEs [13] --> Loop 13 
+* CEs [14] --> Loop 14 
+
+### Ranking functions of CR evalexminibb1in_loop_cont(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalexminibb1in_loop_cont(A,B,C,D,E) 
+
+
+### Specialization of cost equations evalexminientryin/4 
+* CE 2 is refined into CE [15,16,17,18,19] 
+
+
+### Cost equations --> "Loop" of evalexminientryin/4 
+* CEs [15,16,17,18,19] --> Loop 15 
+
+### Ranking functions of CR evalexminientryin(A,B,C,D) 
+
+#### Partial ranking functions of CR evalexminientryin(A,B,C,D) 
+
+
+### Specialization of cost equations evalexministart/4 
+* CE 1 is refined into CE [20] 
+
+
+### Cost equations --> "Loop" of evalexministart/4 
+* CEs [20] --> Loop 16 
+
+### Ranking functions of CR evalexministart(A,B,C,D) 
+
+#### Partial ranking functions of CR evalexministart(A,B,C,D) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalexminibb1in(A,B,C,D,E,F,G):
+* Chain [[9],12]: 2*it(9)+1
+  Such that:it(9) =< A/2-B/2-C/2+101/2
+
+  with precondition: [D=2,A+B+C=E+F+G,100>=B,F>=101,A>=C,A>=E+1,E+1>=F] 
+
+* Chain [[9],11]: 2*it(9)+1
+  Such that:it(9) =< A/2-B/2-C/2+101/2
+
+  with precondition: [D=2,A+B+C=E+F+G,100>=B,A>=C,A>=E+1,E+1>=F,C+2*A>=2*E+F+2,A+B+C>=2*E+F+1,E+F+101>=A+B+C] 
+
+* Chain [[9],10]: 2*it(9)+0
+  Such that:it(9) =< A/2-B/2-C/2+101/2
+
+  with precondition: [D=3,100>=B,A>=C] 
+
+* Chain [12]: 1
+  with precondition: [D=2,E=A,G=C,B=F,B>=101] 
+
+* Chain [11]: 1
+  with precondition: [D=2,F=B,A=E,C=G,C>=A+1] 
+
+* Chain [10]: 0
+  with precondition: [D=3] 
+
+
+#### Cost of chains of evalexminibb1in_loop_cont(A,B,C,D,E):
+* Chain [14]: 1
+  with precondition: [A=2] 
+
+* Chain [13]: 0
+  with precondition: [A=3] 
+
+
+#### Cost of chains of evalexminientryin(A,B,C,D):
+* Chain [15]: 6*s(2)+3
+  Such that:aux(1) =< -A/2+B/2-C/2+101/2
+s(2) =< aux(1)
+
+  with precondition: [] 
+
+
+#### Cost of chains of evalexministart(A,B,C,D):
+* Chain [16]: 6*s(6)+4
+  Such that:s(5) =< -A/2+B/2-C/2+101/2
+s(6) =< s(5)
+
+  with precondition: [] 
+
+
+Closed-form bounds of evalexministart(A,B,C,D): 
+-------------------------------------
+* Chain [16] with precondition: [] 
+    - Upper bound: nat(-A/2+B/2-C/2+101/2)*6+4 
+    - Complexity: n 
+
+### Maximum cost of evalexministart(A,B,C,D): nat(-A/2+B/2-C/2+101/2)*6+4 
+Asymptotic class: n 
+* Total analysis performed in 138 ms.
+
+
+-- stats
+realtime 0:00.24
+usertime 0.17
+systime 0.00
+

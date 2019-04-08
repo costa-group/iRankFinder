@@ -1,0 +1,384 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalfstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1))
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1))
+		(Comp: ?, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalfstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1))
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1))
+		(Comp: ?, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalfstart) = 2
+	Pol(evalfentryin) = 2
+	Pol(evalfbb3in) = 2
+	Pol(evalfbbin) = 2
+	Pol(evalfreturnin) = 1
+	Pol(evalfbb1in) = 2
+	Pol(evalfbb2in) = 2
+	Pol(evalfstop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalfreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2))
+	evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+	evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_2 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalfstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 2, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_2 ]
+		(Comp: 2, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1))
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1))
+		(Comp: 2, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Applied AI with 'oct' on problem 3 to obtain the following invariants:
+  For symbol evalfbb1in: X_2 - X_3 - 1 >= 0 /\ X_3 - 1 >= 0 /\ X_2 + X_3 - 3 >= 0 /\ X_1 + X_3 - 2 >= 0 /\ X_2 - 2 >= 0 /\ X_1 + X_2 - 3 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalfbb2in: X_2 - X_3 - 1 >= 0 /\ X_3 - 1 >= 0 /\ X_2 + X_3 - 3 >= 0 /\ -X_1 + X_3 - 1 >= 0 /\ X_2 - 2 >= 0 /\ -X_1 + X_2 - 2 >= 0 /\ -X_1 >= 0
+  For symbol evalfbb3in: X_2 - 2 >= 0
+  For symbol evalfbbin: X_2 - X_3 - 1 >= 0 /\ X_3 - 1 >= 0 /\ X_2 + X_3 - 3 >= 0 /\ X_2 - 2 >= 0
+  For symbol evalfreturnin: X_2 - 2 >= 0
+
+
+This yielded the following problem:
+4:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: 2, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)    evalfstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ] with all transitions in problem 4, the following new transition is obtained:
+	koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+We thus obtain the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: 2, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)    evalfstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 5:
+	evalfstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2))
+We thus obtain the following problem:
+6:	T:
+		(Comp: 2, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 ]
+		(Comp: 2, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: 2, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ] with all transitions in problem 6, the following new transition is obtained:
+	evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+We thus obtain the following problem:
+7:	T:
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: 2, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 ]
+		(Comp: 2, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ] with all transitions in problem 7, the following new transition is obtained:
+	evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+We thus obtain the following problem:
+8:	T:
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: 2, Cost: 1)    evalfreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 8:
+	evalfreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 ]
+We thus obtain the following problem:
+9:	T:
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 ] with all transitions in problem 9, the following new transition is obtained:
+	evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+We thus obtain the following problem:
+10:	T:
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalfbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 10:
+	evalfbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+We thus obtain the following problem:
+11:	T:
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb2in(Ar_0, Ar_1, Ar_2)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 ] with all transitions in problem 11, the following new transition is obtained:
+	evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+We thus obtain the following problem:
+12:	T:
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalfbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 12:
+	evalfbb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ Ar_1 - 2 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+We thus obtain the following problem:
+13:	T:
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 1, Cost: 1)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 1, Cost: 1)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 ] with all transitions in problem 13, the following new transition is obtained:
+	evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 /\ Ar_1 - 2 >= 0 ]
+We thus obtain the following problem:
+14:	T:
+		(Comp: 1, Cost: 2)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 /\ Ar_1 - 2 >= 0 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 1, Cost: 1)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfentryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ] with all transitions in problem 14, the following new transition is obtained:
+	koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ 0 <= 0 /\ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 /\ Ar_1 - 2 >= 0 ]
+We thus obtain the following problem:
+15:	T:
+		(Comp: 1, Cost: 3)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ 0 <= 0 /\ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 /\ Ar_1 - 2 >= 0 ]
+		(Comp: 1, Cost: 2)    evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 /\ Ar_1 - 2 >= 0 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 15:
+	evalfentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 /\ Ar_1 - 2 >= 0 ]
+We thus obtain the following problem:
+16:	T:
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 3)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ 0 <= 0 /\ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 /\ Ar_1 - 2 >= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 ] with all transitions in problem 16, the following new transitions are obtained:
+	evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+	evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+We thus obtain the following problem:
+17:	T:
+		(Comp: ?, Cost: 3)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 3)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 3)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ 0 <= 0 /\ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 /\ Ar_1 - 2 >= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 17 produces the following problem:
+18:	T:
+		(Comp: ?, Cost: 3)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 3)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 2, Cost: 2)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: 1, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 2)    evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 3)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ 0 <= 0 /\ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 /\ Ar_1 - 2 >= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalfbb3in) = V_2 - V_3
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ 0 <= 0 /\\ Ar_0 >= 1 /\\ Ar_1 >= Ar_0 + 1 /\\ Ar_1 - 2 >= 0 ]", 0-0) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ 0 <= 0 /\\ Ar_0 >= 1 /\\ Ar_1 >= Ar_0 + 1 /\\ Ar_1 - 2 >= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ 0 <= 0 /\\ Ar_0 >= 1 /\\ Ar_1 >= Ar_0 + 1 /\\ Ar_1 - 2 >= 0 ]", 0-2) = Ar_0
+	S("evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_1 - 2 >= 0 /\\ Ar_0 >= 1 /\\ Ar_0 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = Ar_2
+	S("evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_1 - 2 >= 0 /\\ Ar_0 >= 1 /\\ Ar_0 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = Ar_1
+	S("evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_1 - 2 >= 0 /\\ Ar_0 >= 1 /\\ Ar_0 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = Ar_1
+	S("evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_1 - 2 >= 0 /\\ 0 >= Ar_0 /\\ -Ar_0 + Ar_2 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 2 >= 0 /\\ -Ar_0 >= 0 ]", 0-0) = Ar_2
+	S("evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_1 - 2 >= 0 /\\ 0 >= Ar_0 /\\ -Ar_0 + Ar_2 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 2 >= 0 /\\ -Ar_0 >= 0 ]", 0-1) = Ar_1
+	S("evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_1 - 2 >= 0 /\\ 0 >= Ar_0 /\\ -Ar_0 + Ar_2 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 2 >= 0 /\\ -Ar_0 >= 0 ]", 0-2) = Ar_0
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= Ar_1 ]", 0-0) = Ar_2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= Ar_1 ]", 0-1) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= Ar_1 ]", 0-2) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\\ 0 >= Ar_2 ]", 0-0) = Ar_2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\\ 0 >= Ar_2 ]", 0-1) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\\ 0 >= Ar_2 ]", 0-2) = Ar_0
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= 1 /\\ Ar_1 >= Ar_2 + 1 /\\ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_0 >= 1 /\\ Ar_0 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = Ar_2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= 1 /\\ Ar_1 >= Ar_2 + 1 /\\ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_0 >= 1 /\\ Ar_0 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= 1 /\\ Ar_1 >= Ar_2 + 1 /\\ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_0 >= 1 /\\ Ar_0 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= 1 /\\ Ar_1 >= Ar_2 + 1 /\\ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ 0 >= Ar_0 /\\ -Ar_0 + Ar_2 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 2 >= 0 /\\ -Ar_0 >= 0 ]", 0-0) = Ar_2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= 1 /\\ Ar_1 >= Ar_2 + 1 /\\ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ 0 >= Ar_0 /\\ -Ar_0 + Ar_2 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 2 >= 0 /\\ -Ar_0 >= 0 ]", 0-1) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= 1 /\\ Ar_1 >= Ar_2 + 1 /\\ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ 0 >= Ar_0 /\\ -Ar_0 + Ar_2 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 2 >= 0 /\\ -Ar_0 >= 0 ]", 0-2) = Ar_0
+orients the transitions
+	evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+weakly and the transition
+	evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+strictly and produces the following problem:
+19:	T:
+		(Comp: ?, Cost: 3)         evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: 2*Ar_1, Cost: 3)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 2)         evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 2, Cost: 2)         evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: 1, Cost: 2)         evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 2)         evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 3)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ 0 <= 0 /\ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 /\ Ar_1 - 2 >= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalfbb3in) = V_3
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ 0 <= 0 /\\ Ar_0 >= 1 /\\ Ar_1 >= Ar_0 + 1 /\\ Ar_1 - 2 >= 0 ]", 0-0) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ 0 <= 0 /\\ Ar_0 >= 1 /\\ Ar_1 >= Ar_0 + 1 /\\ Ar_1 - 2 >= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ 0 <= 0 /\\ Ar_0 >= 1 /\\ Ar_1 >= Ar_0 + 1 /\\ Ar_1 - 2 >= 0 ]", 0-2) = Ar_0
+	S("evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_1 - 2 >= 0 /\\ Ar_0 >= 1 /\\ Ar_0 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = Ar_2
+	S("evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_1 - 2 >= 0 /\\ Ar_0 >= 1 /\\ Ar_0 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = Ar_1
+	S("evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_1 - 2 >= 0 /\\ Ar_0 >= 1 /\\ Ar_0 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = Ar_1
+	S("evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_1 - 2 >= 0 /\\ 0 >= Ar_0 /\\ -Ar_0 + Ar_2 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 2 >= 0 /\\ -Ar_0 >= 0 ]", 0-0) = Ar_2
+	S("evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_1 - 2 >= 0 /\\ 0 >= Ar_0 /\\ -Ar_0 + Ar_2 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 2 >= 0 /\\ -Ar_0 >= 0 ]", 0-1) = Ar_1
+	S("evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_1 - 2 >= 0 /\\ 0 >= Ar_0 /\\ -Ar_0 + Ar_2 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 2 >= 0 /\\ -Ar_0 >= 0 ]", 0-2) = Ar_0
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= Ar_1 ]", 0-0) = Ar_2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= Ar_1 ]", 0-1) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= Ar_1 ]", 0-2) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\\ 0 >= Ar_2 ]", 0-0) = Ar_2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\\ 0 >= Ar_2 ]", 0-1) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\\ 0 >= Ar_2 ]", 0-2) = Ar_0
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= 1 /\\ Ar_1 >= Ar_2 + 1 /\\ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_0 >= 1 /\\ Ar_0 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-0) = Ar_2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= 1 /\\ Ar_1 >= Ar_2 + 1 /\\ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_0 >= 1 /\\ Ar_0 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-1) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= 1 /\\ Ar_1 >= Ar_2 + 1 /\\ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ Ar_0 >= 1 /\\ Ar_0 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 1 >= 0 ]", 0-2) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= 1 /\\ Ar_1 >= Ar_2 + 1 /\\ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ 0 >= Ar_0 /\\ -Ar_0 + Ar_2 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 2 >= 0 /\\ -Ar_0 >= 0 ]", 0-0) = Ar_2
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= 1 /\\ Ar_1 >= Ar_2 + 1 /\\ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ 0 >= Ar_0 /\\ -Ar_0 + Ar_2 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 2 >= 0 /\\ -Ar_0 >= 0 ]", 0-1) = Ar_1
+	S("evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - 2 >= 0 /\\ Ar_2 >= 1 /\\ Ar_1 >= Ar_2 + 1 /\\ Ar_1 - Ar_2 - 1 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 3 >= 0 /\\ 0 >= Ar_0 /\\ -Ar_0 + Ar_2 - 1 >= 0 /\\ -Ar_0 + Ar_1 - 2 >= 0 /\\ -Ar_0 >= 0 ]", 0-2) = Ar_0
+orients the transitions
+	evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+weakly and the transition
+	evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+strictly and produces the following problem:
+20:	T:
+		(Comp: Ar_0, Cost: 3)      evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: 2*Ar_1, Cost: 3)    evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= 1 /\ Ar_1 >= Ar_2 + 1 /\ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 2)         evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 2, Cost: 2)         evalfbb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalfstop(Ar_0, Ar_1, Ar_2)) [ Ar_1 - 2 >= 0 /\ Ar_2 >= Ar_1 ]
+		(Comp: 1, Cost: 2)         evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ 0 >= Ar_0 /\ -Ar_0 + Ar_2 - 1 >= 0 /\ -Ar_0 + Ar_1 - 2 >= 0 /\ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 2)         evalfbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbb3in(Ar_0, Ar_1, Ar_2 + 1)) [ Ar_1 - Ar_2 - 1 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 3 >= 0 /\ Ar_1 - 2 >= 0 /\ Ar_0 >= 1 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 1, Cost: 3)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalfbbin(Ar_2, Ar_1, Ar_0)) [ 0 <= 0 /\ Ar_0 >= 1 /\ Ar_1 >= Ar_0 + 1 /\ Ar_1 - 2 >= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 3*Ar_0 + 6*Ar_1 + 15
+
+Time: 0.309 sec (SMT: 0.260 sec)

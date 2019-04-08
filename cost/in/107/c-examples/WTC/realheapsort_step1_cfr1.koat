@@ -1,0 +1,17 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A_P B_P C_P NoDet1 NoDet2 NoDet0)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(n_evalrealheapsortstep1start(A,B,C))
+  n_evalrealheapsortstep1bb3in___1(A,B,C) -> Com_1(n_evalrealheapsortstep1bb4in___2(A, B, C)) :|: A -B >= 0 && A -B >= 0 && A + B -2 * C -1 >= 0 && A -3 >= 0 && B -C >= 0 && C -1 >= 0
+  n_evalrealheapsortstep1bb3in___1(A,B,C) -> Com_1(n_evalrealheapsortstep1bb6in___5(A, B + 1, C_P)) :|: A -B >= 0 && A -B >= 0 && 2 * C_P + 1 >= 0 && -C_P >= 0 && A -3 >= 0 && B -1 >= 0 && C -C_P = 0
+  n_evalrealheapsortstep1bb3in___3(A,B,C) -> Com_1(n_evalrealheapsortstep1bb4in___2(A, B, C)) :|: A -B >= 0 && 2 * C >= 0 && A -B >= 0 && 2 * C >= 0 && A + B -2 * C -1 >= 0 && A -3 >= 0 && B -C >= 0 && C -1 >= 0
+  n_evalrealheapsortstep1bb3in___3(A,B,C) -> Com_1(n_evalrealheapsortstep1bb6in___5(A, B + 1, C_P)) :|: A -B >= 0 && 2 * C >= 0 && A -B >= 0 && 2 * C >= 0 && 2 * C_P + 1 >= 0 && -C_P >= 0 && A -3 >= 0 && B -1 >= 0 && C -C_P = 0
+  n_evalrealheapsortstep1bb4in___2(A,B,C) -> Com_1(n_evalrealheapsortstep1bb3in___1(A, B, C_P)) :|: C -1 >= 0 && B -C >= 0 && A + B -2 * C -1 >= 0 && A -B >= 0 && A -3 >= 0 && -C + 2 * C_P + 2 >= 0 && C -2 * C_P -1 >= 0 && C -1 >= 0 && A -3 >= 0 && B -C >= 0
+  n_evalrealheapsortstep1bb4in___2(A,B,C) -> Com_1(n_evalrealheapsortstep1bb6in___5(A, B + 1, C)) :|: C -1 >= 0 && B -C >= 0 && A + B -2 * C -1 >= 0 && A -B >= 0 && A -3 >= 0 && B -C >= 0 && C -1 >= 0 && A -3 >= 0
+  n_evalrealheapsortstep1bb6in___5(A,B,C) -> Com_1(n_evalrealheapsortstep1bb3in___3(A, B, B)) :|: 1 + A -B >= 0 && 1 + A -B >= 0 && A -3 >= 0 && A -B -1 >= 0 && B -1 >= 0
+  n_evalrealheapsortstep1bb6in___5(A,B,C) -> Com_1(n_evalrealheapsortstep1stop___4(NoDet0, NoDet1, NoDet2)) :|: 1 + A -B >= 0 && 1 + A -B >= 0 && -A + B >= 0 && A -3 >= 0
+  n_evalrealheapsortstep1entryin___6(A,B,C) -> Com_1(n_evalrealheapsortstep1bb6in___5(A, 1, C)) :|: A -3 >= 0
+  n_evalrealheapsortstep1entryin___6(A,B,C) -> Com_1(n_evalrealheapsortstep1stop___4(NoDet0, NoDet1, NoDet2)) :|: -A + 2 >= 0
+  n_evalrealheapsortstep1start(A,B,C) -> Com_1(n_evalrealheapsortstep1entryin___6(A, B, C))
+)

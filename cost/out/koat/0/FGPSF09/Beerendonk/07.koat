@@ -1,0 +1,21 @@
+WORST_CASE(?, O(1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    eval(Ar_0) -> Com_1(eval(2*Fresh_0 - 2)) [ 2*Fresh_0 >= 0 /\ Ar_0 = 2*Fresh_0 + 1 ]
+		(Comp: ?, Cost: 1)    start(Ar_0) -> Com_1(eval(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    eval(Ar_0) -> Com_1(eval(2*Fresh_0 - 2)) [ 2*Fresh_0 >= 0 /\ Ar_0 = 2*Fresh_0 + 1 ]
+		(Comp: 1, Cost: 1)    start(Ar_0) -> Com_1(eval(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 2
+
+Time: 0.012 sec (SMT: 0.012 sec)

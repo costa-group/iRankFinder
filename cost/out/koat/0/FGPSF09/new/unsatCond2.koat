@@ -1,0 +1,31 @@
+MAYBE
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    f(Ar_0) -> Com_1(f(Ar_0)) [ 0 >= Ar_0^2 + 1 ]
+		(Comp: ?, Cost: 1)    start(Ar_0) -> Com_1(f(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: ?, Cost: 1)    f(Ar_0) -> Com_1(f(Ar_0)) [ 0 >= Ar_0^2 + 1 ]
+		(Comp: 1, Cost: 1)    start(Ar_0) -> Com_1(f(Ar_0))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition start(Ar_0) -> Com_1(f(Ar_0)) with all transitions in problem 2, the following new transition is obtained:
+	start(Ar_0) -> Com_1(f(Ar_0)) [ 0 >= Ar_0^2 + 1 ]
+We thus obtain the following problem:
+3:	T:
+		(Comp: 1, Cost: 2)    start(Ar_0) -> Com_1(f(Ar_0)) [ 0 >= Ar_0^2 + 1 ]
+		(Comp: ?, Cost: 1)    f(Ar_0) -> Com_1(f(Ar_0)) [ 0 >= Ar_0^2 + 1 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound ?
+
+Time: 0.016 sec (SMT: 0.015 sec)

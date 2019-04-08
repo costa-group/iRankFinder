@@ -1,0 +1,45 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    pyRinit(Ar_0, Ar_1) -> Com_1(n_start(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0, Ar_1) -> Com_1(n_eval___1(Fresh_0, Fresh_1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_1 + Fresh_1 - 1 >= 0 /\ Ar_0 - Fresh_0 >= 0 ]
+		(Comp: ?, Cost: 1)    n_start(Ar_0, Ar_1) -> Com_1(n_eval___1(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    pyRinit(Ar_0, Ar_1) -> Com_1(n_start(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    n_eval___1(Ar_0, Ar_1) -> Com_1(n_eval___1(Fresh_0, Fresh_1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_1 + Fresh_1 - 1 >= 0 /\ Ar_0 - Fresh_0 >= 0 ]
+		(Comp: 1, Cost: 1)    n_start(Ar_0, Ar_1) -> Com_1(n_eval___1(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(pyRinit) = V_1 - V_2
+	Pol(n_start) = V_1 - V_2
+	Pol(n_eval___1) = V_1 - V_2
+	Pol(koat_start) = V_1 - V_2
+orients all transitions weakly and the transition
+	n_eval___1(Ar_0, Ar_1) -> Com_1(n_eval___1(Fresh_0, Fresh_1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_1 + Fresh_1 - 1 >= 0 /\ Ar_0 - Fresh_0 >= 0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)              pyRinit(Ar_0, Ar_1) -> Com_1(n_start(Ar_0, Ar_1))
+		(Comp: Ar_0 + Ar_1, Cost: 1)    n_eval___1(Ar_0, Ar_1) -> Com_1(n_eval___1(Fresh_0, Fresh_1)) [ Ar_0 - Ar_1 - 1 >= 0 /\ -Ar_1 + Fresh_1 - 1 >= 0 /\ Ar_0 - Fresh_0 >= 0 ]
+		(Comp: 1, Cost: 1)              n_start(Ar_0, Ar_1) -> Com_1(n_eval___1(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)              koat_start(Ar_0, Ar_1) -> Com_1(pyRinit(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound Ar_0 + Ar_1 + 2
+
+Time: 0.033 sec (SMT: 0.031 sec)
+
+-- stats
+realtime 0:00.04
+usertime 0.03
+systime 0.00
+

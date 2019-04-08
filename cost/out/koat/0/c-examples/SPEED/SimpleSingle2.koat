@@ -1,0 +1,172 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= E + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= E + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalSimpleSingle2start) = 2
+	Pol(evalSimpleSingle2entryin) = 2
+	Pol(evalSimpleSingle2bb4in) = 2
+	Pol(evalSimpleSingle2bbin) = 2
+	Pol(evalSimpleSingle2returnin) = 1
+	Pol(evalSimpleSingle2bb1in) = 2
+	Pol(evalSimpleSingle2bb2in) = 2
+	Pol(evalSimpleSingle2bb3in) = 2
+	Pol(evalSimpleSingle2stop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2stop(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_3 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= E + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= 1 ]
+		(Comp: 2, Cost: 1)    evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)    evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)    evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)    evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalSimpleSingle2start) = V_3 + 1
+	Pol(evalSimpleSingle2entryin) = V_3 + 1
+	Pol(evalSimpleSingle2bb4in) = -V_2 + V_3 + 1
+	Pol(evalSimpleSingle2bbin) = -V_2 + V_3 + 1
+	Pol(evalSimpleSingle2returnin) = -V_2 + V_3
+	Pol(evalSimpleSingle2bb1in) = -V_2 + V_3
+	Pol(evalSimpleSingle2bb2in) = -V_2 + V_3 + 1
+	Pol(evalSimpleSingle2bb3in) = -V_2 + V_3
+	Pol(evalSimpleSingle2stop) = -V_2 + V_3
+	Pol(koat_start) = V_3 + 1
+orients all transitions weakly and the transition
+	evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_1 + 1 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)           evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)           evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= E + 1 ]
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= 1 ]
+		(Comp: 2, Cost: 1)           evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_2 + 1, Cost: 1)    evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_2 ]
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)           evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)           evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 4 produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)           evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)           evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= E + 1 ]
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= 1 ]
+		(Comp: 2, Cost: 1)           evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_2 + 1, Cost: 1)    evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_2 ]
+		(Comp: Ar_2 + 1, Cost: 1)    evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)           evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)           evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalSimpleSingle2start) = V_4 + 1
+	Pol(evalSimpleSingle2entryin) = V_4 + 1
+	Pol(evalSimpleSingle2bb4in) = -V_1 + V_4 + 1
+	Pol(evalSimpleSingle2bbin) = -V_1 + V_4 + 1
+	Pol(evalSimpleSingle2returnin) = -V_1 + V_4
+	Pol(evalSimpleSingle2bb1in) = -V_1 + V_4
+	Pol(evalSimpleSingle2bb2in) = -V_1 + V_4 + 1
+	Pol(evalSimpleSingle2bb3in) = -V_1 + V_4
+	Pol(evalSimpleSingle2stop) = -V_1 + V_4
+	Pol(koat_start) = V_4 + 1
+orients all transitions weakly and the transition
+	evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+strictly and produces the following problem:
+6:	T:
+		(Comp: 1, Cost: 1)           evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)           evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= E + 1 ]
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= 1 ]
+		(Comp: 2, Cost: 1)           evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_2 + 1, Cost: 1)    evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_2 ]
+		(Comp: Ar_2 + 1, Cost: 1)    evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: Ar_3 + 1, Cost: 1)    evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)           evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_3 ]
+		(Comp: ?, Cost: 1)           evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)           evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 6 produces the following problem:
+7:	T:
+		(Comp: 1, Cost: 1)                      evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)                      evalSimpleSingle2entryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(0, 0, Ar_2, Ar_3))
+		(Comp: Ar_3 + Ar_2 + 3, Cost: 1)        evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= E + 1 ]
+		(Comp: Ar_3 + Ar_2 + 3, Cost: 1)        evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= 1 ]
+		(Comp: 2, Cost: 1)                      evalSimpleSingle2bb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_2 + 1, Cost: 1)               evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= Ar_1 + 1 ]
+		(Comp: 2*Ar_3 + 2*Ar_2 + 6, Cost: 1)    evalSimpleSingle2bbin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_2 ]
+		(Comp: Ar_2 + 1, Cost: 1)               evalSimpleSingle2bb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: Ar_3 + 1, Cost: 1)               evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)                      evalSimpleSingle2bb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_3 ]
+		(Comp: Ar_3 + 1, Cost: 1)               evalSimpleSingle2bb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2bb4in(Ar_0 + 1, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)                      evalSimpleSingle2returnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2stop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)                      koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalSimpleSingle2start(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 6*Ar_3 + 6*Ar_2 + 24
+
+Time: 0.071 sec (SMT: 0.056 sec)

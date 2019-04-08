@@ -1,0 +1,117 @@
+{
+  vars: [A,B],
+  pvars: [A',B'],
+  initnode: evalwcet2start,
+  nodes: {
+    evalwcet2bb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [3 -A >= 0],
+        [-3 + A > 0],
+        [11 * A -4 * B >= 0],
+        [-11 * A + 4 * B > 0],
+      ],
+      inv_polyhedra: [4 -A >= 0, -3 + A >= 0, B >= 0],
+    },
+    evalwcet2bb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [3 -A >= 0],
+        [-3 + A > 0],
+        [12 * A -4 * B >= 0],
+        [-12 * A + 4 * B > 0],
+      ],
+      inv_polyhedra: [4 -A >= 0, B >= 0],
+    },
+    evalwcet2bb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [3 -A >= 0],
+        [-3 + A > 0],
+      ],
+      inv_polyhedra: [B >= 0],
+    },
+    evalwcet2bb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [4 -A >= 0],
+        [-4 + A > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalwcet2entryin: {
+      inv_polyhedra: [],
+    },
+    evalwcet2returnin: {
+      inv_polyhedra: [-5 + A >= 0],
+    },
+    evalwcet2start: {
+      inv_polyhedra: [],
+    },
+    evalwcet2stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalwcet2start,
+	target: evalwcet2entryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwcet2entryin,
+	target: evalwcet2bb5in,
+	name: t1,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwcet2bb5in,
+	target: evalwcet2bb2in,
+	name: t2,
+	constraints: [4 -A >= 0, A -A' = 0, -B' = 0]
+    },
+    {
+	source: evalwcet2bb5in,
+	target: evalwcet2returnin,
+	name: t3,
+	constraints: [A -5 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwcet2bb2in,
+	target: evalwcet2bb1in,
+	name: t4,
+	constraints: [A -3 >= 0, 9 -B >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwcet2bb2in,
+	target: evalwcet2bb4in,
+	name: t5,
+	constraints: [2 -A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwcet2bb2in,
+	target: evalwcet2bb4in,
+	name: t6,
+	constraints: [B -10 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwcet2bb1in,
+	target: evalwcet2bb2in,
+	name: t7,
+	constraints: [A -A' = 0, B + 1 -B' = 0]
+    },
+    {
+	source: evalwcet2bb4in,
+	target: evalwcet2bb5in,
+	name: t8,
+	constraints: [A + 1 -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalwcet2returnin,
+	target: evalwcet2stop,
+	name: t9,
+	constraints: []
+    }
+  ]
+}

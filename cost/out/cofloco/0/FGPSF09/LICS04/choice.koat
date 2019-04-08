@@ -1,0 +1,95 @@
+MAYBE
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [eval/3]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [eval_loop_cont/2]
+3. non_recursive  : [start/3]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into eval/3
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into start/3
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations eval/3 
+* CE 4 is refined into CE [5] 
+* CE 3 is refined into CE [6] 
+* CE 2 is refined into CE [7] 
+
+
+### Cost equations --> "Loop" of eval/3 
+* CEs [6] --> Loop 5 
+* CEs [7] --> Loop 6 
+* CEs [5] --> Loop 7 
+
+### Ranking functions of CR eval(A,B,C) 
+
+#### Partial ranking functions of CR eval(A,B,C) 
+* Partial RF of phase [5,6]:
+  - RF of loop [5:1]:
+    A+B-1 depends on loops [6:1] 
+  - RF of loop [6:1]:
+    A depends on loops [5:1] 
+
+
+### Specialization of cost equations start/3 
+* CE 1 is refined into CE [8,9] 
+
+
+### Cost equations --> "Loop" of start/3 
+* CEs [9] --> Loop 8 
+* CEs [8] --> Loop 9 
+
+### Ranking functions of CR start(A,B,C) 
+
+#### Partial ranking functions of CR start(A,B,C) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of eval(A,B,C):
+* Chain [[5,6]]...: 2*it(5)+0
+  with precondition: [B>=1,A>=1,C=2] 
+
+* Chain [[5,6],7]: 2*it(5)+0
+  with precondition: [C=2,A>=1,B>=1] 
+
+* Chain [7]: 0
+  with precondition: [C=2] 
+
+
+#### Cost of chains of start(A,B,C):
+* Chain [9]: 1*s(2)+1
+  with precondition: [] 
+
+* Chain [8]...: 2*s(3)+1
+  with precondition: [A>=1,B>=1] 
+
+
+Closed-form bounds of start(A,B,C): 
+-------------------------------------
+* Chain [9] with precondition: [] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+* Chain [8]... with precondition: [A>=1,B>=1] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+
+### Maximum cost of start(A,B,C): inf 
+Asymptotic class: infinity 
+* Total analysis performed in 75 ms.
+
+
+-- stats
+realtime 0:00.14
+usertime 0.12
+systime 0.00
+

@@ -1,0 +1,123 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalNestedSinglestart(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSingleentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalNestedSingleentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb5in(0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalNestedSinglebb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb2in(Ar_0, Ar_1, Ar_0)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2)) [ 0 >= D + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2)) [ D >= 1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2 + 1))
+		(Comp: ?, Cost: 1)    evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb5in(Ar_2 + 1, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalNestedSinglereturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglestop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglestart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalNestedSinglestart(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSingleentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)    evalNestedSingleentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb5in(0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalNestedSinglebb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb2in(Ar_0, Ar_1, Ar_0)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2)) [ 0 >= D + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2)) [ D >= 1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2 + 1))
+		(Comp: ?, Cost: 1)    evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb5in(Ar_2 + 1, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalNestedSinglereturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglestop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglestart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalNestedSinglestart) = 2
+	Pol(evalNestedSingleentryin) = 2
+	Pol(evalNestedSinglebb5in) = 2
+	Pol(evalNestedSinglebb2in) = 2
+	Pol(evalNestedSinglereturnin) = 1
+	Pol(evalNestedSinglebb4in) = 2
+	Pol(evalNestedSinglebb3in) = 2
+	Pol(evalNestedSinglebb1in) = 2
+	Pol(evalNestedSinglestop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalNestedSinglereturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglestop(Ar_0, Ar_1, Ar_2))
+	evalNestedSinglebb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalNestedSinglestart(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSingleentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)    evalNestedSingleentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb5in(0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalNestedSinglebb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb2in(Ar_0, Ar_1, Ar_0)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)    evalNestedSinglebb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2)) [ 0 >= D + 1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2)) [ D >= 1 ]
+		(Comp: ?, Cost: 1)    evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2 + 1))
+		(Comp: ?, Cost: 1)    evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb5in(Ar_2 + 1, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)    evalNestedSinglereturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglestop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglestart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalNestedSinglestart) = 2*V_2 + 2
+	Pol(evalNestedSingleentryin) = 2*V_2 + 2
+	Pol(evalNestedSinglebb5in) = -2*V_1 + 2*V_2 + 2
+	Pol(evalNestedSinglebb2in) = 2*V_2 - 2*V_3 + 1
+	Pol(evalNestedSinglereturnin) = -2*V_1 + 2*V_2
+	Pol(evalNestedSinglebb4in) = 2*V_2 - 2*V_3
+	Pol(evalNestedSinglebb3in) = 2*V_2 - 2*V_3
+	Pol(evalNestedSinglebb1in) = 2*V_2 - 2*V_3 - 1
+	Pol(evalNestedSinglestop) = -2*V_1 + 2*V_2
+	Pol(koat_start) = 2*V_2 + 2
+orients all transitions weakly and the transitions
+	evalNestedSinglebb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb2in(Ar_0, Ar_1, Ar_0)) [ Ar_1 >= Ar_0 + 1 ]
+	evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)             evalNestedSinglestart(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSingleentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)             evalNestedSingleentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb5in(0, Ar_1, Ar_2))
+		(Comp: 2*Ar_1 + 2, Cost: 1)    evalNestedSinglebb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb2in(Ar_0, Ar_1, Ar_0)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)             evalNestedSinglebb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 ]
+		(Comp: ?, Cost: 1)             evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: 2*Ar_1 + 2, Cost: 1)    evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)             evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2)) [ 0 >= D + 1 ]
+		(Comp: ?, Cost: 1)             evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2)) [ D >= 1 ]
+		(Comp: ?, Cost: 1)             evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)             evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2 + 1))
+		(Comp: ?, Cost: 1)             evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb5in(Ar_2 + 1, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)             evalNestedSinglereturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglestop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglestart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 4 produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)             evalNestedSinglestart(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSingleentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)             evalNestedSingleentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb5in(0, Ar_1, Ar_2))
+		(Comp: 2*Ar_1 + 2, Cost: 1)    evalNestedSinglebb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb2in(Ar_0, Ar_1, Ar_0)) [ Ar_1 >= Ar_0 + 1 ]
+		(Comp: 2, Cost: 1)             evalNestedSinglebb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglereturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= Ar_1 ]
+		(Comp: 4*Ar_1 + 4, Cost: 1)    evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: 2*Ar_1 + 2, Cost: 1)    evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 2*Ar_1 + 2, Cost: 1)    evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2)) [ 0 >= D + 1 ]
+		(Comp: 2*Ar_1 + 2, Cost: 1)    evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2)) [ D >= 1 ]
+		(Comp: 2*Ar_1 + 2, Cost: 1)    evalNestedSinglebb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 4*Ar_1 + 4, Cost: 1)    evalNestedSinglebb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb2in(Ar_0, Ar_1, Ar_2 + 1))
+		(Comp: 6*Ar_1 + 6, Cost: 1)    evalNestedSinglebb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglebb5in(Ar_2 + 1, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)             evalNestedSinglereturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglestop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalNestedSinglestart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 24*Ar_1 + 30
+
+Time: 0.051 sec (SMT: 0.041 sec)

@@ -1,0 +1,31 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E F G H I A' B' C' D' E' F' G' H' I' NoDet2 NoDet0 NoDet1 NoDet8 NoDet7 NoDet4 J NoDet3 NoDet5 NoDet6)
+(RULES 
+  pyRinit(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2start(A,B,C,D,E,F,G,H,I))
+  evalbinsearchStepSize2bb10in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb12in(A, B, C, D, E, F, G, H, I)) :|: A -2 = 0 && B = 0
+  evalbinsearchStepSize2bb10in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb13in(A, B, C, D, E, F, G, B, F)) :|: 1 -A >= 0
+  evalbinsearchStepSize2bb10in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb13in(A, B, C, D, E, F, G, B, F)) :|: B -1 >= 0
+  evalbinsearchStepSize2bb12in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb13in(A, B, C, D, E, F, G, 1, J)) :|: F -1 >= 0 && J >= 0 && F -2 * J >= 0 && 1 + 2 * J -F >= 0
+  evalbinsearchStepSize2bb13in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bbin(1, H, I, D -I, E, F, G, H, I)) :|: D -I >= 0
+  evalbinsearchStepSize2bb13in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2returnin(A, B, C, D, E, F, G, H, I)) :|: I -D -1 >= 0
+  evalbinsearchStepSize2bb1in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb2in(A, B, C, D, E, F, G, H, I)) :|: B -1 >= 0
+  evalbinsearchStepSize2bb1in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb3in(A, B, C, D, E, C, G, H, I)) :|: B = 0
+  evalbinsearchStepSize2bb2in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb3in(A, B, C, D, E, J, G, H, I)) :|: C -1 >= 0 && J >= 0 && C -2 * J >= 0 && 1 + 2 * J -C >= 0
+  evalbinsearchStepSize2bb3in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb4in(A, B, C, D, E, F, G, H, I)) :|: E -G -1 >= 0
+  evalbinsearchStepSize2bb3in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb9in(A, B, C, D, E, F, G, H, I)) :|: G -E >= 0
+  evalbinsearchStepSize2bb4in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb6in(A, B, C, D, E, F, G, H, I)) :|: A -1 = 0 && B = 0
+  evalbinsearchStepSize2bb4in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb7in(A, B, C, D, E, F, G, B, F)) :|: -A >= 0
+  evalbinsearchStepSize2bb4in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb7in(A, B, C, D, E, F, G, B, F)) :|: A -2 >= 0
+  evalbinsearchStepSize2bb4in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb7in(A, B, C, D, E, F, G, B, F)) :|: B -1 >= 0
+  evalbinsearchStepSize2bb6in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb7in(A, B, C, D, E, F, G, 1, J)) :|: F -1 >= 0 && J >= 0 && F -2 * J >= 0 && 1 + 2 * J -F >= 0
+  evalbinsearchStepSize2bb7in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bbin(2, H, I, D + I, E, F, G, H, I)) :|: 255 -D -I >= 0
+  evalbinsearchStepSize2bb7in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2returnin(A, B, C, D, E, F, G, H, I)) :|: D + I -256 >= 0
+  evalbinsearchStepSize2bb9in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb10in(A, B, C, D, E, F, G, H, I)) :|: G -E -1 >= 0
+  evalbinsearchStepSize2bb9in(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2returnin(A, B, C, D, E, F, G, H, I)) :|: E -G >= 0
+  evalbinsearchStepSize2bbin(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bb1in(A, B, C, D, J, F, G, H, I)) :|: C -2 >= 0
+  evalbinsearchStepSize2bbin(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2returnin(A, B, C, D, E, F, G, H, I)) :|: C -1 = 0
+  evalbinsearchStepSize2entryin(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2bbin(0, 0, 4, A, E, F, G, H, I))
+  evalbinsearchStepSize2returnin(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7, NoDet8))
+  evalbinsearchStepSize2start(A,B,C,D,E,F,G,H,I) -> Com_1(evalbinsearchStepSize2entryin(A, B, C, D, E, F, G, H, I))
+)

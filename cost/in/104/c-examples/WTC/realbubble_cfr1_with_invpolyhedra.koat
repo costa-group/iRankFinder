@@ -1,0 +1,22 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A_P B_P C_P D_P NoDet2 NoDet0 NoDet3 NoDet1)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(n_evalrealbubblestart(A,B,C,D))
+  n_evalrealbubblebb1in___3(A,B,C,D) -> Com_1(n_evalrealbubblebb4in___5(A, B_P, 1, 1)) :|: A -B -1 >= 0 && B -1 >= 0 && C -1 = 0 && -C + B_P -1 >= 0 && A -B_P >= 0 && B_P -1 >= 0 && B -B_P + 1 = 0 && -1 + D = 0 && -1 + C = 0 && -1 + B >= 0 && -1 + A -B >= 0
+  n_evalrealbubblebb1in___3(A,B,C,D) -> Com_1(n_evalrealbubblebb4in___5(A, B_P, C, C)) :|: A -B -1 >= 0 && B -1 >= 0 && C -1 = 0 && -C + B_P -1 >= 0 && A -B_P >= 0 && B_P -1 >= 0 && B -B_P + 1 = 0 && -1 + D = 0 && -1 + C = 0 && -1 + B >= 0 && -1 + A -B >= 0
+  n_evalrealbubblebb1in___6(A,B,C,D) -> Com_1(n_evalrealbubblebb4in___4(A, B_P, C, C)) :|: -C + 1 >= 0 && B >= 0 && B -C >= 0 && A -B -1 >= 0 && -C + B_P -1 >= 0 && A -B_P >= 0 && B_P -1 >= 0 && B -B_P + 1 = 0 && C = 0 && -1 + A -B >= 0 && B >= 0
+  n_evalrealbubblebb1in___6(A,B,C,D) -> Com_1(n_evalrealbubblebb4in___5(A, B_P, 1, 1)) :|: -C + 1 >= 0 && B >= 0 && B -C >= 0 && A -B -1 >= 0 && -C + B_P -1 >= 0 && A -B_P >= 0 && B_P -1 >= 0 && B -B_P + 1 = 0 && C = 0 && -1 + A -B >= 0 && B >= 0
+  n_evalrealbubblebb4in___4(A,B,C,D) -> Com_1(n_evalrealbubblebb1in___6(A, B, C, D)) :|: -C + 1 >= 0 && A -B -1 >= 0 && B >= 0 && B -C >= 0 && D = 0 && C = 0 && -1 + B >= 0 && A -B >= 0
+  n_evalrealbubblebb4in___4(A,B,C,D) -> Com_1(n_evalrealbubblebb5in___1(A, B, C, D)) :|: -C + 1 >= 0 && A -1 >= 0 && B -C >= 0 && -A + B >= 0 && D = 0 && C = 0 && -1 + B >= 0 && A -B >= 0
+  n_evalrealbubblebb4in___5(A,B,C,D) -> Com_1(n_evalrealbubblebb1in___3(A, B, C, D)) :|: -C + 1 >= 0 && C -1 = 0 && A -B -1 >= 0 && B >= 0 && B -C >= 0 && -1 + D = 0 && -1 + C = 0 && A -B >= 0 && -1 + B >= 0
+  n_evalrealbubblebb4in___5(A,B,C,D) -> Com_1(n_evalrealbubblebb5in___2(A, B, C, D)) :|: -C + 1 >= 0 && C -1 = 0 && A -1 >= 0 && B -C >= 0 && -A + B >= 0 && -1 + D = 0 && -1 + C = 0 && A -B >= 0 && -1 + B >= 0
+  n_evalrealbubblebb4in___8(A,B,C,D) -> Com_1(n_evalrealbubblebb1in___6(A, B, C, D)) :|: -C + 1 >= 0 && A -B -1 >= 0 && A -B -1 >= 0 && B >= 0 && B -C >= 0 && C = 0 && B = 0 && -1 + A >= 0
+  n_evalrealbubblebb5in___1(A,B,C,D) -> Com_1(n_evalrealbubblebb7in___9(A -1, B, C, D)) :|: -C + 1 >= 0 && -A + B >= 0 && A -1 >= 0 && -C -1 >= 0 && -A + B >= 0 && A -1 >= 0 && D = 0 && C = 0 && A -B = 0 && -1 + A >= 0
+  n_evalrealbubblebb5in___1(A,B,C,D) -> Com_1(n_evalrealbubblebb7in___9(A -1, B, C, D)) :|: -C + 1 >= 0 && -A + B >= 0 && A -1 >= 0 && B -C >= 0 && -A + B >= 0 && C -1 >= 0 && A -1 >= 0 && D = 0 && C = 0 && A -B = 0 && -1 + A >= 0
+  n_evalrealbubblebb5in___1(A,B,C,D) -> Com_1(n_evalrealbubblestop___7(NoDet0, NoDet1, NoDet2, NoDet3)) :|: -C + 1 >= 0 && -A + B >= 0 && A -1 >= 0 && -A + B >= 0 && A -1 >= 0 && C = 0 && D = 0 && C = 0 && A -B = 0 && -1 + A >= 0
+  n_evalrealbubblebb5in___2(A,B,C,D) -> Com_1(n_evalrealbubblebb7in___9(A -1, B, C, D)) :|: -A + B >= 0 && A -1 >= 0 && C -1 = 0 && B -C >= 0 && -A + B >= 0 && C -1 >= 0 && A -1 >= 0 && -1 + D = 0 && -1 + C = 0 && A -B = 0 && -1 + A >= 0
+  n_evalrealbubblebb7in___9(A,B,C,D) -> Com_1(n_evalrealbubblebb4in___8(A, 0, 0, D)) :|: A -1 >= 0
+  n_evalrealbubblebb7in___9(A,B,C,D) -> Com_1(n_evalrealbubblestop___7(NoDet0, NoDet1, NoDet2, NoDet3)) :|: -A >= 0
+  n_evalrealbubblestart(A,B,C,D) -> Com_1(n_evalrealbubblebb7in___9(A -1, B, C, D))
+)

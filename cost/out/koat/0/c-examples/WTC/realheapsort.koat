@@ -1,0 +1,1062 @@
+WORST_CASE(?, O(n^2))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 2 /\ 0 >= E /\ 2*E >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*E ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 2 /\ 0 >= E /\ 2*E >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*E ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ Ar_2 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_17 - 1, Ar_3)) [ 0 >= 1 /\ Fresh_17 >= 0 /\ 0 >= 2*Fresh_17 /\ 2*Fresh_17 + 1 >= 0 /\ Ar_2 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_16 - 1, Ar_3)) [ 0 >= 1 /\ 0 >= Fresh_16 /\ Ar_2 + 1 = 0 /\ 2*Fresh_16 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_16 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ E >= 0 /\ 0 >= 2*E /\ 2*E + 1 >= 0 /\ Ar_2 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_15 - 1, Ar_3)) [ 0 >= 1 /\ F >= 0 /\ 0 >= 2*F /\ 2*F + 1 >= 0 /\ Fresh_15 >= 0 /\ 0 >= 2*Fresh_15 /\ 2*Fresh_15 + 1 >= 0 /\ Ar_2 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_14 - 1, Ar_3)) [ 0 >= 1 /\ F >= 0 /\ 0 >= 2*F /\ 2*F + 1 >= 0 /\ 0 >= Fresh_14 /\ Ar_2 + 1 = 0 /\ 2*Fresh_14 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_14 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ 0 >= E /\ Ar_2 + 1 = 0 /\ 2*E >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*E ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_13 - 1, Ar_3)) [ 0 >= 1 /\ 0 >= F /\ Fresh_13 >= 0 /\ 0 >= 2*Fresh_13 /\ 2*Fresh_13 + 1 >= 0 /\ Ar_2 + 1 = 0 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_12 - 1, Ar_3)) [ 0 >= 1 /\ 0 >= F /\ 0 >= Fresh_12 /\ Ar_2 + 1 = 0 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F /\ 2*Fresh_12 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_12 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ E >= 0 /\ 0 >= 2*E /\ 2*E + 1 >= 0 /\ Ar_2 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_11 - 1, Ar_3)) [ 0 >= 1 /\ F >= 0 /\ 0 >= 2*F /\ 2*F + 1 >= 0 /\ Fresh_11 >= 0 /\ 0 >= 2*Fresh_11 /\ 2*Fresh_11 + 1 >= 0 /\ Ar_2 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_10 - 1, Ar_3)) [ 0 >= 1 /\ F >= 0 /\ 0 >= 2*F /\ 2*F + 1 >= 0 /\ 0 >= Fresh_10 /\ Ar_2 + 1 = 0 /\ 2*Fresh_10 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_10 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ E >= 0 /\ 0 >= 2*E /\ 2*E + 1 >= 0 /\ F >= 0 /\ 0 >= 2*F /\ 2*F + 1 >= 0 /\ Ar_2 + 1 = 0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_8 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ 0 >= Ar_2 + 2 /\ 0 >= Fresh_8 /\ 2*Fresh_8 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_8 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ E >= 0 /\ 0 >= 2*E /\ 2*E + 1 >= 0 /\ 0 >= F /\ Ar_2 + 1 = 0 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_7 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ 0 >= Ar_2 + 2 /\ 0 >= G /\ Fresh_7 >= 0 /\ Ar_2 + 1 >= 2*Fresh_7 /\ 2*Fresh_7 >= Ar_2 /\ 2*G >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*G ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_6 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ 0 >= Ar_2 + 2 /\ 0 >= G /\ 0 >= Fresh_6 /\ 2*G >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*G /\ 2*Fresh_6 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_6 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ 0 >= E /\ Ar_2 + 1 = 0 /\ 2*E >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*E ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_5 - 1, Ar_3)) [ 0 >= 1 /\ 0 >= F /\ Fresh_5 >= 0 /\ 0 >= 2*Fresh_5 /\ 2*Fresh_5 + 1 >= 0 /\ Ar_2 + 1 = 0 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_4 - 1, Ar_3)) [ 0 >= 1 /\ 0 >= F /\ 0 >= Fresh_4 /\ Ar_2 + 1 = 0 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F /\ 2*Fresh_4 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_4 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ 0 >= E /\ F >= 0 /\ 0 >= 2*F /\ 2*F + 1 >= 0 /\ Ar_2 + 1 = 0 /\ 2*E >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*E ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_3 - 1, Ar_3)) [ 0 >= Ar_2 + 2 /\ 0 >= F /\ Ar_2 >= 0 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_3 >= 0 /\ Ar_2 + 1 >= 2*Fresh_3 /\ 2*Fresh_3 >= Ar_2 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_2 - 1, Ar_3)) [ 0 >= Ar_2 + 2 /\ 0 >= F /\ Ar_2 >= 0 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ 0 >= Fresh_2 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F /\ 2*Fresh_2 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ 0 >= E /\ 0 >= F /\ Ar_2 + 1 = 0 /\ 2*E >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*E /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_1 - 1, Ar_3)) [ 0 >= Ar_2 + 2 /\ 0 >= F /\ 0 >= G /\ Ar_2 >= 0 /\ Fresh_1 >= 0 /\ Ar_2 + 1 >= 2*Fresh_1 /\ 2*Fresh_1 >= Ar_2 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F /\ 2*G >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*G ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_0 - 1, Ar_3)) [ 0 >= Ar_2 + 2 /\ 0 >= F /\ 0 >= G /\ 0 >= Fresh_0 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F /\ 2*G >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*G /\ 2*Fresh_0 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transitions from problem 1:
+	evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 + 1 = 0 ]
+	evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 2 /\ 0 >= E /\ 2*E >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*E ]
+	evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 + 1 = 0 ]
+	evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 2 /\ 0 >= E /\ 2*E >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*E ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ Ar_2 + 1 = 0 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_17 - 1, Ar_3)) [ 0 >= 1 /\ Fresh_17 >= 0 /\ 0 >= 2*Fresh_17 /\ 2*Fresh_17 + 1 >= 0 /\ Ar_2 + 1 = 0 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_16 - 1, Ar_3)) [ 0 >= 1 /\ 0 >= Fresh_16 /\ Ar_2 + 1 = 0 /\ 2*Fresh_16 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_16 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ E >= 0 /\ 0 >= 2*E /\ 2*E + 1 >= 0 /\ Ar_2 + 1 = 0 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_15 - 1, Ar_3)) [ 0 >= 1 /\ F >= 0 /\ 0 >= 2*F /\ 2*F + 1 >= 0 /\ Fresh_15 >= 0 /\ 0 >= 2*Fresh_15 /\ 2*Fresh_15 + 1 >= 0 /\ Ar_2 + 1 = 0 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_14 - 1, Ar_3)) [ 0 >= 1 /\ F >= 0 /\ 0 >= 2*F /\ 2*F + 1 >= 0 /\ 0 >= Fresh_14 /\ Ar_2 + 1 = 0 /\ 2*Fresh_14 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_14 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ 0 >= E /\ Ar_2 + 1 = 0 /\ 2*E >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*E ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_13 - 1, Ar_3)) [ 0 >= 1 /\ 0 >= F /\ Fresh_13 >= 0 /\ 0 >= 2*Fresh_13 /\ 2*Fresh_13 + 1 >= 0 /\ Ar_2 + 1 = 0 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_12 - 1, Ar_3)) [ 0 >= 1 /\ 0 >= F /\ 0 >= Fresh_12 /\ Ar_2 + 1 = 0 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F /\ 2*Fresh_12 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_12 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ E >= 0 /\ 0 >= 2*E /\ 2*E + 1 >= 0 /\ Ar_2 + 1 = 0 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_11 - 1, Ar_3)) [ 0 >= 1 /\ F >= 0 /\ 0 >= 2*F /\ 2*F + 1 >= 0 /\ Fresh_11 >= 0 /\ 0 >= 2*Fresh_11 /\ 2*Fresh_11 + 1 >= 0 /\ Ar_2 + 1 = 0 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_10 - 1, Ar_3)) [ 0 >= 1 /\ F >= 0 /\ 0 >= 2*F /\ 2*F + 1 >= 0 /\ 0 >= Fresh_10 /\ Ar_2 + 1 = 0 /\ 2*Fresh_10 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_10 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ E >= 0 /\ 0 >= 2*E /\ 2*E + 1 >= 0 /\ F >= 0 /\ 0 >= 2*F /\ 2*F + 1 >= 0 /\ Ar_2 + 1 = 0 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_8 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ 0 >= Ar_2 + 2 /\ 0 >= Fresh_8 /\ 2*Fresh_8 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_8 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ E >= 0 /\ 0 >= 2*E /\ 2*E + 1 >= 0 /\ 0 >= F /\ Ar_2 + 1 = 0 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_7 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ 0 >= Ar_2 + 2 /\ 0 >= G /\ Fresh_7 >= 0 /\ Ar_2 + 1 >= 2*Fresh_7 /\ 2*Fresh_7 >= Ar_2 /\ 2*G >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*G ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_6 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ 0 >= Ar_2 + 2 /\ 0 >= G /\ 0 >= Fresh_6 /\ 2*G >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*G /\ 2*Fresh_6 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_6 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ 0 >= E /\ Ar_2 + 1 = 0 /\ 2*E >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*E ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_5 - 1, Ar_3)) [ 0 >= 1 /\ 0 >= F /\ Fresh_5 >= 0 /\ 0 >= 2*Fresh_5 /\ 2*Fresh_5 + 1 >= 0 /\ Ar_2 + 1 = 0 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_4 - 1, Ar_3)) [ 0 >= 1 /\ 0 >= F /\ 0 >= Fresh_4 /\ Ar_2 + 1 = 0 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F /\ 2*Fresh_4 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_4 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ 0 >= E /\ F >= 0 /\ 0 >= 2*F /\ 2*F + 1 >= 0 /\ Ar_2 + 1 = 0 /\ 2*E >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*E ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_3 - 1, Ar_3)) [ 0 >= Ar_2 + 2 /\ 0 >= F /\ Ar_2 >= 0 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_3 >= 0 /\ Ar_2 + 1 >= 2*Fresh_3 /\ 2*Fresh_3 >= Ar_2 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_2 - 1, Ar_3)) [ 0 >= Ar_2 + 2 /\ 0 >= F /\ Ar_2 >= 0 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ 0 >= Fresh_2 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F /\ 2*Fresh_2 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_2 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, -1, Ar_3)) [ 0 >= 1 /\ 0 >= E /\ 0 >= F /\ Ar_2 + 1 = 0 /\ 2*E >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*E /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_1 - 1, Ar_3)) [ 0 >= Ar_2 + 2 /\ 0 >= F /\ 0 >= G /\ Ar_2 >= 0 /\ Fresh_1 >= 0 /\ Ar_2 + 1 >= 2*Fresh_1 /\ 2*Fresh_1 >= Ar_2 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F /\ 2*G >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*G ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_0 - 1, Ar_3)) [ 0 >= Ar_2 + 2 /\ 0 >= F /\ 0 >= G /\ 0 >= Fresh_0 /\ 2*F >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*F /\ 2*G >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*G /\ 2*Fresh_0 >= Ar_2 + 1 /\ Ar_2 + 2 >= 2*Fresh_0 ]
+	evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+We thus obtain the following problem:
+2:	T:
+		(Comp: ?, Cost: 1)    evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 2 produces the following problem:
+3:	T:
+		(Comp: ?, Cost: 1)    evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)    evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]
+		(Comp: 1, Cost: 1)    evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]
+		(Comp: 1, Cost: 1)    evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrealheapsortbb14in) = 2
+	Pol(evalrealheapsortbb16in) = 2
+	Pol(evalrealheapsortbb13in) = 2
+	Pol(evalrealheapsortbb12in) = 2
+	Pol(evalrealheapsortbb10in) = 2
+	Pol(evalrealheapsortbb11in) = 2
+	Pol(evalrealheapsortbb17in) = 2
+	Pol(evalrealheapsortbb18in) = 2
+	Pol(evalrealheapsortbb9in) = 2
+	Pol(evalrealheapsortbb8in) = 2
+	Pol(evalrealheapsortreturnin) = 1
+	Pol(evalrealheapsortbb7in) = 3
+	Pol(evalrealheapsortbb6in) = 4
+	Pol(evalrealheapsortbb2in) = 4
+	Pol(evalrealheapsortbb3in) = 4
+	Pol(evalrealheapsortbb4in) = 4
+	Pol(evalrealheapsortbb5in) = 4
+	Pol(evalrealheapsortstop) = 0
+	Pol(evalrealheapsortentryin) = 4
+	Pol(evalrealheapsortstart) = 4
+	Pol(koat_start) = 4
+orients all transitions weakly and the transitions
+	evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))
+	evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+	evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: ?, Cost: 1)    evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))
+		(Comp: 4, Cost: 1)    evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]
+		(Comp: 4, Cost: 1)    evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))
+		(Comp: 4, Cost: 1)    evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]
+		(Comp: 4, Cost: 1)    evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)    evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]
+		(Comp: 1, Cost: 1)    evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]
+		(Comp: 1, Cost: 1)    evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrealheapsortbb9in) = V_1 - V_2
+	Pol(evalrealheapsortbb11in) = V_1 - V_2
+	Pol(evalrealheapsortbb10in) = V_1 - V_2
+	Pol(evalrealheapsortbb8in) = V_1 - V_2
+	Pol(evalrealheapsortbb16in) = V_1 - V_2
+	Pol(evalrealheapsortbb6in) = V_1 - V_2 + 1
+	Pol(evalrealheapsortbb3in) = V_1 - V_2
+	Pol(evalrealheapsortbb5in) = V_1 - V_2
+	Pol(evalrealheapsortbb4in) = V_1 - V_2
+	Pol(evalrealheapsortbb2in) = V_1 - V_2
+	Pol(evalrealheapsortbb18in) = V_1 - V_2 + 1
+	Pol(evalrealheapsortbb17in) = V_1 - V_2
+	Pol(evalrealheapsortbb14in) = V_1 - V_2
+	Pol(evalrealheapsortbb13in) = V_1 - V_2
+	Pol(evalrealheapsortbb12in) = V_1 - V_2
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-0) = Ar_0
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-1) = 1
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-2) = Ar_2
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-3) = Ar_3
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-1) = Ar_1
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-2) = Ar_2
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-1) = ?
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-2) = ?
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-3) = Ar_3
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]", 0-1) = ?
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]", 0-2) = ?
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-1) = ?
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-2) = ?
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-1) = ?
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-2) = ?
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-1) = ?
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-2) = ?
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-1) = ?
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-2) = ?
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-1) = ?
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-2) = ?
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))", 0-1) = 0
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]", 0-1) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]", 0-2) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]", 0-3) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]", 0-1) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]", 0-2) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]", 0-3) = ?
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))", 0-2) = 0
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-1) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-2) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-3) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-1) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-2) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-3) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-1) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-2) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-3) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-1) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-2) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-3) = ?
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))", 0-0) = Ar_0
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))", 0-1) = ?
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))", 0-2) = ?
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))", 0-3) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))", 0-0) = Ar_0
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))", 0-1) = ?
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))", 0-2) = ?
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))", 0-3) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))", 0-2) = Ar_0
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))", 0-3) = ?
+orients the transitions
+	evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+	evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+	evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))
+	evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+	evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+	evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+	evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+	evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]
+	evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+	evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]
+	evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+	evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+	evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+	evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))
+	evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))
+	evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))
+	evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))
+	evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))
+weakly and the transitions
+	evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+	evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: ?, Cost: 1)             evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))
+		(Comp: 4, Cost: 1)             evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]
+		(Comp: 5*Ar_0 + 6, Cost: 1)    evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]
+		(Comp: 4, Cost: 1)             evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))
+		(Comp: 4, Cost: 1)             evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]
+		(Comp: 4, Cost: 1)             evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 5*Ar_0 + 6, Cost: 1)    evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)             evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]
+		(Comp: 1, Cost: 1)             evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]
+		(Comp: 1, Cost: 1)             evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 5 produces the following problem:
+6:	T:
+		(Comp: ?, Cost: 1)             evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+		(Comp: 5*Ar_0 + 6, Cost: 1)    evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))
+		(Comp: 4, Cost: 1)             evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]
+		(Comp: 5*Ar_0 + 6, Cost: 1)    evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]
+		(Comp: 4, Cost: 1)             evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))
+		(Comp: 4, Cost: 1)             evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)             evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)             evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]
+		(Comp: 4, Cost: 1)             evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 5*Ar_0 + 6, Cost: 1)    evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)             evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]
+		(Comp: 1, Cost: 1)             evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]
+		(Comp: 1, Cost: 1)             evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrealheapsortbb9in) = 2
+	Pol(evalrealheapsortbb11in) = 2
+	Pol(evalrealheapsortbb10in) = 2
+	Pol(evalrealheapsortbb5in) = 1
+	Pol(evalrealheapsortbb6in) = 0
+	Pol(evalrealheapsortbb4in) = 2
+	Pol(evalrealheapsortbb2in) = 2
+	Pol(evalrealheapsortbb3in) = 2
+	Pol(evalrealheapsortbb17in) = 1
+	Pol(evalrealheapsortbb18in) = 0
+	Pol(evalrealheapsortbb16in) = 2
+	Pol(evalrealheapsortbb14in) = 2
+	Pol(evalrealheapsortbb13in) = 2
+	Pol(evalrealheapsortbb12in) = 2
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-0) = Ar_0
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-1) = 1
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-2) = Ar_2
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-3) = Ar_3
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-1) = Ar_1
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-2) = Ar_2
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-1) = ?
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-2) = ?
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-3) = Ar_3
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]", 0-1) = ?
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]", 0-2) = ?
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-1) = ?
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-2) = ?
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-1) = ?
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-2) = ?
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-1) = ?
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-2) = ?
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-1) = ?
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-2) = ?
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-1) = ?
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-2) = ?
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))", 0-1) = 0
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]", 0-1) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]", 0-2) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]", 0-3) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]", 0-1) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]", 0-2) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]", 0-3) = ?
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))", 0-2) = 0
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-1) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-2) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-3) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-1) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-2) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-3) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-1) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-2) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-3) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-1) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-2) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-3) = ?
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))", 0-0) = Ar_0
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))", 0-1) = ?
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))", 0-2) = ?
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))", 0-3) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))", 0-0) = Ar_0
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))", 0-1) = ?
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))", 0-2) = ?
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))", 0-3) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))", 0-2) = Ar_0
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))", 0-1) = ?
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))", 0-3) = ?
+orients the transitions
+	evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+	evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+	evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+	evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+	evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+	evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]
+	evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+	evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+	evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+	evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+	evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))
+	evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))
+	evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))
+	evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))
+	evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))
+weakly and the transitions
+	evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+	evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+	evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]
+	evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+	evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+strictly and produces the following problem:
+7:	T:
+		(Comp: ?, Cost: 1)               evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))
+		(Comp: ?, Cost: 1)               evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))
+		(Comp: ?, Cost: 1)               evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)               evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))
+		(Comp: ?, Cost: 1)               evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)               evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)               evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))
+		(Comp: 20*Ar_0 + 24, Cost: 1)    evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)               evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+		(Comp: ?, Cost: 1)               evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)    evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+		(Comp: ?, Cost: 1)               evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+		(Comp: 5*Ar_0 + 6, Cost: 1)      evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))
+		(Comp: 4, Cost: 1)               evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]
+		(Comp: 5*Ar_0 + 6, Cost: 1)      evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]
+		(Comp: 4, Cost: 1)               evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))
+		(Comp: 4, Cost: 1)               evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)               evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: ?, Cost: 1)               evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)    evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)               evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)    evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]
+		(Comp: 4, Cost: 1)               evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 5*Ar_0 + 6, Cost: 1)      evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)               evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]
+		(Comp: 1, Cost: 1)               evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]
+		(Comp: 1, Cost: 1)               evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)               koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrealheapsortbb9in) = 0
+	Pol(evalrealheapsortbb11in) = 0
+	Pol(evalrealheapsortbb10in) = 0
+	Pol(evalrealheapsortbb4in) = 3*V_3 + 3
+	Pol(evalrealheapsortbb2in) = 3*V_3 + 1
+	Pol(evalrealheapsortbb3in) = 6*V_3 + 2
+	Pol(evalrealheapsortbb16in) = 0
+	Pol(evalrealheapsortbb14in) = 0
+	Pol(evalrealheapsortbb13in) = 0
+	Pol(evalrealheapsortbb12in) = 0
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-0) = Ar_0
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-1) = 1
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-2) = Ar_2
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-3) = Ar_3
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-1) = Ar_1
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-2) = Ar_2
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-2) = 20*Ar_0 + 200020
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-3) = Ar_3
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = 20*Ar_0 + 20*Ar_1 + 3840000
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]", 0-2) = 20*Ar_0 + 80016000
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-2) = 20*Ar_0 + 4000800
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-2) = 20*Ar_0 + 1600320000
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-2) = 20*Ar_0 + 4000800
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-2) = 20*Ar_0 + 80016000
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-2) = 20*Ar_0 + 4000800
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-1) = 20*Ar_0 + 200000
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-2) = 20*Ar_0 + 32006400000
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))", 0-1) = 0
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))", 0-2) = 20*Ar_0 + 640128000000
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]", 0-2) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]", 0-3) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]", 0-1) = 20*Ar_0 + 192000
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]", 0-2) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]", 0-3) = ?
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))", 0-2) = 0
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-2) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-3) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-2) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-3) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-2) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-3) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-2) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-3) = ?
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))", 0-0) = Ar_0
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))", 0-2) = ?
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))", 0-3) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))", 0-0) = Ar_0
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))", 0-2) = ?
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))", 0-3) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))", 0-2) = Ar_0
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))", 0-2) = ?
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))", 0-3) = ?
+orients the transitions
+	evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+	evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+	evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+	evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+	evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+	evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))
+	evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))
+	evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))
+	evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))
+	evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))
+weakly and the transitions
+	evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+	evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+	evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+strictly and produces the following problem:
+8:	T:
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3))
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3))
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2))
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1))
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+		(Comp: 5*Ar_0 + 6, Cost: 1)                             evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3))
+		(Comp: 4, Cost: 1)                                      evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 + 1 >= Ar_0 ]
+		(Comp: 5*Ar_0 + 6, Cost: 1)                             evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 2 ]
+		(Comp: 4, Cost: 1)                                      evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3))
+		(Comp: 4, Cost: 1)                                      evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: 600*Ar_0^2 + 6001330*Ar_0 + 7200732, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: 600*Ar_0^2 + 6001330*Ar_0 + 7200732, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3))
+		(Comp: 600*Ar_0^2 + 6001330*Ar_0 + 7200732, Cost: 1)    evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 ]
+		(Comp: 4, Cost: 1)                                      evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 5*Ar_0 + 6, Cost: 1)                             evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 1, Cost: 1)                                      evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]
+		(Comp: 1, Cost: 1)                                      evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]
+		(Comp: 1, Cost: 1)                                      evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)                                      koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Applied AI with 'oct' on problem 8 to obtain the following invariants:
+  For symbol evalrealheapsortbb10in: X_1 - X_3 - 4 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 - 4 >= 0 /\ X_1 - X_2 - 4 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 - 4 >= 0 /\ X_1 - 4 >= 0
+  For symbol evalrealheapsortbb11in: X_1 - X_3 - 3 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 - 3 >= 0 /\ X_1 - X_2 - 3 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 - 3 >= 0 /\ X_1 - 3 >= 0
+  For symbol evalrealheapsortbb12in: X_1 - X_3 - 4 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 - 4 >= 0 /\ X_1 - X_2 - 4 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 - 4 >= 0 /\ X_1 - 4 >= 0
+  For symbol evalrealheapsortbb13in: X_4 - 1 >= 0 /\ X_3 + X_4 - 1 >= 0 /\ -X_3 + X_4 - 1 >= 0 /\ X_2 + X_4 - 1 >= 0 /\ X_1 + X_4 - 4 >= 0 /\ X_1 - X_3 - 3 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 - 3 >= 0 /\ X_1 - X_2 - 3 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 - 3 >= 0 /\ X_1 - 3 >= 0
+  For symbol evalrealheapsortbb14in: X_4 - 1 >= 0 /\ X_3 + X_4 - 1 >= 0 /\ -X_3 + X_4 - 1 >= 0 /\ X_2 + X_4 - 1 >= 0 /\ X_1 + X_4 - 4 >= 0 /\ X_1 - X_3 - 3 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 - 3 >= 0 /\ X_1 - X_2 - 3 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 - 3 >= 0 /\ X_1 - 3 >= 0
+  For symbol evalrealheapsortbb16in: X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 - 3 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 - 3 >= 0 /\ X_1 - 3 >= 0
+  For symbol evalrealheapsortbb17in: X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 - 3 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 - 3 >= 0 /\ X_1 - 3 >= 0
+  For symbol evalrealheapsortbb18in: X_2 >= 0 /\ X_1 + X_2 - 3 >= 0 /\ X_1 - 3 >= 0
+  For symbol evalrealheapsortbb2in: X_2 - X_3 >= 0 /\ X_3 - 1 >= 0 /\ X_2 + X_3 - 2 >= 0 /\ X_1 + X_3 - 4 >= 0 /\ X_2 - 1 >= 0 /\ X_1 + X_2 - 4 >= 0 /\ X_1 - 3 >= 0
+  For symbol evalrealheapsortbb3in: X_2 - X_3 >= 0 /\ X_2 - 1 >= 0 /\ X_1 + X_2 - 4 >= 0 /\ X_1 - 3 >= 0
+  For symbol evalrealheapsortbb4in: X_2 - X_3 >= 0 /\ X_3 - 1 >= 0 /\ X_2 + X_3 - 2 >= 0 /\ X_1 + X_3 - 4 >= 0 /\ X_2 - 1 >= 0 /\ X_1 + X_2 - 4 >= 0 /\ X_1 - 3 >= 0
+  For symbol evalrealheapsortbb5in: X_2 - X_3 >= 0 /\ X_2 - 1 >= 0 /\ X_1 + X_2 - 4 >= 0 /\ X_1 - 3 >= 0
+  For symbol evalrealheapsortbb6in: X_2 - 1 >= 0 /\ X_1 + X_2 - 4 >= 0 /\ X_1 - 3 >= 0
+  For symbol evalrealheapsortbb7in: X_2 - 3 >= 0 /\ X_1 + X_2 - 6 >= 0 /\ -X_1 + X_2 >= 0 /\ X_1 - 3 >= 0
+  For symbol evalrealheapsortbb8in: X_1 - X_2 - 2 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 - 3 >= 0 /\ X_1 - 3 >= 0
+  For symbol evalrealheapsortbb9in: X_1 - X_3 - 3 >= 0 /\ X_3 >= 0 /\ X_2 + X_3 >= 0 /\ X_1 + X_3 - 3 >= 0 /\ X_1 - X_2 - 3 >= 0 /\ X_2 >= 0 /\ X_1 + X_2 - 3 >= 0 /\ X_1 - 3 >= 0
+
+
+This yielded the following problem:
+9:	T:
+		(Comp: 1, Cost: 0)                                      koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+		(Comp: 1, Cost: 1)                                      evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)                                      evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]
+		(Comp: 1, Cost: 1)                                      evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]
+		(Comp: 5*Ar_0 + 6, Cost: 1)                             evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 4, Cost: 1)                                      evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 600*Ar_0^2 + 6001330*Ar_0 + 7200732, Cost: 1)    evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: 600*Ar_0^2 + 6001330*Ar_0 + 7200732, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: 600*Ar_0^2 + 6001330*Ar_0 + 7200732, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+		(Comp: 4, Cost: 1)                                      evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_1 >= Ar_0 ]
+		(Comp: 4, Cost: 1)                                      evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3)) [ Ar_1 - 3 >= 0 /\ Ar_0 + Ar_1 - 6 >= 0 /\ -Ar_0 + Ar_1 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: 5*Ar_0 + 6, Cost: 1)                             evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 >= Ar_1 + 2 ]
+		(Comp: 4, Cost: 1)                                      evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_1 + 1 >= Ar_0 ]
+		(Comp: 5*Ar_0 + 6, Cost: 1)                             evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3)) [ Ar_0 - Ar_1 - 2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1)) [ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_0 - Ar_1 - 4 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 4 >= 0 ]
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_0 - Ar_1 - 4 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 4 >= 0 ]
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2)) [ Ar_0 - Ar_2 - 4 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_0 - Ar_1 - 4 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 4 >= 0 ]
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 4 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 4 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: ?, Cost: 1)                                      evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 4 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrealheapsortbb9in) = 6*V_1 - 6*V_3 + 2
+	Pol(evalrealheapsortbb11in) = 6*V_1 - 6*V_3
+	Pol(evalrealheapsortbb10in) = 6*V_1 - 6*V_3 + 1
+	Pol(evalrealheapsortbb16in) = 6*V_1 - 6*V_3 + 3
+	Pol(evalrealheapsortbb14in) = 6*V_1 - 6*V_3 - 2
+	Pol(evalrealheapsortbb13in) = 6*V_1 - 6*V_3 - 1
+	Pol(evalrealheapsortbb12in) = 6*V_1 - 6*V_3
+and size complexities
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3)) [ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 1 >= 0 /\\ -Ar_2 + Ar_3 - 1 >= 0 /\\ Ar_1 + Ar_3 - 1 >= 0 /\\ Ar_0 + Ar_3 - 4 >= 0 /\\ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3)) [ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 1 >= 0 /\\ -Ar_2 + Ar_3 - 1 >= 0 /\\ Ar_1 + Ar_3 - 1 >= 0 /\\ Ar_0 + Ar_3 - 4 >= 0 /\\ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3)) [ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 1 >= 0 /\\ -Ar_2 + Ar_3 - 1 >= 0 /\\ Ar_1 + Ar_3 - 1 >= 0 /\\ Ar_0 + Ar_3 - 4 >= 0 /\\ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-2) = ?
+	S("evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3)) [ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 1 >= 0 /\\ -Ar_2 + Ar_3 - 1 >= 0 /\\ Ar_1 + Ar_3 - 1 >= 0 /\\ Ar_0 + Ar_3 - 4 >= 0 /\\ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-3) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3)) [ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 1 >= 0 /\\ -Ar_2 + Ar_3 - 1 >= 0 /\\ Ar_1 + Ar_3 - 1 >= 0 /\\ Ar_0 + Ar_3 - 4 >= 0 /\\ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3)) [ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 1 >= 0 /\\ -Ar_2 + Ar_3 - 1 >= 0 /\\ Ar_1 + Ar_3 - 1 >= 0 /\\ Ar_0 + Ar_3 - 4 >= 0 /\\ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3)) [ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 1 >= 0 /\\ -Ar_2 + Ar_3 - 1 >= 0 /\\ Ar_1 + Ar_3 - 1 >= 0 /\\ Ar_0 + Ar_3 - 4 >= 0 /\\ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-2) = Ar_0
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3)) [ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 1 >= 0 /\\ -Ar_2 + Ar_3 - 1 >= 0 /\\ Ar_1 + Ar_3 - 1 >= 0 /\\ Ar_0 + Ar_3 - 4 >= 0 /\\ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-3) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 1 >= 0 /\\ -Ar_2 + Ar_3 - 1 >= 0 /\\ Ar_1 + Ar_3 - 1 >= 0 /\\ Ar_0 + Ar_3 - 4 >= 0 /\\ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 1 >= 0 /\\ -Ar_2 + Ar_3 - 1 >= 0 /\\ Ar_1 + Ar_3 - 1 >= 0 /\\ Ar_0 + Ar_3 - 4 >= 0 /\\ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 1 >= 0 /\\ -Ar_2 + Ar_3 - 1 >= 0 /\\ Ar_1 + Ar_3 - 1 >= 0 /\\ Ar_0 + Ar_3 - 4 >= 0 /\\ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-2) = ?
+	S("evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 - 1 >= 0 /\\ Ar_2 + Ar_3 - 1 >= 0 /\\ -Ar_2 + Ar_3 - 1 >= 0 /\\ Ar_1 + Ar_3 - 1 >= 0 /\\ Ar_0 + Ar_3 - 4 >= 0 /\\ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-3) = ?
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2)) [ Ar_0 - Ar_2 - 4 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_0 - Ar_1 - 4 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 4 >= 0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2)) [ Ar_0 - Ar_2 - 4 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_0 - Ar_1 - 4 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 4 >= 0 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2)) [ Ar_0 - Ar_2 - 4 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_0 - Ar_1 - 4 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 4 >= 0 ]", 0-2) = ?
+	S("evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2)) [ Ar_0 - Ar_2 - 4 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_0 - Ar_1 - 4 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 4 >= 0 ]", 0-3) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_0 - Ar_1 - 4 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 4 >= 0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_0 - Ar_1 - 4 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 4 >= 0 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_0 - Ar_1 - 4 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 4 >= 0 ]", 0-2) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_0 - Ar_1 - 4 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 4 >= 0 ]", 0-3) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_0 - Ar_1 - 4 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 4 >= 0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_0 - Ar_1 - 4 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 4 >= 0 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_0 - Ar_1 - 4 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 4 >= 0 ]", 0-2) = ?
+	S("evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_0 - Ar_1 - 4 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 4 >= 0 ]", 0-3) = ?
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1)) [ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1)) [ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1)) [ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-2) = ?
+	S("evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1)) [ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-3) = ?
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-2) = ?
+	S("evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-3) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-2) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]", 0-3) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-2) = ?
+	S("evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\\ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_0 - Ar_1 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]", 0-3) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-2) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]", 0-3) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-2) = ?
+	S("evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\\ Ar_1 + Ar_2 >= 0 /\\ Ar_0 + Ar_2 - 3 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]", 0-3) = ?
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3)) [ Ar_0 - Ar_1 - 2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3)) [ Ar_0 - Ar_1 - 2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3)) [ Ar_0 - Ar_1 - 2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-2) = 0
+	S("evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3)) [ Ar_0 - Ar_1 - 2 >= 0 /\\ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-3) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_1 + 1 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_1 + 1 >= Ar_0 ]", 0-1) = 20*Ar_0 + 192000
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_1 + 1 >= Ar_0 ]", 0-2) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_1 + 1 >= Ar_0 ]", 0-3) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 2 ]", 0-1) = 20*Ar_0 + 9600
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 2 ]", 0-2) = ?
+	S("evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\\ Ar_0 + Ar_1 - 3 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 2 ]", 0-3) = ?
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3)) [ Ar_1 - 3 >= 0 /\\ Ar_0 + Ar_1 - 6 >= 0 /\\ -Ar_0 + Ar_1 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3)) [ Ar_1 - 3 >= 0 /\\ Ar_0 + Ar_1 - 6 >= 0 /\\ -Ar_0 + Ar_1 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-1) = 0
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3)) [ Ar_1 - 3 >= 0 /\\ Ar_0 + Ar_1 - 6 >= 0 /\\ -Ar_0 + Ar_1 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-2) = 20*Ar_0 + 640064000000
+	S("evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3)) [ Ar_1 - 3 >= 0 /\\ Ar_0 + Ar_1 - 6 >= 0 /\\ -Ar_0 + Ar_1 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_1 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_1 >= Ar_0 ]", 0-1) = 20*Ar_0 + 200000
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_1 >= Ar_0 ]", 0-2) = 20*Ar_0 + 32003200000
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_1 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-2) = 20*Ar_0 + 4000400
+	S("evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 0 /\\ F >= 0 /\\ Ar_2 + 1 >= 2*F /\\ 2*F >= Ar_2 /\\ G >= 0 /\\ Ar_2 + 1 >= 2*G /\\ 2*G >= Ar_2 /\\ Fresh_9 >= 0 /\\ Ar_2 + 1 >= 2*Fresh_9 /\\ 2*Fresh_9 >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-2) = 20*Ar_0 + 80008000
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-2) = 20*Ar_0 + 4000400
+	S("evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_2 - 1 >= 0 /\\ Ar_1 + Ar_2 - 2 >= 0 /\\ Ar_0 + Ar_2 - 4 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 0 /\\ E >= 0 /\\ Ar_2 + 1 >= 2*E /\\ 2*E >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-2) = 20*Ar_0 + 1600160000
+	S("evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 1 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 1 ]", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 1 ]", 0-2) = 20*Ar_0 + 4000400
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_2 >= 1 ]", 0-3) = Ar_3
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ 0 >= Ar_2 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ 0 >= Ar_2 ]", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ 0 >= Ar_2 ]", 0-2) = 20*Ar_0 + 80008000
+	S("evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\\ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ 0 >= Ar_2 ]", 0-3) = Ar_3
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = 20*Ar_0 + 20*Ar_1 + 3840000
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = ?
+	S("evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = ?
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 1 ]", 0-0) = Ar_0
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 1 ]", 0-1) = 20*Ar_0 + 10000
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 1 ]", 0-2) = 20*Ar_0 + 200020
+	S("evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_1 - 1 >= 0 /\\ Ar_0 + Ar_1 - 4 >= 0 /\\ Ar_0 - 3 >= 0 /\\ Ar_0 >= Ar_1 + 1 ]", 0-3) = Ar_3
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-0) = Ar_0
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-1) = Ar_1
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-2) = Ar_2
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]", 0-3) = Ar_3
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-0) = Ar_0
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-1) = 1
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-2) = Ar_2
+	S("evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]", 0-3) = Ar_3
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+orients the transitions
+	evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+	evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+	evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+	evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 4 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+	evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 4 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+	evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 4 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+	evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2)) [ Ar_0 - Ar_2 - 4 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_0 - Ar_1 - 4 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 4 >= 0 ]
+	evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1)) [ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+	evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_0 - Ar_1 - 4 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 4 >= 0 ]
+	evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_0 - Ar_1 - 4 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 4 >= 0 ]
+weakly and the transitions
+	evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+	evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+	evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+	evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 4 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+	evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 4 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+	evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 4 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+	evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2)) [ Ar_0 - Ar_2 - 4 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_0 - Ar_1 - 4 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 4 >= 0 ]
+	evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1)) [ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+	evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_0 - Ar_1 - 4 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 4 >= 0 ]
+	evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_0 - Ar_1 - 4 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 4 >= 0 ]
+strictly and produces the following problem:
+10:	T:
+		(Comp: 1, Cost: 0)                                      koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+		(Comp: 1, Cost: 1)                                      evalrealheapsortstart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)                                      evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, 1, Ar_2, Ar_3)) [ Ar_0 >= 3 ]
+		(Comp: 1, Cost: 1)                                      evalrealheapsortentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 2 >= Ar_0 ]
+		(Comp: 5*Ar_0 + 6, Cost: 1)                             evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Ar_1, Ar_3)) [ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 4, Cost: 1)                                      evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortstop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 600*Ar_0^2 + 6001330*Ar_0 + 7200732, Cost: 1)    evalrealheapsortbb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb6in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: 600*Ar_0^2 + 6001330*Ar_0 + 7200732, Cost: 1)    evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_2 >= 0 /\ E >= 0 /\ Ar_2 + 1 >= 2*E /\ 2*E >= Ar_2 ]
+		(Comp: 600*Ar_0^2 + 6001330*Ar_0 + 7200732, Cost: 1)    evalrealheapsortbb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb3in(Ar_0, Ar_1, Fresh_9 - 1, Ar_3)) [ Ar_1 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_1 + Ar_2 - 2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_2 >= 0 /\ F >= 0 /\ Ar_2 + 1 >= 2*F /\ 2*F >= Ar_2 /\ G >= 0 /\ Ar_2 + 1 >= 2*G /\ 2*G >= Ar_2 /\ Fresh_9 >= 0 /\ Ar_2 + 1 >= 2*Fresh_9 /\ 2*Fresh_9 >= Ar_2 ]
+		(Comp: 4, Cost: 1)                                      evalrealheapsortbb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 - 1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_1 >= Ar_0 ]
+		(Comp: 4, Cost: 1)                                      evalrealheapsortbb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, 0, Ar_2, Ar_3)) [ Ar_1 - 3 >= 0 /\ Ar_0 + Ar_1 - 6 >= 0 /\ -Ar_0 + Ar_1 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: 5*Ar_0 + 6, Cost: 1)                             evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 >= Ar_1 + 2 ]
+		(Comp: 4, Cost: 1)                                      evalrealheapsortbb18in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortreturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_1 + 1 >= Ar_0 ]
+		(Comp: 5*Ar_0 + 6, Cost: 1)                             evalrealheapsortbb8in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, 0, Ar_3)) [ Ar_0 - Ar_1 - 2 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: 30*Ar_0^2 + 51*Ar_0 + 18, Cost: 1)               evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 >= Ar_1 + 2*Ar_2 + 3 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb16in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ 2*Ar_2 + Ar_1 + 2 >= Ar_0 ]
+		(Comp: 30*Ar_0^2 + 51*Ar_0 + 18, Cost: 1)               evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 = 2*Ar_2 + Ar_1 + 3 ]
+		(Comp: 30*Ar_0^2 + 51*Ar_0 + 18, Cost: 1)               evalrealheapsortbb9in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 /\ Ar_0 >= Ar_1 + 2*Ar_2 + 4 ]
+		(Comp: 20*Ar_0 + 24, Cost: 1)                           evalrealheapsortbb17in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb18in(Ar_0, Ar_1 + 1, Ar_2, Ar_3)) [ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: 30*Ar_0^2 + 51*Ar_0 + 18, Cost: 1)               evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 1)) [ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: 30*Ar_0^2 + 51*Ar_0 + 18, Cost: 1)               evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb11in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_0 - Ar_1 - 4 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 4 >= 0 ]
+		(Comp: 30*Ar_0^2 + 51*Ar_0 + 18, Cost: 1)               evalrealheapsortbb10in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 - Ar_2 - 4 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_0 - Ar_1 - 4 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 4 >= 0 ]
+		(Comp: 30*Ar_0^2 + 51*Ar_0 + 18, Cost: 1)               evalrealheapsortbb12in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, 2*Ar_2 + 2)) [ Ar_0 - Ar_2 - 4 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 4 >= 0 /\ Ar_0 - Ar_1 - 4 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 4 >= 0 /\ Ar_0 - 4 >= 0 ]
+		(Comp: 30*Ar_0^2 + 51*Ar_0 + 18, Cost: 1)               evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 4 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: 30*Ar_0^2 + 51*Ar_0 + 18, Cost: 1)               evalrealheapsortbb13in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_0, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 4 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+		(Comp: 30*Ar_0^2 + 51*Ar_0 + 18, Cost: 1)               evalrealheapsortbb14in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealheapsortbb16in(Ar_0, Ar_1, Ar_3, Ar_3)) [ Ar_3 - 1 >= 0 /\ Ar_2 + Ar_3 - 1 >= 0 /\ -Ar_2 + Ar_3 - 1 >= 0 /\ Ar_1 + Ar_3 - 1 >= 0 /\ Ar_0 + Ar_3 - 4 >= 0 /\ Ar_0 - Ar_2 - 3 >= 0 /\ Ar_2 >= 0 /\ Ar_1 + Ar_2 >= 0 /\ Ar_0 + Ar_2 - 3 >= 0 /\ Ar_0 - Ar_1 - 3 >= 0 /\ Ar_1 >= 0 /\ Ar_0 + Ar_1 - 3 >= 0 /\ Ar_0 - 3 >= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 18004615*Ar_0 + 2100*Ar_0^2 + 21602533
+
+Time: 0.557 sec (SMT: 0.396 sec)

@@ -1,0 +1,1505 @@
+WORST_CASE(?,O(n^3))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_evalfbb3in___2/13]
+1. recursive  : [n_evalfbb3in___2_loop_cont/14,n_evalfbb3in___4/13,n_evalfbb5in___1/13]
+2. recursive  : [n_evalfbb3in___4_loop_cont/14,n_evalfbb5in___6/13,n_evalfbb7in___3/13]
+3. non_recursive  : [exit_location/1]
+4. non_recursive  : [n_evalfstop___5/7]
+5. non_recursive  : [n_evalfbb5in___6_loop_cont/8]
+6. non_recursive  : [n_evalfbb7in___7/7]
+7. non_recursive  : [n_evalfstart/7]
+8. non_recursive  : [pyRinit/7]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_evalfbb3in___2/13
+1. SCC is partially evaluated into n_evalfbb3in___4/13
+2. SCC is partially evaluated into n_evalfbb5in___6/13
+3. SCC is completely evaluated into other SCCs
+4. SCC is completely evaluated into other SCCs
+5. SCC is partially evaluated into n_evalfbb5in___6_loop_cont/8
+6. SCC is partially evaluated into n_evalfbb7in___7/7
+7. SCC is completely evaluated into other SCCs
+8. SCC is partially evaluated into pyRinit/7
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_evalfbb3in___2/13 
+* CE 20 is refined into CE [21] 
+* CE 19 is refined into CE [22] 
+* CE 18 is refined into CE [23] 
+
+
+### Cost equations --> "Loop" of n_evalfbb3in___2/13 
+* CEs [23] --> Loop 19 
+* CEs [21] --> Loop 20 
+* CEs [22] --> Loop 21 
+
+### Ranking functions of CR n_evalfbb3in___2(A,B,C,D,E,F,G,H,I,J,K,L,M) 
+* RF of phase [19]: [A+C-F+1,A+E-F+1,C+D-F+1,D+E-F+1]
+
+#### Partial ranking functions of CR n_evalfbb3in___2(A,B,C,D,E,F,G,H,I,J,K,L,M) 
+* Partial RF of phase [19]:
+  - RF of loop [19:1]:
+    A+C-F+1
+    A+E-F+1
+    C+D-F+1
+    D+E-F+1
+
+
+### Specialization of cost equations n_evalfbb3in___4/13 
+* CE 14 is refined into CE [24,25] 
+* CE 15 is refined into CE [26] 
+* CE 12 is refined into CE [27] 
+* CE 17 is refined into CE [28] 
+* CE 13 is refined into CE [29,30] 
+* CE 16 is refined into CE [31] 
+
+
+### Cost equations --> "Loop" of n_evalfbb3in___4/13 
+* CEs [31] --> Loop 22 
+* CEs [30] --> Loop 23 
+* CEs [29] --> Loop 24 
+* CEs [26] --> Loop 25 
+* CEs [25] --> Loop 26 
+* CEs [27,28] --> Loop 27 
+* CEs [24] --> Loop 28 
+
+### Ranking functions of CR n_evalfbb3in___4(A,B,C,D,E,F,G,H,I,J,K,L,M) 
+* RF of phase [22]: [C-D+F,C-E,-D+F+1,-E+1]
+* RF of phase [23]: [C-D+F,C-E]
+
+#### Partial ranking functions of CR n_evalfbb3in___4(A,B,C,D,E,F,G,H,I,J,K,L,M) 
+* Partial RF of phase [22]:
+  - RF of loop [22:1]:
+    C-D+F
+    C-E
+    -D+F+1
+    -E+1
+* Partial RF of phase [23]:
+  - RF of loop [23:1]:
+    C-D+F
+    C-E
+
+
+### Specialization of cost equations n_evalfbb5in___6/13 
+* CE 6 is refined into CE [32,33,34,35,36,37,38,39,40,41,42] 
+* CE 7 is refined into CE [43] 
+* CE 4 is refined into CE [44] 
+* CE 9 is refined into CE [45] 
+* CE 5 is refined into CE [46,47,48,49,50,51,52,53,54,55,56] 
+* CE 8 is refined into CE [57] 
+
+
+### Cost equations --> "Loop" of n_evalfbb5in___6/13 
+* CEs [55] --> Loop 29 
+* CEs [56] --> Loop 30 
+* CEs [54] --> Loop 31 
+* CEs [57] --> Loop 32 
+* CEs [53] --> Loop 33 
+* CEs [52] --> Loop 34 
+* CEs [51] --> Loop 35 
+* CEs [49] --> Loop 36 
+* CEs [47] --> Loop 37 
+* CEs [50] --> Loop 38 
+* CEs [48] --> Loop 39 
+* CEs [46] --> Loop 40 
+* CEs [43] --> Loop 41 
+* CEs [42] --> Loop 42 
+* CEs [40] --> Loop 43 
+* CEs [41] --> Loop 44 
+* CEs [39] --> Loop 45 
+* CEs [38] --> Loop 46 
+* CEs [37] --> Loop 47 
+* CEs [44,45] --> Loop 48 
+* CEs [35] --> Loop 49 
+* CEs [33] --> Loop 50 
+* CEs [36] --> Loop 51 
+* CEs [34] --> Loop 52 
+* CEs [32] --> Loop 53 
+
+### Ranking functions of CR n_evalfbb5in___6(A,B,C,D,E,F,G,H,I,J,K,L,M) 
+* RF of phase [29]: [A-D]
+* RF of phase [30]: [A-D]
+* RF of phase [31]: [A-D]
+* RF of phase [32]: [A-D]
+* RF of phase [33]: [A-D]
+* RF of phase [34]: [A-D]
+* RF of phase [35]: [A-D]
+* RF of phase [36]: [A-D]
+* RF of phase [37]: [A-D]
+* RF of phase [38]: [A-D]
+* RF of phase [39]: [A-D]
+* RF of phase [40]: [A-D]
+
+#### Partial ranking functions of CR n_evalfbb5in___6(A,B,C,D,E,F,G,H,I,J,K,L,M) 
+* Partial RF of phase [29]:
+  - RF of loop [29:1]:
+    A-D
+* Partial RF of phase [30]:
+  - RF of loop [30:1]:
+    A-D
+* Partial RF of phase [31]:
+  - RF of loop [31:1]:
+    A-D
+* Partial RF of phase [32]:
+  - RF of loop [32:1]:
+    A-D
+* Partial RF of phase [33]:
+  - RF of loop [33:1]:
+    A-D
+* Partial RF of phase [34]:
+  - RF of loop [34:1]:
+    A-D
+* Partial RF of phase [35]:
+  - RF of loop [35:1]:
+    A-D
+* Partial RF of phase [36]:
+  - RF of loop [36:1]:
+    A-D
+* Partial RF of phase [37]:
+  - RF of loop [37:1]:
+    A-D
+* Partial RF of phase [38]:
+  - RF of loop [38:1]:
+    A-D
+* Partial RF of phase [39]:
+  - RF of loop [39:1]:
+    A-D
+* Partial RF of phase [40]:
+  - RF of loop [40:1]:
+    A-D
+
+
+### Specialization of cost equations n_evalfbb5in___6_loop_cont/8 
+* CE 11 is refined into CE [58] 
+* CE 10 is refined into CE [59] 
+
+
+### Cost equations --> "Loop" of n_evalfbb5in___6_loop_cont/8 
+* CEs [58] --> Loop 54 
+* CEs [59] --> Loop 55 
+
+### Ranking functions of CR n_evalfbb5in___6_loop_cont(A,B,C,D,E,F,G,H) 
+
+#### Partial ranking functions of CR n_evalfbb5in___6_loop_cont(A,B,C,D,E,F,G,H) 
+
+
+### Specialization of cost equations n_evalfbb7in___7/7 
+* CE 2 is refined into CE [60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90] 
+* CE 3 is refined into CE [91] 
+
+
+### Cost equations --> "Loop" of n_evalfbb7in___7/7 
+* CEs [90] --> Loop 56 
+* CEs [91] --> Loop 57 
+* CEs [89] --> Loop 58 
+* CEs [88] --> Loop 59 
+* CEs [87] --> Loop 60 
+* CEs [82] --> Loop 61 
+* CEs [81] --> Loop 62 
+* CEs [79] --> Loop 63 
+* CEs [80] --> Loop 64 
+* CEs [76,86] --> Loop 65 
+* CEs [85] --> Loop 66 
+* CEs [84] --> Loop 67 
+* CEs [83] --> Loop 68 
+* CEs [75,78] --> Loop 69 
+* CEs [77] --> Loop 70 
+* CEs [72,74] --> Loop 71 
+* CEs [73] --> Loop 72 
+* CEs [69,71] --> Loop 73 
+* CEs [70] --> Loop 74 
+* CEs [66,68] --> Loop 75 
+* CEs [67] --> Loop 76 
+* CEs [63,65] --> Loop 77 
+* CEs [64] --> Loop 78 
+* CEs [62] --> Loop 79 
+* CEs [60,61] --> Loop 80 
+
+### Ranking functions of CR n_evalfbb7in___7(A,B,C,D,E,F,G) 
+
+#### Partial ranking functions of CR n_evalfbb7in___7(A,B,C,D,E,F,G) 
+
+
+### Specialization of cost equations pyRinit/7 
+* CE 1 is refined into CE [92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115] 
+
+
+### Cost equations --> "Loop" of pyRinit/7 
+* CEs [114] --> Loop 81 
+* CEs [113] --> Loop 82 
+* CEs [112] --> Loop 83 
+* CEs [111] --> Loop 84 
+* CEs [110] --> Loop 85 
+* CEs [109] --> Loop 86 
+* CEs [108] --> Loop 87 
+* CEs [107] --> Loop 88 
+* CEs [106] --> Loop 89 
+* CEs [105] --> Loop 90 
+* CEs [104] --> Loop 91 
+* CEs [103] --> Loop 92 
+* CEs [102] --> Loop 93 
+* CEs [101] --> Loop 94 
+* CEs [100] --> Loop 95 
+* CEs [99] --> Loop 96 
+* CEs [98] --> Loop 97 
+* CEs [97] --> Loop 98 
+* CEs [96] --> Loop 99 
+* CEs [95] --> Loop 100 
+* CEs [94] --> Loop 101 
+* CEs [92,93,115] --> Loop 102 
+
+### Ranking functions of CR pyRinit(A,B,C,D,E,F,G) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D,E,F,G) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_evalfbb3in___2(A,B,C,D,E,F,G,H,I,J,K,L,M):
+* Chain [[19],21]: 1*it(19)+1
+  Such that:it(19) =< -F+K+L
+
+  with precondition: [G=2,A=H,B=I,C=J,D=K,E+1=L,D+E+1=M,E>=B,A>=D,C>=E,E+F>=D+1,D+E>=F] 
+
+* Chain [[19],20]: 1*it(19)+0
+  Such that:it(19) =< D+E-F+1
+
+  with precondition: [G=3,E>=B,A>=D,C>=E,E+F>=D+1,D+E>=F] 
+
+* Chain [21]: 1
+  with precondition: [G=2,A=H,B=I,C=J,D=K,E+1=L,D+E+1=F,D+E+1=M,E>=0,E>=B,A>=D,C>=E] 
+
+* Chain [20]: 0
+  with precondition: [G=3,E>=B,A>=D,C>=E,E+F>=D+1,D+E+1>=F] 
+
+
+#### Cost of chains of n_evalfbb3in___4(A,B,C,D,E,F,G,H,I,J,K,L,M):
+* Chain [[23],27]: 3*it(23)+1*s(2)+1*s(5)+1
+  Such that:it(23) =< C-E
+aux(2) =< 2*C
+s(2) =< aux(2)
+s(5) =< it(23)*aux(2)
+
+  with precondition: [G=3,D=E+F,2*D>=2*F+1,A>=D,D>=B+F,C+F>=D+1] 
+
+* Chain [[23],26]: 3*it(23)+1*s(5)+1*s(6)+3
+  Such that:it(23) =< -E+L
+aux(3) =< 2*L
+s(6) =< aux(3)
+s(5) =< it(23)*aux(3)
+
+  with precondition: [G=4,A=H,B=I,C=J,D+1=K,C+1=L,D=E+F,C+D+1=M,2*D>=2*F+1,A>=D,D>=B+F,C+F>=D+1] 
+
+* Chain [[22],[23],27]: 2*it(22)+3*it(23)+1*s(2)+1*s(5)+1
+  Such that:it(23) =< C
+aux(2) =< 2*C
+it(22) =< -E+1/2
+s(2) =< aux(2)
+s(5) =< it(23)*aux(2)
+
+  with precondition: [G=3,D=E+F,2*C>=3,2*F>=2*D+1,A>=D,D>=B+F] 
+
+* Chain [[22],[23],26]: 2*it(22)+3*it(23)+1*s(5)+1*s(6)+3
+  Such that:it(22) =< -E+1/2
+it(23) =< L
+aux(3) =< 2*L
+s(6) =< aux(3)
+s(5) =< it(23)*aux(3)
+
+  with precondition: [G=4,A=H,B=I,C=J,D+1=K,C+1=L,D=E+F,C+D+1=M,2*C>=3,2*F>=2*D+1,A>=D,D>=B+F] 
+
+* Chain [[22],28]: 2*it(22)+3
+  Such that:it(22) =< -E
+
+  with precondition: [C=0,G=4,J=0,L=1,A=H,B=I,D+1=K,D+1=M,D=E+F,A>=D,F>=D+1,D>=B+F] 
+
+* Chain [[22],27]: 2*it(22)+1*s(2)+1
+  Such that:s(2) =< 1
+it(22) =< -E+1/2
+
+  with precondition: [G=3,D=E+F,2*F>=2*D+1,A>=D,D>=B+F,C+F>=D+1] 
+
+* Chain [[22],26]: 2*it(22)+1*s(6)+3
+  Such that:s(6) =< 1
+it(22) =< -E+1/2
+
+  with precondition: [G=4,2*C=1,2*J=1,2*L=3,2*D+3=2*M,A=H,B=I,D+1=K,D=E+F,2*F>=2*D+1,A>=D,D>=B+F] 
+
+* Chain [[22],25]: 2*it(22)+2
+  Such that:it(22) =< -E+L
+
+  with precondition: [G=4,A=H,B=I,C=J,D+1=K,C+1=L,D=C+M,D=E+F,0>=2*C+1,A>=D,D>=B+F,C+F>=D+1] 
+
+* Chain [[22],24,[23],27]: 2*it(22)+3*it(23)+1*s(2)+1*s(5)+4
+  Such that:it(23) =< C
+aux(2) =< 2*C
+it(22) =< -E
+s(2) =< aux(2)
+s(5) =< it(23)*aux(2)
+
+  with precondition: [G=3,D=E+F,C>=2,A>=D,F>=D+1,D>=B+F] 
+
+* Chain [[22],24,[23],26]: 2*it(22)+3*it(23)+1*s(5)+1*s(6)+6
+  Such that:it(22) =< -E
+it(23) =< L
+aux(3) =< 2*L
+s(6) =< aux(3)
+s(5) =< it(23)*aux(3)
+
+  with precondition: [G=4,A=H,B=I,C=J,D+1=K,C+1=L,D=E+F,C+D+1=M,C>=2,A>=D,F>=D+1,D>=B+F] 
+
+* Chain [[22],24,27]: 2*it(22)+1*s(2)+4
+  Such that:s(2) =< 2
+it(22) =< -E
+
+  with precondition: [G=3,D=E+F,C>=1,A>=D,F>=D+1,D>=B+F] 
+
+* Chain [[22],24,26]: 2*it(22)+1*s(6)+6
+  Such that:s(6) =< 2
+it(22) =< -E
+
+  with precondition: [C=1,G=4,J=1,L=2,A=H,B=I,D+1=K,D+2=M,D=E+F,A>=D,F>=D+1,D>=B+F] 
+
+* Chain [28]: 3
+  with precondition: [C=0,E=0,G=4,J=0,L=1,F=D,A=H,B=I,F+1=K,F+1=M,0>=B,A>=F] 
+
+* Chain [27]: 1*s(2)+1
+  Such that:s(2) =< 2*D-2*F
+
+  with precondition: [G=3,E+F=D,E>=B,C>=E,A>=E+F] 
+
+* Chain [26]: 1*s(6)+3
+  Such that:s(6) =< 2*E
+
+  with precondition: [G=4,E=C,A=H,B=I,E=J,D+1=K,E+1=L,E+F=D,D+E+1=M,2*E>=1,E>=B,A>=D] 
+
+* Chain [25]: 2
+  with precondition: [G=4,E=C,A=H,B=I,E=J,D+1=K,E+1=L,E+F=D,E+M=D,0>=2*E+1,E>=B,A>=D] 
+
+* Chain [24,[23],27]: 3*it(23)+1*s(2)+1*s(5)+4
+  Such that:it(23) =< C
+aux(2) =< 2*C
+s(2) =< aux(2)
+s(5) =< it(23)*aux(2)
+
+  with precondition: [E=0,G=3,D=F,0>=B,C>=2,A>=D] 
+
+* Chain [24,[23],26]: 3*it(23)+1*s(5)+1*s(6)+6
+  Such that:it(23) =< L
+aux(3) =< 2*L
+s(6) =< aux(3)
+s(5) =< it(23)*aux(3)
+
+  with precondition: [E=0,G=4,D=F,A=H,B=I,C=J,D+1=K,C+1=L,C+D+1=M,0>=B,C>=2,A>=D] 
+
+* Chain [24,27]: 1*s(2)+4
+  Such that:s(2) =< 2
+
+  with precondition: [E=0,G=3,D=F,0>=B,C>=1,A>=D] 
+
+* Chain [24,26]: 1*s(6)+6
+  Such that:s(6) =< 2
+
+  with precondition: [C=1,E=0,G=4,J=1,L=2,D=F,A=H,B=I,D+1=K,D+2=M,0>=B,A>=D] 
+
+
+#### Cost of chains of n_evalfbb5in___6(A,B,C,D,E,F,G,H,I,J,K,L,M):
+* Chain [[40],53]: 5*it(40)+5
+  Such that:it(40) =< A-D
+
+  with precondition: [B=0,C=0,E=0,G=5,A>=D+1] 
+
+* Chain [[40],48]: 5*it(40)+1*s(41)+2*s(49)+4*s(52)+5
+  Such that:s(41) =< 1
+s(44) =< 2
+s(48) =< 1/2
+it(40) =< A-D
+s(49) =< s(44)
+s(52) =< s(48)
+
+  with precondition: [B=0,C=0,E=0,G=3,A>=D+1] 
+
+* Chain [[39],52]: 8*it(39)+1*s(56)+1*s(59)+8
+  Such that:s(56) =< 2
+aux(15) =< A-D
+it(39) =< aux(15)
+s(59) =< aux(15)*2
+
+  with precondition: [B=0,C=1,E=0,G=5,A>=D+1] 
+
+* Chain [[39],48]: 8*it(39)+13*s(41)+6*s(49)+4*s(52)+4*s(54)+1*s(59)+5
+  Such that:s(48) =< 1/2
+aux(17) =< 1
+aux(18) =< 2
+aux(19) =< A-D
+s(41) =< aux(17)
+s(49) =< aux(18)
+s(52) =< s(48)
+s(54) =< s(41)*aux(18)
+it(39) =< aux(19)
+s(59) =< aux(19)*2
+
+  with precondition: [B=0,C=1,E=0,G=3,A>=D+1] 
+
+* Chain [[38],51]: 8*it(38)+3*s(60)+1*s(62)+1*s(63)+3*s(72)+1*s(73)+1*s(74)+8
+  Such that:it(38) =< A-D
+s(60) =< C+1
+aux(22) =< 2*C+2
+s(62) =< aux(22)
+s(63) =< s(60)*aux(22)
+aux(20) =< aux(22)* (1/2)
+aux(21) =< it(38)*aux(20)
+s(72) =< it(38)*aux(20)
+s(75) =< aux(21)*2
+s(73) =< s(75)
+s(74) =< s(72)*aux(22)
+
+  with precondition: [B=0,E=0,G=5,C>=2,A>=D+1] 
+
+* Chain [[38],48]: 8*it(38)+1*s(41)+12*s(42)+2*s(49)+4*s(52)+4*s(53)+4*s(54)+3*s(72)+1*s(73)+1*s(74)+5
+  Such that:s(41) =< 1
+s(44) =< 2
+s(48) =< 1/2
+it(38) =< A-D
+s(46) =< 2*C
+s(69) =< 2*C+2
+aux(24) =< C
+s(42) =< aux(24)
+s(49) =< s(44)
+s(52) =< s(48)
+s(53) =< s(46)
+s(54) =< s(42)*s(46)
+aux(20) =< s(69)* (1/2)
+aux(21) =< it(38)*aux(20)
+s(72) =< it(38)*aux(20)
+s(75) =< aux(21)*2
+s(73) =< s(75)
+s(74) =< s(72)*s(69)
+
+  with precondition: [B=0,E=0,G=3,C>=2,A>=D+1] 
+
+* Chain [[37],50]: 5*it(37)+2*s(76)+2*s(79)+5
+  Such that:it(37) =< A-D
+aux(26) =< -E
+s(76) =< aux(26)
+s(79) =< it(37)*aux(26)
+
+  with precondition: [C=0,G=5,B=E,0>=B+1,A>=D+1] 
+
+* Chain [[37],48]: 5*it(37)+1*s(41)+7*s(42)+1*s(43)+2*s(49)+4*s(52)+2*s(79)+5
+  Such that:s(41) =< 1
+s(44) =< 2
+it(37) =< A-D
+s(48) =< -B+1/2
+s(43) =< 2*B
+aux(28) =< -B
+s(42) =< aux(28)
+s(49) =< s(44)
+s(52) =< s(48)
+s(79) =< it(37)*aux(28)
+
+  with precondition: [C=0,G=3,B=E,0>=B+1,A>=D+1] 
+
+* Chain [[36],49]: 8*it(36)+1*s(80)+2*s(81)+1*s(86)+2*s(87)+8
+  Such that:s(80) =< 2
+aux(33) =< A-D
+aux(34) =< -B
+s(81) =< aux(34)
+it(36) =< aux(33)
+s(87) =< it(36)*aux(34)
+s(86) =< aux(33)*2
+
+  with precondition: [C=1,G=5,B=E,0>=B+1,A>=D+1] 
+
+* Chain [[36],48]: 8*it(36)+10*s(41)+3*s(42)+1*s(43)+6*s(49)+4*s(51)+4*s(52)+3*s(54)+1*s(55)+1*s(86)+2*s(87)+5
+  Such that:s(42) =< -B+1
+s(48) =< -B+1/2
+s(43) =< 2*E
+aux(35) =< 1
+aux(36) =< 2
+aux(37) =< A-D
+aux(38) =< -B
+s(41) =< aux(35)
+s(49) =< aux(36)
+s(51) =< aux(38)
+s(52) =< s(48)
+s(54) =< s(41)*aux(36)
+s(55) =< s(42)*aux(36)
+it(36) =< aux(37)
+s(87) =< it(36)*aux(38)
+s(86) =< aux(37)*2
+
+  with precondition: [C=1,G=3,B=E,0>=B+1,A>=D+1] 
+
+* Chain [[35],48]: 6*it(35)+5*s(41)+7*s(42)+1*s(43)+2*s(49)+9*s(50)+4*s(51)+3*s(54)+1*s(55)+2*s(93)+5
+  Such that:s(44) =< 2
+s(45) =< 1/2
+s(47) =< -B
+s(43) =< 2*E
+aux(43) =< 1
+aux(44) =< A-D
+aux(45) =< -B+1/2
+s(41) =< aux(43)
+s(42) =< aux(45)
+s(49) =< s(44)
+s(50) =< s(45)
+s(51) =< s(47)
+s(54) =< s(50)*aux(43)
+s(55) =< s(42)*aux(43)
+it(35) =< aux(44)
+s(93) =< it(35)*aux(45)
+
+  with precondition: [G=3,2*C=1,B=E,0>=2*B+1,A>=D+1] 
+
+* Chain [[35],47]: 6*it(35)+2*s(93)+1*s(94)+2*s(95)+5
+  Such that:s(94) =< 1
+aux(46) =< A-D
+aux(47) =< -B+1/2
+s(95) =< aux(47)
+it(35) =< aux(46)
+s(93) =< it(35)*aux(47)
+
+  with precondition: [G=5,2*C=1,B=E,0>=2*B+1,A>=D+1] 
+
+* Chain [[34],48]: 4*it(34)+1*s(41)+1*s(43)+2*s(49)+9*s(50)+4*s(51)+4*s(52)+4*s(53)+3*s(54)+5
+  Such that:s(41) =< 1
+s(44) =< 2
+it(34) =< A-D
+s(47) =< -C
+s(48) =< -C+1/2
+s(45) =< C
+s(46) =< 2*C
+s(43) =< 2*E
+s(49) =< s(44)
+s(50) =< s(45)
+s(51) =< s(47)
+s(52) =< s(48)
+s(53) =< s(46)
+s(54) =< s(50)*s(46)
+
+  with precondition: [G=3,B=C,B=E,0>=2*B+1,A>=D+1] 
+
+* Chain [[34],46]: 4*it(34)+4
+  Such that:it(34) =< A-D
+
+  with precondition: [G=5,B=C,B=E,0>=2*B+1,A>=D+1] 
+
+* Chain [[33],48]: 5*it(33)+1*s(41)+5*s(43)+2*s(49)+9*s(50)+4*s(51)+4*s(52)+3*s(54)+1*s(98)+5
+  Such that:s(41) =< 1
+s(44) =< 2
+it(33) =< A-D
+s(47) =< -B
+s(48) =< -C+1/2
+s(45) =< E
+aux(49) =< 2*E
+s(43) =< aux(49)
+s(49) =< s(44)
+s(50) =< s(45)
+s(51) =< s(47)
+s(52) =< s(48)
+s(54) =< s(50)*aux(49)
+s(98) =< it(33)*aux(49)
+
+  with precondition: [G=3,E=B,E=C,2*E>=1,A>=D+1] 
+
+* Chain [[33],45]: 5*it(33)+1*s(98)+1*s(99)+5
+  Such that:it(33) =< A-D
+aux(50) =< 2*E
+s(99) =< aux(50)
+s(98) =< it(33)*aux(50)
+
+  with precondition: [G=5,B=C,B=E,2*B>=1,A>=D+1] 
+
+* Chain [[32],48]: 2*it(32)+1*s(41)+3*s(42)+1*s(43)+2*s(49)+9*s(50)+4*s(51)+4*s(52)+4*s(53)+3*s(54)+1*s(55)+5
+  Such that:s(41) =< 1
+s(44) =< 2
+it(32) =< A-D
+s(47) =< -B
+s(48) =< -B+1/2
+s(42) =< -B+C
+s(43) =< 2*B
+s(45) =< C
+s(46) =< 2*C
+s(49) =< s(44)
+s(50) =< s(45)
+s(51) =< s(47)
+s(52) =< s(48)
+s(53) =< s(46)
+s(54) =< s(50)*s(46)
+s(55) =< s(42)*s(46)
+
+  with precondition: [G=3,B=E,B>=C+1,A>=D+1] 
+
+* Chain [[32],41]: 2*it(32)+2
+  Such that:it(32) =< A-D
+
+  with precondition: [G=5,B=E,B>=C+1,A>=D+1] 
+
+* Chain [[31],48]: 4*it(31)+1*s(41)+3*s(42)+1*s(43)+2*s(49)+9*s(50)+4*s(51)+4*s(52)+4*s(53)+3*s(54)+1*s(55)+2*s(102)+5
+  Such that:s(41) =< 1
+s(44) =< 2
+it(31) =< A-D
+s(43) =< 2*B
+s(45) =< C
+s(42) =< C-E
+aux(51) =< C-E+1
+s(46) =< 2*C
+s(47) =< -E
+s(48) =< -E+1/2
+s(49) =< s(44)
+s(50) =< s(45)
+s(51) =< s(47)
+s(52) =< s(48)
+s(53) =< s(46)
+s(54) =< s(50)*s(46)
+s(55) =< s(42)*s(46)
+s(102) =< it(31)*aux(51)
+
+  with precondition: [G=3,B=E,0>=2*C+1,C>=B+1,A>=D+1] 
+
+* Chain [[31],43]: 4*it(31)+2*s(102)+2*s(103)+4
+  Such that:it(31) =< A-D
+aux(52) =< C-E+1
+s(103) =< aux(52)
+s(102) =< it(31)*aux(52)
+
+  with precondition: [G=5,B=E,0>=2*C+1,C>=B+1,A>=D+1] 
+
+* Chain [[30],48]: 5*it(30)+1*s(41)+3*s(42)+1*s(43)+2*s(49)+9*s(50)+4*s(51)+4*s(52)+4*s(53)+3*s(54)+1*s(55)+3*s(112)+1*s(113)+1*s(114)+5
+  Such that:s(41) =< 1
+s(44) =< 2
+it(30) =< A-D
+s(45) =< C
+s(42) =< C-E
+aux(53) =< C-E+1
+s(46) =< 2*C
+s(109) =< 2*C+2
+s(47) =< -E
+s(48) =< -E+1/2
+s(43) =< 2*E
+s(49) =< s(44)
+s(50) =< s(45)
+s(51) =< s(47)
+s(52) =< s(48)
+s(53) =< s(46)
+s(54) =< s(50)*s(46)
+s(55) =< s(42)*s(46)
+aux(54) =< s(109)
+s(112) =< it(30)*aux(53)
+s(115) =< it(30)*aux(54)
+s(113) =< s(115)
+s(114) =< s(112)*s(109)
+
+  with precondition: [G=3,B=E,2*B>=1,C>=B+1,A>=D+1] 
+
+* Chain [[30],42]: 5*it(30)+3*s(112)+1*s(113)+1*s(114)+3*s(116)+1*s(118)+1*s(119)+5
+  Such that:it(30) =< A-D
+aux(55) =< C-E+1
+aux(56) =< 2*C+2
+s(116) =< aux(55)
+s(118) =< aux(56)
+s(119) =< s(116)*aux(56)
+aux(54) =< aux(56)
+s(112) =< it(30)*aux(55)
+s(115) =< it(30)*aux(54)
+s(113) =< s(115)
+s(114) =< s(112)*aux(56)
+
+  with precondition: [G=5,B=E,2*B>=1,C>=B+1,A>=D+1] 
+
+* Chain [[29],48]: 8*it(29)+1*s(41)+3*s(42)+1*s(43)+2*s(49)+9*s(50)+4*s(51)+4*s(52)+4*s(53)+3*s(54)+1*s(55)+2*s(134)+2*s(135)+6*s(136)+2*s(137)+2*s(138)+5
+  Such that:s(41) =< 1
+s(44) =< 2
+it(29) =< A-D
+s(48) =< -B+1/2
+s(42) =< -B+C
+s(45) =< C
+s(46) =< 2*C
+s(129) =< 2*C+2
+s(43) =< 2*E
+aux(61) =< -B
+s(49) =< s(44)
+s(50) =< s(45)
+s(51) =< aux(61)
+s(52) =< s(48)
+s(53) =< s(46)
+s(54) =< s(50)*s(46)
+s(55) =< s(42)*s(46)
+aux(59) =< s(129)
+aux(58) =< aux(61)+1/2
+s(134) =< it(29)*aux(61)
+aux(60) =< it(29)*aux(59)
+s(135) =< it(29)*aux(58)
+s(140) =< aux(60)* (1/2)
+s(136) =< s(140)
+s(137) =< aux(60)
+s(138) =< s(136)*s(129)
+
+  with precondition: [G=3,B=E,0>=2*B+1,2*C>=3,A>=D+1] 
+
+* Chain [[29],44]: 8*it(29)+2*s(134)+2*s(135)+6*s(136)+2*s(137)+2*s(138)+2*s(141)+2*s(142)+6*s(145)+2*s(146)+2*s(147)+8
+  Such that:it(29) =< A-D
+s(143) =< C+1
+s(142) =< -E+1/2
+aux(62) =< 2*C+2
+aux(63) =< -E
+s(141) =< aux(63)
+s(145) =< s(143)
+s(146) =< aux(62)
+s(147) =< s(145)*aux(62)
+aux(59) =< aux(62)
+aux(58) =< aux(63)+1/2
+s(134) =< it(29)*aux(63)
+aux(60) =< it(29)*aux(59)
+s(135) =< it(29)*aux(58)
+s(140) =< aux(60)* (1/2)
+s(136) =< s(140)
+s(137) =< aux(60)
+s(138) =< s(136)*aux(62)
+
+  with precondition: [G=5,B=E,0>=2*B+1,2*C>=3,A>=D+1] 
+
+* Chain [53]: 5
+  with precondition: [B=0,C=0,E=0,G=5,D=A] 
+
+* Chain [52]: 1*s(56)+8
+  Such that:s(56) =< 2
+
+  with precondition: [B=0,C=1,E=0,G=5,D=A] 
+
+* Chain [51]: 3*s(60)+1*s(62)+1*s(63)+8
+  Such that:s(60) =< C+1
+s(61) =< 2*C+2
+s(62) =< s(61)
+s(63) =< s(60)*s(61)
+
+  with precondition: [B=0,E=0,G=5,D=A,C>=2] 
+
+* Chain [50]: 2*s(76)+5
+  Such that:s(76) =< -E
+
+  with precondition: [C=0,G=5,D=A,E=B,0>=E+1] 
+
+* Chain [49]: 1*s(80)+2*s(81)+8
+  Such that:s(80) =< 2
+s(81) =< -E
+
+  with precondition: [C=1,G=5,D=A,E=B,0>=E+1] 
+
+* Chain [48]: 1*s(41)+3*s(42)+1*s(43)+2*s(49)+9*s(50)+4*s(51)+4*s(52)+4*s(53)+3*s(54)+1*s(55)+5
+  Such that:s(41) =< 1
+s(44) =< 2
+s(47) =< -B
+s(48) =< -B+1/2
+s(45) =< C
+s(42) =< C-E
+s(46) =< 2*C
+s(43) =< 2*E
+s(49) =< s(44)
+s(50) =< s(45)
+s(51) =< s(47)
+s(52) =< s(48)
+s(53) =< s(46)
+s(54) =< s(50)*s(46)
+s(55) =< s(42)*s(46)
+
+  with precondition: [G=3,E=B,A>=D] 
+
+* Chain [47]: 1*s(94)+2*s(95)+5
+  Such that:s(94) =< 1
+s(95) =< -E+1/2
+
+  with precondition: [G=5,2*C=1,D=A,E=B,0>=2*E+1] 
+
+* Chain [46]: 4
+  with precondition: [G=5,D=A,B=C,B=E,0>=2*B+1] 
+
+* Chain [45]: 1*s(99)+5
+  Such that:s(99) =< 2*E
+
+  with precondition: [G=5,D=A,B=C,B=E,2*B>=1] 
+
+* Chain [44]: 2*s(141)+2*s(142)+6*s(145)+2*s(146)+2*s(147)+8
+  Such that:s(143) =< C+1
+s(144) =< 2*C+2
+s(141) =< -E
+s(142) =< -E+1/2
+s(145) =< s(143)
+s(146) =< s(144)
+s(147) =< s(145)*s(144)
+
+  with precondition: [G=5,D=A,E=B,0>=2*E+1,2*C>=3] 
+
+* Chain [43]: 2*s(103)+4
+  Such that:s(103) =< C-E+1
+
+  with precondition: [G=5,D=A,E=B,0>=2*C+1,C>=E+1] 
+
+* Chain [42]: 3*s(116)+1*s(118)+1*s(119)+5
+  Such that:s(116) =< -B+C+1
+s(117) =< 2*C+2
+s(118) =< s(117)
+s(119) =< s(116)*s(117)
+
+  with precondition: [G=5,D=A,E=B,2*E>=1,C>=E+1] 
+
+* Chain [41]: 2
+  with precondition: [G=5,D=A,E=B,E>=C+1] 
+
+
+#### Cost of chains of n_evalfbb5in___6_loop_cont(A,B,C,D,E,F,G,H):
+* Chain [55]: 0
+  with precondition: [A=3] 
+
+* Chain [54]: 0
+  with precondition: [A=5] 
+
+
+#### Cost of chains of n_evalfbb7in___7(A,B,C,D,E,F,G):
+* Chain [80]: 7*s(284)+28*s(285)+15*s(286)+6*s(287)+14*s(290)+54*s(291)+20*s(292)+20*s(293)+24*s(294)+18*s(295)+5*s(296)+2*s(300)+2*s(302)+6*s(304)+3*s(305)+2*s(306)+5*s(309)+1*s(310)+4*s(311)+4*s(312)+4*s(313)+6
+  Such that:s(269) =< 1
+s(270) =< 2
+s(266) =< 1/2
+s(271) =< A-D
+aux(79) =< -B
+aux(80) =< -B+1/2
+aux(81) =< -B+C
+s(278) =< -B+C+1
+aux(82) =< 2*B
+s(267) =< -C
+s(268) =< -C+1/2
+s(276) =< C
+s(279) =< 2*C
+s(280) =< 2*C+2
+s(284) =< s(269)
+s(285) =< s(271)
+s(286) =< aux(81)
+s(287) =< aux(82)
+s(290) =< s(270)
+s(291) =< s(276)
+s(292) =< aux(79)
+s(293) =< aux(80)
+s(294) =< s(279)
+s(295) =< s(291)*s(279)
+s(296) =< s(286)*s(279)
+s(298) =< s(280)
+s(299) =< aux(79)+1/2
+s(300) =< s(285)*aux(79)
+s(301) =< s(285)*s(298)
+s(302) =< s(285)*s(299)
+s(303) =< s(301)* (1/2)
+s(304) =< s(303)
+s(305) =< s(301)
+s(306) =< s(304)*s(280)
+s(309) =< s(285)*s(278)
+s(310) =< s(309)*s(280)
+s(311) =< s(267)
+s(312) =< s(268)
+s(313) =< s(266)
+
+  with precondition: [A>=D] 
+
+* Chain [79]: 5*s(314)+6
+  Such that:s(314) =< A-D
+
+  with precondition: [B=0,C=0,A>=D+1] 
+
+* Chain [78]: 1*s(315)+9
+  Such that:s(315) =< 2
+
+  with precondition: [B=0,C=1,D=A] 
+
+* Chain [77]: 13*s(320)+7*s(321)+4*s(322)+4*s(323)+16*s(324)+2*s(325)+9
+  Such that:s(317) =< 1
+s(316) =< 1/2
+aux(83) =< 2
+aux(84) =< A-D
+s(321) =< aux(83)
+s(320) =< s(317)
+s(322) =< s(316)
+s(323) =< s(320)*aux(83)
+s(324) =< aux(84)
+s(325) =< aux(84)*2
+
+  with precondition: [B=0,C=1,A>=D+1] 
+
+* Chain [76]: 3*s(330)+1*s(332)+1*s(333)+9
+  Such that:s(330) =< C+1
+s(331) =< 2*C+2
+s(332) =< s(331)
+s(333) =< s(330)*s(331)
+
+  with precondition: [B=0,D=A,C>=2] 
+
+* Chain [75]: 1*s(334)+16*s(337)+12*s(341)+2*s(342)+4*s(343)+4*s(344)+4*s(345)+6*s(348)+2*s(350)+2*s(351)+3*s(353)+1*s(355)+1*s(356)+9
+  Such that:s(334) =< 1
+s(335) =< 2
+s(336) =< 1/2
+s(340) =< C
+s(353) =< C+1
+s(338) =< 2*C
+aux(85) =< A-D
+aux(86) =< 2*C+2
+s(337) =< aux(85)
+s(341) =< s(340)
+s(342) =< s(335)
+s(343) =< s(336)
+s(344) =< s(338)
+s(345) =< s(341)*s(338)
+s(346) =< aux(86)* (1/2)
+s(347) =< s(337)*s(346)
+s(348) =< s(337)*s(346)
+s(349) =< s(347)*2
+s(350) =< s(349)
+s(351) =< s(348)*aux(86)
+s(355) =< aux(86)
+s(356) =< s(353)*aux(86)
+
+  with precondition: [B=0,C>=2,A>=D+1] 
+
+* Chain [74]: 2*s(363)+6
+  Such that:s(363) =< -B
+
+  with precondition: [C=0,D=A,0>=B+1] 
+
+* Chain [73]: 1*s(364)+10*s(366)+1*s(368)+9*s(370)+2*s(371)+4*s(372)+4*s(373)+6
+  Such that:s(364) =< 1
+s(365) =< 2
+s(367) =< -B+1/2
+s(368) =< 2*B
+aux(87) =< A-D
+aux(88) =< -B
+s(366) =< aux(87)
+s(370) =< aux(88)
+s(371) =< s(365)
+s(372) =< s(367)
+s(373) =< s(366)*aux(88)
+
+  with precondition: [C=0,0>=B+1,A>=D+1] 
+
+* Chain [72]: 1*s(378)+2*s(379)+9
+  Such that:s(378) =< 2
+s(379) =< -B
+
+  with precondition: [C=1,D=A,0>=B+1] 
+
+* Chain [71]: 3*s(380)+1*s(382)+10*s(387)+7*s(388)+6*s(389)+4*s(390)+3*s(391)+1*s(392)+16*s(393)+4*s(394)+2*s(395)+9
+  Such that:s(383) =< 1
+s(380) =< -B+1
+s(381) =< -B+1/2
+s(382) =< 2*B
+aux(89) =< 2
+aux(90) =< A-D
+aux(91) =< -B
+s(388) =< aux(89)
+s(387) =< s(383)
+s(389) =< aux(91)
+s(390) =< s(381)
+s(391) =< s(387)*aux(89)
+s(392) =< s(380)*aux(89)
+s(393) =< aux(90)
+s(394) =< s(393)*aux(91)
+s(395) =< aux(90)*2
+
+  with precondition: [C=1,0>=B+1,A>=D+1] 
+
+* Chain [70]: 1*s(403)+2*s(404)+6
+  Such that:s(403) =< 1
+s(404) =< -B+1/2
+
+  with precondition: [2*C=1,D=A,0>=2*B+1] 
+
+* Chain [69]: 1*s(408)+6*s(412)+9*s(413)+2*s(414)+9*s(415)+4*s(416)+3*s(417)+1*s(418)+12*s(419)+4*s(420)+6
+  Such that:s(405) =< 2
+s(406) =< 1/2
+s(407) =< -B
+s(408) =< 2*B
+aux(92) =< 1
+aux(93) =< A-D
+aux(94) =< -B+1/2
+s(412) =< aux(92)
+s(413) =< aux(94)
+s(414) =< s(405)
+s(415) =< s(406)
+s(416) =< s(407)
+s(417) =< s(415)*aux(92)
+s(418) =< s(413)*aux(92)
+s(419) =< aux(93)
+s(420) =< s(419)*aux(94)
+
+  with precondition: [2*C=1,0>=2*B+1,A>=D+1] 
+
+* Chain [68]: 5
+  with precondition: [D=A,B=C,0>=2*B+1] 
+
+* Chain [67]: 1*s(427)+6
+  Such that:s(427) =< 2*C
+
+  with precondition: [D=A,B=C,2*B>=1] 
+
+* Chain [66]: 4*s(428)+5
+  Such that:s(428) =< A-D
+
+  with precondition: [B=C,0>=2*B+1,A>=D+1] 
+
+* Chain [65]: 1*s(429)+10*s(431)+5*s(436)+2*s(437)+9*s(438)+4*s(439)+4*s(440)+3*s(441)+1*s(442)+1*s(445)+1*s(446)+6
+  Such that:s(429) =< 1
+s(430) =< 2
+s(434) =< B
+s(435) =< 2*B
+s(432) =< -C
+s(433) =< -C+1/2
+s(444) =< 2*C
+aux(95) =< A-D
+s(431) =< aux(95)
+s(436) =< s(435)
+s(437) =< s(430)
+s(438) =< s(434)
+s(439) =< s(432)
+s(440) =< s(433)
+s(441) =< s(438)*s(435)
+s(442) =< s(431)*s(435)
+s(445) =< s(444)
+s(446) =< s(431)*s(444)
+
+  with precondition: [B=C,2*B>=1,A>=D+1] 
+
+* Chain [64]: 2*s(449)+2*s(450)+6*s(451)+2*s(452)+2*s(453)+9
+  Such that:s(449) =< -B
+s(450) =< -B+1/2
+s(447) =< C+1
+s(448) =< 2*C+2
+s(451) =< s(447)
+s(452) =< s(448)
+s(453) =< s(451)*s(448)
+
+  with precondition: [D=A,0>=2*B+1,2*C>=3] 
+
+* Chain [63]: 2*s(454)+5
+  Such that:s(454) =< -B+C+1
+
+  with precondition: [D=A,0>=2*C+1,C>=B+1] 
+
+* Chain [62]: 3*s(455)+1*s(457)+1*s(458)+6
+  Such that:s(455) =< -B+C+1
+s(456) =< 2*C+2
+s(457) =< s(456)
+s(458) =< s(455)*s(456)
+
+  with precondition: [D=A,2*B>=1,C>=B+1] 
+
+* Chain [61]: 3
+  with precondition: [D=A,B>=C+1] 
+
+* Chain [60]: 8*s(459)+2*s(461)+2*s(464)+6*s(465)+2*s(466)+2*s(467)+2*s(470)+2*s(472)+6*s(474)+2*s(475)+2*s(476)+9
+  Such that:s(459) =< A-D
+s(463) =< -B
+s(461) =< -B+1/2
+s(460) =< C+1
+s(462) =< 2*C+2
+s(464) =< s(463)
+s(465) =< s(460)
+s(466) =< s(462)
+s(467) =< s(465)*s(462)
+s(468) =< s(462)
+s(469) =< s(463)+1/2
+s(470) =< s(459)*s(463)
+s(471) =< s(459)*s(468)
+s(472) =< s(459)*s(469)
+s(473) =< s(471)* (1/2)
+s(474) =< s(473)
+s(475) =< s(471)
+s(476) =< s(474)*s(462)
+
+  with precondition: [0>=2*B+1,2*C>=3,A>=D+1] 
+
+* Chain [59]: 4*s(477)+2*s(479)+2*s(480)+5
+  Such that:s(477) =< A-D
+s(478) =< -B+C+1
+s(479) =< s(478)
+s(480) =< s(477)*s(478)
+
+  with precondition: [0>=2*C+1,C>=B+1,A>=D+1] 
+
+* Chain [58]: 5*s(481)+3*s(484)+1*s(485)+1*s(486)+3*s(488)+1*s(490)+1*s(491)+6
+  Such that:s(481) =< A-D
+s(482) =< -B+C+1
+s(483) =< 2*C+2
+s(484) =< s(482)
+s(485) =< s(483)
+s(486) =< s(484)*s(483)
+s(487) =< s(483)
+s(488) =< s(481)*s(482)
+s(489) =< s(481)*s(487)
+s(490) =< s(489)
+s(491) =< s(488)*s(483)
+
+  with precondition: [2*B>=1,C>=B+1,A>=D+1] 
+
+* Chain [57]: 1
+  with precondition: [D>=A+1] 
+
+* Chain [56]: 2*s(492)+3
+  Such that:s(492) =< A-D
+
+  with precondition: [B>=C+1,A>=D+1] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D,E,F,G):
+* Chain [102]: 35*s(547)+7*s(548)+15*s(549)+6*s(550)+15*s(551)+54*s(552)+20*s(553)+20*s(554)+24*s(555)+18*s(556)+5*s(557)+2*s(560)+2*s(562)+6*s(564)+3*s(565)+2*s(566)+5*s(567)+1*s(568)+4*s(569)+4*s(570)+4*s(571)+11
+  Such that:s(533) =< 1
+s(535) =< 1/2
+s(536) =< -C
+s(537) =< -C+1/2
+s(538) =< -C+D
+s(539) =< -C+D+1
+s(540) =< 2*C
+s(541) =< -D
+s(542) =< -D+1/2
+s(543) =< D
+s(544) =< 2*D
+s(545) =< 2*D+2
+aux(97) =< 2
+aux(98) =< -A+B
+s(551) =< aux(97)
+s(547) =< aux(98)
+s(548) =< s(533)
+s(549) =< s(538)
+s(550) =< s(540)
+s(552) =< s(543)
+s(553) =< s(536)
+s(554) =< s(537)
+s(555) =< s(544)
+s(556) =< s(552)*s(544)
+s(557) =< s(549)*s(544)
+s(558) =< s(545)
+s(559) =< s(536)+1/2
+s(560) =< s(547)*s(536)
+s(561) =< s(547)*s(558)
+s(562) =< s(547)*s(559)
+s(563) =< s(561)* (1/2)
+s(564) =< s(563)
+s(565) =< s(561)
+s(566) =< s(564)*s(545)
+s(567) =< s(547)*s(539)
+s(568) =< s(567)*s(545)
+s(569) =< s(541)
+s(570) =< s(542)
+s(571) =< s(535)
+
+  with precondition: [B>=A] 
+
+* Chain [101]: 7*s(578)+13*s(579)+4*s(580)+4*s(581)+16*s(582)+2*s(583)+11
+  Such that:s(574) =< 1
+s(576) =< 2
+s(575) =< 1/2
+s(577) =< -A+B
+s(578) =< s(576)
+s(579) =< s(574)
+s(580) =< s(575)
+s(581) =< s(579)*s(576)
+s(582) =< s(577)
+s(583) =< s(577)*2
+
+  with precondition: [C=0,D=1,B>=A+1] 
+
+* Chain [100]: 3*s(584)+1*s(586)+1*s(587)+11
+  Such that:s(584) =< D+1
+s(585) =< 2*D+2
+s(586) =< s(585)
+s(587) =< s(584)*s(585)
+
+  with precondition: [C=0,B=A,D>=2] 
+
+* Chain [99]: 1*s(588)+3*s(592)+16*s(596)+12*s(597)+2*s(598)+4*s(599)+4*s(600)+4*s(601)+6*s(604)+2*s(606)+2*s(607)+1*s(608)+1*s(609)+11
+  Such that:s(588) =< 1
+s(589) =< 2
+s(590) =< 1/2
+s(594) =< -A+B
+s(591) =< D
+s(592) =< D+1
+s(593) =< 2*D
+s(595) =< 2*D+2
+s(596) =< s(594)
+s(597) =< s(591)
+s(598) =< s(589)
+s(599) =< s(590)
+s(600) =< s(593)
+s(601) =< s(597)*s(593)
+s(602) =< s(595)* (1/2)
+s(603) =< s(596)*s(602)
+s(604) =< s(596)*s(602)
+s(605) =< s(603)*2
+s(606) =< s(605)
+s(607) =< s(604)*s(595)
+s(608) =< s(595)
+s(609) =< s(592)*s(595)
+
+  with precondition: [C=0,D>=2,B>=A+1] 
+
+* Chain [98]: 2*s(610)+8
+  Such that:s(610) =< -C
+
+  with precondition: [D=0,B=A,0>=C+1] 
+
+* Chain [97]: 1*s(611)+1*s(614)+10*s(617)+9*s(618)+2*s(619)+4*s(620)+4*s(621)+8
+  Such that:s(611) =< 1
+s(612) =< 2
+s(615) =< -A+B
+s(616) =< -C
+s(613) =< -C+1/2
+s(614) =< 2*C
+s(617) =< s(615)
+s(618) =< s(616)
+s(619) =< s(612)
+s(620) =< s(613)
+s(621) =< s(617)*s(616)
+
+  with precondition: [D=0,0>=C+1,B>=A+1] 
+
+* Chain [96]: 1*s(622)+2*s(623)+11
+  Such that:s(622) =< 2
+s(623) =< -C
+
+  with precondition: [D=1,B=A,0>=C+1] 
+
+* Chain [95]: 3*s(625)+1*s(627)+7*s(631)+10*s(632)+6*s(633)+4*s(634)+3*s(635)+1*s(636)+16*s(637)+4*s(638)+2*s(639)+11
+  Such that:s(624) =< 1
+s(628) =< 2
+s(629) =< -A+B
+s(630) =< -C
+s(625) =< -C+1
+s(626) =< -C+1/2
+s(627) =< 2*C
+s(631) =< s(628)
+s(632) =< s(624)
+s(633) =< s(630)
+s(634) =< s(626)
+s(635) =< s(632)*s(628)
+s(636) =< s(625)*s(628)
+s(637) =< s(629)
+s(638) =< s(637)*s(630)
+s(639) =< s(629)*2
+
+  with precondition: [D=1,0>=C+1,B>=A+1] 
+
+* Chain [94]: 1*s(640)+2*s(641)+8
+  Such that:s(640) =< 1
+s(641) =< -C+1/2
+
+  with precondition: [2*D=1,B=A,0>=2*C+1] 
+
+* Chain [93]: 1*s(645)+6*s(649)+9*s(650)+2*s(651)+9*s(652)+4*s(653)+3*s(654)+1*s(655)+12*s(656)+4*s(657)+8
+  Such that:s(646) =< 1
+s(642) =< 2
+s(643) =< 1/2
+s(647) =< -A+B
+s(644) =< -C
+s(648) =< -C+1/2
+s(645) =< 2*C
+s(649) =< s(646)
+s(650) =< s(648)
+s(651) =< s(642)
+s(652) =< s(643)
+s(653) =< s(644)
+s(654) =< s(652)*s(646)
+s(655) =< s(650)*s(646)
+s(656) =< s(647)
+s(657) =< s(656)*s(648)
+
+  with precondition: [2*D=1,0>=2*C+1,B>=A+1] 
+
+* Chain [92]: 7
+  with precondition: [B=A,C=D,0>=2*C+1] 
+
+* Chain [91]: 1*s(658)+8
+  Such that:s(658) =< 2*C
+
+  with precondition: [B=A,C=D,2*C>=1] 
+
+* Chain [90]: 2*s(659)+2*s(660)+6*s(663)+2*s(664)+2*s(665)+11
+  Such that:s(659) =< -C
+s(660) =< -C+1/2
+s(661) =< D+1
+s(662) =< 2*D+2
+s(663) =< s(661)
+s(664) =< s(662)
+s(665) =< s(663)*s(662)
+
+  with precondition: [B=A,0>=2*C+1,2*D>=3] 
+
+* Chain [89]: 2*s(666)+7
+  Such that:s(666) =< -C+D+1
+
+  with precondition: [B=A,0>=2*D+1,D>=C+1] 
+
+* Chain [88]: 3*s(667)+1*s(669)+1*s(670)+8
+  Such that:s(667) =< -C+D+1
+s(668) =< 2*D+2
+s(669) =< s(668)
+s(670) =< s(667)*s(668)
+
+  with precondition: [B=A,2*C>=1,D>=C+1] 
+
+* Chain [87]: 5
+  with precondition: [B=A,C>=D+1] 
+
+* Chain [86]: 4*s(671)+7
+  Such that:s(671) =< -A+B
+
+  with precondition: [C=D,0>=2*C+1,B>=A+1] 
+
+* Chain [85]: 1*s(672)+10*s(680)+6*s(681)+2*s(682)+9*s(683)+4*s(684)+4*s(685)+3*s(686)+2*s(687)+8
+  Such that:s(672) =< 1
+s(673) =< 2
+s(679) =< -A+B
+s(674) =< C
+s(676) =< -D
+s(677) =< -D+1/2
+aux(99) =< 2*C
+s(680) =< s(679)
+s(681) =< aux(99)
+s(682) =< s(673)
+s(683) =< s(674)
+s(684) =< s(676)
+s(685) =< s(677)
+s(686) =< s(683)*aux(99)
+s(687) =< s(680)*aux(99)
+
+  with precondition: [C=D,2*C>=1,B>=A+1] 
+
+* Chain [84]: 8*s(690)+2*s(692)+2*s(695)+6*s(696)+2*s(697)+2*s(698)+2*s(701)+2*s(703)+6*s(705)+2*s(706)+2*s(707)+11
+  Such that:s(690) =< -A+B
+s(691) =< -C
+s(692) =< -C+1/2
+s(693) =< D+1
+s(694) =< 2*D+2
+s(695) =< s(691)
+s(696) =< s(693)
+s(697) =< s(694)
+s(698) =< s(696)*s(694)
+s(699) =< s(694)
+s(700) =< s(691)+1/2
+s(701) =< s(690)*s(691)
+s(702) =< s(690)*s(699)
+s(703) =< s(690)*s(700)
+s(704) =< s(702)* (1/2)
+s(705) =< s(704)
+s(706) =< s(702)
+s(707) =< s(705)*s(694)
+
+  with precondition: [0>=2*C+1,2*D>=3,B>=A+1] 
+
+* Chain [83]: 4*s(708)+2*s(710)+2*s(711)+7
+  Such that:s(708) =< -A+B
+s(709) =< -C+D+1
+s(710) =< s(709)
+s(711) =< s(708)*s(709)
+
+  with precondition: [0>=2*D+1,B>=A+1,D>=C+1] 
+
+* Chain [82]: 5*s(712)+3*s(715)+1*s(716)+1*s(717)+3*s(719)+1*s(721)+1*s(722)+8
+  Such that:s(712) =< -A+B
+s(713) =< -C+D+1
+s(714) =< 2*D+2
+s(715) =< s(713)
+s(716) =< s(714)
+s(717) =< s(715)*s(714)
+s(718) =< s(714)
+s(719) =< s(712)*s(713)
+s(720) =< s(712)*s(718)
+s(721) =< s(720)
+s(722) =< s(719)*s(714)
+
+  with precondition: [2*C>=1,B>=A+1,D>=C+1] 
+
+* Chain [81]: 3
+  with precondition: [A>=B+1] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D,E,F,G): 
+-------------------------------------
+* Chain [102] with precondition: [B>=A] 
+    - Upper bound: nat(D)*54+50+nat(-C)*20+ (-A+B)* (nat(-C)*4)+nat(-D)*4+nat(2*C)*6+nat(2*D)*24+nat(2*D)*18*nat(D)+nat(2*D)*5*nat(-C+D)+ (-36*A+36*B)+nat(-C+D)*15+nat(-C+1/2)*20+nat(-D+1/2)*4+ (-A+B)* (nat(2*D+2)*6)+ (-A+B)* (nat(2*D+2)*nat(2*D+2))+ (-A+B)* (nat(-C+D+1)*nat(2*D+2))+ (-A+B)* (nat(-C+D+1)*5) 
+    - Complexity: n^3 
+* Chain [101] with precondition: [C=0,D=1,B>=A+1] 
+    - Upper bound: -20*A+20*B+48 
+    - Complexity: n 
+* Chain [100] with precondition: [C=0,B=A,D>=2] 
+    - Upper bound: 3*D+14+ (2*D+2)* (D+1)+ (2*D+2) 
+    - Complexity: n^2 
+* Chain [99] with precondition: [C=0,D>=2,B>=A+1] 
+    - Upper bound: 20*D+18+8*D*D+ (3*D+3)+ (2*D+2)* (D+1)+ (-16*A+16*B)+ (2*D+2)+ (10*D+10)* (-A+B)+ (-A+B)* ((2*D+2)* (2*D+2)) 
+    - Complexity: n^3 
+* Chain [98] with precondition: [D=0,B=A,0>=C+1] 
+    - Upper bound: -2*C+8 
+    - Complexity: n 
+* Chain [97] with precondition: [D=0,0>=C+1,B>=A+1] 
+    - Upper bound: -9*C+13+ (-A+B)* (-4*C)+ (-10*A+10*B)+ (-4*C+2) 
+    - Complexity: n^2 
+* Chain [96] with precondition: [D=1,B=A,0>=C+1] 
+    - Upper bound: -2*C+13 
+    - Complexity: n 
+* Chain [95] with precondition: [D=1,0>=C+1,B>=A+1] 
+    - Upper bound: -6*C+41+ (-A+B)* (-4*C)+ (-20*A+20*B)+ (-5*C+5)+ (-4*C+2) 
+    - Complexity: n^2 
+* Chain [94] with precondition: [2*D=1,B=A,0>=2*C+1] 
+    - Upper bound: -2*C+10 
+    - Complexity: n 
+* Chain [93] with precondition: [2*D=1,0>=2*C+1,B>=A+1] 
+    - Upper bound: -12*A+12*B-14*C+29+ (-4*C+2)* (-A+B) 
+    - Complexity: n^2 
+* Chain [92] with precondition: [B=A,C=D,0>=2*C+1] 
+    - Upper bound: 7 
+    - Complexity: constant 
+* Chain [91] with precondition: [B=A,C=D,2*C>=1] 
+    - Upper bound: 2*C+8 
+    - Complexity: n 
+* Chain [90] with precondition: [B=A,0>=2*C+1,2*D>=3] 
+    - Upper bound: -4*C+10*D+22+ (4*D+4)* (D+1) 
+    - Complexity: n^2 
+* Chain [89] with precondition: [B=A,0>=2*D+1,D>=C+1] 
+    - Upper bound: -2*C+2*D+9 
+    - Complexity: n 
+* Chain [88] with precondition: [B=A,2*C>=1,D>=C+1] 
+    - Upper bound: 2*D+10+ (-C+D+1)* (2*D+2)+ (-3*C+3*D+3) 
+    - Complexity: n^2 
+* Chain [87] with precondition: [B=A,C>=D+1] 
+    - Upper bound: 5 
+    - Complexity: constant 
+* Chain [86] with precondition: [C=D,0>=2*C+1,B>=A+1] 
+    - Upper bound: -4*A+4*B+7 
+    - Complexity: n 
+* Chain [85] with precondition: [C=D,2*C>=1,B>=A+1] 
+    - Upper bound: 21*C+13+6*C*C+ (-A+B)* (4*C)+ (-10*A+10*B) 
+    - Complexity: n^2 
+* Chain [84] with precondition: [0>=2*C+1,2*D>=3,B>=A+1] 
+    - Upper bound: -2*C+11+ (-A+B)* (-2*C)+ (6*D+6)+ (-9*A+9*B)+ (-2*A+2*B)* -C+ (2*D+2)* (-5*A+5*B)+ (-2*C+1)+ (4*D+4)+ (4*D+4)* (D+1)+ (2*D+2)* ((2*D+2)* (-A+B)) 
+    - Complexity: n^3 
+* Chain [83] with precondition: [0>=2*D+1,B>=A+1,D>=C+1] 
+    - Upper bound: -4*A+4*B+7+ (-C+D+1)* (-2*A+2*B)+ (-2*C+2*D+2) 
+    - Complexity: n^2 
+* Chain [82] with precondition: [2*C>=1,B>=A+1,D>=C+1] 
+    - Upper bound: -5*A+5*B+8+ (2*D+2)* (-A+B)+ (-C+D+1)* (-3*A+3*B)+ (2*D+2)+ (-C+D+1)* ((2*D+2)* (-A+B))+ (-C+D+1)* (2*D+2)+ (-3*C+3*D+3) 
+    - Complexity: n^3 
+* Chain [81] with precondition: [A>=B+1] 
+    - Upper bound: 3 
+    - Complexity: constant 
+
+### Maximum cost of pyRinit(A,B,C,D,E,F,G): max([max([max([max([4,nat(2*C)+5,nat(-C+1/2)*2+6,nat(-C+D+1)*2+4]),nat(2*D+2)+5+max([nat(-C+D+1)*nat(2*D+2)+nat(-C+D+1)*3,nat(D+1)*3+3+nat(2*D+2)*nat(D+1)])]),nat(-C)*2+5+max([5,nat(D+1)*6+3+nat(-C+1/2)*2+nat(2*D+2)*2+nat(2*D+2)*2*nat(D+1)])]),nat(-A+B)*4+4+max([nat(-A+B)*2*nat(-C+D+1)+nat(-C+D+1)*2,nat(-A+B)+1+max([nat(-A+B)*4+3+max([nat(-A+B)+2+max([max([nat(-C)*4*nat(-A+B)+nat(-C)*9+nat(-C+1/2)*4,nat(2*C)*6+nat(C)*9+nat(2*C)*3*nat(C)+nat(2*C)*2*nat(-A+B)]),nat(-A+B)*2+5+max([nat(-A+B)*4+max([nat(-A+B)*4+23+max([7,nat(-C)*4*nat(-A+B)+nat(-C)*6+nat(-C+1/2)*4+max([nat(-C+1)*5,nat(D)*54+9+nat(-C)*14+nat(-D)*4+nat(2*C)*6+nat(2*D)*24+nat(2*D)*18*nat(D)+nat(2*D)*5*nat(-C+D)+nat(-A+B)*16+nat(-C+D)*15+nat(-C+1/2)*16+nat(-D+1/2)*4+nat(2*D+2)*6*nat(-A+B)+nat(2*D+2)*nat(2*D+2)*nat(-A+B)+nat(-C+D+1)*nat(2*D+2)*nat(-A+B)+nat(-C+D+1)*5*nat(-A+B)])]),nat(2*D)*4+nat(D)*12+nat(2*D)*4*nat(D)+nat(D+1)*3+nat(2*D+2)*nat(D+1)+nat(2*D+2)+nat(2*D+2)*5*nat(-A+B)+nat(2*D+2)*nat(2*D+2)*nat(-A+B)]),nat(-C)*4+6+nat(-C+1/2)*10+nat(-C+1/2)*4*nat(-A+B)])]),nat(-C)*2*nat(-A+B)+nat(-C)*2+nat(D+1)*6+nat(-A+B)*2*nat(-C)+nat(-A+B)*5*nat(2*D+2)+nat(-C+1/2)*2+nat(2*D+2)*2+nat(2*D+2)*2*nat(D+1)+nat(2*D+2)*nat(-A+B)*nat(2*D+2)]),nat(-A+B)*3*nat(-C+D+1)+nat(2*D+2)*nat(-A+B)+nat(2*D+2)+nat(2*D+2)*nat(-A+B)*nat(-C+D+1)+nat(-C+D+1)*nat(2*D+2)+nat(-C+D+1)*3])])])+3 
+Asymptotic class: n^3 
+* Total analysis performed in 2012 ms.
+
+
+-- stats
+realtime 0:02.12
+usertime 2.07
+systime 0.01
+

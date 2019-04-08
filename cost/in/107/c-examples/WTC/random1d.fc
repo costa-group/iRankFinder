@@ -1,0 +1,99 @@
+{
+  vars: [A,B],
+  pvars: [A',B'],
+  initnode: evalrandom1dstart,
+  nodes: {
+    evalrandom1dbb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -B >= 0],
+        [-A + B > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [-1 + B >= 0, A -B >= 0],
+    },
+    evalrandom1dbb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -B >= 0],
+        [-A + B > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [-1 + A >= 0, -1 + B >= 0],
+    },
+    evalrandom1dentryin: {
+      inv_polyhedra: [],
+    },
+    evalrandom1dreturnin: {
+      inv_polyhedra: [],
+    },
+    evalrandom1dstart: {
+      inv_polyhedra: [],
+    },
+    evalrandom1dstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalrandom1dstart,
+	target: evalrandom1dentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalrandom1dentryin,
+	target: evalrandom1dbb5in,
+	name: t1,
+	constraints: [A -1 >= 0, A -A' = 0, 1 -B' = 0]
+    },
+    {
+	source: evalrandom1dentryin,
+	target: evalrandom1dreturnin,
+	name: t2,
+	constraints: [-A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalrandom1dbb5in,
+	target: evalrandom1dbb1in,
+	name: t3,
+	constraints: [A -B >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalrandom1dbb5in,
+	target: evalrandom1dreturnin,
+	name: t4,
+	constraints: [B -A -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalrandom1dbb1in,
+	target: evalrandom1dbb5in,
+	name: t5,
+	constraints: [-1 -C >= 0, A -A' = 0, B + 1 -B' = 0]
+    },
+    {
+	source: evalrandom1dbb1in,
+	target: evalrandom1dbb5in,
+	name: t6,
+	constraints: [C -1 >= 0, A -A' = 0, B + 1 -B' = 0]
+    },
+    {
+	source: evalrandom1dbb1in,
+	target: evalrandom1dbb5in,
+	name: t7,
+	constraints: [A -A' = 0, B + 1 -B' = 0]
+    },
+    {
+	source: evalrandom1dreturnin,
+	target: evalrandom1dstop,
+	name: t8,
+	constraints: []
+    }
+  ]
+}

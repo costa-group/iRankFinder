@@ -1,0 +1,96 @@
+{
+  vars: [A,B,C],
+  pvars: [A',B',C'],
+  initnode: evalcyclicstart,
+  nodes: {
+    evalcyclicbb3in: {
+      inv_polyhedra: [-1 -A + B >= 0, A >= 0],
+    },
+    evalcyclicbb4in: {
+      inv_polyhedra: [-1 -A + B >= 0, A >= 0],
+    },
+    evalcyclicbbin: {
+      inv_polyhedra: [-1 -A + B >= 0, A >= 0],
+    },
+    evalcyclicentryin: {
+      inv_polyhedra: [],
+    },
+    evalcyclicreturnin: {
+      inv_polyhedra: [-1 -A + B >= 0, A >= 0],
+    },
+    evalcyclicstart: {
+      inv_polyhedra: [],
+    },
+    evalcyclicstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalcyclicstart,
+	target: evalcyclicentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcyclicentryin,
+	target: evalcyclicbb3in,
+	name: t1,
+	constraints: [A >= 0, B -A -1 >= 0, A -A' = 0, B -B' = 0, A + 1 -C' = 0]
+    },
+    {
+	source: evalcyclicreturnin,
+	target: evalcyclicstop,
+	name: t10,
+	constraints: []
+    },
+    {
+	source: evalcyclicbb3in,
+	target: evalcyclicreturnin,
+	name: t2,
+	constraints: [C -A = 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcyclicbb3in,
+	target: evalcyclicbb4in,
+	name: t3,
+	constraints: [A -C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcyclicbb3in,
+	target: evalcyclicbb4in,
+	name: t4,
+	constraints: [C -A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcyclicbb4in,
+	target: evalcyclicbbin,
+	name: t5,
+	constraints: [-1 -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcyclicbb4in,
+	target: evalcyclicbbin,
+	name: t6,
+	constraints: [D -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcyclicbb4in,
+	target: evalcyclicreturnin,
+	name: t7,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcyclicbbin,
+	target: evalcyclicbb3in,
+	name: t8,
+	constraints: [B -C >= 0, A -A' = 0, B -B' = 0, C + 1 -C' = 0]
+    },
+    {
+	source: evalcyclicbbin,
+	target: evalcyclicbb3in,
+	name: t9,
+	constraints: [C -B -1 >= 0, A -A' = 0, B -B' = 0, -C' = 0]
+    }
+  ]
+}

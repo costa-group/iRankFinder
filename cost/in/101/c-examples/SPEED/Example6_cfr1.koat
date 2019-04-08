@@ -1,0 +1,16 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E F G A_P B_P C_P D_P E_P F_P G_P NoDet1 NoDet0 NoDet3 NoDet5 NoDet4 NoDet6 NoDet2)
+(RULES 
+  pyRinit(A,B,C,D,E,F,G) -> Com_1(n_evalfstart(A,B,C,D,E,F,G))
+  n_evalfbb1in___2(A,B,C,D,E,F,G) -> Com_1(n_evalfbb1in___2(A, B, C, D, C + 1, F + 1, G)) :|: A + B -C >= 0 && B >= 0 && -F + G -1 >= 0 && -C + D -1 >= 0 && -B + F >= 0 && C -E + 1 = 0
+  n_evalfbb1in___2(A,B,C,D,E,F,G) -> Com_1(n_evalfbb5in___5(A, F + 1, C + 1, D, C + 1, F, G)) :|: A + B -C >= 0 && B >= 0 && F -G >= 0 && -C + D -1 >= 0 && -B + F >= 0 && C -E + 1 = 0
+  n_evalfbb3in___1(A,B,C,D,E,F,G) -> Com_1(n_evalfbb3in___1(A, B, C, D, C + 1, F + 1, G)) :|: A + B -C >= 0 && B >= 0 && -F + G -1 >= 0 && -C + D -1 >= 0 && -A + F >= 0 && C -E + 1 = 0
+  n_evalfbb3in___1(A,B,C,D,E,F,G) -> Com_1(n_evalfbb5in___5(F + 1, B, C + 1, D, C + 1, F, G)) :|: A + B -C >= 0 && B >= 0 && F -G >= 0 && -C + D -1 >= 0 && -A + F >= 0 && C -E + 1 = 0
+  n_evalfbb5in___5(A,B,C,D,E,F,G) -> Com_1(n_evalfbbin___4(A, B, C, D, C + 1, F, G)) :|: A + B -C >= 0 && B >= 0 && -C + D -1 >= 0
+  n_evalfbb5in___5(A,B,C,D,E,F,G) -> Com_1(n_evalfstop___3(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6)) :|: B >= 0 && A + B -C >= 0 && C -D >= 0
+  n_evalfbbin___4(A,B,C,D,E,F,G) -> Com_1(n_evalfbb1in___2(A, B_P, C_P, D, E_P, F_P, G)) :|: D -E >= 0 && B >= 0 && A + B -E + 1 >= 0 && C -E + 1 = 0 && F_P >= 0 && D -E_P >= 0 && A -E_P + F_P + 1 >= 0 && E -E_P = 0 && B_P -F_P = 0 && C -E_P + 1 = 0 && B -F_P = 0 && C_P -E_P + 1 = 0
+  n_evalfbbin___4(A,B,C,D,E,F,G) -> Com_1(n_evalfbb1in___2(A, B_P, C_P, D, E_P, F_P, G)) :|: D -E >= 0 && B >= 0 && A + B -E + 1 >= 0 && C -E + 1 = 0 && F_P >= 0 && D -E_P >= 0 && A -E_P + F_P + 1 >= 0 && E -E_P = 0 && B_P -F_P = 0 && C -E_P + 1 = 0 && B -F_P = 0 && C_P -E_P + 1 = 0
+  n_evalfbbin___4(A,B,C,D,E,F,G) -> Com_1(n_evalfbb3in___1(A, B, C, D, C + 1, A, G)) :|: D -E >= 0 && B >= 0 && A + B -E + 1 >= 0 && C -E + 1 = 0 && A + B -C >= 0 && B >= 0 && -C + D -1 >= 0 && C -E + 1 = 0
+  n_evalfstart(A,B,C,D,E,F,G) -> Com_1(n_evalfbb5in___5(0, 0, 0, D, E, F, G))
+)

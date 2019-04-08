@@ -1,0 +1,15 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E F G H I J K L M N A' B' C' D' E' F' G' H' I' J' K' L' M' N' NoDet6 NoDet4 NoDet10 NoDet1 NoDet0 NoDet5 NoDet11 NoDet12 O NoDet13 NoDet7 NoDet8 NoDet3 NoDet2 NoDet9)
+(RULES 
+  pyRinit(A,B,C,D,E,F,G,H,I,J,K,L,M,N) -> Com_1(start0(A,B,C,D,E,F,G,H,I,J,K,L,M,N))
+  lbl13(A,B,C,D,E,F,G,H,I,J,K,L,M,N) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7, NoDet8, NoDet9, NoDet10, NoDet11, NoDet12, NoDet13)) :|: H + 2 -A >= 0 && A -2 >= 0 && A -1 -H >= 0 && L + 1 -A = 0 && B + 2 -A = 0 && D + 1 -A = 0 && N -A = 0 && J -A = 0
+  lbl53(A,B,C,D,E,F,G,H,I,J,K,L,M,N) -> Com_1(lbl53(A, B, C, J, E, F, G, H, I, 1 + J, K, L, M, N)) :|: A -J -1 >= 0 && D -H >= 0 && D -1 >= 0 && A -J >= 0 && J -1 -D >= 0 && H + 1 -D >= 0 && L + 1 -D = 0 && N -A = 0
+  lbl53(A,B,C,D,E,F,G,H,I,J,K,L,M,N) -> Com_1(lbl53(A, B, C, J, E, F, G, J, I, 1 + J, K, L, M, N)) :|: A -J -1 >= 0 && D -H >= 0 && D -1 >= 0 && A -J >= 0 && J -1 -D >= 0 && H + 1 -D >= 0 && L + 1 -D = 0 && N -A = 0
+  lbl53(A,B,C,D,E,F,G,H,I,J,K,L,M,N) -> Com_1(lbl91(A, B, C, D, E, O, G, H, I, J, K, L, M, N)) :|: D -H >= 0 && D -1 >= 0 && A -1 -D >= 0 && H + 1 -D >= 0 && J -A = 0 && L + 1 -D = 0 && N -A = 0
+  lbl91(A,B,C,D,E,F,G,H,I,J,K,L,M,N) -> Com_1(lbl13(A, L, C, D, E, F, G, H, I, J, K, 1 + L, M, N)) :|: D -H >= 0 && D -1 >= 0 && H + 1 -D >= 0 && A -1 -D >= 0 && N -A = 0 && L + 1 -D = 0 && J -A = 0
+  start(A,B,C,D,E,F,G,H,I,J,K,L,M,N) -> Com_1(lbl53(A, B, C, 1, E, F, G, 0, I, 2, K, 0, M, N)) :|: A -2 >= 0 && B -C = 0 && D -E = 0 && F -G = 0 && H -I = 0 && J -K = 0 && L -M = 0 && N -A = 0
+  start(A,B,C,D,E,F,G,H,I,J,K,L,M,N) -> Com_1(lbl53(A, B, C, 1, E, F, G, 1, I, 2, K, 0, M, N)) :|: A -2 >= 0 && B -C = 0 && D -E = 0 && F -G = 0 && H -I = 0 && J -K = 0 && L -M = 0 && N -A = 0
+  start(A,B,C,D,E,F,G,H,I,J,K,L,M,N) -> Com_1(stop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7, NoDet8, NoDet9, NoDet10, NoDet11, NoDet12, NoDet13)) :|: 1 -A >= 0 && B -C = 0 && D -E = 0 && F -G = 0 && H -I = 0 && J -K = 0 && L -M = 0 && N -A = 0
+  start0(A,B,C,D,E,F,G,H,I,J,K,L,M,N) -> Com_1(start(A, C, C, E, E, G, G, I, I, K, K, M, M, A))
+)

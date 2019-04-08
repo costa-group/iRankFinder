@@ -1,0 +1,149 @@
+{
+  vars: [A,B],
+  pvars: [A',B'],
+  initnode: evalsipmabubblestart,
+  nodes: {
+    evalsipmabubblebb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [B >= 0, -1 + A -B >= 0],
+    },
+    evalsipmabubblebb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [B >= 0, -1 + A -B >= 0],
+    },
+    evalsipmabubblebb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [B >= 0, -1 + A -B >= 0],
+    },
+    evalsipmabubblebb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [A -B >= 0, B >= 0],
+    },
+    evalsipmabubblebb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [A -B == 0, A >= 0],
+    },
+    evalsipmabubblebb6in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalsipmabubbleentryin: {
+      inv_polyhedra: [],
+    },
+    evalsipmabubblereturnin: {
+      inv_polyhedra: [-1 -A >= 0],
+    },
+    evalsipmabubblestart: {
+      inv_polyhedra: [],
+    },
+    evalsipmabubblestop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalsipmabubblestart,
+	target: evalsipmabubbleentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalsipmabubbleentryin,
+	target: evalsipmabubblebb6in,
+	name: t1,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalsipmabubblebb5in,
+	target: evalsipmabubblebb6in,
+	name: t10,
+	constraints: [A -1 -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalsipmabubblereturnin,
+	target: evalsipmabubblestop,
+	name: t11,
+	constraints: []
+    },
+    {
+	source: evalsipmabubblebb6in,
+	target: evalsipmabubblebb4in,
+	name: t2,
+	constraints: [A >= 0, A -A' = 0, -B' = 0]
+    },
+    {
+	source: evalsipmabubblebb6in,
+	target: evalsipmabubblereturnin,
+	name: t3,
+	constraints: [-1 -A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalsipmabubblebb4in,
+	target: evalsipmabubblebb1in,
+	name: t4,
+	constraints: [A -1 -B >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalsipmabubblebb4in,
+	target: evalsipmabubblebb5in,
+	name: t5,
+	constraints: [B -A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalsipmabubblebb1in,
+	target: evalsipmabubblebb2in,
+	name: t6,
+	constraints: [C -D -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalsipmabubblebb1in,
+	target: evalsipmabubblebb3in,
+	name: t7,
+	constraints: [D -C >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalsipmabubblebb2in,
+	target: evalsipmabubblebb3in,
+	name: t8,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalsipmabubblebb3in,
+	target: evalsipmabubblebb4in,
+	name: t9,
+	constraints: [A -A' = 0, B + 1 -B' = 0]
+    }
+  ]
+}

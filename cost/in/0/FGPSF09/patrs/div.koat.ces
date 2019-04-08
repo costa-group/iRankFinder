@@ -1,0 +1,15 @@
+input_output_vars(div(A,B,C,D,E),[A,B],[C,D,E]).
+input_output_vars(div_loop_cont(A,B,C,D),[A,B,C],[D]).
+input_output_vars(end(A,B,C),[A,B],[C]).
+input_output_vars(exit_location(A),[],[A]).
+input_output_vars(start(A,B,C),[A,B],[C]).
+eq(start(A,B,C),1,[div(A,B,D,E,F),div_loop_cont(D,E,F,C)],[]).
+eq(div(A,B,2,A,B),1,[],[0>=A]).
+eq(div(A,B,2,A,B),1,[],[A>=B]).
+eq(div(A,B,C,D,E),1,[div(A,B-A,C,D,E)],[B>=A+1,A>=1]).
+eq(div(A,B,3,C,D),0,[],[]).
+eq(div_loop_cont(2,A,B,C),0,[end(A,B,C)],[0>=D]).
+eq(div_loop_cont(2,A,B,C),0,[end(A,B,C)],[D>=E]).
+eq(div_loop_cont(3,A,B,C),0,[exit_location(C)],[]).
+eq(exit_location(A),0,[],[]).
+eq(end(A,B,C),0,[],[]).

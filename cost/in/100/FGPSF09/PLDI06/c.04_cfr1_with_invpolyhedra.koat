@@ -1,0 +1,11 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A_P B_P C_P)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(n_eval0(A,B,C))
+  n_eval0(A,B,C) -> Com_1(n_eval1___3(A, B, C)) :|: A -1 >= 0
+  n_eval1___2(A,B,C) -> Com_1(n_eval1___1(A, B, -A + B)) :|: -1 + A >= 0 && -1 + A >= 0 && -1 -A + C >= 0 && -1 + 2 * A -B >= 0 && A -1 >= 0 && A -B -1 >= 0 && -A + C -1 >= 0 && -1 -A + C >= 0 && -1 + A >= 0 && -1 + 2 * A -B >= 0
+  n_eval1___2(A,B,C) -> Com_1(n_eval1___2(A, A + B, C)) :|: -1 + A >= 0 && -1 + A >= 0 && -1 -A + C >= 0 && -1 + 2 * A -B >= 0 && A -1 >= 0 && A -B -1 >= 0 && -A + C -1 >= 0 && -1 -A + C >= 0 && -1 + A >= 0 && -1 + 2 * A -B >= 0
+  n_eval1___3(A,B,C) -> Com_1(n_eval1___1(A, B, -A + B)) :|: -1 + A >= 0 && A -1 >= 0 && A -B -1 >= 0 && -A + C -1 >= 0 && -1 + A >= 0
+  n_eval1___3(A,B,C) -> Com_1(n_eval1___2(A, A + B, C)) :|: -1 + A >= 0 && A -1 >= 0 && A -B -1 >= 0 && -A + C -1 >= 0 && -1 + A >= 0
+)

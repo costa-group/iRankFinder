@@ -1,0 +1,568 @@
+MAYBE
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalEx3start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0))
+		(Comp: ?, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb1in(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_1 >= D + 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1))
+		(Comp: ?, Cost: 1)    evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalEx3start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)    evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0))
+		(Comp: ?, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb1in(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_1 >= D + 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1))
+		(Comp: ?, Cost: 1)    evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalEx3start) = 2
+	Pol(evalEx3entryin) = 2
+	Pol(evalEx3bb4in) = 2
+	Pol(evalEx3bbin) = 2
+	Pol(evalEx3returnin) = 1
+	Pol(evalEx3bb2in) = 2
+	Pol(evalEx3bb3in) = 2
+	Pol(evalEx3bb1in) = 2
+	Pol(evalEx3stop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2))
+	evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalEx3start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)    evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)    evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0))
+		(Comp: ?, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb1in(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_1 >= D + 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1))
+		(Comp: 2, Cost: 1)    evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Applied AI with 'oct' on problem 3 to obtain the following invariants:
+  For symbol evalEx3bb1in: X_1 - X_3 >= 0 /\ X_3 - 1 >= 0 /\ X_1 + X_3 - 2 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalEx3bb2in: X_1 - X_3 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalEx3bb3in: X_1 - X_3 >= 0 /\ X_3 - 1 >= 0 /\ X_1 + X_3 - 2 >= 0 /\ X_1 - 1 >= 0
+  For symbol evalEx3bbin: X_1 - 1 >= 0
+  For symbol evalEx3returnin: -X_1 >= 0
+
+
+This yielded the following problem:
+4:	T:
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)    evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)    evalEx3bb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb1in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)    evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)    evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 1, Cost: 1)    evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)    evalEx3start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(koat_start) = 3*V_1
+	Pol(evalEx3start) = 3*V_1
+	Pol(evalEx3returnin) = 3*V_1
+	Pol(evalEx3stop) = 3*V_1
+	Pol(evalEx3bb1in) = V_1 + 2*V_3 - 1
+	Pol(evalEx3bb2in) = V_1 + 2*V_3
+	Pol(evalEx3bb3in) = V_1 + 2*V_3
+	Pol(evalEx3bb4in) = 3*V_1
+	Pol(evalEx3bbin) = 3*V_1
+	Pol(evalEx3entryin) = 3*V_1
+orients all transitions weakly and the transitions
+	evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb1in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+	evalEx3bb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 0)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb1in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         evalEx3start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 5 produces the following problem:
+6:	T:
+		(Comp: 1, Cost: 0)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb1in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         evalEx3start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ] with all transitions in problem 6, the following new transition is obtained:
+	koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+We thus obtain the following problem:
+7:	T:
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb1in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         evalEx3start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 7:
+	evalEx3start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2))
+We thus obtain the following problem:
+8:	T:
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb1in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 ] with all transitions in problem 8, the following new transition is obtained:
+	evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 ]
+We thus obtain the following problem:
+9:	T:
+		(Comp: 3*Ar_0, Cost: 2)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb1in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 ] with all transitions in problem 9, the following new transition is obtained:
+	evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+We thus obtain the following problem:
+10:	T:
+		(Comp: 3*Ar_0, Cost: 3)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb1in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb1in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ] with all transitions in problem 10, the following new transition is obtained:
+	evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+We thus obtain the following problem:
+11:	T:
+		(Comp: 3*Ar_0, Cost: 2)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 3)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalEx3bb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 11:
+	evalEx3bb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+We thus obtain the following problem:
+12:	T:
+		(Comp: 3*Ar_0, Cost: 3)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 ] with all transitions in problem 12, the following new transition is obtained:
+	evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 ]
+We thus obtain the following problem:
+13:	T:
+		(Comp: ?, Cost: 2)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 ]
+		(Comp: 3*Ar_0, Cost: 3)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 ] with all transitions in problem 13, the following new transition is obtained:
+	evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 ]
+We thus obtain the following problem:
+14:	T:
+		(Comp: ?, Cost: 3)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 ]
+		(Comp: 3*Ar_0, Cost: 3)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 ] with all transitions in problem 14, the following new transition is obtained:
+	evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+We thus obtain the following problem:
+15:	T:
+		(Comp: ?, Cost: 4)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 3)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 ] with all transitions in problem 15, the following new transition is obtained:
+	evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 ]
+We thus obtain the following problem:
+16:	T:
+		(Comp: ?, Cost: 2)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 4)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 3)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 16 produces the following problem:
+17:	T:
+		(Comp: ?, Cost: 2)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 4)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 3)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 ] with all transitions in problem 17, the following new transition is obtained:
+	evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 ]
+We thus obtain the following problem:
+18:	T:
+		(Comp: ?, Cost: 3)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 4)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 3)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 18 produces the following problem:
+19:	T:
+		(Comp: ?, Cost: 3)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 4)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 3)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: 1, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 ] with all transitions in problem 19, the following new transition is obtained:
+	evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+We thus obtain the following problem:
+20:	T:
+		(Comp: ?, Cost: 4)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: ?, Cost: 4)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 3)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: ?, Cost: 1)         evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: 1, Cost: 1)         evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)         evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)         evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 20 produces the following problem:
+21:	T:
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 3)        evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)        evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 3*Ar_0 + 1, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: 1, Cost: 1)             evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)             evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 ] with all transitions in problem 21, the following new transition is obtained:
+	evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 /\ 0 >= 0 /\ Ar_0 >= 1 ]
+We thus obtain the following problem:
+22:	T:
+		(Comp: 1, Cost: 2)             evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 /\ 0 >= 0 /\ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 3)        evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)        evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 3*Ar_0 + 1, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: 2, Cost: 1)             evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 1)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)             evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bbin(Ar_0, Ar_1, Ar_2)) [ Ar_0 >= 1 ] with all transitions in problem 22, the following new transition is obtained:
+	evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 >= 1 /\ Ar_0 - 1 >= 0 /\ 0 >= 0 ]
+We thus obtain the following problem:
+23:	T:
+		(Comp: 1, Cost: 3)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 >= 1 /\ Ar_0 - 1 >= 0 /\ 0 >= 0 ]
+		(Comp: 1, Cost: 2)             evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 /\ 0 >= 0 /\ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 3)        evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)        evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 3*Ar_0 + 1, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: 2, Cost: 1)             evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: 2, Cost: 1)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)             evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 23:
+	evalEx3bbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 - 1 >= 0 /\ 0 >= 0 /\ Ar_0 >= 1 ]
+We thus obtain the following problem:
+24:	T:
+		(Comp: 3*Ar_0, Cost: 3)        evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0 + 1, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)        evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 3)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 >= 1 /\ Ar_0 - 1 >= 0 /\ 0 >= 0 ]
+		(Comp: 2, Cost: 1)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ]
+		(Comp: 1, Cost: 1)             evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3returnin(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 ] with all transitions in problem 24, the following new transition is obtained:
+	evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 /\ -Ar_0 >= 0 ]
+We thus obtain the following problem:
+25:	T:
+		(Comp: 2, Cost: 2)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 /\ -Ar_0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 3)        evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0 + 1, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)        evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 1)             evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 3)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 >= 1 /\ Ar_0 - 1 >= 0 /\ 0 >= 0 ]
+		(Comp: 1, Cost: 1)             evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 25:
+	evalEx3returnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ -Ar_0 >= 0 ]
+We thus obtain the following problem:
+26:	T:
+		(Comp: 3*Ar_0, Cost: 3)        evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0 + 1, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)        evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 2)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 /\ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 3)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 >= 1 /\ Ar_0 - 1 >= 0 /\ 0 >= 0 ]
+		(Comp: 1, Cost: 1)             evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)             koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3entryin(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ] with all transitions in problem 26, the following new transition is obtained:
+	koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+We thus obtain the following problem:
+27:	T:
+		(Comp: 1, Cost: 2)             koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+		(Comp: 3*Ar_0, Cost: 3)        evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0 + 1, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)        evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 2)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 /\ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 3)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 >= 1 /\ Ar_0 - 1 >= 0 /\ 0 >= 0 ]
+		(Comp: 1, Cost: 1)             evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 27:
+	evalEx3entryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2))
+We thus obtain the following problem:
+28:	T:
+		(Comp: 3*Ar_0, Cost: 3)        evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0 + 1, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 2)        evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ]
+		(Comp: 2, Cost: 2)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 /\ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 3)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 >= 1 /\ Ar_0 - 1 >= 0 /\ 0 >= 0 ]
+		(Comp: 1, Cost: 2)             koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+By chaining the transition evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb2in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 ] with all transitions in problem 28, the following new transitions are obtained:
+	evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2 - 1, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_2 + 1 >= 0 /\ 0 >= Ar_2 - 1 /\ -Ar_2 + 1 >= 0 ]
+	evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_2 + 1 >= 0 /\ Ar_2 - 1 >= 1 ]
+We thus obtain the following problem:
+29:	T:
+		(Comp: 3*Ar_0, Cost: 5)        evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2 - 1, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_2 + 1 >= 0 /\ 0 >= Ar_2 - 1 /\ -Ar_2 + 1 >= 0 ]
+		(Comp: 3*Ar_0, Cost: 3)        evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_2 + 1 >= 0 /\ Ar_2 - 1 >= 1 ]
+		(Comp: 3*Ar_0, Cost: 3)        evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+		(Comp: 3*Ar_0 + 1, Cost: 1)    evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: ?, Cost: 4)             evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 2, Cost: 2)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 /\ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 3)             evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 >= 1 /\ Ar_0 - 1 >= 0 /\ 0 >= 0 ]
+		(Comp: 1, Cost: 2)             koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transitions from problem 29:
+	evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ 0 >= Ar_2 /\ -Ar_2 >= 0 ]
+	evalEx3bb2in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_2 >= 1 ]
+We thus obtain the following problem:
+30:	T:
+		(Comp: 3*Ar_0, Cost: 3)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_2 + 1 >= 0 /\ Ar_2 - 1 >= 1 ]
+		(Comp: 3*Ar_0, Cost: 5)    evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_2 - 1, Ar_1, Ar_2 - 1)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_0 - Ar_2 + 1 >= 0 /\ 0 >= Ar_2 - 1 /\ -Ar_2 + 1 >= 0 ]
+		(Comp: ?, Cost: 4)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ D >= Ar_1 + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: ?, Cost: 4)         evalEx3bb3in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_2, Fresh_0, Ar_2)) [ Ar_0 - Ar_2 >= 0 /\ Ar_2 - 1 >= 0 /\ Ar_0 + Ar_2 - 2 >= 0 /\ Ar_0 - 1 >= 0 /\ Ar_1 >= D + 1 /\ Ar_2 >= 1 /\ 0 >= 0 ]
+		(Comp: 2, Cost: 2)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3stop(Ar_0, Ar_1, Ar_2)) [ 0 >= Ar_0 /\ -Ar_0 >= 0 ]
+		(Comp: 1, Cost: 3)         evalEx3bb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb3in(Ar_0, Fresh_0, Ar_0)) [ Ar_0 >= 1 /\ Ar_0 - 1 >= 0 /\ 0 >= 0 ]
+		(Comp: 1, Cost: 2)         koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalEx3bb4in(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound ?
+
+Time: 0.449 sec (SMT: 0.362 sec)

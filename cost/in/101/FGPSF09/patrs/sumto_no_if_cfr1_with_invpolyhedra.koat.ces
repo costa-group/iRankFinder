@@ -1,0 +1,15 @@
+input_output_vars(exit_location(A),[],[A]).
+input_output_vars(n_end___1(A,B,C),[A,B],[C]).
+input_output_vars(n_start(A,B,C),[A,B],[C]).
+input_output_vars(n_sumto___2(A,B,C,D,E),[A,B],[C,D,E]).
+input_output_vars(n_sumto___2_loop_cont(A,B,C,D),[A,B,C],[D]).
+input_output_vars(pyRinit(A,B,C),[A,B],[C]).
+eq(pyRinit(A,B,C),1,[n_start(A,B,C)],[]).
+eq(n_sumto___2(A,B,2,C,D),1,[],[A-B-1>=0]).
+eq(n_sumto___2(A,B,C,D,E),1,[n_sumto___2(A+1,B,C,D,E)],[-A+B>=0]).
+eq(n_sumto___2(A,B,3,C,D),0,[],[]).
+eq(n_start(A,B,C),1,[n_sumto___2(A,B,D,E,F),n_sumto___2_loop_cont(D,E,F,C)],[]).
+eq(n_sumto___2_loop_cont(2,A,B,C),0,[n_end___1(A,B,C)],[D-E-1>=0]).
+eq(n_sumto___2_loop_cont(3,A,B,C),0,[exit_location(C)],[]).
+eq(exit_location(A),0,[],[]).
+eq(n_end___1(A,B,C),0,[],[]).

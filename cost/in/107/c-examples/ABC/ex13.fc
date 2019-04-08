@@ -1,0 +1,169 @@
+{
+  vars: [A,B,C,D,E,F],
+  pvars: [A',B',C',D',E',F'],
+  initnode: evalfstart,
+  nodes: {
+    evalfbb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+        [C -E >= 0],
+        [-C + E > 0],
+      ],
+      inv_polyhedra: [-B + E >= 0, C -E >= 0, A -D >= 0],
+    },
+    evalfbb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+        [C -E >= 0],
+        [-C + E > 0],
+        [D + E -F >= 0],
+        [-D -E + F > 0],
+      ],
+      inv_polyhedra: [-B + E >= 0, -D + E + F >= 0, D + E -F >= 0, C -E >= 0, A -D >= 0],
+    },
+    evalfbb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+        [C -E >= 0],
+        [-C + E > 0],
+        [D + E -F >= 0],
+        [-D -E + F > 0],
+      ],
+      inv_polyhedra: [-B + E >= 0, -D + E + F >= 0, C -E >= 0, A -D >= 0],
+    },
+    evalfbb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+        [C -E >= 0],
+        [-C + E > 0],
+      ],
+      inv_polyhedra: [-B + E >= 0, -1 -D -E + F >= 0, -D + E + F >= 0, C -E >= 0, A -D >= 0],
+    },
+    evalfbb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+        [C -E >= 0],
+        [-C + E > 0],
+      ],
+      inv_polyhedra: [-B + E >= 0, A -D >= 0],
+    },
+    evalfbb6in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+      ],
+      inv_polyhedra: [-B + E >= 0, -1 -C + E >= 0, A -D >= 0],
+    },
+    evalfbb7in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -D >= 0],
+        [-A + D > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalfentryin: {
+      inv_polyhedra: [],
+    },
+    evalfreturnin: {
+      inv_polyhedra: [-1 -A + D >= 0],
+    },
+    evalfstart: {
+      inv_polyhedra: [],
+    },
+    evalfstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalfstart,
+	target: evalfentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0]
+    },
+    {
+	source: evalfentryin,
+	target: evalfbb7in,
+	name: t1,
+	constraints: [B -A' = 0, C -B' = 0, D -C' = 0, A -D' = 0, E -E' = 0, F -F' = 0]
+    },
+    {
+	source: evalfbb4in,
+	target: evalfbb5in,
+	name: t10,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E + 1 -E' = 0, F -F' = 0]
+    },
+    {
+	source: evalfbb6in,
+	target: evalfbb7in,
+	name: t11,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D + 1 -D' = 0, E -E' = 0, F -F' = 0]
+    },
+    {
+	source: evalfreturnin,
+	target: evalfstop,
+	name: t12,
+	constraints: []
+    },
+    {
+	source: evalfbb7in,
+	target: evalfbb5in,
+	name: t2,
+	constraints: [A -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, B -E' = 0, F -F' = 0]
+    },
+    {
+	source: evalfbb7in,
+	target: evalfreturnin,
+	name: t3,
+	constraints: [D -A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0]
+    },
+    {
+	source: evalfbb5in,
+	target: evalfbb1in,
+	name: t4,
+	constraints: [C -E >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0]
+    },
+    {
+	source: evalfbb5in,
+	target: evalfbb6in,
+	name: t5,
+	constraints: [E -C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0]
+    },
+    {
+	source: evalfbb1in,
+	target: evalfbb3in,
+	name: t6,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, D -E -F' = 0]
+    },
+    {
+	source: evalfbb3in,
+	target: evalfbb2in,
+	name: t7,
+	constraints: [D + E -F >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0]
+    },
+    {
+	source: evalfbb3in,
+	target: evalfbb4in,
+	name: t8,
+	constraints: [F -D -E -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F -F' = 0]
+    },
+    {
+	source: evalfbb2in,
+	target: evalfbb3in,
+	name: t9,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0, F + 1 -F' = 0]
+    }
+  ]
+}

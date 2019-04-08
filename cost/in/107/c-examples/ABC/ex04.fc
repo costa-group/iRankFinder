@@ -1,0 +1,123 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: evalfstart,
+  nodes: {
+    evalfbb2in: {
+      inv_polyhedra: [D >= 0, -1 + C -D >= 0, -1 + B -C >= 0, A >= 0],
+    },
+    evalfbb3in: {
+      inv_polyhedra: [D >= 0, C -D >= 0, -1 + B -C >= 0, A >= 0],
+    },
+    evalfbb4in: {
+      inv_polyhedra: [C -D == 0, C >= 0, -1 + B -C >= 0, A >= 0],
+    },
+    evalfbb5in: {
+      inv_polyhedra: [A >= 0, C >= 0],
+    },
+    evalfbb6in: {
+      inv_polyhedra: [-B + C >= 0, C >= 0, A >= 0],
+    },
+    evalfbb7in: {
+      inv_polyhedra: [A >= 0],
+    },
+    evalfentryin: {
+      inv_polyhedra: [],
+    },
+    evalfreturnin: {
+      inv_polyhedra: [A >= 0],
+    },
+    evalfstart: {
+      inv_polyhedra: [],
+    },
+    evalfstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalfstart,
+	target: evalfentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalfentryin,
+	target: evalfbb7in,
+	name: t1,
+	constraints: [-A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalfbb3in,
+	target: evalfbb2in,
+	name: t10,
+	constraints: [C -1 -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalfbb3in,
+	target: evalfbb4in,
+	name: t11,
+	constraints: [D -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalfbb2in,
+	target: evalfbb3in,
+	name: t12,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D + 1 -D' = 0]
+    },
+    {
+	source: evalfbb4in,
+	target: evalfbb5in,
+	name: t13,
+	constraints: [A -A' = 0, B -B' = 0, C + 1 -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalfbb6in,
+	target: evalfbb7in,
+	name: t14,
+	constraints: [A + 1 -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalfreturnin,
+	target: evalfstop,
+	name: t15,
+	constraints: []
+    },
+    {
+	source: evalfbb7in,
+	target: evalfbb5in,
+	name: t3,
+	constraints: [B * B * B -1 >= 0, E >= 0, B * B * B -2 * E >= 0, 1 + 2 * E -B * B * B >= 0, E -1 -A >= 0, A -A' = 0, B -B' = 0, -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalfbb7in,
+	target: evalfreturnin,
+	name: t5,
+	constraints: [B * B * B >= 0, -B * B * B >= 0, A >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalfbb7in,
+	target: evalfreturnin,
+	name: t6,
+	constraints: [B * B * B -1 >= 0, E >= 0, B * B * B -2 * E >= 0, 1 + 2 * E -B * B * B >= 0, A -E >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalfbb7in,
+	target: evalfreturnin,
+	name: t7,
+	constraints: [-1 -B * B * B >= 0, -E >= 0, A -E >= 0, 2 * E -B * B * B >= 0, 1 + B * B * B -2 * E >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalfbb5in,
+	target: evalfbb3in,
+	name: t8,
+	constraints: [B -1 -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, -D' = 0]
+    },
+    {
+	source: evalfbb5in,
+	target: evalfbb6in,
+	name: t9,
+	constraints: [C -B >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    }
+  ]
+}

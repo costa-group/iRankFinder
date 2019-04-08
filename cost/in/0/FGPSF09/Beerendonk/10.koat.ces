@@ -1,0 +1,12 @@
+input_output_vars(eval(A,G),[A],[G]).
+input_output_vars(eval_loop_cont(A,B),[A],[B]).
+input_output_vars(exit_location(A),[],[A]).
+input_output_vars(start(A,G),[A],[G]).
+eq(start(A,G),1,[eval(A,H),eval_loop_cont(H,G)],[]).
+eq(eval(A,G),1,[eval(0,G)],[2*H>=0,0>=2*H,A=1]).
+eq(eval(A,G),1,[eval(2*H,G)],[2*H>=0,2+2*H>=0,A=1+2*H]).
+eq(eval(A,G),1,[eval(H,G)],[1>=2*I,2*I>=0,2*J>=1,1>=2*J,1>=2*K,3*K>=2,H>=K,1>=2*L,3*L>=2,L>=H,A=1]).
+eq(eval(A,G),1,[eval(H,G)],[2*I>=1,1+2*I>=0,2*I>=2*J,1+2*J>=2*I,2*I>=2*K,3*K>=2*I+1,H>=K,2*I>=2*L,3*L>=2*I+1,L>=H,A=2*I]).
+eq(eval(A,2),0,[],[]).
+eq(eval_loop_cont(2,A),0,[exit_location(A)],[]).
+eq(exit_location(A),0,[],[]).

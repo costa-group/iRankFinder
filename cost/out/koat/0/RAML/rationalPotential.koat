@@ -1,0 +1,46 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    zip3(Ar_0, Ar_1, Ar_2) -> Com_1(zip3(Ar_0 - 1, Ar_1 - 1, Ar_2 - 1)) [ Ar_0 >= 1 /\ Ar_1 >= 1 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)    group3(Ar_0, Ar_1, Ar_2) -> Com_1(group3(Ar_0 - 3, Ar_1, Ar_2)) [ Ar_0 >= 4 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2) -> Com_1(zip3(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Testing for reachability in the complexity graph removes the following transition from problem 1:
+	group3(Ar_0, Ar_1, Ar_2) -> Com_1(group3(Ar_0 - 3, Ar_1, Ar_2)) [ Ar_0 >= 4 ]
+We thus obtain the following problem:
+2:	T:
+		(Comp: ?, Cost: 1)    zip3(Ar_0, Ar_1, Ar_2) -> Com_1(zip3(Ar_0 - 1, Ar_1 - 1, Ar_2 - 1)) [ Ar_0 >= 1 /\ Ar_1 >= 1 /\ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2) -> Com_1(zip3(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 2 produces the following problem:
+3:	T:
+		(Comp: ?, Cost: 1)    zip3(Ar_0, Ar_1, Ar_2) -> Com_1(zip3(Ar_0 - 1, Ar_1 - 1, Ar_2 - 1)) [ Ar_0 >= 1 /\ Ar_1 >= 1 /\ Ar_2 >= 1 ]
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2) -> Com_1(zip3(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(zip3) = V_3
+	Pol(start) = V_3
+	Pol(koat_start) = V_3
+orients all transitions weakly and the transition
+	zip3(Ar_0, Ar_1, Ar_2) -> Com_1(zip3(Ar_0 - 1, Ar_1 - 1, Ar_2 - 1)) [ Ar_0 >= 1 /\ Ar_1 >= 1 /\ Ar_2 >= 1 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: Ar_2, Cost: 1)    zip3(Ar_0, Ar_1, Ar_2) -> Com_1(zip3(Ar_0 - 1, Ar_1 - 1, Ar_2 - 1)) [ Ar_0 >= 1 /\ Ar_1 >= 1 /\ Ar_2 >= 1 ]
+		(Comp: 1, Cost: 1)       start(Ar_0, Ar_1, Ar_2) -> Com_1(zip3(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)       koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(start(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound Ar_2 + 1
+
+Time: 0.036 sec (SMT: 0.031 sec)

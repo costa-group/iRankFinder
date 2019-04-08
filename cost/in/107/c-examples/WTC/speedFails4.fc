@@ -1,0 +1,93 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: evalspeedFails4start,
+  nodes: {
+    evalspeedFails4bb3in: {
+      inv_polyhedra: [1 -A >= 0, 1 + A >= 0, B -D >= 0],
+    },
+    evalspeedFails4bb4in: {
+      inv_polyhedra: [1 -A >= 0, 1 + A >= 0, -1 + C >= 0, B -D >= 0],
+    },
+    evalspeedFails4bb5in: {
+      inv_polyhedra: [1 -A >= 0, -C >= 0, 1 + A >= 0, B -D >= 0],
+    },
+    evalspeedFails4bb6in: {
+      inv_polyhedra: [1 -A >= 0, 1 + A >= 0],
+    },
+    evalspeedFails4entryin: {
+      inv_polyhedra: [],
+    },
+    evalspeedFails4returnin: {
+      inv_polyhedra: [1 -A >= 0, -1 -B + D >= 0, 1 + A >= 0],
+    },
+    evalspeedFails4start: {
+      inv_polyhedra: [],
+    },
+    evalspeedFails4stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalspeedFails4start,
+	target: evalspeedFails4entryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalspeedFails4entryin,
+	target: evalspeedFails4bb6in,
+	name: t1,
+	constraints: [A -1 >= 0, 1 -A' = 0, C -B' = 0, A -C' = 0, B -D' = 0]
+    },
+    {
+	source: evalspeedFails4entryin,
+	target: evalspeedFails4bb6in,
+	name: t2,
+	constraints: [-A >= 0, -1 -A' = 0, C -B' = 0, A -C' = 0, B -D' = 0]
+    },
+    {
+	source: evalspeedFails4bb6in,
+	target: evalspeedFails4bb3in,
+	name: t3,
+	constraints: [B -D >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalspeedFails4bb6in,
+	target: evalspeedFails4returnin,
+	name: t4,
+	constraints: [D -B -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalspeedFails4bb3in,
+	target: evalspeedFails4bb4in,
+	name: t5,
+	constraints: [C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalspeedFails4bb3in,
+	target: evalspeedFails4bb5in,
+	name: t6,
+	constraints: [-C >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalspeedFails4bb4in,
+	target: evalspeedFails4bb6in,
+	name: t7,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D + A -D' = 0]
+    },
+    {
+	source: evalspeedFails4bb5in,
+	target: evalspeedFails4bb6in,
+	name: t8,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -A -D' = 0]
+    },
+    {
+	source: evalspeedFails4returnin,
+	target: evalspeedFails4stop,
+	name: t9,
+	constraints: []
+    }
+  ]
+}

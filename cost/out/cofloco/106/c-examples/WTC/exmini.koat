@@ -1,0 +1,153 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_evalexminibb1in___2/7]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [n_evalexministop___1/4]
+3. non_recursive  : [n_evalexminibb1in___2_loop_cont/5]
+4. non_recursive  : [n_evalexministart/4]
+5. non_recursive  : [pyRinit/4]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_evalexminibb1in___2/7
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into n_evalexminibb1in___2_loop_cont/5
+4. SCC is partially evaluated into n_evalexministart/4
+5. SCC is partially evaluated into pyRinit/4
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_evalexminibb1in___2/7 
+* CE 6 is refined into CE [9] 
+* CE 5 is refined into CE [10] 
+* CE 4 is refined into CE [11] 
+* CE 3 is refined into CE [12] 
+
+
+### Cost equations --> "Loop" of n_evalexminibb1in___2/7 
+* CEs [12] --> Loop 9 
+* CEs [9] --> Loop 10 
+* CEs [10] --> Loop 11 
+* CEs [11] --> Loop 12 
+
+### Ranking functions of CR n_evalexminibb1in___2(A,B,C,D,E,F,G) 
+* RF of phase [9]: [A/2-B/2-C/2+101/2]
+
+#### Partial ranking functions of CR n_evalexminibb1in___2(A,B,C,D,E,F,G) 
+* Partial RF of phase [9]:
+  - RF of loop [9:1]:
+    A/2-B/2-C/2+101/2
+
+
+### Specialization of cost equations n_evalexminibb1in___2_loop_cont/5 
+* CE 8 is refined into CE [13] 
+* CE 7 is refined into CE [14] 
+
+
+### Cost equations --> "Loop" of n_evalexminibb1in___2_loop_cont/5 
+* CEs [13] --> Loop 13 
+* CEs [14] --> Loop 14 
+
+### Ranking functions of CR n_evalexminibb1in___2_loop_cont(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalexminibb1in___2_loop_cont(A,B,C,D,E) 
+
+
+### Specialization of cost equations n_evalexministart/4 
+* CE 2 is refined into CE [15,16,17,18] 
+
+
+### Cost equations --> "Loop" of n_evalexministart/4 
+* CEs [15,16,17,18] --> Loop 15 
+
+### Ranking functions of CR n_evalexministart(A,B,C,D) 
+
+#### Partial ranking functions of CR n_evalexministart(A,B,C,D) 
+
+
+### Specialization of cost equations pyRinit/4 
+* CE 1 is refined into CE [19] 
+
+
+### Cost equations --> "Loop" of pyRinit/4 
+* CEs [19] --> Loop 16 
+
+### Ranking functions of CR pyRinit(A,B,C,D) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_evalexminibb1in___2(A,B,C,D,E,F,G):
+* Chain [[9],12]: 1*it(9)+1
+  Such that:it(9) =< A/2-B/2-C/2+101/2
+
+  with precondition: [D=2,100>=B,A>=101,A>=C] 
+
+* Chain [[9],11]: 1*it(9)+1
+  Such that:it(9) =< A/2-B/2-C/2+101/2
+
+  with precondition: [D=2,100>=B,A>=C] 
+
+* Chain [[9],10]: 1*it(9)+0
+  Such that:it(9) =< A/2-B/2-C/2+101/2
+
+  with precondition: [D=3,100>=B,A>=C] 
+
+* Chain [12]: 1
+  with precondition: [D=2,B>=101] 
+
+* Chain [11]: 1
+  with precondition: [D=2,C>=A+1] 
+
+* Chain [10]: 0
+  with precondition: [D=3] 
+
+
+#### Cost of chains of n_evalexminibb1in___2_loop_cont(A,B,C,D,E):
+* Chain [14]: 0
+  with precondition: [A=2] 
+
+* Chain [13]: 0
+  with precondition: [A=3] 
+
+
+#### Cost of chains of n_evalexministart(A,B,C,D):
+* Chain [15]: 3*s(5)+2
+  Such that:aux(2) =< -A/2+B/2-C/2+101/2
+s(5) =< aux(2)
+
+  with precondition: [] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D):
+* Chain [16]: 3*s(8)+3
+  Such that:s(7) =< -A/2+B/2-C/2+101/2
+s(8) =< s(7)
+
+  with precondition: [] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D): 
+-------------------------------------
+* Chain [16] with precondition: [] 
+    - Upper bound: nat(-A/2+B/2-C/2+101/2)*3+3 
+    - Complexity: n 
+
+### Maximum cost of pyRinit(A,B,C,D): nat(-A/2+B/2-C/2+101/2)*3+3 
+Asymptotic class: n 
+* Total analysis performed in 97 ms.
+
+
+-- stats
+realtime 0:00.14
+usertime 0.13
+systime 0.00
+

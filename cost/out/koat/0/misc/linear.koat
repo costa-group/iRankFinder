@@ -1,0 +1,38 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    start(Ar_0) -> Com_1(a(Ar_0)) [ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 1)    start(Ar_0) -> Com_1(a(100)) [ Ar_0 = 100 ]
+		(Comp: ?, Cost: 1)    a(Ar_0) -> Com_1(a(Ar_0 - 1)) [ Ar_0 >= 1 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    start(Ar_0) -> Com_1(a(Ar_0)) [ Ar_0 >= 1 ]
+		(Comp: 1, Cost: 1)    start(Ar_0) -> Com_1(a(100)) [ Ar_0 = 100 ]
+		(Comp: ?, Cost: 1)    a(Ar_0) -> Com_1(a(Ar_0 - 1)) [ Ar_0 >= 1 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(start) = V_1
+	Pol(a) = V_1
+	Pol(koat_start) = V_1
+orients all transitions weakly and the transition
+	a(Ar_0) -> Com_1(a(Ar_0 - 1)) [ Ar_0 >= 1 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)       start(Ar_0) -> Com_1(a(Ar_0)) [ Ar_0 >= 1 ]
+		(Comp: 1, Cost: 1)       start(Ar_0) -> Com_1(a(100)) [ Ar_0 = 100 ]
+		(Comp: Ar_0, Cost: 1)    a(Ar_0) -> Com_1(a(Ar_0 - 1)) [ Ar_0 >= 1 ]
+		(Comp: 1, Cost: 0)       koat_start(Ar_0) -> Com_1(start(Ar_0)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound Ar_0 + 2
+
+Time: 0.016 sec (SMT: 0.015 sec)

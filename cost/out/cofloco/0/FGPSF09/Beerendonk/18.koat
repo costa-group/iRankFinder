@@ -1,0 +1,106 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [eval/3]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [eval_loop_cont/2]
+3. non_recursive  : [start/3]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into eval/3
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into start/3
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations eval/3 
+* CE 4 is refined into CE [5] 
+* CE 2 is refined into CE [6] 
+* CE 3 is refined into CE [7] 
+
+
+### Cost equations --> "Loop" of eval/3 
+* CEs [6] --> Loop 5 
+* CEs [7] --> Loop 6 
+* CEs [5] --> Loop 7 
+
+### Ranking functions of CR eval(A,B,C) 
+* RF of phase [5]: [A]
+* RF of phase [6]: [B]
+
+#### Partial ranking functions of CR eval(A,B,C) 
+* Partial RF of phase [5]:
+  - RF of loop [5:1]:
+    A
+* Partial RF of phase [6]:
+  - RF of loop [6:1]:
+    B
+
+
+### Specialization of cost equations start/3 
+* CE 1 is refined into CE [8] 
+
+
+### Cost equations --> "Loop" of start/3 
+* CEs [8] --> Loop 8 
+
+### Ranking functions of CR start(A,B,C) 
+
+#### Partial ranking functions of CR start(A,B,C) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of eval(A,B,C):
+* Chain [[6],7]: 1*it(6)+0
+  Such that:it(6) =< B
+
+  with precondition: [C=2,0>=A,B>=1] 
+
+* Chain [[5],[6],7]: 1*it(5)+1*it(6)+0
+  Such that:it(5) =< A
+it(6) =< B
+
+  with precondition: [C=2,A>=1,B>=1] 
+
+* Chain [[5],7]: 1*it(5)+0
+  Such that:it(5) =< A
+
+  with precondition: [C=2,A>=1] 
+
+* Chain [7]: 0
+  with precondition: [C=2] 
+
+
+#### Cost of chains of start(A,B,C):
+* Chain [8]: 2*s(7)+2*s(8)+1
+  Such that:s(5) =< A
+s(6) =< B
+s(7) =< s(5)
+s(8) =< s(6)
+
+  with precondition: [] 
+
+
+Closed-form bounds of start(A,B,C): 
+-------------------------------------
+* Chain [8] with precondition: [] 
+    - Upper bound: nat(A)*2+1+nat(B)*2 
+    - Complexity: n 
+
+### Maximum cost of start(A,B,C): nat(A)*2+1+nat(B)*2 
+Asymptotic class: n 
+* Total analysis performed in 49 ms.
+
+
+-- stats
+realtime 0:00.10
+usertime 0.08
+systime 0.00
+

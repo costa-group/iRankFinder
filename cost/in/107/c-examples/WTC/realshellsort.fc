@@ -1,0 +1,297 @@
+{
+  vars: [A,B,C,D,E],
+  pvars: [A',B',C',D',E'],
+  initnode: evalrealshellsortstart,
+  nodes: {
+    evalrealshellsortbb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [B >= 0],
+        [-B > 0],
+        [-2 * B >= 0],
+        [2 * B > 0],
+        [A -C >= 0],
+        [-A + C > 0],
+        [A -C >= 0],
+        [-A + C > 0],
+        [A -C >= 0],
+        [-A + C > 0],
+        [0 >= 0],
+        [0 > 0],
+        [1 >= 0],
+        [-1 > 0],
+      ],
+      inv_polyhedra: [-1 + A -C >= 0],
+    },
+    evalrealshellsortbb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [B >= 0],
+        [-B > 0],
+        [-2 * B >= 0],
+        [2 * B > 0],
+        [A -C >= 0],
+        [-A + C > 0],
+        [A -C >= 0],
+        [-A + C > 0],
+        [0 >= 0],
+        [0 > 0],
+        [0 >= 0],
+        [0 > 0],
+        [0 >= 0],
+        [0 > 0],
+        [0 >= 0],
+        [0 > 0],
+      ],
+      inv_polyhedra: [-B + E >= 0, -1 + A -C >= 0],
+    },
+    evalrealshellsortbb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [B >= 0],
+        [-B > 0],
+        [-2 * B >= 0],
+        [2 * B > 0],
+        [A -C >= 0],
+        [-A + C > 0],
+        [A -C >= 0],
+        [-A + C > 0],
+        [0 >= 0],
+        [0 > 0],
+        [0 >= 0],
+        [0 > 0],
+        [0 >= 0],
+        [0 > 0],
+        [0 >= 0],
+        [0 > 0],
+      ],
+      inv_polyhedra: [-1 + A -C >= 0],
+    },
+    evalrealshellsortbb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [B >= 0],
+        [-B > 0],
+        [-2 * B >= 0],
+        [2 * B > 0],
+        [A -C >= 0],
+        [-A + C > 0],
+        [A -C >= 0],
+        [-A + C > 0],
+        [0 >= 0],
+        [0 > 0],
+        [0 >= 0],
+        [0 > 0],
+        [0 >= 0],
+        [0 > 0],
+        [0 >= 0],
+        [0 > 0],
+      ],
+      inv_polyhedra: [-B + E >= 0, -1 + A -C >= 0],
+    },
+    evalrealshellsortbb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [B >= 0],
+        [-B > 0],
+        [-2 * B >= 0],
+        [2 * B > 0],
+        [-1 + A -C >= 0],
+        [1 -A + C > 0],
+        [A -C >= 0],
+        [-A + C > 0],
+        [0 >= 0],
+        [0 > 0],
+        [0 >= 0],
+        [0 > 0],
+        [0 >= 0],
+        [0 > 0],
+        [-1 >= 0],
+        [1 > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalrealshellsortbb6in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [B >= 0],
+        [-B > 0],
+        [-2 * B >= 0],
+        [2 * B > 0],
+        [A -C >= 0],
+        [-A + C > 0],
+        [A -C >= 0],
+        [-A + C > 0],
+        [A -C >= 0],
+        [-A + C > 0],
+        [1 >= 0],
+        [-1 > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalrealshellsortbb7in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [B >= 0],
+        [-B > 0],
+        [-2 * B >= 0],
+        [2 * B > 0],
+      ],
+      inv_polyhedra: [-A + C >= 0],
+    },
+    evalrealshellsortbb8in: {
+      cfr_properties: [
+        // RFs Properties
+        [-1 + 2 * B >= 0],
+        [1 -2 * B > 0],
+        [-1 + 2 * B >= 0],
+        [1 -2 * B > 0],
+        [-2 * B >= 0],
+        [2 * B > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalrealshellsortentryin: {
+      inv_polyhedra: [],
+    },
+    evalrealshellsortreturnin: {
+      inv_polyhedra: [-B >= 0],
+    },
+    evalrealshellsortstart: {
+      inv_polyhedra: [],
+    },
+    evalrealshellsortstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalrealshellsortstart,
+	target: evalrealshellsortentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortentryin,
+	target: evalrealshellsortbb8in,
+	name: t1,
+	constraints: [A = 0, A -A' = 0, -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb3in,
+	target: evalrealshellsortbb4in,
+	name: t10,
+	constraints: [E -B >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb4in,
+	target: evalrealshellsortbb2in,
+	name: t11,
+	constraints: [F -D -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb4in,
+	target: evalrealshellsortbb5in,
+	name: t12,
+	constraints: [D -F >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb2in,
+	target: evalrealshellsortbb3in,
+	name: t13,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -B -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb5in,
+	target: evalrealshellsortbb6in,
+	name: t14,
+	constraints: [A -A' = 0, B -B' = 0, C + 1 -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb7in,
+	target: evalrealshellsortbb8in,
+	name: t15,
+	constraints: [B = 0, A -A' = 0, -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb7in,
+	target: evalrealshellsortbb8in,
+	name: t16,
+	constraints: [B -1 >= 0, F >= 0, B -2 * F >= 0, 1 + 2 * F -B >= 0, A -A' = 0, F -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb7in,
+	target: evalrealshellsortbb8in,
+	name: t17,
+	constraints: [-1 -B >= 0, -F >= 0, 2 * F -B >= 0, 1 + B -2 * F >= 0, A -A' = 0, F -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortreturnin,
+	target: evalrealshellsortstop,
+	name: t18,
+	constraints: []
+    },
+    {
+	source: evalrealshellsortentryin,
+	target: evalrealshellsortbb8in,
+	name: t2,
+	constraints: [A -1 >= 0, F >= 0, A -2 * F >= 0, 1 + 2 * F -A >= 0, A -A' = 0, F -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortentryin,
+	target: evalrealshellsortbb8in,
+	name: t3,
+	constraints: [-1 -A >= 0, -F >= 0, 2 * F -A >= 0, 1 + A -2 * F >= 0, A -A' = 0, F -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb8in,
+	target: evalrealshellsortbb6in,
+	name: t4,
+	constraints: [B -1 >= 0, A -A' = 0, B -B' = 0, -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb8in,
+	target: evalrealshellsortreturnin,
+	name: t5,
+	constraints: [-B >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb6in,
+	target: evalrealshellsortbb1in,
+	name: t6,
+	constraints: [A -C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb6in,
+	target: evalrealshellsortbb7in,
+	name: t7,
+	constraints: [C -A >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb1in,
+	target: evalrealshellsortbb3in,
+	name: t8,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, F -D' = 0, C -E' = 0]
+    },
+    {
+	source: evalrealshellsortbb3in,
+	target: evalrealshellsortbb5in,
+	name: t9,
+	constraints: [B -E -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0, E -E' = 0]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  vars: [A,B],
+  pvars: [A',B'],
+  initnode: start,
+  nodes: {
+    end: {
+      inv_polyhedra: [],
+    },
+    start: {
+      inv_polyhedra: [],
+    },
+    sumto: {
+      cfr_properties: [
+        // RFs Properties
+        [-A + B >= 0],
+        [A -B > 0],
+      ],
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: sumto,
+	target: end,
+	name: t0,
+	constraints: [A -B -1 >= 0]
+    },
+    {
+	source: sumto,
+	target: sumto,
+	name: t1,
+	constraints: [B -A >= 0, A + 1 -A' = 0, B -B' = 0]
+    },
+    {
+	source: start,
+	target: sumto,
+	name: t2,
+	constraints: [A -A' = 0, B -B' = 0]
+    }
+  ]
+}

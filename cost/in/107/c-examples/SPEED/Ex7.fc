@@ -1,0 +1,75 @@
+{
+  vars: [A,B,C],
+  pvars: [A',B',C'],
+  initnode: evalEx7start,
+  nodes: {
+    evalEx7bb3in: {
+      inv_polyhedra: [-1 -A + B >= 0, -1 + A >= 0],
+    },
+    evalEx7bbin: {
+      inv_polyhedra: [-1 -A + B >= 0, -1 + A >= 0],
+    },
+    evalEx7entryin: {
+      inv_polyhedra: [],
+    },
+    evalEx7returnin: {
+      inv_polyhedra: [A -C == 0, -1 -A + B >= 0, -1 + A >= 0],
+    },
+    evalEx7start: {
+      inv_polyhedra: [],
+    },
+    evalEx7stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalEx7start,
+	target: evalEx7entryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalEx7entryin,
+	target: evalEx7bb3in,
+	name: t1,
+	constraints: [A -1 >= 0, B -A -1 >= 0, A -A' = 0, B -B' = 0, A + 1 -C' = 0]
+    },
+    {
+	source: evalEx7bb3in,
+	target: evalEx7bbin,
+	name: t2,
+	constraints: [A -C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalEx7bb3in,
+	target: evalEx7bbin,
+	name: t3,
+	constraints: [C -A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalEx7bb3in,
+	target: evalEx7returnin,
+	name: t4,
+	constraints: [C -A = 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalEx7bbin,
+	target: evalEx7bb3in,
+	name: t5,
+	constraints: [C -B -1 >= 0, A -A' = 0, B -B' = 0, -C' = 0]
+    },
+    {
+	source: evalEx7bbin,
+	target: evalEx7bb3in,
+	name: t6,
+	constraints: [B -C >= 0, A -A' = 0, B -B' = 0, C + 1 -C' = 0]
+    },
+    {
+	source: evalEx7returnin,
+	target: evalEx7stop,
+	name: t7,
+	constraints: []
+    }
+  ]
+}

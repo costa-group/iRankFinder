@@ -1,0 +1,228 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [lbl81/21]
+1. recursive  : [lbl71/21,lbl81_loop_cont/22]
+2. non_recursive  : [exit_location/1]
+3. non_recursive  : [stop/11]
+4. non_recursive  : [lbl71_loop_cont/12]
+5. non_recursive  : [start/11]
+6. non_recursive  : [start0/11]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into lbl81/21
+1. SCC is partially evaluated into lbl71/21
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into lbl71_loop_cont/12
+5. SCC is partially evaluated into start/11
+6. SCC is partially evaluated into start0/11
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations lbl81/21 
+* CE 9 is refined into CE [15] 
+* CE 7 is refined into CE [16] 
+* CE 8 is refined into CE [17] 
+
+
+### Cost equations --> "Loop" of lbl81/21 
+* CEs [17] --> Loop 14 
+* CEs [15] --> Loop 15 
+* CEs [16] --> Loop 16 
+
+### Ranking functions of CR lbl81(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U) 
+* RF of phase [14]: [C-D+1,-D+G+1]
+
+#### Partial ranking functions of CR lbl81(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U) 
+* Partial RF of phase [14]:
+  - RF of loop [14:1]:
+    C-D+1
+    -D+G+1
+
+
+### Specialization of cost equations lbl71/21 
+* CE 14 is refined into CE [18] 
+* CE 12 is refined into CE [19] 
+* CE 13 is refined into CE [20] 
+
+
+### Cost equations --> "Loop" of lbl71/21 
+* CEs [20] --> Loop 17 
+* CEs [18] --> Loop 18 
+* CEs [19] --> Loop 19 
+
+### Ranking functions of CR lbl71(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U) 
+* RF of phase [17]: [C-D+1,-D+G+1]
+
+#### Partial ranking functions of CR lbl71(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U) 
+* Partial RF of phase [17]:
+  - RF of loop [17:1]:
+    C-D+1
+    -D+G+1
+
+
+### Specialization of cost equations lbl71_loop_cont/12 
+* CE 11 is refined into CE [21] 
+* CE 10 is refined into CE [22] 
+
+
+### Cost equations --> "Loop" of lbl71_loop_cont/12 
+* CEs [21] --> Loop 20 
+* CEs [22] --> Loop 21 
+
+### Ranking functions of CR lbl71_loop_cont(A,B,C,D,E,F,G,H,I,J,K,L) 
+
+#### Partial ranking functions of CR lbl71_loop_cont(A,B,C,D,E,F,G,H,I,J,K,L) 
+
+
+### Specialization of cost equations start/11 
+* CE 4 is refined into CE [23] 
+* CE 5 is refined into CE [24,25,26] 
+* CE 6 is refined into CE [27] 
+* CE 2 is refined into CE [28] 
+* CE 3 is refined into CE [29,30] 
+
+
+### Cost equations --> "Loop" of start/11 
+* CEs [23] --> Loop 22 
+* CEs [27] --> Loop 23 
+* CEs [24,25,26] --> Loop 24 
+* CEs [28,29,30] --> Loop 25 
+
+### Ranking functions of CR start(A,B,C,D,E,F,G,H,I,J,K) 
+
+#### Partial ranking functions of CR start(A,B,C,D,E,F,G,H,I,J,K) 
+
+
+### Specialization of cost equations start0/11 
+* CE 1 is refined into CE [31,32,33,34] 
+
+
+### Cost equations --> "Loop" of start0/11 
+* CEs [34] --> Loop 26 
+* CEs [33] --> Loop 27 
+* CEs [32] --> Loop 28 
+* CEs [31] --> Loop 29 
+
+### Ranking functions of CR start0(A,B,C,D,E,F,G,H,I,J,K) 
+
+#### Partial ranking functions of CR start0(A,B,C,D,E,F,G,H,I,J,K) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of lbl81(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U):
+* Chain [[14],16]: 1*it(14)+1
+  Such that:it(14) =< -D+R+1
+
+  with precondition: [E+1=0,K=2,P+1=0,C=G,H=I,A=J,A=L,B=M,C=N,C+1=O,F=Q,C=R,H=S,H=T,A=U,0>=A,D>=B+1,C>=D] 
+
+* Chain [[14],15]: 1*it(14)+0
+  Such that:it(14) =< -D+G+1
+
+  with precondition: [E+1=0,K=4,C=G,H=I,A=J,0>=A,D>=B+1,C>=D] 
+
+* Chain [16]: 1
+  with precondition: [E+1=0,K=2,P+1=0,J=A,C+1=D,Q=F,C=G,I=H,J=L,B=M,C=N,C+1=O,C=R,I=S,I=T,J=U,0>=J,C>=B] 
+
+* Chain [15]: 0
+  with precondition: [E+1=0,K=4,J=A,G=C,I=H,0>=J,D>=B+1,G+1>=D] 
+
+
+#### Cost of chains of lbl71(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U):
+* Chain [[17],19]: 1*it(17)+1
+  Such that:it(17) =< -D+R+1
+
+  with precondition: [E=1,K=2,P=1,C=G,H=I,A=J,A=L,B=M,C=N,C+1=O,F=Q,C=R,H=S,H=T,A=U,A>=1,D>=B+1,C>=D] 
+
+* Chain [[17],18]: 1*it(17)+0
+  Such that:it(17) =< C-D+1
+
+  with precondition: [E=1,K=4,C=G,H=I,A=J,A>=1,D>=B+1,C>=D] 
+
+* Chain [19]: 1
+  with precondition: [E=1,K=2,P=1,J=A,C+1=D,Q=F,C=G,I=H,J=L,B=M,C=N,C+1=O,C=R,I=S,I=T,J=U,J>=1,C>=B] 
+
+* Chain [18]: 0
+  with precondition: [E=1,K=4,J=A,G=C,I=H,J>=1,D>=B+1,G+1>=D] 
+
+
+#### Cost of chains of lbl71_loop_cont(A,B,C,D,E,F,G,H,I,J,K,L):
+* Chain [21]: 0
+  with precondition: [A=2] 
+
+* Chain [20]: 0
+  with precondition: [A=4] 
+
+
+#### Cost of chains of start(A,B,C,D,E,F,G,H,I,J,K):
+* Chain [25]: 2*s(3)+2
+  Such that:aux(1) =< -B+G
+s(3) =< aux(1)
+
+  with precondition: [J=A,D=B,G=C,F=E,I=H,0>=J,G>=D] 
+
+* Chain [24]: 2*s(5)+2
+  Such that:aux(2) =< -B+G
+s(5) =< aux(2)
+
+  with precondition: [J=A,D=B,G=C,F=E,I=H,J>=1,G>=D] 
+
+* Chain [23]: 1
+  with precondition: [J=A,D=B,G=C,F=E,I=H,0>=J,D>=G+1] 
+
+* Chain [22]: 1
+  with precondition: [J=A,D=B,G=C,F=E,I=H,J>=1,D>=G+1] 
+
+
+#### Cost of chains of start0(A,B,C,D,E,F,G,H,I,J,K):
+* Chain [29]: 2*s(8)+3
+  Such that:s(7) =< -B+C
+s(8) =< s(7)
+
+  with precondition: [0>=A,C>=B] 
+
+* Chain [28]: 2
+  with precondition: [0>=A,B>=C+1] 
+
+* Chain [27]: 2*s(10)+3
+  Such that:s(9) =< -B+C
+s(10) =< s(9)
+
+  with precondition: [A>=1,C>=B] 
+
+* Chain [26]: 2
+  with precondition: [A>=1,B>=C+1] 
+
+
+Closed-form bounds of start0(A,B,C,D,E,F,G,H,I,J,K): 
+-------------------------------------
+* Chain [29] with precondition: [0>=A,C>=B] 
+    - Upper bound: -2*B+2*C+3 
+    - Complexity: n 
+* Chain [28] with precondition: [0>=A,B>=C+1] 
+    - Upper bound: 2 
+    - Complexity: constant 
+* Chain [27] with precondition: [A>=1,C>=B] 
+    - Upper bound: -2*B+2*C+3 
+    - Complexity: n 
+* Chain [26] with precondition: [A>=1,B>=C+1] 
+    - Upper bound: 2 
+    - Complexity: constant 
+
+### Maximum cost of start0(A,B,C,D,E,F,G,H,I,J,K): nat(-B+C)*2+1+2 
+Asymptotic class: n 
+* Total analysis performed in 891 ms.
+
+
+-- stats
+realtime 0:01.29
+usertime 0.92
+systime 0.04
+

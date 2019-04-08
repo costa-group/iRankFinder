@@ -1,0 +1,125 @@
+{
+  vars: [A,B],
+  pvars: [A',B'],
+  initnode: evalspeedpldi4start,
+  nodes: {
+    evalspeedpldi4bb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [B >= 0],
+        [-B > 0],
+      ],
+      inv_polyhedra: [-1 + B >= 0, -1 + A >= 0],
+    },
+    evalspeedpldi4bb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+      ],
+      inv_polyhedra: [-1 + B >= 0, -1 + A -B >= 0],
+    },
+    evalspeedpldi4bb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [B >= 0],
+        [-B > 0],
+      ],
+      inv_polyhedra: [-1 + A >= 0, -A + B >= 0],
+    },
+    evalspeedpldi4bb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [B >= 0],
+        [-B > 0],
+      ],
+      inv_polyhedra: [-1 + A >= 0],
+    },
+    evalspeedpldi4entryin: {
+      inv_polyhedra: [],
+    },
+    evalspeedpldi4returnin: {
+      inv_polyhedra: [],
+    },
+    evalspeedpldi4start: {
+      inv_polyhedra: [],
+    },
+    evalspeedpldi4stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalspeedpldi4start,
+	target: evalspeedpldi4entryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalspeedpldi4entryin,
+	target: evalspeedpldi4returnin,
+	name: t1,
+	constraints: [-A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalspeedpldi4returnin,
+	target: evalspeedpldi4stop,
+	name: t10,
+	constraints: []
+    },
+    {
+	source: evalspeedpldi4entryin,
+	target: evalspeedpldi4returnin,
+	name: t2,
+	constraints: [A -B >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalspeedpldi4entryin,
+	target: evalspeedpldi4bb5in,
+	name: t3,
+	constraints: [A -1 >= 0, B -A -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalspeedpldi4bb5in,
+	target: evalspeedpldi4bb2in,
+	name: t4,
+	constraints: [B -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalspeedpldi4bb5in,
+	target: evalspeedpldi4returnin,
+	name: t5,
+	constraints: [-B >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalspeedpldi4bb2in,
+	target: evalspeedpldi4bb3in,
+	name: t6,
+	constraints: [A -B -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalspeedpldi4bb2in,
+	target: evalspeedpldi4bb4in,
+	name: t7,
+	constraints: [B -A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalspeedpldi4bb3in,
+	target: evalspeedpldi4bb5in,
+	name: t8,
+	constraints: [A -A' = 0, B -1 -B' = 0]
+    },
+    {
+	source: evalspeedpldi4bb4in,
+	target: evalspeedpldi4bb5in,
+	name: t9,
+	constraints: [A -A' = 0, B -A -B' = 0]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+WORST_CASE(?, O(n^1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 >= 0 /\ Ar_1 + Ar_0 + 2 >= 2*Ar_2 /\ Ar_1 >= Ar_0 + 1 /\ 2*Ar_2 >= Ar_1 + Ar_0 /\ Ar_3 >= 0 /\ Ar_4 + 1 = Ar_2 /\ Ar_5 = Ar_0 ]
+		(Comp: ?, Cost: 1)    m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Ar_0, Ar_1, Fresh_6, Ar_3, Ar_4, Fresh_7)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_0 >= Ar_4 + 1 /\ Ar_1 + 1 >= Fresh_7 /\ Ar_2 + 1 >= Fresh_6 /\ Fresh_6 >= Ar_2 + 1 /\ Ar_5 + 1 >= Fresh_7 /\ Fresh_7 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)    m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Fresh_4, Ar_1, Ar_2, Ar_3, Ar_4, Fresh_5)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_1 >= Ar_5 /\ Ar_4 + 1 >= Fresh_4 /\ Ar_2 >= Ar_1 + 1 /\ Ar_5 + 1 >= Fresh_5 /\ Fresh_5 >= Ar_5 + 1 /\ Ar_0 + 1 >= Fresh_4 /\ Fresh_4 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Ar_0, Ar_1, Fresh_2, Ar_3, Ar_4, Fresh_3)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_1 >= Ar_5 /\ Ar_1 + 1 >= Fresh_2 /\ Ar_4 >= Ar_0 /\ Ar_5 + 1 >= Fresh_3 /\ Fresh_3 >= Ar_5 + 1 /\ Ar_2 + 1 >= Fresh_2 /\ Fresh_2 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Fresh_0, Ar_1, Ar_2, Ar_3, Ar_4, Fresh_1)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_1 >= Ar_5 /\ Ar_1 >= Ar_2 /\ Ar_4 + 1 >= Fresh_0 /\ Ar_0 + 1 >= Fresh_0 /\ Fresh_0 >= Ar_0 + 1 /\ Ar_5 + 1 >= Fresh_1 /\ Fresh_1 >= Ar_5 + 1 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 >= 0 /\ Ar_1 + Ar_0 + 2 >= 2*Ar_2 /\ Ar_1 >= Ar_0 + 1 /\ 2*Ar_2 >= Ar_1 + Ar_0 /\ Ar_3 >= 0 /\ Ar_4 + 1 = Ar_2 /\ Ar_5 = Ar_0 ]
+		(Comp: ?, Cost: 1)    m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Ar_0, Ar_1, Fresh_6, Ar_3, Ar_4, Fresh_7)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_0 >= Ar_4 + 1 /\ Ar_1 + 1 >= Fresh_7 /\ Ar_2 + 1 >= Fresh_6 /\ Fresh_6 >= Ar_2 + 1 /\ Ar_5 + 1 >= Fresh_7 /\ Fresh_7 >= Ar_5 + 1 ]
+		(Comp: ?, Cost: 1)    m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Fresh_4, Ar_1, Ar_2, Ar_3, Ar_4, Fresh_5)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_1 >= Ar_5 /\ Ar_4 + 1 >= Fresh_4 /\ Ar_2 >= Ar_1 + 1 /\ Ar_5 + 1 >= Fresh_5 /\ Fresh_5 >= Ar_5 + 1 /\ Ar_0 + 1 >= Fresh_4 /\ Fresh_4 >= Ar_0 + 1 ]
+		(Comp: ?, Cost: 1)    m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Ar_0, Ar_1, Fresh_2, Ar_3, Ar_4, Fresh_3)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_1 >= Ar_5 /\ Ar_1 + 1 >= Fresh_2 /\ Ar_4 >= Ar_0 /\ Ar_5 + 1 >= Fresh_3 /\ Fresh_3 >= Ar_5 + 1 /\ Ar_2 + 1 >= Fresh_2 /\ Fresh_2 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Fresh_0, Ar_1, Ar_2, Ar_3, Ar_4, Fresh_1)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_1 >= Ar_5 /\ Ar_1 >= Ar_2 /\ Ar_4 + 1 >= Fresh_0 /\ Ar_0 + 1 >= Fresh_0 /\ Fresh_0 >= Ar_0 + 1 /\ Ar_5 + 1 >= Fresh_1 /\ Fresh_1 >= Ar_5 + 1 ]
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(start) = V_2 + 1
+	Pol(m1) = V_2 - V_6 + 1
+	Pol(koat_start) = V_2 + 1
+orients all transitions weakly and the transitions
+	m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Fresh_4, Ar_1, Ar_2, Ar_3, Ar_4, Fresh_5)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_1 >= Ar_5 /\ Ar_4 + 1 >= Fresh_4 /\ Ar_2 >= Ar_1 + 1 /\ Ar_5 + 1 >= Fresh_5 /\ Fresh_5 >= Ar_5 + 1 /\ Ar_0 + 1 >= Fresh_4 /\ Fresh_4 >= Ar_0 + 1 ]
+	m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Fresh_0, Ar_1, Ar_2, Ar_3, Ar_4, Fresh_1)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_1 >= Ar_5 /\ Ar_1 >= Ar_2 /\ Ar_4 + 1 >= Fresh_0 /\ Ar_0 + 1 >= Fresh_0 /\ Fresh_0 >= Ar_0 + 1 /\ Ar_5 + 1 >= Fresh_1 /\ Fresh_1 >= Ar_5 + 1 ]
+	m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Ar_0, Ar_1, Fresh_6, Ar_3, Ar_4, Fresh_7)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_0 >= Ar_4 + 1 /\ Ar_1 + 1 >= Fresh_7 /\ Ar_2 + 1 >= Fresh_6 /\ Fresh_6 >= Ar_2 + 1 /\ Ar_5 + 1 >= Fresh_7 /\ Fresh_7 >= Ar_5 + 1 ]
+	m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Ar_0, Ar_1, Fresh_2, Ar_3, Ar_4, Fresh_3)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_1 >= Ar_5 /\ Ar_1 + 1 >= Fresh_2 /\ Ar_4 >= Ar_0 /\ Ar_5 + 1 >= Fresh_3 /\ Fresh_3 >= Ar_5 + 1 /\ Ar_2 + 1 >= Fresh_2 /\ Fresh_2 >= Ar_2 + 1 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)           start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ Ar_0 >= 0 /\ Ar_1 + Ar_0 + 2 >= 2*Ar_2 /\ Ar_1 >= Ar_0 + 1 /\ 2*Ar_2 >= Ar_1 + Ar_0 /\ Ar_3 >= 0 /\ Ar_4 + 1 = Ar_2 /\ Ar_5 = Ar_0 ]
+		(Comp: Ar_1 + 1, Cost: 1)    m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Ar_0, Ar_1, Fresh_6, Ar_3, Ar_4, Fresh_7)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_0 >= Ar_4 + 1 /\ Ar_1 + 1 >= Fresh_7 /\ Ar_2 + 1 >= Fresh_6 /\ Fresh_6 >= Ar_2 + 1 /\ Ar_5 + 1 >= Fresh_7 /\ Fresh_7 >= Ar_5 + 1 ]
+		(Comp: Ar_1 + 1, Cost: 1)    m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Fresh_4, Ar_1, Ar_2, Ar_3, Ar_4, Fresh_5)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_1 >= Ar_5 /\ Ar_4 + 1 >= Fresh_4 /\ Ar_2 >= Ar_1 + 1 /\ Ar_5 + 1 >= Fresh_5 /\ Fresh_5 >= Ar_5 + 1 /\ Ar_0 + 1 >= Fresh_4 /\ Fresh_4 >= Ar_0 + 1 ]
+		(Comp: Ar_1 + 1, Cost: 1)    m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Ar_0, Ar_1, Fresh_2, Ar_3, Ar_4, Fresh_3)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_1 >= Ar_5 /\ Ar_1 + 1 >= Fresh_2 /\ Ar_4 >= Ar_0 /\ Ar_5 + 1 >= Fresh_3 /\ Fresh_3 >= Ar_5 + 1 /\ Ar_2 + 1 >= Fresh_2 /\ Fresh_2 >= Ar_2 + 1 ]
+		(Comp: Ar_1 + 1, Cost: 1)    m1(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(m1(Fresh_0, Ar_1, Ar_2, Ar_3, Ar_4, Fresh_1)) [ Ar_1 >= 1 /\ Ar_3 >= 0 /\ Ar_1 >= Ar_5 /\ Ar_1 >= Ar_2 /\ Ar_4 + 1 >= Fresh_0 /\ Ar_0 + 1 >= Fresh_0 /\ Fresh_0 >= Ar_0 + 1 /\ Ar_5 + 1 >= Fresh_1 /\ Fresh_1 >= Ar_5 + 1 ]
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5) -> Com_1(start(Ar_0, Ar_1, Ar_2, Ar_3, Ar_4, Ar_5)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 4*Ar_1 + 5
+
+Time: 0.167 sec (SMT: 0.145 sec)

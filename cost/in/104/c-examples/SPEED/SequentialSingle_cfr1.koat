@@ -1,0 +1,15 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A_P B_P NoDet1 NoDet0)
+(RULES 
+  pyRinit(A,B) -> Com_1(n_evalSequentialSinglestart(A,B))
+  n_evalSequentialSinglebb1in___5(A,B) -> Com_1(n_evalSequentialSinglebb2in___4(A, B)) :|: A >= 0 && A >= 0 && -A + B -1 >= 0
+  n_evalSequentialSinglebb1in___5(A,B) -> Com_1(n_evalSequentialSinglebb5in___3(A, B)) :|: A >= 0 && A >= 0 && A -B >= 0
+  n_evalSequentialSinglebb2in___4(A,B) -> Com_1(n_evalSequentialSinglebb1in___5(A + 1, B)) :|: -A + B -1 >= 0 && A >= 0 && -A + B -1 >= 0 && A >= 0
+  n_evalSequentialSinglebb2in___4(A,B) -> Com_1(n_evalSequentialSinglebb1in___5(A + 1, B)) :|: -A + B -1 >= 0 && A >= 0 && -A + B -1 >= 0 && A >= 0
+  n_evalSequentialSinglebb2in___4(A,B) -> Com_1(n_evalSequentialSinglebb5in___2(A, B)) :|: -A + B -1 >= 0 && A >= 0 && A >= 0 && -A + B -1 >= 0
+  n_evalSequentialSinglebb5in___2(A,B) -> Com_1(n_evalSequentialSinglebb5in___3(A + 1, B)) :|: -A + B -1 >= 0 && A >= 0 && -A + B -1 >= 0 && A >= 0
+  n_evalSequentialSinglebb5in___3(A,B) -> Com_1(n_evalSequentialSinglebb5in___3(A + 1, B)) :|: A >= 0 && -A + B -1 >= 0 && A >= 0
+  n_evalSequentialSinglebb5in___3(A,B) -> Com_1(n_evalSequentialSinglestop___1(NoDet0, NoDet1)) :|: A >= 0 && A -B >= 0 && A >= 0
+  n_evalSequentialSinglestart(A,B) -> Com_1(n_evalSequentialSinglebb1in___5(0, B))
+)

@@ -1,0 +1,15 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A' B' C' D' NoDet3 NoDet1 NoDet0 NoDet2)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(evalSimpleMultipleDepstart(A,B,C,D))
+  evalSimpleMultipleDepbb1in(A,B,C,D) -> Com_1(evalSimpleMultipleDepbb3in(A + 1, B, C, D))
+  evalSimpleMultipleDepbb2in(A,B,C,D) -> Com_1(evalSimpleMultipleDepbb3in(0, B + 1, C, D))
+  evalSimpleMultipleDepbb3in(A,B,C,D) -> Com_1(evalSimpleMultipleDepbbin(A, B, C, D)) :|: C -B -1 >= 0
+  evalSimpleMultipleDepbb3in(A,B,C,D) -> Com_1(evalSimpleMultipleDepreturnin(A, B, C, D)) :|: B -C >= 0
+  evalSimpleMultipleDepbbin(A,B,C,D) -> Com_1(evalSimpleMultipleDepbb1in(A, B, C, D)) :|: D -A -1 >= 0
+  evalSimpleMultipleDepbbin(A,B,C,D) -> Com_1(evalSimpleMultipleDepbb2in(A, B, C, D)) :|: A -D >= 0
+  evalSimpleMultipleDepentryin(A,B,C,D) -> Com_1(evalSimpleMultipleDepbb3in(0, 0, C, D))
+  evalSimpleMultipleDepreturnin(A,B,C,D) -> Com_1(evalSimpleMultipleDepstop(NoDet0, NoDet1, NoDet2, NoDet3))
+  evalSimpleMultipleDepstart(A,B,C,D) -> Com_1(evalSimpleMultipleDepentryin(A, B, C, D))
+)

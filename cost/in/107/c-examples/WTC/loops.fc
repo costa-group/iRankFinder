@@ -1,0 +1,137 @@
+{
+  vars: [A,B],
+  pvars: [A',B'],
+  initnode: evalloopsstart,
+  nodes: {
+    evalloopsbb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    evalloopsbb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [-1 + B >= 0, -1 + A -B >= 0],
+    },
+    evalloopsbb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [-2 + A >= 0, -1 + B >= 0],
+    },
+    evalloopsbb5in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [A >= 0],
+    },
+    evalloopsbb6in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [1 + A >= 0],
+    },
+    evalloopsentryin: {
+      inv_polyhedra: [],
+    },
+    evalloopsreturnin: {
+      inv_polyhedra: [-1 -A >= 0],
+    },
+    evalloopsstart: {
+      inv_polyhedra: [],
+    },
+    evalloopsstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalloopsstart,
+	target: evalloopsentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalloopsentryin,
+	target: evalloopsbb6in,
+	name: t1,
+	constraints: [A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalloopsbb5in,
+	target: evalloopsbb6in,
+	name: t10,
+	constraints: [A -1 -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalloopsreturnin,
+	target: evalloopsstop,
+	name: t11,
+	constraints: []
+    },
+    {
+	source: evalloopsentryin,
+	target: evalloopsreturnin,
+	name: t2,
+	constraints: [-1 -A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalloopsbb6in,
+	target: evalloopsbb1in,
+	name: t3,
+	constraints: [A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalloopsbb6in,
+	target: evalloopsreturnin,
+	name: t4,
+	constraints: [-1 -A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalloopsbb1in,
+	target: evalloopsbb4in,
+	name: t5,
+	constraints: [A -2 >= 0, A -A' = 0, 1 -B' = 0]
+    },
+    {
+	source: evalloopsbb1in,
+	target: evalloopsbb5in,
+	name: t6,
+	constraints: [1 -A >= 0, A -A' = 0, C -B' = 0]
+    },
+    {
+	source: evalloopsbb4in,
+	target: evalloopsbb3in,
+	name: t7,
+	constraints: [A -B -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalloopsbb4in,
+	target: evalloopsbb5in,
+	name: t8,
+	constraints: [B -A >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalloopsbb3in,
+	target: evalloopsbb4in,
+	name: t9,
+	constraints: [A -A' = 0, 2 * B -B' = 0]
+    }
+  ]
+}

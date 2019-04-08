@@ -1,0 +1,79 @@
+{
+  vars: [A,B,C],
+  pvars: [A',B',C'],
+  initnode: evalexministart,
+  nodes: {
+    evalexminibb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [100 + A -B -C >= 0],
+        [-100 -A + B + C > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalexminibbin: {
+      cfr_properties: [
+        // RFs Properties
+        [100 + A -B -C >= 0],
+        [-100 -A + B + C > 0],
+      ],
+      inv_polyhedra: [100 -B >= 0, A -C >= 0],
+    },
+    evalexminientryin: {
+      inv_polyhedra: [],
+    },
+    evalexminireturnin: {
+      inv_polyhedra: [],
+    },
+    evalexministart: {
+      inv_polyhedra: [],
+    },
+    evalexministop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalexministart,
+	target: evalexminientryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalexminientryin,
+	target: evalexminibb1in,
+	name: t1,
+	constraints: [B -A' = 0, A -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalexminibb1in,
+	target: evalexminibbin,
+	name: t2,
+	constraints: [100 -B >= 0, A -C >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalexminibb1in,
+	target: evalexminireturnin,
+	name: t3,
+	constraints: [B -101 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalexminibb1in,
+	target: evalexminireturnin,
+	name: t4,
+	constraints: [C -A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalexminibbin,
+	target: evalexminibb1in,
+	name: t5,
+	constraints: [A -1 -A' = 0, C -B' = 0, B + 1 -C' = 0]
+    },
+    {
+	source: evalexminireturnin,
+	target: evalexministop,
+	name: t6,
+	constraints: []
+    }
+  ]
+}

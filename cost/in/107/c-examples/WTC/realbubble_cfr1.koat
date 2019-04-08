@@ -1,0 +1,18 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A_P B_P C_P D_P NoDet0 NoDet3 NoDet1 NoDet2)
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(n_evalrealbubblestart(A,B,C,D))
+  n_evalrealbubblebb1in___3(A,B,C,D) -> Com_1(n_evalrealbubblebb4in___5(A, B + 1, 1, 1)) :|: A -B -1 >= 0 && A -1 >= 0 && A -B -1 >= 0 && A -1 >= 0
+  n_evalrealbubblebb1in___3(A,B,C,D) -> Com_1(n_evalrealbubblebb4in___5(A, B + 1, C, C)) :|: A -B -1 >= 0 && A -1 >= 0 && A -B -1 >= 0 && A -1 >= 0
+  n_evalrealbubblebb4in___5(A,B,C,D) -> Com_1(n_evalrealbubblebb1in___3(A, B, C, D)) :|: A >= 0 && A -B >= 0 && A >= 0 && A -B >= 0 && A -1 >= 0 && A -B -1 >= 0
+  n_evalrealbubblebb4in___5(A,B,C,D) -> Com_1(n_evalrealbubblebb5in___2(A, A, C, D)) :|: A >= 0 && A -B >= 0 && A >= 0 && A -B >= 0 && A -1 >= 0 && A -B = 0
+  n_evalrealbubblebb5in___2(A,B,C,D) -> Com_1(n_evalrealbubblebb7in___1(A -1, A, C, D)) :|: A -1 >= 0 && A -B = 0 && -C -1 >= 0 && A -1 >= 0 && A -B = 0
+  n_evalrealbubblebb5in___2(A,B,C,D) -> Com_1(n_evalrealbubblebb7in___1(A -1, A, C, D)) :|: A -1 >= 0 && A -B = 0 && C -1 >= 0 && A -1 >= 0 && A -B = 0
+  n_evalrealbubblebb5in___2(A,B,C,D) -> Com_1(n_evalrealbubblestop___4(NoDet0, NoDet1, NoDet2, NoDet3)) :|: A -1 >= 0 && A -B = 0 && A -1 >= 0 && A -B = 0 && C = 0
+  n_evalrealbubblebb7in___1(A,B,C,D) -> Com_1(n_evalrealbubblebb4in___5(A, 0, 0, D)) :|: A >= 0 && A >= 0 && A -1 >= 0
+  n_evalrealbubblebb7in___1(A,B,C,D) -> Com_1(n_evalrealbubblestop___4(NoDet0, NoDet1, NoDet2, NoDet3)) :|: A >= 0 && A >= 0 && -A >= 0
+  n_evalrealbubblebb7in___6(A,B,C,D) -> Com_1(n_evalrealbubblebb4in___5(A, 0, 0, D)) :|: A -1 >= 0
+  n_evalrealbubblebb7in___6(A,B,C,D) -> Com_1(n_evalrealbubblestop___4(NoDet0, NoDet1, NoDet2, NoDet3)) :|: -A >= 0
+  n_evalrealbubblestart(A,B,C,D) -> Com_1(n_evalrealbubblebb7in___6(A -1, B, C, D))
+)

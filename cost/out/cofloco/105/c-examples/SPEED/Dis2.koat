@@ -1,0 +1,395 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_evalDis2bb3in___7/7,n_evalDis2bbin___1/7]
+1. non_recursive  : [exit_location/1]
+2. recursive  : [n_evalDis2bb3in___3/7,n_evalDis2bb3in___5/7,n_evalDis2bbin___2/7,n_evalDis2bbin___4/7]
+3. non_recursive  : [n_evalDis2stop___9/4]
+4. non_recursive  : [n_evalDis2bb3in___3_loop_cont/5]
+5. non_recursive  : [n_evalDis2bb3in___7_loop_cont/5]
+6. recursive  : [n_evalDis2bb3in___8/7,n_evalDis2bbin___6/7]
+7. non_recursive  : [n_evalDis2bb3in___8_loop_cont/5]
+8. non_recursive  : [n_evalDis2bbin___10/4]
+9. non_recursive  : [n_evalDis2bb3in___11/4]
+10. non_recursive  : [n_evalDis2start/4]
+11. non_recursive  : [pyRinit/4]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_evalDis2bb3in___7/7
+1. SCC is completely evaluated into other SCCs
+2. SCC is partially evaluated into n_evalDis2bb3in___5/7
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into n_evalDis2bb3in___3_loop_cont/5
+5. SCC is partially evaluated into n_evalDis2bb3in___7_loop_cont/5
+6. SCC is partially evaluated into n_evalDis2bb3in___8/7
+7. SCC is partially evaluated into n_evalDis2bb3in___8_loop_cont/5
+8. SCC is partially evaluated into n_evalDis2bbin___10/4
+9. SCC is partially evaluated into n_evalDis2bb3in___11/4
+10. SCC is completely evaluated into other SCCs
+11. SCC is partially evaluated into pyRinit/4
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_evalDis2bb3in___7/7 
+* CE 7 is refined into CE [25] 
+* CE 8 is refined into CE [26] 
+* CE 6 is refined into CE [27] 
+
+
+### Cost equations --> "Loop" of n_evalDis2bb3in___7/7 
+* CEs [27] --> Loop 23 
+* CEs [25] --> Loop 24 
+* CEs [26] --> Loop 25 
+
+### Ranking functions of CR n_evalDis2bb3in___7(A,B,C,D,E,F,G) 
+* RF of phase [23]: [A-B,-B+C+1]
+
+#### Partial ranking functions of CR n_evalDis2bb3in___7(A,B,C,D,E,F,G) 
+* Partial RF of phase [23]:
+  - RF of loop [23:1]:
+    A-B
+    -B+C+1
+
+
+### Specialization of cost equations n_evalDis2bb3in___5/7 
+* CE 24 is refined into CE [28] 
+* CE 22 is refined into CE [29] 
+* CE 23 is refined into CE [30] 
+
+
+### Cost equations --> "Loop" of n_evalDis2bb3in___5/7 
+* CEs [29] --> Loop 26 
+* CEs [30] --> Loop 27 
+* CEs [28] --> Loop 28 
+
+### Ranking functions of CR n_evalDis2bb3in___5(A,B,C,D,E,F,G) 
+* RF of phase [28]: [A-B,A-C-1]
+
+#### Partial ranking functions of CR n_evalDis2bb3in___5(A,B,C,D,E,F,G) 
+* Partial RF of phase [28]:
+  - RF of loop [28:1]:
+    A-B
+    A-C-1
+
+
+### Specialization of cost equations n_evalDis2bb3in___3_loop_cont/5 
+* CE 21 is refined into CE [31] 
+* CE 20 is refined into CE [32] 
+
+
+### Cost equations --> "Loop" of n_evalDis2bb3in___3_loop_cont/5 
+* CEs [31] --> Loop 29 
+* CEs [32] --> Loop 30 
+
+### Ranking functions of CR n_evalDis2bb3in___3_loop_cont(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalDis2bb3in___3_loop_cont(A,B,C,D,E) 
+
+
+### Specialization of cost equations n_evalDis2bb3in___7_loop_cont/5 
+* CE 9 is refined into CE [33] 
+* CE 10 is refined into CE [34] 
+* CE 11 is refined into CE [35,36,37] 
+* CE 12 is refined into CE [38] 
+
+
+### Cost equations --> "Loop" of n_evalDis2bb3in___7_loop_cont/5 
+* CEs [33,34,35,36,37] --> Loop 31 
+* CEs [38] --> Loop 32 
+
+### Ranking functions of CR n_evalDis2bb3in___7_loop_cont(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalDis2bb3in___7_loop_cont(A,B,C,D,E) 
+
+
+### Specialization of cost equations n_evalDis2bb3in___8/7 
+* CE 14 is refined into CE [39] 
+* CE 16 is refined into CE [40] 
+* CE 15 is refined into CE [41] 
+* CE 13 is refined into CE [42] 
+
+
+### Cost equations --> "Loop" of n_evalDis2bb3in___8/7 
+* CEs [42] --> Loop 33 
+* CEs [39] --> Loop 34 
+* CEs [40] --> Loop 35 
+* CEs [41] --> Loop 36 
+
+### Ranking functions of CR n_evalDis2bb3in___8(A,B,C,D,E,F,G) 
+* RF of phase [33]: [A-C,B-C]
+
+#### Partial ranking functions of CR n_evalDis2bb3in___8(A,B,C,D,E,F,G) 
+* Partial RF of phase [33]:
+  - RF of loop [33:1]:
+    A-C
+    B-C
+
+
+### Specialization of cost equations n_evalDis2bb3in___8_loop_cont/5 
+* CE 19 is refined into CE [43,44,45] 
+* CE 18 is refined into CE [46] 
+* CE 17 is refined into CE [47] 
+
+
+### Cost equations --> "Loop" of n_evalDis2bb3in___8_loop_cont/5 
+* CEs [43,44,45] --> Loop 37 
+* CEs [46] --> Loop 38 
+* CEs [47] --> Loop 39 
+
+### Ranking functions of CR n_evalDis2bb3in___8_loop_cont(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalDis2bb3in___8_loop_cont(A,B,C,D,E) 
+
+
+### Specialization of cost equations n_evalDis2bbin___10/4 
+* CE 5 is refined into CE [48,49,50,51,52] 
+* CE 4 is refined into CE [53,54,55] 
+
+
+### Cost equations --> "Loop" of n_evalDis2bbin___10/4 
+* CEs [52] --> Loop 40 
+* CEs [49] --> Loop 41 
+* CEs [51] --> Loop 42 
+* CEs [53,54,55] --> Loop 43 
+* CEs [48,50] --> Loop 44 
+
+### Ranking functions of CR n_evalDis2bbin___10(A,B,C,D) 
+
+#### Partial ranking functions of CR n_evalDis2bbin___10(A,B,C,D) 
+
+
+### Specialization of cost equations n_evalDis2bb3in___11/4 
+* CE 2 is refined into CE [56,57,58,59] 
+* CE 3 is refined into CE [60] 
+
+
+### Cost equations --> "Loop" of n_evalDis2bb3in___11/4 
+* CEs [59] --> Loop 45 
+* CEs [58] --> Loop 46 
+* CEs [60] --> Loop 47 
+* CEs [56,57] --> Loop 48 
+
+### Ranking functions of CR n_evalDis2bb3in___11(A,B,C,D) 
+
+#### Partial ranking functions of CR n_evalDis2bb3in___11(A,B,C,D) 
+
+
+### Specialization of cost equations pyRinit/4 
+* CE 1 is refined into CE [61,62,63] 
+
+
+### Cost equations --> "Loop" of pyRinit/4 
+* CEs [61] --> Loop 49 
+* CEs [63] --> Loop 50 
+* CEs [62] --> Loop 51 
+
+### Ranking functions of CR pyRinit(A,B,C,D) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_evalDis2bb3in___7(A,B,C,D,E,F,G):
+* Chain [[23],25]: 2*it(23)+0
+  Such that:it(23) =< -B+C+1
+
+  with precondition: [D=3,C>=B,A>=C+1] 
+
+* Chain [[23],24]: 2*it(23)+2
+  Such that:it(23) =< -B+F
+
+  with precondition: [D=4,A=E,C+1=F,C+1=G,C>=B,A>=C+1] 
+
+* Chain [25]: 0
+  with precondition: [D=3,C+1>=B,A>=C+1] 
+
+* Chain [24]: 2
+  with precondition: [D=4,C+1=B,A=E,C+1=F,C+1=G,A>=C+1] 
+
+
+#### Cost of chains of n_evalDis2bb3in___5(A,B,C,D,E,F,G):
+* Chain [[28],27]: 4*it(28)+3
+  Such that:it(28) =< A-C
+
+  with precondition: [D=2,B=C+1,A>=B+1] 
+
+* Chain [[28],26]: 4*it(28)+2
+  Such that:it(28) =< A-C
+
+  with precondition: [D=3,B=C+1,A>=B+1] 
+
+* Chain [27]: 3
+  with precondition: [D=2,A=B,A=C+1] 
+
+* Chain [26]: 2
+  with precondition: [D=3,B=C+1,A>=B] 
+
+
+#### Cost of chains of n_evalDis2bb3in___3_loop_cont(A,B,C,D,E):
+* Chain [30]: 0
+  with precondition: [A=2] 
+
+* Chain [29]: 0
+  with precondition: [A=3] 
+
+
+#### Cost of chains of n_evalDis2bb3in___7_loop_cont(A,B,C,D,E):
+* Chain [32]: 0
+  with precondition: [A=3] 
+
+* Chain [31]: 8*s(3)+5
+  Such that:aux(1) =< B-C
+s(3) =< aux(1)
+
+  with precondition: [A=4] 
+
+
+#### Cost of chains of n_evalDis2bb3in___8(A,B,C,D,E,F,G):
+* Chain [[33],36]: 2*it(33)+1
+  Such that:it(33) =< A-C
+
+  with precondition: [D=2,B>=A,A>=C+1] 
+
+* Chain [[33],35]: 2*it(33)+0
+  Such that:it(33) =< A-C
+
+  with precondition: [D=3,A>=C+1,B>=C+1] 
+
+* Chain [[33],34]: 2*it(33)+2
+  Such that:it(33) =< -C+F
+
+  with precondition: [D=5,A=E,B+1=F,B=G,A>=B+1,B>=C+1] 
+
+* Chain [36]: 1
+  with precondition: [D=2,C=A,B>=C] 
+
+* Chain [35]: 0
+  with precondition: [D=3,A>=C,B>=C] 
+
+* Chain [34]: 2
+  with precondition: [D=5,C=B,A=E,C+1=F,C=G,A>=C+1] 
+
+
+#### Cost of chains of n_evalDis2bb3in___8_loop_cont(A,B,C,D,E):
+* Chain [39]: 0
+  with precondition: [A=2] 
+
+* Chain [38]: 0
+  with precondition: [A=3] 
+
+* Chain [37]: 8*s(6)+3
+  Such that:aux(2) =< B-C+1
+s(6) =< aux(2)
+
+  with precondition: [A=5,C=D+1,B>=C] 
+
+
+#### Cost of chains of n_evalDis2bbin___10(A,B,C,D):
+* Chain [44]: 2*s(8)+2
+  Such that:s(8) =< A-C
+
+  with precondition: [A>=C+1,B>=C+1] 
+
+* Chain [43]: 4*s(9)+16*s(11)+8
+  Such that:aux(3) =< A-C
+aux(4) =< -B+C
+s(9) =< aux(4)
+s(11) =< aux(3)
+
+  with precondition: [C>=B,A>=C+1] 
+
+* Chain [42]: 8*s(16)+6
+  Such that:s(15) =< A-C
+s(16) =< s(15)
+
+  with precondition: [C+1=B,A>=C+2] 
+
+* Chain [41]: 2*s(17)+2
+  Such that:s(17) =< A-C
+
+  with precondition: [B>=A,A>=C+2] 
+
+* Chain [40]: 2*s(18)+8*s(20)+6
+  Such that:s(19) =< A-B
+s(18) =< B-C
+s(20) =< s(19)
+
+  with precondition: [A>=B+1,B>=C+2] 
+
+
+#### Cost of chains of n_evalDis2bb3in___11(A,B,C,D):
+* Chain [48]: 12*s(25)+7
+  Such that:aux(6) =< A-C
+s(25) =< aux(6)
+
+  with precondition: [A>=C+1,B>=C+1] 
+
+* Chain [47]: 1
+  with precondition: [C>=A] 
+
+* Chain [46]: 2*s(28)+8*s(29)+7
+  Such that:s(27) =< A-B
+s(28) =< B-C
+s(29) =< s(27)
+
+  with precondition: [A>=B+1,B>=C+2] 
+
+* Chain [45]: 4*s(32)+16*s(33)+9
+  Such that:s(30) =< A-C
+s(31) =< -B+C
+s(32) =< s(31)
+s(33) =< s(30)
+
+  with precondition: [C>=B,A>=C+1] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D):
+* Chain [51]: 2*s(41)+8*s(42)+12*s(43)+9
+  Such that:s(40) =< -A+B
+s(41) =< -A+C
+s(39) =< B-C
+s(42) =< s(39)
+s(43) =< s(40)
+
+  with precondition: [B>=A+1,C>=A+1] 
+
+* Chain [50]: 4*s(46)+16*s(47)+11
+  Such that:s(44) =< -A+B
+s(45) =< A-C
+s(46) =< s(45)
+s(47) =< s(44)
+
+  with precondition: [B>=A+1,A>=C] 
+
+* Chain [49]: 3
+  with precondition: [A>=B] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D): 
+-------------------------------------
+* Chain [51] with precondition: [B>=A+1,C>=A+1] 
+    - Upper bound: -14*A+12*B+2*C+9+nat(B-C)*8 
+    - Complexity: n 
+* Chain [50] with precondition: [B>=A+1,A>=C] 
+    - Upper bound: -12*A+16*B-4*C+11 
+    - Complexity: n 
+* Chain [49] with precondition: [A>=B] 
+    - Upper bound: 3 
+    - Complexity: constant 
+
+### Maximum cost of pyRinit(A,B,C,D): nat(-A+B)*12+6+max([nat(B-C)*8+nat(-A+C)*2,nat(-A+B)*4+2+nat(A-C)*4])+3 
+Asymptotic class: n 
+* Total analysis performed in 409 ms.
+
+
+-- stats
+realtime 0:00.50
+usertime 0.45
+systime 0.00
+

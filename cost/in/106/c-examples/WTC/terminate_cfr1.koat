@@ -1,0 +1,10 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A_P B_P C_P NoDet0 NoDet1 NoDet2)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(n_evalterminatestart(A,B,C))
+  n_evalterminatebb1in___2(A,B,C) -> Com_1(n_evalterminatebb1in___2(A -1, B_P, B + 1)) :|: -B + 100 >= 0 && A -B_P >= 0 && C -B_P = 0
+  n_evalterminatebb1in___2(A,B,C) -> Com_1(n_evalterminatestop___1(NoDet0, NoDet1, NoDet2)) :|: B -101 >= 0
+  n_evalterminatebb1in___2(A,B,C) -> Com_1(n_evalterminatestop___1(NoDet0, NoDet1, NoDet2)) :|: -A + C -1 >= 0
+  n_evalterminatestart(A,B,C) -> Com_1(n_evalterminatebb1in___2(B, A, C))
+)

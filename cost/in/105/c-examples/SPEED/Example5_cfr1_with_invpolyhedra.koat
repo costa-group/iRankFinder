@@ -1,0 +1,16 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C A_P B_P C_P NoDet2 NoDet0 NoDet1)
+(RULES 
+  pyRinit(A,B,C) -> Com_1(n_evalfstart(A,B,C))
+  n_evalfbb3in___4(A,B,C) -> Com_1(n_evalfbbin___1(A, B, C)) :|: B -C -1 >= 0 && -A >= 0 && C >= 0 && -2 + B -C >= 0 && -A >= 0 && B -C -1 >= 0 && C -1 >= 0 && -A >= 0 && C >= 0 && -2 + B -C >= 0
+  n_evalfbb3in___4(A,B,C) -> Com_1(n_evalfstop___2(NoDet0, NoDet1, NoDet2)) :|: B -C -1 >= 0 && -A >= 0 && C >= 0 && -2 + B -C >= 0 && -A >= 0 && B -2 >= 0 && C = 0 && -A >= 0 && C >= 0 && -2 + B -C >= 0
+  n_evalfbb3in___5(A,B,C) -> Com_1(n_evalfbbin___3(A, B, C)) :|: C -1 >= 0 && A -1 >= 0 && -1 + A >= 0 && -2 + C >= 0 && B -C >= 0 && B -C -1 >= 0 && C -1 >= 0 && B -C >= 0 && -1 + A >= 0 && -2 + C >= 0
+  n_evalfbb3in___5(A,B,C) -> Com_1(n_evalfstop___2(NoDet0, NoDet1, NoDet2)) :|: C -1 >= 0 && A -1 >= 0 && -1 + A >= 0 && -2 + C >= 0 && B -C >= 0 && B -2 >= 0 && B -C = 0 && B -C >= 0 && -1 + A >= 0 && -2 + C >= 0
+  n_evalfbb3in___7(A,B,C) -> Com_1(n_evalfbbin___6(A, B, C)) :|: B -C -1 >= 0 && C -1 >= 0 && -1 + C >= 0 && -1 + B -C >= 0 && B -C -1 >= 0 && C -1 >= 0 && -1 + C >= 0 && -1 + B -C >= 0
+  n_evalfbbin___1(A,B,C) -> Com_1(n_evalfbb3in___4(A, B, C_P)) :|: -A >= 0 && B -C -2 >= 0 && C -1 >= 0 && -A >= 0 && B -C_P -2 >= 0 && C_P >= 0 && C -C_P -1 = 0 && -A >= 0 && -1 + C >= 0 && -2 + B -C >= 0
+  n_evalfbbin___3(A,B,C) -> Com_1(n_evalfbb3in___5(A, B, C + 1)) :|: B -C -1 >= 0 && C -2 >= 0 && A -1 >= 0 && B -C -1 >= 0 && C -1 >= 0 && A -1 >= 0 && -2 + C >= 0 && -1 + B -C >= 0 && -1 + A >= 0
+  n_evalfbbin___6(A,B,C) -> Com_1(n_evalfbb3in___4(A, B, C_P)) :|: B -C -1 >= 0 && C -1 >= 0 && -A >= 0 && B -C_P -2 >= 0 && C_P >= 0 && C -C_P -1 = 0 && -1 + C >= 0 && -1 + B -C >= 0
+  n_evalfbbin___6(A,B,C) -> Com_1(n_evalfbb3in___5(A, B, C + 1)) :|: B -C -1 >= 0 && C -1 >= 0 && B -C -1 >= 0 && C -1 >= 0 && A -1 >= 0 && -1 + C >= 0 && -1 + B -C >= 0
+  n_evalfstart(A,B,C) -> Com_1(n_evalfbb3in___7(C, B, A)) :|: -A + B -1 >= 0 && A -1 >= 0
+)

@@ -1,0 +1,17 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D A' B' C' D')
+(RULES 
+  pyRinit(A,B,C,D) -> Com_1(eval1(A,B,C,D))
+  eval1(A,B,C,D) -> Com_1(eval2(A -1, B, C, D)) :|: A -2 >= 0
+  eval1(A,B,C,D) -> Com_1(eval2(A, B -1, C, D)) :|: 1 -A >= 0
+  eval2(A,B,C,D) -> Com_1(eval3(A, B, A, 2 * A)) :|: B -2 >= 0
+  eval3(A,B,C,D) -> Com_1(eval3(A, B, D, 2 * D)) :|: B -D >= 0 && B -1 -D >= 0 && D -1 >= 0
+  eval3(A,B,C,D) -> Com_1(eval3(A, B, D + 1, 2 * D + 2)) :|: B -D >= 0 && B -1 -D >= 0 && D -1 >= 0
+  eval3(A,B,C,D) -> Com_1(eval3(A, B, D, 2 * D)) :|: D -1 >= 0 && B -D = 0
+  eval3(A,B,C,D) -> Com_1(eval4(A, B, C, D)) :|: B -D >= 0 && B -1 -D >= 0
+  eval3(A,B,C,D) -> Com_1(eval4(A, B, C, D + 1)) :|: B -D >= 0 && B -1 -D >= 0
+  eval3(A,B,C,D) -> Com_1(eval4(A, B, C, D)) :|: B -D = 0
+  eval4(A,B,C,D) -> Com_1(eval2(A, B -1, C, D)) :|: B -2 >= 0 && A -1 = 0
+  eval4(A,B,C,D) -> Com_1(eval2(A -1, B, C, D)) :|: A -2 >= 0 && A -1 >= 0 && B -2 >= 0
+)

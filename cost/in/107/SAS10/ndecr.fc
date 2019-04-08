@@ -1,0 +1,56 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: start0,
+  nodes: {
+    lbl32: {
+      cfr_properties: [
+        // RFs Properties
+        [D >= 0],
+        [-D > 0],
+      ],
+      inv_polyhedra: [B -C == 0, -1 + D >= 0, -1 + A -D >= 0],
+    },
+    start: {
+      inv_polyhedra: [A -D == 0, B -C == 0],
+    },
+    start0: {
+      inv_polyhedra: [],
+    },
+    stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: start,
+	target: stop,
+	name: t0,
+	constraints: [1 -A >= 0, B -C = 0, D -A = 0]
+    },
+    {
+	source: start,
+	target: lbl32,
+	name: t1,
+	constraints: [A -2 >= 0, B -C = 0, D -A = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -1 -D' = 0]
+    },
+    {
+	source: lbl32,
+	target: stop,
+	name: t2,
+	constraints: [A -2 >= 0, D -1 = 0, B -C = 0]
+    },
+    {
+	source: lbl32,
+	target: lbl32,
+	name: t3,
+	constraints: [D -2 >= 0, D -1 >= 0, A -D -1 >= 0, B -C = 0, A -A' = 0, B -B' = 0, C -C' = 0, D -1 -D' = 0]
+    },
+    {
+	source: start0,
+	target: start,
+	name: t4,
+	constraints: [A -A' = 0, C -B' = 0, C -C' = 0, A -D' = 0]
+    }
+  ]
+}

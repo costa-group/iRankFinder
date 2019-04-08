@@ -1,0 +1,73 @@
+{
+  vars: [A,B],
+  pvars: [A',B'],
+  initnode: evalfstart,
+  nodes: {
+    evalfbb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalfbbin: {
+      cfr_properties: [
+        // RFs Properties
+        [A -B >= 0],
+        [-A + B > 0],
+      ],
+      inv_polyhedra: [A -B >= 0],
+    },
+    evalfentryin: {
+      inv_polyhedra: [],
+    },
+    evalfreturnin: {
+      inv_polyhedra: [-1 -A + B >= 0],
+    },
+    evalfstart: {
+      inv_polyhedra: [],
+    },
+    evalfstop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalfstart,
+	target: evalfentryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalfentryin,
+	target: evalfbb1in,
+	name: t1,
+	constraints: [B -A' = 0, A -B' = 0]
+    },
+    {
+	source: evalfbb1in,
+	target: evalfbbin,
+	name: t2,
+	constraints: [A -B >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalfbb1in,
+	target: evalfreturnin,
+	name: t3,
+	constraints: [B -A -1 >= 0, A -A' = 0, B -B' = 0]
+    },
+    {
+	source: evalfbbin,
+	target: evalfbb1in,
+	name: t4,
+	constraints: [A -A' = 0, B + 1 -B' = 0]
+    },
+    {
+	source: evalfreturnin,
+	target: evalfstop,
+	name: t5,
+	constraints: []
+    }
+  ]
+}

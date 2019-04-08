@@ -1,0 +1,145 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evaleasy2bb1in/3,evaleasy2bbin/3]
+1. non_recursive  : [evaleasy2stop/2]
+2. non_recursive  : [evaleasy2returnin/2]
+3. non_recursive  : [exit_location/1]
+4. non_recursive  : [evaleasy2bb1in_loop_cont/3]
+5. non_recursive  : [evaleasy2entryin/2]
+6. non_recursive  : [evaleasy2start/2]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evaleasy2bb1in/3
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into evaleasy2bb1in_loop_cont/3
+5. SCC is partially evaluated into evaleasy2entryin/2
+6. SCC is partially evaluated into evaleasy2start/2
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evaleasy2bb1in/3 
+* CE 5 is refined into CE [8] 
+* CE 4 is refined into CE [9] 
+* CE 3 is refined into CE [10] 
+
+
+### Cost equations --> "Loop" of evaleasy2bb1in/3 
+* CEs [10] --> Loop 8 
+* CEs [8] --> Loop 9 
+* CEs [9] --> Loop 10 
+
+### Ranking functions of CR evaleasy2bb1in(A,B,C) 
+* RF of phase [8]: [A]
+
+#### Partial ranking functions of CR evaleasy2bb1in(A,B,C) 
+* Partial RF of phase [8]:
+  - RF of loop [8:1]:
+    A
+
+
+### Specialization of cost equations evaleasy2bb1in_loop_cont/3 
+* CE 7 is refined into CE [11] 
+* CE 6 is refined into CE [12] 
+
+
+### Cost equations --> "Loop" of evaleasy2bb1in_loop_cont/3 
+* CEs [11] --> Loop 11 
+* CEs [12] --> Loop 12 
+
+### Ranking functions of CR evaleasy2bb1in_loop_cont(A,B,C) 
+
+#### Partial ranking functions of CR evaleasy2bb1in_loop_cont(A,B,C) 
+
+
+### Specialization of cost equations evaleasy2entryin/2 
+* CE 2 is refined into CE [13,14,15] 
+
+
+### Cost equations --> "Loop" of evaleasy2entryin/2 
+* CEs [13,14,15] --> Loop 13 
+
+### Ranking functions of CR evaleasy2entryin(A,B) 
+
+#### Partial ranking functions of CR evaleasy2entryin(A,B) 
+
+
+### Specialization of cost equations evaleasy2start/2 
+* CE 1 is refined into CE [16] 
+
+
+### Cost equations --> "Loop" of evaleasy2start/2 
+* CEs [16] --> Loop 14 
+
+### Ranking functions of CR evaleasy2start(A,B) 
+
+#### Partial ranking functions of CR evaleasy2start(A,B) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evaleasy2bb1in(A,B,C):
+* Chain [[8],10]: 2*it(8)+1
+  Such that:it(8) =< A
+
+  with precondition: [B=2,C=0,A>=1] 
+
+* Chain [[8],9]: 2*it(8)+0
+  Such that:it(8) =< A
+
+  with precondition: [B=3,A>=1] 
+
+* Chain [10]: 1
+  with precondition: [B=2,A=C,0>=A] 
+
+* Chain [9]: 0
+  with precondition: [B=3] 
+
+
+#### Cost of chains of evaleasy2bb1in_loop_cont(A,B,C):
+* Chain [12]: 1
+  with precondition: [A=2] 
+
+* Chain [11]: 0
+  with precondition: [A=3] 
+
+
+#### Cost of chains of evaleasy2entryin(A,B):
+* Chain [13]: 4*s(2)+3
+  Such that:aux(1) =< A
+s(2) =< aux(1)
+
+  with precondition: [] 
+
+
+#### Cost of chains of evaleasy2start(A,B):
+* Chain [14]: 4*s(5)+4
+  Such that:s(4) =< A
+s(5) =< s(4)
+
+  with precondition: [] 
+
+
+Closed-form bounds of evaleasy2start(A,B): 
+-------------------------------------
+* Chain [14] with precondition: [] 
+    - Upper bound: nat(A)*4+4 
+    - Complexity: n 
+
+### Maximum cost of evaleasy2start(A,B): nat(A)*4+4 
+Asymptotic class: n 
+* Total analysis performed in 52 ms.
+
+
+-- stats
+realtime 0:00.09
+usertime 0.08
+systime 0.00
+

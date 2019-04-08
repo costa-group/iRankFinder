@@ -1,0 +1,17 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E F G H I J A_P B_P C_P D_P E_P F_P G_P H_P I_P J_P NoDet4 NoDet8 NoDet5 NoDet7 NoDet6 NoDet0 NoDet9 NoDet3 NoDet2 NoDet1)
+(RULES 
+  pyRinit(A,B,C,D,E,F,G,H,I,J) -> Com_1(n_start0(A,B,C,D,E,F,G,H,I,J))
+  n_lbl13___1(A,B,C,D,E,F,G,H,I,J) -> Com_1(n_lbl31___5(A, NoDet0, C, D, E, A, G_P, H, D + 1, J)) :|: A -D -1 >= 0 && D -G -2 >= 0 && G + 1 >= 0 && A -F = 0 && D -I + 1 = 0 && G_P + 1 >= 0 && D -G_P -1 >= 0 && D + G_P -1 >= 0 && A -D -2 >= 0 && D -I + 1 = 0 && G -G_P = 0 && A -F = 0 && 1 + D -I = 0 && A -F = 0 && 1 + G >= 0 && -2 + D -G >= 0 && -1 + A -D >= 0
+  n_lbl13___1(A,B,C,D,E,F,G,H,I,J) -> Com_1(n_stop___4(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7, NoDet8, NoDet9)) :|: A -D -1 >= 0 && D -G -2 >= 0 && G + 1 >= 0 && A -F = 0 && D -I + 1 = 0 && A -G -2 >= 0 && G + 1 >= 0 && A + G -2 >= 0 && A -D -1 = 0 && A -F = 0 && A -I = 0 && 1 + D -I = 0 && A -F = 0 && 1 + G >= 0 && -2 + D -G >= 0 && -1 + A -D >= 0
+  n_lbl13___3(A,B,C,D,E,F,G,H,I,J) -> Com_1(n_lbl31___5(A, NoDet0, C, D, E, A, G_P, H, D + 1, J)) :|: A -G -2 >= 0 && G >= 0 && G -I + 2 = 0 && A -F = 0 && D -G -1 = 0 && G_P + 1 >= 0 && D -G_P -1 >= 0 && D + G_P -1 >= 0 && A -D -2 >= 0 && D -I + 1 = 0 && G -G_P = 0 && A -F = 0 && 1 + D -I = 0 && -1 + D -G = 0 && A -F = 0 && -1 + D >= 0 && -1 + A -D >= 0
+  n_lbl13___3(A,B,C,D,E,F,G,H,I,J) -> Com_1(n_stop___4(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7, NoDet8, NoDet9)) :|: A -G -2 >= 0 && G >= 0 && G -I + 2 = 0 && A -F = 0 && D -G -1 = 0 && A -G -2 >= 0 && G + 1 >= 0 && A + G -2 >= 0 && A -D -1 = 0 && A -F = 0 && A -I = 0 && 1 + D -I = 0 && -1 + D -G = 0 && A -F = 0 && -1 + D >= 0 && -1 + A -D >= 0
+  n_lbl31___5(A,B,C,D,E,F,G,H,I,J) -> Com_1(n_lbl13___3(A, B, C, I, E, A, I -1, H, I + 1, J)) :|: F -I >= 0 && A -I >= 0 && F -I >= 0 && A -I >= 0 && A -I -1 >= 0 && I -1 >= 0 && A -F = 0 && A -F = 0 && -1 + A -I >= 0 && -1 + I >= 0
+  n_lbl31___5(A,B,C,D,E,F,G,H,I,J) -> Com_1(n_lbl43___2(A, B, C, D, E, A, I -2, H, I, J)) :|: F -I >= 0 && A -I >= 0 && F -I >= 0 && A -I >= 0 && A -I -1 >= 0 && I -1 >= 0 && A -F = 0 && A -F = 0 && -1 + A -I >= 0 && -1 + I >= 0
+  n_lbl43___2(A,B,C,D,E,F,G,H,I,J) -> Com_1(n_lbl13___1(A, B, C, I, E, A, G, H, I + 1, J)) :|: F -I >= 0 && F -I >= 0 && A -I -1 >= 0 && G + 1 >= 0 && -G + I -2 >= 0 && A -F = 0 && A -F = 0 && 1 + G >= 0 && -1 + A -I >= 0 && -2 -G + I >= 0
+  n_lbl43___2(A,B,C,D,E,F,G,H,I,J) -> Com_1(n_lbl43___2(A, B, C, D, E, A, G -1, H, I, J)) :|: F -I >= 0 && F -I >= 0 && A -I -1 >= 0 && G >= 0 && -G + I -2 >= 0 && A -F = 0 && A -F = 0 && 1 + G >= 0 && -1 + A -I >= 0 && -2 -G + I >= 0
+  n_start0(A,B,C,D,E,F,G,H,I,J) -> Com_1(n_start___6(A, C, C, E, E, A, H, H, J, J))
+  n_start___6(A,B,C,D,E,F,G,H,I,J) -> Com_1(n_lbl31___5(A, NoDet0, B, D, D, A, G, G, 1, I)) :|: D -E = 0 && B -C = 0 && G -H = 0 && I -J = 0 && A -F = 0 && A -2 >= 0 && I -J = 0 && G -H = 0 && A -F = 0 && D -E = 0 && B -C = 0 && I -J = 0 && G -H = 0 && A -F = 0 && D -E = 0 && B -C = 0
+  n_start___6(A,B,C,D,E,F,G,H,I,J) -> Com_1(n_stop___4(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5, NoDet6, NoDet7, NoDet8, NoDet9)) :|: D -E = 0 && B -C = 0 && G -H = 0 && I -J = 0 && A -F = 0 && -A + 1 >= 0 && B -C = 0 && D -E = 0 && A -F = 0 && G -H = 0 && I -J = 0 && I -J = 0 && G -H = 0 && A -F = 0 && D -E = 0 && B -C = 0
+)

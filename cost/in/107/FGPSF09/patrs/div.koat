@@ -1,0 +1,10 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B A' B' NoDet0 NoDet1)
+(RULES 
+  pyRinit(A,B) -> Com_1(start(A,B))
+  div(A,B) -> Com_1(div(A, B -A)) :|: B -A -1 >= 0 && A -1 >= 0
+  div(A,B) -> Com_1(end(NoDet0, NoDet1)) :|: -A >= 0
+  div(A,B) -> Com_1(end(NoDet0, NoDet1)) :|: A -B >= 0
+  start(A,B) -> Com_1(div(A, B))
+)

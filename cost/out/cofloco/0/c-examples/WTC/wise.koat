@@ -1,0 +1,189 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalwisebb3in/5,evalwisebb4in/5,evalwisebb5in/5,evalwisebb6in/5]
+1. non_recursive  : [evalwisestop/3]
+2. non_recursive  : [evalwisereturnin/3]
+3. non_recursive  : [exit_location/1]
+4. non_recursive  : [evalwisebb6in_loop_cont/4]
+5. non_recursive  : [evalwiseentryin/3]
+6. non_recursive  : [evalwisestart/3]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalwisebb6in/5
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into evalwisebb6in_loop_cont/4
+5. SCC is partially evaluated into evalwiseentryin/3
+6. SCC is partially evaluated into evalwisestart/3
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalwisebb6in/5 
+* CE 8 is refined into CE [11] 
+* CE 7 is refined into CE [12] 
+* CE 5 is refined into CE [13] 
+* CE 6 is refined into CE [14] 
+
+
+### Cost equations --> "Loop" of evalwisebb6in/5 
+* CEs [13] --> Loop 11 
+* CEs [14] --> Loop 12 
+* CEs [11] --> Loop 13 
+* CEs [12] --> Loop 14 
+
+### Ranking functions of CR evalwisebb6in(A,B,C,D,E) 
+* RF of phase [11]: [A-B-2]
+* RF of phase [12]: [-A+B-2]
+
+#### Partial ranking functions of CR evalwisebb6in(A,B,C,D,E) 
+* Partial RF of phase [11]:
+  - RF of loop [11:1]:
+    A-B-2
+* Partial RF of phase [12]:
+  - RF of loop [12:1]:
+    -A+B-2
+
+
+### Specialization of cost equations evalwisebb6in_loop_cont/4 
+* CE 10 is refined into CE [15] 
+* CE 9 is refined into CE [16] 
+
+
+### Cost equations --> "Loop" of evalwisebb6in_loop_cont/4 
+* CEs [15] --> Loop 15 
+* CEs [16] --> Loop 16 
+
+### Ranking functions of CR evalwisebb6in_loop_cont(A,B,C,D) 
+
+#### Partial ranking functions of CR evalwisebb6in_loop_cont(A,B,C,D) 
+
+
+### Specialization of cost equations evalwiseentryin/3 
+* CE 4 is refined into CE [17,18,19,20] 
+* CE 3 is refined into CE [21] 
+* CE 2 is refined into CE [22] 
+
+
+### Cost equations --> "Loop" of evalwiseentryin/3 
+* CEs [17,18,19,20] --> Loop 17 
+* CEs [21] --> Loop 18 
+* CEs [22] --> Loop 19 
+
+### Ranking functions of CR evalwiseentryin(A,B,C) 
+
+#### Partial ranking functions of CR evalwiseentryin(A,B,C) 
+
+
+### Specialization of cost equations evalwisestart/3 
+* CE 1 is refined into CE [23,24,25] 
+
+
+### Cost equations --> "Loop" of evalwisestart/3 
+* CEs [25] --> Loop 20 
+* CEs [24] --> Loop 21 
+* CEs [23] --> Loop 22 
+
+### Ranking functions of CR evalwisestart(A,B,C) 
+
+#### Partial ranking functions of CR evalwisestart(A,B,C) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalwisebb6in(A,B,C,D,E):
+* Chain [[12],14]: 3*it(12)+1
+  Such that:it(12) =< -A+E
+
+  with precondition: [C=2,B=D+2,B=E,A>=0,B>=A+3] 
+
+* Chain [[12],13]: 3*it(12)+0
+  Such that:it(12) =< -A+B
+
+  with precondition: [C=3,A>=0,B>=A+3] 
+
+* Chain [[11],14]: 3*it(11)+1
+  Such that:it(11) =< -B+E
+
+  with precondition: [C=2,A=D,A=E+2,B>=0,A>=B+3] 
+
+* Chain [[11],13]: 3*it(11)+0
+  Such that:it(11) =< A-B
+
+  with precondition: [C=3,B>=0,A>=B+3] 
+
+* Chain [14]: 1
+  with precondition: [C=2,A=D,B=E,A>=0,B>=0,B+2>=A,A+2>=B] 
+
+* Chain [13]: 0
+  with precondition: [C=3,A>=0,B>=0] 
+
+
+#### Cost of chains of evalwisebb6in_loop_cont(A,B,C,D):
+* Chain [16]: 1
+  with precondition: [A=2] 
+
+* Chain [15]: 0
+  with precondition: [A=3] 
+
+
+#### Cost of chains of evalwiseentryin(A,B,C):
+* Chain [19]: 2
+  with precondition: [0>=A+1] 
+
+* Chain [18]: 2
+  with precondition: [0>=B+1] 
+
+* Chain [17]: 6*s(3)+6*s(4)+3
+  Such that:aux(1) =< -A+B
+aux(2) =< A-B
+s(3) =< aux(1)
+s(4) =< aux(2)
+
+  with precondition: [A>=0,B>=0] 
+
+
+#### Cost of chains of evalwisestart(A,B,C):
+* Chain [22]: 3
+  with precondition: [0>=A+1] 
+
+* Chain [21]: 3
+  with precondition: [0>=B+1] 
+
+* Chain [20]: 6*s(9)+6*s(10)+4
+  Such that:s(7) =< -A+B
+s(8) =< A-B
+s(9) =< s(7)
+s(10) =< s(8)
+
+  with precondition: [A>=0,B>=0] 
+
+
+Closed-form bounds of evalwisestart(A,B,C): 
+-------------------------------------
+* Chain [22] with precondition: [0>=A+1] 
+    - Upper bound: 3 
+    - Complexity: constant 
+* Chain [21] with precondition: [0>=B+1] 
+    - Upper bound: 3 
+    - Complexity: constant 
+* Chain [20] with precondition: [A>=0,B>=0] 
+    - Upper bound: nat(-A+B)*6+4+nat(A-B)*6 
+    - Complexity: n 
+
+### Maximum cost of evalwisestart(A,B,C): nat(-A+B)*6+1+nat(A-B)*6+3 
+Asymptotic class: n 
+* Total analysis performed in 149 ms.
+
+
+-- stats
+realtime 0:00.24
+usertime 0.18
+systime 0.00
+

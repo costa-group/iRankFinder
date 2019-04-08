@@ -1,0 +1,110 @@
+WORST_CASE(?, O(1))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evaleasy1start(Ar_0, Ar_1) -> Com_1(evaleasy1entryin(Ar_0, Ar_1))
+		(Comp: ?, Cost: 1)    evaleasy1entryin(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(0, Ar_1))
+		(Comp: ?, Cost: 1)    evaleasy1bb3in(Ar_0, Ar_1) -> Com_1(evaleasy1bbin(Ar_0, Ar_1)) [ 39 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evaleasy1bb3in(Ar_0, Ar_1) -> Com_1(evaleasy1returnin(Ar_0, Ar_1)) [ Ar_0 >= 40 ]
+		(Comp: ?, Cost: 1)    evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb1in(Ar_0, Ar_1)) [ Ar_1 = 0 ]
+		(Comp: ?, Cost: 1)    evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb2in(Ar_0, Ar_1)) [ 0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb2in(Ar_0, Ar_1)) [ Ar_1 >= 1 ]
+		(Comp: ?, Cost: 1)    evaleasy1bb1in(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(Ar_0 + 1, Ar_1))
+		(Comp: ?, Cost: 1)    evaleasy1bb2in(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(Ar_0 + 2, Ar_1))
+		(Comp: ?, Cost: 1)    evaleasy1returnin(Ar_0, Ar_1) -> Com_1(evaleasy1stop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(evaleasy1start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evaleasy1start(Ar_0, Ar_1) -> Com_1(evaleasy1entryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)    evaleasy1entryin(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(0, Ar_1))
+		(Comp: ?, Cost: 1)    evaleasy1bb3in(Ar_0, Ar_1) -> Com_1(evaleasy1bbin(Ar_0, Ar_1)) [ 39 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evaleasy1bb3in(Ar_0, Ar_1) -> Com_1(evaleasy1returnin(Ar_0, Ar_1)) [ Ar_0 >= 40 ]
+		(Comp: ?, Cost: 1)    evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb1in(Ar_0, Ar_1)) [ Ar_1 = 0 ]
+		(Comp: ?, Cost: 1)    evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb2in(Ar_0, Ar_1)) [ 0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb2in(Ar_0, Ar_1)) [ Ar_1 >= 1 ]
+		(Comp: ?, Cost: 1)    evaleasy1bb1in(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(Ar_0 + 1, Ar_1))
+		(Comp: ?, Cost: 1)    evaleasy1bb2in(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(Ar_0 + 2, Ar_1))
+		(Comp: ?, Cost: 1)    evaleasy1returnin(Ar_0, Ar_1) -> Com_1(evaleasy1stop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(evaleasy1start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evaleasy1start) = 2
+	Pol(evaleasy1entryin) = 2
+	Pol(evaleasy1bb3in) = 2
+	Pol(evaleasy1bbin) = 2
+	Pol(evaleasy1returnin) = 1
+	Pol(evaleasy1bb1in) = 2
+	Pol(evaleasy1bb2in) = 2
+	Pol(evaleasy1stop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evaleasy1returnin(Ar_0, Ar_1) -> Com_1(evaleasy1stop(Ar_0, Ar_1))
+	evaleasy1bb3in(Ar_0, Ar_1) -> Com_1(evaleasy1returnin(Ar_0, Ar_1)) [ Ar_0 >= 40 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evaleasy1start(Ar_0, Ar_1) -> Com_1(evaleasy1entryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)    evaleasy1entryin(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(0, Ar_1))
+		(Comp: ?, Cost: 1)    evaleasy1bb3in(Ar_0, Ar_1) -> Com_1(evaleasy1bbin(Ar_0, Ar_1)) [ 39 >= Ar_0 ]
+		(Comp: 2, Cost: 1)    evaleasy1bb3in(Ar_0, Ar_1) -> Com_1(evaleasy1returnin(Ar_0, Ar_1)) [ Ar_0 >= 40 ]
+		(Comp: ?, Cost: 1)    evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb1in(Ar_0, Ar_1)) [ Ar_1 = 0 ]
+		(Comp: ?, Cost: 1)    evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb2in(Ar_0, Ar_1)) [ 0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb2in(Ar_0, Ar_1)) [ Ar_1 >= 1 ]
+		(Comp: ?, Cost: 1)    evaleasy1bb1in(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(Ar_0 + 1, Ar_1))
+		(Comp: ?, Cost: 1)    evaleasy1bb2in(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(Ar_0 + 2, Ar_1))
+		(Comp: 2, Cost: 1)    evaleasy1returnin(Ar_0, Ar_1) -> Com_1(evaleasy1stop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1) -> Com_1(evaleasy1start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evaleasy1start) = 40
+	Pol(evaleasy1entryin) = 40
+	Pol(evaleasy1bb3in) = -V_1 + 40
+	Pol(evaleasy1bbin) = -V_1 + 39
+	Pol(evaleasy1returnin) = -V_1
+	Pol(evaleasy1bb1in) = -V_1 + 39
+	Pol(evaleasy1bb2in) = -V_1 + 39
+	Pol(evaleasy1stop) = -V_1
+	Pol(koat_start) = 40
+orients all transitions weakly and the transition
+	evaleasy1bb3in(Ar_0, Ar_1) -> Com_1(evaleasy1bbin(Ar_0, Ar_1)) [ 39 >= Ar_0 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)     evaleasy1start(Ar_0, Ar_1) -> Com_1(evaleasy1entryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)     evaleasy1entryin(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(0, Ar_1))
+		(Comp: 40, Cost: 1)    evaleasy1bb3in(Ar_0, Ar_1) -> Com_1(evaleasy1bbin(Ar_0, Ar_1)) [ 39 >= Ar_0 ]
+		(Comp: 2, Cost: 1)     evaleasy1bb3in(Ar_0, Ar_1) -> Com_1(evaleasy1returnin(Ar_0, Ar_1)) [ Ar_0 >= 40 ]
+		(Comp: ?, Cost: 1)     evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb1in(Ar_0, Ar_1)) [ Ar_1 = 0 ]
+		(Comp: ?, Cost: 1)     evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb2in(Ar_0, Ar_1)) [ 0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)     evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb2in(Ar_0, Ar_1)) [ Ar_1 >= 1 ]
+		(Comp: ?, Cost: 1)     evaleasy1bb1in(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(Ar_0 + 1, Ar_1))
+		(Comp: ?, Cost: 1)     evaleasy1bb2in(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(Ar_0 + 2, Ar_1))
+		(Comp: 2, Cost: 1)     evaleasy1returnin(Ar_0, Ar_1) -> Com_1(evaleasy1stop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)     koat_start(Ar_0, Ar_1) -> Com_1(evaleasy1start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 4 produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)     evaleasy1start(Ar_0, Ar_1) -> Com_1(evaleasy1entryin(Ar_0, Ar_1))
+		(Comp: 1, Cost: 1)     evaleasy1entryin(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(0, Ar_1))
+		(Comp: 40, Cost: 1)    evaleasy1bb3in(Ar_0, Ar_1) -> Com_1(evaleasy1bbin(Ar_0, Ar_1)) [ 39 >= Ar_0 ]
+		(Comp: 2, Cost: 1)     evaleasy1bb3in(Ar_0, Ar_1) -> Com_1(evaleasy1returnin(Ar_0, Ar_1)) [ Ar_0 >= 40 ]
+		(Comp: 40, Cost: 1)    evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb1in(Ar_0, Ar_1)) [ Ar_1 = 0 ]
+		(Comp: 40, Cost: 1)    evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb2in(Ar_0, Ar_1)) [ 0 >= Ar_1 + 1 ]
+		(Comp: 40, Cost: 1)    evaleasy1bbin(Ar_0, Ar_1) -> Com_1(evaleasy1bb2in(Ar_0, Ar_1)) [ Ar_1 >= 1 ]
+		(Comp: 40, Cost: 1)    evaleasy1bb1in(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(Ar_0 + 1, Ar_1))
+		(Comp: 80, Cost: 1)    evaleasy1bb2in(Ar_0, Ar_1) -> Com_1(evaleasy1bb3in(Ar_0 + 2, Ar_1))
+		(Comp: 2, Cost: 1)     evaleasy1returnin(Ar_0, Ar_1) -> Com_1(evaleasy1stop(Ar_0, Ar_1))
+		(Comp: 1, Cost: 0)     koat_start(Ar_0, Ar_1) -> Com_1(evaleasy1start(Ar_0, Ar_1)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 286
+
+Time: 0.035 sec (SMT: 0.032 sec)

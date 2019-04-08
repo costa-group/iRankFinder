@@ -1,0 +1,265 @@
+WORST_CASE(?, O(n^2))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]
+		(Comp: ?, Cost: 1)    evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))
+		(Comp: ?, Cost: 1)    evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]
+		(Comp: ?, Cost: 1)    evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]
+		(Comp: ?, Cost: 1)    evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)    evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]
+		(Comp: ?, Cost: 1)    evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))
+		(Comp: ?, Cost: 1)    evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]
+		(Comp: ?, Cost: 1)    evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]
+		(Comp: ?, Cost: 1)    evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrealselectstart) = 2
+	Pol(evalrealselectentryin) = 2
+	Pol(evalrealselectbb6in) = 2
+	Pol(evalrealselectbbin) = 2
+	Pol(evalrealselectreturnin) = 1
+	Pol(evalrealselectbb4in) = 2
+	Pol(evalrealselectbb1in) = 2
+	Pol(evalrealselectbb5in) = 2
+	Pol(evalrealselectstop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))
+	evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)    evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))
+		(Comp: ?, Cost: 1)    evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]
+		(Comp: 2, Cost: 1)    evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))
+		(Comp: ?, Cost: 1)    evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)    evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]
+		(Comp: ?, Cost: 1)    evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]
+		(Comp: ?, Cost: 1)    evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)    evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrealselectstart) = V_2 + 1
+	Pol(evalrealselectentryin) = V_2 + 1
+	Pol(evalrealselectbb6in) = -V_1 + V_2 + 1
+	Pol(evalrealselectbbin) = -V_1 + V_2
+	Pol(evalrealselectreturnin) = -V_1 + V_2
+	Pol(evalrealselectbb4in) = -V_1 + V_2
+	Pol(evalrealselectbb1in) = -V_1 + V_2
+	Pol(evalrealselectbb5in) = -V_1 + V_2
+	Pol(evalrealselectstop) = -V_1 + V_2
+	Pol(koat_start) = V_2 + 1
+orients all transitions weakly and the transition
+	evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)           evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)           evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))
+		(Comp: Ar_1 + 1, Cost: 1)    evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]
+		(Comp: 2, Cost: 1)           evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]
+		(Comp: ?, Cost: 1)           evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))
+		(Comp: ?, Cost: 1)           evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)           evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)           evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]
+		(Comp: ?, Cost: 1)           evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]
+		(Comp: ?, Cost: 1)           evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)           evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 4 produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)           evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)           evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))
+		(Comp: Ar_1 + 1, Cost: 1)    evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]
+		(Comp: 2, Cost: 1)           evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]
+		(Comp: Ar_1 + 1, Cost: 1)    evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))
+		(Comp: ?, Cost: 1)           evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)           evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)           evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]
+		(Comp: ?, Cost: 1)           evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]
+		(Comp: ?, Cost: 1)           evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)           evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)           koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrealselectbb5in) = 1
+	Pol(evalrealselectbb6in) = 0
+	Pol(evalrealselectbb4in) = 2
+	Pol(evalrealselectbb1in) = 2
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))", 0-0) = ?
+	S("evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))", 0-2) = ?
+	S("evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))", 0-0) = ?
+	S("evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))", 0-2) = ?
+	S("evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]", 0-0) = ?
+	S("evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]", 0-1) = Ar_1
+	S("evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]", 0-2) = ?
+	S("evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]", 0-0) = ?
+	S("evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]", 0-1) = Ar_1
+	S("evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]", 0-2) = ?
+	S("evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]", 0-0) = ?
+	S("evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]", 0-1) = Ar_1
+	S("evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]", 0-2) = ?
+	S("evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]", 0-0) = ?
+	S("evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]", 0-1) = Ar_1
+	S("evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]", 0-2) = ?
+	S("evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))", 0-0) = ?
+	S("evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))", 0-1) = Ar_1
+	S("evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))", 0-2) = ?
+	S("evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]", 0-0) = ?
+	S("evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]", 0-1) = Ar_1
+	S("evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]", 0-2) = ?
+	S("evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]", 0-0) = ?
+	S("evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]", 0-1) = Ar_1
+	S("evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]", 0-2) = ?
+	S("evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))", 0-0) = 0
+	S("evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))", 0-2) = Ar_2
+	S("evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))", 0-0) = Ar_0
+	S("evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))", 0-2) = Ar_2
+orients the transitions
+	evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))
+	evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+	evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+	evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]
+	evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]
+weakly and the transitions
+	evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))
+	evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+strictly and produces the following problem:
+6:	T:
+		(Comp: 1, Cost: 1)             evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)             evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))
+		(Comp: Ar_1 + 1, Cost: 1)      evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]
+		(Comp: 2, Cost: 1)             evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]
+		(Comp: Ar_1 + 1, Cost: 1)      evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))
+		(Comp: ?, Cost: 1)             evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 2*Ar_1 + 2, Cost: 1)    evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)             evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]
+		(Comp: ?, Cost: 1)             evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]
+		(Comp: 2*Ar_1 + 2, Cost: 1)    evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)             evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)             koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrealselectbb4in) = V_2 - V_3 + 1
+	Pol(evalrealselectbb1in) = V_2 - V_3
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))", 0-0) = 2*Ar_1 + 32
+	S("evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))", 0-2) = ?
+	S("evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))", 0-0) = 2*Ar_1 + 8
+	S("evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))", 0-2) = ?
+	S("evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]", 0-0) = 2*Ar_1 + 8
+	S("evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]", 0-1) = Ar_1
+	S("evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]", 0-2) = ?
+	S("evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]", 0-0) = 2*Ar_1 + 8
+	S("evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]", 0-1) = Ar_1
+	S("evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]", 0-2) = ?
+	S("evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]", 0-0) = 2*Ar_1 + 8
+	S("evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]", 0-1) = Ar_1
+	S("evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]", 0-2) = ?
+	S("evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]", 0-0) = 2*Ar_1 + 8
+	S("evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]", 0-1) = Ar_1
+	S("evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]", 0-2) = ?
+	S("evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))", 0-0) = 2*Ar_1 + 8
+	S("evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))", 0-1) = Ar_1
+	S("evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))", 0-2) = 2*Ar_1 + 18
+	S("evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]", 0-0) = 2*Ar_1 + 16
+	S("evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]", 0-1) = Ar_1
+	S("evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]", 0-2) = ?
+	S("evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]", 0-0) = 2*Ar_1 + 8
+	S("evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]", 0-1) = Ar_1
+	S("evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]", 0-2) = ?
+	S("evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))", 0-0) = 0
+	S("evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))", 0-2) = Ar_2
+	S("evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))", 0-0) = Ar_0
+	S("evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))", 0-1) = Ar_1
+	S("evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))", 0-2) = Ar_2
+orients the transitions
+	evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+	evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]
+	evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]
+weakly and the transition
+	evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+strictly and produces the following problem:
+7:	T:
+		(Comp: 1, Cost: 1)                          evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)                          evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))
+		(Comp: Ar_1 + 1, Cost: 1)                   evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]
+		(Comp: 2, Cost: 1)                          evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]
+		(Comp: Ar_1 + 1, Cost: 1)                   evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))
+		(Comp: 3*Ar_1^2 + 22*Ar_1 + 19, Cost: 1)    evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 2*Ar_1 + 2, Cost: 1)                 evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: ?, Cost: 1)                          evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]
+		(Comp: ?, Cost: 1)                          evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]
+		(Comp: 2*Ar_1 + 2, Cost: 1)                 evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)                          evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)                          koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 7 produces the following problem:
+8:	T:
+		(Comp: 1, Cost: 1)                          evalrealselectstart(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectentryin(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 1)                          evalrealselectentryin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(0, Ar_1, Ar_2))
+		(Comp: Ar_1 + 1, Cost: 1)                   evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbbin(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_0 + 2 ]
+		(Comp: 2, Cost: 1)                          evalrealselectbb6in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectreturnin(Ar_0, Ar_1, Ar_2)) [ Ar_0 + 1 >= Ar_1 ]
+		(Comp: Ar_1 + 1, Cost: 1)                   evalrealselectbbin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_0 + 1))
+		(Comp: 3*Ar_1^2 + 22*Ar_1 + 19, Cost: 1)    evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb1in(Ar_0, Ar_1, Ar_2)) [ Ar_1 >= Ar_2 + 1 ]
+		(Comp: 2*Ar_1 + 2, Cost: 1)                 evalrealselectbb4in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb5in(Ar_0, Ar_1, Ar_2)) [ Ar_2 >= Ar_1 ]
+		(Comp: 3*Ar_1^2 + 22*Ar_1 + 19, Cost: 1)    evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ D >= E + 1 ]
+		(Comp: 3*Ar_1^2 + 22*Ar_1 + 19, Cost: 1)    evalrealselectbb1in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb4in(Ar_0, Ar_1, Ar_2 + 1)) [ E >= D ]
+		(Comp: 2*Ar_1 + 2, Cost: 1)                 evalrealselectbb5in(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectbb6in(Ar_0 + 1, Ar_1, Ar_2))
+		(Comp: 2, Cost: 1)                          evalrealselectreturnin(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstop(Ar_0, Ar_1, Ar_2))
+		(Comp: 1, Cost: 0)                          koat_start(Ar_0, Ar_1, Ar_2) -> Com_1(evalrealselectstart(Ar_0, Ar_1, Ar_2)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 72*Ar_1 + 9*Ar_1^2 + 69
+
+Time: 0.062 sec (SMT: 0.053 sec)

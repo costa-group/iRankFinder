@@ -1,0 +1,230 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalwcet2bb1in/5,evalwcet2bb2in/5]
+1. recursive  : [evalwcet2bb2in_loop_cont/6,evalwcet2bb4in/5,evalwcet2bb5in/5]
+2. non_recursive  : [evalwcet2stop/3]
+3. non_recursive  : [evalwcet2returnin/3]
+4. non_recursive  : [exit_location/1]
+5. non_recursive  : [evalwcet2bb5in_loop_cont/4]
+6. non_recursive  : [evalwcet2entryin/3]
+7. non_recursive  : [evalwcet2start/3]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalwcet2bb2in/5
+1. SCC is partially evaluated into evalwcet2bb5in/5
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is completely evaluated into other SCCs
+5. SCC is partially evaluated into evalwcet2bb5in_loop_cont/4
+6. SCC is partially evaluated into evalwcet2entryin/3
+7. SCC is partially evaluated into evalwcet2start/3
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalwcet2bb2in/5 
+* CE 12 is refined into CE [13] 
+* CE 11 is refined into CE [14] 
+* CE 10 is refined into CE [15] 
+* CE 9 is refined into CE [16] 
+
+
+### Cost equations --> "Loop" of evalwcet2bb2in/5 
+* CEs [16] --> Loop 12 
+* CEs [13] --> Loop 13 
+* CEs [14] --> Loop 14 
+* CEs [15] --> Loop 15 
+
+### Ranking functions of CR evalwcet2bb2in(A,B,C,D,E) 
+* RF of phase [12]: [-B+10]
+
+#### Partial ranking functions of CR evalwcet2bb2in(A,B,C,D,E) 
+* Partial RF of phase [12]:
+  - RF of loop [12:1]:
+    -B+10
+
+
+### Specialization of cost equations evalwcet2bb5in/5 
+* CE 5 is refined into CE [17] 
+* CE 3 is refined into CE [18] 
+* CE 6 is refined into CE [19] 
+* CE 4 is refined into CE [20,21] 
+
+
+### Cost equations --> "Loop" of evalwcet2bb5in/5 
+* CEs [21] --> Loop 16 
+* CEs [20] --> Loop 17 
+* CEs [17] --> Loop 18 
+* CEs [18,19] --> Loop 19 
+
+### Ranking functions of CR evalwcet2bb5in(A,B,C,D,E) 
+* RF of phase [16]: [-A+5]
+* RF of phase [17]: [-A+3]
+
+#### Partial ranking functions of CR evalwcet2bb5in(A,B,C,D,E) 
+* Partial RF of phase [16]:
+  - RF of loop [16:1]:
+    -A+5
+* Partial RF of phase [17]:
+  - RF of loop [17:1]:
+    -A+3
+
+
+### Specialization of cost equations evalwcet2bb5in_loop_cont/4 
+* CE 7 is refined into CE [22] 
+* CE 8 is refined into CE [23] 
+
+
+### Cost equations --> "Loop" of evalwcet2bb5in_loop_cont/4 
+* CEs [22] --> Loop 20 
+* CEs [23] --> Loop 21 
+
+### Ranking functions of CR evalwcet2bb5in_loop_cont(A,B,C,D) 
+
+#### Partial ranking functions of CR evalwcet2bb5in_loop_cont(A,B,C,D) 
+
+
+### Specialization of cost equations evalwcet2entryin/3 
+* CE 2 is refined into CE [24,25,26,27] 
+
+
+### Cost equations --> "Loop" of evalwcet2entryin/3 
+* CEs [24,25,26,27] --> Loop 22 
+
+### Ranking functions of CR evalwcet2entryin(A,B,C) 
+
+#### Partial ranking functions of CR evalwcet2entryin(A,B,C) 
+
+
+### Specialization of cost equations evalwcet2start/3 
+* CE 1 is refined into CE [28] 
+
+
+### Cost equations --> "Loop" of evalwcet2start/3 
+* CEs [28] --> Loop 23 
+
+### Ranking functions of CR evalwcet2start(A,B,C) 
+
+#### Partial ranking functions of CR evalwcet2start(A,B,C) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalwcet2bb2in(A,B,C,D,E):
+* Chain [[12],14]: 2*it(12)+1
+  Such that:it(12) =< -B+10
+
+  with precondition: [C=2,E=10,A=D,4>=A,9>=B,A>=3,B>=0] 
+
+* Chain [[12],13]: 2*it(12)+0
+  Such that:it(12) =< -B+10
+
+  with precondition: [C=3,4>=A,9>=B,A>=3,B>=0] 
+
+* Chain [15]: 1
+  with precondition: [B=0,C=2,E=0,A=D,2>=A] 
+
+* Chain [13]: 0
+  with precondition: [C=3,4>=A,B>=0] 
+
+
+#### Cost of chains of evalwcet2bb5in(A,B,C,D,E):
+* Chain [[17],[16],19]: 3*it(16)+3*it(17)+2*s(5)+21
+  Such that:aux(4) =< 2
+it(17) =< -A+3
+it(16) =< aux(4)
+s(5) =< aux(4)*10
+
+  with precondition: [C=3,2>=A] 
+
+* Chain [[17],[16],18]: 3*it(16)+3*it(17)+2*s(5)+1
+  Such that:aux(5) =< 2
+it(17) =< -A+3
+it(16) =< aux(5)
+s(5) =< aux(5)*10
+
+  with precondition: [C=4,D=5,E=10,2>=A] 
+
+* Chain [[17],19]: 3*it(17)+21
+  Such that:it(17) =< -A+3
+
+  with precondition: [C=3,2>=A] 
+
+* Chain [[16],19]: 3*it(16)+2*s(5)+21
+  Such that:aux(4) =< -A+5
+it(16) =< aux(4)
+s(5) =< aux(4)*10
+
+  with precondition: [C=3,4>=A,A>=3] 
+
+* Chain [[16],18]: 3*it(16)+2*s(5)+1
+  Such that:aux(5) =< -A+5
+it(16) =< aux(5)
+s(5) =< aux(5)*10
+
+  with precondition: [C=4,D=5,E=10,4>=A,A>=3] 
+
+* Chain [19]: 21
+  with precondition: [C=3] 
+
+* Chain [18]: 1
+  with precondition: [C=4,E=B,A=D,A>=5] 
+
+
+#### Cost of chains of evalwcet2bb5in_loop_cont(A,B,C,D):
+* Chain [21]: 0
+  with precondition: [A=3] 
+
+* Chain [20]: 1
+  with precondition: [A=4] 
+
+
+#### Cost of chains of evalwcet2entryin(A,B,C):
+* Chain [22]: 9*s(17)+6*s(18)+4*s(19)+6*s(20)+4*s(21)+22
+  Such that:aux(7) =< 2
+aux(8) =< -A+3
+aux(9) =< -A+5
+s(17) =< aux(8)
+s(18) =< aux(7)
+s(19) =< aux(7)*10
+s(20) =< aux(9)
+s(21) =< aux(9)*10
+
+  with precondition: [] 
+
+
+#### Cost of chains of evalwcet2start(A,B,C):
+* Chain [23]: 9*s(32)+6*s(33)+4*s(34)+6*s(35)+4*s(36)+23
+  Such that:s(29) =< 2
+s(30) =< -A+3
+s(31) =< -A+5
+s(32) =< s(30)
+s(33) =< s(29)
+s(34) =< s(29)*10
+s(35) =< s(31)
+s(36) =< s(31)*10
+
+  with precondition: [] 
+
+
+Closed-form bounds of evalwcet2start(A,B,C): 
+-------------------------------------
+* Chain [23] with precondition: [] 
+    - Upper bound: nat(-A+3)*9+115+nat(-A+5)*46 
+    - Complexity: n 
+
+### Maximum cost of evalwcet2start(A,B,C): nat(-A+3)*9+115+nat(-A+5)*46 
+Asymptotic class: n 
+* Total analysis performed in 188 ms.
+
+
+-- stats
+realtime 0:00.31
+usertime 0.22
+systime 0.00
+

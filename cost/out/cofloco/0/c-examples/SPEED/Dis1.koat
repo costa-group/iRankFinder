@@ -1,0 +1,172 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalDis1bb1in/9,evalDis1bb2in/9,evalDis1bb3in/9,evalDis1bbin/9]
+1. non_recursive  : [evalDis1stop/5]
+2. non_recursive  : [evalDis1returnin/5]
+3. non_recursive  : [exit_location/1]
+4. non_recursive  : [evalDis1bb3in_loop_cont/6]
+5. non_recursive  : [evalDis1entryin/5]
+6. non_recursive  : [evalDis1start/5]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalDis1bb3in/9
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is partially evaluated into evalDis1bb3in_loop_cont/6
+5. SCC is partially evaluated into evalDis1entryin/5
+6. SCC is partially evaluated into evalDis1start/5
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalDis1bb3in/9 
+* CE 6 is refined into CE [9] 
+* CE 5 is refined into CE [10] 
+* CE 3 is refined into CE [11] 
+* CE 4 is refined into CE [12] 
+
+
+### Cost equations --> "Loop" of evalDis1bb3in/9 
+* CEs [11] --> Loop 9 
+* CEs [12] --> Loop 10 
+* CEs [9] --> Loop 11 
+* CEs [10] --> Loop 12 
+
+### Ranking functions of CR evalDis1bb3in(A,B,C,D,E,F,G,H,I) 
+* RF of phase [9]: [C-D]
+* RF of phase [10]: [A-B]
+
+#### Partial ranking functions of CR evalDis1bb3in(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [9]:
+  - RF of loop [9:1]:
+    C-D
+* Partial RF of phase [10]:
+  - RF of loop [10:1]:
+    A-B
+
+
+### Specialization of cost equations evalDis1bb3in_loop_cont/6 
+* CE 8 is refined into CE [13] 
+* CE 7 is refined into CE [14] 
+
+
+### Cost equations --> "Loop" of evalDis1bb3in_loop_cont/6 
+* CEs [13] --> Loop 13 
+* CEs [14] --> Loop 14 
+
+### Ranking functions of CR evalDis1bb3in_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR evalDis1bb3in_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations evalDis1entryin/5 
+* CE 2 is refined into CE [15,16,17,18] 
+
+
+### Cost equations --> "Loop" of evalDis1entryin/5 
+* CEs [15,16,17,18] --> Loop 15 
+
+### Ranking functions of CR evalDis1entryin(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalDis1entryin(A,B,C,D,E) 
+
+
+### Specialization of cost equations evalDis1start/5 
+* CE 1 is refined into CE [19] 
+
+
+### Cost equations --> "Loop" of evalDis1start/5 
+* CEs [19] --> Loop 16 
+
+### Ranking functions of CR evalDis1start(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalDis1start(A,B,C,D,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalDis1bb3in(A,B,C,D,E,F,G,H,I):
+* Chain [[10],12]: 3*it(10)+1
+  Such that:it(10) =< A-B
+
+  with precondition: [E=2,A=F,A=G,C=H,D=I,A>=B+1,D>=C] 
+
+* Chain [[10],11]: 3*it(10)+0
+  Such that:it(10) =< A-B
+
+  with precondition: [E=3,A>=B+1,D>=C] 
+
+* Chain [[9],[10],12]: 3*it(9)+3*it(10)+1
+  Such that:it(10) =< A-B
+it(9) =< C-D
+
+  with precondition: [E=2,A=F,A=G,C=H,C=I,A>=B+1,C>=D+1] 
+
+* Chain [[9],[10],11]: 3*it(9)+3*it(10)+0
+  Such that:it(10) =< A-B
+it(9) =< C-D
+
+  with precondition: [E=3,A>=B+1,C>=D+1] 
+
+* Chain [[9],11]: 3*it(9)+0
+  Such that:it(9) =< C-D
+
+  with precondition: [E=3,A>=B+1,C>=D+1] 
+
+* Chain [12]: 1
+  with precondition: [E=2,H=C,I=D,A=F,B=G,B>=A] 
+
+* Chain [11]: 0
+  with precondition: [E=3] 
+
+
+#### Cost of chains of evalDis1bb3in_loop_cont(A,B,C,D,E,F):
+* Chain [14]: 1
+  with precondition: [A=2] 
+
+* Chain [13]: 0
+  with precondition: [A=3] 
+
+
+#### Cost of chains of evalDis1entryin(A,B,C,D,E):
+* Chain [15]: 12*s(5)+9*s(6)+3
+  Such that:aux(3) =< -A+B
+aux(4) =< -C+D
+s(5) =< aux(3)
+s(6) =< aux(4)
+
+  with precondition: [] 
+
+
+#### Cost of chains of evalDis1start(A,B,C,D,E):
+* Chain [16]: 12*s(14)+9*s(15)+4
+  Such that:s(12) =< -A+B
+s(13) =< -C+D
+s(14) =< s(12)
+s(15) =< s(13)
+
+  with precondition: [] 
+
+
+Closed-form bounds of evalDis1start(A,B,C,D,E): 
+-------------------------------------
+* Chain [16] with precondition: [] 
+    - Upper bound: nat(-A+B)*12+4+nat(-C+D)*9 
+    - Complexity: n 
+
+### Maximum cost of evalDis1start(A,B,C,D,E): nat(-A+B)*12+4+nat(-C+D)*9 
+Asymptotic class: n 
+* Total analysis performed in 205 ms.
+
+
+-- stats
+realtime 0:00.34
+usertime 0.24
+systime 0.01
+

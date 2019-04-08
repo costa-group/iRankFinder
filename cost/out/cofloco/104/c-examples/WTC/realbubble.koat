@@ -1,0 +1,304 @@
+WORST_CASE(?,O(n^2))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_evalrealbubblebb1in___6/9,n_evalrealbubblebb4in___4/9]
+1. recursive  : [n_evalrealbubblebb1in___3/9,n_evalrealbubblebb4in___5/9]
+2. recursive  : [n_evalrealbubblebb1in___6_loop_cont/10,n_evalrealbubblebb4in___5_loop_cont/10,n_evalrealbubblebb4in___8/9,n_evalrealbubblebb5in___1/9,n_evalrealbubblebb5in___2/9,n_evalrealbubblebb7in___9/9]
+3. non_recursive  : [exit_location/1]
+4. non_recursive  : [n_evalrealbubblestop___7/5]
+5. non_recursive  : [n_evalrealbubblebb7in___9_loop_cont/6]
+6. non_recursive  : [n_evalrealbubblestart/5]
+7. non_recursive  : [pyRinit/5]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_evalrealbubblebb1in___6/9
+1. SCC is partially evaluated into n_evalrealbubblebb4in___5/9
+2. SCC is partially evaluated into n_evalrealbubblebb7in___9/9
+3. SCC is completely evaluated into other SCCs
+4. SCC is completely evaluated into other SCCs
+5. SCC is partially evaluated into n_evalrealbubblebb7in___9_loop_cont/6
+6. SCC is partially evaluated into n_evalrealbubblestart/5
+7. SCC is partially evaluated into pyRinit/5
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_evalrealbubblebb1in___6/9 
+* CE 14 is refined into CE [18] 
+* CE 11 is refined into CE [19] 
+* CE 13 is refined into CE [20] 
+* CE 12 is refined into CE [21] 
+
+
+### Cost equations --> "Loop" of n_evalrealbubblebb1in___6/9 
+* CEs [21] --> Loop 16 
+* CEs [19] --> Loop 17 
+* CEs [20] --> Loop 18 
+* CEs [18] --> Loop 19 
+
+### Ranking functions of CR n_evalrealbubblebb1in___6(A,B,C,D,E,F,G,H,I) 
+* RF of phase [16]: [A-B-1]
+
+#### Partial ranking functions of CR n_evalrealbubblebb1in___6(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [16]:
+  - RF of loop [16:1]:
+    A-B-1
+
+
+### Specialization of cost equations n_evalrealbubblebb4in___5/9 
+* CE 17 is refined into CE [22] 
+* CE 16 is refined into CE [23] 
+* CE 15 is refined into CE [24] 
+
+
+### Cost equations --> "Loop" of n_evalrealbubblebb4in___5/9 
+* CEs [24] --> Loop 20 
+* CEs [22] --> Loop 21 
+* CEs [23] --> Loop 22 
+
+### Ranking functions of CR n_evalrealbubblebb4in___5(A,B,C,D,E,F,G,H,I) 
+* RF of phase [20]: [A-B]
+
+#### Partial ranking functions of CR n_evalrealbubblebb4in___5(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [20]:
+  - RF of loop [20:1]:
+    A-B
+
+
+### Specialization of cost equations n_evalrealbubblebb7in___9/9 
+* CE 4 is refined into CE [25,26] 
+* CE 7 is refined into CE [27] 
+* CE 3 is refined into CE [28] 
+* CE 6 is refined into CE [29,30] 
+* CE 8 is refined into CE [31] 
+* CE 5 is refined into CE [32,33,34,35] 
+
+
+### Cost equations --> "Loop" of n_evalrealbubblebb7in___9/9 
+* CEs [33,34,35] --> Loop 23 
+* CEs [32] --> Loop 24 
+* CEs [26] --> Loop 25 
+* CEs [27] --> Loop 26 
+* CEs [28,29,30,31] --> Loop 27 
+* CEs [25] --> Loop 28 
+
+### Ranking functions of CR n_evalrealbubblebb7in___9(A,B,C,D,E,F,G,H,I) 
+* RF of phase [23]: [A-1]
+
+#### Partial ranking functions of CR n_evalrealbubblebb7in___9(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [23]:
+  - RF of loop [23:1]:
+    A-1
+
+
+### Specialization of cost equations n_evalrealbubblebb7in___9_loop_cont/6 
+* CE 9 is refined into CE [36] 
+* CE 10 is refined into CE [37] 
+
+
+### Cost equations --> "Loop" of n_evalrealbubblebb7in___9_loop_cont/6 
+* CEs [36] --> Loop 29 
+* CEs [37] --> Loop 30 
+
+### Ranking functions of CR n_evalrealbubblebb7in___9_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR n_evalrealbubblebb7in___9_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations n_evalrealbubblestart/5 
+* CE 2 is refined into CE [38,39,40,41] 
+
+
+### Cost equations --> "Loop" of n_evalrealbubblestart/5 
+* CEs [38,39,40,41] --> Loop 31 
+
+### Ranking functions of CR n_evalrealbubblestart(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalrealbubblestart(A,B,C,D,E) 
+
+
+### Specialization of cost equations pyRinit/5 
+* CE 1 is refined into CE [42] 
+
+
+### Cost equations --> "Loop" of pyRinit/5 
+* CEs [42] --> Loop 32 
+
+### Ranking functions of CR pyRinit(A,B,C,D,E) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_evalrealbubblebb1in___6(A,B,C,D,E,F,G,H,I):
+* Chain [[16],19]: 2*it(16)+0
+  Such that:it(16) =< A-B
+
+  with precondition: [C=0,E=3,B>=0,A>=B+2] 
+
+* Chain [[16],18]: 2*it(16)+1
+  Such that:it(16) =< -B+G
+
+  with precondition: [C=0,E=4,H=1,I=1,A=F,B>=0,G>=B+2,A>=G] 
+
+* Chain [[16],17]: 2*it(16)+2
+  Such that:it(16) =< A-B
+
+  with precondition: [C=0,E=5,H=0,I=0,A=F,A=G,B>=0,A>=B+2] 
+
+* Chain [19]: 0
+  with precondition: [C=0,E=3,B>=0,A>=B+1] 
+
+* Chain [18]: 1
+  with precondition: [C=0,E=4,H=1,I=1,A=F,B+1=G,B>=0,A>=B+1] 
+
+* Chain [17]: 2
+  with precondition: [C=0,E=5,H=0,I=0,B+1=A,B+1=F,B+1=G,B>=0] 
+
+
+#### Cost of chains of n_evalrealbubblebb4in___5(A,B,C,D,E,F,G,H,I):
+* Chain [[20],22]: 2*it(20)+1
+  Such that:it(20) =< A-B
+
+  with precondition: [C=1,D=1,E=2,H=1,I=1,A=F,A=G,B>=1,A>=B+1] 
+
+* Chain [[20],21]: 2*it(20)+0
+  Such that:it(20) =< A-B
+
+  with precondition: [C=1,D=1,E=3,B>=1,A>=B+1] 
+
+* Chain [22]: 1
+  with precondition: [C=1,D=1,E=2,H=1,I=1,A=B,A=F,A=G,A>=1] 
+
+* Chain [21]: 0
+  with precondition: [E=3] 
+
+
+#### Cost of chains of n_evalrealbubblebb7in___9(A,B,C,D,E,F,G,H,I):
+* Chain [[23],28]: 5*it(23)+2*s(10)+6*s(11)+5
+  Such that:aux(6) =< A
+it(23) =< aux(6)
+aux(4) =< aux(6)+1
+s(10) =< it(23)*aux(6)
+s(12) =< it(23)*aux(4)
+s(11) =< s(12)
+
+  with precondition: [E=6,A>=2] 
+
+* Chain [[23],27]: 13*it(23)+2*s(10)+6*s(11)+3
+  Such that:aux(9) =< A
+it(23) =< aux(9)
+aux(4) =< aux(9)+1
+s(10) =< it(23)*aux(9)
+s(12) =< it(23)*aux(4)
+s(11) =< s(12)
+
+  with precondition: [E=3,A>=2] 
+
+* Chain [[23],25]: 7*it(23)+2*s(10)+6*s(11)+5
+  Such that:aux(10) =< A
+it(23) =< aux(10)
+aux(4) =< aux(10)+1
+s(10) =< it(23)*aux(10)
+s(12) =< it(23)*aux(4)
+s(11) =< s(12)
+
+  with precondition: [E=6,A>=3] 
+
+* Chain [[23],24,27]: 5*it(23)+2*s(10)+6*s(11)+8
+  Such that:aux(11) =< A
+it(23) =< aux(11)
+aux(4) =< aux(11)+1
+s(10) =< it(23)*aux(11)
+s(12) =< it(23)*aux(4)
+s(11) =< s(12)
+
+  with precondition: [E=3,A>=2] 
+
+* Chain [[23],24,26]: 5*it(23)+2*s(10)+6*s(11)+6
+  Such that:aux(12) =< A
+it(23) =< aux(12)
+aux(4) =< aux(12)+1
+s(10) =< it(23)*aux(12)
+s(12) =< it(23)*aux(4)
+s(11) =< s(12)
+
+  with precondition: [E=6,A>=2] 
+
+* Chain [28]: 5
+  with precondition: [A=1,E=6] 
+
+* Chain [27]: 8*s(13)+3
+  Such that:aux(8) =< A
+s(13) =< aux(8)
+
+  with precondition: [E=3] 
+
+* Chain [26]: 1
+  with precondition: [E=6,0>=A] 
+
+* Chain [25]: 2*s(17)+5
+  Such that:s(17) =< A
+
+  with precondition: [E=6,A>=2] 
+
+* Chain [24,27]: 8
+  with precondition: [A=1,E=3] 
+
+* Chain [24,26]: 6
+  with precondition: [A=1,E=6] 
+
+
+#### Cost of chains of n_evalrealbubblebb7in___9_loop_cont(A,B,C,D,E,F):
+* Chain [30]: 0
+  with precondition: [A=3] 
+
+* Chain [29]: 0
+  with precondition: [A=6] 
+
+
+#### Cost of chains of n_evalrealbubblestart(A,B,C,D,E):
+* Chain [31]: 45*s(52)+10*s(54)+30*s(56)+9
+  Such that:aux(15) =< A
+s(52) =< aux(15)
+s(53) =< aux(15)+1
+s(54) =< s(52)*aux(15)
+s(55) =< s(52)*s(53)
+s(56) =< s(55)
+
+  with precondition: [] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D,E):
+* Chain [32]: 45*s(64)+10*s(66)+30*s(68)+10
+  Such that:s(63) =< A
+s(64) =< s(63)
+s(65) =< s(63)+1
+s(66) =< s(64)*s(63)
+s(67) =< s(64)*s(65)
+s(68) =< s(67)
+
+  with precondition: [] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D,E): 
+-------------------------------------
+* Chain [32] with precondition: [] 
+    - Upper bound: nat(A)*75+10+nat(A)*40*nat(A) 
+    - Complexity: n^2 
+
+### Maximum cost of pyRinit(A,B,C,D,E): nat(A)*75+10+nat(A)*40*nat(A) 
+Asymptotic class: n^2 
+* Total analysis performed in 512 ms.
+
+
+-- stats
+realtime 0:00.58
+usertime 0.55
+systime 0.00
+

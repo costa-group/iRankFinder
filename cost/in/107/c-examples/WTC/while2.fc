@@ -1,0 +1,111 @@
+{
+  vars: [A,B,C],
+  pvars: [A',B',C'],
+  initnode: evalwhile2start,
+  nodes: {
+    evalwhile2bb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [C >= 0],
+        [-C > 0],
+      ],
+      inv_polyhedra: [-A + B >= 0, -1 + C >= 0, B -C >= 0],
+    },
+    evalwhile2bb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+        [C >= 0],
+        [-C > 0],
+      ],
+      inv_polyhedra: [B -C >= 0, -A + B >= 0, -1 + B >= 0],
+    },
+    evalwhile2bb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [-A + B >= 0, -C >= 0],
+    },
+    evalwhile2bb4in: {
+      cfr_properties: [
+        // RFs Properties
+        [1 + A >= 0],
+        [-1 -A > 0],
+      ],
+      inv_polyhedra: [-A + B >= 0],
+    },
+    evalwhile2entryin: {
+      inv_polyhedra: [],
+    },
+    evalwhile2returnin: {
+      inv_polyhedra: [-A >= 0, -A + B >= 0],
+    },
+    evalwhile2start: {
+      inv_polyhedra: [],
+    },
+    evalwhile2stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalwhile2start,
+	target: evalwhile2entryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalwhile2entryin,
+	target: evalwhile2bb4in,
+	name: t1,
+	constraints: [B -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalwhile2bb4in,
+	target: evalwhile2bb2in,
+	name: t2,
+	constraints: [A -1 >= 0, A -A' = 0, B -B' = 0, B -C' = 0]
+    },
+    {
+	source: evalwhile2bb4in,
+	target: evalwhile2returnin,
+	name: t3,
+	constraints: [-A >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalwhile2bb2in,
+	target: evalwhile2bb1in,
+	name: t4,
+	constraints: [C -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalwhile2bb2in,
+	target: evalwhile2bb3in,
+	name: t5,
+	constraints: [-C >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalwhile2bb1in,
+	target: evalwhile2bb2in,
+	name: t6,
+	constraints: [A -A' = 0, B -B' = 0, C -1 -C' = 0]
+    },
+    {
+	source: evalwhile2bb3in,
+	target: evalwhile2bb4in,
+	name: t7,
+	constraints: [A -1 -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalwhile2returnin,
+	target: evalwhile2stop,
+	name: t8,
+	constraints: []
+    }
+  ]
+}

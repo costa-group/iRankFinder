@@ -1,0 +1,434 @@
+MAYBE
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [n_evalfbb3in___2/9]
+1. recursive  : [n_evalfbb3in___2_loop_cont/10,n_evalfbb3in___4/9,n_evalfbb5in___1/9]
+2. recursive  : [n_evalfbb3in___4_loop_cont/10,n_evalfbb5in___6/9,n_evalfbb7in___3/9]
+3. non_recursive  : [exit_location/1]
+4. non_recursive  : [n_evalfstop___5/5]
+5. non_recursive  : [n_evalfbb5in___6_loop_cont/6]
+6. non_recursive  : [n_evalfbb7in___7/5]
+7. non_recursive  : [n_evalfstart/5]
+8. non_recursive  : [pyRinit/5]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into n_evalfbb3in___2/9
+1. SCC is partially evaluated into n_evalfbb3in___4/9
+2. SCC is partially evaluated into n_evalfbb5in___6/9
+3. SCC is completely evaluated into other SCCs
+4. SCC is completely evaluated into other SCCs
+5. SCC is partially evaluated into n_evalfbb5in___6_loop_cont/6
+6. SCC is partially evaluated into n_evalfbb7in___7/5
+7. SCC is completely evaluated into other SCCs
+8. SCC is partially evaluated into pyRinit/5
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations n_evalfbb3in___2/9 
+* CE 20 is refined into CE [21] 
+* CE 19 is refined into CE [22] 
+* CE 18 is refined into CE [23] 
+
+
+### Cost equations --> "Loop" of n_evalfbb3in___2/9 
+* CEs [23] --> Loop 18 
+* CEs [21] --> Loop 19 
+* CEs [22] --> Loop 20 
+
+### Ranking functions of CR n_evalfbb3in___2(A,B,C,D,E,F,G,H,I) 
+* RF of phase [18]: [B-D-1,C-D]
+
+#### Partial ranking functions of CR n_evalfbb3in___2(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [18]:
+  - RF of loop [18:1]:
+    B-D-1
+    C-D
+
+
+### Specialization of cost equations n_evalfbb3in___4/9 
+* CE 14 is refined into CE [24,25] 
+* CE 12 is refined into CE [26] 
+* CE 17 is refined into CE [27] 
+* CE 15 is refined into CE [28] 
+* CE 13 is refined into CE [29,30] 
+* CE 16 is refined into CE [31] 
+
+
+### Cost equations --> "Loop" of n_evalfbb3in___4/9 
+* CEs [30] --> Loop 21 
+* CEs [29] --> Loop 22 
+* CEs [31] --> Loop 23 
+* CEs [25] --> Loop 24 
+* CEs [26,27] --> Loop 25 
+* CEs [24] --> Loop 26 
+* CEs [28] --> Loop 27 
+
+### Ranking functions of CR n_evalfbb3in___4(A,B,C,D,E,F,G,H,I) 
+* RF of phase [21]: [B-C-1]
+
+#### Partial ranking functions of CR n_evalfbb3in___4(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [21]:
+  - RF of loop [21:1]:
+    B-C-1
+
+
+### Specialization of cost equations n_evalfbb5in___6/9 
+* CE 6 is refined into CE [32,33,34,35] 
+* CE 7 is refined into CE [36] 
+* CE 4 is refined into CE [37] 
+* CE 9 is refined into CE [38] 
+* CE 5 is refined into CE [39,40,41,42] 
+* CE 8 is refined into CE [43] 
+
+
+### Cost equations --> "Loop" of n_evalfbb5in___6/9 
+* CEs [43] --> Loop 28 
+* CEs [42] --> Loop 29 
+* CEs [41] --> Loop 30 
+* CEs [40] --> Loop 31 
+* CEs [39] --> Loop 32 
+* CEs [35] --> Loop 33 
+* CEs [36] --> Loop 34 
+* CEs [37,38] --> Loop 35 
+* CEs [34] --> Loop 36 
+* CEs [33] --> Loop 37 
+* CEs [32] --> Loop 38 
+
+### Ranking functions of CR n_evalfbb5in___6(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR n_evalfbb5in___6(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations n_evalfbb5in___6_loop_cont/6 
+* CE 11 is refined into CE [44] 
+* CE 10 is refined into CE [45] 
+
+
+### Cost equations --> "Loop" of n_evalfbb5in___6_loop_cont/6 
+* CEs [44] --> Loop 39 
+* CEs [45] --> Loop 40 
+
+### Ranking functions of CR n_evalfbb5in___6_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR n_evalfbb5in___6_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations n_evalfbb7in___7/5 
+* CE 2 is refined into CE [46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64] 
+* CE 3 is refined into CE [65] 
+
+
+### Cost equations --> "Loop" of n_evalfbb7in___7/5 
+* CEs [46,47,48,49,50,51,52,53,54,65] --> Loop 41 
+* CEs [63,64] --> Loop 42 
+* CEs [61,62] --> Loop 43 
+* CEs [59,60] --> Loop 44 
+* CEs [57,58] --> Loop 45 
+* CEs [55,56] --> Loop 46 
+
+### Ranking functions of CR n_evalfbb7in___7(A,B,C,D,E) 
+
+#### Partial ranking functions of CR n_evalfbb7in___7(A,B,C,D,E) 
+
+
+### Specialization of cost equations pyRinit/5 
+* CE 1 is refined into CE [66,67,68,69,70,71] 
+
+
+### Cost equations --> "Loop" of pyRinit/5 
+* CEs [71] --> Loop 47 
+* CEs [70] --> Loop 48 
+* CEs [69] --> Loop 49 
+* CEs [68] --> Loop 50 
+* CEs [67] --> Loop 51 
+* CEs [66] --> Loop 52 
+
+### Ranking functions of CR pyRinit(A,B,C,D,E) 
+
+#### Partial ranking functions of CR pyRinit(A,B,C,D,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of n_evalfbb3in___2(A,B,C,D,E,F,G,H,I):
+* Chain [[18],20]: 1*it(18)+1
+  Such that:it(18) =< -D+I
+
+  with precondition: [E=2,A=F,B=G,C+1=H,C=I,A>=0,D>=1,B>=C+1,C>=D+1] 
+
+* Chain [[18],19]: 1*it(18)+0
+  Such that:it(18) =< C-D
+
+  with precondition: [E=3,A>=0,D>=1,B>=C+1,C>=D+1] 
+
+* Chain [20]: 1
+  with precondition: [E=2,D=C,A=F,B=G,D+1=H,D=I,A>=0,D>=1,B>=D+1] 
+
+* Chain [19]: 0
+  with precondition: [E=3,A>=0,D>=1,B>=C+1,C>=D] 
+
+
+#### Cost of chains of n_evalfbb3in___4(A,B,C,D,E,F,G,H,I):
+* Chain [27]: 2
+  with precondition: [B=1,C=0,D=0,E=4,G=1,H=1,I=0,A+1=F,A>=0] 
+
+* Chain [25]: 1*s(2)+1
+  Such that:s(2) =< C
+
+  with precondition: [D=0,E=3,A>=0,C>=0,B>=C+1] 
+
+* Chain [23,26]: 5
+  with precondition: [B=2,C=0,D=0,E=4,G=2,H=2,I=1,A+1=F,A>=0] 
+
+* Chain [23,25]: 1*s(2)+3
+  Such that:s(2) =< 1
+
+  with precondition: [C=0,D=0,E=3,A>=0,B>=2] 
+
+* Chain [23,22,[21],25]: 4*it(21)+1*s(5)+6
+  Such that:aux(3) =< B
+it(21) =< aux(3)
+s(5) =< it(21)*aux(3)
+
+  with precondition: [C=0,D=0,E=3,A>=0,B>=4] 
+
+* Chain [23,22,[21],24]: 4*it(21)+1*s(5)+8
+  Such that:aux(4) =< I
+aux(1) =< I+1
+it(21) =< aux(4)
+s(5) =< it(21)*aux(1)
+
+  with precondition: [C=0,D=0,E=4,A+1=F,B=G,B=H,B=I+1,A>=0,B>=4] 
+
+* Chain [23,22,25]: 1*s(2)+6
+  Such that:s(2) =< 2
+
+  with precondition: [C=0,D=0,E=3,A>=0,B>=3] 
+
+* Chain [23,22,24]: 1*s(6)+8
+  Such that:s(6) =< 2
+
+  with precondition: [B=3,C=0,D=0,E=4,G=3,H=3,I=2,A+1=F,A>=0] 
+
+
+#### Cost of chains of n_evalfbb5in___6(A,B,C,D,E,F,G,H,I):
+* Chain [[32]]...: 4*it(32)+0
+  with precondition: [A>=0,B=1,C=0] 
+
+* Chain [[32],38]: 4*it(32)+4
+  with precondition: [B=1,C=0,E=5,A>=0] 
+
+* Chain [[32],35]: 4*it(32)+5*s(13)+1*s(14)+1*s(18)+7
+  Such that:s(14) =< 2
+aux(5) =< 1
+s(13) =< aux(5)
+s(18) =< s(13)*aux(5)
+
+  with precondition: [B=1,C=0,E=3,A>=0] 
+
+* Chain [[31]]...: 7*it(31)+0
+  with precondition: [A>=0,B=2,C=0] 
+
+* Chain [[31],37]: 7*it(31)+7
+  with precondition: [B=2,C=0,E=5,A>=0] 
+
+* Chain [[31],35]: 7*it(31)+1*s(13)+5*s(14)+1*s(18)+7
+  Such that:s(13) =< 1
+aux(6) =< 2
+s(14) =< aux(6)
+s(18) =< s(14)*aux(6)
+
+  with precondition: [B=2,C=0,E=3,A>=0] 
+
+* Chain [[30]]...: 11*it(30)+0
+  with precondition: [A>=0,B=3,C=0] 
+
+* Chain [[30],36]: 11*it(30)+1*s(22)+10
+  Such that:s(22) =< 2
+
+  with precondition: [B=3,C=0,E=5,A>=0] 
+
+* Chain [[30],35]: 11*it(30)+1*s(13)+1*s(14)+4*s(17)+1*s(18)+7
+  Such that:s(13) =< 1
+s(14) =< 2
+s(15) =< 3
+s(17) =< s(15)
+s(18) =< s(17)*s(15)
+
+  with precondition: [B=3,C=0,E=3,A>=0] 
+
+* Chain [[29]]...: 15*it(29)+0
+  with precondition: [A>=0,B>=4,C=0] 
+
+* Chain [[29],35]: 15*it(29)+1*s(13)+1*s(14)+4*s(17)+1*s(18)+7
+  Such that:s(13) =< 1
+s(14) =< 2
+s(15) =< B
+s(17) =< s(15)
+s(18) =< s(17)*s(15)
+
+  with precondition: [C=0,E=3,A>=0,B>=4] 
+
+* Chain [[29],33]: 15*it(29)+4*s(35)+1*s(36)+10
+  Such that:aux(10) =< B
+s(35) =< aux(10)
+s(36) =< s(35)*aux(10)
+
+  with precondition: [C=0,E=5,A>=0,B>=4] 
+
+* Chain [[28]]...: 2*it(28)+0
+  with precondition: [A>=0,0>=B,C=0] 
+
+* Chain [[28],35]: 2*it(28)+1*s(13)+1*s(14)+4*s(17)+1*s(18)+7
+  Such that:s(13) =< 1
+s(14) =< 2
+s(15) =< B
+s(17) =< s(15)
+s(18) =< s(17)*s(15)
+
+  with precondition: [C=0,E=3,0>=B,A>=0] 
+
+* Chain [[28],34]: 2*it(28)+2
+  with precondition: [C=0,E=5,0>=B,A>=0] 
+
+* Chain [38]: 4
+  with precondition: [B=1,C=0,E=5,A>=0] 
+
+* Chain [37]: 7
+  with precondition: [B=2,C=0,E=5,A>=0] 
+
+* Chain [36]: 1*s(22)+10
+  Such that:s(22) =< 2
+
+  with precondition: [B=3,C=0,E=5,A>=0] 
+
+* Chain [35]: 1*s(13)+1*s(14)+4*s(17)+1*s(18)+7
+  Such that:s(13) =< 1
+s(14) =< 2
+s(15) =< B
+s(17) =< s(15)
+s(18) =< s(17)*s(15)
+
+  with precondition: [C=0,E=3,A>=0] 
+
+* Chain [34]: 2
+  with precondition: [C=0,E=5,0>=B,A>=0] 
+
+* Chain [33]: 4*s(35)+1*s(36)+10
+  Such that:aux(10) =< B
+s(35) =< aux(10)
+s(36) =< s(35)*aux(10)
+
+  with precondition: [C=0,E=5,A>=0,B>=4] 
+
+
+#### Cost of chains of n_evalfbb5in___6_loop_cont(A,B,C,D,E,F):
+* Chain [40]: 0
+  with precondition: [A=3] 
+
+* Chain [39]: 0
+  with precondition: [A=5] 
+
+
+#### Cost of chains of n_evalfbb7in___7(A,B,C,D,E):
+* Chain [46]...: 1*aux(20)+0
+  with precondition: [A=0,B=1] 
+
+* Chain [45]...: 1*aux(21)+0
+  with precondition: [A=0,B=2] 
+
+* Chain [44]...: 1*aux(22)+0
+  with precondition: [A=0,B=3] 
+
+* Chain [43]...: 1*aux(23)+0
+  with precondition: [A=0,0>=B] 
+
+* Chain [42]...: 1*aux(24)+0
+  with precondition: [A=0,B>=4] 
+
+* Chain [41]: 10*s(79)+10*s(80)+20*s(81)+5*s(82)+1*s(83)+58*s(84)+1*s(89)+4*s(95)+1*s(96)+11
+  Such that:s(94) =< 3
+aux(25) =< 1
+aux(26) =< 2
+aux(27) =< B
+s(79) =< aux(25)
+s(80) =< aux(26)
+s(81) =< aux(27)
+s(82) =< s(81)*aux(27)
+s(83) =< s(79)*aux(25)
+s(89) =< s(80)*aux(26)
+s(95) =< s(94)
+s(96) =< s(95)*s(94)
+
+  with precondition: [A=0] 
+
+
+#### Cost of chains of pyRinit(A,B,C,D,E):
+* Chain [52]: 10*s(114)+10*s(115)+20*s(116)+5*s(117)+1*s(118)+1*s(119)+4*s(120)+1*s(121)+58*s(122)+13
+  Such that:s(111) =< 1
+s(112) =< 2
+s(110) =< 3
+s(113) =< B
+s(114) =< s(111)
+s(115) =< s(112)
+s(116) =< s(113)
+s(117) =< s(116)*s(113)
+s(118) =< s(114)*s(111)
+s(119) =< s(115)*s(112)
+s(120) =< s(110)
+s(121) =< s(120)*s(110)
+
+  with precondition: [] 
+
+* Chain [51]...: 1*s(123)+2
+  with precondition: [B=1] 
+
+* Chain [50]...: 1*s(124)+2
+  with precondition: [B=2] 
+
+* Chain [49]...: 1*s(125)+2
+  with precondition: [B=3] 
+
+* Chain [48]...: 1*s(126)+2
+  with precondition: [0>=B] 
+
+* Chain [47]...: 1*s(127)+2
+  with precondition: [B>=4] 
+
+
+Closed-form bounds of pyRinit(A,B,C,D,E): 
+-------------------------------------
+* Chain [52] with precondition: [] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+* Chain [51]... with precondition: [B=1] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+* Chain [50]... with precondition: [B=2] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+* Chain [49]... with precondition: [B=3] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+* Chain [48]... with precondition: [0>=B] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+* Chain [47]... with precondition: [B>=4] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+
+### Maximum cost of pyRinit(A,B,C,D,E): inf 
+Asymptotic class: infinity 
+* Total analysis performed in 934 ms.
+
+
+-- stats
+realtime 0:01.46
+usertime 0.97
+systime 0.02
+

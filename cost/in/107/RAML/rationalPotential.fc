@@ -1,0 +1,32 @@
+{
+  vars: [A,B,C],
+  pvars: [A',B',C'],
+  initnode: start,
+  nodes: {
+    start: {
+      inv_polyhedra: [],
+    },
+    zip3: {
+      cfr_properties: [
+        // RFs Properties
+        [C >= 0],
+        [-C > 0],
+      ],
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: zip3,
+	target: zip3,
+	name: t0,
+	constraints: [A -1 >= 0, B -1 >= 0, C -1 >= 0, A -1 -A' = 0, B -1 -B' = 0, C -1 -C' = 0]
+    },
+    {
+	source: start,
+	target: zip3,
+	name: t2,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0]
+    }
+  ]
+}

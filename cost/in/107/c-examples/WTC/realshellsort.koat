@@ -1,0 +1,25 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E A' B' C' D' E' F NoDet4 NoDet0 NoDet3 NoDet1 NoDet2)
+(RULES 
+  pyRinit(A,B,C,D,E) -> Com_1(evalrealshellsortstart(A,B,C,D,E))
+  evalrealshellsortbb1in(A,B,C,D,E) -> Com_1(evalrealshellsortbb3in(A, B, C, F, C))
+  evalrealshellsortbb2in(A,B,C,D,E) -> Com_1(evalrealshellsortbb3in(A, B, C, D, E -B))
+  evalrealshellsortbb3in(A,B,C,D,E) -> Com_1(evalrealshellsortbb4in(A, B, C, D, E)) :|: E -B >= 0
+  evalrealshellsortbb3in(A,B,C,D,E) -> Com_1(evalrealshellsortbb5in(A, B, C, D, E)) :|: B -E -1 >= 0
+  evalrealshellsortbb4in(A,B,C,D,E) -> Com_1(evalrealshellsortbb2in(A, B, C, D, E)) :|: F -D -1 >= 0
+  evalrealshellsortbb4in(A,B,C,D,E) -> Com_1(evalrealshellsortbb5in(A, B, C, D, E)) :|: D -F >= 0
+  evalrealshellsortbb5in(A,B,C,D,E) -> Com_1(evalrealshellsortbb6in(A, B, C + 1, D, E))
+  evalrealshellsortbb6in(A,B,C,D,E) -> Com_1(evalrealshellsortbb1in(A, B, C, D, E)) :|: A -C -1 >= 0
+  evalrealshellsortbb6in(A,B,C,D,E) -> Com_1(evalrealshellsortbb7in(A, B, C, D, E)) :|: C -A >= 0
+  evalrealshellsortbb7in(A,B,C,D,E) -> Com_1(evalrealshellsortbb8in(A, 0, C, D, E)) :|: B = 0
+  evalrealshellsortbb7in(A,B,C,D,E) -> Com_1(evalrealshellsortbb8in(A, F, C, D, E)) :|: B -1 >= 0 && F >= 0 && B -2 * F >= 0 && 1 + 2 * F -B >= 0
+  evalrealshellsortbb7in(A,B,C,D,E) -> Com_1(evalrealshellsortbb8in(A, F, C, D, E)) :|: -1 -B >= 0 && -F >= 0 && 2 * F -B >= 0 && 1 + B -2 * F >= 0
+  evalrealshellsortbb8in(A,B,C,D,E) -> Com_1(evalrealshellsortbb6in(A, B, 0, D, E)) :|: B -1 >= 0
+  evalrealshellsortbb8in(A,B,C,D,E) -> Com_1(evalrealshellsortreturnin(A, B, C, D, E)) :|: -B >= 0
+  evalrealshellsortentryin(A,B,C,D,E) -> Com_1(evalrealshellsortbb8in(A, 0, C, D, E)) :|: A = 0
+  evalrealshellsortentryin(A,B,C,D,E) -> Com_1(evalrealshellsortbb8in(A, F, C, D, E)) :|: A -1 >= 0 && F >= 0 && A -2 * F >= 0 && 1 + 2 * F -A >= 0
+  evalrealshellsortentryin(A,B,C,D,E) -> Com_1(evalrealshellsortbb8in(A, F, C, D, E)) :|: -1 -A >= 0 && -F >= 0 && 2 * F -A >= 0 && 1 + A -2 * F >= 0
+  evalrealshellsortreturnin(A,B,C,D,E) -> Com_1(evalrealshellsortstop(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4))
+  evalrealshellsortstart(A,B,C,D,E) -> Com_1(evalrealshellsortentryin(A, B, C, D, E))
+)

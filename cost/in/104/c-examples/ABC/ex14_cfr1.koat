@@ -1,0 +1,20 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E A_P B_P C_P D_P E_P NoDet2 NoDet1 NoDet3 NoDet4 NoDet0)
+(RULES 
+  pyRinit(A,B,C,D,E) -> Com_1(n_evalfstart(A,B,C,D,E))
+  n_evalfbb10in___9(A,B,C,D,E) -> Com_1(n_evalfbb8in___8(A, B, 1, D, E)) :|: B -1 >= 0
+  n_evalfbb10in___9(A,B,C,D,E) -> Com_1(n_evalfstop___7(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4)) :|: -B >= 0
+  n_evalfbb4in___4(A,B,C,D,E) -> Com_1(n_evalfbb4in___4(A, B, C_P, D, E_P)) :|: -B + D >= 0 && E -1 >= 0 && A -C >= 0 && C -1 >= 0 && -B + D >= 0 && D -E_P + 1 >= 0 && E_P -2 >= 0 && A -C_P >= 0 && C_P -1 >= 0 && C -C_P = 0 && E -E_P + 1 = 0
+  n_evalfbb4in___4(A,B,C,D,E) -> Com_1(n_evalfbb6in___3(A, B, C_P, D + 1, E_P)) :|: -B + D >= 0 && E -1 >= 0 && A -C >= 0 && C -1 >= 0 && -D + E_P -1 >= 0 && -B + D >= 0 && E_P -1 >= 0 && A -C_P >= 0 && C_P -1 >= 0 && C -C_P = 0 && E -E_P = 0
+  n_evalfbb4in___5(A,B,C,D,E) -> Com_1(n_evalfbb4in___4(A, B, C_P, D, E_P)) :|: -B + D >= 0 && D -E >= 0 && E -1 >= 0 && A -C >= 0 && C -1 >= 0 && -B + D >= 0 && D -E_P + 1 >= 0 && E_P -2 >= 0 && A -C_P >= 0 && C_P -1 >= 0 && C -C_P = 0 && E -E_P + 1 = 0
+  n_evalfbb6in___1(A,B,C,D,E) -> Com_1(n_evalfbb4in___4(A, B, C, D, 1)) :|: -B + D >= 0 && B + C -D >= 0 && C -1 >= 0 && A -C >= 0 && A -C >= 0 && B + C -D >= 0 && C -1 >= 0 && -B + D >= 0
+  n_evalfbb6in___3(A,B,C,D,E) -> Com_1(n_evalfbb4in___4(A, B, C, D, 1)) :|: -B + D >= 0 && C -1 >= 0 && A -C >= 0 && A -C >= 0 && B + C -D >= 0 && C -1 >= 0 && -B + D >= 0
+  n_evalfbb6in___3(A,B,C,D,E) -> Com_1(n_evalfbb8in___2(A_P, B, C_P, D, E)) :|: -B + D >= 0 && C -1 >= 0 && A -C >= 0 && -B + D -C_P >= 0 && C_P -2 >= 0 && A_P -C_P + 1 >= 0 && C -C_P + 1 = 0 && A -A_P = 0
+  n_evalfbb6in___6(A,B,C,D,E) -> Com_1(n_evalfbb4in___5(A, B, C, D, 1)) :|: -B + D >= 0 && B + C -D >= 0 && C -1 >= 0 && A -C >= 0 && D -1 >= 0 && A -C >= 0 && B + C -D >= 0 && C -1 >= 0 && -B + D >= 0
+  n_evalfbb8in___2(A,B,C,D,E) -> Com_1(n_evalfbb10in___9(A, B -1, C_P, D, E)) :|: C -1 >= 0 && -A + C_P -1 >= 0 && C_P -1 >= 0 && C -C_P = 0
+  n_evalfbb8in___2(A,B,C,D,E) -> Com_1(n_evalfbb6in___1(A, B, C, B, E)) :|: C -1 >= 0 && A -C >= 0 && C -1 >= 0
+  n_evalfbb8in___8(A,B,C,D,E) -> Com_1(n_evalfbb10in___9(A, B -1, C_P, D, E)) :|: C -1 >= 0 && B -1 >= 0 && -A + C_P -1 >= 0 && C_P -1 >= 0 && C -C_P = 0
+  n_evalfbb8in___8(A,B,C,D,E) -> Com_1(n_evalfbb6in___6(A, B, C, B, E)) :|: C -1 >= 0 && B -1 >= 0 && A -C >= 0 && C -1 >= 0
+  n_evalfstart(A,B,C,D,E) -> Com_1(n_evalfbb10in___9(B, A, C, D, E))
+)

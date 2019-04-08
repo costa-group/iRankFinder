@@ -1,0 +1,113 @@
+{
+  vars: [A,B,C],
+  pvars: [A',B',C'],
+  initnode: evalcousot9start,
+  nodes: {
+    evalcousot9bb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [-B + C >= 0, -1 + B >= 0, -1 + A >= 0],
+    },
+    evalcousot9bb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+      ],
+      inv_polyhedra: [-A >= 0, -B + C >= 0, -1 + B >= 0],
+    },
+    evalcousot9bb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [-B + C >= 0],
+    },
+    evalcousot9bbin: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [-B + C >= 0, -1 + B >= 0],
+    },
+    evalcousot9entryin: {
+      inv_polyhedra: [],
+    },
+    evalcousot9returnin: {
+      inv_polyhedra: [-B >= 0, -B + C >= 0],
+    },
+    evalcousot9start: {
+      inv_polyhedra: [],
+    },
+    evalcousot9stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalcousot9start,
+	target: evalcousot9entryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcousot9entryin,
+	target: evalcousot9bb3in,
+	name: t1,
+	constraints: [D -A' = 0, C -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcousot9bb3in,
+	target: evalcousot9bbin,
+	name: t2,
+	constraints: [B -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcousot9bb3in,
+	target: evalcousot9returnin,
+	name: t3,
+	constraints: [-B >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcousot9bbin,
+	target: evalcousot9bb1in,
+	name: t4,
+	constraints: [A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcousot9bbin,
+	target: evalcousot9bb2in,
+	name: t5,
+	constraints: [-A >= 0, A -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcousot9bb1in,
+	target: evalcousot9bb3in,
+	name: t6,
+	constraints: [A -1 -A' = 0, B -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcousot9bb2in,
+	target: evalcousot9bb3in,
+	name: t7,
+	constraints: [C -A' = 0, B -1 -B' = 0, C -C' = 0]
+    },
+    {
+	source: evalcousot9returnin,
+	target: evalcousot9stop,
+	name: t8,
+	constraints: []
+    }
+  ]
+}

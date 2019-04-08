@@ -1,0 +1,17 @@
+input_output_vars(exit_location(A),[],[A]).
+input_output_vars(n_evalexminibb1in___2(A,B,C,D,E,F,G),[A,B,C],[D,E,F,G]).
+input_output_vars(n_evalexminibb1in___2_loop_cont(A,B,C,D,E),[A,B,C,D],[E]).
+input_output_vars(n_evalexministart(A,B,C,D),[A,B,C],[D]).
+input_output_vars(n_evalexministop___1(A,B,C,D),[A,B,C],[D]).
+input_output_vars(pyRinit(A,B,C,D),[A,B,C],[D]).
+eq(pyRinit(A,B,C,D),1,[n_evalexministart(A,B,C,D)],[]).
+eq(n_evalexminibb1in___2(A,B,C,D,E,F,G),1,[n_evalexminibb1in___2(A-1,H,B+1,D,E,F,G)],[-B+100>=0,A-H>=0,C-H=0]).
+eq(n_evalexminibb1in___2(A,B,C,2,D,E,F),1,[],[B-101>=0]).
+eq(n_evalexminibb1in___2(A,B,C,2,D,E,F),1,[],[-A+C-1>=0]).
+eq(n_evalexminibb1in___2(A,B,C,3,D,E,F),0,[],[]).
+eq(n_evalexministart(A,B,C,D),1,[n_evalexminibb1in___2(B,A,C,E,F,G,H),n_evalexminibb1in___2_loop_cont(E,F,G,H,D)],[]).
+eq(n_evalexminibb1in___2_loop_cont(2,A,B,C,D),0,[n_evalexministop___1(A,B,C,D)],[E-101>=0]).
+eq(n_evalexminibb1in___2_loop_cont(2,A,B,C,D),0,[n_evalexministop___1(A,B,C,D)],[-E+F-1>=0]).
+eq(n_evalexminibb1in___2_loop_cont(3,A,B,C,D),0,[exit_location(D)],[]).
+eq(exit_location(A),0,[],[]).
+eq(n_evalexministop___1(A,B,C,D),0,[],[]).

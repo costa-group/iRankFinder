@@ -1,0 +1,350 @@
+WORST_CASE(?, O(n^2))
+
+Initial complexity problem:
+1:	T:
+		(Comp: ?, Cost: 1)    evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))
+		(Comp: ?, Cost: 1)    evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 1 produces the following problem:
+2:	T:
+		(Comp: 1, Cost: 1)    evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))
+		(Comp: ?, Cost: 1)    evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrealbubblestart) = 2
+	Pol(evalrealbubbleentryin) = 2
+	Pol(evalrealbubblebb7in) = 2
+	Pol(evalrealbubblebb4in) = 2
+	Pol(evalrealbubblereturnin) = 1
+	Pol(evalrealbubblebb1in) = 2
+	Pol(evalrealbubblebb5in) = 2
+	Pol(evalrealbubblebb2in) = 2
+	Pol(evalrealbubblebb3in) = 2
+	Pol(evalrealbubblebb6in) = 2
+	Pol(evalrealbubblestop) = 0
+	Pol(koat_start) = 2
+orients all transitions weakly and the transitions
+	evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))
+	evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]
+	evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]
+strictly and produces the following problem:
+3:	T:
+		(Comp: 1, Cost: 1)    evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)    evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: ?, Cost: 1)    evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)    evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))
+		(Comp: ?, Cost: 1)    evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))
+		(Comp: 2, Cost: 1)    evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)    evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)    evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)    koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrealbubblestart) = V_1
+	Pol(evalrealbubbleentryin) = V_1
+	Pol(evalrealbubblebb7in) = V_1 + 1
+	Pol(evalrealbubblebb4in) = V_1
+	Pol(evalrealbubblereturnin) = V_1
+	Pol(evalrealbubblebb1in) = V_1
+	Pol(evalrealbubblebb5in) = V_1
+	Pol(evalrealbubblebb2in) = V_1
+	Pol(evalrealbubblebb3in) = V_1
+	Pol(evalrealbubblebb6in) = V_1
+	Pol(evalrealbubblestop) = V_1
+	Pol(koat_start) = V_1
+orients all transitions weakly and the transition
+	evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]
+strictly and produces the following problem:
+4:	T:
+		(Comp: 1, Cost: 1)       evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)       evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_0, Cost: 1)    evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)       evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)       evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: ?, Cost: 1)       evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)       evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]
+		(Comp: ?, Cost: 1)       evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]
+		(Comp: ?, Cost: 1)       evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))
+		(Comp: ?, Cost: 1)       evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))
+		(Comp: 2, Cost: 1)       evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]
+		(Comp: ?, Cost: 1)       evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]
+		(Comp: ?, Cost: 1)       evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: ?, Cost: 1)       evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)       evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)       koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrealbubblebb6in) = 1
+	Pol(evalrealbubblebb7in) = 0
+	Pol(evalrealbubblebb5in) = 2
+	Pol(evalrealbubblebb4in) = 3
+	Pol(evalrealbubblebb1in) = 3
+	Pol(evalrealbubblebb3in) = 3
+	Pol(evalrealbubblebb2in) = 3
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = ?
+	S("evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2 + 1
+	S("evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3 + 2
+	S("evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-0) = ?
+	S("evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-2) = 1
+	S("evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-3) = 1
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-0) = ?
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-1) = ?
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-2) = 1
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-3) = 1
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]", 0-0) = ?
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]", 0-1) = ?
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]", 0-2) = 1
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]", 0-3) = 1
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]", 0-0) = ?
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]", 0-1) = ?
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]", 0-2) = 0
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]", 0-3) = 1
+	S("evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))", 0-0) = ?
+	S("evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))", 0-1) = ?
+	S("evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))", 0-2) = 1
+	S("evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))", 0-3) = 1
+	S("evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))", 0-0) = ?
+	S("evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))", 0-1) = ?
+	S("evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))", 0-2) = 1
+	S("evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))", 0-3) = 1
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]", 0-0) = ?
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]", 0-1) = ?
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]", 0-2) = 1
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]", 0-3) = 1
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]", 0-0) = ?
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]", 0-1) = ?
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]", 0-2) = 1
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]", 0-3) = Ar_3 + 2
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-0) = ?
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-1) = ?
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-2) = 1
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-3) = 1
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-0) = ?
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-1) = ?
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-2) = 1
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-3) = Ar_3 + 2
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]", 0-0) = ?
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]", 0-1) = ?
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]", 0-2) = Ar_2 + 1
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]", 0-3) = Ar_3 + 1
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]", 0-0) = ?
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]", 0-1) = 0
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]", 0-2) = 0
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]", 0-3) = Ar_3 + 1
+	S("evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0 + 1
+	S("evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+orients the transitions
+	evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+	evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+	evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]
+	evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+	evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+	evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))
+	evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))
+	evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]
+	evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]
+weakly and the transitions
+	evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+	evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+	evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]
+	evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+strictly and produces the following problem:
+5:	T:
+		(Comp: 1, Cost: 1)         evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)         evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_0, Cost: 1)      evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)         evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]
+		(Comp: ?, Cost: 1)         evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)         evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]
+		(Comp: ?, Cost: 1)         evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]
+		(Comp: ?, Cost: 1)         evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))
+		(Comp: ?, Cost: 1)         evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))
+		(Comp: 2, Cost: 1)         evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: 3*Ar_0, Cost: 1)    evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)         evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)         koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+A polynomial rank function with
+	Pol(evalrealbubblebb4in) = V_1 - V_2 + 1
+	Pol(evalrealbubblebb1in) = V_1 - V_2
+	Pol(evalrealbubblebb3in) = V_1 - V_2
+	Pol(evalrealbubblebb2in) = V_1 - V_2
+and size complexities
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-0) = Ar_0
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-1) = Ar_1
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-2) = Ar_2
+	S("koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]", 0-3) = Ar_3
+	S("evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = 4*Ar_0 + 256
+	S("evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2 + 1
+	S("evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3 + 2
+	S("evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-0) = 4*Ar_0 + 16
+	S("evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-1) = ?
+	S("evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-2) = 1
+	S("evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-3) = 1
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-0) = 4*Ar_0 + 16
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-1) = ?
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-2) = 1
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]", 0-3) = 1
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]", 0-0) = 4*Ar_0 + 16
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]", 0-1) = ?
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]", 0-2) = 1
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]", 0-3) = 1
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]", 0-0) = 4*Ar_0 + 64
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]", 0-1) = ?
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]", 0-2) = 0
+	S("evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]", 0-3) = 1
+	S("evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))", 0-0) = 4*Ar_0 + 16
+	S("evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))", 0-1) = ?
+	S("evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))", 0-2) = 1
+	S("evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))", 0-3) = 1
+	S("evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))", 0-0) = 4*Ar_0 + 16
+	S("evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))", 0-1) = ?
+	S("evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))", 0-2) = 1
+	S("evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))", 0-3) = 1
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]", 0-0) = 4*Ar_0 + 16
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]", 0-1) = ?
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]", 0-2) = 1
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]", 0-3) = 1
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]", 0-0) = 4*Ar_0 + 16
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]", 0-1) = ?
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]", 0-2) = 1
+	S("evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]", 0-3) = Ar_3 + 2
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-0) = 4*Ar_0 + 16
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-1) = ?
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-2) = 1
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]", 0-3) = 1
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-0) = 4*Ar_0 + 16
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-1) = ?
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-2) = 1
+	S("evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]", 0-3) = Ar_3 + 2
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]", 0-0) = 4*Ar_0 + 64
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]", 0-1) = ?
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]", 0-2) = Ar_2 + 1
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]", 0-3) = Ar_3 + 1
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]", 0-0) = 4*Ar_0 + 16
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]", 0-1) = 0
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]", 0-2) = 0
+	S("evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]", 0-3) = Ar_3 + 1
+	S("evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0 + 1
+	S("evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+	S("evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-0) = Ar_0
+	S("evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-1) = Ar_1
+	S("evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-2) = Ar_2
+	S("evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))", 0-3) = Ar_3
+orients the transitions
+	evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+	evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))
+	evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))
+	evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]
+	evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]
+weakly and the transition
+	evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+strictly and produces the following problem:
+6:	T:
+		(Comp: 1, Cost: 1)                     evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)                     evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_0, Cost: 1)                  evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)                     evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]
+		(Comp: 4*Ar_0^2 + 17*Ar_0, Cost: 1)    evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 3*Ar_0, Cost: 1)                evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: ?, Cost: 1)                     evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]
+		(Comp: ?, Cost: 1)                     evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]
+		(Comp: ?, Cost: 1)                     evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))
+		(Comp: ?, Cost: 1)                     evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))
+		(Comp: 2, Cost: 1)                     evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]
+		(Comp: 3*Ar_0, Cost: 1)                evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]
+		(Comp: 3*Ar_0, Cost: 1)                evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: 3*Ar_0, Cost: 1)                evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)                     evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)                     koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Repeatedly propagating knowledge in problem 6 produces the following problem:
+7:	T:
+		(Comp: 1, Cost: 1)                     evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 1)                     evalrealbubbleentryin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: Ar_0, Cost: 1)                  evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, 0, 0, Ar_3)) [ Ar_0 >= 1 ]
+		(Comp: 2, Cost: 1)                     evalrealbubblebb7in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_0 ]
+		(Comp: 4*Ar_0^2 + 17*Ar_0, Cost: 1)    evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_0 >= Ar_1 + 1 ]
+		(Comp: 3*Ar_0, Cost: 1)                evalrealbubblebb4in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_1 >= Ar_0 ]
+		(Comp: 4*Ar_0^2 + 17*Ar_0, Cost: 1)    evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3)) [ E >= F + 1 ]
+		(Comp: 4*Ar_0^2 + 17*Ar_0, Cost: 1)    evalrealbubblebb1in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_2)) [ F >= E ]
+		(Comp: 4*Ar_0^2 + 17*Ar_0, Cost: 1)    evalrealbubblebb2in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, 1))
+		(Comp: 8*Ar_0^2 + 34*Ar_0, Cost: 1)    evalrealbubblebb3in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb4in(Ar_0, Ar_1 + 1, Ar_3, Ar_3))
+		(Comp: 2, Cost: 1)                     evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 = 0 ]
+		(Comp: 3*Ar_0, Cost: 1)                evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 >= Ar_2 + 1 ]
+		(Comp: 3*Ar_0, Cost: 1)                evalrealbubblebb5in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3)) [ Ar_2 >= 1 ]
+		(Comp: 3*Ar_0, Cost: 1)                evalrealbubblebb6in(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblebb7in(Ar_0 - 1, Ar_1, Ar_2, Ar_3))
+		(Comp: 2, Cost: 1)                     evalrealbubblereturnin(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestop(Ar_0, Ar_1, Ar_2, Ar_3))
+		(Comp: 1, Cost: 0)                     koat_start(Ar_0, Ar_1, Ar_2, Ar_3) -> Com_1(evalrealbubblestart(Ar_0, Ar_1, Ar_2, Ar_3)) [ 0 <= 0 ]
+	start location:	koat_start
+	leaf cost:	0
+
+Complexity upper bound 115*Ar_0 + 24*Ar_0^2 + 8
+
+Time: 0.093 sec (SMT: 0.075 sec)

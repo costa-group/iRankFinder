@@ -1,0 +1,19 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A B C D E F A_P B_P C_P D_P E_P F_P NoDet0 NoDet5 NoDet1 NoDet4 NoDet3 NoDet2)
+(RULES 
+  pyRinit(A,B,C,D,E,F) -> Com_1(n_evalfstart(A,B,C,D,E,F))
+  n_evalfbb3in___2(A,B,C,D,E,F) -> Com_1(n_evalfbb3in___2(A, B, C_P, D_P, E_P, F_P)) :|: -1 -D + E + F >= 0 && 1 + D + E -F >= 0 && C -E >= 0 && A -D >= 0 && -B + E >= 0 && -B + E_P >= 0 && A -D_P >= 0 && C_P -E_P >= 0 && D_P + E_P -F_P + 1 >= 0 && -D_P + E_P + F_P -1 >= 0 && E -E_P = 0 && D -D_P = 0 && C -C_P = 0 && F -F_P + 1 = 0
+  n_evalfbb3in___2(A,B,C,D,E,F) -> Com_1(n_evalfbb5in___1(A, B, C_P, D_P, E_P, F_P)) :|: -1 -D + E + F >= 0 && 1 + D + E -F >= 0 && C -E >= 0 && A -D >= 0 && -B + E >= 0 && -D_P -E_P + F_P >= 0 && -B + E_P -1 >= 0 && A -D_P >= 0 && C_P -E_P + 1 >= 0 && -D_P + E_P + F_P -1 >= 0 && E -E_P + 1 = 0 && D -D_P = 0 && C -C_P = 0 && F -F_P = 0
+  n_evalfbb3in___4(A,B,C,D,E,F) -> Com_1(n_evalfbb3in___2(A, B, C_P, D_P, E_P, F_P)) :|: D -E -F = 0 && A -D >= 0 && -B + E >= 0 && C -E >= 0 && -B + E_P >= 0 && A -D_P >= 0 && C_P -E_P >= 0 && D_P + E_P -F_P + 1 >= 0 && -D_P + E_P + F_P -1 >= 0 && E -E_P = 0 && D -D_P = 0 && C -C_P = 0 && F -F_P + 1 = 0
+  n_evalfbb3in___4(A,B,C,D,E,F) -> Com_1(n_evalfbb5in___1(A, B, C_P, D_P, E_P, F_P)) :|: D -E -F = 0 && A -D >= 0 && -B + E >= 0 && C -E >= 0 && -D_P -E_P + F_P >= 0 && -B + E_P -1 >= 0 && A -D_P >= 0 && C_P -E_P + 1 >= 0 && -D_P + E_P + F_P -1 >= 0 && E -E_P + 1 = 0 && D -D_P = 0 && C -C_P = 0 && F -F_P = 0
+  n_evalfbb5in___1(A,B,C,D,E,F) -> Com_1(n_evalfbb3in___4(A, B, C, D_P, E_P, F_P)) :|: -1 -D + E + F >= 0 && 1 + C -E >= 0 && A -D >= 0 && -1 -B + E >= 0 && -D -E + F >= 0 && C -E_P >= 0 && -B + E_P >= 0 && A -D_P >= 0 && E -E_P = 0 && D -D_P = 0 && D_P -E_P -F_P = 0
+  n_evalfbb5in___1(A,B,C,D,E,F) -> Com_1(n_evalfbb7in___3(A, B, C, D_P, E_P, F)) :|: -1 -D + E + F >= 0 && 1 + C -E >= 0 && A -D >= 0 && -1 -B + E >= 0 && -D -E + F >= 0 && -C + E_P -1 >= 0 && -B + E_P >= 0 && A -D_P + 1 >= 0 && E -E_P = 0 && D -D_P + 1 = 0
+  n_evalfbb5in___6(A,B,C,D,E,F) -> Com_1(n_evalfbb3in___4(A, B, C, D_P, E_P, F_P)) :|: B -E = 0 && A -D >= 0 && C -E_P >= 0 && -B + E_P >= 0 && A -D_P >= 0 && E -E_P = 0 && D -D_P = 0 && D_P -E_P -F_P = 0
+  n_evalfbb5in___6(A,B,C,D,E,F) -> Com_1(n_evalfbb7in___3(A, B, C, D_P, E_P, F)) :|: B -E = 0 && A -D >= 0 && -C + E_P -1 >= 0 && -B + E_P >= 0 && A -D_P + 1 >= 0 && E -E_P = 0 && D -D_P + 1 = 0
+  n_evalfbb7in___3(A,B,C,D,E,F) -> Com_1(n_evalfbb5in___6(A, B, C, D, B, F)) :|: -1 -C + E >= 0 && 1 + A -D >= 0 && -B + E >= 0 && A -D >= 0
+  n_evalfbb7in___3(A,B,C,D,E,F) -> Com_1(n_evalfstop___5(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5)) :|: -1 -C + E >= 0 && 1 + A -D >= 0 && -B + E >= 0 && -A + D -1 >= 0
+  n_evalfbb7in___7(A,B,C,D,E,F) -> Com_1(n_evalfbb5in___6(A, B, C, D, B, F)) :|: A -D >= 0
+  n_evalfbb7in___7(A,B,C,D,E,F) -> Com_1(n_evalfstop___5(NoDet0, NoDet1, NoDet2, NoDet3, NoDet4, NoDet5)) :|: -A + D -1 >= 0
+  n_evalfstart(A,B,C,D,E,F) -> Com_1(n_evalfbb7in___7(B, C, D, A, E, F))
+)

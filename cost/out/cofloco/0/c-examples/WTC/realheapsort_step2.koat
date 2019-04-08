@@ -1,0 +1,253 @@
+MAYBE
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalrealheapsortstep2bb2in/9,evalrealheapsortstep2bb3in/9,evalrealheapsortstep2bb4in/9,evalrealheapsortstep2bb5in/9,evalrealheapsortstep2bb6in/9,evalrealheapsortstep2bb7in/9,evalrealheapsortstep2bb9in/9]
+1. recursive  : [evalrealheapsortstep2bb10in/9,evalrealheapsortstep2bb11in/9,evalrealheapsortstep2bb1in/9,evalrealheapsortstep2bb9in_loop_cont/10]
+2. non_recursive  : [evalrealheapsortstep2stop/5]
+3. non_recursive  : [evalrealheapsortstep2returnin/5]
+4. non_recursive  : [exit_location/1]
+5. non_recursive  : [evalrealheapsortstep2bb11in_loop_cont/6]
+6. non_recursive  : [evalrealheapsortstep2bbin/5]
+7. non_recursive  : [evalrealheapsortstep2entryin/5]
+8. non_recursive  : [evalrealheapsortstep2start/5]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalrealheapsortstep2bb9in/9
+1. SCC is partially evaluated into evalrealheapsortstep2bb11in/9
+2. SCC is completely evaluated into other SCCs
+3. SCC is completely evaluated into other SCCs
+4. SCC is completely evaluated into other SCCs
+5. SCC is partially evaluated into evalrealheapsortstep2bb11in_loop_cont/6
+6. SCC is partially evaluated into evalrealheapsortstep2bbin/5
+7. SCC is partially evaluated into evalrealheapsortstep2entryin/5
+8. SCC is partially evaluated into evalrealheapsortstep2start/5
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalrealheapsortstep2bb9in/9 
+* CE 18 is refined into CE [19] 
+* CE 17 is refined into CE [20] 
+* CE 12 is refined into CE [21] 
+* CE 14 is refined into CE [22] 
+* CE 13 is refined into CE [23] 
+* CE 15 is refined into CE [24] 
+* CE 11 is refined into CE [25] 
+* CE 16 is refined into CE [26] 
+
+
+### Cost equations --> "Loop" of evalrealheapsortstep2bb9in/9 
+* CEs [21] --> Loop 18 
+* CEs [22] --> Loop 19 
+* CEs [23] --> Loop 20 
+* CEs [24] --> Loop 21 
+* CEs [25] --> Loop 22 
+* CEs [26] --> Loop 23 
+* CEs [19] --> Loop 24 
+* CEs [20] --> Loop 25 
+
+### Ranking functions of CR evalrealheapsortstep2bb9in(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR evalrealheapsortstep2bb9in(A,B,C,D,E,F,G,H,I) 
+
+
+### Specialization of cost equations evalrealheapsortstep2bb11in/9 
+* CE 7 is refined into CE [27] 
+* CE 5 is refined into CE [28,29] 
+* CE 8 is refined into CE [30] 
+* CE 6 is refined into CE [31,32,33] 
+
+
+### Cost equations --> "Loop" of evalrealheapsortstep2bb11in/9 
+* CEs [33] --> Loop 26 
+* CEs [31] --> Loop 27 
+* CEs [32] --> Loop 28 
+* CEs [27] --> Loop 29 
+* CEs [28,30] --> Loop 30 
+* CEs [29] --> Loop 31 
+
+### Ranking functions of CR evalrealheapsortstep2bb11in(A,B,C,D,E,F,G,H,I) 
+
+#### Partial ranking functions of CR evalrealheapsortstep2bb11in(A,B,C,D,E,F,G,H,I) 
+* Partial RF of phase [26,27]:
+  - RF of loop [27:1]:
+    A-B-2 depends on loops [26:1] 
+
+
+### Specialization of cost equations evalrealheapsortstep2bb11in_loop_cont/6 
+* CE 9 is refined into CE [34] 
+* CE 10 is refined into CE [35] 
+
+
+### Cost equations --> "Loop" of evalrealheapsortstep2bb11in_loop_cont/6 
+* CEs [34] --> Loop 32 
+* CEs [35] --> Loop 33 
+
+### Ranking functions of CR evalrealheapsortstep2bb11in_loop_cont(A,B,C,D,E,F) 
+
+#### Partial ranking functions of CR evalrealheapsortstep2bb11in_loop_cont(A,B,C,D,E,F) 
+
+
+### Specialization of cost equations evalrealheapsortstep2bbin/5 
+* CE 4 is refined into CE [36,37,38,39,40] 
+
+
+### Cost equations --> "Loop" of evalrealheapsortstep2bbin/5 
+* CEs [38,39,40] --> Loop 34 
+* CEs [36,37] --> Loop 35 
+
+### Ranking functions of CR evalrealheapsortstep2bbin(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalrealheapsortstep2bbin(A,B,C,D,E) 
+
+
+### Specialization of cost equations evalrealheapsortstep2entryin/5 
+* CE 2 is refined into CE [41,42] 
+* CE 3 is refined into CE [43] 
+
+
+### Cost equations --> "Loop" of evalrealheapsortstep2entryin/5 
+* CEs [41] --> Loop 36 
+* CEs [43] --> Loop 37 
+* CEs [42] --> Loop 38 
+
+### Ranking functions of CR evalrealheapsortstep2entryin(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalrealheapsortstep2entryin(A,B,C,D,E) 
+
+
+### Specialization of cost equations evalrealheapsortstep2start/5 
+* CE 1 is refined into CE [44,45,46] 
+
+
+### Cost equations --> "Loop" of evalrealheapsortstep2start/5 
+* CEs [46] --> Loop 39 
+* CEs [45] --> Loop 40 
+* CEs [44] --> Loop 41 
+
+### Ranking functions of CR evalrealheapsortstep2start(A,B,C,D,E) 
+
+#### Partial ranking functions of CR evalrealheapsortstep2start(A,B,C,D,E) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalrealheapsortstep2bb9in(A,B,C,D,E,F,G,H,I):
+* Chain [[18,19,20,21,23]]...: 26*it(18)+0
+  with precondition: [A>=2*C+B+3,A>=B+2,E>=2,3>=E] 
+
+* Chain [[18,19,20,21,23],25]: 26*it(18)+1
+  with precondition: [E=2,A=F,B=G,A>=B+2,A>=2*C+B+3,B+2*H+2>=A,A>=B+I+2] 
+
+* Chain [[18,19,20,21,23],24]: 26*it(18)+0
+  with precondition: [E=3,A>=B+2,A>=2*C+B+3] 
+
+* Chain [[18,19,20,21,23],22,25]: 26*it(18)+6
+  with precondition: [E=2,G=B,A=F,A=G+H+2,A=G+I+2,A>=G+2,A>=2*C+G+3] 
+
+* Chain [[18,19,20,21,23],22,24]: 26*it(18)+5
+  with precondition: [E=3,A>=B+2,A>=2*C+B+3] 
+
+* Chain [25]: 1
+  with precondition: [E=2,I=D,A=F,B=G,C=H,A>=B+2,B+2*C+2>=A] 
+
+* Chain [24]: 0
+  with precondition: [E=3,A>=B+2] 
+
+* Chain [22,25]: 6
+  with precondition: [E=2,A=F,B=G,B+H+2=A,B+I+2=A,B+2*C+3=A,A>=B+2] 
+
+* Chain [22,24]: 5
+  with precondition: [E=3,B+2*C+3=A,2*C+1>=0] 
+
+
+#### Cost of chains of evalrealheapsortstep2bb11in(A,B,C,D,E,F,G,H,I):
+* Chain [[26,27]]...: 33*it(26)+0
+  with precondition: [A>=B+3] 
+
+* Chain [[26,27],31]...: 59*it(26)+2
+  with precondition: [E=3,A>=B+3] 
+
+* Chain [[26,27],30]: 34*aux(3)+0
+  with precondition: [E=3,A>=B+3] 
+
+* Chain [[26,27],29]: 33*it(26)+1
+  with precondition: [E=4,A>=B+3,G+1>=F] 
+
+* Chain [[26,27],28,30]: 34*aux(3)+4
+  with precondition: [E=3,A>=B+3] 
+
+* Chain [[26,27],28,29]: 33*it(26)+5
+  with precondition: [E=4,H=0,F=G+1,A>=B+3] 
+
+* Chain [31]...: 26*s(11)+2
+  with precondition: [E=3,A>=B+3] 
+
+* Chain [30]: 1*aux(3)+0
+  with precondition: [E=3] 
+
+
+#### Cost of chains of evalrealheapsortstep2bb11in_loop_cont(A,B,C,D,E,F):
+* Chain [33]: 0
+  with precondition: [A=3] 
+
+* Chain [32]: 1
+  with precondition: [A=4] 
+
+
+#### Cost of chains of evalrealheapsortstep2bbin(A,B,C,D,E):
+* Chain [35]: 1*aux(7)+0
+  with precondition: [A>=3] 
+
+* Chain [34]...: 1*aux(8)+0
+  with precondition: [A>=3] 
+
+
+#### Cost of chains of evalrealheapsortstep2entryin(A,B,C,D,E):
+* Chain [38]...: 1*s(25)+1
+  with precondition: [A>=3] 
+
+* Chain [37]: 2
+  with precondition: [2>=A] 
+
+* Chain [36]: 1*s(26)+1
+  with precondition: [A>=3] 
+
+
+#### Cost of chains of evalrealheapsortstep2start(A,B,C,D,E):
+* Chain [41]: 3
+  with precondition: [2>=A] 
+
+* Chain [40]: 1*s(27)+2
+  with precondition: [A>=3] 
+
+* Chain [39]...: 1*s(28)+2
+  with precondition: [A>=3] 
+
+
+Closed-form bounds of evalrealheapsortstep2start(A,B,C,D,E): 
+-------------------------------------
+* Chain [41] with precondition: [2>=A] 
+    - Upper bound: 3 
+    - Complexity: constant 
+* Chain [40] with precondition: [A>=3] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+* Chain [39]... with precondition: [A>=3] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+
+### Maximum cost of evalrealheapsortstep2start(A,B,C,D,E): inf 
+Asymptotic class: infinity 
+* Total analysis performed in 595 ms.
+
+
+-- stats
+realtime 0:00.76
+usertime 0.65
+systime 0.02
+

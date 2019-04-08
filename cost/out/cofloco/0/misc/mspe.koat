@@ -1,0 +1,228 @@
+WORST_CASE(?,O(n^1))  
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [m1/7]
+1. non_recursive  : [exit_location/1]
+2. non_recursive  : [m1_loop_cont/2]
+3. non_recursive  : [start/7]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into m1/7
+1. SCC is completely evaluated into other SCCs
+2. SCC is completely evaluated into other SCCs
+3. SCC is partially evaluated into start/7
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations m1/7 
+* CE 6 is refined into CE [7] 
+* CE 2 is refined into CE [8] 
+* CE 4 is refined into CE [9] 
+* CE 5 is refined into CE [10] 
+* CE 3 is refined into CE [11] 
+
+
+### Cost equations --> "Loop" of m1/7 
+* CEs [8] --> Loop 7 
+* CEs [9] --> Loop 8 
+* CEs [10] --> Loop 9 
+* CEs [11] --> Loop 10 
+* CEs [7] --> Loop 11 
+
+### Ranking functions of CR m1(A,B,C,D,E,F,I) 
+* RF of phase [7]: [-A+B-C+E+2,-A-C+3*E+4,2*A-C+1,2*A+2*C-3*F+1,2*A-F+1,B-C+1,B-F+1,-C+2*E+3,2*E-F+3]
+* RF of phase [8,9]: [-A+B-C+E+1,-A+2*B-C,-A-C+3*E+3,2*A+2*C-3*F,B-F,2*E-F+2]
+* RF of phase [10]: [-A+B,-A+B-C+E+2,-A+3*B-2*C+2,-A-C+3*E+4,-A+C-1,-A+E+1,2*A+2*C-3*F+1,B-F+1,C-F,2*E-F+3]
+
+#### Partial ranking functions of CR m1(A,B,C,D,E,F,I) 
+* Partial RF of phase [7]:
+  - RF of loop [7:1]:
+    -A+B-C+E+2
+    -A-C+3*E+4
+    2*A-C+1
+    2*A+2*C-3*F+1
+    2*A-F+1
+    B-C+1
+    B-F+1
+    -C+2*E+3
+    2*E-F+3
+* Partial RF of phase [8,9]:
+  - RF of loop [8:1]:
+    A+B-E-F
+    A+B/2-F+1/2
+    A+E-F+2
+    2*A+C-2*F+1
+    B-C+1
+    -C+2*E+3
+  - RF of loop [8:1,9:1]:
+    B-F
+    2*E-F+2
+  - RF of loop [9:1]:
+    -A+B
+    -A+C depends on loops [8:1] 
+    -A+E+1
+    C-F
+* Partial RF of phase [10]:
+  - RF of loop [10:1]:
+    -A+B
+    -A+B-C+E+2
+    -A+3*B-2*C+2
+    -A-C+3*E+4
+    -A+C-1
+    -A+E+1
+    2*A+2*C-3*F+1
+    B-F+1
+    C-F
+    2*E-F+3
+
+
+### Specialization of cost equations start/7 
+* CE 1 is refined into CE [12] 
+
+
+### Cost equations --> "Loop" of start/7 
+* CEs [12] --> Loop 12 
+
+### Ranking functions of CR start(A,B,C,D,E,F,I) 
+
+#### Partial ranking functions of CR start(A,B,C,D,E,F,I) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of m1(A,B,C,D,E,F,I):
+* Chain [[8,9],[10],11]: 1*it(8)+1*it(9)+1*it(10)+0
+  Such that:aux(1) =< -2*A+E+F+1
+it(8) =< A+B/2-F+1/2
+aux(2) =< -B+2*C-F
+aux(5) =< 2*B-E-F
+aux(15) =< -A+E+1
+aux(16) =< B-F
+aux(17) =< B-F+1
+aux(18) =< 2*E-F+2
+it(9) =< aux(15)
+it(10) =< aux(15)
+it(8) =< aux(16)
+it(9) =< aux(16)
+it(8) =< aux(17)
+it(9) =< aux(17)
+it(8) =< aux(5)
+it(9) =< aux(5)
+it(8) =< aux(18)
+it(9) =< aux(18)
+it(9) =< it(8)+aux(2)
+it(9) =< it(8)+aux(1)
+
+  with precondition: [I=2,A+C=E+F+1,D>=0,2*E+2>=B,B>=C,C>=E+1,C>=F+1,E+F+1>=C,B+F+1>=C+E] 
+
+* Chain [[8,9],[7],11]: 1*it(7)+1*it(8)+1*it(9)+0
+  Such that:aux(1) =< -2*A+E+F+1
+aux(5) =< 2*B-E-F
+aux(19) =< -A+E+1
+aux(20) =< A+B-E-F
+aux(21) =< B-F
+aux(22) =< B-F+1
+aux(23) =< 2*E-F+2
+it(9) =< aux(19)
+it(7) =< aux(20)
+it(8) =< aux(20)
+it(8) =< aux(21)
+it(9) =< aux(21)
+it(8) =< aux(22)
+it(9) =< aux(22)
+it(8) =< aux(5)
+it(9) =< aux(5)
+it(8) =< aux(23)
+it(9) =< aux(23)
+it(9) =< it(8)+aux(19)
+it(9) =< it(8)+aux(1)
+
+  with precondition: [I=2,A+C=E+F+1,D>=0,2*E+2>=B,B>=C,C>=E+1,C>=F+1,E+F+1>=C,B+F+1>=C+E] 
+
+* Chain [[8,9],11]: 1*it(8)+1*it(9)+0
+  Such that:aux(1) =< -2*A+E+F+1
+aux(5) =< 2*B-E-F
+aux(2) =< C-F
+aux(24) =< B-F
+aux(25) =< 2*E-F+2
+it(8) =< aux(24)
+it(9) =< aux(24)
+it(8) =< aux(5)
+it(9) =< aux(5)
+it(8) =< aux(25)
+it(9) =< aux(25)
+it(9) =< it(8)+aux(2)
+it(9) =< it(8)+aux(1)
+
+  with precondition: [I=2,A+C=E+F+1,D>=0,2*E+2>=B,B>=C,C>=E+1,C>=F+1,E+F+1>=C,B+F+1>=C+E] 
+
+* Chain [11]: 0
+  with precondition: [I=2,E+F+1=A+C,A>=0,B>=1,D>=0,F>=A,2*E+2>=B,2*B>=F,3*B>=2*E+A+2,3*B>=2*E+F+1,A+B>=2*E,A+2*B>=2*E+F+1] 
+
+
+#### Cost of chains of start(A,B,C,D,E,F,I):
+* Chain [12]: 1*s(29)+1*s(38)+1*s(39)+1*s(40)+1*s(41)+1*s(42)+1*s(43)+1*s(44)+1
+  Such that:s(30) =< -B+2*C-F
+s(28) =< B-C+1
+s(34) =< B-F
+s(35) =< B-F+1
+s(36) =< 2*B-C-F+1
+s(29) =< B/2+1/2
+s(37) =< 2*C-F
+aux(32) =< C-F
+s(38) =< s(34)
+s(39) =< s(34)
+s(38) =< s(36)
+s(39) =< s(36)
+s(38) =< s(37)
+s(39) =< s(37)
+s(39) =< s(38)+aux(32)
+s(40) =< aux(32)
+s(41) =< s(28)
+s(42) =< s(28)
+s(42) =< s(34)
+s(40) =< s(34)
+s(42) =< s(35)
+s(40) =< s(35)
+s(42) =< s(36)
+s(40) =< s(36)
+s(42) =< s(37)
+s(40) =< s(37)
+s(40) =< s(42)+aux(32)
+s(43) =< aux(32)
+s(44) =< aux(32)
+s(29) =< s(34)
+s(43) =< s(34)
+s(29) =< s(35)
+s(43) =< s(35)
+s(29) =< s(36)
+s(43) =< s(36)
+s(29) =< s(37)
+s(43) =< s(37)
+s(43) =< s(29)+s(30)
+s(43) =< s(29)+aux(32)
+
+  with precondition: [E+1=C,A=F,A>=0,D>=0,B>=A+1,A+B>=2*E,2*E+2>=A+B] 
+
+
+Closed-form bounds of start(A,B,C,D,E,F,I): 
+-------------------------------------
+* Chain [12] with precondition: [E+1=C,A=F,A>=0,D>=0,B>=A+1,A+B>=2*E,2*E+2>=A+B] 
+    - Upper bound: 9/2*B+C-5*F+7/2 
+    - Complexity: n 
+
+### Maximum cost of start(A,B,C,D,E,F,I): 9/2*B+C-5*F+7/2 
+Asymptotic class: n 
+* Total analysis performed in 607 ms.
+
+
+-- stats
+realtime 0:00.68
+usertime 0.66
+systime 0.01
+

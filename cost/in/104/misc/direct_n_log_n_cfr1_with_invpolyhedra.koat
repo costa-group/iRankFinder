@@ -1,0 +1,13 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS pyRinit))
+(VAR A A_P)
+(RULES 
+  pyRinit(A) -> Com_1(n_start(A))
+  n_a___1(A) -> Com_1(n_a___2(A_P)) :|: A -2 >= 0 && A -2 >= 0 && A -2 * A_P = 0 && -2 + A >= 0
+  n_a___1(A) -> Com_1(n_a___2(A_P)) :|: A -2 >= 0 && A -2 >= 0 && A -2 * A_P -1 = 0 && -2 + A >= 0
+  n_a___2(A) -> Com_1(n_a___2(A_P)) :|: A -2 >= 0 && A -2 * A_P = 0 && -1 + 2 * A >= 0
+  n_a___2(A) -> Com_1(n_a___2(A_P)) :|: A -2 >= 0 && A -2 * A_P -1 = 0 && -1 + 2 * A >= 0
+  n_start(A) -> Com_1(n_a___1(A)) :|: A -2 >= 0
+  n_start(A) -> Com_1(n_a___1(A)) :|: A -4 >= 0
+  n_start(A) -> Com_1(n_a___2(A)) :|: A -1 >= 0
+)

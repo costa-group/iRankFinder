@@ -1,0 +1,119 @@
+{
+  vars: [A,B,C,D],
+  pvars: [A',B',C',D'],
+  initnode: evalEx2start,
+  nodes: {
+    evalEx2bb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+      ],
+      inv_polyhedra: [-2 + A + B -C -D == 0, 1 -A + C >= 0, -1 + B >= 0, -1 + A >= 0],
+    },
+    evalEx2bb2in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+      ],
+      inv_polyhedra: [-2 + A + B -C -D == 0, -1 + B >= 0, -1 + A >= 0, 1 -A + C >= 0],
+    },
+    evalEx2bb3in: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evalEx2bbin: {
+      cfr_properties: [
+        // RFs Properties
+        [B >= 0],
+        [-B > 0],
+      ],
+      inv_polyhedra: [-1 + B >= 0, -1 + A >= 0],
+    },
+    evalEx2entryin: {
+      inv_polyhedra: [],
+    },
+    evalEx2returnin: {
+      inv_polyhedra: [],
+    },
+    evalEx2start: {
+      inv_polyhedra: [],
+    },
+    evalEx2stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evalEx2start,
+	target: evalEx2entryin,
+	name: t0,
+	constraints: [A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx2entryin,
+	target: evalEx2bb3in,
+	name: t1,
+	constraints: [B -A' = 0, A -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx2returnin,
+	target: evalEx2stop,
+	name: t10,
+	constraints: []
+    },
+    {
+	source: evalEx2bb3in,
+	target: evalEx2bbin,
+	name: t2,
+	constraints: [B -1 >= 0, A -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx2bb3in,
+	target: evalEx2returnin,
+	name: t3,
+	constraints: [-B >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx2bb3in,
+	target: evalEx2returnin,
+	name: t4,
+	constraints: [-A >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx2bbin,
+	target: evalEx2bb2in,
+	name: t5,
+	constraints: [A -A' = 0, B -B' = 0, A -1 -C' = 0, B -1 -D' = 0]
+    },
+    {
+	source: evalEx2bb2in,
+	target: evalEx2bb1in,
+	name: t6,
+	constraints: [-1 -E >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx2bb2in,
+	target: evalEx2bb1in,
+	name: t7,
+	constraints: [E -1 >= 0, A -A' = 0, B -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx2bb2in,
+	target: evalEx2bb3in,
+	name: t8,
+	constraints: [C -A' = 0, D -B' = 0, C -C' = 0, D -D' = 0]
+    },
+    {
+	source: evalEx2bb1in,
+	target: evalEx2bb2in,
+	name: t9,
+	constraints: [A -A' = 0, B -B' = 0, C + 1 -C' = 0, D -1 -D' = 0]
+    }
+  ]
+}

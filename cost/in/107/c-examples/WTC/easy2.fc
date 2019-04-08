@@ -1,0 +1,73 @@
+{
+  vars: [A],
+  pvars: [A'],
+  initnode: evaleasy2start,
+  nodes: {
+    evaleasy2bb1in: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [],
+    },
+    evaleasy2bbin: {
+      cfr_properties: [
+        // RFs Properties
+        [A >= 0],
+        [-A > 0],
+      ],
+      inv_polyhedra: [-1 + A >= 0],
+    },
+    evaleasy2entryin: {
+      inv_polyhedra: [],
+    },
+    evaleasy2returnin: {
+      inv_polyhedra: [-A >= 0],
+    },
+    evaleasy2start: {
+      inv_polyhedra: [],
+    },
+    evaleasy2stop: {
+      inv_polyhedra: [],
+    },
+  },
+  transitions: [
+    {
+	source: evaleasy2start,
+	target: evaleasy2entryin,
+	name: t0,
+	constraints: [A -A' = 0]
+    },
+    {
+	source: evaleasy2entryin,
+	target: evaleasy2bb1in,
+	name: t1,
+	constraints: [A -A' = 0]
+    },
+    {
+	source: evaleasy2bb1in,
+	target: evaleasy2bbin,
+	name: t2,
+	constraints: [A -1 >= 0, A -A' = 0]
+    },
+    {
+	source: evaleasy2bb1in,
+	target: evaleasy2returnin,
+	name: t3,
+	constraints: [-A >= 0, A -A' = 0]
+    },
+    {
+	source: evaleasy2bbin,
+	target: evaleasy2bb1in,
+	name: t4,
+	constraints: [A -1 -A' = 0]
+    },
+    {
+	source: evaleasy2returnin,
+	target: evaleasy2stop,
+	name: t5,
+	constraints: []
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/invariant_benchmarks/mergesort.fc -inv-thre project_head_var -cfr-st-before -cfr-inv -cfr-it 1 -cfr-head -cfr-head-var -cfr-call -cfr-call-var -ca -i polyhedra
+
+Computing and checking invariants...
+- Checking asserts of node body2_3_assert
+- - invariant: [l -z == 0, u -y == 0, i + j -k -l -x == 0, i + j -k -r == 0, -i + k >= 0, 1 + n -u >= 0, i -l >= 0, i + j -l -u >= 0, 2 * i + 2 * j -2 * k -l -u >= 0]
+- - asserts: [[[n -k >= 0, r >= 0, n -r >= 0]]]
+- - DOESN'T HOLD!
+- Checking asserts of node else2_assert1
+- - invariant: [l -z == 0, u -y == 0, i + j -k -l -x == 0, i + j -k -r == 0, -i + k >= 0, -1 -j + u >= 0, 1 + n -u >= 0, -1 + j -k >= 0, i -l >= 0, 2 * i + 2 * j -2 * k -l -u >= 0]
+- - asserts: [[[k >= 0, n -k >= 0, j >= 0, n -j >= 0]]]
+- - DOESN'T HOLD!
+- Checking asserts of node for_assert1
+- - invariant: [l -z == 0, u -y == 0, l -r + x == 0, -1 -k + u >= 0, 1 + n -u >= 0, k -l >= 0, j -u >= 0, i -r >= 0]
+- - asserts: [[[k >= 0, n -k >= 0]]]
+- - DOESN'T HOLD!
+- Checking asserts of node if2_assert
+- - invariant: [l -z == 0, u -y == 0, i + j -k -l -x == 0, i + j -k -r == 0, -i + k >= 0, -1 -j + u >= 0, 1 + n -u >= 0, -1 + j -k >= 0, i -l >= 0, 2 * i + 2 * j -2 * k -l -u >= 0]
+- - asserts: [[[i >= 0, n -i >= 0, j >= 0, n -j >= 0]]]
+- - DOESN'T HOLD!
+- Checking asserts of node if2_assert1
+- - invariant: [l -z == 0, u -y == 0, i + j -k -l -x == 0, i + j -k -r == 0, -i + k >= 0, -1 -j + u >= 0, 1 + n -u >= 0, -1 + j -k >= 0, i -l >= 0, 2 * i + 2 * j -2 * k -l -u >= 0]
+- - asserts: [[[i >= 0, n -i >= 0, k >= 0, n -k >= 0]]]
+- - DOESN'T HOLD!
+- Checking asserts of node while4_assert1
+- - invariant: [l -z == 0, u -y == 0, i + j -k -l -x == 0, i + j -k -r == 0, 1 + n -u >= 0, -1 + j -k >= 0, i + j -l -u >= 0]
+- - asserts: [[[i >= 0, n -i >= 0, k >= 0, n -k >= 0]]]
+- - DOESN'T HOLD!
+- Checking asserts of node while5_assert1
+- - invariant: [l -z == 0, u -y == 0, i + j -k -l -x == 0, i + j -k -r == 0, -1 -j + u >= 0, -j + k >= 0, 1 + n -u >= 0, i + 2 * j -k -l -u >= 0]
+- - asserts: [[[k >= 0, n -k >= 0, j >= 0, n -j >= 0]]]
+- - DOESN'T HOLD!
+- There where some invariants (polyhedra) where it fails!
+
+################################################################################
+
+Refining graph...
+Computing and checking invariants...
+- Checking asserts of node n_body2_3_assert___25
+- - Correct!
+- Checking asserts of node n_body2_3_assert___26
+- - Correct!
+- Checking asserts of node n_body2_3_assert___5
+- - Correct!
+- Checking asserts of node n_body2_3_assert___6
+- - Correct!
+- Checking asserts of node n_else2_assert1___29
+- - Correct!
+- Checking asserts of node n_else2_assert1___8
+- - Correct!
+- Checking asserts of node n_for_assert1___13
+- - Correct!
+- Checking asserts of node n_for_assert1___16
+- - Correct!
+- Checking asserts of node n_if2_assert1___28
+- - Correct!
+- Checking asserts of node n_if2_assert1___7
+- - Correct!
+- Checking asserts of node n_if2_assert___24
+- - Correct!
+- Checking asserts of node n_if2_assert___30
+- - Correct!
+- Checking asserts of node n_if2_assert___4
+- - Correct!
+- Checking asserts of node n_while4_assert1___2
+- - Correct!
+- Checking asserts of node n_while4_assert1___20
+- - Correct!
+- Checking asserts of node n_while4_assert1___22
+- - Correct!
+- Checking asserts of node n_while5_assert1___10
+- - Correct!
+- Checking asserts of node n_while5_assert1___17
+- - Correct!
+- All the invariants (polyhedra) hold into the asserts!
+
+################################################################################
+
+MAYBE
+
+No algorithms selected
+
+-- stats
+realtime 0:51.06
+usertime 50.54
+systime 0.31
+

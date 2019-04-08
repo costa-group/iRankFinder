@@ -1,0 +1,310 @@
+MAYBE
+
+Preprocessing Cost Relations
+=====================================
+
+#### Computed strongly connected components 
+0. recursive  : [evalrealshellsortbb2in/11,evalrealshellsortbb3in/11,evalrealshellsortbb4in/11]
+1. recursive  : [evalrealshellsortbb1in/11,evalrealshellsortbb3in_loop_cont/12,evalrealshellsortbb5in/11,evalrealshellsortbb6in/11]
+2. recursive  : [evalrealshellsortbb6in_loop_cont/12,evalrealshellsortbb7in/11,evalrealshellsortbb8in/11]
+3. non_recursive  : [evalrealshellsortstop/6]
+4. non_recursive  : [evalrealshellsortreturnin/6]
+5. non_recursive  : [exit_location/1]
+6. non_recursive  : [evalrealshellsortbb8in_loop_cont/7]
+7. non_recursive  : [evalrealshellsortentryin/6]
+8. non_recursive  : [evalrealshellsortstart/6]
+
+#### Obtained direct recursion through partial evaluation 
+0. SCC is partially evaluated into evalrealshellsortbb3in/11
+1. SCC is partially evaluated into evalrealshellsortbb6in/11
+2. SCC is partially evaluated into evalrealshellsortbb8in/11
+3. SCC is completely evaluated into other SCCs
+4. SCC is completely evaluated into other SCCs
+5. SCC is completely evaluated into other SCCs
+6. SCC is partially evaluated into evalrealshellsortbb8in_loop_cont/7
+7. SCC is partially evaluated into evalrealshellsortentryin/6
+8. SCC is partially evaluated into evalrealshellsortstart/6
+
+Control-Flow Refinement of Cost Relations
+=====================================
+
+### Specialization of cost equations evalrealshellsortbb3in/11 
+* CE 20 is refined into CE [21] 
+* CE 19 is refined into CE [22] 
+* CE 17 is refined into CE [23] 
+* CE 18 is refined into CE [24] 
+
+
+### Cost equations --> "Loop" of evalrealshellsortbb3in/11 
+* CEs [24] --> Loop 18 
+* CEs [21] --> Loop 19 
+* CEs [22] --> Loop 20 
+* CEs [23] --> Loop 21 
+
+### Ranking functions of CR evalrealshellsortbb3in(A,B,C,D,E,G,H,I,J,K,L) 
+
+#### Partial ranking functions of CR evalrealshellsortbb3in(A,B,C,D,E,G,H,I,J,K,L) 
+
+
+### Specialization of cost equations evalrealshellsortbb6in/11 
+* CE 15 is refined into CE [25] 
+* CE 13 is refined into CE [26,27] 
+* CE 16 is refined into CE [28] 
+* CE 14 is refined into CE [29,30,31,32] 
+
+
+### Cost equations --> "Loop" of evalrealshellsortbb6in/11 
+* CEs [32] --> Loop 22 
+* CEs [29] --> Loop 23 
+* CEs [31] --> Loop 24 
+* CEs [30] --> Loop 25 
+* CEs [25] --> Loop 26 
+* CEs [26,28] --> Loop 27 
+* CEs [27] --> Loop 28 
+
+### Ranking functions of CR evalrealshellsortbb6in(A,B,C,D,E,G,H,I,J,K,L) 
+
+#### Partial ranking functions of CR evalrealshellsortbb6in(A,B,C,D,E,G,H,I,J,K,L) 
+* Partial RF of phase [22,23,24,25]:
+  - RF of loop [23:1,24:1,25:1]:
+    A-C depends on loops [22:1] 
+  - RF of loop [25:1]:
+    B-C depends on loops [22:1] 
+
+
+### Specialization of cost equations evalrealshellsortbb8in/11 
+* CE 9 is refined into CE [33] 
+* CE 8 is refined into CE [34,35,36] 
+* CE 10 is refined into CE [37] 
+* CE 6 is refined into CE [38,39,40] 
+* CE 5 is refined into CE [41,42] 
+* CE 7 is refined into CE [43,44] 
+
+
+### Cost equations --> "Loop" of evalrealshellsortbb8in/11 
+* CEs [40] --> Loop 29 
+* CEs [42,44] --> Loop 30 
+* CEs [39] --> Loop 31 
+* CEs [38] --> Loop 32 
+* CEs [41,43] --> Loop 33 
+* CEs [33] --> Loop 34 
+* CEs [34,37] --> Loop 35 
+* CEs [35,36] --> Loop 36 
+
+### Ranking functions of CR evalrealshellsortbb8in(A,B,C,D,E,G,H,I,J,K,L) 
+* RF of phase [32]: [2*B-1]
+
+#### Partial ranking functions of CR evalrealshellsortbb8in(A,B,C,D,E,G,H,I,J,K,L) 
+* Partial RF of phase [32]:
+  - RF of loop [32:1]:
+    2*B-1
+
+
+### Specialization of cost equations evalrealshellsortbb8in_loop_cont/7 
+* CE 11 is refined into CE [45] 
+* CE 12 is refined into CE [46] 
+
+
+### Cost equations --> "Loop" of evalrealshellsortbb8in_loop_cont/7 
+* CEs [45] --> Loop 37 
+* CEs [46] --> Loop 38 
+
+### Ranking functions of CR evalrealshellsortbb8in_loop_cont(A,B,C,D,E,F,G) 
+
+#### Partial ranking functions of CR evalrealshellsortbb8in_loop_cont(A,B,C,D,E,F,G) 
+
+
+### Specialization of cost equations evalrealshellsortentryin/6 
+* CE 3 is refined into CE [47,48,49,50,51,52] 
+* CE 4 is refined into CE [53,54] 
+* CE 2 is refined into CE [55,56] 
+
+
+### Cost equations --> "Loop" of evalrealshellsortentryin/6 
+* CEs [53,54] --> Loop 39 
+* CEs [47,48,49] --> Loop 40 
+* CEs [55,56] --> Loop 41 
+* CEs [50,51,52] --> Loop 42 
+
+### Ranking functions of CR evalrealshellsortentryin(A,B,C,D,E,G) 
+
+#### Partial ranking functions of CR evalrealshellsortentryin(A,B,C,D,E,G) 
+
+
+### Specialization of cost equations evalrealshellsortstart/6 
+* CE 1 is refined into CE [57,58,59,60] 
+
+
+### Cost equations --> "Loop" of evalrealshellsortstart/6 
+* CEs [60] --> Loop 43 
+* CEs [59] --> Loop 44 
+* CEs [58] --> Loop 45 
+* CEs [57] --> Loop 46 
+
+### Ranking functions of CR evalrealshellsortstart(A,B,C,D,E,G) 
+
+#### Partial ranking functions of CR evalrealshellsortstart(A,B,C,D,E,G) 
+
+
+Computing Bounds
+=====================================
+
+#### Cost of chains of evalrealshellsortbb3in(A,B,C,D,E,G,H,I,J,K,L):
+* Chain [[18]]...: 3*it(18)+0
+  with precondition: [A>=C+1,E>=B,G>=2,3>=G] 
+
+* Chain [[18],21]: 3*it(18)+2
+  with precondition: [G=2,A=H,B=I,C=J,D=K,E>=B,L>=B,A>=C+1] 
+
+* Chain [[18],20]: 3*it(18)+1
+  with precondition: [G=2,A=H,B=I,C=J,D=K,L>=0,A>=C+1,B>=L+1,E>=B+L] 
+
+* Chain [[18],19]: 3*it(18)+0
+  with precondition: [G=3,E>=B,A>=C+1] 
+
+* Chain [21]: 2
+  with precondition: [G=2,K=D,A=H,B=I,C=J,E=L,E>=B,A>=C+1] 
+
+* Chain [20]: 1
+  with precondition: [G=2,K=D,A=H,B=I,C=J,E=L,A>=C+1,B>=E+1] 
+
+* Chain [19]: 0
+  with precondition: [G=3,A>=C+1] 
+
+
+#### Cost of chains of evalrealshellsortbb6in(A,B,C,D,E,G,H,I,J,K,L):
+* Chain [[22,23,24,25]]...: 21*it(22)+0
+  with precondition: [A>=C+1,G>=3,4>=G] 
+
+* Chain [[22,23,24,25],28]...: 24*it(22)+2
+  with precondition: [G=3,A>=B+1,A>=C+1] 
+
+* Chain [[22,23,24,25],27]: 22*aux(3)+0
+  with precondition: [G=3,A>=C+1] 
+
+* Chain [[22,23,24,25],26]: 21*it(22)+1
+  with precondition: [G=4,A>=C+1,J>=H] 
+
+* Chain [27]: 1*aux(3)+0
+  with precondition: [G=3] 
+
+* Chain [26]: 1
+  with precondition: [G=4,I=B,K=D,L=E,A=H,C=J,C>=A] 
+
+
+#### Cost of chains of evalrealshellsortbb8in(A,B,C,D,E,G,H,I,J,K,L):
+* Chain [[29,31]]...: 47*it(29)+0
+  with precondition: [A>=1,B>=1] 
+
+* Chain [[29,31],[32],35]: 48*it(29)+3*s(24)+0
+  with precondition: [G=3,A>=1,B>=1] 
+
+* Chain [[29,31],[32],34]: 47*it(29)+1*it([[32],34])+3*s(25)+0
+  Such that:it([[32],34]) =< 1
+
+  with precondition: [G=5,I=0,J=0,0>=H,A>=1,B>=1] 
+
+* Chain [[29,31],36]...: 48*aux(18)+0
+  with precondition: [G=3,A>=1,B>=1] 
+
+* Chain [[29,31],35]: 48*aux(5)+0
+  with precondition: [G=3,A>=1,B>=1] 
+
+* Chain [[29,31],34]: 47*it(29)+1
+  with precondition: [G=5,I=0,A>=1,B>=1] 
+
+* Chain [[29,31],33,35]: 49*aux(5)+0
+  with precondition: [G=3,A>=1,B>=1] 
+
+* Chain [[29,31],33,34]: 48*aux(19)+1
+  with precondition: [G=5,0>=I,A>=1,B>=1,J>=H] 
+
+* Chain [[29,31],30,35]: 49*aux(5)+0
+  with precondition: [G=3,A>=1,B>=1] 
+
+* Chain [[29,31],30,34]: 48*aux(20)+1
+  with precondition: [G=5,0>=I,A>=1,B>=1] 
+
+* Chain [36]...: 1*aux(18)+0
+  with precondition: [G=3,A>=1,B>=1] 
+
+* Chain [35]: 1*aux(5)+0
+  with precondition: [G=3] 
+
+* Chain [34]: 1
+  with precondition: [G=5,H=A,J=C,K=D,L=E,B=I,0>=B] 
+
+* Chain [33,35]: 2*aux(5)+0
+  with precondition: [G=3,A>=1,B>=1] 
+
+* Chain [33,34]: 1*aux(19)+1
+  with precondition: [G=5,0>=I,A>=1,B>=1,J>=H] 
+
+* Chain [30,35]: 2*aux(5)+0
+  with precondition: [G=3,A>=1,B>=1] 
+
+* Chain [30,34]: 1*aux(20)+1
+  with precondition: [G=5,0>=I,A>=1,B>=1] 
+
+
+#### Cost of chains of evalrealshellsortbb8in_loop_cont(A,B,C,D,E,F,G):
+* Chain [38]: 0
+  with precondition: [A=3] 
+
+* Chain [37]: 1
+  with precondition: [A=5] 
+
+
+#### Cost of chains of evalrealshellsortentryin(A,B,C,D,E,G):
+* Chain [42]...: 1*aux(24)+0
+  with precondition: [A>=2] 
+
+* Chain [41]: 1*aux(25)+0
+  with precondition: [A=0] 
+
+* Chain [40]: 1*aux(26)+0
+  with precondition: [A>=1] 
+
+* Chain [39]: 1*aux(27)+0
+  with precondition: [0>=A+1] 
+
+
+#### Cost of chains of evalrealshellsortstart(A,B,C,D,E,G):
+* Chain [46]: 1*s(57)+1
+  with precondition: [A=0] 
+
+* Chain [45]: 1*s(58)+1
+  with precondition: [0>=A+1] 
+
+* Chain [44]: 1*s(59)+1
+  with precondition: [A>=1] 
+
+* Chain [43]...: 1*s(60)+1
+  with precondition: [A>=2] 
+
+
+Closed-form bounds of evalrealshellsortstart(A,B,C,D,E,G): 
+-------------------------------------
+* Chain [46] with precondition: [A=0] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+* Chain [45] with precondition: [0>=A+1] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+* Chain [44] with precondition: [A>=1] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+* Chain [43]... with precondition: [A>=2] 
+    - Upper bound: inf 
+    - Complexity: infinity 
+
+### Maximum cost of evalrealshellsortstart(A,B,C,D,E,G): inf 
+Asymptotic class: infinity 
+* Total analysis performed in 1006 ms.
+
+
+-- stats
+realtime 0:01.14
+usertime 1.09
+systime 0.02
+
