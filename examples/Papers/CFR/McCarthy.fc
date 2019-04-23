@@ -1,0 +1,43 @@
+{
+  vars: [x,c],
+  pvars: [x',c'],
+  initnode: n0,
+  transitions: [
+    {
+	source: n0,
+	target: n1,
+	name: t0,
+	constraints: [x' = x, c' = 1]
+    },
+    {
+	source: n1,
+	target: n2,
+	name: t1,
+	constraints: [c > 0, x' = x, c' = c]
+    },
+    {
+	source: n1,
+	target: n3,
+	name: t2,
+	constraints: [c <= 0, x' = x, c' = c]
+    },
+    {
+	source: n2,
+	target: n1,
+	name: t3,
+	constraints: [x > 100, x' = x - 10, c' = c -1]
+    },
+    {
+	source: n2,
+	target: n1,
+	name: t4,
+	constraints: [x <= 100, x' = x + 11, c' = c + 1]
+    },
+    {
+	source: n3,
+	target: n4,
+	name: t5,
+	constraints: [x' = x, c' = c]
+    }
+  ]
+}
