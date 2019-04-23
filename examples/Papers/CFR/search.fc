@@ -1,0 +1,36 @@
+{
+vars: [i,n,t],
+ initnode: n0,
+ transitions: [
+   {
+    source: n0,
+    target: n1,
+    constraints: [i<n, i>=0, i'=i, n'=n, t'=i]
+   },
+   {
+    source: n1,
+    target: n2,
+    constraints: [t < n-1, t' = t+1, n' = n, i'=i]
+   },
+   {
+    source: n1,
+    target: n2,
+    constraints: [t >= n-1, t' = 0, n' = n, i'=i]
+   },
+   {
+    source: n2,
+    target: n1,
+    constraints: [t < i, n' = n, i'=i, t'=t]
+   },
+   {
+    source: n2,
+    target: n1,
+    constraints: [t > i, n' = n, i'=i, t'=t]
+   },
+   {
+    source: n2,
+    target: n3,
+    constraints: [t = i, n' = n, i'=i, t'=t]
+   }
+  ]
+}
