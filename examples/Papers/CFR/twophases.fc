@@ -1,9 +1,12 @@
 {
   vars: [x,y,z],
-  initnode: start,
+  initnode: n0,
+  nodes: {
+  	  n1: { cfr_properties: [[x>0],[y<z],[y>=z]] }
+  },
   transitions: [
     {
-	source: start,
+	source: n0,
 	target: n1,
 	name: t0,
 	constraints: [z' = z, x' = x, y' = y]
@@ -31,12 +34,6 @@
 	target: n1,
 	name: t4,
 	constraints: [y >= z, z' = z, x' = x - 1, y' = y]
-    },
-    {
-	source: n3,
-	target: stop,
-	name: t5,
-	constraints: [z' = z, x' = x, y' = y]
     }
   ]
 }
