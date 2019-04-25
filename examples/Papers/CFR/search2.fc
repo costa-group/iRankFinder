@@ -1,12 +1,12 @@
 {
 vars: [h,n,t],
  initnode: n0,
- nodes: { n1: {cfr_properties:[[t<=n-1],[h<=t-1]]}},
- transitions: [
+  nodes: { n1: {cfr_properties:[[ h+t>=1],[t<=n-2],[h<=n-2]]}},
+  transitions: [
    {
     source: n0,
     target: n1,
-    constraints: [n>0, h<n, h>=0, t<n, t>=0, h'=h, n'=n, t'=t]
+    constraints: [n>=1, h<=n-1, h>=0, t<=n-1, t>=0, h'=h, n'=n, t'=t]
    },
    {
     source: n1,
