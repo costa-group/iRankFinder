@@ -1,6 +1,7 @@
 {
 vars: [h,n,t],
  initnode: n0,
+ nodes: { n1: {cfr_properties:[[t<=n-1],[h<=t-1]]}},
  transitions: [
    {
     source: n0,
@@ -10,17 +11,17 @@ vars: [h,n,t],
    {
     source: n1,
     target: n2,
-    constraints: [t > h, n' = n, h'=h, t'=t]
+    constraints: [t >= h+1, n' = n, h'=h, t'=t]
    },
    {
     source: n1,
     target: n2,
-    constraints: [t < h, n' = n, h'=h, t'=t]
+    constraints: [t <= h-1, n' = n, h'=h, t'=t]
    },
    {
     source: n2,
     target: n1,
-    constraints: [t < n-1, t' = t+1, n' = n, h'=h]
+    constraints: [t <= n-2, t' = t+1, n' = n, h'=h]
    },
    {
     source: n2,
