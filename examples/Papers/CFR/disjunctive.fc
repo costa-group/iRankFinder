@@ -3,7 +3,7 @@
   initnode: n0,
   nodes: {
     n4: {
-      cfr_properties: [[z==1]]
+      cfr_properties: [[x>=y]]
     }
   },
   transitions: [
@@ -24,7 +24,7 @@
     },
     {
       source: n1,
-      target: n5,
+      target: n6,
       constraints: [x == y, x'=x, y'=y, z'=z]
     },
     {
@@ -49,17 +49,22 @@
     },
     {
       source: n4,
-      target: n4,
-      constraints: [x <= y-1, x'=x + z, y'=y, z'=z]
-    },
-    {
-      source: n4,
-      target: n4,
-      constraints: [x >= y+1, x'=x + z, y'=y, z'=z]
+      target: n5,
+      constraints: [x <= y-1, x'=x, y'=y, z'=z]
     },
     {
       source: n4,
       target: n5,
+      constraints: [x >= y+1, x'=x, y'=y, z'=z]
+    },
+    {
+      source: n5,
+      target: n4,
+      constraints: [x'=x + z, y'=y, z'=z]
+    },
+    {
+      source: n4,
+      target: n6,
       constraints: [x == y, x'=x, y'=y, z'=z]
     }
   ]
