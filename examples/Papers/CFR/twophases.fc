@@ -2,7 +2,7 @@
   vars: [x,y,z],
   initnode: n0,
   nodes: {
-  	  n1: { cfr_properties: [[x>0],[y<z],[y>=z]] }
+  	  n1: { cfr_properties: [[x>=1],[y=<z-1],[y>=z]] }
   },
   transitions: [
     {
@@ -15,7 +15,7 @@
 	source: n1,
 	target: n2,
 	name: t1,
-	constraints: [x > 0, z' = z, x' = x, y' = y]
+	constraints: [x >= 1, z' = z, x' = x, y' = y]
     },
     {
 	source: n1,
@@ -27,7 +27,7 @@
 	source: n2,
 	target: n1,
 	name: t3,
-	constraints: [y < z, z' = z, x' = x, y' = y + 1]
+	constraints: [y <= z-1, z' = z, x' = x, y' = y + 1]
     },
     {
 	source: n2,
