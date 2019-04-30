@@ -1,5 +1,4 @@
-int main(){
-  int x, y, z;
+int f(int x, int y, int z){
   while( x > 0 ){
     if ( y < z )
       y = y + 1;
