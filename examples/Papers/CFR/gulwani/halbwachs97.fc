@@ -1,0 +1,46 @@
+{
+  vars: [t,d,s],
+  initnode: n0,
+  nodes: {
+		n5_assert: { asserts: [[[100==  100]]] },
+
+    },
+  transitions: [
+   {source:n0, target: n1,
+    constraints: [t'=0, d'=0,s'=0]
+   },
+   {source:n1, target: n2,
+    constraints: [t'=t, d'=d,s'=s]
+   },
+   {source:n1, target: n3,
+    constraints: [t'=t, d'=d,s'=0]
+   },
+   {source:n3, target: n6,
+    constraints: [t+1=4, t'=t+1, d'=d,s'=0]
+   },
+   {source:n3, target: n2,
+    constraints: [t+1<=3,t'=t+1, d'=d,s'=s]
+   },
+   {source:n3, target: n2,
+    constraints: [t+1>=5,t'=t+1, d'=d,s'=s]
+   },
+   {source:n2, target: n1,
+    constraints: [t'=t, d'=d,s'=s]
+   },
+   {source:n2, target: n4,
+    constraints: [t'=t, d'=d,s'=s]
+   },
+   {source:n4, target: n6,
+    constraints: [s+1=3, t'=t, d'=d,s'=s+1]
+   },
+   {source:n4, target: n5_assert,
+    constraints: [s+1<=2,t'=t, d'=d,s'=s+1]
+   },
+   {source:n4, target: n5_assert,
+    constraints: [s+1>=4,t'=t, d'=d,s'=s+1]
+   },
+   {source:n5_assert, target: n1,
+    constraints: [t'=t, d'=d,s'=s]
+   },
+ ]
+}
