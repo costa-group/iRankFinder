@@ -13,14 +13,8 @@
       <div id="top">
 	<h1> Control-Flow Refinement by Partial Evaluation, and its Application to Termination and Cost Analysis</h1>
       </div>
-      <div id="right">
-	<div id="description" include-html="description.html"></div>
-	<div id="examples" include-html="examples.html"></div>
-	<!-- div id="experiments" include-html="experiments.html"></div-->
-	<div id="tools" include-html="tools.html"></div>
-      </div>
-      <div id="left" include-html="menu.html">
-      </div>
+      <div id="right"><div include-html="tables.html"></div></div>
+      <div id="left" include-html="menu2.html" ></div>
     </div>
     <script>
      function resize_table(table){
@@ -47,11 +41,9 @@
 
 
      function includeHTML(container) {
-       console.log("container: ", container);
        $("[include-html]",container).each(function(){
 	 var base = $(this);
          var file = $(base).attr("include-html");
-	 console.log("hola", base);
          if (file) {
 	   $(base).load(file, function() {
 	     $(base).removeAttr("include-html");
@@ -111,3 +103,4 @@
     </script>
   </body>
 </html>
+
