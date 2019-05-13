@@ -16,8 +16,8 @@
       <div id="right">
 	<div id="description" include-html="description.html"></div>
 	<div id="examples" include-html="examples.html"></div>
-	<!-- div id="experiments" include-html="experiments.html"></div-->
 	<div id="tools" include-html="tools.html"></div>
+	<div id="experiments" include-html="experiments.html"></div>
       </div>
       <div id="left" include-html="menu.html">
       </div>
@@ -31,7 +31,7 @@
        colWidth = $bodyCells.map(function() {
 	 return $(this).width() + 2;
        }).get();
-       console.log(colWidth);
+       //console.log(colWidth);
        
        // Set the width of thead columns
        $table.find('thead tr').children().each(function(i, v) {
@@ -47,11 +47,11 @@
 
 
      function includeHTML(container) {
-       console.log("container: ", container);
+       //console.log("container: ", container);
        $("[include-html]",container).each(function(){
 	 var base = $(this);
          var file = $(base).attr("include-html");
-	 console.log("hola", base);
+	 //console.log("hola", base);
          if (file) {
 	   $(base).load(file, function() {
 	     $(base).removeAttr("include-html");
