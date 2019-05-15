@@ -1,36 +1,37 @@
 {
-vars: [i,n,t],
+vars: [h,n,t],
  initnode: n0,
- transitions: [
+  nodes: { n1: {cfr_properties:[ [h=0],[h<=t]]}},
+  transitions: [
    {
     source: n0,
     target: n1,
-    constraints: [i<n, i>=0, i'=i, n'=n, t'=i]
+    constraints: [n>=1, h<=n-1, h>=0, t<=n-1, t>=0, h'=h, n'=n, t'=t]
    },
    {
     source: n1,
     target: n2,
-    constraints: [t < n-1, t' = t+1, n' = n, i'=i]
+    constraints: [t >= h+1, n' = n, h'=h, t'=t]
    },
    {
     source: n1,
     target: n2,
-    constraints: [t >= n-1, t' = 0, n' = n, i'=i]
+    constraints: [t <= h-1, n' = n, h'=h, t'=t]
    },
    {
     source: n2,
     target: n1,
-    constraints: [t < i, n' = n, i'=i, t'=t]
+    constraints: [h <= n-2, h' = h+1, n' = n, t'=t]
    },
    {
     source: n2,
     target: n1,
-    constraints: [t > i, n' = n, i'=i, t'=t]
+    constraints: [h >= n-1, h' = 0, n' = n, t'=t]
    },
    {
-    source: n2,
+    source: n1,
     target: n3,
-    constraints: [t = i, n' = n, i'=i, t'=t]
+    constraints: [t = h, n' = n, h'=h, t'=t]
    }
   ]
 }

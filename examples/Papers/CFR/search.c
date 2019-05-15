@@ -1,10 +1,9 @@
 #include <assert.h>
-int search(int i, int n, int a[], int v) {
-  assert(n>0 && i<n && i >=0);
-  int t = i;
-  do {
-    if ( t < n-1 ) t++;
-    else t = 0;
-  } while ( a[t] != v && t != i );
-  return t;
+int search(int q[], int n, int h, int t, int v) {
+  assert(n>0 && h<n && t<n && h>=0 && t>=0);
+  while ( h != t && q[t] != v) {
+    if ( h < n-1 ) h++;
+    else h = 0;
+  }
+  return h;
 }
