@@ -2,9 +2,8 @@
   vars: [x,y],
   initnode: n0,
   nodes: {
-		n5_assert: { asserts: [[[x==  102]]] },
-
-    },
+    n5_assert: { asserts: [[[x == 102]]] },
+  },
   transitions: [
    {source:n0, target: n1,
     constraints: [x'=0, y'=0]
@@ -21,5 +20,16 @@
    {source:n2, target: n1,
     constraints: [y>=0, x'=x+1, y'=y]
    }
- ]
+ ],
+ c_source: "void m(){
+  int x, y;
+  x=0; y=0;
+  while(1==1){
+    if(x<= 50) y++;
+    else y--;
+    if(y<0) break;
+    x++;
+  }
+  assert(x==102);
+}"
 }
