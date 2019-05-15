@@ -1,0 +1,56 @@
+{
+	vars: [x, y, lock],
+	initnode: n0,
+	nodes: {
+		n5_assert: { asserts: [[[lock == 1]]] },
+        },
+	transitions: [
+		{
+			source: n0,
+			target: n1,
+			constraints: [lock' = 0, x' = x, y' = y]
+		},{
+			source: n1,
+			target: n2,
+			constraints: [x <= y - 1, lock' = lock, x' = x, y' = y]
+		},{
+			source: n1,
+			target: n2,
+			constraints: [x >= y + 1, lock' = lock, x' = x, y' = y]
+		},{
+			source: n2,
+			target: n3,
+			constraints: [x <= y - 1, lock' = lock, x' = x, y' = y]
+		},{
+			source: n2,
+			target: n3,
+			constraints: [x >= y + 1, lock' = lock, x' = x, y' = y]
+		},{
+			source: n3,
+			target: n4,
+			constraints: [lock' = 1, x' = y, y' = y]
+		},{
+			source: n4,
+			target: n2,
+			constraints: [lock' = lock, x' = x, y' = y]
+		},{
+			source: n4,
+			target: n2,
+			constraints: [lock' = 0, x' = x, y' = y + 1]
+		},{
+			source: n2,
+			target: n5_assert,
+			constraints: [x == y, lock' = lock, x' = x, y' = y]
+		},
+	],
+	c_source:"
+	void m(int x, int y){
+	  int lock=0;
+	  assume(x!=y);
+	  while(x!= y) {
+	    lock = 1; x = y;
+	    if(nondet()){ lock=0; y++;}
+	  }
+	  assert(lock == 1);
+	}"
+}
