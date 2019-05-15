@@ -5,5 +5,5 @@ int search(int q[], int n, int h, int t, int v) {
     if ( h < n-1 ) h++;
     else h = 0;
   }
-  return h;
+  return q[h] == v;
 }

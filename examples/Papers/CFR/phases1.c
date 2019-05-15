@@ -1,4 +1,4 @@
-int f(int x, int y, int z){
+int phases1(int x, int y, int z){
   while( x > 0 ){
     if ( y < z )
       y = y + 1;
