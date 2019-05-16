@@ -1,0 +1,52 @@
+{
+vars: [h,n,t,w,x],
+ initnode: n0,
+  nodes: { n1: {cfr_properties:[ [h=0],[h<=t]]}},
+  transitions: [
+   {
+    source: n0,
+    target: n1,
+    constraints: [n>=1, h<=n-1, h>=0, t<=n-1, t>=0, h'=h, n'=n, t'=t, x'=x, w'=t-h+1]
+   },
+   {
+    source: n1,
+    target: n2,
+    constraints: [t >= h+1, n' = n, h'=h, t'=t, x'=x, w'=w]
+   },
+   {
+    source: n1,
+    target: n2,
+    constraints: [t <= h-1, n' = n, h'=h, t'=t, x'=x, w'=w, x'=x, w'=w]
+   },
+   {
+    source: n2,
+    target: n1,
+    constraints: [h <= n-2, h' = h+1, n' = n, t'=t, x'=x, w'=w]
+   },
+   {
+    source: n2,
+    target: n1,
+    constraints: [h >= n-1, h' = 0, n' = n, t'=t, x'=x, w'=1]
+   },
+   {
+    source: n1,
+    target: n3,
+    constraints: [t = h, n' = n, h'=h, t'=t, x'=x, w'=w]
+   },
+   {
+    source: n3,
+    target: n4,
+    constraints: [x>=1, n'=n, h'=h, t'=t, x'=x, w'=w]
+   },
+   {
+    source: n4,
+    target: n3,
+    constraints: [n'=n, h'=h, t'=t, x'=x-w, w'=w]
+   },
+   {
+    source: n3,
+    target: n5,
+    constraints: [x<=0, n'=n, h'=h, t'=t, x'=x, w'=w]
+   }
+  ]
+}
