@@ -28,5 +28,9 @@ RUN test $interface = "true" && \
        $TOOLS_HOME/iRankFinder/interface/install.sh --ei-home=$TOOLS_HOME/easyinterface --install-ei --ei-branch=develop
 RUN cp $TOOLS_HOME/iRankFinder/web/index.html /var/www/html/index.html 
 RUN test $interface = "true" && a2ensite easyinterface-site
+ARG papersite=true
+RUN test $papersite = "true" && \
+       $TOOLS_HOME/iRankFinder/web/install-site.sh $TOOLS_HOME/iRankFinder/web/papers/cfr cfr && \
+       a2ensite cfr-site
 RUN a2enmod headers
 
