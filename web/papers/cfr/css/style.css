@@ -1,4 +1,3 @@
-
 #left{
   position:fixed;
   float: left;
@@ -195,16 +194,31 @@ table.termination{
 
 /*  Table CSS */
 
+.fixed_header tbody,
+.fixed_header thead
+{ display: block; width:100%; overflow-y: scroll;}
 
-table.fixed_header tbody,
-table.fixed_header thead { display: block; }
-
-
-table.fixed_header tbody {
-    height: 500px;
-    overflow-y: auto;
-    overflow-x: hidden;
+.fixed_header tr{
+   width: 100%;
+  display:table;
+  table-layout:fixed;
 }
+
+.fixed_header tbody {
+    height: 500px;
+
+}
+
+.fixed_header td{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+table.fixed_header, .fixed_header caption{
+  width: 100%;
+}
+
 
 .termination tbody { border-top: 2px solid black; }
 
