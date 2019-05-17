@@ -48,11 +48,9 @@
 
 
      function includeHTML(container) {
-       //console.log("container: ", container);
        $("[include-html]",container).each(function(){
 	 var base = $(this);
          var file = $(base).attr("include-html");
-	 //console.log("hola", base);
          if (file) {
 	   $(base).load(file, function() {
 	     $(base).removeAttr("include-html");
