@@ -48,11 +48,13 @@
 
 
      function includeHTML(container) {
+       var seconds = Math.round(new Date() / 1000);
        $("[include-html]",container).each(function(){
 	 var base = $(this);
          var file = $(base).attr("include-html");
          if (file) {
-	   $(base).load(file, function() {
+	   var file2 = file + "?" + seconds;
+	   $(base).load(file2, function() {
 	     $(base).removeAttr("include-html");
              includeHTML($(base));
 	   });
