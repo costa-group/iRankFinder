@@ -1,0 +1,297 @@
+#left{
+  position:fixed;
+  float: left;
+  width:10%;
+}
+
+#right{
+  position: float;
+  float: right;
+  width:89%;
+
+  height:100%;
+}
+#top{
+  flex: 0 1 auto;
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+body{
+  display: flex;
+  flex-flow: column;
+  height:100%;
+  margin:0px;
+
+}
+#content{
+  flex: 1 1 auto;
+  width: 100%;
+  overflow-y: scroll;
+
+}
+
+#menu {
+  padding: 0;
+  margin: 5px;
+  border: 0;
+  
+}
+
+#menu ul, #menu li {
+  list-style: none;
+  margin: 0;
+  padding: 0; 
+}
+
+#menu ul {
+  position: relative;
+  z-index: 597;
+  float: left; 
+}
+
+#menu ul li {
+  float: left;
+  min-height: 1px;
+  line-height: 1em;
+  vertical-align: middle; 
+}
+
+#menu ul li.hover,
+#menu ul li:hover {
+  position: relative;
+  z-index: 599;
+  cursor: default; 
+}
+
+#menu ul ul {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 598;
+  width: 100%; 
+}
+
+#menu ul ul li {
+  float: none; 
+}
+
+#menu ul li:hover > ul {
+  visibility: visible; 
+}
+
+#menu ul ul {
+  top: 0;
+  left: 100%; 
+}
+
+#menu ul li {
+  float: none; 
+}
+
+#menu {
+  width: 98%; 
+}
+
+#menu span, #menu a {
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  text-decoration: none; 
+}
+
+#menu:after, #menu ul:after {
+  content: '';
+  display: block;
+  clear: both; 
+}
+
+#menu ul, #menu li {
+  width: 100%; 
+}
+#menu li {
+  background: #dddddd;
+}
+#menu li:hover {
+  background: #f6f6f6; 
+}
+#menu a {
+  color: #666666;
+  line-height: 160%;
+  padding: 11px 28px 11px 28px;
+  width: 100%; 
+}
+#menu ul ul li {
+  background: #f6f6f6; 
+}
+#menu ul ul li:hover {
+  background: #dddddd; 
+}
+#menu ul ul li:hover a {
+  color: #666666; 
+}
+#menu ul ul li ul li {
+  background: #dddddd; 
+}
+#menu ul ul li ul li:hover {
+  background: #b7b7b7; 
+}
+#menu .has-sub {
+  position: relative; 
+}
+
+#menu .has-sub:after, #menu .has-sub > ul > .has-sub:hover:after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 9px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  margin-top: -5px;
+}
+
+i {
+  float: right;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+ul.dashed {
+  margin:0;
+  list-style-type: none;
+}
+ul.dashed > li {
+  text-indent: -8px;
+}
+ul.dashed > li:before {
+  content: "- ";
+  text-indent: -8px;
+}
+
+
+.terminate{
+  background-color: #22FF77;
+}
+.nonterminate{
+  background-color: #38761D;
+}
+
+.maybe{
+  background-color: #fff633 ;
+}
+
+.timeout{
+  background-color:  #fe7474;
+}
+
+.error{
+  background-color:   #0055FF;
+}
+
+table.termination{
+  font-size:10px;
+}
+
+/*  Table CSS */
+
+#tables{
+  width: 80%;
+  margin: auto;
+}
+
+.fixed_header tbody,
+.fixed_header thead
+{ display: block; width:100%; overflow-y: scroll;}
+
+.fixed_header tr{
+   width: 100%;
+  display:table;
+  table-layout:fixed;
+}
+
+.fixed_header tbody {
+    height: 500px;
+
+}
+
+.fixed_header td{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+table.fixed_header, .fixed_header caption{
+  width: 100%;
+}
+
+
+.termination tbody { border-top: 2px solid black; }
+
+.termination tbody td, thead th, thead td{
+      border-right: 0px solid black;
+}
+
+.termination tbody td:last-child, .termination thead th:last-child {
+    border-right: none;
+}
+
+.foot{
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+table.summary{
+  border: 0px;
+  border-collapse: collapse;
+}
+
+.summary td, .summary th{
+  padding: 6px;
+}
+
+.summary td{
+  text-align: right;
+  padding: 10px;
+}
+
+.border-bottom{
+  border-bottom: solid black 1px;
+}
+.border-top{
+  border-top: solid black 1px;
+}
+
+.border-right{
+  border-right: solid black 1px;
+}
+
+.border-left{
+  border-left: solid black 1px;
+}
+
+.border-none{
+  border: 0px;
+}
+
+table.examples{
+  border: 1px solid black;
+}
+
+.summary td{
+  text-align: center;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+code {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    color: red;
+    font-family: Consolas,monospace;
+    margin-bottom: 10px;
+    overflow: auto;
+    padding: 2px;
+}

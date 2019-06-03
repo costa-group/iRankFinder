@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Multiphase-Linear Ranking Functions and their Relation to Recurrent Sets - Amir M. Ben-Amram, Jesús J. Doménech and Samir Genaim</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="js/tablefilter/style/tablefilter.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="js/tablefilter/tablefilter.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140601506-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140601506-1');
+</script>
+
+  </head>
+  <body>
+      <div id="top">
+	<h1> Multiphase-Linear Ranking Functions and their Relation to Recurrent Sets</h1><em style="margin-bottom:10px"> Amir M. Ben-Amram, Jesús J. Doménech and Samir Genaim</em>
+      </div>
+    <div id="content">
+      <div  include-html="tables.html"></div>
+      <br/>
+      <br/>
+    </div>
+    <script>
+     function resize_table(table){
+       var $table = $(table);
+       var $bodyCells = $table.find('tbody tr:visible').eq(0).children(),
+	   colWidth;
+       // Get the tbody columns width array
+       colWidth = $bodyCells.map(function() {
+	 return $(this).width();
+       }).get();
+       console.log(colWidth);
+       
+       // Set the width of thead columns
+       $table.find('thead tr').children().each(function(i, v) {
+	 $(v).width(colWidth[i]+2);
+       });
+     }
+ // Adjust the width of thead cells when window resizes
+// $(window).resize(function() {
+//     $("table.fixed_header").each(function(){
+//       resize_table(this);
+//     });
+// }).resize(); // Trigger resize handler
+
+
+     function includeHTML(container) {
+       var seconds = Math.round(new Date() / 1000);
+       $("[include-html]",container).each(function(){
+	 var base = $(this);
+         var file = $(base).attr("include-html");
+         if (file) {
+	   var file2 = file + "?" + seconds;
+	   $(base).load(file2, function() {
+	     $(base).removeAttr("include-html");
+             includeHTML($(base));
+	   });
+         }
+
+       });
+     }
+     var filtersConfig = {
+       base_path: 'js/tablefilter/',
+       col_1: 'select', col_2: 'select', col_3: 'select', col_4: 'select',
+
+       rows_counter: {
+	 text: 'Examples: '
+       } ,
+       btn_reset: true,
+       loader: true,
+       status_bar: true,
+       mark_active_columns: true,
+       highlight_keywords: true,
+       on_after_filter: function(o){ /*resize_table($("#"+o["id"]));*/ },
+       col_types: [
+         'string', 'string', 'string', 'string', 'string'
+       ],
+       filters_row_index: 1,
+
+       extensions:[{ name: 'sort' }]
+     };
+     includeHTML($("#content"));
+     function init_table(name){
+       var tf = new TableFilter(name, filtersConfig, 1);
+       tf.init();
+       //resize_table("#"+name);
+     }
+    </script>
+
+  </body>
+</html>
