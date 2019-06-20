@@ -1,0 +1,31 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_AProVE_2014/CountMetaList.jar-obl-9.smt2 -t qnlrf_2 -nt monotonicrecset --nt-reachability --domain Q -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+f693_0_createMetaList_GE: < < -arg1 + arg2 > >
+f724_0_countMetaList_NULL: < < arg1 >, < arg1 > >
+f932_0_createMetaList_LE: < < -1 + arg1 -arg2 >, < arg3 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t4
++--nodes: f724_0_countMetaList_NULL
+Closed walk: 1 -> t4
+deterministic: False
+Reachability checked!
+- Recurrent Set Found:
+{
+	arg1 -arg1P == 0,
+	-3 + arg1 >= 0
+}
+
+-- stats
+realtime 0:02.20
+usertime 2.12
+systime 0.07
+

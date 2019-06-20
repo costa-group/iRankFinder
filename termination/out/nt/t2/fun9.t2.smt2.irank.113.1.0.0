@@ -1,0 +1,82 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_T2/fun9.t2.smt2 -t qnlrf_2 -nt monotonicrecset --domain Q -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+l0: < < x_0 > >
+l1: < < -1 + x_0 > >
+l10: < < x_0 > >
+l11: < < x_0 >, < 0 > >
+l12: < < x_0 > >
+l13: < < x_0 > >
+l14: < < x_0 > >
+l15: < < x_0 >, < -e_0 > >
+l16: < < x_0 >, < 0 > >
+l17: < < x_0 >, < 0 > >
+l18: < < -1 + x_0 > >
+l19: < < x_0 > >
+l2: < < x_0 > >
+l21: < < x_0 > >
+l22: < < x_0 > >
+l23: < < x_0 > >
+l3: < < b_0 > >
+l4: < < x_0 > >
+l5: < < b_0 > >
+l6: < < x_0 > >
+l7: < < x_0 > >
+l8: < < x_0 > >
+l9: < < x_0 >, < -e_0 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t13,t20,t22,t23,t24,t25
++--nodes: l11,l15,l16,l17,l9
+Closed walk: 5 -> t13, t24, t23, t22, t20
+deterministic: False
+Didn't check reachability
+- Recurrent Set Found:
+{
+	x_0 -x_post == 0,
+	q_post == 0,
+	olde_post == 0,
+	X14 -f_post == 0,
+	e_post == 0,
+	b_0 -b_post == 0,
+	x_0 -X23 == 0,
+	X22 == 0,
+	X21 == 0,
+	X14 -X20 == 0,
+	X19 == 0,
+	b_0 -X18 == 0,
+	x_0 -X17 == 0,
+	X16 == 0,
+	X15 == 0,
+	X13 == 0,
+	b_0 -X12 == 0,
+	x_0 -X11 == 0,
+	X10 == 0,
+	X9 == 0,
+	f_0 -X8 == 0,
+	X7 == 0,
+	b_0 -X6 == 0,
+	x_0 -X5 == 0,
+	q_0 -X4 == 0,
+	X3 == 0,
+	f_0 -X2 == 0,
+	X1 == 0,
+	b_0 -X0 == 0,
+	olde_0 == 0,
+	e_0 == 0,
+	x_0 >= 0,
+	-1 + b_0 >= 0
+}
+
+-- stats
+realtime 0:15.30
+usertime 15.18
+systime 0.12
+

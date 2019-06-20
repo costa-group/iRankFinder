@@ -1,0 +1,55 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_AProVE_2014/List.jar-obl-12.smt2 -t qnlrf_2 -nt monotonicrecset --nt-reachability --domain Q -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+f717_0_reverseAcc_NONNULL: < < arg2 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t3
++--nodes: f1096_0_append_NONNULL
+Closed walk: 1 -> t3
+deterministic: False
+Reachability checked!
+- Recurrent Set Found:
+{
+	arg2 -arg2P == 0,
+	-3 + arg1 >= 0,
+	-arg3 + arg3P >= 0,
+	-arg1 + arg1P >= 0,
+	-1 + arg2 >= 0,
+	-1 + arg3 >= 0
+}
+Connected Subgraphs where we couldn't prove Termination:
+--------------------------------------------------------
+SCC:
++--transitions: 
++--nodes: f1225_0_reverse_InvokeMethod
+SCC:
++--transitions: t9
++--nodes: f845_0_reverse_NONNULL
+SCC:
++--transitions: t1
++--nodes: f230_0_alternate_NONNULL
+SCC:
++--transitions: t5
++--nodes: f565_0_iter_NULL
+SCC:
++--transitions: 
++--nodes: f1_0_main_New
+SCC:
++--transitions: 
++--nodes: __init
+
+
+
+-- stats
+realtime 0:02.60
+usertime 2.53
+systime 0.06
+

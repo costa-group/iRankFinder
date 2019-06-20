@@ -1,0 +1,63 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_T2/janne_complex.t2_fixed.smt2 -t qnlrf_2 -nt monotonicrecset --domain Q -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+l0: < < 29 -a4_0 > >
+l2: < < 27 -a4_0 > >
+l3: < < 29 -a4_0 > >
+l4: < < -a4_0 + 27 * a_0 > >
+l5: < < -a4_0 + 26 * b_0 > >
+l6: < < 26 -a4_0 > >
+l7: < < -a4_0 + 27 * a_0 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t11,t3,t4,t5,t6,t7,t8,t9
++--nodes: l2,l4,l5,l6,l7
+Closed walk: 4 -> t3, t11, t9, t6
+deterministic: False
+Didn't check reachability
+- Recurrent Set Found:
+{
+	ret_complex6_0 -ret_complex6_post == 0,
+	-1 + b_post == 0,
+	b5_0 -b5_post == 0,
+	answer_post == 0,
+	-1 + a_post == 0,
+	1 + a4_0 -a4_post == 0,
+	ret_complex6_0 -X17 == 0,
+	-1 + X16 == 0,
+	b5_0 -X15 == 0,
+	X14 == 0,
+	-1 + X13 == 0,
+	a4_0 -X12 == 0,
+	ret_complex6_0 -X11 == 0,
+	-1 + X10 == 0,
+	b5_0 -X9 == 0,
+	X8 == 0,
+	-1 + X7 == 0,
+	a4_0 -X6 == 0,
+	ret_complex6_0 -X5 == 0,
+	-1 + X4 == 0,
+	b5_0 -X3 == 0,
+	X2 == 0,
+	-1 + X1 == 0,
+	a4_0 -X0 == 0,
+	-1 + b_0 == 0,
+	answer_0 == 0,
+	-1 + a_0 == 0,
+	-1 + a4_0 -b5_0 >= 0,
+	-6 + b5_0 >= 0,
+	9 -b5_0 >= 0
+}
+
+-- stats
+realtime 0:08.35
+usertime 8.29
+systime 0.06
+

@@ -1,0 +1,42 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_AProVE_2014/Velroyen08-narrowing.jar-obl-8.smt2 -t qnlrf_2 -nt monotonicrecset --domain Z -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+f490_0_loop_GT: < < arg1 >, < arg1 > >
+f564_0_loop_NE: < < arg1 >, < 2 + arg4 > >
+f565_0_loop_NE: < < 2 + arg3 >, < arg1 > >
+f573_0_loop_NE: < < arg1 >, < 1 + arg2 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t10,t11,t12,t13,t14,t2,t3,t4,t5,t6,t7
++--nodes: f490_0_loop_GT,f564_0_loop_NE,f565_0_loop_NE,f573_0_loop_NE
+Closed walk: 3 -> t11, t4, t10
+deterministic: True
+Didn't check reachability
+- Recurrent Set Found:
+{
+	arg3P == 0,
+	arg2P == 0,
+	-1 + arg1P == 0,
+	1 + X6 == 0,
+	X5 == 0,
+	-1 + X4 == 0,
+	-1 + X2 == 0,
+	-1 + X1 == 0,
+	-1 + X0 == 0,
+	arg3 == 0,
+	arg2 == 0,
+	-1 + arg1 == 0
+}
+
+-- stats
+realtime 0:18.54
+usertime 18.43
+systime 0.07
+

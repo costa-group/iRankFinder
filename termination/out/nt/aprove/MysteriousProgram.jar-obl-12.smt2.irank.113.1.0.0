@@ -1,0 +1,64 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_AProVE_2014/MysteriousProgram.jar-obl-12.smt2 -t qnlrf_2 -nt monotonicrecset --domain Q -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+f167_0_init_GE: < < -arg2 + arg3 > >
+f312_0_display_GE: < < -arg2 + arg3 > >
+f575_0_mysterious_GE: < < -arg2 + arg3 > >
+f92_0_main_GE: < < -arg3 + arg4 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,t20,t21,t22,t23,t24,t25,t26,t9
++--nodes: f1202_0_mysteriousRecursive_ArrayLength,f1372_0_display_GE,f1376_0_display_GE,f1763_0_mysteriousRecursive_GE,f1764_0_mysteriousRecursive_GE,f2030_0_swap3_ArrayAccess,f2034_0_swap3_ArrayAccess
+Closed walk: 6 -> t13, t19, t16, t24, t26, t20
+deterministic: False
+Didn't check reachability
+- Recurrent Set Found:
+{
+	X18 -arg5P == 0,
+	arg1 -arg4P == 0,
+	2 + arg3 -arg3P == 0,
+	arg1 -arg2P == 0,
+	arg1 -arg1P == 0,
+	X18 -X24 == 0,
+	2 + arg3 -X23 == 0,
+	2 + arg3 -X22 == 0,
+	1 + arg3 -X21 == 0,
+	arg1 -X20 == 0,
+	1 + arg3 -X17 == 0,
+	arg1 -X16 == 0,
+	1 + arg3 -X15 == 0,
+	arg5 -X14 == 0,
+	1 + arg3 -X13 == 0,
+	1 + arg3 -X12 == 0,
+	1 + arg3 -X11 == 0,
+	arg1 -X10 == 0,
+	arg5 -X9 == 0,
+	arg1 -X8 == 0,
+	1 + arg3 -X7 == 0,
+	arg1 -X6 == 0,
+	arg1 -X5 == 0,
+	arg5 -X4 == 0,
+	arg3 -X3 == 0,
+	arg3 -X2 == 0,
+	arg3 -X1 == 0,
+	arg1 -X0 == 0,
+	arg1 -arg4 == 0,
+	arg1 -arg2 == 0,
+	-3 -arg3 + arg5 >= 0,
+	-1 + arg1 >= 0,
+	arg3 >= 0,
+	-2 -arg5 + X18 >= 0
+}
+
+-- stats
+realtime 0:35.90
+usertime 35.86
+systime 0.04
+

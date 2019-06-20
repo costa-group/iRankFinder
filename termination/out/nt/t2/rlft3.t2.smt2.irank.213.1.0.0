@@ -1,0 +1,104 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_T2/rlft3.t2.smt2 -t qnlrf_2 -nt monotonicrecset --nt-reachability --domain Q -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+l10: < < -i1_0 + nn1_0 > >
+l11: < < -i1_0 + nn1_0 > >
+l12: < < -i2_0 + nn2_0 > >
+l13: < < -i2_0 + nn2_0 > >
+l14: < < -i2_0 + nn2_0 > >
+l15: < < -i2_0 + nn2_0 >, < 1 -i1_0 + nn1_0, 0 > >
+l16: < < -i2_0 + nn2_0 >, < -i1_0 + nn1_0, -i1_0 + nn1_0 > >
+l17: < < -i2_0 + nn2_0 > >
+l18: < < -i2_0 + nn2_0 >, < -i1_0 + nn1_0, 0 > >
+l19: < < -i2_0 + nn2_0 >, < -i1_0 + nn1_0, 0 > >
+l20: < < -i2_0 + nn2_0 >, < -i1_0 + nn1_0, 0 > >
+l21: < < -i2_0 + nn2_0 >, < -i1_0 + nn1_0, -i1_0 + nn1_0 > >
+l22: < < -i2_0 + nn2_0 >, < -i1_0 + nn1_0, -i1_0 + nn1_0 > >
+l23: < < -i2_0 + nn2_0 >, < -i1_0 + nn1_0, -i1_0 + nn1_0 > >
+l3: < < -i1_0 + nn1_0 > >
+l4: < < -i1_0 + nn1_0 > >
+l5: < < -i2_0 + nn2_0 > >
+l6: < < -i2_0 + nn2_0 > >
+l7: < < -i2_0 + nn2_0 > >
+l8: < < -i2_0 + nn2_0 > >
+l9: < < -i2_0 + nn2_0 >, < -i1_0 + nn1_0, 0 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t21,t24,t27,t33
++--nodes: l18,l19,l20,l9
+Closed walk: 4 -> t33, t21, t27, t24
+deterministic: False
+Reachability checked!
+- Recurrent Set Found:
+{
+	wr_0 -wtemp_post == 0,
+	X22 -wr_post == 0,
+	X21 -wi_post == 0,
+	nn2_0 -nn2_post == 0,
+	nn1_0 -nn1_post == 0,
+	j2_0 -j2_post == 0,
+	j1___0_0 -j1___0_post == 0,
+	isign_0 -isign_post == 0,
+	2 + ii3_0 -ii3_post == 0,
+	1 + i3_0 -i3_post == 0,
+	i2_0 -i2_post == 0,
+	i1_0 -i1_post == 0,
+	wr_0 -X35 == 0,
+	X22 -X34 == 0,
+	X21 -X33 == 0,
+	nn2_0 -X32 == 0,
+	nn1_0 -X31 == 0,
+	j2_0 -X30 == 0,
+	j1___0_0 -X29 == 0,
+	isign_0 -X28 == 0,
+	2 + ii3_0 -X27 == 0,
+	1 + i3_0 -X26 == 0,
+	i2_0 -X25 == 0,
+	i1_0 -X24 == 0,
+	wr_0 -X23 == 0,
+	nn2_0 -X20 == 0,
+	nn1_0 -X19 == 0,
+	j2_0 -X18 == 0,
+	j1___0_0 -X17 == 0,
+	isign_0 -X16 == 0,
+	2 + ii3_0 -X15 == 0,
+	1 + i3_0 -X14 == 0,
+	i2_0 -X13 == 0,
+	i1_0 -X12 == 0,
+	wtemp_0 -X11 == 0,
+	wr_0 -X10 == 0,
+	wi_0 -X9 == 0,
+	nn2_0 -X8 == 0,
+	nn1_0 -X7 == 0,
+	j2_0 -X6 == 0,
+	j1___0_0 -X5 == 0,
+	isign_0 -X4 == 0,
+	ii3_0 -X3 == 0,
+	i3_0 -X2 == 0,
+	i2_0 -X1 == 0,
+	i1_0 -X0 == 0,
+	2 -i1_0 -j1___0_0 + nn1_0 >= 0,
+	-i1_0 + nn1_0 >= 0,
+	-1 + j1___0_0 >= 0,
+	-1 + i2_0 -nn2_0 >= 0
+}
+Connected Subgraphs where we couldn't prove Termination:
+--------------------------------------------------------
+SCC:
++--transitions: t11,t35,t37,t4
++--nodes: l10,l11,l3,l4
+
+
+
+-- stats
+realtime 0:18.84
+usertime 18.78
+systime 0.06
+

@@ -1,0 +1,52 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_T2/n-40.t2.smt2 -t qnlrf_2 -nt monotonicrecset --nt-reachability --domain Z -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+l0: < < 2 -w_5_0 >, < 1 -x_6_0 >, < 1 -x_6_0 >, < 2 -2 * x_6_0 >, < 2 -2 * x_6_0 >, < 0 > >
+l1: < < 2 -w_5_0 > >
+l10: < < 1 >, < 1 -x_6_0 >, < w_5_0 -x_6_0 > >
+l11: < < 3 -w_5_0 >, < 1 -x_6_0 >, < 1 -x_6_0 > >
+l12: < < 3 -w_5_0 >, < 1 -x_6_0 >, < 1 -x_6_0 > >
+l13: < < 2 -w_5_0 >, < 0 >, < 0 >, < -x_6_0 > >
+l14: < < -w_5_0 + x_6_0 >, < 0 >, < 0 >, < -x_6_0 > >
+l15: < < 1 >, < 0 >, < 0 >, < 0 >, < -x_6_0 >, < x_6_0 > >
+l2: < < 2 -w_5_0 > >
+l3: < < 2 -w_5_0 > >
+l4: < < w_5_0 >, < 1 -x_6_0 >, < 1 -x_6_0 >, < 2 -2 * x_6_0 >, < 2 -2 * x_6_0 >, < 0 > >
+l5: < < 3 -w_5_0 >, < 1 -x_6_0 >, < 1 -x_6_0 >, < 2 -2 * x_6_0 >, < 2 -2 * x_6_0 >, < 0 > >
+l6: < < 3 -w_5_0 >, < 1 -x_6_0 >, < 1 -x_6_0 >, < 2 -2 * x_6_0 >, < 2 -2 * x_6_0 >, < 0 > >
+l7: < < 2 -w_5_0 >, < 1 -x_6_0 > >
+l8: < < 2 -w_5_0 >, < 2 -x_6_0 > >
+l9: < < 2 -w_5_0 >, < 2 -x_6_0 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t4,t5,t6,t7
++--nodes: l0,l4,l5,l6
+Closed walk: 4 -> t4, t5, t6, t7
+deterministic: True
+Reachability checked!
+- Recurrent Set Found:
+{
+	1 + x_6_0 -x_6_post == 0,
+	-1 + w_5_post == 0,
+	1 + x_6_0 -X5 == 0,
+	-1 + X4 == 0,
+	1 + x_6_0 -X3 == 0,
+	-2 + X2 == 0,
+	1 + x_6_0 -X1 == 0,
+	-2 + X0 == 0,
+	-1 + w_5_0 == 0,
+	-2 + x_6_0 >= 0
+}
+
+-- stats
+realtime 0:06.35
+usertime 6.10
+systime 0.20
+

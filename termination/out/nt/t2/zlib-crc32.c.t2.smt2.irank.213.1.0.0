@@ -1,0 +1,63 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_T2/zlib-crc32.c.t2.smt2 -t qnlrf_2 -nt monotonicrecset --nt-reachability --domain Q -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+l0: < < x3_0 > >
+l2: < < -1 + oldX3_0 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t5,t7
++--nodes: l4,l5
+Closed walk: 2 -> t5, t7
+deterministic: False
+Reachability checked!
+- Recurrent Set Found:
+{
+	oldX4_post -x3_post == 0,
+	__const_8_0 -x2_0 + x2_post == 0,
+	x1_0 -x1_post == 0,
+	x0_0 -x0_post == 0,
+	oldX7_0 -oldX7_post == 0,
+	oldX6_0 -oldX6_post == 0,
+	oldX5_0 -oldX5_post == 0,
+	X6 -oldX3_post == 0,
+	__const_8_0 -x2_0 + oldX2_post == 0,
+	x1_0 -oldX1_post == 0,
+	x0_0 -oldX0_post == 0,
+	__const_8_0 -__const_8_post == 0,
+	__const_7_0 -__const_7_post == 0,
+	X6 -X13 == 0,
+	__const_8_0 -x2_0 + X12 == 0,
+	x1_0 -X11 == 0,
+	x0_0 -X10 == 0,
+	oldX7_0 -X9 == 0,
+	oldX6_0 -X8 == 0,
+	oldX5_0 -X7 == 0,
+	x3_0 -X5 == 0,
+	x2_0 -X4 == 0,
+	x1_0 -X3 == 0,
+	x0_0 -X2 == 0,
+	__const_8_0 -X1 == 0,
+	__const_7_0 -X0 == 0,
+	-1 -__const_7_0 -__const_8_0 + x2_0 >= 0,
+	-__const_8_0 >= 0
+}
+Connected Subgraphs where we couldn't prove Termination:
+--------------------------------------------------------
+SCC:
++--transitions: t2
++--nodes: l0,l2
+
+
+
+-- stats
+realtime 0:04.88
+usertime 4.79
+systime 0.09
+

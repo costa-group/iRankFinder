@@ -1,0 +1,48 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_AProVE_2014/RandomHard.jar-obl-10.smt2 -t qnlrf_2 -nt monotonicrecset --nt-reachability --domain Q -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+f731_0_main_GE: < < -arg3 + arg4 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t5,t6
++--nodes: f1280_0_getPowerOfKInSource_IntArithmetic,f1280_0_getPowerOfKInSource_IntArithmetic'
+Closed walk: 2 -> t5, t6
+deterministic: False
+Reachability checked!
+- Recurrent Set Found:
+{
+	arg5 -arg5P == 0,
+	arg4 -arg4P == 0,
+	arg3 -arg3P == 0,
+	arg1 -arg1P == 0,
+	arg5 -X4 == 0,
+	arg4 -X3 == 0,
+	arg3 -X2 == 0,
+	arg2 -X1 == 0,
+	arg1 -X0 == 0,
+	arg1 -Local1 >= 0,
+	-1 + Local1 >= 0,
+	-1 + arg5 >= 0,
+	-2 + arg1 -arg4 >= 0,
+	-2 + arg1 -arg5 >= 0
+}
+Connected Subgraphs where we couldn't prove Termination:
+--------------------------------------------------------
+SCC:
++--transitions: t10,t11,t12,t13,t14,t15,t8,t9
++--nodes: f1029_0_findKthPrime_GE,f1209_0_checkPrime_GE,f1209_0_checkPrime_GE'
+
+
+
+-- stats
+realtime 0:04.46
+usertime 4.37
+systime 0.08
+

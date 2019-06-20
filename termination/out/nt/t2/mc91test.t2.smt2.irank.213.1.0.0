@@ -1,0 +1,52 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_T2/mc91test.t2.smt2 -t qnlrf_2 -nt monotonicrecset --nt-reachability --domain Q -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+l0: < < -copied_0 >, < -copied_0 > >
+l2: < < -1 > >
+l3: < < 0 >, < -1 > >
+l4: < < -copied_0 >, < -copied_0 > >
+l5: < < -copied_0 >, < -copied_0 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t5,t6,t7,t8
++--nodes: l0,l4,l5
+Closed walk: 2 -> t5, t6
+deterministic: True
+Reachability checked!
+- Recurrent Set Found:
+{
+	oldn_0 -oldn_post == 0,
+	olde_0 -olde_post == 0,
+	__const_11_0 + n_0 -n_post == 0,
+	1 + e_0 -e_post == 0,
+	copied_0 -copied_post == 0,
+	__const_11_0 -__const_11_post == 0,
+	__const_10_0 -__const_10_post == 0,
+	__const_100_0 -__const_100_post == 0,
+	oldn_0 -X7 == 0,
+	olde_0 -X6 == 0,
+	__const_11_0 + n_0 -X5 == 0,
+	1 + e_0 -X4 == 0,
+	copied_0 -X3 == 0,
+	__const_11_0 -X2 == 0,
+	__const_10_0 -X1 == 0,
+	__const_100_0 -X0 == 0,
+	-__const_11_0 >= 0,
+	1 -copied_0 >= 0,
+	__const_100_0 -n_0 >= 0,
+	-1 + e_0 >= 0,
+	copied_0 >= 0
+}
+
+-- stats
+realtime 0:06.75
+usertime 6.64
+systime 0.07
+

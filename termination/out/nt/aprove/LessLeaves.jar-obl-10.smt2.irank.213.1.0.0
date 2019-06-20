@@ -1,0 +1,44 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_AProVE_2014/LessLeaves.jar-obl-10.smt2 -t qnlrf_2 -nt monotonicrecset --nt-reachability --domain Q -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+f1410_0_append_NULL: < < arg2 > >
+f2274_0_createTree_LE: < < arg3 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t21,t22,t24,t25
++--nodes: f1394_0_less_leaves_NULL,f1554_0_less_leaves_InvokeMethod
+Closed walk: 2 -> t21, t24
+deterministic: False
+Reachability checked!
+- Recurrent Set Found:
+{
+	-arg1 + arg1P >= 0,
+	-arg2 + arg2P >= 0,
+	-arg3 + arg3P >= 0,
+	-1 + arg1 >= 0,
+	-1 + arg3 >= 0,
+	-1 + arg2 -X1 >= 0,
+	X1 >= 0,
+	X0 -arg1P >= 0,
+	X0 -arg3P >= 0
+}
+Connected Subgraphs where we couldn't prove Termination:
+--------------------------------------------------------
+SCC:
++--transitions: t11,t12,t13,t14,t15
++--nodes: f2274_0_createTree_LE
+
+
+
+-- stats
+realtime 0:03.71
+usertime 3.68
+systime 0.03
+

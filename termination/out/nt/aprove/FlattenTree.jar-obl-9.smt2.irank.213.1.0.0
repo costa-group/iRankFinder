@@ -1,0 +1,49 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_AProVE_2014/FlattenTree.jar-obl-9.smt2 -t qnlrf_2 -nt monotonicrecset --nt-reachability --domain Q -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+f1733_0_createTree_LE: < < arg3 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t11,t12
++--nodes: f1830_0_flatten_NULL
+Closed walk: 1 -> t12
+deterministic: False
+Reachability checked!
+- Recurrent Set Found:
+{
+	arg1 -arg2 -arg1P + arg2P == 0,
+	-3 + arg1 >= 0,
+	-arg1 + arg1P >= 0,
+	2 + 2 * arg1 -arg2 -arg1P >= 0,
+	2 + arg2 -arg1P >= 0,
+	-3 + arg2 >= 0
+}
+Connected Subgraphs where we couldn't prove Termination:
+--------------------------------------------------------
+SCC:
++--transitions: 
++--nodes: f1761_0_main_InvokeMethod
+SCC:
++--transitions: 
++--nodes: f1_0_main_Load
+SCC:
++--transitions: 
++--nodes: __init
+SCC:
++--transitions: t4,t5,t6,t7,t8
++--nodes: f1733_0_createTree_LE
+
+
+
+-- stats
+realtime 0:02.24
+usertime 2.22
+systime 0.01
+

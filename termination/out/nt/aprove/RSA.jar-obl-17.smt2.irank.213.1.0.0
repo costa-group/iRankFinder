@@ -1,0 +1,112 @@
+CMD: /opt/tools/pyRankFinder/irankfinder.sh -f /opt/tools/iRankFinder/examples/Papers/mlrf_recset/NonTermination/From_AProVE_2014/RSA.jar-obl-17.smt2 -t qnlrf_2 -nt monotonicrecset --nt-reachability --domain Q -i polyhedra -sif -dt always -rniv  
+
+NO
+
+
+Termination: (Ranking Functions Found)
+------------
+f2555_0_generateUntil_GE: < < 119 -arg2 > >
+f4698_0_get_InvokeMethod: < < arg3 > >
+f5336_0_get_GT: < < -arg2 + arg3 > >
+f6369_0_main_GE: < < -arg3 + arg4 > >
+f6369_0_main_GE': < < -1 -arg3 + arg4 > >
+f7128_0_power_GT: < < -arg1 + arg2 > >
+f7458_0_encode_NULL: < < 1 + arg3 > >
+f7458_0_encode_NULL': < < arg3 > >
+f8014_0_decode_NULL: < < 3 + arg3 > >
+f8014_0_decode_NULL': < < arg3 > >
+
+
+NON-Termination:
+----------------
+SCC:
++--transitions: t8,t9
++--nodes: f5552_0_inverse_LE,f5552_0_inverse_LE'
+Closed walk: 2 -> t8, t9
+deterministic: False
+Reachability checked!
+- Recurrent Set Found:
+{
+	-115 + arg19P == 0,
+	arg18P == 0,
+	arg17 -arg17P == 0,
+	-88 + arg16P == 0,
+	-5 + arg15P == 0,
+	-23 + arg14P == 0,
+	-143 + arg13P == 0,
+	arg12 -arg12P == 0,
+	arg11 -arg11P == 0,
+	-120 + arg10P == 0,
+	-13 + arg9P == 0,
+	-11 + arg8P == 0,
+	arg7 -arg7P == 0,
+	arg5 -arg4P == 0,
+	arg6 -arg3P == 0,
+	arg2 -arg2P == 0,
+	arg1 -arg1P == 0,
+	-115 + X18 == 0,
+	X17 == 0,
+	arg17 -X16 == 0,
+	-88 + X15 == 0,
+	-5 + X14 == 0,
+	-23 + X13 == 0,
+	-143 + X12 == 0,
+	arg12 -X11 == 0,
+	arg11 -X10 == 0,
+	-120 + X9 == 0,
+	-13 + X8 == 0,
+	-11 + X7 == 0,
+	arg7 -X6 == 0,
+	arg6 -X5 == 0,
+	arg5 -X4 == 0,
+	arg4 -X3 == 0,
+	arg3 -X2 == 0,
+	arg2 -X1 == 0,
+	arg1 -X0 == 0,
+	-115 + arg19 == 0,
+	arg18 == 0,
+	-88 + arg16 == 0,
+	-5 + arg15 == 0,
+	-23 + arg14 == 0,
+	-143 + arg13 == 0,
+	-120 + arg10 == 0,
+	-13 + arg9 == 0,
+	-11 + arg8 == 0,
+	arg1 -Local0 >= 0,
+	-2 + arg1 -arg12 >= 0,
+	-2 + arg1 -arg11 >= 0,
+	arg2 -Local1 >= 0,
+	-arg6 + arg6P >= 0,
+	-2 + arg2 -arg17 >= 0,
+	-1 + arg6 >= 0,
+	-117 + Local1 >= 0,
+	-145 + Local0 >= 0
+}
+Connected Subgraphs where we couldn't prove Termination:
+--------------------------------------------------------
+SCC:
++--transitions: t2,t3
++--nodes: f4216_0_inverse_LE,f4216_0_inverse_LE'
+SCC:
++--transitions: t46,t47,t48,t49,t50,t51
++--nodes: f2380_0_generateNextPrime_GE,f2954_0_generateNextPrime_GE,f2954_0_generateNextPrime_GE'
+SCC:
++--transitions: t13,t14,t15,t16,t17,t18,t19,t20,t21,t22,t23
++--nodes: f6369_0_main_GE,f6369_0_main_GE'
+SCC:
++--transitions: t54,t55,t56,t58,t60
++--nodes: f7458_0_encode_NULL,f7458_0_encode_NULL'
+SCC:
++--transitions: t66,t67,t68,t69
++--nodes: f8014_0_decode_NULL,f8014_0_decode_NULL'
+SCC:
++--transitions: t43,t44
++--nodes: f2555_0_generateUntil_GE
+
+
+
+-- stats
+realtime 0:20.02
+usertime 19.93
+systime 0.08
+
