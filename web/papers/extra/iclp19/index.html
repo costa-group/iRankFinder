@@ -128,19 +128,13 @@
        ]
      };
      includeHTML($("#content"));
-     function init_table(name){
+     function init_table(name, columnOps=true){
        var tf = new TableFilter(name, filtersConfig, 2);
-       tf.emitter.on(['column-calc'], calcAll);
+       if(columnOps) tf.emitter.on(['column-calc'], calcAll);
        tf.init();
        //resize_table("#"+name);
      }
 
-    /**
-     * Perform all calculations
-     * @param  {Object} tf       TableFilter instance
-     * @param  {Object} colOps   ColOps extension instance
-     * @param  {Number} colIndex Column index
-     */
      function calcAll(tf, colOps, colIndex) {
        if (colIndex == 0) return;
        if (colIndex == 1)
@@ -149,54 +143,28 @@
          calc(tf, colOps, colIndex, 'sumT', false, 'sum'+colIndex);
          calc(tf, colOps, colIndex, 'perc', true, 'pcfr'+colIndex);
        }
-    }
+     }
 
-    /**
-     * Perform a specified calculation on a column and display result
-     * @param  {Object}  tf          TableFilter instance
-     * @param  {Object}  colOps      ColOps extension instance
-     * @param  {Number}  colIndex    Column index
-     * @param  {String}  operation   Calculation to be performed ('sum', 'mean', 'median'...)
-     * @param  {Boolean} onlyVisible Perform calculation on only visible data as opposed to filtered data
-     * @param  {String}  labelId     Id of DOM element displaying calculation result
-     */
-    function calc(tf, colOps, colIndex, operation, onlyVisible, labelId) {
+     function calc(tf, colOps, colIndex, operation, onlyVisible, labelId) {
+       var colValues = tf.getFilteredDataCol(colIndex, false, true, [], onlyVisible);
+       var result = 0;
+       if(operation === 'sumT') {
+         result = calcSum(colValues)/60.0;
+	 result = result.toFixed(2);
+       }
+       else if(operation === 'perc') {
+         result = calcPerc(colValues);
+	 result = result.toFixed(2);
+	 result = "" + result + "%"
+       }
+       // display result
+       $("#"+tf["id"]+" #"+labelId).text(result);
+     }
 
-        /** getFilteredDataCol accepts in order of appearance:
-            - a column index
-            - an optional boolean indicating whether the returned dataset also includes the colunm header
-            - an optional boolean indicating whether the returned dataset should return numbers (string by default)
-            - an optional array of row indexes to be excluded from the returned dataset
-            - an optional boolean indicating whether the returned dataset should only include filtered and
-            visible data (true by default) or filtered only (paging can contain filtered data which is not visible)
-            Refer to: http://koalyptus.github.io/TableFilter/docs/class/src/tablefilter.js~TableFilter.html#instance-method-getFilteredDataCol
-        */
-      var colValues = tf.getFilteredDataCol(colIndex, false, true, [], onlyVisible);
-        var result = 0;
-
-        // Refer to ColOps API to perform desired calculations
-        // http://koalyptus.github.io/TableFilter/docs/class/src/extensions/colOps/colOps.js~ColOps.html
-        if(operation === 'sumT') {
-          result = calcSum(colValues)/60.0;
-	  result = result.toFixed(2);
-        }
-        else if(operation === 'perc') {
-          result = calcPerc(colValues);
-	  result = result.toFixed(2);
-	  result = "" + result + "%"
-        }
-        // display result
-      $("#"+tf["id"]+" #"+labelId).text(result);
-    }
-     /**
-     * Calculate the sum of passed values.
-     * @param {Array} [values=[]] List of values
-     * @returns {Number}
-     */
      function calcSum(values = [], idx = 0) {
-        if (values.length == 0) {
-            return parseFloat(0);
-        }
+       if (values.length == 0) {
+         return parseFloat(0);
+       }
        var regex = /\d+(\.\d+)?/g;
        var nums = values.map((x) => x.match(regex).map(function(v) { return parseFloat(v);}));
        var suma = 0.0;
@@ -206,17 +174,16 @@
        }
        return suma;
      }
+
      function calcPerc(values = []) {
        if (values.length == 0) {
          return 0;
        }
        var tot = calcSum(values);
-       if (tot == 0)
-	 return 0;
+       if (tot == 0) return 0;
        var cfr = calcSum(values, 1);
-       console.log(tot, cfr);
        return parseFloat(100.0*cfr / tot);
-    }
+     }
     </script>
   </body>
 </html>
