@@ -29,6 +29,7 @@
 	<div id="tools" include-html="tools.html"></div>
 	<div id="examples" include-html="examples.html"></div>
 	<div id="experiments" include-html="experiments.html"></div>
+	<br/>
       </div>
       <div id="left" include-html="menu.html">
       </div>
@@ -72,8 +73,8 @@
 
        });
      }
-     var opts_txts = ['Yes', 'Maybe', 'Timeout', 'Error'];
-     var opts_vals = ['Y*', 'M*', 'T*', 'U*'];
+     var opts_txts = ['Yes', 'Maybe', 'Timeout'];
+     var opts_vals = ['Y*', 'M*', 'T*'];
      var filtersConfig = {
        base_path: 'js/tablefilter/',
        col_1: 'select', col_2: 'select', col_3: 'select', col_4: 'select',
@@ -127,12 +128,53 @@
 
        ]
      };
+     opts_txts = ['Yes', 'No', 'Maybe', 'Timeout'];
+     opts_vals = ['Y*', 'N*', 'M*', 'T*'];
+     var filtersConfig2 = {
+       base_path: 'js/tablefilter/',
+       col_1: 'select', col_2: 'select', col_3: 'select', col_4: 'select',
+       col_5: 'select', col_6: 'select', col_7: 'select', col_8: 'select', 
+
+       rows_counter: {
+	 text: 'Examples: '
+       } ,
+       btn_reset: true,
+       loader: true,
+       status_bar: true,
+       mark_active_columns: true,
+       highlight_keywords: true,
+       //on_after_filter: function(o){ /*resize_table($("#"+o["id"]));*/ },
+       col_types: [
+         'string', 'string', 'string', 'string', 'string', 'string',
+	 'string', 'string', 'string'
+       ],
+        /*col_widths: [
+          '125px', '45px','45px','45px','45px','45px','45px','45px','45px','45px','45px',
+	  '45px','45px','45px','45px','45px','45px','45px','45px','45px','45px','45px','45px'
+        ],*/
+      headers_row_index: 1,
+
+       custom_options: {
+         cols:[1,2,3,4,5,6,7,8],
+         texts: [opts_txts,opts_txts,opts_txts,opts_txts,
+		 opts_txts,opts_txts,opts_txts,opts_txts],
+         values: [opts_vals,opts_vals,opts_vals,opts_vals,
+		  opts_vals,opts_vals,opts_vals,opts_vals],
+         sorts: [false]
+       },
+
+       extensions:[{ name: 'sort' }]
+     };
      includeHTML($("#content"));
      function init_table(name, columnOps=true){
-       var tf = new TableFilter(name, filtersConfig, 2);
-       if(columnOps) tf.emitter.on(['column-calc'], calcAll);
+       if(columnOps){
+	 var tf = new TableFilter(name, filtersConfig, 2);
+	 tf.emitter.on(['column-calc'], calcAll);
+       }else{
+	 var tf = new TableFilter(name, filtersConfig2, 1);
+       }
        tf.init();
-       //resize_table("#"+name);
+
      }
 
      function calcAll(tf, colOps, colIndex) {

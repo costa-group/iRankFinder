@@ -1,22 +1,20 @@
 <div> <h3> Termination experiments </h3> We analysed 3 benchmark sets
   with different combinations of properties.  <h4 id="term_summary">
   Summary </h4> For termination analysis, we have experimentally
-  evaluated the effect of Algorithm 1 on <font
-  face=symbol>i</font>RankFinder using 3 sets of standard benchmarks:
+  evaluated the effect of Algorithm 1 on iRankFinder using 3 sets of standard benchmarks:
   <ul>
 
 <li> (Set-1) is a set of 416 ITSs coming from Java programs (directory
-  From_AProVE_2014 of <a target="_blank" alt="The Termination Problems Data Base" href="http://termination-portal.org/wiki/TPDB">TPDB</a></i></font>);
+  From_AProVE_2014 of <a target="_blank" alt="The Termination Problems Data Base" href="http://termination-portal.org/wiki/TPDB">TPDB</a></li>);
 
 <li> (Set-2) is a set of 806 ITSs coming not necessarily from
-  structured programs (directory From_T2 of <a target="_blank" alt="The Termination Problems Data Base" href="http://termination-portal.org/wiki/TPDB">TPDB</a>); and
+  structured programs (directory From_T2 of <a target="_blank" alt="The Termination Problems Data Base" href="http://termination-portal.org/wiki/TPDB">TPDB</a>); and</li>
 
 <li> (Set-3) is a set of 200 ITSs coming mainly from Java and C programs used by (Flores-Montoya 2017) for experimental evaluation
-  of cost analysis.  </ul> Set-1 (resp. Set-2) includes 159 (resp. 348) ITS known to be non-terminating ITS, and thus we exclude
+  of cost analysis. </li> </ul> Set-1 (resp. Set-2) includes 159 (resp. 348) ITS known to be non-terminating ITS, and thus we exclude
   them from the experiments.  We first analysed all benchmarks for termination <em>without</em> CFR in two <em>settings</em>, using
-  LRFs and using LLRFs, and for those on which <font face=symbol>i</font>RankFinder failed, we analysed them again
+  LRFs and using LLRFs, and for those on which iRankFinder failed, we analysed them again
   <em>with</em> CFR using different schemes and properties.
-
 
 The results are summarized on this table.
 
@@ -45,7 +43,7 @@ The results are summarized on this table.
     <tr><td class="border-right border-bottom">P<span class="foot">7</span></td><td class="border-bottom">21 (15.05, 32.35%)</td><td class="border-bottom">18 (13.27, 28.77%)</td><td class="border-right border-bottom">20 (14.95, 27.28%)</td> <td class="border-bottom"> 9 (3.35, 33.08%)</td><td class="border-bottom"> 6 (8.78, 5.40%)</td><td class="border-right border-bottom">10 (7.46, 10.07%)</td></tr> </table>
   <p>There are 3 (horizontal) blocks, each corresponding to a set of
 benchmarks. On the side of each block, we indicate the total number of
-benchmarks on which <font face=symbol>i</font>RankFinder failed
+benchmarks on which iRankFinder failed
 <em>without</em> CFR and the total time (in minutes) it took to
 analyze them, for both LRFs and LLRFs.</p>
   <p>For each set, there are
@@ -62,7 +60,7 @@ correspond to different CFR schemes, and rows to set of properties used for
     <li>P<span class="foot">7</span> = {PR<span class="foot">dh</span> ,PR<span class="foot">h</span> }</li>
   </ul>
   <p>Each entry in the table includes the number of benchmarks
-that <font face=symbol>i</font>RankFinder can now prove terminating
+that iRankFinder can now prove terminating
 and the total time it took to analyze all benchmarks, using the scheme
 and properties as indicated in the corresponding row and column. Each
 benchmark was given a 5-min time limit.</p>
@@ -72,15 +70,15 @@ benchmark was given a 5-min time limit.</p>
 
 <li> For Set-1: without using CFR we prove termination of 159
   (resp. 229) ITSs when using LRFs (resp. LLRFs), and with CFR we can
-  handle 40 (resp. 9) more ITSs.
+  handle 40 (resp. 9) more ITSs.</li>
 
 <li> For Set-2: without using CFR we prove termination of 120
   (resp. 376) ITSs when using LRFs (resp. LLRFs). With CFR we can
-  handle 178 (resp. 82) more ITSs.
+  handle 178 (resp. 82) more ITSs.</li>
 
 <li> For Set-3: without using CFR we prove termination of 88
   (resp. 175) ITSs when using LRFs (resp. LLRFs). With CFR we can
-  handle 33 (resp. 13) more ITSs.  </ul>
+  handle 33 (resp. 13) more ITSs.</li>  </ul>
 
 <p>Times in the table should be interpreted carefully, since when
   analysing <em>without</em> CFR and when using CFR<span
