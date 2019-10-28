@@ -63,7 +63,7 @@ dependencies but it won't update other dependencies like ppl.
 and a zip `[PATH]/pyRankFinder/dist/irankfinder_[VERSION]_[PLATFORM]_[ARCH].zip`
 
 It requires pyinstaller and zip installed (which are not installed
-with the given scripts.
+with the given scripts).
 
 
 ```
@@ -71,6 +71,6 @@ apt-get install zip
 pip3 install -U pyinstaller
 ```
 
-you can specify the folder where all the projects are located using the
-parameter `--path`. or set the env variable `TOOLS_HOME`
+You can specify the folder where all the projects are located using the
+parameter `--path` or settting the env variable `TOOLS_HOME`
 

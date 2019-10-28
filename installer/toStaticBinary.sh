@@ -72,7 +72,9 @@ toStatic(){
     plat=`uname`
     mach=`uname -m`
     # 5 - zip all
-    zip -r $path/pyRankFinder/dist/irankfinder_$version_${plat,,}_$mach.zip $path/pyRankFinder/dist/$version/irankfinder/
+    pushd $path/pyRankFinder/dist
+    zip -r irankfinder_$version_${plat,,}_$mach.zip ./$version/irankfinder/
+    popd
 }
 
 check_sources(){
