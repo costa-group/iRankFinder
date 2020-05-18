@@ -12,14 +12,36 @@ mkdir -p $OUTSDIR
 # mkdir -p $TMPDIR/t2
 echo "<eiout>"
 
-$pyRF ${@:2} --ei-out -of fc svg -od "$OUTSDIR/" --tmpdir "$TMPDIR" --print-graphs 2> "$TMPDIR/errors"
+files=""
+propsfile=""
+counter=2
+for f in ${@:2}; do
+    counter=$((counter+1))
+    if [ "$f" == "|" ]; then
+	break;
+    fi
+    ext="${f##*.}"
+    if [ "$ext" == "cfgprops" ]; then
+	propsfile=$propsfile" "$f
+    else
+	files=$files" "$f
+    fi
+done
+files="-f"$files
+if [ "$propsfile" != "" ]; then
+    propsfile="-cfgpf"$propsfile
+fi
+
+params=$files" "$propsfile" "${@:$counter}" --ei-out -of fc svg -od "$OUTSDIR/" --tmpdir "$TMPDIR" --print-graphs"
+
+$pyRF $params 2> "$TMPDIR/errors"
 
 
 echo "<eicommands>"
 if [ -s "$TMPDIR/errors" ]; then
     echo "<printonconsole consoleid='errors' consoletitle='Errors'><content><![CDATA["
     echo "========== Command line ====================================="
-    echo ${@:2} --ei-out -of fc svg -od "$OUTSDIR/" --tmpdir "$TMPDIR" --print-graphs
+    echo $params
     echo "=============================================================="
     cat "$TMPDIR/errors"
     echo "]]></content></printonconsole>"
