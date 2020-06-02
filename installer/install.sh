@@ -89,4 +89,4 @@ mod_flags=""
 if [ "$sudo" == "true" ]; then
     mod_flags=$mod_flags" --sudo"
 fi
-./install_modules -p $path -m $mode -v $version -b $branch $mod_flags
+./install_modules.sh -p $path -m $mode -v $version -b $branch $mod_flags
