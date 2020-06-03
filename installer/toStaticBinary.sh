@@ -27,16 +27,13 @@ toStatic(){
 
 
     # 2 - Run pyinstaller:
-    pyinstaller $path/pyRankFinder/irankfinder.py --hidden-import networkx --hidden-import gmpy2 --hidden-import cython --hidden-import cysignals --hidden-import z3 --hidden-import eiol --hidden-import lark --hidden-import pkg_resources.extern.packaging.version --hidden-import genericparser --hidden-import genericparser.Parser_smt2 --hidden-import genericparser.Parser_fc --hidden-import genericparser.Parser_koat --hidden-import termination --hidden-import termination.algorithm --hidden-import nodeproperties --hidden-import nodeproperties.abstractStates --hidden-import lpi --hidden-import ppl -p $sources_path --distpath $path/pyRankFinder/dist/$version/ --workpath $path/pyRankFinder/build -y
+    pyinstaller $path/pyRankFinder/irankfinder.py --hidden-import networkx --hidden-import gmpy2 --hidden-import cython --hidden-import cysignals --hidden-import z3 --hidden-import eiol --hidden-import lark --hidden-import pkg_resources.extern.packaging.version --hidden-import genericparser --hidden-import genericparser.Parser_c --hidden-import genericparser.Parser_smt2 --hidden-import genericparser.Parser_fc --hidden-import genericparser.Parser_koat --hidden-import termination --hidden-import termination.algorithm --hidden-import nodeproperties --hidden-import nodeproperties.abstractStates --hidden-import lpi --hidden-import ppl -p $sources_path --distpath $path/pyRankFinder/dist/$version/ --workpath $path/pyRankFinder/build -y
 
-    pyinstaller $path/pyRankFinder/CFRefinement.py --hidden-import networkx --hidden-import gmpy2 --hidden-import cython --hidden-import cysignals --hidden-import z3 --hidden-import eiol --hidden-import lark --hidden-import pkg_resources.extern.packaging.version --hidden-import genericparser --hidden-import genericparser.Parser_smt2 --hidden-import genericparser.Parser_fc --hidden-import genericparser.Parser_koat --hidden-import termination --hidden-import termination.algorithm --hidden-import nodeproperties --hidden-import nodeproperties.abstractStates --hidden-import lpi --hidden-import ppl -p $sources_path --distpath $path/pyRankFinder/dist/$version/ --workpath $path/pyRankFinder/build -y
+    pyinstaller $path/pyRankFinder/CFRefinement.py --hidden-import networkx --hidden-import gmpy2 --hidden-import cython --hidden-import cysignals --hidden-import z3 --hidden-import eiol --hidden-import lark --hidden-import pkg_resources.extern.packaging.version --hidden-import genericparser --hidden-import genericparser.Parser_smt2 --hidden-import genericparser.Parser_c --hidden-import genericparser.Parser_fc --hidden-import genericparser.Parser_koat --hidden-import termination --hidden-import termination.algorithm --hidden-import nodeproperties --hidden-import nodeproperties.abstractStates --hidden-import lpi --hidden-import ppl -p $sources_path --distpath $path/pyRankFinder/dist/$version/ --workpath $path/pyRankFinder/build -y
 
     # 3 - Add no python files:
 
     #     - all grammar files of genericparser
-
-    mkdir $path/pyRankFinder/dist/$version/irankfinder/genericparser/
-    cp $path/pyParser/genericparser/*.g $path/pyRankFinder/dist/$version/irankfinder/genericparser/
     mkdir -p $path/pyRankFinder/dist/$version/irankfinder/lark/grammars/
     lark_path=`python3 -c "import os; import lark; print(os.path.dirname(lark.__file__))"`
     cp $lark_path/grammars/common.* $path/pyRankFinder/dist/$version/irankfinder/lark/grammars/
@@ -45,12 +42,11 @@ toStatic(){
     z3_path=`python3 -c "import os; import z3; print(os.path.dirname(z3.__file__))"`
     cp $z3_path/lib/libz3.so $path/pyRankFinder/dist/$version/irankfinder/libz3.so
     
-    #     - smt2pushdown binary
-
-    cp $path/pyParser/genericparser/smtpushdown2 $path/pyRankFinder/dist/$version/irankfinder/genericparser/smtpushdown2
+    #     - Parser binaries
+    mkdir -p $path/pyRankFinder/dist/$version/irankfinder/genericparser/bin
+    cp $path/pyParser/genericparser/bin/* $path/pyRankFinder/dist/$version/irankfinder/genericparser/bin/
 
     #     - PE binary
-
     mkdir -p $path/pyRankFinder/dist/$version/irankfinder/partialevaluation/bin/
     cp $path/pyRankFinder/partialevaluation/bin/* $path/pyRankFinder/dist/$version/irankfinder/partialevaluation/bin/
 
