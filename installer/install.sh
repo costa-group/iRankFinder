@@ -82,11 +82,11 @@ if [ "$externals" == "true" ]; then
     if [ "$sudo" == "true" ]; then
 	ex_flags=$ex_flags" --sudo"
     fi
-    ./install_externals.sh $ex_flags
+    $basedir/install_externals.sh $ex_flags
 fi
 
 mod_flags=""
 if [ "$sudo" == "true" ]; then
     mod_flags=$mod_flags" --sudo"
 fi
-./install_modules.sh -p $path -m $mode -v $version -b $branch $mod_flags
+$basedir/install_modules.sh -p $path -m $mode -v $version -b $branch $mod_flags

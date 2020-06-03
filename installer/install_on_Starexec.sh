@@ -88,6 +88,7 @@ install_pe_bin(){
 
 }
 
+basedir=$(dirname "$(readlink -f "$0" )")
 
 install_python
 # install_pkg llvm3.9-devel clang.x86_64
@@ -95,5 +96,5 @@ install_ppl
 install_pip_pkgs
 # install_z3
 # install_pe
-./install_modules.sh -m dev -b unstable -p /opt/tools
+$basedir/install_modules.sh -m dev -b unstable -p /opt/tools
 install_pe_bin /opt/tools
