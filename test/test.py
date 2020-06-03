@@ -57,16 +57,26 @@ def def_tests():
     f1 = "TPDB/From_AProVE_2014/a/Ackermann.jar-obl-8.smt2"
     f2 = "TPDB/C_Integer/Stroeder_15/aaron2_true-termination.c"
     f3 = "fc/misc/loop1.fc"
+    f4 = "TPDB/From_AProVE_2014/a/AlternatingGrowReduce.jar-obl-9.smt2"
+    f5 = "TPDB/From_AProVE_2014/a/AlternatingGrowReduceRec2.jar-obl-9.smt2"
+    f6 = "TPDB/From_AProVE_2014/a/alternDivWidening_rec.jar-obl-8.smt2"
     args1= "-t qnlrf_2"
     args2= args1 + " -i polyhedra"
     args_cfr = args2 + " -cfr-st-scc -cfr-call -cfr-call-var -cfr-it 1"
-    args_nt = args2 + " -nt monotonicrecset -domain Q"
+    args_nt_q = args2 + " -nt monotonicrecset -domain Q -nt-reach"
+    args_nt_z = args2 + " -nt monotonicrecset -domain Z -nt-reach"
     test = {}
-    test["basic"] = set_test("-v 0", f1, "MAYBE", "Is iRankFinder installed?")
-    test["basic1"] = set_test(args1, f1, "YES", "does LD_LIBRARY_PATH have ppl path?")
-    test["c"] = set_test(args1, f2, "MAYBE", "does llvm fail?")
-    test["c_yes"] = set_test(args2, f2, "YES", "")
-    test["fc"] = set_test(args2, f3, "YES", "")
+    test["01_basic"] = set_test("-v 0", f1, "MAYBE", "Is iRankFinder installed?")
+    test["02_basic1"] = set_test(args1, f1, "YES", "does LD_LIBRARY_PATH have ppl path?")
+    test["03_c"] = set_test(args1, f2, "MAYBE", "does llvm fail?")
+    test["04_c_yes"] = set_test(args2, f2, "YES", "")
+    test["05_fc"] = set_test(args2, f3, "YES", "")
+    test["06_no_cfr_maybe"] = set_test(args2, f4, "MAYBE", "")
+    test["07_cfr_yes"] = set_test(args_cfr, f4, "YES", "")
+    test["08_nt_maybe"] = set_test(args2, f5, "MAYBE", "")
+    test["09_nt_no_q"] = set_test(args_nt_q, f5, "NO", "")
+    test["10_nt_maybe_z"] = set_test(args_nt_z, f5, "MAYBE", "")
+    test["11_nt_no_z"] = set_test(args_nt_z, f6, "NO", "")
     return test
 
 
