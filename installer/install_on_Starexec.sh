@@ -82,19 +82,28 @@ install_pe_bin(){
     wget https://github.com/jesusjda/pe/releases/download/v1/pe_rhel7.zip
     unzip -o pe_rhel7.zip
     rm -f pe_rhel7.zip
+    chmod +x pe.sh props1.sh props.sh peunf_smt_2 chc2cfg props1 backEdges props drawcfg
     cd ../../
     python3 -m pip install -U .
     popd > /dev/null
 
 }
 
-basedir=$(dirname "$(readlink -f "$0" )")
+set_ld_lib_var(){
+    f=$1
+    TEXT="export LD_LIBRARY_PATH=\"/usr/local/lib:\$LD_LIBRARY_PATH\""
+    sed -i "2  a \\
+${TEXT}" $f
+}
 
+basedir=$(dirname "$(readlink -f "$0" )")
+TOOL_PATH="/opt/tools"
 install_python
 # install_pkg llvm3.9-devel clang.x86_64
 install_ppl
 install_pip_pkgs
 # install_z3
 # install_pe
-$basedir/install_modules.sh -m dev -b unstable -p /opt/tools
-install_pe_bin /opt/tools
+$basedir/install_modules.sh -m dev -b unstable -p $TOOL_PATH
+install_pe_bin $TOOL_PATH
+set_ld_lib_var $TOOL_PATH/pyRankFinder/irankfinder.sh

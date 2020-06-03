@@ -63,8 +63,8 @@ def def_tests():
     args1= "-t qnlrf_2"
     args2= args1 + " -i polyhedra"
     args_cfr = args2 + " -cfr-st-scc -cfr-call -cfr-call-var -cfr-it 1"
-    args_nt_q = args2 + " -nt monotonicrecset -domain Q -nt-reach"
-    args_nt_z = args2 + " -nt monotonicrecset -domain Z -nt-reach"
+    args_nt_q = args2 + " -nt monotonicrecset --domain Q -nt-reach"
+    args_nt_z = args2 + " -nt monotonicrecset --domain Z -nt-reach"
     test = {}
     test["01_basic"] = set_test("-v 0", f1, "MAYBE", "Is iRankFinder installed?")
     test["02_basic1"] = set_test(args1, f1, "YES", "does LD_LIBRARY_PATH have ppl path?")
