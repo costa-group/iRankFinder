@@ -77,7 +77,7 @@ install_iRankFinder_clone(){
 	fi
 	echo " DONE."
 	echo -n "Installing $name..."
-	ssudo python3 -m pip install -U .
+	ssudo python3 -m pip install .
 	echo " DONE."
 	popd > /dev/null
 	echo "Finished installation of $name."

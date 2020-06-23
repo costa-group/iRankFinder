@@ -79,10 +79,10 @@ install_pe(){
 
 install_pe_bin(){
     pushd $1/pyRankFinder/partialevaluation/bin > /dev/null
-    wget https://github.com/jesusjda/pe/releases/download/v1/pe_rhel7.zip
+    wget https://github.com/jesusjda/pe/releases/latest/download/pe_rhel7.zip
     unzip -o pe_rhel7.zip
     rm -f pe_rhel7.zip
-    chmod +x pe.sh props1.sh props.sh peunf_smt_2 chc2cfg props1 backEdges props drawcfg
+    chmod +x *.sh peunf_smt_2 chc2cfg props1 props drawcfg
     cd ../../
     python3 -m pip install -U .
     popd > /dev/null

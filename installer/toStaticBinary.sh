@@ -1,4 +1,9 @@
 #!/bin/bash
+# use example
+# > /PATH/TO/STATIC/toStaticBinary.sh -p /PATH/TO/TOOLS
+# 
+
+
 set -e
 
 help(){
@@ -14,6 +19,30 @@ $1: $0 ([OPTIONS])
         Path to sources, by default: \$TOOLS_HOME (actual value: '$TOOLS_HOME')
 EOF
 }
+
+generate_pe_bin(){
+    path=$1
+    pushd $path/pe > /dev/null
+    mkdir -p dist/tmp
+    cd dist
+    ciaoc_sdyn ../peunf_smt_2
+    ciaoc_sdyn ../chc2cfg
+    ciaoc_sdyn ../drawcfg
+    cd tmp
+    ciaoc_sdyn ../../props
+    mv props ../
+    rm -rf *
+    ciaoc_sdyn ../../props1
+    mv props1 ../
+    cd ..
+    # Remove some system .so files (which are not part of 3rd-party)
+    rm -rf tmp libc.so.* libgcc_s.so.* libm.so.* libstdc++.so.*
+    cp ../props1.sh ../props.sh ../pe.sh ../pecfg.sh .
+    chmod +x *.sh
+    zip pe.zip *
+    popd > /dev/null
+}
+
 
 toStatic(){
     path=$1
@@ -68,8 +97,8 @@ toStatic(){
     plat=`uname`
     mach=`uname -m`
     # 5 - zip all
-    pushd $path/pyRankFinder/dist
-    zip -r irankfinder_$version_${plat,,}_$mach.zip ./$version/irankfinder/
+    pushd $path/pyRankFinder/dist/$version
+    zip -r ../irankfinder_$version"_"${plat,,}_$mach.zip ./irankfinder/
     popd
 }
 
@@ -109,3 +138,4 @@ check_sources
 
 toStatic $path
 
+#generate_pe_bin $path
