@@ -1,0 +1,30 @@
+{
+  vars: [x],
+  initnode: n0,
+  transitions: [
+    {
+	source: n0,
+	target: n1,
+	name: Q0,
+	constraints: [x' = x]
+    },
+    {
+	source: n1,
+	target: n2,
+	name: Q1,
+	constraints: [x >= 0, x' = x]
+    },
+    {
+	source: n2,
+	target: n1,
+	name: Q2,
+	constraints: [x' <= x - 1]
+    },
+    {
+	source: n1,
+	target: n3,
+	name: Q3,
+	constraints: [x < 0, x' = x]
+    }
+  ]
+}
