@@ -41,8 +41,6 @@ while [ $# -gt 0 ]; do
 	    shift 2
 	    ;;
 	-v|--version )
-	    help "ERROR" >&2  
-	    exit -1
 	    version=$2
 	    shift 2
 	    ;;
