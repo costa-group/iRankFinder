@@ -1,0 +1,83 @@
+<div>
+<h3 id="term"> CFR for Termination Analysis </h3> 
+
+<p>We have evaluated the effect of Algorithm 2 on i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span>,
+comparing the results of i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> with and without CFR using
+different settings. And we also compared to other termination analysis
+  tools. We have used sets <span class="cmtt-12">TPDB-A</span>, <span class="cmtt-12">TPDB-B</span> and <span class="cmtt-12">TPDB-C</span>, but excluded
+  benchmarks known to be non-terminating: 151 for <span class="cmtt-12">TPDB-A</span>, 93 for <span class="cmtt-12">TPDB-B</span>
+  and 93 for <span class="cmtt-12">TPDB-C</span>.</p>
+
+<p>We first analysed all benchmarks for termination without CFR in two settings: using
+only LRFs; and using LLRFs with the definition of nested QLRF of Section 5.1.4 and
+d = 3. For those on which i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> failed to prove termination, we analysed them
+again with CFR using different sets of properties and CFR schemes. The results for LRFs
+  and LLRFs are summarised in the following tables.</p>
+<div id="termin-lrf-table" include-html="cfr-termin-table-lrf.html"/>
+<div id="termin-llrf-table" include-html="cfr-termin-table-llrf.html"/>
+
+
+<p class="indent">   Both tables consist of 3 (vertical) blocks, one for each set of benchmarks. On the right side
+of each block, we indicate: the total number of benchmarks on which i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>succeeded
+and failed <span class="cmti-12">without </span>CFR (excluding non-terminating ones), and the corresponding total time in
+minutes; and the additional number of benchmarks on which i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>succeeded when
+using CFR. For example: in the first block of Table 1, the last column indicates that
+i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>succeeded (resp. failed) on 159 (resp. 106) benchmarks and the total analysis
+time was 8<span class="cmmi-12">.</span>16min (resp. 15<span class="cmmi-12">.</span>75min); and that when using CFR it succeeds on additional 40
+benchmarks. For each set, columns correspond to different CFR schemes, and rows to properties used for
+CFR:
+</p>
+<center class="math-display">
+<img src="imgs/props.png" alt="P1 =  Propsc
+P2 =  Propsh
+P3 =  Propsc ∪ Propsh
+P4 =  Props  ∪ Props   ∪ Props  ∪ Props
+P  =  Propscd         cv        h        hv
+  5        hd
+P6 =  Propsh ∪ Propsc
+P7 =  Propsdh ∪ Propsh
+" class="math-display"></center>
+
+<p class="nopar"> Each entry in the tables includes the number of benchmarks that i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>can now
+prove terminating, and the total time it took to analyse all benchmarks, using the scheme and
+properties as indicated in the corresponding row and column. Each benchmark was given a 5
+minutes time limit. In terms of precision:
+</p>
+<ul class="itemize1">
+      <li class="itemize">For <span class="cmtt-12">TPDB-A</span>: without using CFR i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span>proves
+      termination of 159 (resp. 229) benchmarks when using LRFs
+      (resp. LLRFs), and with CFR i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span></span>
+      proves termination of 40 (resp. 9) more benchmarks.
+      </li>                                                                                      
+      <li class="itemize">For <span class="cmtt-12">TPDB-B</span>: without using CFR i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>proves termination of 123 (resp.
+      373) benchmarks when using LRFs (resp. LLRFs), and with CFR i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span></span>
+      proves termination of 182 (resp. 29) more benchmarks.
+      </li>
+      <li class="itemize">For <span class="cmtt-12">TPDB-C</span>: without using CFR i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>proves termination of 74 (resp. 175)
+      benchmarks when using LRFs (resp. LLRFs), and with CFR i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>proves
+	termination of 90 (resp. 34) more benchmarks.</li></ul>
+
+<p class="noindent">In total, out of 609 (resp. 188) benchmarks that i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>cannot prove terminating without
+CFR using LRFs (resp. LLRFs), with CFR it proves terminating of 312 (resp. 72) more
+benchmarks, which is an improvement of about 51<span class="cmmi-12">.</span>2% (resp. 38<span class="cmmi-12">.</span>2%).
+  <!--l. 104--></p>
+<p class="indent">   Times in the tables, however, should be interpreted carefully, since when analysing <span class="cmti-12">without</span>
+CFR and when using <span class="cmtt-12">CFR</span><span class="cmtt-8">B</span> the analysis stops as soon as it fails to prove termination of a
+SCC, while when using <span class="cmtt-12">CFR</span><span class="cmtt-8">S</span> and <span class="cmtt-12">CFR</span><span class="cmtt-8">A</span> it keeps trying to prove termination of other
+SCCs.
+   </p>
+
+<div id="termin-tools-table" include-html="termin-tools-table.html"/>
+<div id="termin-tools-comparison-table" include-html="termin-tools-comparison-table.html"/>
+
+<p class="indent">   We have also compared to other termination analysers of TSs: <span class="cmtt-12">VeryMax</span> and <span class="cmtt-12">T2</span>. The
+results are summarised in tables 3 and 4. Note that these tables include two versions of
+i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span></span>: with and without CFR. Table 3 includes the total number of benchmarks for
+which each tool could prove terminating. We can see that, in total, i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>with CFR
+could prove termination of more examples than any other tool. Table&nbsp; 4 includes a more
+detailed comparison. The number <span class="cmmi-12">x </span>at row <span class="cmmi-12">i </span>and column <span class="cmmi-12">j </span>is the number of benchmarks for
+which tool <span class="cmmi-12">i </span>could prove termination and tool <span class="cmmi-12">j </span>could not. We can see that the column of
+i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>with CFR has the lowest numbers, i.e., it is the one that loses less
+precision.
+   </p>
+</div>

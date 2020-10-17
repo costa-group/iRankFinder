@@ -1,0 +1,39 @@
+<div><h3>CFR for Cost Analysis</h3>
+
+  <p class="noindent">We evaluate the effect of our CFR techniques on cost analysis, in particular
+using the tool <span class="cmtt-12">KoAT </span>and the set <span class="cmtt-12">TPDB-D </span>(781 benchmarks). We did not analyse <span class="cmtt-12">TPDB-A</span>, <span class="cmtt-12">TPDB-B</span> and <span class="cmtt-12">TPDB-C </span>since they are not suitable for complexity analysis, e.g., most of them include
+concrete initial values which would always induce constant asymptotic upper-bounds, and thus
+it is not easy to quantify improvements.
+   </p>
+
+  <div include-html="cost-table.html"/>
+
+   <p class="indent">   For each benchmark, we applied <span class="cmtt-12">KoAT </span>without CFR and with CFR as a pre-processing step
+using properties <span class="cmmi-12">P</span><sub><span class="cmr-8">1</span></sub>-<span class="cmmi-12">P</span><sub><span class="cmr-8">7</span></sub> of the previous section. Each benchmark was given a 5 minutes time
+limit for CFR and 3 minutes time limit for <span class="cmtt-12">KoAT</span>. Table 5 summarises the improvements
+obtained.
+     <!--l. 25--></p>
+
+   <p class="indent">   Rows correspond to sets of properties, and columns to asymptotic upper-bounds which are
+possible outcomes of <span class="cmtt-12">KoAT</span>. A number <span class="cmmi-12">x </span>in row <span class="cmmi-12">P</span><sub><span class="cmmi-8">i</span></sub> and column <span class="cmmi-12">O</span>(<span class="cmmi-12">f</span>(<span class="cmmi-12">n</span>)) means the following:
+when using CFR with properties <span class="cmmi-12">P</span><sub><span class="cmmi-8">i</span></sub>, <span class="cmmi-12">x </span>benchmarks for which <span class="cmtt-12">KoAT </span>infers <span class="cmmi-12">O</span>(<span class="cmmi-12">f</span>(<span class="cmmi-12">n</span>)) without
+CFR, have been improved to a lower asymptotic upper-bounds. For example, using <span class="cmmi-12">P</span><sub><span class="cmr-8">1</span></sub>, the use
+of CFR improves 13 benchmarks from <span class="cmmi-12">O</span>(<span class="cmmi-12">n</span><sup><span class="cmr-8">2</span></sup>) to a lower asymptotic upper-bound and using <span class="cmmi-12">P</span><sub>
+<span class="cmr-8">2</span></sub>,
+the use of CFR improves 17 benchmarks from <span class="cmmi-12">O</span>(<span class="cmsy-10x-x-120">∞</span>) to a lower asymptotic upper-bound, etc.
+The last row includes the total number of benchmarks for which the use of CFR
+achieves improvements for the corresponding asymptotic upper-bound, using any
+of properties <span class="cmmi-12">P</span><sub><span class="cmr-8">1</span></sub>-<span class="cmmi-12">P</span><sub><span class="cmr-8">7</span></sub>. Overall, using CFR we get tighter asymptotic upper-bounds
+for 49 benchmarks, which are about 6% of all benchmarks; and using properties
+<span class="cmmi-12">P</span><sub><span class="cmr-8">6</span></sub>, which consists of <span class="cmtt-12">Props</span><span class="cmtt-8">d</span>
+<span class="cmtt-8">h</span> and <span class="cmtt-12">Props</span><span class="cmtt-8">c</span>, give the best precision improving in 43
+cases.
+<!--l. 47--></p>
+
+   <p class="indent">   Note that in this evaluation, <span class="cmtt-12">KoAT </span>timeouts more often when using CFR, however, this
+is expected as CFR is applied to the whole TS. In a new version of <span class="cmtt-12">KoAT</span>, that is
+under development, the developers incorporated our CFR procedure in a way that is
+similar to scheme <span class="cmtt-12">CFR</span><span class="cmtt-8">S</span> that was used for termination. We expect this to improve
+performance.
+<!--l. 63--></p>
+</div>

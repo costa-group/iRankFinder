@@ -1,0 +1,95 @@
+<h3 id="nonterm">  Non-Termination via Recurrent Sets (and CFR) </h3> 
+
+<p class="noindent">For experimentally evaluating Algorithm 3 for non-termination of TSs, we have
+integrated the procedure described in Section 4.2.3 in i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>.
+In a nutshell, when i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>fails
+to prove termination, it enumerates closed walks using only
+transitions whose termination was not proven and then applies
+Algorithm 3 to seek recurrent sets in these closed walks. In addition,
+it checks that the recurrent set is reachable. When the domain of the
+variables is <span class="msbm-10x-x-120">ℤ</span>, i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>tries
+to avoid non-determinism by sampling integer values for (local)
+variables that cause non-determinism. Recall that soundness cannot be
+guaranteed for <span class="msbm-10x-x-120">ℤ </span>without making
+closed walks deterministic.
+   </p>
+
+   <div id="nontermin-table" include-html="nontermin-table.html"/>
+
+   <p class="indent">   We have analysed 707 benchmarks from sets <span class="cmtt-12">TPDB-A</span>, <span class="cmtt-12">TPDB-B</span>, and <span class="cmtt-12">TPDB-C</span>. They
+include benchmarks where i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>failed
+to prove termination, and others that are known to be
+non-terminating. We have applied the analysis in two settings, the
+first assumes that variables range over <span class="msbm-10x-x-120">ℚ</span>
+and the second assumes that variables range over <span class="msbm-10x-x-120">ℤ</span>. Clearly the case of <span class="msbm-10x-x-120">ℚ </span>is not
+interesting since all these benchmarks use integer variables, however, it will give an
+indication on the effectiveness of our method for making loops deterministic as explained
+below.
+     <!--l. 71--></p>
+
+   <p class="indent">   The results are summarised in Table 6. For each set of benchmarks, we indicate the
+number of benchmarks for which i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>finds
+a recurrent set, and the number of those it succeeds to prove
+reachable. The results are shown for both <span class="msbm-10x-x-120">ℚ </span>and <span class="msbm-10x-x-120">ℤ</span>. Obviously, for <span class="msbm-10x-x-120">ℚ </span>we
+find more recurrent sets than for <span class="msbm-10x-x-120">ℤ</span>. Roughly, the difference between columns “Found” of <span class="msbm-10x-x-120">ℚ </span>and
+<span class="msbm-10x-x-120">ℤ </span>indicates the number of benchmarks where it did not succeed to make the corresponding
+closed walks deterministic, so we could not apply the analysis for <span class="msbm-10x-x-120">ℤ </span>on those benchmarks&nbsp;(in
+total 57).
+<!--l. 85--></p>
+   
+   <div id="cfr-non-termin-table" include-html="cfr-non-termin-table.html"/>
+
+   <p class="indent">   We have also evaluated the effect of using CFR on non-termination. For this, we have
+analysed 164 (resp. 232) benchmarks where i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>could
+not prove non-termination when variables range over <span class="msbm-10x-x-120">ℚ </span>(resp. <span class="msbm-10x-x-120">ℤ</span>),
+using CFR schemes and properties as before.  Table 7 summaries our
+results, its structure is similar to that of tables 1 and 2. Each
+entry indicates the number of benchmarks for which i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>finds a
+reachable recurrent set, using the corresponding CFR scheme and properties. In terms of
+precision, CFR improves:
+   </p>
+
+   <ul class="itemize1">
+      <li class="itemize">For  <span class="cmtt-12">TPDB-A</span>:  i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>CFR  proves  non-termination  of  6  (resp.&nbsp;10)  more
+      benchmarks when using the domain <span class="msbm-10x-x-120">ℚ </span>(resp.&nbsp;<span class="msbm-10x-x-120">ℤ</span>).
+      </li>
+      <li class="itemize">For <span class="cmtt-12">TPDB-B</span>: i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>CFR proves non-termination of 16 (resp.&nbsp;25) more
+      benchmarks when using the domain <span class="msbm-10x-x-120">ℚ </span>(resp. <span class="msbm-10x-x-120">ℤ</span>).
+      </li>
+      <li class="itemize">For  <span class="cmtt-12">TPDB-C</span>:  i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span>  </span>CFR  proves  non-termination  of  7  (resp.&nbsp;5)  more
+	benchmarks when using the domain <span class="msbm-10x-x-120">ℚ </span>(resp. <span class="msbm-10x-x-120">ℤ</span>).</li></ul>
+
+   <p class="noindent">In total, out of 164 (resp. 232) benchmarks that i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>without CFR cannot prove
+non-terminating using the domain <span class="msbm-10x-x-120">ℚ </span>(resp. <span class="msbm-10x-x-120">ℤ</span>), it proves non-termination of 29 (resp. 40)
+benchmarks when using CFR, which is an improvement of about 17<span class="cmmi-12">.</span>6% (resp. 17<span class="cmmi-12">.</span>2%). The
+table also indicates that scheme <span class="cmtt-12">CFR</span><span class="cmtt-8">S</span> is not useful for non-termination and that properties
+     <span class="cmtt-12">Props</span><span class="cmtt-8">d</span><span class="cmtt-8">h</span> and <span class="cmtt-12">Props</span><span class="cmtt-8">c</span> are
+important for precision. This is because non-termination, in
+principle, improves the reachability check rather than the process of
+finding a recurrent set.
+   </p>
+   
+<div id="nontermin-tools-table" include-html="nontermin-tools-table.html"/>
+<div id="nontermin-tools-comparison-table" include-html="nontermin-tools-comparison-table.html"/>
+
+<p class="indent">   We have also compared to other non-termination analysis tools: <span class="cmtt-12">VeryMax</span>, <span class="cmtt-12">T2</span> and
+<span class="cmtt-12">LoAT</span>. The results are summarised in
+tables 8 and 9. Note that these tables include i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>with and without CFR, and in both cases we refer to applying it
+using <span class="msbm-10x-x-120">ℤ </span>and checking reachability
+as well (which is the setting used by the other tools).
+<!--l. 220--></p>
+<p class="indent">   Table 8 includes the total number of benchmarks
+for which each tool could prove non-terminating. We can see that, in
+total, i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>with CFR is comparable to <span class="cmtt-12">VeryMax</span>
+and <span class="cmtt-12">T2</span>. Table 9 includes a more detailed
+comparison. The number <span class="cmmi-12">x </span>at row <span class="cmmi-12">i </span>and column <span class="cmmi-12">j </span>is
+the number of benchmarks for which tool <span class="cmmi-12">i </span>could prove non-termination and tool <span class="cmmi-12">j </span>could not.
+We can see that i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span> </span>(with CFR) could prove non-termination of many programs
+that other tool cannot, though, in general, it is less precise. Note that we expected
+these tools to give better results than i<span class="cmcsc-10x-x-120">R<span class="small-caps">ank</span>F<span class="small-caps">inder</span> </span></span>,
+since their techniques were developed particularly for non-termination
+of TSs, unlike ours that was developed for SLC loops and then
+generalised for TSs. However, we can see that our results are in some
+sense comparable to the results of <span class="cmtt-12">VeryMax </span>and
+<span class="cmtt-12">T2</span>.
+   </p>
