@@ -198,6 +198,7 @@ table.termination{
 /*  Table CSS */
 
 .fixed_header tbody,
+.fixed_header tfoot,
 .fixed_header thead
 { display: block; width:100%; overflow-y: scroll;}
 
@@ -216,6 +217,12 @@ table.termination{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.fixed_header td:hover {
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
 }
 
 table.fixed_header, .fixed_header caption{

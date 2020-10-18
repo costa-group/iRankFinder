@@ -1,0 +1,219 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title> Termination Analysis of Programs with Complex Control-Flow - Jesús J. Doménech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tables.css">
+    <link rel="stylesheet" href="js/tablefilter/style/tablefilter.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="js/tablefilter/tablefilter.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140601506-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140601506-1');
+</script>
+
+  </head>
+  <body>
+      <div id="top">
+	<h1> Termination Analysis of Programs with Complex Control-Flow.</h1>
+	  <!--br/>Análisis de Terminación de Programas con Controles de Flujo Complejos</h1-->
+	<em style="margin-bottom:10px"> Jesús J. Doménech</em>
+	<h2> Raw data: Termination</h2>
+      </div>
+    <div id="content">
+
+      <div id="right">
+	<div id="term" include-html="T.html"></div>
+	<div id="lrf" include-html="lrf.html"></div>
+	<div id="llrf" include-html="llrf.html"></div>
+	<div id="other" include-html="otherT.html"></div>
+	<br/>
+      </div>
+      <div id="left" include-html="menu_term.html">
+      </div>
+    </div>
+    <script>
+     function resize_table(table){
+       var $table = $(table);
+       var $bodyCells = $table.find('tbody tr:visible').eq(0).children(),
+	   colWidth;
+       // Get the tbody columns width array
+       colWidth = $bodyCells.map(function() {
+	 return $(this).width();
+       }).get();
+       
+       // Set the width of thead columns
+       $table.find('thead tr').children().each(function(i, v) {
+	 $(v).width(colWidth[i]+2);
+       });
+     }
+ // Adjust the width of thead cells when window resizes
+ $(window).resize(function() {
+     $("table.fixed_header").each(function(){
+       resize_table(this);
+     });
+ }).resize(); // Trigger resize handler
+
+     function goToHash(){
+       console.log(window.location.hash)
+       if(window.location.hash) {
+	 document.location.hash = window.location.hash.substring(1)
+       }
+     }
+
+     function includeHTML(container) {
+       var seconds = Math.round(new Date() / 1000);
+       $("[include-html]",container).each(function(){
+	 var base = $(this);
+         var file = $(base).attr("include-html");
+         if (file) {
+	   var file2 = file + "?" + seconds;
+	   $(base).load(file2, function() {
+	     $(base).removeAttr("include-html");
+             includeHTML($(base));
+	   });
+         }
+
+       });
+       goToHash();
+     }
+     var opts_txts = ['Yes', 'No', 'Maybe', 'Timeout'];
+     var opts_vals = ['Y*', 'N*', 'M*', 'T*'];
+     var filtersConfig = {
+       base_path: 'js/tablefilter/',
+       col_1: 'select', col_2: 'select', col_3: 'select', col_4: 'select',
+       col_5: 'select', col_6: 'select', col_7: 'select', col_8: 'select', col_9: 'select',
+       col_10: 'select', col_11: 'select', col_12: 'select', col_13: 'select', col_14: 'select',
+       col_15: 'select', col_16: 'select', col_17: 'select', col_18: 'select', col_19: 'select',
+       col_20: 'select', col_21: 'select', col_22: 'select', 
+
+       rows_counter: {
+	 text: 'Examples: '
+       } ,
+       btn_reset: true,
+       loader: true,
+       status_bar: true,
+       mark_active_columns: true,
+       highlight_keywords: true,
+       on_after_filter: function(o){ /*resize_table($("#"+o["id"]));*/ },
+       col_types: [
+         'string', 'string', 'string', 'string', 'string', 'string',
+	 'string', 'string', 'string', 'string', 'string', 'string',
+         'string', 'string', 'string', 'string', 'string', 'string',
+	 'string', 'string', 'string', 'string', 'string', 'string'
+       ],
+        /*col_widths: [
+          '125px', '45px','45px','45px','45px','45px','45px','45px','45px','45px','45px',
+	  '45px','45px','45px','45px','45px','45px','45px','45px','45px','45px','45px','45px'
+        ],*/
+      headers_row_index: 1,
+
+       custom_options: {
+         cols:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22],
+         texts: [opts_txts,opts_txts,opts_txts,opts_txts,opts_txts,opts_txts,
+		 opts_txts,opts_txts,opts_txts,opts_txts,opts_txts,opts_txts,
+		 opts_txts,opts_txts,opts_txts,opts_txts,opts_txts,opts_txts,
+		 opts_txts,opts_txts,opts_txts,opts_txts,opts_txts,opts_txts],
+         values: [opts_vals,opts_vals,opts_vals,opts_vals,opts_vals,opts_vals,
+		  opts_vals,opts_vals,opts_vals,opts_vals,opts_vals,opts_vals,
+		  opts_vals,opts_vals,opts_vals,opts_vals,opts_vals,opts_vals,
+		  opts_vals,opts_vals, opts_vals,opts_vals,opts_vals,opts_vals],
+         sorts: [false]
+       },
+
+       extensions:[{ name: 'sort' },
+		   { name: 'colOps',
+		     col: [ 1, 2, 3, 4, 5, 6, 7,
+			    8, 9, 10, 11, 12, 13,
+			    14, 15, 16, 17, 18, 19,
+			    20, 21, 22
+		     ]
+		   }
+
+       ]
+     };
+     includeHTML($("#content"));
+
+     function init_table(name, head_rows=1){
+       var local_conf = filtersConfig;
+       local_conf["headers_row_index"] = head_rows
+       var tf = new TableFilter(name, local_conf, head_rows);
+       tf.emitter.on(['column-calc'], calcAll);
+       tf.init();
+     }
+
+     function calcAll(tf, colOps, colIndex) {
+       if (colIndex == 0) return;
+       if (colIndex == 1){
+         calc(tf, colOps, colIndex, 'sumT', true, 'sum1');
+	 calcYNMT(tf, colOps, colIndex, 'res', true);
+       }else{
+         calc(tf, colOps, colIndex, 'sumT', false, 'sum'+colIndex);
+         calc(tf, colOps, colIndex, 'perc', true, 'pcfr'+colIndex);
+	 calcYNMT(tf, colOps, colIndex, 'res', true);
+       }
+     }
+
+     function calcYNMT(tf, colOps, colIndex, onlyVisible) {
+       var colValues = tf.getFilteredDataCol(colIndex, false, true, [], onlyVisible);
+       var rY = colValues.filter(function(x){ return x.match('^Y')}).length;
+       var rN = colValues.filter(function(x){ return x.match('^N')}).length;
+       var rM = colValues.filter(function(x){ return x.match('^M')}).length;
+       var rT = colValues.filter(function(x){ return x.match('^T')}).length;
+       $("#"+tf["id"]+" #Y"+colIndex).text(rY);
+       $("#"+tf["id"]+" #N"+colIndex).text(rN);
+       $("#"+tf["id"]+" #M"+colIndex).text(rM);
+       $("#"+tf["id"]+" #T"+colIndex).text(rT);
+     }
+     
+     function calc(tf, colOps, colIndex, operation, onlyVisible, labelId) {
+       var colValues = tf.getFilteredDataCol(colIndex, false, true, [], onlyVisible);
+       var result = 0;
+       if(operation === 'sumT') {
+         result = calcSum(colValues)/60.0;
+	 result = result.toFixed(2);
+	 result = "" + result + " min"
+       }
+       else if(operation === 'perc') {
+         result = calcPerc(colValues);
+	 result = result.toFixed(2);
+	 result = "" + result + "%"
+       }
+       // display result
+       $("#"+tf["id"]+" #"+labelId).text(result);
+     }
+
+     function calcSum(values = [], idx = 0) {
+       if (values.length == 0) {
+         return parseFloat(0);
+       }
+       if (values[0].length == 1)
+	 return parseFloat(0);
+       var regex = /\d+(\.\d+)?/g;
+       var nums = values.map((x) => x.match(regex).map(function(v) { return parseFloat(v);}));
+       var suma = 0.0;
+       for (var i =0; i < nums.length; i +=1){
+	 if (nums[i].length > idx)
+	   suma += nums[i][idx];
+       }
+       return suma;
+     }
+
+     function calcPerc(values = []) {
+       if (values.length == 0) {
+         return 0;
+       }
+       var tot = calcSum(values);
+       if (tot == 0) return 0;
+       var cfr = calcSum(values, 1);
+       return parseFloat(100.0*cfr / tot);
+     }
+    </script>
+  </body>
+</html>
