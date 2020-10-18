@@ -37,7 +37,7 @@ RUN test $interface = "true" && \
 RUN test $papersite = "true" && \
        $TOOLS_HOME/iRankFinder/web/install-site.sh $TOOLS_HOME/iRankFinder/web/papers/ papers && \
        $TOOLS_HOME/iRankFinder/web/install-site.sh $TOOLS_HOME/iRankFinder/web/DomenechPhD/ DomenechPhD && \
-       a2ensite papers-site \
+       a2ensite papers-site && \
        a2ensite DomenechPhD-site
 
 RUN cp $TOOLS_HOME/iRankFinder/web/index.html /var/www/html/index.html && \
